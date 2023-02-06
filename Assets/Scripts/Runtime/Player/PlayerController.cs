@@ -6,17 +6,23 @@ namespace Runtime.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        // ============ Public Fields ============
         [SerializeField] private float moveSpeed = 1f;
         [SerializeField] private float collisionOffset = 0.02f;
         [SerializeField] private ContactFilter2D movementFilter;
         
-        private Vector2 _movementInput;
+        // ============ Components ============
         private Rigidbody2D _rb;
+        private Animator _animator;
+        
+        // ============ Movement System ============
+        private Vector2 _movementInput;
         private readonly List<RaycastHit2D> _castCollisions = new();
 
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
         }
 
         private void FixedUpdate()
@@ -34,6 +40,12 @@ namespace Runtime.Player
                         TryMove(new Vector2(0, _movementInput.y));
                     }
                 }
+                
+                _animator.SetBool("IsMoving", true);
+            }
+            else
+            {
+                
             }
         }
 
