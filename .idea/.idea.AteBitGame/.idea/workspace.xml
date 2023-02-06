@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5f8ac23-ee84-4d54-90fe-105b9d7ad73a" name="Changes" comment="" />
+    <list default="true" id="3aead8f0-81e3-4ab6-a305-d23a7afaa54d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,41 +10,41 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2L2l7zj7J35MwG8rknQBmhEpfzi" />
+  <component name="ProjectId" id="2L2lB6URsN0C4EKe4hNMMgBaLJE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\steam\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\steam\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\steam\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Mitten\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Mitten\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\Mitten\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.2.4f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\steam\Desktop\AteBitGame -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\steam\Desktop\AteBitGame" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\Makies\Game Dev\AteBitGame&quot; -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\Makies\Game Dev\AteBitGame" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.2.4f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\steam\Desktop\AteBitGame -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\steam\Desktop\AteBitGame" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;D:\Makies\Game Dev\AteBitGame&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\Makies\Game Dev\AteBitGame" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
@@ -73,8 +73,8 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d5f8ac23-ee84-4d54-90fe-105b9d7ad73a" name="Changes" comment="" />
-      <created>1675076898155</created>
+      <changelist id="3aead8f0-81e3-4ab6-a305-d23a7afaa54d" name="Changes" comment="" />
+      <created>1675076921012</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675076898155</updated>
@@ -84,6 +84,18 @@
       <workItem from="1675078530827" duration="373000" />
       <workItem from="1675078956595" duration="11000" />
       <workItem from="1675678515767" duration="363000" />
+      <updated>1675076898155</updated>
+      <workItem from="1675076904927" duration="230000" />
+      <workItem from="1675077613604" duration="131000" />
+      <workItem from="1675077762352" duration="341000" />
+      <workItem from="1675078530827" duration="373000" />
+      <workItem from="1675078956595" duration="11000" />
+      <updated>1675076921012</updated>
+      <workItem from="1675076924389" duration="253000" />
+      <workItem from="1675077195896" duration="109000" />
+      <workItem from="1675077367136" duration="231000" />
+      <workItem from="1675077612465" duration="70000" />
+      <workItem from="1675077735990" duration="703000" />
     </task>
     <servers />
   </component>
