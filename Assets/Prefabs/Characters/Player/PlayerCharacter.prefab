@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1976050650754180513}
   - component: {fileID: 1976050650754180512}
   - component: {fileID: -4261139092760074284}
-  - component: {fileID: 5110957043021775148}
   - component: {fileID: 4562999743767145021}
   - component: {fileID: 6201537363481772649}
   - component: {fileID: 5094080251054212935}
+  - component: {fileID: 5110957043021775148}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -119,22 +119,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5110957043021775148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976050650754180519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 225dfc282e8a5a343baaa7f3e7eb5b1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  collisionOffset: 0.05
-  rb: {fileID: 4562999743767145021}
-  animator: {fileID: 5094080251054212935}
 --- !u!50 &4562999743767145021
 Rigidbody2D:
   serializedVersion: 4
@@ -227,3 +211,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &5110957043021775148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976050650754180519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225dfc282e8a5a343baaa7f3e7eb5b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  rb: {fileID: 4562999743767145021}
+  animator: {fileID: 5094080251054212935}
