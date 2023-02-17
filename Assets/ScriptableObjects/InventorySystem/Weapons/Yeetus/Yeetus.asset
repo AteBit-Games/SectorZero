@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda00aa9e43604540921fc094981fd2f, type: 3}
+  m_Name: Yeetus
+  m_EditorClassIdentifier: 
+  itemName: Yeetus
+  itemSprite: {fileID: 0}
+  itemValue: 23
+  gearSlot: 0
+  itemDescription: Yeet it and it comes back..... hopefully
+  weaponAnimator: {fileID: 9100000, guid: 4b05cb53b7c158d4597ce362b8614ae6, type: 2}
+  damage: 4
+  isRanged: 1
