@@ -12,6 +12,7 @@ namespace Runtime.InventorySystem
         private static readonly Item EmptyItem;
         private readonly Dictionary<GearSlot, Item> _playerGear = Enum.GetValues(typeof(GearSlot)).Cast<GearSlot>().ToDictionary(t => t, _ => EmptyItem);
         private readonly List<Item> _playerInventory = new();
+        
 
         #region HEADER
         [Space(10)]
