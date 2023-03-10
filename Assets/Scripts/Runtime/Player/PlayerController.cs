@@ -1,8 +1,5 @@
-
-using System;
 using Runtime.Input;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Runtime.Player
 {
@@ -15,10 +12,10 @@ namespace Runtime.Player
 
         [SerializeField] private InputReader inputReader;
         [SerializeField] private float moveSpeed = 1f;
-        [SerializeField] private Rigidbody2D rb;
-        [SerializeField] private Animator movementAnimator;
 
         // ============ Movement System ============
+        private Rigidbody2D _rb;
+        private Animator _movementAnimator;
         private Vector2 _movementInput;
         private static readonly int MoveX = Animator.StringToHash("moveX");
         private static readonly int MoveY = Animator.StringToHash("moveY");
@@ -27,33 +24,29 @@ namespace Runtime.Player
         private void Start()
         {
             inputReader.MoveEvent += HandleMove;
-            inputReader.DodgeEvent += HandleDodge;
+            _rb = GetComponent<Rigidbody2D>();
+            _movementAnimator = GetComponent<Animator>();
         }
 
         private void HandleMove(Vector2 direction)
         {
             _movementInput = direction;
         }
-        
-        private void HandleDodge()
-        {
-            Debug.Log("Dodge");
-        }
 
         private void FixedUpdate()
         {
             if (_movementInput != Vector2.zero)
             {
-                movementAnimator.SetFloat(id: MoveX, _movementInput.x);
-                movementAnimator.SetFloat(id: MoveY, _movementInput.y);
-                movementAnimator.SetBool(id: IsMoving, true);
+                _movementAnimator.SetFloat(id: MoveX, _movementInput.x);
+                _movementAnimator.SetFloat(id: MoveY, _movementInput.y);
+                _movementAnimator.SetBool(id: IsMoving, true);
             }
             else
             {
-                movementAnimator.SetBool(id: IsMoving, false);
+                _movementAnimator.SetBool(id: IsMoving, false);
             }
             
-            rb.velocity = _movementInput * moveSpeed;
+            _rb.velocity = _movementInput * moveSpeed;
         }
     }
 }
