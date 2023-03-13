@@ -17,9 +17,9 @@ namespace Runtime.Player
         private Rigidbody2D _rb;
         private Animator _movementAnimator;
         private Vector2 _movementInput;
-        private static readonly int MoveX = Animator.StringToHash("moveX");
-        private static readonly int MoveY = Animator.StringToHash("moveY");
-        private static readonly int IsMoving = Animator.StringToHash("isMoving");
+        private readonly int _moveX = Animator.StringToHash("moveX");
+        private readonly int _moveY = Animator.StringToHash("moveY");
+        private readonly int _isMoving = Animator.StringToHash("isMoving");
 
         private void Start()
         {
@@ -37,13 +37,13 @@ namespace Runtime.Player
         {
             if (_movementInput != Vector2.zero)
             {
-                _movementAnimator.SetFloat(id: MoveX, _movementInput.x);
-                _movementAnimator.SetFloat(id: MoveY, _movementInput.y);
-                _movementAnimator.SetBool(id: IsMoving, true);
+                _movementAnimator.SetFloat(id: _moveX, _movementInput.x);
+                _movementAnimator.SetFloat(id: _moveY, _movementInput.y);
+                _movementAnimator.SetBool(id: _isMoving, true);
             }
             else
             {
-                _movementAnimator.SetBool(id: IsMoving, false);
+                _movementAnimator.SetBool(id: _isMoving, false);
             }
             
             _rb.velocity = _movementInput * moveSpeed;

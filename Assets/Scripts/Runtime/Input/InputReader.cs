@@ -21,18 +21,6 @@ namespace Runtime.Input
             }
         }
 
-        public void SetGameplay()
-        {
-            _playerInput.Gameplay.Enable();
-            _playerInput.UI.Disable();
-        }
-        
-        public void SetUI()
-        {
-            _playerInput.UI.Enable();
-            _playerInput.Gameplay.Disable();
-        }
-
         public event Action PauseEvent;
         public event Action ResumeEvent;
 
@@ -103,6 +91,18 @@ namespace Runtime.Input
         public void OnScrollWheel(InputAction.CallbackContext context)
         {
             
+        }
+        
+        private void SetGameplay()
+        {
+            _playerInput.Gameplay.Enable();
+            _playerInput.UI.Disable();
+        }
+        
+        private void SetUI()
+        {
+            _playerInput.UI.Enable();
+            _playerInput.Gameplay.Disable();
         }
     }
 }
