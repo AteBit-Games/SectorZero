@@ -33,6 +33,7 @@ namespace Runtime.Player
             _movementInput = direction;
         }
 
+        
         private void FixedUpdate()
         {
             if (_movementInput != Vector2.zero)
