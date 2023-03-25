@@ -20,7 +20,6 @@ namespace Runtime.Misc
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
-            light = GetComponent<Light2D>();
             _animator = GetComponent<Animator>();
         }
 
