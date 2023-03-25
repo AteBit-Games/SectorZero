@@ -9,7 +9,6 @@ namespace Runtime.Player
         [Space(10)]
         [Header("MOVEMENT DETAILS")]
         #endregion
-
         [SerializeField] private InputReader inputReader;
         [SerializeField] private float moveSpeed = 1f;
 

@@ -23,11 +23,11 @@ namespace Runtime.Input
 
         public event Action PauseEvent;
         public event Action ResumeEvent;
-
-
+        
         public event Action<Vector2> MoveEvent;
-        public event Action LightAttackEvent;
-        public event Action DodgeEvent;
+        public event Action LeftClickEvent;
+        public event Action InteractEvent;
+        public event Action SneakEvent;
 
         public void OnMove(InputAction.CallbackContext context)
         {
@@ -39,21 +39,22 @@ namespace Runtime.Input
             
         }
 
-        public void OnLightAttack(InputAction.CallbackContext context)
+        public void OnLeftClick(InputAction.CallbackContext context)
         {
             if(context.phase == InputActionPhase.Performed)
             {
-                LightAttackEvent?.Invoke();
+                LeftClickEvent?.Invoke();
             }
         }
 
-        public void OnDodge(InputAction.CallbackContext context)
+        public void OnSneak(InputAction.CallbackContext context)
         {
             if(context.phase == InputActionPhase.Performed)
             {
-                DodgeEvent?.Invoke();
+                SneakEvent?.Invoke();
             }
         }
+        
 
         public void OnPause(InputAction.CallbackContext context)
         {
@@ -63,7 +64,20 @@ namespace Runtime.Input
                 SetUI();
             }
         }
-        
+
+        public void OnInteract(InputAction.CallbackContext context)
+        {
+            if(context.phase == InputActionPhase.Performed)
+            {
+                InteractEvent?.Invoke();
+            }
+        }
+
+        public void OnInventory(InputAction.CallbackContext context)
+        {
+            throw new NotImplementedException();
+        }
+
         public void OnNavigate(InputAction.CallbackContext context)
         {
             
