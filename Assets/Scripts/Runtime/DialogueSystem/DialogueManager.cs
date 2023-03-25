@@ -1,8 +1,8 @@
+using System.Collections;
 using Runtime.Input;
 using TMPro;
-using UnityEditor.Search;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
 
 namespace Runtime.DialogueSystem
 {
@@ -26,41 +26,70 @@ namespace Runtime.DialogueSystem
         {
             inputReader.LeftClickEvent += PushText;
         }
-
-        private void PushText()
-        {
-            _currentLineIndex++;
-            if(_currentLineIndex >= _currentDialogue.lines.Count)
-            {
-                Conclude();
-            }
-            else
-            {
-                _currentText = _currentDialogue.lines[_currentLineIndex];
-                _totalTimeToType = _currentText.Length * textSpeed;
-                _currentTime = 0;
-            }
-        }
         
         public void StartDialogue(Dialogue dialogue)
         {
             Show(true);
             _currentDialogue = dialogue;
             _currentLineIndex = 0;
-            textElement.text = dialogue.lines[_currentLineIndex];
             actorName.text = dialogue.actor.Name;
             actorImage.sprite = dialogue.actor.Sprite;
-        }
-
-        private void Conclude()
-        {
-            Debug.Log("Conclude");
-            Show(false);
+            CycleText();
         }
         
+        private void Update()
+        {
+            if (visibleText >= 1) return;
+            _currentTime += Time.deltaTime;
+            visibleText = _currentTime / _totalTimeToType;
+            UpdateText();
+        }
+        
+        private void UpdateText()
+        {
+            var visibleCharacters = (int)(_currentText.Length * Mathf.Clamp01(visibleText));
+            textElement.text = _currentText[..visibleCharacters];
+            if (visibleCharacters >= _currentText.Length)
+            {
+                textElement.text = _currentText;
+            }
+        }
+
+        private void PushText()
+        {
+            if(visibleText < 1)
+            {
+                visibleText = 1;
+                UpdateText();
+                return;
+            }
+            
+            if(_currentLineIndex >= _currentDialogue.lines.Count) Show(false);
+            else CycleText();
+        }
+        
+        private void CycleText()
+        {
+            _currentText = _currentDialogue.lines[_currentLineIndex];
+            _totalTimeToType = _currentText.Length * textSpeed;
+            _currentTime = 0;
+            visibleText = 0;
+            textElement.text = "";
+            _currentLineIndex++;
+            
+            //call a coroutine to wait for the dialogue to finish
+            StartCoroutine(WaitForDialogue(_totalTimeToType + 2f));
+            
+        }
+
         private void Show(bool show)
         {
             gameObject.SetActive(show);
+        }
+        
+        private IEnumerator WaitForDialogue(float time)
+        {
+            yield return new WaitForSeconds(time);
         }
     }
 }
