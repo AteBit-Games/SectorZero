@@ -21,6 +21,7 @@ namespace Runtime.DialogueSystem
         
         private Dialogue _currentDialogue;
         private int _currentLineIndex;
+        private Coroutine _currentRoutine;
 
         private void Start()
         {
@@ -70,6 +71,8 @@ namespace Runtime.DialogueSystem
         
         private void CycleText()
         {
+            if(_currentRoutine != null) StopCoroutine(_currentRoutine);
+            
             _currentText = _currentDialogue.lines[_currentLineIndex];
             _totalTimeToType = _currentText.Length * textSpeed;
             _currentTime = 0;
@@ -77,9 +80,7 @@ namespace Runtime.DialogueSystem
             textElement.text = "";
             _currentLineIndex++;
             
-            //call a coroutine to wait for the dialogue to finish
-            StartCoroutine(WaitForDialogue(_totalTimeToType + 2f));
-            
+            _currentRoutine = StartCoroutine(WaitForDialogue(_totalTimeToType + 2f));
         }
 
         private void Show(bool show)
@@ -90,6 +91,7 @@ namespace Runtime.DialogueSystem
         private IEnumerator WaitForDialogue(float time)
         {
             yield return new WaitForSeconds(time);
+            PushText();
         }
     }
 }
