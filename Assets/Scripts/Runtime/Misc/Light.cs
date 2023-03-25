@@ -10,17 +10,17 @@ namespace Runtime.Misc
         [SerializeField] private bool flicker;
         [SerializeField] private float minSpeed = 0.1f;
         [SerializeField] private float maxSpeed = 0.5f;
+        [SerializeField] private new Light2D light;
         
         private float _timer;
         private AudioSource _audioSource;
-        private Light2D _light;
         private Animator _animator;
         
 
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
-            _light = GetComponent<Light2D>();
+            light = GetComponent<Light2D>();
             _animator = GetComponent<Animator>();
         }
 
@@ -43,7 +43,7 @@ namespace Runtime.Misc
                 _audioSource.mute = true;
                 _animator.SetBool("On", false);
                 _timer = UnityEngine.Random.Range(minSpeed, maxSpeed);
-                _light.enabled = !_light.enabled;
+                light.enabled = !light.enabled;
             }
         }
     }
