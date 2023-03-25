@@ -678,7 +678,6 @@ Transform:
   - {fileID: 954512825493873704}
   - {fileID: 6804824853973699085}
   - {fileID: 7663125984530011039}
-  - {fileID: 1860819398639215275}
   - {fileID: 3020843865159964178}
   - {fileID: 2662376623469431882}
   - {fileID: 1785821692363211937}
@@ -713,7 +712,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1438100367128887136, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_InstanceId
-      value: -1326084
+      value: -173368
       objectReference: {fileID: 0}
     - target: {fileID: 3032682214098807699, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_Name
@@ -860,8 +859,12 @@ PrefabInstance:
       value: OfficeWallSide2 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7760639554666346456, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760639554666346456, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
       propertyPath: m_InstanceId
-      value: -1325820
+      value: -173196
       objectReference: {fileID: 0}
     - target: {fileID: 8894570396740686161, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
       propertyPath: m_RootOrder
@@ -921,76 +924,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8894570396740686161, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
   m_PrefabInstance: {fileID: 1079577502436666372}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1544234188546663820
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
-    m_Modifications:
-    - target: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -95.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 16.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4216222781125118135, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_InstanceId
-      value: -1325800
-      objectReference: {fileID: 0}
-    - target: {fileID: 6682449429962929283, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-      propertyPath: m_Name
-      value: OfficeWallBackThree1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c13430095eac526489cdeef1d034f96e, type: 3}
---- !u!4 &1860819398639215275 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 917834590031021863, guid: c13430095eac526489cdeef1d034f96e, type: 3}
-  m_PrefabInstance: {fileID: 1544234188546663820}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1613014123535578971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1043,10 +976,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4694098045120420257, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
-      propertyPath: m_InstanceId
-      value: -1326054
-      objectReference: {fileID: 0}
     - target: {fileID: 7177541765892279389, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
       propertyPath: m_Name
       value: OfficeWallCornerTop
@@ -1069,10 +998,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4413332479937333854}
     m_Modifications:
-    - target: {fileID: 308251256148449969, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
-      propertyPath: m_InstanceId
-      value: -1326064
-      objectReference: {fileID: 0}
     - target: {fileID: 3402405497433064348, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1083,7 +1008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3402405497433064348, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -1.3999996
       objectReference: {fileID: 0}
     - target: {fileID: 3402405497433064348, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1183,10 +1108,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6340915729199229323, guid: 3c896589c2d3a144da17da5f4c46f008, type: 3}
-      propertyPath: m_InstanceId
-      value: -1325764
-      objectReference: {fileID: 0}
     - target: {fileID: 7445891017038688763, guid: 3c896589c2d3a144da17da5f4c46f008, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackOne1
@@ -1256,10 +1177,6 @@ PrefabInstance:
     - target: {fileID: 5827465696217345893, guid: 3965aa8ec151166409e25e9b4ebd7003, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackCorner2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6078733476345341605, guid: 3965aa8ec151166409e25e9b4ebd7003, type: 3}
-      propertyPath: m_InstanceId
-      value: -1326044
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1349,10 +1266,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4413332479937333854}
     m_Modifications:
-    - target: {fileID: 265924288060933752, guid: 9dd2170e96bb02e449cd53288edaf7be, type: 3}
-      propertyPath: m_InstanceId
-      value: -1326074
-      objectReference: {fileID: 0}
     - target: {fileID: 1456753504155086427, guid: 9dd2170e96bb02e449cd53288edaf7be, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackOne3
@@ -1673,10 +1586,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3464109063969503832, guid: 131f04eec0419db4ea73fc571d6baf36, type: 3}
-      propertyPath: m_InstanceId
-      value: -1325920
-      objectReference: {fileID: 0}
     - target: {fileID: 4677549994610881585, guid: 131f04eec0419db4ea73fc571d6baf36, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackThree2
@@ -1701,7 +1610,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1438100367128887136, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_InstanceId
-      value: -1326000
+      value: -173432
       objectReference: {fileID: 0}
     - target: {fileID: 3032682214098807699, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_Name
@@ -1819,13 +1728,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5830495856622200647, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
       propertyPath: m_InstanceId
-      value: -1325782
+      value: -97110
       objectReference: {fileID: 0}
     - target: {fileID: 6511367953749329060, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
       propertyPath: m_Name
       value: OfficeWall1 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5830495856622200647, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1845,7 +1755,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 609080630548196745, guid: 7f8889a9b9cd8bd4aab13758dfb688b6, type: 3}
       propertyPath: m_InstanceId
-      value: -1325930
+      value: -173206
       objectReference: {fileID: 0}
     - target: {fileID: 1513168838140303567, guid: 7f8889a9b9cd8bd4aab13758dfb688b6, type: 3}
       propertyPath: m_RootOrder
@@ -1963,7 +1873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4694098045120420257, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
       propertyPath: m_InstanceId
-      value: -1325870
+      value: -173392
       objectReference: {fileID: 0}
     - target: {fileID: 7177541765892279389, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
       propertyPath: m_Name
@@ -2059,7 +1969,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 308251256148449969, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_InstanceId
-      value: -1325810
+      value: -173358
       objectReference: {fileID: 0}
     - target: {fileID: 3402405497433064348, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_RootOrder
@@ -2131,10 +2041,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4413332479937333854}
     m_Modifications:
-    - target: {fileID: 2214580099421782994, guid: 6368716c26a41a3438826811b524d946, type: 3}
-      propertyPath: m_InstanceId
-      value: -1325900
-      objectReference: {fileID: 0}
     - target: {fileID: 7952110227736123377, guid: 6368716c26a41a3438826811b524d946, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2275,10 +2181,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4413332479937333854}
     m_Modifications:
-    - target: {fileID: 1977691754516663753, guid: f42155f1b9d11994ea94051c3f6ccd52, type: 3}
-      propertyPath: m_InstanceId
-      value: -1325880
-      objectReference: {fileID: 0}
     - target: {fileID: 7795436352143770169, guid: f42155f1b9d11994ea94051c3f6ccd52, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackOne2
@@ -2389,10 +2291,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2814793134096750495, guid: d1f67eddb31fc6040a13836bb824c977, type: 3}
-      propertyPath: m_InstanceId
-      value: -1325910
-      objectReference: {fileID: 0}
     - target: {fileID: 6557283851200082622, guid: d1f67eddb31fc6040a13836bb824c977, type: 3}
       propertyPath: m_Name
       value: OfficeWallDoorway
@@ -2487,7 +2385,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1438100367128887136, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_InstanceId
-      value: -1326018
+      value: -173274
       objectReference: {fileID: 0}
     - target: {fileID: 3032682214098807699, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_Name
@@ -2677,7 +2575,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: OfficeWall1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5830495856622200647, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2695,10 +2594,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4413332479937333854}
     m_Modifications:
-    - target: {fileID: 1438100367128887136, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
-      propertyPath: m_InstanceId
-      value: -1325966
-      objectReference: {fileID: 0}
     - target: {fileID: 3032682214098807699, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_Name
       value: OfficeWallSide1
@@ -2914,8 +2809,8 @@ PrefabInstance:
       value: OfficeWallSide2
       objectReference: {fileID: 0}
     - target: {fileID: 7760639554666346456, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
-      propertyPath: m_InstanceId
-      value: -1325850
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8894570396740686161, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
       propertyPath: m_RootOrder
@@ -2979,10 +2874,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4413332479937333854}
     m_Modifications:
-    - target: {fileID: 2736871471862068124, guid: afb9b4f88ec73884aa16de31e4180605, type: 3}
-      propertyPath: m_InstanceId
-      value: -1325830
-      objectReference: {fileID: 0}
     - target: {fileID: 4670831832856102532, guid: afb9b4f88ec73884aa16de31e4180605, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackThree1
@@ -3095,13 +2986,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5021843044740071556, guid: 5a3902502506b724f8347856afddc2d9, type: 3}
       propertyPath: m_InstanceId
-      value: -1325840
+      value: -94076
       objectReference: {fileID: 0}
     - target: {fileID: 7220645066405683343, guid: 5a3902502506b724f8347856afddc2d9, type: 3}
       propertyPath: m_Name
       value: OfficeWall2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5021843044740071556, guid: 5a3902502506b724f8347856afddc2d9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3191,7 +3083,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 308251256148449969, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_InstanceId
-      value: -1325890
+      value: -173186
       objectReference: {fileID: 0}
     - target: {fileID: 3402405497433064348, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_RootOrder

@@ -154,11 +154,13 @@ MonoBehaviour:
   m_ShapePath:
   - {x: -1.5999985, y: -0.20000076, z: 0}
   - {x: -1.5999985, y: 0.20000076, z: 0}
-  - {x: 1.5999985, y: 0.20000076, z: 0}
+  - {x: -1, y: 0.2, z: 0}
+  - {x: -1, y: 0.1, z: 0}
+  - {x: 1.6, y: 0.1, z: 0}
   - {x: 1.5999985, y: -0.20000076, z: 0}
-  m_ShapePathHash: 0
+  m_ShapePathHash: -774313910
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1084264
+  m_InstanceId: -144426
 --- !u!50 &2203629738047816674
 Rigidbody2D:
   serializedVersion: 4
