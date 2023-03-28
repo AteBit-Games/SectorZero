@@ -23,7 +23,9 @@ namespace Runtime.Input
 
         public event Action PauseEvent;
         public event Action ResumeEvent;
-        
+        public event Action OpenInventoryEvent;
+        public event Action CloseInventoryEvent;
+
         public event Action<Vector2> MoveEvent;
         public event Action LeftClickEvent;
         public event Action InteractEvent;
@@ -75,7 +77,11 @@ namespace Runtime.Input
 
         public void OnInventory(InputAction.CallbackContext context)
         {
-            throw new NotImplementedException();
+            if(context.phase == InputActionPhase.Performed)
+            {
+                OpenInventoryEvent?.Invoke();
+                SetUI();
+            }
         }
 
         public void OnNavigate(InputAction.CallbackContext context)
@@ -88,6 +94,7 @@ namespace Runtime.Input
             if(context.phase == InputActionPhase.Performed)
             {
                 ResumeEvent?.Invoke();
+                CloseInventoryEvent?.Invoke();
                 SetGameplay();
             }
         }

@@ -1,5 +1,5 @@
-using System;
 using Runtime.DialogueSystem;
+using Runtime.InventorySystem;
 using Runtime.Input;
 using UnityEngine;
 
@@ -16,24 +16,35 @@ namespace Runtime.GameManager
 
         [SerializeField] private InputReader inputReader;
         [SerializeField] public DialogueManager dialogueSystem;
-
-        private bool _isPaused;
+        [SerializeField] public InventoryManager inventorySystem;
 
         private void Start()
         {
             inputReader.PauseEvent += HandlePause;
             inputReader.ResumeEvent += HandleResume;
+            inputReader.OpenInventoryEvent += OpenInventoryWindow;
+            inputReader.CloseInventoryEvent += CloseInventoryWindow;
         }
-        
+
+        private void CloseInventoryWindow()
+        {
+            Time.timeScale = 1;
+            inventorySystem.CloseInventory();
+        }
+
+        private void OpenInventoryWindow()
+        {
+            Time.timeScale = 0;
+            inventorySystem.OpenInventory();
+        }
+
         private void HandlePause()
         {
-            _isPaused = true;
             Time.timeScale = 0;
         }
         
         private void HandleResume()
         {
-            _isPaused = false;
             Time.timeScale = 1;
         }
     }
