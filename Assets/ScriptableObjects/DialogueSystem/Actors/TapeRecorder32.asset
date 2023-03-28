@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a17e9e19e65431e40a09d5e64a6f6f43, type: 3}
-  m_Name: TapeRecorder1
+  m_Name: TapeRecorder32
   m_EditorClassIdentifier: 
   name: Tape #32
-  sprite: {fileID: 21300000, guid: 5fdd29ae649493740816bfb0e5c0bc90, type: 3}
+  sprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
