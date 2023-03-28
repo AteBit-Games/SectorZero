@@ -22,6 +22,7 @@ namespace Runtime.DialogueSystem
         private Dialogue _currentDialogue;
         private int _currentLineIndex;
         private Coroutine _currentRoutine;
+        bool IsShowing => gameObject.activeSelf;
 
         private void Start()
         {
@@ -40,6 +41,7 @@ namespace Runtime.DialogueSystem
         
         private void Update()
         {
+            if(!IsShowing) return;
             if (visibleText >= 1) return;
             _currentTime += Time.deltaTime;
             visibleText = _currentTime / _totalTimeToType;
