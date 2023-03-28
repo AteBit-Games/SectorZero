@@ -1,50 +1,37 @@
+using System;
 using System.Collections.Generic;
 using Runtime.InventorySystem.ScriptableObjects;
 using UnityEngine;
 
 namespace Runtime.InventorySystem
 {
+    public enum ItemType
+    {
+        TapeRecording,
+        Item
+    }
+    
     public class PlayerInventory : MonoBehaviour
     {
-        // ============ Inventory Mapping ================
-        private readonly List<Item> _playerInventory = new();
-        
-        #region HEADER
-        [Space(10)]
-        [Header("INVENTORY DETAILS")]
-        [Space(3)]
-        #endregion
-        [SerializeField] 
-        private int inventorySize = 3;
+        public readonly List<Tape> TapeInventory = new();
+        public readonly List<Item> ItemInventory = new();
 
-        private bool AddItemToInventory(Item item)
+        public bool AddTapeToInventory(Tape item)
         {
-            if (_playerInventory.Count < inventorySize)
-            {
-                _playerInventory.Add(item);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            TapeInventory.Add(item);
+            return true;
         }
+        
+        public bool AddItemToInventory(Item item)
+        {
+            ItemInventory.Add(item);
+            return true;
+        }
+
         
         private void RemoveItemFromInventory(Item item)
         {
-            if (_playerInventory.Contains(item))
-            {
-                _playerInventory.Remove(item);
-            }
-        }
-        
-        
-        private void SetMaxInventorySize(int size)
-        {
-            if (size > inventorySize)
-            {
-                inventorySize = size;
-            }
+            ItemInventory.Remove(item);
         }
     }
 }
