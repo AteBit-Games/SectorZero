@@ -1,47 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99ca1161-236a-4bd5-81c9-dde5179c44f2" name="Changes" comment="" />
+    <list default="true" id="2e9f2ace-2836-4c90-9d80-0f156b0be3f2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Editor/WrapperWindowFixture.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/SoundSystem/AmbientAudio.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/SoundSystem/Propagation/AudioPropigationEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/SoundSystem/ScriptableObjects/AudioCue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Temp.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2M2nWax2TEehfMACOEovESmtHUw" />
+  <component name="ProjectId" id="2Nn5MqjNw3zBhRI57MAAQyiEjkA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -93,30 +80,15 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="99ca1161-236a-4bd5-81c9-dde5179c44f2" name="Changes" comment="" />
-      <created>1676974581485</created>
+      <changelist id="2e9f2ace-2836-4c90-9d80-0f156b0be3f2" name="Changes" comment="" />
+      <created>1680286961894</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1676974581485</updated>
-      <workItem from="1676974585000" duration="452000" />
-      <workItem from="1677351251442" duration="12000" />
-      <workItem from="1678267716238" duration="597000" />
-      <workItem from="1678278221346" duration="631000" />
-      <workItem from="1678482226048" duration="214000" />
-      <workItem from="1678482483154" duration="168000" />
-      <workItem from="1678482717980" duration="359000" />
-      <workItem from="1678720887276" duration="452000" />
-      <workItem from="1678732641463" duration="5646000" />
-      <workItem from="1678482717980" duration="359000" />
-      <workItem from="1678482717980" duration="1069000" />
-      <workItem from="1678483819864" duration="30000" />
-      <workItem from="1678483913905" duration="130000" />
-      <workItem from="1678484085540" duration="239000" />
-      <workItem from="1678484362141" duration="291000" />
-      <workItem from="1678484690183" duration="43000" />
-      <workItem from="1678566661785" duration="2941000" />
-      <workItem from="1678796021494" duration="697000" />
-      <workItem from="1678962330669" duration="375000" />
+      <updated>1680286961894</updated>
+      <workItem from="1680286964771" duration="3382000" />
+      <workItem from="1680290398375" duration="13117000" />
+      <workItem from="1680345961821" duration="6770000" />
+      <workItem from="1680370745542" duration="7186000" />
     </task>
     <servers />
   </component>
