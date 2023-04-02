@@ -1,5 +1,5 @@
 using System;
-using Runtime.Input;
+using Runtime.InputSystem;
 using UnityEngine;
 
 namespace Runtime.InteractionSystem

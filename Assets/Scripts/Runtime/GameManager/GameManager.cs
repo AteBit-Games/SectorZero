@@ -1,6 +1,6 @@
 using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
-using Runtime.Input;
+using Runtime.InputSystem;
 using UnityEngine;
 
 namespace Runtime.GameManager

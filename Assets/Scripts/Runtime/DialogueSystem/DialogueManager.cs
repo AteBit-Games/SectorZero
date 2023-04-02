@@ -1,5 +1,5 @@
 using System.Collections;
-using Runtime.Input;
+using Runtime.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
