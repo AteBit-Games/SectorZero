@@ -1,4 +1,7 @@
-using System;
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
 using System.Collections.Generic;
 using Runtime.InventorySystem.ScriptableObjects;
 using UnityEngine;

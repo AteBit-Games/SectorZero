@@ -1,5 +1,8 @@
 
-using System;
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -15,7 +18,7 @@ namespace Runtime.Misc
         private float _timer;
         private AudioSource _audioSource;
         private Animator _animator;
-        
+        private static readonly int On = Animator.StringToHash("On");
 
         private void Awake()
         {
@@ -33,15 +36,15 @@ namespace Runtime.Misc
             if (_timer > 0)
             {
                 _audioSource.mute = false;
-                _animator.SetBool("On", true);
+                _animator.SetBool(On, true);
                 _timer -= Time.deltaTime;
             }
             
             if(_timer <= 0)
             {
                 _audioSource.mute = true;
-                _animator.SetBool("On", false);
-                _timer = UnityEngine.Random.Range(minSpeed, maxSpeed);
+                _animator.SetBool(On, false);
+                _timer = Random.Range(minSpeed, maxSpeed);
                 light.enabled = !light.enabled;
             }
         }

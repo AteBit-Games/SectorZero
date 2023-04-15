@@ -1,4 +1,7 @@
-using System;
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
 using Runtime.InputSystem;
 using UnityEngine;
 
@@ -12,7 +15,8 @@ namespace Runtime.InteractionSystem
         
         private readonly Collider2D[] _colliders = new Collider2D[3];
         private int _colliderCount;
-        
+        private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
+
         private void Start()
         {
             inputReader.InteractEvent += Interact;   
@@ -25,7 +29,7 @@ namespace Runtime.InteractionSystem
             {
                 if(item == null) continue;
                 var distance = Vector2.Distance(transform.position, item.transform.position);
-                item.gameObject.GetComponent<SpriteRenderer>().material.SetFloat("_OutlineThickness", distance <= interactionRadius ? 0.75f : 0f);
+                item.gameObject.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, distance <= interactionRadius ? 0.75f : 0f);
             }
         }
 

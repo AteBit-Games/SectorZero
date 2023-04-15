@@ -1,3 +1,7 @@
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;

@@ -1,14 +1,19 @@
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
 using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using UnityEngine;
 
 namespace Runtime.InteractionSystem
 {
     public class TapeRecorder : MonoBehaviour, IInteractable
     {
-        [SerializeField] private AudioClip interactSound;
-        public AudioClip InteractSound => interactSound;
+        [SerializeField] private Sound interactSound;
+        public Sound InteractSound => interactSound;
 
         [SerializeField] private Dialogue dialogue;
 
@@ -16,8 +21,8 @@ namespace Runtime.InteractionSystem
         {
             GameManager.GameManager.Instance.dialogueSystem.StartDialogue(dialogue);
             Destroy(gameObject);
-            var audioSource = player.GetComponent<AudioSource>();
-            audioSource.PlayOneShot(interactSound);
+            
+            GameManager.GameManager.Instance.soundManager.Play(interactSound);
             
             var inventory = player.GetComponent<PlayerInventory>();
             
