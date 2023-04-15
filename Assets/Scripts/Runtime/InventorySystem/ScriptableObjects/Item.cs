@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
+using UnityEngine;
 
 namespace Runtime.InventorySystem.ScriptableObjects
 {

@@ -1,10 +1,16 @@
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
 using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
 using Runtime.InputSystem;
+using Runtime.SoundSystem;
 using UnityEngine;
 
 namespace Runtime.GameManager
 {
+    [ExecuteInEditMode]
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
@@ -17,6 +23,7 @@ namespace Runtime.GameManager
         [SerializeField] private InputReader inputReader;
         [SerializeField] public DialogueManager dialogueSystem;
         [SerializeField] public InventoryManager inventorySystem;
+        [SerializeField] public SoundManager soundManager;
 
         private void Start()
         {
