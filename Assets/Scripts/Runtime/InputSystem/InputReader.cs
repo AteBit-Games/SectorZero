@@ -3,6 +3,8 @@
 * All rights reserved.
 ****************************************************************/
 using System;
+using Runtime.Managers;
+using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -68,6 +70,7 @@ namespace Runtime.InputSystem
             {
                 PauseEvent?.Invoke();
                 SetUI();
+                GameManager.Instance.SoundSystem.PauseAll();
             }
         }
 
@@ -100,6 +103,7 @@ namespace Runtime.InputSystem
                 ResumeEvent?.Invoke();
                 CloseInventoryEvent?.Invoke();
                 SetGameplay();
+                GameManager.Instance.SoundSystem.ResumeAll();
             }
         }
 
@@ -118,7 +122,7 @@ namespace Runtime.InputSystem
             
         }
         
-        private void SetGameplay()
+        public void SetGameplay()
         {
             _playerInput.Gameplay.Enable();
             _playerInput.UI.Disable();
