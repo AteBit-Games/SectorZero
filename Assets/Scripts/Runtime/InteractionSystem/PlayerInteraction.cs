@@ -9,6 +9,10 @@ namespace Runtime.InteractionSystem
 {
     public class PlayerInteraction : MonoBehaviour
     {
+        #region Header MOVEMENT DETAILS
+        [Space(10)]
+        [Header("MOVEMENT DETAILS")]
+        #endregion
         [SerializeField] private float interactionRadius = 3f;
         [SerializeField] private LayerMask interactionMask;
         [SerializeField] private InputReader inputReader;

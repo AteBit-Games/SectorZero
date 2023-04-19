@@ -3,11 +3,13 @@
 * All rights reserved.
 ****************************************************************/
 using Runtime.InputSystem;
+using Runtime.SaveSystem;
+using Runtime.SaveSystem.Data;
 using UnityEngine;
 
 namespace Runtime.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IPersistant
     {
         #region Header MOVEMENT DETAILS
         [Space(10)]
@@ -51,6 +53,16 @@ namespace Runtime.Player
             }
             
             _rb.velocity = _movementInput * moveSpeed;
+        }
+        
+        public void LoadData(SaveData data)
+        {
+            transform.position = data.playerPosition;
+        }
+        
+        public void SaveData(SaveData data)
+        {
+            data.playerPosition = transform.position;
         }
     }
 }
