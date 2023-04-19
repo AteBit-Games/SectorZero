@@ -2,71 +2,136 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
-using System;
 using System.Collections.Generic;
+using System.Linq;
+using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Runtime.SoundSystem
 {
 	public class SoundManager : MonoBehaviour
 	{
-	    public static SoundManager Instance { get; private set; }
+        [Header("MIX GROUPS")]
+        [SerializeField] private SoundMixGroup masterMixGroup;
+        [SerializeField] private SoundMixGroup musicMixGroup;
+        [SerializeField] private SoundMixGroup sfxMixGroup;
 
+        private Sound _activeMusic;
+        
+        private AudioListener _audioListener;
+        private readonly Dictionary<AudioSource, Sound> _activeAudioSources = new();
+        
         private void Awake()
         {
-            Instance = this;
+            if (masterMixGroup == null)
+            {
+                Debug.LogError("Master Mix Group is null");
+            }
+            
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
-        [SerializeField] private AudioSource musicAudioSource;
-        [SerializeField] private AudioSource soundAudioSource;
-
-        private readonly Dictionary<Sound, float> _soundTimers = new Dictionary<Sound, float>();
-
-        public void Play(Sound sound)
+        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
-            if(sound.loop)
+            _audioListener = FindObjectOfType(typeof(AudioListener)) as AudioListener;
+            SetMasterVolume(masterMixGroup.volume);
+        }
+
+        private void LateUpdate()
+        {
+            var audioSourcesToRemove = (from audioSource in _activeAudioSources where !audioSource.Key.isPlaying select audioSource.Key).ToList();
+            foreach (var audioSource in audioSourcesToRemove)
             {
-                musicAudioSource.clip = sound.clip;
-                musicAudioSource.volume = sound.volume;
-                musicAudioSource.pitch = sound.pitch;
-                musicAudioSource.Play();
+                _activeAudioSources.Remove(audioSource);
+                Destroy(audioSource.gameObject);
+            }
+        }
+
+        public void Play(Sound sound, Transform origin = null, bool music = false)
+        {
+            if (sound == null) return;
+
+            if (!music)
+            {
+                var audioSource = new GameObject(sound.name + " source").AddComponent<AudioSource>();
+                audioSource.transform.position = origin == null ? _audioListener.transform.position : origin.position;
+                DontDestroyOnLoad(audioSource);
+                _activeAudioSources.Add(audioSource, sound);
+                
+                audioSource.clip = sound.clip;
+                audioSource.volume = sound.volume;
+                audioSource.loop = sound.loop;
+                audioSource.spatialBlend = origin == null ? 0 : 1;
+                audioSource.Play();
             }
             else
             {
-                soundAudioSource.PlayOneShot(sound.clip, sound.volume);
-            }
-        }
-
-        private void Update()
-        {
-            foreach (var sound in _soundTimers.Keys)
-            {
-                _soundTimers[sound] -= Time.deltaTime;
-                if (_soundTimers[sound] <= 0)
+                if (_activeMusic != null)
                 {
-                    _soundTimers.Remove(sound);
-                    Stop(sound);
+                    
                 }
+                _activeMusic = sound;
+                
+                var audioSource = GetComponent<AudioSource>();
+                audioSource.clip = sound.clip;
+                audioSource.volume = sound.volume;
+                audioSource.loop = sound.loop;
+                audioSource.Play();
             }
         }
-
+        
+        public void StopAll()
+        {
+            foreach (var audioSource in _activeAudioSources)
+            {
+                audioSource.Key.Stop();
+                Destroy(audioSource.Key.gameObject);
+            }
+            _activeAudioSources.Clear();
+        }
+        
         public void Stop(Sound sound)
         {
-            if (sound.loop)
+            var audioSourcesToRemove = (from audioSource in _activeAudioSources where audioSource.Value == sound select audioSource.Key).ToList();
+            foreach (var audioSource in audioSourcesToRemove)
             {
-                musicAudioSource.Stop();
+                _activeAudioSources.Remove(audioSource);
+                audioSource.Stop();
+                Destroy(audioSource.gameObject);
             }
-            else
+        }
+        
+        public void PauseAll()
+        {
+            foreach (var audioSource in _activeAudioSources)
             {
-                soundAudioSource.Stop();
+                audioSource.Key.Pause();
             }
         }
 
-        public void Play(Sound sound, float duration)
+        public void ResumeAll()
         {
-            Play(sound);
-            _soundTimers[sound] = duration;
+            foreach (var audioSource in _activeAudioSources)
+            {
+                audioSource.Key.UnPause();
+            }
         }
-    }
-	
+
+        public void SetMasterVolume(float volume)
+        {
+            masterMixGroup.SetVolume(volume);
+        }
+
+        public void SetMusicVolume(float volume)
+        {
+            musicMixGroup.SetVolume(volume);
+        }
+
+        public void SetSfxVolume(float volume)
+        {
+            sfxMixGroup.SetVolume(volume);
+        }
+		
+	}
 }
