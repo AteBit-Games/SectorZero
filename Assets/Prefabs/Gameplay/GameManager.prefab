@@ -10,10 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8917896545657216773}
   - component: {fileID: 8917896545657216772}
+  - component: {fileID: 381558948670293325}
+  - component: {fileID: 3517014781070517759}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_TagString: GameController
+  m_Icon: {fileID: 2800000, guid: 9eef0b6a6feda4b4baf0a1de30647176, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -30,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8917896545657216772
 MonoBehaviour:
@@ -45,4 +47,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
-  dialogueSystem: {fileID: 0}
+  isMainMenu: 1
+  UICanvas: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  mainMenu: {fileID: 0}
+--- !u!114 &381558948670293325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8917896545657216827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea89d7f18911a44ca247eba52283255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixGroup: {fileID: 11400000, guid: 0807f2e9fafb2e44388f63d14f764492, type: 2}
+  musicMixGroup: {fileID: 11400000, guid: a9671a3e7439c9047ada01fe7d7b2426, type: 2}
+  sfxMixGroup: {fileID: 11400000, guid: 52c044bba344d064dbaf311ca3cdd4de, type: 2}
+--- !u!114 &3517014781070517759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8917896545657216827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c436bc4c814f62ad7075889f8956c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveFileName: save.sectr
+  useEncryption: 1
+  saveExists: 0
