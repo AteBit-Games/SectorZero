@@ -7,7 +7,6 @@ using Runtime.InventorySystem;
 using Runtime.InputSystem;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
-using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -78,16 +77,12 @@ namespace Runtime.Managers
         private void CloseInventoryWindow()
         {
             if(isMainMenu) return;
-
-            Time.timeScale = 1;
             InventorySystem.CloseInventory();
         }
 
         private void OpenInventoryWindow()
         {
             if(isMainMenu) return;
-
-            Time.timeScale = 0;
             InventorySystem.OpenInventory();
         }
 
@@ -97,11 +92,15 @@ namespace Runtime.Managers
             PauseMenu.Pause();
         }
         
-        public void HandleResume()
+        private void HandleResume()
         {
             if(isMainMenu) return;
-            inputReader.SetGameplay();
             PauseMenu.Resume();
+        }
+
+        public void ResetInput()
+        {
+            inputReader.SetGameplay();
         }
         
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -111,33 +110,6 @@ namespace Runtime.Managers
             DialogueSystem = FindObjectOfType<DialogueManager>(true);
             InventorySystem = FindObjectOfType<InventoryManager>(true);
             PauseMenu = FindObjectOfType<PauseMenu>(true);
-        }
-        
-        public void PlayGame(Sound sound)
-        {
-            ClickSound(sound);
-            isMainMenu = false;
-        }
-        
-        public void GoToMainMenu(Sound sound)
-        {
-            HandleResume();
-            SoundSystem.StopAll();
-            ClickSound(sound);
-            isMainMenu = true;
-            Time.timeScale = 1;
-            SceneManager.LoadScene(0);
-        }
-
-        public void QuitGame(Sound sound)
-        {
-            ClickSound(sound);
-            Application.Quit();
-        }
-        
-        public void ClickSound(Sound sound)
-        {
-            SoundSystem.Play(sound);
         }
     }
 }

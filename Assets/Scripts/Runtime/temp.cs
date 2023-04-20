@@ -12,9 +12,14 @@ namespace Runtime.Player
     {
         [SerializeField] private InputReader inputReader;
         
-        private void Start()
+        private void OnEnable()
         {
             inputReader.SneakEvent += HandleSneak;
+        }
+        
+        private void OnDisable()
+        {
+            inputReader.SneakEvent -= HandleSneak;
         }
         
         private static void HandleSneak()

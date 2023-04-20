@@ -21,9 +21,14 @@ namespace Runtime.InteractionSystem
         private int _colliderCount;
         private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
 
-        private void Start()
+        private void OnEnable()
         {
             inputReader.InteractEvent += Interact;   
+        }
+        
+        private void OnDisable()
+        {
+            inputReader.InteractEvent -= Interact;
         }
         
         private void Update()

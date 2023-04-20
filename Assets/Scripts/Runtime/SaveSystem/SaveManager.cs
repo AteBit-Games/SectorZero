@@ -20,10 +20,10 @@ namespace Runtime.SaveSystem
         
         [HideInInspector] public bool saveExists;
 
-        private SaveData _saveData;
         private List<IPersistant> _persistantObjects;
         private FileHandler _dataHandler;
-        
+        private SaveData _saveData;
+
         // ======================================= UNITY METHODS =======================================
         
         private void Awake() 
@@ -63,7 +63,6 @@ namespace Runtime.SaveSystem
         {
             DeleteSaveData();
             _saveData = new SaveData();
-            SceneManager.LoadScene(1);
             saveExists = false;
         }
 

@@ -28,9 +28,14 @@ namespace Runtime.DialogueSystem
         private Coroutine _currentRoutine;
         bool IsShowing => gameObject.activeSelf;
 
-        private void Start()
+        private void OnEnable()
         {
             inputReader.LeftClickEvent += PushText;
+        }
+        
+        private void OnDisable()
+        {
+            inputReader.LeftClickEvent -= PushText;
         }
         
         public void StartDialogue(Dialogue dialogue)
