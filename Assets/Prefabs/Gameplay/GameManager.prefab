@@ -48,9 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
   isMainMenu: 1
-  UICanvas: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  mainMenu: {fileID: 0}
+  testMode: 0
 --- !u!114 &381558948670293325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c436bc4c814f62ad7075889f8956c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveFileName: save.sectr
+  saveFileName: save.sctr
   useEncryption: 1
   saveExists: 0
