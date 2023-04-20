@@ -89,12 +89,15 @@ namespace Runtime.InventorySystem
 
         public void OpenInventory()
         {
+            Time.timeScale = 0;
             gameObject.SetActive(true);
             MapFromPlayerInventoryToUI();
         }
         
         public void CloseInventory()
         {
+            
+            Time.timeScale = 1;
             gameObject.SetActive(false);
         }
     }

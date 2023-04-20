@@ -13,56 +13,36 @@ namespace Runtime.Managers
     {
         #region Header BUTTON
         [Space(10)]
-        [Header("BUTTON REFERENCES")]
+        [Header("BUTTON REFERENCE")]
         #endregion
         [SerializeField] private Button continueButton;
-        [SerializeField] private Button newGameButton;
-        [SerializeField] private Button optionsButton;
-        [SerializeField] private Button quitButton;
-        [SerializeField] private Button closeOptionsButton;
-        
-        #region Header ASSET REFERENCES
-        [Space(10)]
-        [Header("UI REFERENCES")]
-        #endregion
-        [SerializeField] private GameObject optionsMenu;
-        [SerializeField] private GameObject mainMenu;
-        [SerializeField] private Sound clickSound;
         
         private void Start()
         {
-            continueButton.interactable = GameManager.Instance.SaveSystem.saveExists;
-            continueButton.onClick.AddListener(LoadGame);
-            newGameButton.onClick.AddListener(StartNewGame);
-            optionsButton.onClick.AddListener(OpenOptions);
-            closeOptionsButton.onClick.AddListener(CloseOptions);
-            quitButton.onClick.AddListener(delegate { GameManager.Instance.QuitGame(clickSound); });
+            continueButton.interactable = GameManager.Instance.SaveSystem.saveExists; 
         }
         
-        private void LoadGame()
+        public void StartNewGame()
         {
-            GameManager.Instance.PlayGame(clickSound);
+            GameManager.Instance.SaveSystem.NewGame();
+            GameManager.Instance.isMainMenu = false;
+            SceneManager.LoadScene(1);
+        }
+        
+        public void LoadGame()
+        {
+            GameManager.Instance.isMainMenu = false;
             GameManager.Instance.SaveSystem.LoadGame();
         }
-
-        private void OpenOptions()
+        
+        public void PlaySound(Sound sound)
         {
-            optionsMenu.SetActive(true);
-            mainMenu.SetActive(false);
-            GameManager.Instance.ClickSound(clickSound);
+            GameManager.Instance.SoundSystem.Play(sound);
         }
-
-        private void CloseOptions()
+        
+        public void QuitGame()
         {
-            optionsMenu.SetActive(false);
-            mainMenu.SetActive(true);
-            GameManager.Instance.ClickSound(clickSound);
-        }
-
-        private void StartNewGame()
-        {
-            GameManager.Instance.PlayGame(clickSound);
-            GameManager.Instance.SaveSystem.NewGame();
+            Application.Quit();
         }
     }
 }

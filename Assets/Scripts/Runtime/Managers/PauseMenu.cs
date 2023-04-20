@@ -2,36 +2,14 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
-
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Runtime.Managers
 {
     public class PauseMenu : MonoBehaviour
     {
-        #region Header BUTTONS
-        [Space(10)]
-        [Header("BUTTON REFERENCES")]
-        #endregion
-        [SerializeField] private Button resumeButton;
-        [SerializeField] private Button quitButton;
-        
-        #region Header ASSET REFERENCES
-        [Space(10)]
-        [Header("UI REFERENCES")]
-        #endregion
-        [SerializeField] private GameObject optionsMenu;
-        [SerializeField] private GameObject pauseMenu;
-        [SerializeField] private Sound clickSound;
-        
-        private void Start()
-        {
-            resumeButton.onClick.AddListener(GameManager.Instance.HandleResume);
-            quitButton.onClick.AddListener(delegate { GameManager.Instance.GoToMainMenu(clickSound); });
-        }
-        
         public void Pause()
         {
             Time.timeScale = 0; 
@@ -41,8 +19,27 @@ namespace Runtime.Managers
         public void Resume()
         {
             Time.timeScale = 1;
-            GameManager.Instance.ClickSound(clickSound);
+            GameManager.Instance.ResetInput();
             gameObject.SetActive(false);
+        }
+        
+        public void PlaySound(Sound sound)
+        {
+            GameManager.Instance.SoundSystem.Play(sound);
+        }
+        
+        public void GoToMainMenu()
+        {
+            Time.timeScale = 1;
+            GameManager.Instance.SoundSystem.StopAll();
+            GameManager.Instance.isMainMenu = true;
+            GameManager.Instance.ResetInput();
+            SceneManager.LoadScene(0);
+        }
+        
+        public void QuitGame()
+        {
+            Application.Quit();
         }
     }
 }

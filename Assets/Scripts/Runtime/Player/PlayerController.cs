@@ -26,9 +26,19 @@ namespace Runtime.Player
         private readonly int _moveY = Animator.StringToHash("moveY");
         private readonly int _isMoving = Animator.StringToHash("isMoving");
 
-        private void Start()
+        
+        private void OnEnable()
         {
             inputReader.MoveEvent += HandleMove;
+        }
+
+        private void OnDisable()
+        {
+            inputReader.MoveEvent -= HandleMove;
+        }
+
+        private void Start()
+        {
             _rb = GetComponent<Rigidbody2D>();
             _movementAnimator = GetComponent<Animator>();
         }
@@ -37,7 +47,6 @@ namespace Runtime.Player
         {
             _movementInput = direction;
         }
-
         
         private void FixedUpdate()
         {
