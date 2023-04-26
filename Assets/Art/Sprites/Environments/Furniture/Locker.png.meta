@@ -107,43 +107,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Locker_Polished_0
+      name: Locker_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
-        height: 66
+        width: 26
+        height: 68
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3343e57d0a2b3b4499b2200e4afd1069
-      internalID: -1113376370
+      spriteID: ca306d58596c679498d67ed2cd58e981
+      internalID: 1372038064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Locker_Polished_1
+      name: Locker_1
       rect:
         serializedVersion: 2
-        x: 24
+        x: 26
         y: 0
-        width: 24
-        height: 66
+        width: 26
+        height: 68
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6555eeba6cb2ee47a046f0baeeeebf3
-      internalID: 1002710656
+      spriteID: 0f3c3b1e8cbfe6f4fa9bcf489d4fe95e
+      internalID: 1721134738
       vertices: []
       indices: 
       edges: []
@@ -159,8 +159,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Locker_Polished_0: -1113376370
-      Locker_Polished_1: 1002710656
+      Locker_0: 1372038064
+      Locker_1: 1721134738
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
