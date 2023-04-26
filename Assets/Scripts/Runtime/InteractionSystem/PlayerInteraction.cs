@@ -17,7 +17,7 @@ namespace Runtime.InteractionSystem
         [SerializeField] private LayerMask interactionMask;
         [SerializeField] private InputReader inputReader;
         
-        private readonly Collider2D[] _colliders = new Collider2D[3];
+        private Collider2D[] _colliders = new Collider2D[3];
         private int _colliderCount;
         private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
 
@@ -33,12 +33,13 @@ namespace Runtime.InteractionSystem
         
         private void Update()
         {
-            _colliderCount = Physics2D.OverlapCircleNonAlloc(transform.position, interactionRadius, _colliders, interactionMask);
+            _colliders = Physics2D.OverlapCircleAll(transform.position, interactionRadius, interactionMask);
             foreach (var item in _colliders)
             {
                 if(item == null) continue;
+                Debug.Log(item.gameObject.name);
                 var distance = Vector2.Distance(transform.position, item.transform.position);
-                item.gameObject.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, distance <= interactionRadius ? 0.75f : 0f);
+                item.gameObject.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, 1);
             }
         }
 

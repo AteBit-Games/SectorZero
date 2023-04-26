@@ -70,9 +70,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - CORNERS_ON: 0
+    - CORNERS_ON: 1
     - _EnableExternalAlpha: 0
-    - _OutlineThickness: 0
+    - _OutlineThickness: 0.75
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

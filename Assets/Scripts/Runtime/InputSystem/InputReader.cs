@@ -11,7 +11,7 @@ using UnityEngine.InputSystem;
 namespace Runtime.InputSystem
 {
     [CreateAssetMenu(fileName = "NewInputReader", menuName = "InputReader")]
-    public class InputReader : ScriptableObject, PlayerInput.IUIActions, PlayerInput.IGameplayActions
+    public class InputReader : ScriptableObject, PlayerInput.IGameplayActions, PlayerInput.IUIActions
     {
         private PlayerInput _playerInput;
         
