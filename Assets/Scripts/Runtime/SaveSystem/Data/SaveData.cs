@@ -2,6 +2,9 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
+using System.Collections.Generic;
+using Runtime.InteractionSystem;
 using UnityEngine;
 
 namespace Runtime.SaveSystem.Data
@@ -11,6 +14,8 @@ namespace Runtime.SaveSystem.Data
     {
         public int currentScene;
         public Vector3 playerPosition;
+
+        public Dictionary<TapeRecorder, bool> tapeRecorders = new();
 
         public SaveData() 
         {

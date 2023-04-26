@@ -5,6 +5,7 @@
 using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
 using Runtime.InputSystem;
+using Runtime.Player;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
 using UnityEngine;
@@ -34,6 +35,8 @@ namespace Runtime.Managers
         public InventoryManager InventorySystem { get; private set; }
         public SoundManager SoundSystem { get; private set; }
         public SaveManager SaveSystem { get; private set; }
+        public PlayerController PlayerController { get; set; }
+       
         private PauseMenu PauseMenu { get; set; }
         
         private void Awake()
@@ -110,6 +113,7 @@ namespace Runtime.Managers
             DialogueSystem = FindObjectOfType<DialogueManager>(true);
             InventorySystem = FindObjectOfType<InventoryManager>(true);
             PauseMenu = FindObjectOfType<PauseMenu>(true);
+            PlayerController = FindObjectOfType<PlayerController>(true);
         }
     }
 }

@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace Runtime.InteractionSystem
 {
-    public class TapeRecorder : MonoBehaviour, IInteractable
+    public class TapeRecorder : MonoBehaviour, IInteractable, IPersistant
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
@@ -24,7 +24,7 @@ namespace Runtime.InteractionSystem
         public bool OnInteract(GameObject player)
         {
             GameManager.Instance.DialogueSystem.StartDialogue(dialogue);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             
             GameManager.Instance.SoundSystem.Play(interactSound, transform);
             
@@ -36,6 +36,16 @@ namespace Runtime.InteractionSystem
             tapeInstance.dialogue = dialogue;
             
             return inventory.AddTapeToInventory(tapeInstance);
+        }
+
+        public void LoadData(SaveData data)
+        {
+            data.tapeRecorders.Add(this, gameObject.activeSelf);
+        }
+
+        public void SaveData(SaveData data)
+        {
+            data.tapeRecorders[this] = gameObject.activeSelf;
         }
     }
 }

@@ -227,7 +227,18 @@
                 {
                     "name": "",
                     "id": "b3195e79-a271-4ea2-b476-6c672bb8f66c",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sneak",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db54ee5c-94db-427c-bf7d-c55ae8aecc21",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
