@@ -1,0 +1,49 @@
+GridBackground {
+    --grid-background-color: rgb(38, 38, 38);
+    --line-color: rgb(34, 34, 34);
+    --thick-line-color: rgb(34, 34, 34);
+    --spacing: 20;
+}
+
+Label {
+    color: rgb(196, 196, 196);
+}
+
+.node-property-field .unity-base-field__input {
+    min-width: 20px;
+}
+
+.node-property-field .unity-base-field {
+    margin-left: 0;
+}
+
+.unity-list-view__empty-label {
+    visibility: visible;
+    display: none;
+}
+
+.overlay-active #blackboard-container {
+    visibility: visible;
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: -325px;
+}
+
+.overlay-inactive #blackboard-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.none-selected #inspector-container {
+    left: -325px;
+    top: 10px;
+    position: absolute;
+}
+
+.node-selected #inspector-container {
+    left: 10px;
+    top: 10px;
+    position: absolute;
+}

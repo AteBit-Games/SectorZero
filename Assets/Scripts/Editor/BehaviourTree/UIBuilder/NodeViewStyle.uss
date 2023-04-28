@@ -1,0 +1,260 @@
+#node-border {
+    background-color: rgb(58, 58, 58);
+    border-left-color: rgb(43, 43, 43);
+    border-right-color: rgb(43, 43, 43);
+    border-top-color: rgb(43, 43, 43);
+    border-bottom-color: rgb(43, 43, 43);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#input {
+    align-items: center;
+}
+
+#output {
+    align-items: center;
+    height: auto;
+    justify-content: flex-start;
+}
+
+#selection-border {
+    border-left-color: rgb(37, 210, 238);
+    border-right-color: rgb(37, 210, 238);
+    border-top-color: rgb(37, 210, 238);
+    border-bottom-color: rgb(37, 210, 238);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+:hover > #selection-border {
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+:selected > #selection-border {
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+:hover:selected > #selection-border {
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+}
+
+.node {
+    min-width: 150px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 170px;
+}
+
+#title-label {
+    font-size: 15px;
+    -unity-text-align: upper-center;
+    -unity-font-style: bold;
+    color: rgb(204, 204, 204);
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#node-state {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.running #node-state {
+    background-color: rgb(255, 213, 0);
+}
+
+.success #node-state {
+    background-color: rgba(60, 212, 0, 0.54);
+}
+
+.failure #node-state {
+    background-color: rgba(250, 25, 25, 0.67);
+}
+
+.repeat {
+}
+
+.root #input {
+    min-height: 15px;
+}
+
+#comment {
+    font-size: 11px;
+    white-space: normal;
+    max-width: 140px;
+    -unity-font-style: normal;
+    color: rgb(107, 107, 107);
+}
+
+.action #comment {
+    position: absolute;
+    top: 110%;
+    left: 5px;
+}
+
+.root #comment {
+    position: absolute;
+    top: auto;
+    left: 105%;
+}
+
+.decorator #comment {
+    position: absolute;
+    top: auto;
+    left: 105%;
+}
+
+.composite #comment {
+    position: absolute;
+    top: auto;
+    left: 105%;
+}
+
+.node-port {
+    background-color: rgb(44, 44, 44);
+}
+
+.action #image {
+    height: 40px;
+    width: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Action.png?fileID=2800000&guid=2df82afc865af62459de915be293e84c&type=3#Action');
+}
+
+.sequencerNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Sequencer.png?fileID=2800000&guid=b126a132f4f335a4fa71d92a17d5e851&type=3#Sequencer');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(191, 127, 255);
+}
+
+.selectorNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Selector.png?fileID=2800000&guid=2301593271c712741a01074e77456ae6&type=3#Selector');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(191, 127, 255);
+}
+
+.parallelNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Parallel.png?fileID=2800000&guid=17b572da626fb8243bd9d6ef273b7a66&type=3#Parallel');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(191, 127, 255);
+}
+
+.randomNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Random.png?fileID=2800000&guid=a00b3088144cf304a8b2b2054211851f&type=3#Random');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(191, 127, 255);
+}
+
+.probabilitySelectorNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Priority.png?fileID=2800000&guid=8b9179cc19f62fe43860756300d7b9b2&type=3#Priority');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(191, 127, 255);
+}
+
+.switchNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/IndexSwitcher.png?fileID=2800000&guid=c209a95b02cb7d84c8686a78d0417e40&type=3#IndexSwitcher');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(191, 127, 255);
+}
+
+.randomSelectorNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Random.png?fileID=2800000&guid=a00b3088144cf304a8b2b2054211851f&type=3#Random');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(191, 127, 255);
+}
+
+.cooldownNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Cooldown.png?fileID=2800000&guid=f435b8280652ebc46a2cc072c0889176&type=3#Cooldown');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(255, 100, 203);
+}
+
+.repeatNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Repeat.png?fileID=2800000&guid=c7473c417367de24291709d99985279f&type=3#Repeat');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(255, 100, 203);
+}
+
+.timeoutNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Timeout.png?fileID=2800000&guid=c81a6ee0e78311b42b3834c23cd719a8&type=3#Timeout');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(255, 100, 203);
+}
+
+.remapperNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Remap.png?fileID=2800000&guid=03caf5bbb0bf50b489b9d820f9e4d3a3&type=3#Remap');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(255, 100, 203);
+}
+
+.inverterNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Invert.png?fileID=2800000&guid=07a04c07af73ec446a960461951fbcbe&type=3#Invert');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(255, 100, 203);
+}
