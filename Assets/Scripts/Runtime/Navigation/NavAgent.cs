@@ -2,7 +2,6 @@ using UnityEngine;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using UnityEngine.Serialization;
 
 namespace Runtime.Navigation
 {
@@ -14,7 +13,7 @@ namespace Runtime.Navigation
         
         [Header("MAP")]
         [SerializeField]
-        private NavMap map;
+        public NavMap map;
         
         [Header("MOVEMENT")]
         public float maxSpeed = 3.5f;
@@ -66,6 +65,7 @@ namespace Runtime.Navigation
         private Vector2 _currentVelocity = Vector2.zero;
         private int _requests;
         private List<Vector2> _activePath = new();
+        private Animator _animator;
 
         private static readonly List<NavAgent> AllAgents = new();
         
@@ -136,6 +136,7 @@ namespace Runtime.Navigation
 
         private void Awake() 
         {
+            _animator = GetComponent<Animator>();
             PrimeGoal = Position;
             if (map == null) 
             {
@@ -188,7 +189,7 @@ namespace Runtime.Navigation
             }
             
             Restrict();
-            
+
             if(rotateTransform)
             {
                 float rot = -Mathf.Atan2(MovingDirection.x, MovingDirection.y) * 180 / Mathf.PI;
@@ -309,6 +310,9 @@ namespace Runtime.Navigation
 
         private Vector2 Seek(Vector2 target)
         {
+            _animator.SetFloat("moveX", MovingDirection.x);
+            _animator.SetFloat("moveY", MovingDirection.y);
+
             var desiredVelocity = (target - Position).normalized * maxSpeed;
             var steer = desiredVelocity - _currentVelocity;
             return steer;

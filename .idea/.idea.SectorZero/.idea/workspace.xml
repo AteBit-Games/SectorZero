@@ -8,7 +8,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/328d09cedebb48f696abd1744ad5481c2d400/9a/696e5de3/GUIContent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/71077fac2f1f46619bbfc4e6592b25083dc00/7f/4dc80225/SearchTreeEntry.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/71077fac2f1f46619bbfc4e6592b25083dc00/98/737eb221/SearchTreeGroupEntry.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93a8f82184b4439ca5abff025375fe32564da0/85/08209ee1/MemberInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../BehaviourTrees-master/BehaviourEditor/Assets/CodeMonkey/Utils/UtilsClass.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/MoveToGameObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/StopMoving.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/Wander.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InputSystem/PlayerInputMappings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.5/Editor/Drawing/Views/ShaderGroup.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -83,7 +92,10 @@
       <workItem from="1682529746273" duration="166000" />
       <workItem from="1682529970570" duration="164000" />
       <workItem from="1682530190200" duration="5697000" />
-      <workItem from="1682537094258" duration="2743000" />
+      <workItem from="1682537094258" duration="7222000" />
+      <workItem from="1682597470302" duration="32856000" />
+      <workItem from="1682679350817" duration="4158000" />
+      <workItem from="1682683561199" duration="7699000" />
     </task>
     <servers />
   </component>
