@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 410424720233286514}
   - component: {fileID: 3028412142202669356}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,12 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3668763020179520764}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.19999981, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4924126020748186121}
-  m_Father: {fileID: 4413332479937333854}
+  m_Father: {fileID: 3692839380539817632}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &3028412142202669356
@@ -74,7 +74,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4413332479937333854}
+  m_Father: {fileID: 1965740060383452767}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1331786330436726842
@@ -633,6 +633,62 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!1 &5474388345915877476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3692839380539817632}
+  m_Layer: 0
+  m_Name: Layout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3692839380539817632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5474388345915877476}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 410424720233286514}
+  - {fileID: 954512825493873704}
+  - {fileID: 6804824853973699085}
+  - {fileID: 7663125984530011039}
+  - {fileID: 3020843865159964178}
+  - {fileID: 2662376623469431882}
+  - {fileID: 1785821692363211937}
+  - {fileID: 2430211634217410562}
+  - {fileID: 9046718159685491845}
+  - {fileID: 649209977518033304}
+  - {fileID: 2763635430680900089}
+  - {fileID: 3526207665737477025}
+  - {fileID: 3086322157297951250}
+  - {fileID: 217114641728154051}
+  - {fileID: 3853790771006017207}
+  - {fileID: 7506253550913205399}
+  - {fileID: 1573522347448460201}
+  - {fileID: 1995584115464935810}
+  - {fileID: 7847665299774449276}
+  - {fileID: 5975454683002367509}
+  - {fileID: 8472593210987953493}
+  - {fileID: 2620717336127208300}
+  - {fileID: 7538937508282359316}
+  - {fileID: 6555459146957773285}
+  - {fileID: 3839316718906806720}
+  m_Father: {fileID: 4413332479937333854}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5935737785347756913
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +717,39 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3692839380539817632}
+  - {fileID: 1965740060383452767}
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6858398306095840595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1965740060383452767}
+  m_Layer: 0
+  m_Name: Clutter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1965740060383452767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858398306095840595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
   - {fileID: 5209572191621708125}
   - {fileID: 7533412737303511641}
   - {fileID: 2917690655176047083}
@@ -668,39 +757,14 @@ Transform:
   - {fileID: 3975184705338035437}
   - {fileID: 8139772093917218414}
   - {fileID: 2772705602817703766}
-  - {fileID: 8505000820846942333}
-  - {fileID: 811976556431583310}
   - {fileID: 1694008266451869650}
   - {fileID: 3524526085246775142}
   - {fileID: 8707399519172211173}
   - {fileID: 7435455819096791799}
-  - {fileID: 410424720233286514}
-  - {fileID: 954512825493873704}
-  - {fileID: 6804824853973699085}
-  - {fileID: 7663125984530011039}
-  - {fileID: 3020843865159964178}
-  - {fileID: 2662376623469431882}
-  - {fileID: 1785821692363211937}
-  - {fileID: 2430211634217410562}
-  - {fileID: 9046718159685491845}
-  - {fileID: 649209977518033304}
-  - {fileID: 2763635430680900089}
-  - {fileID: 3526207665737477025}
-  - {fileID: 3086322157297951250}
-  - {fileID: 217114641728154051}
-  - {fileID: 3853790771006017207}
-  - {fileID: 7506253550913205399}
-  - {fileID: 1573522347448460201}
-  - {fileID: 1995584115464935810}
-  - {fileID: 7847665299774449276}
-  - {fileID: 5975454683002367509}
-  - {fileID: 8472593210987953493}
-  - {fileID: 2620717336127208300}
-  - {fileID: 7538937508282359316}
-  - {fileID: 6555459146957773285}
-  - {fileID: 3839316718906806720}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  - {fileID: 8505000820846942333}
+  - {fileID: 811976556431583310}
+  m_Father: {fileID: 4413332479937333854}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &267175491416545828
 PrefabInstance:
@@ -708,11 +772,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 1438100367128887136, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_InstanceId
-      value: -173368
+      value: -125108
       objectReference: {fileID: 0}
     - target: {fileID: 3032682214098807699, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_Name
@@ -732,7 +796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6434687210801464257, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.6
+      value: -12.600001
       objectReference: {fileID: 0}
     - target: {fileID: 6434687210801464257, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_LocalPosition.z
@@ -766,6 +830,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6626136638877500080, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
+      propertyPath: invertPolygon
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997788616318760557, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -782,7 +854,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 3140243518108071123, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
       propertyPath: m_SortingOrder
@@ -791,6 +863,10 @@ PrefabInstance:
     - target: {fileID: 6965270417779432203, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
       propertyPath: m_Name
       value: FilingCabinetLeft (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965270417779432203, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8211115586467191710, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
       propertyPath: m_RootOrder
@@ -852,19 +928,23 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 2931762788349525067, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
       propertyPath: m_Name
       value: OfficeWallSide2 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7760639554666346456, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
-      propertyPath: m_Mesh
-      value: 
+    - target: {fileID: 4560405682698503924, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
+      propertyPath: invertPolygon
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5149916914308573363, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7760639554666346456, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
       propertyPath: m_InstanceId
-      value: -173196
+      value: -125308
       objectReference: {fileID: 0}
     - target: {fileID: 8894570396740686161, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
       propertyPath: m_RootOrder
@@ -930,8 +1010,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
+    - target: {fileID: 2120441315203389015, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2777886427399855354, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -976,6 +1060,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4694098045120420257, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
+      propertyPath: m_InstanceId
+      value: -125372
+      objectReference: {fileID: 0}
     - target: {fileID: 7177541765892279389, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
       propertyPath: m_Name
       value: OfficeWallCornerTop
@@ -996,8 +1084,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
+    - target: {fileID: 308251256148449969, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
+      propertyPath: m_InstanceId
+      value: -125206
+      objectReference: {fileID: 0}
     - target: {fileID: 3402405497433064348, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1046,6 +1138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OfficeWallSide4
       objectReference: {fileID: 0}
+    - target: {fileID: 7217879216468430033, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1062,7 +1158,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 4069626317948338907, guid: 3c896589c2d3a144da17da5f4c46f008, type: 3}
       propertyPath: m_RootOrder
@@ -1074,7 +1170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4069626317948338907, guid: 3c896589c2d3a144da17da5f4c46f008, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.4
+      value: -14.400001
       objectReference: {fileID: 0}
     - target: {fileID: 4069626317948338907, guid: 3c896589c2d3a144da17da5f4c46f008, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1106,6 +1202,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4069626317948338907, guid: 3c896589c2d3a144da17da5f4c46f008, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340915729199229323, guid: 3c896589c2d3a144da17da5f4c46f008, type: 3}
+      propertyPath: m_InstanceId
+      value: -125096
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529651713585588537, guid: 3c896589c2d3a144da17da5f4c46f008, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7445891017038688763, guid: 3c896589c2d3a144da17da5f4c46f008, type: 3}
@@ -1128,7 +1232,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 229633429790156223, guid: 3965aa8ec151166409e25e9b4ebd7003, type: 3}
       propertyPath: m_RootOrder
@@ -1140,7 +1244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 229633429790156223, guid: 3965aa8ec151166409e25e9b4ebd7003, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.4
+      value: -14.400001
       objectReference: {fileID: 0}
     - target: {fileID: 229633429790156223, guid: 3965aa8ec151166409e25e9b4ebd7003, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1174,9 +1278,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2013195271258304104, guid: 3965aa8ec151166409e25e9b4ebd7003, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5827465696217345893, guid: 3965aa8ec151166409e25e9b4ebd7003, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackCorner2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6078733476345341605, guid: 3965aa8ec151166409e25e9b4ebd7003, type: 3}
+      propertyPath: m_InstanceId
+      value: -125320
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1194,7 +1306,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 433133965506836831, guid: 660582ce3512ce04fb6171f92c24b924, type: 3}
       propertyPath: m_SortingOrder
@@ -1203,6 +1315,10 @@ PrefabInstance:
     - target: {fileID: 3548157444837479087, guid: 660582ce3512ce04fb6171f92c24b924, type: 3}
       propertyPath: m_Name
       value: ShelfSetLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548157444837479087, guid: 660582ce3512ce04fb6171f92c24b924, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6550340032003006428, guid: 660582ce3512ce04fb6171f92c24b924, type: 3}
       propertyPath: m_RootOrder
@@ -1214,7 +1330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6550340032003006428, guid: 660582ce3512ce04fb6171f92c24b924, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.1
+      value: -8.100001
       objectReference: {fileID: 0}
     - target: {fileID: 6550340032003006428, guid: 660582ce3512ce04fb6171f92c24b924, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1264,8 +1380,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
+    - target: {fileID: 265924288060933752, guid: 9dd2170e96bb02e449cd53288edaf7be, type: 3}
+      propertyPath: m_InstanceId
+      value: -125120
+      objectReference: {fileID: 0}
     - target: {fileID: 1456753504155086427, guid: 9dd2170e96bb02e449cd53288edaf7be, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackOne3
@@ -1280,7 +1400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6327989514014730750, guid: 9dd2170e96bb02e449cd53288edaf7be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.4
+      value: -14.400001
       objectReference: {fileID: 0}
     - target: {fileID: 6327989514014730750, guid: 9dd2170e96bb02e449cd53288edaf7be, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1314,6 +1434,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7676168080402859450, guid: 9dd2170e96bb02e449cd53288edaf7be, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1330,11 +1454,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 1801868944839873719, guid: b94dfe8854950224aba5b7dc8b11101e, type: 3}
       propertyPath: m_Name
       value: OfficeChairBack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801868944839873719, guid: b94dfe8854950224aba5b7dc8b11101e, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1886813393132749598, guid: b94dfe8854950224aba5b7dc8b11101e, type: 3}
       propertyPath: m_RootOrder
@@ -1342,7 +1470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1886813393132749598, guid: b94dfe8854950224aba5b7dc8b11101e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7999954
+      value: -1.800003
       objectReference: {fileID: 0}
     - target: {fileID: 1886813393132749598, guid: b94dfe8854950224aba5b7dc8b11101e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1400,7 +1528,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 453109581198632899, guid: 09258658d4be6924c824ff46626f019f, type: 3}
       propertyPath: m_RootOrder
@@ -1412,7 +1540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 453109581198632899, guid: 09258658d4be6924c824ff46626f019f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.4
+      value: -8.400001
       objectReference: {fileID: 0}
     - target: {fileID: 453109581198632899, guid: 09258658d4be6924c824ff46626f019f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1454,23 +1582,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: CouchFront
       objectReference: {fileID: 0}
+    - target: {fileID: 9042562925000432207, guid: 09258658d4be6924c824ff46626f019f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9042562925000432207, guid: 09258658d4be6924c824ff46626f019f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 165768744}
   m_SourcePrefab: {fileID: 100100000, guid: 09258658d4be6924c824ff46626f019f, type: 3}
 --- !u!4 &2917690655176047083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 453109581198632899, guid: 09258658d4be6924c824ff46626f019f, type: 3}
   m_PrefabInstance: {fileID: 3329423404793404968}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6001574132927530087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9042562925000432207, guid: 09258658d4be6924c824ff46626f019f, type: 3}
+  m_PrefabInstance: {fileID: 3329423404793404968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &165768744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001574132927530087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -2.699997, y: -1.8999996, z: 0}
+  - {x: -2.699997, y: 1.8999996, z: 0}
+  - {x: 2.699997, y: 1.8999996, z: 0}
+  - {x: 2.699997, y: -1.8999996, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 60722
 --- !u!1001 &3380469903863940435
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 617967839082101253, guid: 03a6bfeab0a821b46bb52921ec0e419a, type: 3}
       propertyPath: m_RootOrder
@@ -1482,7 +1649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 617967839082101253, guid: 03a6bfeab0a821b46bb52921ec0e419a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.4
+      value: -13.400001
       objectReference: {fileID: 0}
     - target: {fileID: 617967839082101253, guid: 03a6bfeab0a821b46bb52921ec0e419a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1520,6 +1687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeShelfTop
       objectReference: {fileID: 0}
+    - target: {fileID: 4832274575259020457, guid: 03a6bfeab0a821b46bb52921ec0e419a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6504630780230872841, guid: 03a6bfeab0a821b46bb52921ec0e419a, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -1540,7 +1711,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 1504399487004285535, guid: 131f04eec0419db4ea73fc571d6baf36, type: 3}
       propertyPath: m_RootOrder
@@ -1552,7 +1723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1504399487004285535, guid: 131f04eec0419db4ea73fc571d6baf36, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.4
+      value: -14.400001
       objectReference: {fileID: 0}
     - target: {fileID: 1504399487004285535, guid: 131f04eec0419db4ea73fc571d6baf36, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1586,6 +1757,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3464109063969503832, guid: 131f04eec0419db4ea73fc571d6baf36, type: 3}
+      propertyPath: m_InstanceId
+      value: -125218
+      objectReference: {fileID: 0}
+    - target: {fileID: 4493479409298812627, guid: 131f04eec0419db4ea73fc571d6baf36, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4677549994610881585, guid: 131f04eec0419db4ea73fc571d6baf36, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackThree2
@@ -1606,11 +1785,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 1438100367128887136, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_InstanceId
-      value: -173432
+      value: -125154
       objectReference: {fileID: 0}
     - target: {fileID: 3032682214098807699, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_Name
@@ -1664,6 +1843,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6626136638877500080, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
+      propertyPath: invertPolygon
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997788616318760557, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1680,8 +1867,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
+    - target: {fileID: 304125717151829224, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3211233633136805408, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1726,16 +1917,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5830495856622200647, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
-      propertyPath: m_InstanceId
-      value: -97110
-      objectReference: {fileID: 0}
     - target: {fileID: 6511367953749329060, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
       propertyPath: m_Name
       value: OfficeWall1 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5830495856622200647, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1751,11 +1937,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 609080630548196745, guid: 7f8889a9b9cd8bd4aab13758dfb688b6, type: 3}
       propertyPath: m_InstanceId
-      value: -173206
+      value: -125360
       objectReference: {fileID: 0}
     - target: {fileID: 1513168838140303567, guid: 7f8889a9b9cd8bd4aab13758dfb688b6, type: 3}
       propertyPath: m_RootOrder
@@ -1767,7 +1953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1513168838140303567, guid: 7f8889a9b9cd8bd4aab13758dfb688b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.4
+      value: -14.400001
       objectReference: {fileID: 0}
     - target: {fileID: 1513168838140303567, guid: 7f8889a9b9cd8bd4aab13758dfb688b6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1801,6 +1987,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5619143566272535362, guid: 7f8889a9b9cd8bd4aab13758dfb688b6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8560268115060281410, guid: 7f8889a9b9cd8bd4aab13758dfb688b6, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackCorner1
@@ -1821,8 +2011,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
+    - target: {fileID: 2120441315203389015, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2777886427399855354, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1871,9 +2065,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2797044366671962530, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
+      propertyPath: invertPolygon
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4694098045120420257, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
       propertyPath: m_InstanceId
-      value: -173392
+      value: -125392
       objectReference: {fileID: 0}
     - target: {fileID: 7177541765892279389, guid: ed9c60cb7951ac34d9749f32d386a722, type: 3}
       propertyPath: m_Name
@@ -1895,7 +2093,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 3140243518108071123, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
       propertyPath: m_SortingOrder
@@ -1904,6 +2102,10 @@ PrefabInstance:
     - target: {fileID: 6965270417779432203, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
       propertyPath: m_Name
       value: FilingCabinetLeft (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965270417779432203, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8211115586467191710, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
       propertyPath: m_RootOrder
@@ -1965,11 +2167,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 308251256148449969, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_InstanceId
-      value: -173358
+      value: -125254
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279737904256315741, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
+      propertyPath: invertPolygon
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3402405497433064348, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_RootOrder
@@ -1985,7 +2191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3402405497433064348, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.4
+      value: -9.400001
       objectReference: {fileID: 0}
     - target: {fileID: 3402405497433064348, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2023,6 +2229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OfficeWallSide4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7217879216468430033, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2039,8 +2249,20 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
+    - target: {fileID: 2214580099421782994, guid: 6368716c26a41a3438826811b524d946, type: 3}
+      propertyPath: m_InstanceId
+      value: -125348
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491935862587544049, guid: 6368716c26a41a3438826811b524d946, type: 3}
+      propertyPath: invertPolygon
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7835168470435006927, guid: 6368716c26a41a3438826811b524d946, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7952110227736123377, guid: 6368716c26a41a3438826811b524d946, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2055,7 +2277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7952110227736123377, guid: 6368716c26a41a3438826811b524d946, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.200001
+      value: -6.2
       objectReference: {fileID: 0}
     - target: {fileID: 7952110227736123377, guid: 6368716c26a41a3438826811b524d946, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2109,7 +2331,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 1215857962326754757, guid: 42cc2b5c7c3152f4da6b8a8351afe0ed, type: 3}
       propertyPath: m_SortingOrder
@@ -2118,6 +2340,10 @@ PrefabInstance:
     - target: {fileID: 2086431806079590394, guid: 42cc2b5c7c3152f4da6b8a8351afe0ed, type: 3}
       propertyPath: m_Name
       value: CoffeeTable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086431806079590394, guid: 42cc2b5c7c3152f4da6b8a8351afe0ed, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2326853823064934518, guid: 42cc2b5c7c3152f4da6b8a8351afe0ed, type: 3}
       propertyPath: m_RootOrder
@@ -2179,8 +2405,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
+    - target: {fileID: 1977691754516663753, guid: f42155f1b9d11994ea94051c3f6ccd52, type: 3}
+      propertyPath: m_InstanceId
+      value: -125182
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219644262237241996, guid: f42155f1b9d11994ea94051c3f6ccd52, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7795436352143770169, guid: f42155f1b9d11994ea94051c3f6ccd52, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackOne2
@@ -2195,7 +2429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407551436805008787, guid: f42155f1b9d11994ea94051c3f6ccd52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.4
+      value: -14.400001
       objectReference: {fileID: 0}
     - target: {fileID: 8407551436805008787, guid: f42155f1b9d11994ea94051c3f6ccd52, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2245,7 +2479,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 751194039037924460, guid: d1f67eddb31fc6040a13836bb824c977, type: 3}
       propertyPath: m_RootOrder
@@ -2291,6 +2525,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2814793134096750495, guid: d1f67eddb31fc6040a13836bb824c977, type: 3}
+      propertyPath: m_InstanceId
+      value: -125194
+      objectReference: {fileID: 0}
+    - target: {fileID: 5713267864343418224, guid: d1f67eddb31fc6040a13836bb824c977, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6557283851200082622, guid: d1f67eddb31fc6040a13836bb824c977, type: 3}
       propertyPath: m_Name
       value: OfficeWallDoorway
@@ -2311,7 +2553,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 3140243518108071123, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
       propertyPath: m_SortingOrder
@@ -2320,6 +2562,10 @@ PrefabInstance:
     - target: {fileID: 6965270417779432203, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
       propertyPath: m_Name
       value: FilingCabinetLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965270417779432203, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8211115586467191710, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
       propertyPath: m_RootOrder
@@ -2331,7 +2577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8211115586467191710, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8500002
+      value: -0.8500004
       objectReference: {fileID: 0}
     - target: {fileID: 8211115586467191710, guid: f996e3c3b05fb1b4fadb513c147bc887, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2381,11 +2627,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 1438100367128887136, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_InstanceId
-      value: -173274
+      value: -125296
       objectReference: {fileID: 0}
     - target: {fileID: 3032682214098807699, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_Name
@@ -2401,7 +2647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6434687210801464257, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.6
+      value: -12.600001
       objectReference: {fileID: 0}
     - target: {fileID: 6434687210801464257, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2435,6 +2681,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6997788616318760557, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2451,7 +2701,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 617967839082101253, guid: 03a6bfeab0a821b46bb52921ec0e419a, type: 3}
       propertyPath: m_RootOrder
@@ -2463,7 +2713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 617967839082101253, guid: 03a6bfeab0a821b46bb52921ec0e419a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.4
+      value: -13.400001
       objectReference: {fileID: 0}
     - target: {fileID: 617967839082101253, guid: 03a6bfeab0a821b46bb52921ec0e419a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2501,6 +2751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeShelfTop (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4832274575259020457, guid: 03a6bfeab0a821b46bb52921ec0e419a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6504630780230872841, guid: 03a6bfeab0a821b46bb52921ec0e419a, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -2521,8 +2775,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
+    - target: {fileID: 304125717151829224, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3211233633136805408, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2567,16 +2825,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5830495856622200647, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
-      propertyPath: m_InstanceId
-      value: -1325956
-      objectReference: {fileID: 0}
     - target: {fileID: 6511367953749329060, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
       propertyPath: m_Name
       value: OfficeWall1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5830495856622200647, guid: 1e6b077047743db44b695cba59a5f305, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2592,8 +2845,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
+    - target: {fileID: 1438100367128887136, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
+      propertyPath: m_InstanceId
+      value: -125242
+      objectReference: {fileID: 0}
     - target: {fileID: 3032682214098807699, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
       propertyPath: m_Name
       value: OfficeWallSide1
@@ -2642,6 +2899,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6997788616318760557, guid: 301d8510ea4c53e4a9060c8bf7ae5c98, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2658,7 +2919,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 2721983449233143411, guid: ff7c69691aa8d204bb973ce673329906, type: 3}
       propertyPath: m_Name
@@ -2728,7 +2989,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 1274996693852694006, guid: 376a09c40456712418c87b92f30378da, type: 3}
       propertyPath: m_SortingOrder
@@ -2782,6 +3043,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodDeskFront
       objectReference: {fileID: 0}
+    - target: {fileID: 3441040897333876378, guid: 376a09c40456712418c87b92f30378da, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8757854006892512864, guid: 376a09c40456712418c87b92f30378da, type: 3}
       propertyPath: m_InstanceId
       value: -141594
@@ -2802,15 +3067,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 2931762788349525067, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
       propertyPath: m_Name
       value: OfficeWallSide2
       objectReference: {fileID: 0}
+    - target: {fileID: 5149916914308573363, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7760639554666346456, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_InstanceId
+      value: -125276
       objectReference: {fileID: 0}
     - target: {fileID: 8894570396740686161, guid: bab67f67792dccd4bbeb619e5f3a3da6, type: 3}
       propertyPath: m_RootOrder
@@ -2872,8 +3141,16 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
+    - target: {fileID: 2736871471862068124, guid: afb9b4f88ec73884aa16de31e4180605, type: 3}
+      propertyPath: m_InstanceId
+      value: -125142
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771114775975422612, guid: afb9b4f88ec73884aa16de31e4180605, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4670831832856102532, guid: afb9b4f88ec73884aa16de31e4180605, type: 3}
       propertyPath: m_Name
       value: OfficeWallBackThree1
@@ -2888,7 +3165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8117399448047450639, guid: afb9b4f88ec73884aa16de31e4180605, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.4
+      value: -14.400001
       objectReference: {fileID: 0}
     - target: {fileID: 8117399448047450639, guid: afb9b4f88ec73884aa16de31e4180605, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2938,7 +3215,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 1222613528010108602, guid: 5a3902502506b724f8347856afddc2d9, type: 3}
       propertyPath: m_RootOrder
@@ -2984,16 +3261,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5021843044740071556, guid: 5a3902502506b724f8347856afddc2d9, type: 3}
-      propertyPath: m_InstanceId
-      value: -94076
+    - target: {fileID: 2688066110591102502, guid: 5a3902502506b724f8347856afddc2d9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7220645066405683343, guid: 5a3902502506b724f8347856afddc2d9, type: 3}
       propertyPath: m_Name
       value: OfficeWall2
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5021843044740071556, guid: 5a3902502506b724f8347856afddc2d9, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3009,7 +3285,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 8069272288718309257, guid: 82f302bfe2aab8b448fdf65137e5d70a, type: 3}
       propertyPath: m_InstanceId
@@ -3025,7 +3301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8161586174128180839, guid: 82f302bfe2aab8b448fdf65137e5d70a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.6
+      value: -8.600001
       objectReference: {fileID: 0}
     - target: {fileID: 8161586174128180839, guid: 82f302bfe2aab8b448fdf65137e5d70a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3079,11 +3355,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 3692839380539817632}
     m_Modifications:
     - target: {fileID: 308251256148449969, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_InstanceId
-      value: -173186
+      value: -125084
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279737904256315741, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
+      propertyPath: invertPolygon
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3402405497433064348, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
       propertyPath: m_RootOrder
@@ -3137,6 +3417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OfficeWallSide4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7217879216468430033, guid: fcdf9cc1839343440bba62a7bcdfdad9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3153,7 +3437,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4413332479937333854}
+    m_TransformParent: {fileID: 1965740060383452767}
     m_Modifications:
     - target: {fileID: 4016400784262531516, guid: c6ebaad8b5b19d447882bc0eb5d9eec9, type: 3}
       propertyPath: m_RootOrder
@@ -3203,9 +3487,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: ComputerFront
       objectReference: {fileID: 0}
+    - target: {fileID: 4172828957515214919, guid: c6ebaad8b5b19d447882bc0eb5d9eec9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 9140127419555242449, guid: c6ebaad8b5b19d447882bc0eb5d9eec9, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

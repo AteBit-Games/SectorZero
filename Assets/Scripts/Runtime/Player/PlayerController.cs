@@ -27,6 +27,7 @@ namespace Runtime.Player
         
         // ============ Hiding System ============
        [HideInInspector] public bool isHiding;
+       [HideInInspector] public bool isSeen;
         
         // ============ Animator Hashes ============
         private readonly int _moveX = Animator.StringToHash("moveX");
@@ -61,6 +62,7 @@ namespace Runtime.Player
         private void HandleSneak()
         {
             _sneaking = !_sneaking;
+            _movementAnimator.SetBool(id: _isSneaking, _sneaking);
         }
         
         private void FixedUpdate()
