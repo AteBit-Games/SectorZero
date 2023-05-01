@@ -1,30 +1,38 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Runtime.BehaviourTree.Composites 
 {
-    [System.Serializable]
+    [Serializable]
     [Name("Switch")]
     [Category("Composites")]
-    [Description("Executes one child based on the provided int or enum and returns its status.")]
+    [Description("Executes one child based on the provided int and returns its status.")]
     public class Switch : CompositeNode
     {
+        [Space(10)]
+        [Header("PROPERTIES")]
         public NodeProperty<int> index;
-        public bool interruptible = true;
-        private int _currentIndex;
+        public bool interruptable = true;
         
+        private int _currentIndex;
+
         protected override void OnStart()
         {
-            _currentIndex = index.Value;
+            _currentIndex = 0;
         }
 
         protected override void OnStop() { }
 
         protected override State OnUpdate()
         {
-            if (interruptible) 
+            if (interruptable) 
             {
                 int nextIndex = index.Value;
-                if (nextIndex != _currentIndex) children[_currentIndex].Abort();
+                if (nextIndex != _currentIndex) {
+                    children[_currentIndex].Abort();
+                }
                 _currentIndex = nextIndex;
             }
 

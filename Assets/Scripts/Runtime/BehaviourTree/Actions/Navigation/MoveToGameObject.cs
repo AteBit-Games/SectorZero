@@ -9,7 +9,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
     [Description("Seek a GameObject and move towards its position")]
     public class MoveToGameObject : ActionNode
     {
-        public NodeProperty<GameObject> target;
+        public NodeProperty<UnityEngine.GameObject> target;
         public NodeProperty<float> speed = new(){Value = 4f};
     
         private bool _destinationReached;

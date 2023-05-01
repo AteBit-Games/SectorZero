@@ -6,6 +6,8 @@ TagManager:
   tags:
   - UI
   - Monster
+  - Concrete
+  - Water
   layers:
   - Default
   - TransparentFX
