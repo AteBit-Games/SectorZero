@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2672757191909828583
 SpriteRenderer:
@@ -127,27 +127,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: dbd38dd6330e4b34c8751a5bcdd67251, type: 2}
+  behaviourTree: {fileID: 11400000, guid: 8a09da72daa961644b7611d73a97d2dd, type: 2}
   validate: 1
   blackboardOverrides:
   - key:
-      rid: 6996063368291024994
+      rid: 6996063419467038720
     value:
-      rid: 6996063368291024987
+      rid: 6996063419467038721
   references:
     version: 2
     RefIds:
-    - rid: 6996063368291024987
+    - rid: 6996063419467038720
       type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
-        name: 
+        name: Player
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
-    - rid: 6996063368291024994
+    - rid: 6996063419467038721
       type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
-        name: Player Character
+        name: 
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
