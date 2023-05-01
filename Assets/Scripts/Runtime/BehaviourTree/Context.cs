@@ -21,7 +21,7 @@ namespace Runtime.BehaviourTree
                 animator = gameObject.GetComponent<Animator>(),
                 physics = gameObject.GetComponent<Rigidbody2D>(),
                 collider = gameObject.GetComponent<Collider2D>(),
-                agent = gameObject.GetComponent<NavAgent>()
+                agent = gameObject.GetComponentInChildren<NavAgent>()
             };
 
             return context;

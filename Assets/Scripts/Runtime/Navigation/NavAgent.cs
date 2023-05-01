@@ -16,6 +16,7 @@ namespace Runtime.Navigation
         public NavMap map;
         
         [Header("MOVEMENT")]
+        public Transform transformToMove;
         public float maxSpeed = 3.5f;
         [Tooltip("Acceleration is applied when the agent is moving towards the goal.")]
         public float maxForce = 10f;
@@ -73,8 +74,8 @@ namespace Runtime.Navigation
         
         public Vector2 Position 
         {
-            get => transform.position + (Vector3)centerOffset;
-            set => transform.position = new Vector3(value.x, value.y, transform.position.z) - (Vector3)centerOffset;
+            get => transformToMove.position + (Vector3)centerOffset;
+            set => transformToMove.position = new Vector3(value.x, value.y, transformToMove.position.z) - (Vector3)centerOffset;
         }
         
         public List<Vector2> ActivePath {
@@ -136,7 +137,7 @@ namespace Runtime.Navigation
 
         private void Awake() 
         {
-            _animator = GetComponent<Animator>();
+            _animator = GetComponentInParent<Animator>();
             PrimeGoal = Position;
             if (map == null) 
             {

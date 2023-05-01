@@ -16,7 +16,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
         }
         
         public PatrolMode patrolMode = PatrolMode.Random;
-        public NodeProperty<List<GameObject>> targetList;
+        public NodeProperty<List<UnityEngine.GameObject>> targetList;
         public NodeProperty<float> speed = new(){Value = 4f};
         public NodeProperty<float> keepDistance = new(){Value = 0.1f};
         public NodeProperty<float> patrolTimeOut = new(){Value = 10f};

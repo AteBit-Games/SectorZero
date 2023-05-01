@@ -2,10 +2,12 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+using Runtime.BehaviourTree;
 using Runtime.InputSystem;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Runtime.Player
 {
@@ -13,10 +15,23 @@ namespace Runtime.Player
     {
         #region Header MOVEMENT DETAILS
         [Space(10)]
-        [Header("MOVEMENT DETAILS")]
+        [Header("REFERENCES")]
         #endregion
         [SerializeField] private InputReader inputReader;
+        [SerializeField] private BehaviourTreeOwner behaviourTreeOwner;
+        
+        #region Header MOVEMENT DETAILS
+        [Space(10)]
+        [Header("MOVEMENT DETAILS")]
+        #endregion
         [SerializeField] private float moveSpeed = 1f;
+
+        #region Header MOVEMENT DETAILS
+        [Space(10)]
+        [Header("STEALTH DETAILS")]
+        #endregion
+        [SerializeField] private float sneakSpeed = 1f;
+        [SerializeField] private Light2D globalLight;
 
         // ============ Movement System ============
         private Rigidbody2D _rb;
@@ -24,7 +39,7 @@ namespace Runtime.Player
         private SpriteRenderer _spriteRenderer;
         private Vector2 _movementInput;
         private bool _sneaking;
-        
+
         // ============ Hiding System ============
        [HideInInspector] public bool isHiding;
        [HideInInspector] public bool isSeen;
@@ -78,7 +93,7 @@ namespace Runtime.Player
                 _movementAnimator.SetBool(id: _isMoving, false);
             }
             
-            _rb.MovePosition(_rb.position + _movementInput * ((_sneaking ? moveSpeed / 2 : moveSpeed) * Time.fixedDeltaTime));
+            _rb.MovePosition(_rb.position + _movementInput * ((_sneaking ? sneakSpeed : moveSpeed) * Time.fixedDeltaTime));
         }
         
         public void LoadData(SaveData data)
@@ -94,6 +109,8 @@ namespace Runtime.Player
         public void HidePlayer(Vector2 position)
         {
             isHiding = true;
+            behaviourTreeOwner.SetBlackboardValue("Is Player Hiding", isHiding);
+            globalLight.intensity = 0.25f;
             _movementAnimator.SetBool(id: _isSneaking, false);
             _movementAnimator.SetBool(id: _isMoving, false);
             _movementAnimator.enabled = false;
@@ -104,9 +121,12 @@ namespace Runtime.Player
         public void RevealPlayer(Vector2 position)
         {
             isHiding = false;
+            behaviourTreeOwner.SetBlackboardValue("Is Player Hiding", isHiding);
+            globalLight.intensity = 0.3f;
             _movementAnimator.enabled = true;
             _spriteRenderer.enabled = true;
             transform.position = position;
         }
+        
     }
 }

@@ -49,4 +49,5 @@ namespace Runtime.BehaviourTree {
     
     [Serializable]   
     public class Vector2Key : BlackboardKey<Vector2> { }
+    
 }
