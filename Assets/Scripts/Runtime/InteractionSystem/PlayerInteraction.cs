@@ -38,7 +38,7 @@ namespace Runtime.InteractionSystem
             {
                 if(item == null) continue;
                 var distance = Vector2.Distance(transform.position, item.transform.position);
-                item.gameObject.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, distance <= interactionRadius ? 0.75f : 0f);
+                item.gameObject.GetComponent<SpriteRenderer>().material.SetFloat(OutlineThickness, distance <= interactionRadius ? 1f : 0f);
             }
         }
 

@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 461143469602724628}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &461143468751046656
 SpriteRenderer:
@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6afc106602621024ebe3a7a7eb75b67c, type: 2}
+  - {fileID: 2100000, guid: fb0b6602100feb0479f5bc7459f80425, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
