@@ -1,40 +1,72 @@
-using System;
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
 using System.Collections;
+using Runtime.AI.Interfaces;
 using UnityEngine;
 
 namespace Runtime.AI
 {
-    public class Sentinel : MonoBehaviour
+    public class Sentinel : MonoBehaviour, ISightHandler
     {
-        [Header("SENTINEL PROPERTIES")]
         [SerializeField] private float cooldown = 3f;
         [SerializeField] private float activeTime = 8f;
-        //[SerializeField] private 
         
-        [Space(10)]
-        [Header("SIGHT PROPERTIES")]
-        [Tooltip("The layer mask of the target.")]
-        public LayerMask playerMask = -1;
-        [Tooltip("The layer mask of obstacles.")]
-        public LayerMask obstacleMask = -1;
-        [Tooltip("The direction to look in.")]
-        [Range(0f, 360f)]
-        public float lookAngle;
-        [Tooltip("Distance within which to look.")]
-        public float maxDistance = 50f;
-        [Tooltip("The view angle to use for the check.")]
-        public float viewAngle = 70f;
+        [Tooltip("Masks that block field of view"), SerializeField] private LayerMask obstacleMask;
+        [Tooltip("Masks that contains the player character"), SerializeField] private LayerMask playerMask;
+        [Tooltip("Maximum view distance"), SerializeField] private float viewRadius = 5.0f;
+        [Tooltip("Maximum angle that the monster can see"), SerializeField, Range(0f, 360f)] private float viewAngle = 135.0f;
+        [Tooltip("The direction to look in."), Range(0f, 360f)] public float lookAngle;
         
-        private bool _canSeePlayer;
+        public bool debug;
+        public GameObject sightVisualPrefab;
+        [Tooltip("Colour of the view cone when the monster is idle"), SerializeField] private Color idleColour = new(0.0f, 0.0f, 0.0f, 150.0f);
+        [Tooltip("Colour of the view cone when the monster spots the player"), SerializeField] private Color aggroColour = new(255.0f, 0.0f, 0.0f, 150.0f);
+
+        // ====================== Private Variables ======================
         private bool _isActivated;
-        private Vector2 _lastKnownPlayerPosition;
-        
+        private Material _material;
+        private bool _canSeePlayer;
+
         private float _cooldownTimeLeft;
         private float _activeTimeLeft;
-        
+
+        private void Awake()
+        {
+            GameObject sightVisual = Instantiate(sightVisualPrefab, transform);
+            _material = sightVisual.GetComponent<MeshRenderer>().material;
+            _material.color = idleColour;
+        }
+
         private void Start()
         {
             StartCoroutine(TimeOutActivate());
+        }
+        
+        // ====================== Interface ======================
+
+        public bool IsActivated => _isActivated;
+        public float ViewAngle => viewAngle;
+        public float ViewRadius => viewRadius;
+        public LayerMask ObstacleMask => obstacleMask;
+        public LayerMask PlayerMask => playerMask;
+        
+        public void OnSightEnter()
+        {
+            DeactivateSentinel();
+            _canSeePlayer = true;
+            _material.color = aggroColour;
+        }
+
+        public void OnSightExit()
+        {
+            if (_canSeePlayer)
+            {
+                //event
+                _material.color = idleColour;
+            }
+            _canSeePlayer = false;
         }
 
         private IEnumerator TimeOutActivate()
@@ -67,34 +99,12 @@ namespace Runtime.AI
                         _cooldownTimeLeft = 0f;
                     }
                 }
-                
-                return;
-            }
-            
-            _canSeePlayer = false;
-            var targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, maxDistance, playerMask);
-            foreach (var currentTarget in targetsInViewRadius)
-            {
-                var directionToTarget = (currentTarget.transform.position - transform.position).normalized;
-                var lookDirection = Quaternion.Euler(0f, 0f, lookAngle) * Vector2.right;
-                if (Vector2.Angle(lookDirection, directionToTarget) < viewAngle / 2f)
-                {
-                    float distanceToTarget = Vector2.Distance(transform.position, currentTarget.transform.position);
-                    if (!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask))
-                    {
-                        _canSeePlayer = true;
-                        _lastKnownPlayerPosition = currentTarget.transform.position;
-                        DeactivateSentinel();
-                        Debug.Log($"CanSeeTarget: Target is within view angle and there is no obstacle in the way.");
-                    }
-                    
-                    Debug.Log($"CanSeeTarget: Target is within view angle but there is an obstacle in the way.");
-                }
             }
         }
         
         public void ActivateSentinel()
         {
+            if(_cooldownTimeLeft > 0f) return;
             _isActivated = true;
             _activeTimeLeft = activeTime;
         }
@@ -106,31 +116,10 @@ namespace Runtime.AI
             _isActivated = false;
         }
         
-        public bool CanSeePlayer()
+        public Vector2 DirFromAngle(float angleDeg)
         {
-            return _canSeePlayer;
-        }
-        
-        public Vector2 GetLastKnownPlayerPosition()
-        {
-            return _lastKnownPlayerPosition;
-        }
-        
-        public void OnDrawGizmosSelected()
-        {
-            //draw cone in direction of lookAngle with width of viewAngle
-            var lookDirection = Quaternion.Euler(0f, 0f, lookAngle) * Vector2.right;
-            var leftRayDirection = Quaternion.Euler(0f, 0f, lookAngle - viewAngle / 2f) * Vector2.right;
-            var rightRayDirection = Quaternion.Euler(0f, 0f, lookAngle + viewAngle / 2f) * Vector2.right;
-            
-            Gizmos.color = _isActivated ? Color.red : Color.green;
-
-            Gizmos.DrawRay(transform.position, lookDirection * maxDistance);
-            Gizmos.DrawRay(transform.position, leftRayDirection * maxDistance);
-            Gizmos.DrawRay(transform.position, rightRayDirection * maxDistance);
-            
-            Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(transform.position, maxDistance);
+            angleDeg += lookAngle;
+            return new Vector2(Mathf.Sin(angleDeg * Mathf.Deg2Rad), Mathf.Cos(angleDeg * Mathf.Deg2Rad));
         }
     }
 }

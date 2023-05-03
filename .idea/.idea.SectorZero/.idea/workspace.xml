@@ -15,6 +15,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/71077fac2f1f46619bbfc4e6592b25083dc00/7f/4dc80225/SearchTreeEntry.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/71077fac2f1f46619bbfc4e6592b25083dc00/98/737eb221/SearchTreeGroupEntry.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93a8f82184b4439ca5abff025375fe32564da0/85/08209ee1/MemberInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/AI/SentinelInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/AI/Sentinel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/MoveToGameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/StopMoving.cs" root0="FORCE_HIGHLIGHTING" />
@@ -107,6 +108,7 @@
       <workItem from="1682869526652" duration="13310000" />
       <workItem from="1682884462247" duration="3098000" />
       <workItem from="1682888289868" duration="2759000" />
+      <workItem from="1683134192746" duration="9164000" />
     </task>
     <servers />
   </component>

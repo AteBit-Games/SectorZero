@@ -9,4 +9,17 @@
         LessOrEqualTo
     }
     
+    public enum MonsterStates
+    {
+        Idle,
+        Patrol,
+        Attack,
+        Flee,
+        Suspicious,
+        Search,
+        Wander,
+        Alert,
+        InvestigateSound,
+        InvestigateSight,
+    }
 }

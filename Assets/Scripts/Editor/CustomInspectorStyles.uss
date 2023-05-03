@@ -1,0 +1,43 @@
+.property-group {
+    background-color: rgb(49, 49, 49);
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
+    border-left-color: rgb(75, 75, 75);
+    border-right-color: rgb(75, 75, 75);
+    border-top-color: rgb(75, 75, 75);
+    border-bottom-color: rgb(75, 75, 75);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.property-group #header {
+    color: rgb(178, 229, 224);
+    font-size: 16px;
+    -unity-font-style: bold;
+    background-color: rgb(39, 39, 39);
+    -unity-text-align: upper-center;
+    margin-bottom: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.property-group #property {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}

@@ -108,6 +108,7 @@ namespace Runtime.Player
         
         public void HidePlayer(Vector2 position)
         {
+            DisableInput();
             isHiding = true;
             behaviourTreeOwner.SetBlackboardValue("Is Player Hiding", isHiding);
             globalLight.intensity = 0.25f;
@@ -120,6 +121,7 @@ namespace Runtime.Player
         
         public void RevealPlayer(Vector2 position)
         {
+            EnableInput();
             isHiding = false;
             behaviourTreeOwner.SetBlackboardValue("Is Player Hiding", isHiding);
             globalLight.intensity = 0.3f;
@@ -128,5 +130,17 @@ namespace Runtime.Player
             transform.position = position;
         }
         
+        public void DisableInput()
+        {
+            inputReader.MoveEvent -= HandleMove;
+            inputReader.SneakEvent -= HandleSneak;
+        }
+
+        public void EnableInput()
+        {
+            inputReader.MoveEvent += HandleMove;
+            inputReader.SneakEvent += HandleSneak;
+        }
+
     }
 }
