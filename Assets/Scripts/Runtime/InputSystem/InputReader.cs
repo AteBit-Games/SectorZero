@@ -133,5 +133,15 @@ namespace Runtime.InputSystem
             _playerInput.UI.Enable();
             _playerInput.Gameplay.Disable();
         }
+
+        public void DisableInput()
+        {
+            _playerInput.Disable();
+        }
+
+        public void EnableInput()
+        {
+            _playerInput.Enable();
+        }
     }
 }

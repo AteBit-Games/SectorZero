@@ -165,12 +165,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 0}
+  behaviourTree: {fileID: 11400000, guid: 8a09da72daa961644b7611d73a97d2dd, type: 2}
+  monsterState: 0
   validate: 1
-  blackboardOverrides: []
+  blackboardOverrides:
+  - key:
+      rid: 484473496444862472
+    value:
+      rid: 484473496444862473
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 192
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  viewRadius: 40
+  viewAngle: 135
+  debug: 1
+  sightVisualPrefab: {fileID: 4193361830035308745, guid: 7fbb647d3619d9b4898983be60e448e2, type: 3}
+  idleColour: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0.5058824}
+  aggroColour: {r: 0.7075472, g: 0.12281949, b: 0.12281949, a: 0.5254902}
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 484473496444862472
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 484473496444862473
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: 
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
 --- !u!1 &5861918398972980214
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +211,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8939251857853810976}
-  - component: {fileID: 7739698423973019876}
   - component: {fileID: 256240480159786068}
   m_Layer: 9
   m_Name: Perception
@@ -204,31 +234,6 @@ Transform:
   m_Father: {fileID: 2672757191909828582}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7739698423973019876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5861918398972980214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d1598075eb4c10aa6195454b44b254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 192
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  viewRadius: 40
-  viewAngle: 80
-  hearingThreshold: 0.3
-  debug: 1
-  sightVisualPrefab: {fileID: 4193361830035308745, guid: 7fbb647d3619d9b4898983be60e448e2, type: 3}
-  idleColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.4117647}
-  aggroColour: {r: 0.6886792, g: 0.15267888, b: 0.15267888, a: 0.43137255}
 --- !u!114 &256240480159786068
 MonoBehaviour:
   m_ObjectHideFlags: 0

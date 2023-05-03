@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Runtime.AI
 {
-    public class SightVisualizer : MonoBehaviour
+    public class SentinelSightVisualizer : MonoBehaviour
     {
-        private BehaviourTreeOwner _sight;
+        private Sentinel _sight;
         private Mesh _mesh;
         private Vector3[] _vertices;
         private List<Vector3> _viewVertex;
@@ -19,19 +19,19 @@ namespace Runtime.AI
 
         private void Awake()
         {
-            //find the _sight component in siblings
-            _sight = transform.parent.GetComponent<BehaviourTreeOwner>();
+            _sight = transform.parent.GetComponent<Sentinel>();
             _mesh = GetComponent<MeshFilter>().mesh;
         }
     
         private void LateUpdate()
         {
-            UpdateMesh();
+            if(_sight.IsActivated && _sight.debug) UpdateMesh();
+            else _mesh.Clear();
         }
     
         private void UpdateMesh()
         {
-            ShootRays();
+            if(_sight.IsActivated) ShootRays();
             if(_sight.debug) CreateMesh();
         }
     

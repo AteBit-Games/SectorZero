@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Runtime.AI;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,25 +14,37 @@ namespace Runtime.SoundSystem
         [Header("SOUNDS")]
         [SerializeField] private List<AudioClip> concreteFootsteps;
         [SerializeField] private List<AudioClip> waterFootsteps;
+
+        [Header("SOUND PROPERTIES")] 
+        [SerializeField] private float joggingRange = 18f;
+        [SerializeField] private float sneakingRange = 6f;
     
         [Header("DEBUG")]
         [SerializeField] private bool debug;
         [SerializeField] private ParticleSystem noiseEffect;
-    
+        
+        private NoiseEmitter _noiseEmitter;
+
+        private void Awake()
+        {
+            _noiseEmitter = audioSource.GetComponent<NoiseEmitter>();
+        }
+
         public void PlayFootstepSound()
         {
             audioSource.volume = 0.5f;
             audioSource.PlayOneShot(DetermineSound());
+            _noiseEmitter.Radius = joggingRange;
+            _noiseEmitter.EmitShot();
             
-            if(debug) ShowDebugSound(4f);
+            if(debug) ShowDebugSound(joggingRange);
         }
 
         public void PlaySneakSound()
         {
             audioSource.volume = 0.3f;
             audioSource.PlayOneShot(DetermineSound());
-            
-            if(debug) ShowDebugSound(2.5f);
+            if(debug) ShowDebugSound(sneakingRange);
         }
 
         private AudioClip DetermineSound()
@@ -42,28 +56,25 @@ namespace Runtime.SoundSystem
                 {
                     return waterFootsteps[Random.Range(0, waterFootsteps.Count)];
                 }
-                else if (raycastHit2D.collider.CompareTag("Concrete"))
+                
+                if (raycastHit2D.collider.CompareTag("Concrete"))
                 {
                     return concreteFootsteps[Random.Range(0, concreteFootsteps.Count)];
                 }
             }
 
-            return null;
+            return concreteFootsteps[0];
         }
 
         private void ShowDebugSound(float range)
         {
-            if(debug)
+            if (noiseEffect != null)
             {
-                if (noiseEffect != null)
-                {
-                    var newParticleSystem = Instantiate(noiseEffect, audioSource.transform.position, Quaternion.Euler(90, 0,0 ));
-                    newParticleSystem.transform.localScale = new Vector3(range, range, range);
-                    newParticleSystem.Play();
-                    Destroy(newParticleSystem.gameObject, 2f);
-                }
+                var newParticleSystem = Instantiate(noiseEffect, audioSource.transform.position, Quaternion.Euler(90, 0,0 ));
+                newParticleSystem.transform.localScale = new Vector3(range, range, range);
+                newParticleSystem.Play();
+                Destroy(newParticleSystem.gameObject, 2f);
             }
         }
-        
     }
 }
