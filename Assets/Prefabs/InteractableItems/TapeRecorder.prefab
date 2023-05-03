@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6afc106602621024ebe3a7a7eb75b67c, type: 2}
+  - {fileID: 2100000, guid: fb0b6602100feb0479f5bc7459f80425, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -240,5 +240,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc70bf3c0ef75f54897d16d667de5313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSound: {fileID: 0}
-  dialogue: {fileID: 0}
+  interactSound: {fileID: 11400000, guid: 5d8d250fff04a1b41a40edcf390dba60, type: 2}
+  dialogue: {fileID: 11400000, guid: a8979148722879b4e91068a74d0327a8, type: 2}
