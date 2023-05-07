@@ -83,7 +83,7 @@ namespace Runtime.BehaviourTree
         
         public void OnHearing(NoiseEmitter sender)
         {
-            
+            Debug.Log($"{gameObject.name} heard {sender.gameObject.name}");
         }
         
         public void OnSightEnter()

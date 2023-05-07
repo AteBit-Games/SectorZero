@@ -2,6 +2,8 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
+using System.Linq;
 using Runtime.AI.Interfaces;
 using UnityEngine;
 
@@ -43,9 +45,18 @@ namespace Runtime.AI
             }
         }
         
-        public void EmitShot()
+        public void EmitLocal()
         {
             FindTargets();
+        }
+        
+        public void EmitGlobal()
+        {
+            var targets = FindObjectsOfType<MonoBehaviour>().OfType<IHearingHandler>();
+            foreach (var t in targets)
+            {
+                t.OnHearing(this);
+            }
         }
         
         private void OnDrawGizmosSelected()

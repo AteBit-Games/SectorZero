@@ -1,3 +1,7 @@
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
 using Runtime.AI;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -15,10 +19,14 @@ namespace Editor.AI
             VisualElement root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
             
-            // // Default inspector within
-            // var foldout = new Foldout { text = "Default Inspector" };
-            // InspectorElement.FillDefaultInspector(foldout, serializedObject, this);
-            // root.Add(foldout);
+            // Default inspector within
+            var foldout = new Foldout
+            {
+                text = "Default Inspector",
+                value = false
+            };
+            InspectorElement.FillDefaultInspector(foldout, serializedObject, this);
+            root.Add(foldout);
 
             return root;
         }

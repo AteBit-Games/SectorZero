@@ -9,8 +9,8 @@ namespace Runtime.InteractionSystem
 {
     public interface IInteractable
     {
-        public Sound InteractSound { get; }
-
+        [Tooltip("Sound to play when the player interacts with the object")] public Sound InteractSound { get; }
         public bool OnInteract(GameObject player);
+        public bool CanInteract();
     }
 }

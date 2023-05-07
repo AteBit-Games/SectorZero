@@ -36,6 +36,7 @@ namespace Runtime.Player
         // ============ Movement System ============
         private Rigidbody2D _rb;
         private Animator _movementAnimator;
+        private SpriteRenderer _playerShadow;
         private SpriteRenderer _spriteRenderer;
         private Vector2 _movementInput;
         private bool _sneaking;
@@ -67,6 +68,7 @@ namespace Runtime.Player
             _rb = GetComponent<Rigidbody2D>();
             _movementAnimator = GetComponent<Animator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _playerShadow = GameObject.FindGameObjectWithTag("Shadow").GetComponent<SpriteRenderer>();
         }
 
         private void HandleMove(Vector2 direction)
@@ -108,26 +110,30 @@ namespace Runtime.Player
         
         public void HidePlayer(Vector2 position)
         {
+            SetData(false);
             DisableInput();
-            isHiding = true;
+            _movementAnimator.SetBool(id: _isMoving, false);
             behaviourTreeOwner.SetBlackboardValue("Is Player Hiding", isHiding);
             globalLight.intensity = 0.25f;
-            _movementAnimator.SetBool(id: _isSneaking, false);
-            _movementAnimator.SetBool(id: _isMoving, false);
-            _movementAnimator.enabled = false;
-            _spriteRenderer.enabled = false;
             transform.position = position;
         }
         
         public void RevealPlayer(Vector2 position)
         {
+            SetData(true);
             EnableInput();
-            isHiding = false;
+            _movementAnimator.SetBool(id: _isSneaking, _sneaking);
             behaviourTreeOwner.SetBlackboardValue("Is Player Hiding", isHiding);
             globalLight.intensity = 0.3f;
-            _movementAnimator.enabled = true;
-            _spriteRenderer.enabled = true;
             transform.position = position;
+        }
+
+        public void SetData(bool state)
+        {
+            isHiding = !state;
+            _movementAnimator.enabled = state;
+            _spriteRenderer.enabled = state;
+            _playerShadow.enabled = state;
         }
         
         public void DisableInput()

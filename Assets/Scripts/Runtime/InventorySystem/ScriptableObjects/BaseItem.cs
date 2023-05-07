@@ -12,5 +12,6 @@ namespace Runtime.InventorySystem.ScriptableObjects
         public string itemName;
         public Sprite itemSprite;
         public ItemType itemType;
+        [TextArea] public string itemDescription;
     }
 }

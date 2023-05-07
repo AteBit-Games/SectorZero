@@ -16,25 +16,30 @@ namespace Runtime.InventorySystem
     
     public class PlayerInventory : MonoBehaviour
     {
-        public readonly List<Tape> TapeInventory = new();
-        public readonly List<Item> ItemInventory = new();
+        // ReSharper disable once CollectionNeverQueried.Global
+        public readonly List<Tape> tapeInventory = new();
+        public readonly List<Item> itemInventory = new();
 
         public bool AddTapeToInventory(Tape item)
         {
-            TapeInventory.Add(item);
+            tapeInventory.Add(item);
             return true;
+        }
+        
+        public bool ContainsKeyItem(Item item)
+        {
+            return itemInventory.Contains(item);
         }
         
         public bool AddItemToInventory(Item item)
         {
-            ItemInventory.Add(item);
+            itemInventory.Add(item);
             return true;
         }
-
         
-        private void RemoveItemFromInventory(Item item)
+        public void UseItemInInventory(Item item)
         {
-            ItemInventory.Remove(item);
+            itemInventory.Remove(item);
         }
     }
 }

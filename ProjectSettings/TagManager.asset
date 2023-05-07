@@ -8,6 +8,7 @@ TagManager:
   - Monster
   - Concrete
   - Water
+  - Shadow
   layers:
   - Default
   - TransparentFX

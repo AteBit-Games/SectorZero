@@ -9,8 +9,8 @@ namespace Runtime.DialogueSystem
     [CreateAssetMenu(fileName = "New Actor", menuName = "Dialogue System/Actor")]
     public class Actor : ScriptableObject
     {
-        [SerializeField] private new string name;
-        [SerializeField] private Sprite sprite;
+        [SerializeField, Tooltip("Name of the actor")] private new string name;
+        [SerializeField, Tooltip("Sprite to display in the UI")] private Sprite sprite;
     
         public string Name => name;
         public Sprite Sprite => sprite;
