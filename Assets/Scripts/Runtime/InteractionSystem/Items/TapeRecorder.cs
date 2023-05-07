@@ -2,7 +2,6 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
-
 using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
@@ -20,6 +19,7 @@ namespace Runtime.InteractionSystem
         public Sound InteractSound => interactSound;
 
         [SerializeField] private Dialogue dialogue;
+        [SerializeField] private string dialogueDescription;
 
         public bool OnInteract(GameObject player)
         {
@@ -33,8 +33,8 @@ namespace Runtime.InteractionSystem
             tapeInstance.itemName = dialogue.actor.Name;
             tapeInstance.itemSprite = dialogue.actor.Sprite;
             tapeInstance.itemType = ItemType.TapeRecording;
+            tapeInstance.itemDescription = dialogueDescription;
             tapeInstance.dialogue = dialogue;
-            
             return inventory.AddTapeToInventory(tapeInstance);
         }
 
@@ -46,6 +46,11 @@ namespace Runtime.InteractionSystem
         public void SaveData(SaveData data)
         {
             data.tapeRecorders[this] = gameObject.activeSelf;
+        }
+
+        public bool CanInteract()
+        {
+            return true;
         }
     }
 }

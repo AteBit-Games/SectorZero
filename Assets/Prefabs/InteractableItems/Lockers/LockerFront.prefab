@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 461143469602724628}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &461143468751046656
 SpriteRenderer:
@@ -104,8 +104,8 @@ MonoBehaviour:
   interactSound: {fileID: 11400000, guid: 5ececcaf60583d54e82ce681f1f82403, type: 2}
   lockerPosition: {fileID: 461143468751046659}
   revealPosition: {fileID: 461143469602724628}
-  emptyLocker: {fileID: 1372038064, guid: 676e058b6d393064185ac980d20a278a, type: 3}
-  playerLocker: {fileID: 1721134738, guid: 676e058b6d393064185ac980d20a278a, type: 3}
+  emptyLockerSprite: {fileID: 1372038064, guid: 676e058b6d393064185ac980d20a278a, type: 3}
+  playerLockerSprite: {fileID: 1721134738, guid: 676e058b6d393064185ac980d20a278a, type: 3}
 --- !u!61 &461143468751046657
 BoxCollider2D:
   m_ObjectHideFlags: 0

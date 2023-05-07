@@ -5,6 +5,7 @@
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Runtime.InteractionSystem
 {
@@ -13,11 +14,11 @@ namespace Runtime.InteractionSystem
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
 
-        [SerializeField] private Transform lockerPosition;
-        [SerializeField] private Transform revealPosition;
+        [SerializeField, Tooltip("The location to move the player when they enter the locker")] private Transform lockerPosition;
+        [SerializeField, Tooltip("The location to move the player when the exit the locker")] private Transform revealPosition;
         
-        [SerializeField] private Sprite emptyLocker;
-        [SerializeField] private Sprite playerLocker;
+        [SerializeField] private Sprite emptyLockerSprite;
+        [SerializeField] private Sprite playerLockerSprite;
         
         private SpriteRenderer _spriteRenderer;
 
@@ -33,14 +34,19 @@ namespace Runtime.InteractionSystem
             if (GameManager.Instance.PlayerController.isHiding)
             {
                 GameManager.Instance.PlayerController.RevealPlayer(revealPosition.position);
-                _spriteRenderer.sprite = emptyLocker;
+                _spriteRenderer.sprite = emptyLockerSprite;
             }
             else
             {
                 GameManager.Instance.PlayerController.HidePlayer(lockerPosition.position);
-                _spriteRenderer.sprite = playerLocker;
+                _spriteRenderer.sprite = playerLockerSprite;
             }
             
+            return true;
+        }
+        
+        public bool CanInteract()
+        {
             return true;
         }
     }
