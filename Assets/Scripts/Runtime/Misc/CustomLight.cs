@@ -1,19 +1,20 @@
-
 /****************************************************************
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+using Runtime.InteractionSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 namespace Runtime.Misc
 {
-    public class Light : MonoBehaviour
+    public class CustomLight : MonoBehaviour, IPowered
     {
         [SerializeField] private bool flicker;
         [SerializeField] private float minSpeed = 0.1f;
         [SerializeField] private float maxSpeed = 0.5f;
         [SerializeField] private new Light2D light;
+        [SerializeField] private bool startPowered;
         
         private float _timer;
         private AudioSource _audioSource;
@@ -22,6 +23,9 @@ namespace Runtime.Misc
 
         private void Awake()
         {
+            if(startPowered) PowerOn();
+            else PowerOff();
+            
             _audioSource = GetComponent<AudioSource>();
             _animator = GetComponent<Animator>();
         }
@@ -47,6 +51,19 @@ namespace Runtime.Misc
                 _timer = Random.Range(minSpeed, maxSpeed);
                 light.enabled = !light.enabled;
             }
+        }
+
+        public bool IsPowered { get; set; }
+        public void PowerOn()
+        {
+            light.enabled = true;
+            IsPowered = true;
+        }
+
+        public void PowerOff()
+        {
+            light.enabled = false;
+            IsPowered = false;
         }
     }
 }
