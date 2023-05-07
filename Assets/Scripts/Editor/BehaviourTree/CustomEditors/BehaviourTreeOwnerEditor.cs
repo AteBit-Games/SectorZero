@@ -1,5 +1,6 @@
 using Runtime.BehaviourTree;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace Editor.BehaviourTree.CustomEditors 
@@ -13,6 +14,15 @@ namespace Editor.BehaviourTree.CustomEditors
         {
             VisualElement root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
+            
+            var foldout = new Foldout
+            {
+                text = "Default Inspector",
+                value = false
+            };
+            InspectorElement.FillDefaultInspector(foldout, serializedObject, this);
+            root.Add(foldout);
+            
             return root;
         }
     }

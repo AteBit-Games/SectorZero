@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/Editor/CustomInspectorStyles.uss?fileID=7433441132597879392&amp;guid=31f6efb7b9ca653478a36740be2f9e3c&amp;type=3#CustomInspectorStyles" />
+    <ui:VisualElement name="VisualElement" class="property-group">
+        <ui:Label tabindex="-1" text="Dialogue References" display-tooltip-when-elided="true" name="header" />
+        <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <uie:PropertyField binding-path="dialogueTextElement" name="property" />
+            <uie:PropertyField binding-path="actorNameTextElement" />
+            <uie:PropertyField binding-path="actorImage" />
+            <uie:PropertyField binding-path="inputReader" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="VisualElement" class="property-group">
+        <ui:Label tabindex="-1" text="Dialogue Settings" display-tooltip-when-elided="true" name="header" />
+        <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <uie:PropertyField binding-path="visibleText" name="property" />
+            <uie:PropertyField binding-path="textSpeed" name="property" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

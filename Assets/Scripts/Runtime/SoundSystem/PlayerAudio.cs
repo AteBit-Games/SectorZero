@@ -35,7 +35,7 @@ namespace Runtime.SoundSystem
             audioSource.volume = 0.5f;
             audioSource.PlayOneShot(DetermineSound());
             _noiseEmitter.Radius = joggingRange;
-            _noiseEmitter.EmitShot();
+            _noiseEmitter.EmitLocal();
             
             if(debug) ShowDebugSound(joggingRange);
         }
@@ -44,6 +44,9 @@ namespace Runtime.SoundSystem
         {
             audioSource.volume = 0.3f;
             audioSource.PlayOneShot(DetermineSound());
+            _noiseEmitter.Radius = sneakingRange;
+            _noiseEmitter.EmitLocal();
+            
             if(debug) ShowDebugSound(sneakingRange);
         }
 
