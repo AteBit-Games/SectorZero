@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Runtime.Utils;
+using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
@@ -7,9 +9,7 @@ namespace Editor.BehaviourTree
     public class InspectorView : VisualElement 
     {
         public new class UxmlFactory : UxmlFactory<InspectorView, UxmlTraits> { }
-
-        public InspectorView() { }
-
+        
         internal void UpdateSelection(SerializedBehaviourTree serializer, NodeView nodeView) 
         {
             Clear();
@@ -26,13 +26,42 @@ namespace Editor.BehaviourTree
             descriptionLabel.text = nodeView.node.Description;
             
             nodeProperty.isExpanded = true;
-            
-            PropertyField field = new PropertyField
+
+            foreach (var child in GetChildren(nodeProperty))
             {
-                label = nodeProperty.managedReferenceValue.GetType().ToString()
-            };
-            field.BindProperty(nodeProperty);
-            Add(field);
+                if (child.name == "m_Script") continue;
+                var propertyField = new PropertyField(child);
+                propertyField.Bind(child.serializedObject);
+                Add(propertyField);
+            }
+        }
+
+        private static IEnumerable<SerializedProperty> GetChildren(SerializedProperty property)
+        {
+            property = property.Copy();
+            var nextElement = property.Copy();
+            bool hasNextElement = nextElement.NextVisible(false);
+            if (!hasNextElement)
+            {
+                nextElement = null;
+            }
+
+            property.NextVisible(true);
+            while (true)
+            {
+                if ((SerializedProperty.EqualContents(property, nextElement)))
+                {
+                    yield break;
+                }
+
+                yield return property;
+
+                bool hasNext = property.NextVisible(false);
+                if (!hasNext)
+                {
+                    break;
+                }
+            }
         }
     }
 }

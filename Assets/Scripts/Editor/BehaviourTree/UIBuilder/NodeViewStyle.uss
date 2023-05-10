@@ -25,10 +25,10 @@
 }
 
 #selection-border {
-    border-left-color: rgb(37, 210, 238);
-    border-right-color: rgb(37, 210, 238);
-    border-top-color: rgb(37, 210, 238);
-    border-bottom-color: rgb(37, 210, 238);
+    border-left-color: rgb(92, 245, 255);
+    border-right-color: rgb(92, 245, 255);
+    border-top-color: rgb(92, 245, 255);
+    border-bottom-color: rgb(92, 245, 255);
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
