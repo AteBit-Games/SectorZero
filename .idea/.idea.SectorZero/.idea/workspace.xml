@@ -15,6 +15,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/71077fac2f1f46619bbfc4e6592b25083dc00/7f/4dc80225/SearchTreeEntry.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/71077fac2f1f46619bbfc4e6592b25083dc00/98/737eb221/SearchTreeGroupEntry.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/93a8f82184b4439ca5abff025375fe32564da0/85/08209ee1/MemberInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f2dfce7cc2b54f0da241b15d575ce07316dc00/00/8794a1ee/Resolution.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/AI/SentinelInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/DialogueSystem/DialogueManagerInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/AI/Sentinel.cs" root0="FORCE_HIGHLIGHTING" />
@@ -25,6 +26,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InteractionSystem/IPowered.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InteractionSystem/Items/Pickup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Managers/LightManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Managers/SettingsMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/SoundSystem/PlayerAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.4/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.5/Runtime/2D/Light2DShape.cs" root0="SKIP_HIGHLIGHTING" />
@@ -56,6 +58,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../SectorZero_Build\Sector Zero.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\steam\Desktop\SectorZero_Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.2.4f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\steam\Desktop\SectorZero -debugCodeOptimization" />
@@ -117,6 +127,10 @@
       <workItem from="1683187353789" duration="612000" />
       <workItem from="1683217336507" duration="15051000" />
       <workItem from="1683398210427" duration="10051000" />
+      <workItem from="1683833476054" duration="4436000" />
+      <workItem from="1683840574485" duration="475000" />
+      <workItem from="1683920508291" duration="3328000" />
+      <workItem from="1683976968222" duration="14171000" />
     </task>
     <servers />
   </component>

@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8917896545657216772
 MonoBehaviour:
@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abab5537a97f7e9498233a8a6948cc16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuClickSound: {fileID: 11400000, guid: ee71ebac7b9200b4c84687a87519b73a, type: 2}
   inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
-  isMainMenu: 1
-  testMode: 0
+  isMainMenu: 0
+  testMode: 1
 --- !u!114 &381558948670293325
 MonoBehaviour:
   m_ObjectHideFlags: 0

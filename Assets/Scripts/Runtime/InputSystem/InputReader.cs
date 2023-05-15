@@ -4,7 +4,6 @@
 ****************************************************************/
 using System;
 using Runtime.Managers;
-using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,9 +27,8 @@ namespace Runtime.InputSystem
         }
 
         public event Action PauseEvent;
-        public event Action ResumeEvent;
         public event Action OpenInventoryEvent;
-        public event Action CloseInventoryEvent;
+        public event Action CloseUIEvent;
 
         public event Action<Vector2> MoveEvent;
         public event Action LeftClickEvent;
@@ -53,6 +51,21 @@ namespace Runtime.InputSystem
             {
                 LeftClickEvent?.Invoke();
             }
+        }
+
+        public void OnRightClick(InputAction.CallbackContext context)
+        {
+            
+        }
+
+        public void OnSecondaryClick(InputAction.CallbackContext context)
+        {
+            
+        }
+
+        public void OnMiddleClick(InputAction.CallbackContext context)
+        {
+            
         }
 
         public void OnSneak(InputAction.CallbackContext context)
@@ -100,10 +113,7 @@ namespace Runtime.InputSystem
         {
             if(context.phase == InputActionPhase.Performed)
             {
-                ResumeEvent?.Invoke();
-                CloseInventoryEvent?.Invoke();
-                SetGameplay();
-                GameManager.Instance.SoundSystem.ResumeAll();
+                CloseUIEvent?.Invoke();
             }
         }
 
@@ -121,27 +131,22 @@ namespace Runtime.InputSystem
         {
             
         }
-        
+
+        public void OnPrimaryClick(InputAction.CallbackContext context)
+        {
+            
+        }
+
         public void SetGameplay()
         {
             _playerInput.Gameplay.Enable();
             _playerInput.UI.Disable();
         }
         
-        private void SetUI()
+        public void SetUI()
         {
             _playerInput.UI.Enable();
             _playerInput.Gameplay.Disable();
-        }
-
-        public void DisableInput()
-        {
-            _playerInput.Disable();
-        }
-
-        public void EnableInput()
-        {
-            _playerInput.Enable();
         }
     }
 }

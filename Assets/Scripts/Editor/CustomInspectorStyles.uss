@@ -46,3 +46,17 @@
     -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
     font-size: 16px;
 }
+
+#open-button {
+    background-color: rgb(81, 113, 110);
+    -unity-font: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
+    font-size: 16px;
+}
+
+#open-button:hover {
+    background-color: rgb(60, 101, 97);
+}
+
+.divider {
+}

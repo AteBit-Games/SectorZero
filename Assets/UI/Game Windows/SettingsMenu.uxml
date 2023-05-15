@@ -1,0 +1,53 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
+    <ui:VisualElement name="settings-window" style="visibility: visible; display: none; flex-grow: 1; align-items: stretch;">
+        <ui:VisualElement name="settings-container" style="flex-grow: 1; align-items: stretch; justify-content: flex-end;">
+            <ui:VisualElement name="control-group" style="flex-grow: 1; position: absolute; bottom: 50px; left: 100px; align-items: flex-start; overflow: visible; opacity: 1; visibility: visible;">
+                <ui:VisualElement name="settingsGroup" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-bottom: 30px;">
+                    <ui:Label tabindex="-1" text="Display" display-tooltip-when-elided="true" name="group-heading" style="color: rgb(62, 95, 154);" />
+                    <ui:VisualElement name="display-mode" focusable="true" class="selection">
+                        <ui:Label tabindex="-1" text="Mode" display-tooltip-when-elided="true" name="Label" />
+                        <ui:VisualElement name="container" class="setting-item">
+                            <ui:Button text="&lt;" display-tooltip-when-elided="true" name="left-button" class="setting-button" />
+                            <ui:Label tabindex="-1" text="Windowed" display-tooltip-when-elided="true" name="setting-value" style="width: auto; flex-grow: 1; -unity-text-align: middle-center;" />
+                            <ui:Button text="&gt;" display-tooltip-when-elided="true" name="right-button" class="setting-button" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="screen-resolution" focusable="true" class="selection">
+                        <ui:Label tabindex="-1" text="Resolution" display-tooltip-when-elided="true" name="Label" />
+                        <ui:VisualElement name="container" class="setting-item">
+                            <ui:Button text="&lt;" display-tooltip-when-elided="true" name="left-button" class="setting-button" />
+                            <ui:Label tabindex="-1" text="1920x1080" display-tooltip-when-elided="true" name="setting-value" style="width: auto; flex-grow: 1; -unity-text-align: middle-center;" />
+                            <ui:Button text="&gt;" display-tooltip-when-elided="true" name="right-button" class="setting-button" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="vertical-sync" focusable="true" class="selection">
+                        <ui:Label tabindex="-1" text="Vertical Sync" display-tooltip-when-elided="true" name="Label" />
+                        <ui:VisualElement name="container" class="setting-item">
+                            <ui:Button text="&lt;" display-tooltip-when-elided="true" name="left-button" class="setting-button" />
+                            <ui:Label tabindex="-1" text="Off" display-tooltip-when-elided="true" name="setting-value" style="width: auto; flex-grow: 1; -unity-text-align: middle-center;" />
+                            <ui:Button text="&gt;" display-tooltip-when-elided="true" name="right-button" class="setting-button" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="settingsGroup" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-bottom: 30px;">
+                    <ui:Label tabindex="-1" text="Audio" display-tooltip-when-elided="true" name="group-heading" style="color: rgb(62, 95, 154);" />
+                    <ui:VisualElement name="master-slider" focusable="true" class="slider">
+                        <ui:Label tabindex="-1" text="Master" display-tooltip-when-elided="true" name="Label" />
+                        <ui:Slider picking-mode="Ignore" value="0.6" high-value="1" name="slider" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="sound-slider" focusable="true" class="slider">
+                        <ui:Label tabindex="-1" text="Sounds" display-tooltip-when-elided="true" name="Label" />
+                        <ui:Slider picking-mode="Ignore" value="0.35" high-value="1" name="slider" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="music-slider" focusable="true" class="slider">
+                        <ui:Label tabindex="-1" text="Music" display-tooltip-when-elided="true" name="Label" />
+                        <ui:Slider picking-mode="Ignore" value="0.8" high-value="1" name="slider" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="undeline" style="flex-grow: 1; background-color: rgb(255, 255, 255); width: 550px; height: 4px;" />
+                <ui:Label tabindex="-1" text="Switch between different screen modes" display-tooltip-when-elided="true" name="setting-description" style="-unity-font: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 35px; color: rgb(255, 255, 255); padding-top: 0; margin-top: 2px; margin-left: 3px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
