@@ -4,21 +4,22 @@
 ****************************************************************/
 using System.Collections;
 using Runtime.InputSystem;
-using TMPro;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Runtime.DialogueSystem
 {
     public class DialogueManager : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI dialogueTextElement;
-        [SerializeField] private TextMeshProUGUI actorNameTextElement;
-        [SerializeField] private Image actorImage;
         [SerializeField] private InputReader inputReader;
-        
         [SerializeField, Range(0, 1), Tooltip("The percentage of text on the screen, used to simulate the typewriter effect")] private float visibleText;
         [SerializeField, Tooltip("Speed the text is 'typed' onto the screen")] private float textSpeed = 0.05f;
+        
+        private Label _dialogueTextElement;
+        private Label _actorNameTextElement;
+        private VisualElement _actorImage;
+        private VisualElement _dialogueContainer;
+        private UIDocument _uiDocument;
         
         private float _totalTimeToType, _currentTime;
         private string _currentText;
@@ -26,7 +27,17 @@ namespace Runtime.DialogueSystem
         private Dialogue _currentDialogue;
         private int _currentLineIndex;
         private Coroutine _currentRoutine;
-        private bool IsShowing => gameObject.activeSelf;
+        private bool IsShowing => _dialogueContainer.style.display == DisplayStyle.Flex;
+
+        private void Awake()
+        {
+            _uiDocument = GetComponent<UIDocument>();
+            var rootVisualElement = _uiDocument.rootVisualElement;
+            _dialogueTextElement = rootVisualElement.Q<Label>("dialogue-text");
+            _actorNameTextElement = rootVisualElement.Q<Label>("actor-name");
+            _actorImage = rootVisualElement.Q<VisualElement>("portrait-image");
+            _dialogueContainer = rootVisualElement.Q<VisualElement>("dialogue-window");
+        }
 
         private void OnEnable()
         {
@@ -43,15 +54,14 @@ namespace Runtime.DialogueSystem
             Show(true);
             _currentDialogue = dialogue;
             _currentLineIndex = 0;
-            actorNameTextElement.text = dialogue.actor.Name;
-            actorImage.sprite = dialogue.actor.Sprite;
+            _actorNameTextElement.text = dialogue.actor.Name;
+            _actorImage.style.backgroundImage = new StyleBackground(dialogue.actor.Sprite);
             CycleText();
         }
         
         private void Update()
         {
-            if(!IsShowing) return;
-            if (visibleText >= 1) return;
+            if(!IsShowing || visibleText >= 1) return;
             _currentTime += Time.deltaTime;
             visibleText = _currentTime / _totalTimeToType;
             UpdateText();
@@ -61,16 +71,18 @@ namespace Runtime.DialogueSystem
         {
             // Update the text over time to simulate the typewriter effect
             var visibleCharacters = (int)(_currentText.Length * Mathf.Clamp01(visibleText));
-            dialogueTextElement.text = _currentText[..visibleCharacters];
+            _dialogueTextElement.text = _currentText[..visibleCharacters];
             if (visibleCharacters >= _currentText.Length)
             {
-                dialogueTextElement.text = _currentText;
+                _dialogueTextElement.text = _currentText;
             }
         }
 
         private void PushText()
         {
-            // If the text is already fully visible, push the next line
+            if(!IsShowing) return;
+            
+            // If the current line is the last line, hide the dialogue box
             if(visibleText < 1)
             {
                 visibleText = 1;
@@ -79,10 +91,10 @@ namespace Runtime.DialogueSystem
             }
             
             // If the current line is the last line, hide the dialogue box
-            if(_currentLineIndex >= _currentDialogue.lines.Count) Show(false);
+            if (_currentLineIndex >= _currentDialogue.lines.Count) Show(false);
             else CycleText();
         }
-        
+
         private void CycleText()
         {
             // Stop the current line being typed
@@ -92,7 +104,7 @@ namespace Runtime.DialogueSystem
             _totalTimeToType = _currentText.Length * textSpeed;
             _currentTime = 0;
             visibleText = 0;
-            dialogueTextElement.text = "";
+            _dialogueTextElement.text = "";
             _currentLineIndex++;
             
             _currentRoutine = StartCoroutine(WaitForDialogue(_totalTimeToType + 2f));
@@ -100,7 +112,7 @@ namespace Runtime.DialogueSystem
 
         private void Show(bool show)
         {
-            gameObject.SetActive(show);
+            _dialogueContainer.style.display = show ? DisplayStyle.Flex : DisplayStyle.None;
         }
         
         private IEnumerator WaitForDialogue(float time)

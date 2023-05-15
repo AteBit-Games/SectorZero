@@ -5,31 +5,98 @@
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 namespace Runtime.Managers
 {
     public class MainMenu : MonoBehaviour
     {
-        #region Header BUTTON
-        [Space(10)]
-        [Header("BUTTON REFERENCE")]
-        #endregion
-        [SerializeField] private Button continueButton;
+        [HideInInspector] public bool isSettingsOpen;
+
+        // Main Pause Items
+        private Label _buttonDescription;
+        private Button _continueButton;
+        private Button _newGameButton;
+        private Button _settingsButton;
+        private Button _quitButton;
+        private VisualElement _mainMenuWindow;
+        private UIDocument _uiDocument;
+        
+        // Settings Items
+        private VisualElement _settingsWindow;
         
         private void Start()
         {
-            continueButton.interactable = GameManager.Instance.SaveSystem.saveExists; 
+            _uiDocument = GetComponent<UIDocument>();
+            var rootVisualElement = _uiDocument.rootVisualElement;
+            
+            _buttonDescription = rootVisualElement.Q<Label>("button-description");
+            _mainMenuWindow = rootVisualElement.Q<VisualElement>("main-menu-window");
+            _settingsWindow = rootVisualElement.Q<VisualElement>("settings-window");
+            
+            // Main Menu Items
+            _continueButton = rootVisualElement.Q<Button>("continue");
+            SetButtonState(_continueButton, GameManager.Instance.SaveSystem.saveExists);
+            _continueButton.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                LoadGame();
+            });
+            _continueButton.RegisterCallback<MouseEnterEvent>(_ => {
+                _buttonDescription.text = "Continue from the last checkpoint";
+            });
+
+            _newGameButton = rootVisualElement.Q<Button>("new-game");
+            _newGameButton.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                StartNewGame();
+            });
+            _newGameButton.RegisterCallback<MouseEnterEvent>(_ => {
+                _buttonDescription.text = "Start a new game";
+            });
+            
+            _settingsButton = rootVisualElement.Q<Button>("settings");
+            _settingsButton.RegisterCallback<ClickEvent>(_ =>
+            {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                OpenSettings();
+            });
+            _settingsButton.RegisterCallback<MouseEnterEvent>(_ => {
+                _buttonDescription.text = "Change the game settings";
+            });
+            
+            _quitButton = rootVisualElement.Q<Button>("quit");
+            _quitButton.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                QuitGame();
+            });
+            _quitButton.RegisterCallback<MouseEnterEvent>(_ => {
+                _buttonDescription.text = "Quit the game";
+            });
         }
         
-        public void StartNewGame()
+        public void OpenSettings()
+        {
+            _mainMenuWindow.style.display = DisplayStyle.None;
+            _settingsWindow.style.display = DisplayStyle.Flex;
+            isSettingsOpen = true;
+        }
+        
+        public void CloseSettings()
+        {
+            _mainMenuWindow.style.display = DisplayStyle.Flex;
+            _settingsWindow.style.display = DisplayStyle.None;
+            isSettingsOpen = false;
+        }
+
+        public static void StartNewGame()
         {
             GameManager.Instance.SaveSystem.NewGame();
             GameManager.Instance.isMainMenu = false;
+            GameManager.Instance.ResetInput();
             SceneManager.LoadScene(1);
         }
         
-        public void LoadGame()
+        public static void LoadGame()
         {
             GameManager.Instance.isMainMenu = false;
             GameManager.Instance.SaveSystem.LoadGame();
@@ -40,9 +107,15 @@ namespace Runtime.Managers
             GameManager.Instance.SoundSystem.Play(sound);
         }
         
-        public void QuitGame()
+        public static void QuitGame()
         {
             Application.Quit();
+        }
+        
+        private static void SetButtonState(VisualElement button, bool state)
+        {
+            button.SetEnabled(state);
+            button.style.opacity = state ? 1 : 0.5f;
         }
     }
 }

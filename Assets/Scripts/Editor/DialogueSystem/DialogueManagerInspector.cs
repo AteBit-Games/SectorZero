@@ -19,6 +19,9 @@ namespace Editor.DialogueSystem
             VisualElement root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
             
+            var openScriptButton = root.Q<Button>("open-button");
+            openScriptButton.RegisterCallback<ClickEvent>(_ => CustomInspectorUtils.OpenScriptForEditor(target));
+            
             // Default inspector within
             var foldout = new Foldout
             {

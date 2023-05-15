@@ -1,0 +1,131 @@
+.button {
+    -unity-font: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    -unity-text-align: upper-left;
+    height: 35px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 3px;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: visible;
+}
+
+.button #side-item {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    height: 60%;
+    width: 8px;
+    left: -20px;
+    align-items: auto;
+    flex-grow: 1;
+    justify-content: flex-end;
+    visibility: hidden;
+}
+
+.button:hover #side-item {
+    visibility: hidden;
+}
+
+.button:hover {
+    color: rgb(169, 169, 169);
+}
+
+#group-heading {
+    font-size: 45px;
+    color: rgb(255, 255, 255);
+    -unity-font: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
+}
+
+.slider {
+    -unity-font: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
+    color: rgb(255, 255, 255);
+    font-size: 32px;
+    width: auto;
+    height: 35px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 5px;
+    flex-grow: 1;
+}
+
+.slider #slider {
+    width: 360px;
+    padding-left: 100px;
+}
+
+.slider #Label {
+    width: 150px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.selection {
+    width: auto;
+    height: 35px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 5px;
+    flex-grow: 1;
+    align-self: center;
+}
+
+.selection #Label {
+    width: 175px;
+    font-size: 32px;
+    -unity-font: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
+    color: rgb(255, 255, 255);
+    justify-content: center;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.setting-item {
+    padding-left: 65px;
+    width: 355px;
+    flex-direction: row;
+    font-size: 32px;
+    -unity-font: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
+    color: rgb(255, 255, 255);
+}
+
+.setting-item .setting-button {
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    width: 5px;
+}
+
+.setting-item .setting-button:hover {
+    color: rgb(169, 169, 169);
+}

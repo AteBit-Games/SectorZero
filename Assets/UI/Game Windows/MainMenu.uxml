@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="SettingsMenu" src="project://database/Assets/UI/Game%20Windows/SettingsMenu.uxml?fileID=9197481963319205126&amp;guid=013bfde6f25a18849b895653dad64b67&amp;type=3#SettingsMenu" />
+    <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
+    <ui:VisualElement name="main-menu-window" style="visibility: visible; display: flex; flex-grow: 1; align-items: stretch;">
+        <ui:VisualElement name="main-menu-container" style="flex-grow: 1; align-items: stretch; justify-content: flex-end;">
+            <ui:VisualElement name="control-group" style="flex-grow: 1; position: absolute; bottom: 50px; left: 100px; align-items: flex-start; overflow: visible; opacity: 1; visibility: visible;">
+                <ui:VisualElement name="button-group" style="background-color: rgba(0, 0, 0, 0); margin-bottom: 30px; flex-grow: 1; width: 206px;">
+                    <ui:Button text="Continue" display-tooltip-when-elided="true" name="continue" class="button" style="width: 116px;">
+                        <ui:VisualElement name="side-item" />
+                    </ui:Button>
+                    <ui:Button text="New Game" display-tooltip-when-elided="true" name="new-game" class="button" />
+                    <ui:Button text="Settings" display-tooltip-when-elided="true" name="settings" enable-rich-text="false" class="button" style="width: 112px;" />
+                    <ui:Button text="Quit Game&#10;" display-tooltip-when-elided="true" name="quit" class="button" style="width: 126px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="undeline" style="flex-grow: 1; background-color: rgb(255, 255, 255); width: 550px; height: 4px;" />
+                <ui:Label tabindex="-1" text="Start a new game" display-tooltip-when-elided="true" name="button-description" style="-unity-font: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 35px; color: rgb(255, 255, 255); padding-top: 0; margin-top: 2px; margin-left: 3px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Instance template="SettingsMenu" name="SettingsMenu" />
+</ui:UXML>

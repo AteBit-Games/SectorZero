@@ -8,6 +8,7 @@ using Runtime.InputSystem;
 using Runtime.Player;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
+using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,10 +22,10 @@ namespace Runtime.Managers
         [Space(10)]
         [Header("ASSET REFERENCES")]
         #endregion
+        [SerializeField] private Sound menuClickSound;
         [SerializeField] private InputReader inputReader;
         [SerializeField] public bool isMainMenu;
-        
-        
+
         #region Header DEBUG
         [Space(10)]
         [Header("DEBUG")]
@@ -46,7 +47,6 @@ namespace Runtime.Managers
                 Destroy(gameObject);
                 return;
             }
-        
             Instance = this;
             Instance.SoundSystem = GetComponent<SoundManager>();
             Instance.SaveSystem = GetComponent<SaveManager>();
@@ -63,18 +63,18 @@ namespace Runtime.Managers
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
             inputReader.PauseEvent += HandlePause;
-            inputReader.ResumeEvent += HandleResume;
             inputReader.OpenInventoryEvent += OpenInventoryWindow;
-            inputReader.CloseInventoryEvent += CloseInventoryWindow;
+            inputReader.CloseUIEvent += CloseInventoryWindow;
+            inputReader.CloseUIEvent += HandleEscape;
         }
-        
+
         private void OnDisable()
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
             inputReader.PauseEvent -= HandlePause;
-            inputReader.ResumeEvent -= HandleResume;
             inputReader.OpenInventoryEvent -= OpenInventoryWindow;
-            inputReader.CloseInventoryEvent -= CloseInventoryWindow;
+            inputReader.CloseUIEvent -= CloseInventoryWindow;
+            inputReader.CloseUIEvent -= HandleEscape;
         }
 
         private void CloseInventoryWindow()
@@ -95,25 +95,55 @@ namespace Runtime.Managers
             PauseMenu.Pause();
         }
         
-        private void HandleResume()
+        private void HandleEscape()
         {
-            if(isMainMenu) return;
-            PauseMenu.Resume();
+            if (isMainMenu)
+            {
+                var mainMenu = FindObjectOfType<MainMenu>(true);
+                if (mainMenu.isSettingsOpen)
+                {
+                    mainMenu.CloseSettings();
+                    inputReader.SetUI();
+                }
+            }
+            else if(PauseMenu.isPaused)
+            {
+                if(PauseMenu.isSettingsOpen)
+                {
+                    PauseMenu.CloseSettings();
+                    inputReader.SetUI();
+                    Time.timeScale = 0f;
+                }
+                else
+                {
+                    PauseMenu.Resume();
+                }
+            }
         }
 
         public void ResetInput()
         {
             inputReader.SetGameplay();
         }
-        
+
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            if(isMainMenu) return;
+            if (isMainMenu)
+            {
+                Debug.Log("Main Menu Loaded");
+                inputReader.SetUI();
+                return;
+            }
             
             DialogueSystem = FindObjectOfType<DialogueManager>(true);
             InventorySystem = FindObjectOfType<InventoryManager>(true);
             PauseMenu = FindObjectOfType<PauseMenu>(true);
             PlayerController = FindObjectOfType<PlayerController>(true);
+        }
+        
+        public Sound ClickSound()
+        {
+            return menuClickSound;
         }
     }
 }

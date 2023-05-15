@@ -397,6 +397,33 @@ namespace Runtime.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PrimaryClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""fd0b6416-0702-46cf-90cf-3534bc996da1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondaryClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""c6759e72-cbff-49e8-bae9-ac5190c59b13"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MiddleClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9bfe44e-2510-405e-84dc-69abba599846"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -674,6 +701,39 @@ namespace Runtime.InputSystem
                     ""action"": ""ScrollWheel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ad5615b-6de3-482e-a436-4d98df89c87b"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04e19a96-2c0f-49b5-8422-7313447340d0"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondaryClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb5faa0f-714d-4fd2-9c09-e5b5b75cf46d"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MiddleClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -757,6 +817,9 @@ namespace Runtime.InputSystem
             m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
             m_UI_Select = m_UI.FindAction("Select", throwIfNotFound: true);
             m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
+            m_UI_PrimaryClick = m_UI.FindAction("PrimaryClick", throwIfNotFound: true);
+            m_UI_SecondaryClick = m_UI.FindAction("SecondaryClick", throwIfNotFound: true);
+            m_UI_MiddleClick = m_UI.FindAction("MiddleClick", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -902,6 +965,9 @@ namespace Runtime.InputSystem
         private readonly InputAction m_UI_Point;
         private readonly InputAction m_UI_Select;
         private readonly InputAction m_UI_ScrollWheel;
+        private readonly InputAction m_UI_PrimaryClick;
+        private readonly InputAction m_UI_SecondaryClick;
+        private readonly InputAction m_UI_MiddleClick;
         public struct UIActions
         {
             private @PlayerInput m_Wrapper;
@@ -911,6 +977,9 @@ namespace Runtime.InputSystem
             public InputAction @Point => m_Wrapper.m_UI_Point;
             public InputAction @Select => m_Wrapper.m_UI_Select;
             public InputAction @ScrollWheel => m_Wrapper.m_UI_ScrollWheel;
+            public InputAction @PrimaryClick => m_Wrapper.m_UI_PrimaryClick;
+            public InputAction @SecondaryClick => m_Wrapper.m_UI_SecondaryClick;
+            public InputAction @MiddleClick => m_Wrapper.m_UI_MiddleClick;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -935,6 +1004,15 @@ namespace Runtime.InputSystem
                     @ScrollWheel.started -= m_Wrapper.m_UIActionsCallbackInterface.OnScrollWheel;
                     @ScrollWheel.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnScrollWheel;
                     @ScrollWheel.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnScrollWheel;
+                    @PrimaryClick.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPrimaryClick;
+                    @PrimaryClick.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPrimaryClick;
+                    @PrimaryClick.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPrimaryClick;
+                    @SecondaryClick.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSecondaryClick;
+                    @SecondaryClick.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSecondaryClick;
+                    @SecondaryClick.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSecondaryClick;
+                    @MiddleClick.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMiddleClick;
+                    @MiddleClick.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMiddleClick;
+                    @MiddleClick.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMiddleClick;
                 }
                 m_Wrapper.m_UIActionsCallbackInterface = instance;
                 if (instance != null)
@@ -954,6 +1032,15 @@ namespace Runtime.InputSystem
                     @ScrollWheel.started += instance.OnScrollWheel;
                     @ScrollWheel.performed += instance.OnScrollWheel;
                     @ScrollWheel.canceled += instance.OnScrollWheel;
+                    @PrimaryClick.started += instance.OnPrimaryClick;
+                    @PrimaryClick.performed += instance.OnPrimaryClick;
+                    @PrimaryClick.canceled += instance.OnPrimaryClick;
+                    @SecondaryClick.started += instance.OnSecondaryClick;
+                    @SecondaryClick.performed += instance.OnSecondaryClick;
+                    @SecondaryClick.canceled += instance.OnSecondaryClick;
+                    @MiddleClick.started += instance.OnMiddleClick;
+                    @MiddleClick.performed += instance.OnMiddleClick;
+                    @MiddleClick.canceled += instance.OnMiddleClick;
                 }
             }
         }
@@ -1020,6 +1107,9 @@ namespace Runtime.InputSystem
             void OnPoint(InputAction.CallbackContext context);
             void OnSelect(InputAction.CallbackContext context);
             void OnScrollWheel(InputAction.CallbackContext context);
+            void OnPrimaryClick(InputAction.CallbackContext context);
+            void OnSecondaryClick(InputAction.CallbackContext context);
+            void OnMiddleClick(InputAction.CallbackContext context);
         }
     }
 }
