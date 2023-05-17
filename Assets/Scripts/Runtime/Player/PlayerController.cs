@@ -128,21 +128,22 @@ namespace Runtime.Player
             transform.position = position;
         }
 
-        public void SetData(bool state)
+        private void SetData(bool state)
         {
             isHiding = !state;
             _movementAnimator.enabled = state;
             _spriteRenderer.enabled = state;
             _playerShadow.enabled = state;
         }
-        
-        public void DisableInput()
+
+        private void DisableInput()
         {
             inputReader.MoveEvent -= HandleMove;
             inputReader.SneakEvent -= HandleSneak;
+            _movementInput = Vector2.zero;
         }
 
-        public void EnableInput()
+        private void EnableInput()
         {
             inputReader.MoveEvent += HandleMove;
             inputReader.SneakEvent += HandleSneak;

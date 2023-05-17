@@ -14,7 +14,6 @@ namespace Runtime.BehaviourTree
     {
         [Tooltip("BehaviourTree asset to instantiate during Awake")] 
         public BehaviourTree behaviourTree;
-        public MonsterStates monsterState;
         [Tooltip("Run behaviour tree validation at startup")] 
         public bool validate = true;
         
@@ -30,7 +29,6 @@ namespace Runtime.BehaviourTree
         public GameObject sightVisualPrefab;
         [Tooltip("Colour of the view cone when the monster is idle"), SerializeField] private Color idleColour = new(0.0f, 0.0f, 0.0f, 150.0f);
         [Tooltip("Colour of the view cone when the monster spots the player"), SerializeField] private Color aggroColour = new(255.0f, 0.0f, 0.0f, 150.0f);
-        
         
         // ====================== Private Variables ======================
         private Material _material;
@@ -68,8 +66,7 @@ namespace Runtime.BehaviourTree
         {
             if (!behaviourTree || !Application.isPlaying) return;
 
-            BehaviourTree.Traverse(behaviourTree.rootNode, node =>
-            {
+            BehaviourTree.Traverse(behaviourTree.rootNode, node => {
                 if(node.drawGizmos) node.OnDrawGizmos();
             });
         }

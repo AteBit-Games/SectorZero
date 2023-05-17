@@ -16,11 +16,11 @@ namespace Runtime.BehaviourTree.Actions.Navigation
         }
         
         public PatrolMode patrolMode = PatrolMode.Random;
-        public NodeProperty<List<UnityEngine.GameObject>> targetList;
+        public NodeProperty<List<Collider2D>> targetList;
         public NodeProperty<float> speed = new(){Value = 4f};
         public NodeProperty<float> keepDistance = new(){Value = 0.1f};
-        public NodeProperty<float> patrolTimeOut = new(){Value = 10f};
-        
+        public NodeProperty<Collider2D> outRoom;
+
         private int _index = -1;
         private Vector3? _lastRequest;
 
@@ -52,7 +52,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
                 }
             }
             
-            var target = targetList.Value[_index];
+            outRoom.Value = targetList.Value[_index];
             context.agent.maxSpeed = speed.Value;
         }
 

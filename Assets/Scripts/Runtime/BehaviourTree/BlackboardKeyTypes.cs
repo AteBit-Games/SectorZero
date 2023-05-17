@@ -50,4 +50,7 @@ namespace Runtime.BehaviourTree {
     [Serializable]   
     public class Vector2Key : BlackboardKey<Vector2> { }
     
+    [Serializable]
+    public class ColliderList : BlackboardKey<List<Collider2D>> { }
+    
 }

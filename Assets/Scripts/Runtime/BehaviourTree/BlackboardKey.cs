@@ -15,7 +15,7 @@ namespace Runtime.BehaviourTree
             this.underlyingType = underlyingType;
             typeName = this.underlyingType.FullName;
         }
-
+        
         public void OnBeforeSerialize() 
         {
             typeName = underlyingType.AssemblyQualifiedName;

@@ -1,0 +1,468 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: ViodmaskDemo
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 6236232439545200640
+  nodes:
+  - rid: 6236232439545200640
+  - rid: 6236232439545200660
+  - rid: 6236232439545200662
+  - rid: 6236232439545200663
+  - rid: 6236232439545200664
+  - rid: 6236232439545200665
+  - rid: 6236232439545200679
+  - rid: 6236232439545200680
+  - rid: 6236232439545200681
+  - rid: 6236232440973885440
+  - rid: 6236232440973885441
+  - rid: 6236232440973885442
+  - rid: 6236232445669146624
+  - rid: 6236232445669146637
+  - rid: 6236232445669146638
+  - rid: 6236232445669146639
+  - rid: 6236232445669146641
+  - rid: 6236232445669146643
+  treeState: 1
+  blackboard:
+    keys:
+    - rid: 6236232439545200661
+    - rid: 6236232439545200641
+    - rid: 6236232439545200644
+    - rid: 6236232439545200658
+    - rid: 6236232439545200671
+    - rid: 6236232439545200675
+    - rid: 6236232439545200656
+    - rid: 6236232439545200657
+    - rid: 6236232439545200670
+    - rid: 6236232439545200655
+    - rid: 6236232445669146636
+    - rid: 6236232445669146640
+    - rid: 6236232445669146642
+  viewPosition: {x: 570, y: 14, z: 0}
+  viewScale: {x: 0.2842624, y: 0.2842624, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 6236232439545200640
+      type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 5dac699e-4f75-4682-894b-943a58b94bad
+        position: {x: 0, y: -20}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 6236232439545200662
+    - rid: 6236232439545200641
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 6236232439545200644
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: IsHiding
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 6236232439545200655
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: InvestigateLocation
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}
+    - rid: 6236232439545200656
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: LookDuration
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 2
+    - rid: 6236232439545200657
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: TimesToCheck
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 3
+    - rid: 6236232439545200658
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: DidSeeEnter
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 6236232439545200660
+      type: {class: Switch, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: eba8a110b74294143942a454b9ab5554
+        position: {x: 0, y: 200}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 6236232439545200663
+        - rid: 6236232439545200664
+        - rid: 6236232439545200665
+        index:
+          reference:
+            rid: 6236232439545200661
+          defaultValue: 0
+        interruptable: 1
+    - rid: 6236232439545200661
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: ActiveState
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 6236232439545200662
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c31c8d0d48dd74c4589f892f714a38f2
+        position: {x: 0, y: 80}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 6236232439545200660
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 6236232439545200663
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 9e28f699f0f807042b70c148853c5fae
+        position: {x: -960, y: 340}
+        blackboard:
+          keys: []
+        comment: Patrol State
+        drawGizmos: 0
+        child:
+          rid: 6236232440973885442
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 6236232439545200664
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 91597303de299904b8298f2dab1a0214
+        position: {x: 40, y: 340}
+        blackboard:
+          keys: []
+        comment: Alert State
+        drawGizmos: 0
+        child:
+          rid: -2
+        restartOnSuccess: 1
+        restartOnFailure: 0
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 6236232439545200665
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 29a6f5087f06a0e46b2c6ebf2c165af6
+        position: {x: 760, y: 340}
+        blackboard:
+          keys: []
+        comment: Aggro State
+        drawGizmos: 0
+        child:
+          rid: -2
+        restartOnSuccess: 1
+        restartOnFailure: 0
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 6236232439545200670
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: PatrolPoint
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}
+    - rid: 6236232439545200671
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Rooms
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 6236232439545200675
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: ActiveRoom
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 6236232439545200679
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 0e2bc20bfd0a45449abd77f35a81bc52
+        position: {x: -640, y: 600}
+        blackboard:
+          keys: []
+        comment: 'Search the room at random points
+
+'
+        drawGizmos: 0
+        child:
+          rid: 6236232439545200681
+        restartOnSuccess: 1
+        restartOnFailure: 0
+        maxRepeats:
+          reference:
+            rid: 6236232445669146636
+          defaultValue: 0
+    - rid: 6236232439545200680
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c3bbfcc3b543fd940a2af6e85cdf6f21
+        position: {x: -360, y: 860}
+        blackboard:
+          keys: []
+        comment: Idle for 2 seconds when reaching the point
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 2
+    - rid: 6236232439545200681
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c4ea7245bcc45f44fafc5f6a077be9c1
+        position: {x: -640, y: 720}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 6236232445669146638
+        - rid: 6236232445669146641
+        - rid: 6236232439545200680
+        - rid: 6236232445669146643
+    - rid: 6236232440973885440
+      type: {class: SelectPoint, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 4c6cbaf19fef70641bc98f95d7651724
+        position: {x: -1000, y: 1120}
+        blackboard:
+          keys: []
+        comment: Select a point in the room
+        drawGizmos: 0
+        room:
+          reference:
+            rid: 6236232439545200675
+          defaultValue: {fileID: 0}
+        outTarget:
+          reference:
+            rid: 6236232439545200670
+          defaultValue: {x: 0, y: 0}
+    - rid: 6236232440973885441
+      type: {class: Patrol, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ff86fc615cf7bc1468bc9b200918115e
+        position: {x: -1440, y: 600}
+        blackboard:
+          keys: []
+        comment: Move to a random room and update the active room index
+        drawGizmos: 0
+        patrolMode: 1
+        targetList:
+          reference:
+            rid: 6236232439545200671
+          defaultValue: []
+        speed:
+          reference:
+            rid: 6236232445669146642
+          defaultValue: 7
+        keepDistance:
+          reference:
+            rid: -2
+          defaultValue: 0.1
+        outRoom:
+          reference:
+            rid: 6236232439545200675
+          defaultValue: {fileID: 0}
+    - rid: 6236232440973885442
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d11f154402bcf0e42a60800b5eaca45a
+        position: {x: -960, y: 460}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 6236232440973885441
+        - rid: 6236232445669146624
+        - rid: 6236232439545200679
+    - rid: 6236232445669146624
+      type: {class: LookAround, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 020540c44026a4940a580a00a8cfcbe8
+        position: {x: -1180, y: 600}
+        blackboard:
+          keys: []
+        comment: When The room is reached, look around for a set number of times.
+        drawGizmos: 0
+        activeRoom:
+          reference:
+            rid: 6236232439545200675
+          defaultValue: {fileID: 0}
+        times:
+          reference:
+            rid: 6236232439545200657
+          defaultValue: 3
+        lookTime:
+          reference:
+            rid: 6236232439545200656
+          defaultValue: 2
+    - rid: 6236232445669146636
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: TimesToSearch
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 2
+    - rid: 6236232445669146637
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 32641dc512fe8df48ad035c87e6e96d7
+        position: {x: -860, y: 980}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 6236232440973885440
+        - rid: 6236232445669146639
+    - rid: 6236232445669146638
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 7774e6ab29602d0408b39792bd5b7af9
+        position: {x: -860, y: 860}
+        blackboard:
+          keys: []
+        comment: Try to find a valid point to move to.
+        drawGizmos: 0
+        child:
+          rid: 6236232445669146637
+        restartOnSuccess: 0
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: 6236232445669146640
+          defaultValue: 0
+    - rid: 6236232445669146639
+      type: {class: CheckValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 0a15aa24f88c26245b7b2a2cb1262232
+        position: {x: -740, y: 1120}
+        blackboard:
+          keys: []
+        comment: Check if the selected point is valid
+        drawGizmos: 0
+        position:
+          reference:
+            rid: 6236232439545200670
+          defaultValue: {x: 0, y: 0}
+    - rid: 6236232445669146640
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: MaxSearchTries
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 8
+    - rid: 6236232445669146641
+      type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f958e112a629bda4e980b5ea9dc0f15f
+        position: {x: -540, y: 860}
+        blackboard:
+          keys: []
+        comment: Move to the selected point
+        drawGizmos: 0
+        targetPosition:
+          reference:
+            rid: 6236232439545200670
+          defaultValue: {x: 0, y: 0}
+        speed:
+          reference:
+            rid: 6236232445669146642
+          defaultValue: 7
+    - rid: 6236232445669146642
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Speed
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 7
+    - rid: 6236232445669146643
+      type: {class: RandomFailure, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 17ec1d42d6198ed4d8e44d77c7cbda42
+        position: {x: -180, y: 860}
+        blackboard:
+          keys: []
+        comment: Have a chance to exit after moving to a point. Adding variable check
+          amounts
+        drawGizmos: 0
+        chanceOfFailure: 0.5
