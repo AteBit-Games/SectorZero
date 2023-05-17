@@ -1,13 +1,14 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Runtime.BehaviourTree.Actions.Debug 
 {
     [Serializable]
-    [Name("Log")]
+    [Name("Log Key")]
     [Category("Debug")]
-    [Description("Log a message to the console")]
-    public class Log : ActionNode 
+    [Description("Log a blackboard key value to the console")]
+    public class LogKey : ActionNode 
     {
         public enum LogType 
         {
@@ -18,9 +19,9 @@ namespace Runtime.BehaviourTree.Actions.Debug
         
         [Tooltip("Type of message to log")]
         public LogType logType = LogType.Log;
-        
+
         [Tooltip("Message to log to the console")]
-        public NodeProperty<string> message = new();
+        public NodeProperty messageKey = new();
 
         protected override void OnStart() { }
 
@@ -31,13 +32,13 @@ namespace Runtime.BehaviourTree.Actions.Debug
             switch (logType) 
             {
                 case LogType.Log:
-                    UnityEngine.Debug.Log(message.Value);
+                    UnityEngine.Debug.Log( messageKey.reference);
                     break;
                 case LogType.Warning:
-                    UnityEngine.Debug.LogWarning(message.Value);
+                    UnityEngine.Debug.LogWarning(messageKey);
                     break;
                 case LogType.Error:
-                    UnityEngine.Debug.LogError(message.Value);
+                    UnityEngine.Debug.LogError(messageKey);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

@@ -4,72 +4,53 @@ using UnityEngine;
 namespace Runtime.BehaviourTree.Actions.GameObject 
 {
     [Serializable]
+    [Name("Look Around")]
+    [Category("GameObject")]
+    [Description("The agent looks around for a while.")]
     public class LookAround : ActionNode
     {
-        [Space(10)]
-        [Header("GENERAL PROPERTIES")]
-        [Tooltip("The layer mask of the target.")]
-        public NodeProperty<LayerMask> targetMask = new(){Value = -1};
-        [Tooltip("The layer mask of obstacles.")]
-        public NodeProperty<LayerMask> obstacleMask = new(){Value = -1};
-
-        [Space(10)]
-        [Header("SIGHT PROPERTIES")]
-        public NodeProperty<float> maxDistance = new(){Value = 50f};
-        [Tooltip("The view angle to use for the check.")]
-        public NodeProperty<float> viewAngle = new(){Value = 70f};
-        [Tooltip("Duration of the look around.")]
-        public float duration = 5f;
+        public NodeProperty<Collider2D> activeRoom;
+        public NodeProperty<int> times = new(){Value = 3};
+        public NodeProperty<float> lookTime = new(){Value = 2f};
         
-        [Space(10)]
-        [Header("OUTPUT PROPERTIES")]
-        [Tooltip("The direction the agent is looking at.")]
-        public NodeProperty<Vector2> lookDirection;
-        
-        private float _startTime;
+        private float _lookTime;
+        int _currentTimes;
 
         protected override void OnStart()
         {
-            _startTime = Time.time;
+            _lookTime = Time.time;
+            _currentTimes = 0;
+            activeRoom.Value.bounds.Expand(-5f);
         }
-    
+
         protected override void OnStop() { }
     
         protected override State OnUpdate() 
         {
-            // Let the agent look around for a while.
-            // if(Time.time - _startTime < duration)
-            // {
-            //     return State.Running;
-            // }
-            //
-            //
-            //
-            //
-            //
-            //
-            
+            if(_currentTimes >= times.Value)
+            {
+                return State.Success;
+            }
+
+            if (Time.time - _lookTime >= lookTime.Value)
+            {
+                _lookTime = Time.time;
+                var bounds = activeRoom.Value.bounds;
+                var x = UnityEngine.Random.Range(bounds.min.x, bounds.max.x);
+                var y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
+
+                var target = new Vector2(x, y);
+                var direction = target - (Vector2)context.agent.transform.position;
+
+                context.agent.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+                _currentTimes++;
+            }
+
             return State.Running;
         }
         
         protected override void OnReset() { }
-        
-        public override void OnDrawGizmos()
-        {
-            if(context != null && drawGizmos)
-            {
-                Gizmos.color = Color.white;
-                Gizmos.DrawWireSphere(context.transform.position, maxDistance.Value);
-                
-                // var halfFOV = viewAngle.Value / 2.0f;
-                // Vector3 direction = GetDirection() == Vector2.zero ? Vector2.right : GetDirection();
-                // var beginDirection = Quaternion.AngleAxis(-halfFOV, Vector3.forward) * direction;
-                // var endDirection = Quaternion.AngleAxis(halfFOV, Vector3.forward) * direction;
-                //
-                // Gizmos.color = Color.red;
-                // Gizmos.DrawLine(context.transform.position, context.transform.position + beginDirection * maxDistance.Value);
-                // Gizmos.DrawLine(context.transform.position, context.transform.position + endDirection * maxDistance.Value);
-            }
-        }
+
+        public override void OnDrawGizmos() { }
     }
 }

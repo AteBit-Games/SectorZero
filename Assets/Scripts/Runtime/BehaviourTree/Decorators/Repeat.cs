@@ -11,7 +11,7 @@ namespace Runtime.BehaviourTree.Decorators
     {
         [Tooltip("Restarts the subtree on success")] public bool restartOnSuccess = true;
         [Tooltip("Restarts the subtree on failure")] public bool restartOnFailure;
-        [Tooltip("Maximum number of times the subtree will be repeated. Set to 0 to loop forever")] public int maxRepeats;
+        [Tooltip("Maximum number of times the subtree will be repeated. Set to 0 to loop forever")] public NodeProperty<int> maxRepeats;
 
         private int iterationCount;
 
@@ -37,7 +37,7 @@ namespace Runtime.BehaviourTree.Decorators
                     if (restartOnFailure) 
                     {
                         iterationCount++;
-                        if (iterationCount == maxRepeats && maxRepeats > 0) return State.Failure;
+                        if (iterationCount == maxRepeats.Value && maxRepeats.Value > 0) return State.Failure;
                         return State.Running;
                     } 
                     return State.Failure;
@@ -46,7 +46,7 @@ namespace Runtime.BehaviourTree.Decorators
                     if (restartOnSuccess)
                     {
                         iterationCount++;
-                        if (iterationCount == maxRepeats && maxRepeats > 0) return State.Success;
+                        if (iterationCount == maxRepeats.Value && maxRepeats.Value > 0) return State.Success;
                         return State.Running;
                     } 
                     return State.Success;
@@ -62,6 +62,4 @@ namespace Runtime.BehaviourTree.Decorators
             iterationCount = 0;
         }
     }
-
-    
 }

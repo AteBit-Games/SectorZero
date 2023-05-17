@@ -5,7 +5,7 @@ namespace Runtime.BehaviourTree.Conditions.Navigation
     [Serializable]
     [Name("Has Path")]
     [Category("Navigation")]
-    [Description("Check if a path exists for the agent")]
+    [Description("Check if a path exists to a point.")]
     public class HasPath : ConditionNode
     {
         protected override void OnStart() { }

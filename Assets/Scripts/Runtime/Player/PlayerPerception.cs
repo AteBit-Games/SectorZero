@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,12 +6,11 @@ namespace Runtime.Player
 {
     public class PlayerPerception : MonoBehaviour
     {
-        [SerializeField] private float updateRate = 0.5f;
         [SerializeField] private LayerMask blockingLayers;
     
         private GameObject monster;
         private SpriteRenderer _spriteRenderer;
-        private Coroutine _perceptionCoroutine;
+        private bool _inRange;
         private LayerMask monsterLayer;
     
         private void Awake()
@@ -24,35 +24,28 @@ namespace Runtime.Player
         {
             if (other.gameObject == monster)
             {
-                _perceptionCoroutine = StartCoroutine(PerceptionCheck(other));
+                _inRange = true;
             }
         }
     
         private void OnTriggerExit2D(Collider2D other)
         {
-            //When monster exits perception trigger, stop coroutine
             if (other.gameObject == monster)
             {
-                if(_perceptionCoroutine != null) StopCoroutine(_perceptionCoroutine);
                 _spriteRenderer.enabled = false;
+                _inRange = false;
             }
         }
 
-        private IEnumerator PerceptionCheck(Component other)
+        private void Update()
         {
-            var dir = other.transform.position - transform.position;
-            var hit = Physics2D.Raycast(transform.position, dir, Mathf.Infinity, blockingLayers | monsterLayer);
-            if (hit.collider != null)
+            if (_inRange)
             {
-                Debug.Log("Hit: " + hit.collider.gameObject.name);
-                if(hit.collider.gameObject == monster)
-                {
-                    _spriteRenderer.enabled = true;
-                }
+                var dir = monster.transform.position - transform.position;
+                //linecast from player to monster to check if there is a wall in between
+                var hit = Physics2D.Linecast(transform.position, monster.transform.position, blockingLayers);
+                _spriteRenderer.enabled = hit.collider == null;
             }
-        
-            yield return new WaitForSeconds(updateRate);
-            _perceptionCoroutine = StartCoroutine(PerceptionCheck(other));
         }
     }
 }
