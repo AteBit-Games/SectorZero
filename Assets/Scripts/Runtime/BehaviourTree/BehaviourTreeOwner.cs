@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Runtime.AI;
 using Runtime.AI.Interfaces;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Runtime.BehaviourTree 
 {
@@ -26,6 +27,10 @@ namespace Runtime.BehaviourTree
         [Tooltip("Masks that contains the player character"), SerializeField] private LayerMask playerMask;
         [Tooltip("Maximum view distance"), SerializeField] private float viewRadius = 5.0f;
         [Tooltip("Maximum angle that the monster can see"), SerializeField, Range(0f, 360f)] private float viewAngle = 135.0f;
+        
+        [Header("SOUNDS")]
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private List<AudioClip> footstepSounds;
         
         public bool debug;
         public GameObject sightVisualPrefab;
@@ -131,6 +136,13 @@ namespace Runtime.BehaviourTree
         {
             angleDeg += _context.agent.transform.eulerAngles.z;
             return new Vector2(Mathf.Cos(angleDeg * Mathf.Deg2Rad), Mathf.Sin(angleDeg * Mathf.Deg2Rad));
+        }
+        
+        public void PlayFootstepSound()
+        {
+            audioSource.volume = 0.12f;
+            var sound = footstepSounds[Random.Range(0, footstepSounds.Count)];
+            audioSource.PlayOneShot(sound);
         }
 
         // ====================== Private Methods ======================

@@ -32,7 +32,7 @@ namespace Runtime.SoundSystem
 
         public void PlayFootstepSound()
         {
-            audioSource.volume = 0.5f;
+            audioSource.volume = 0.12f;
             audioSource.PlayOneShot(DetermineSound());
             _noiseEmitter.Radius = joggingRange;
             _noiseEmitter.EmitLocal();
@@ -42,7 +42,7 @@ namespace Runtime.SoundSystem
 
         public void PlaySneakSound()
         {
-            audioSource.volume = 0.3f;
+            audioSource.volume = 0.06f;
             audioSource.PlayOneShot(DetermineSound());
             _noiseEmitter.Radius = sneakingRange;
             _noiseEmitter.EmitLocal();
