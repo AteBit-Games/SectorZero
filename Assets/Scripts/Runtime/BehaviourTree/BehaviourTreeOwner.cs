@@ -2,6 +2,8 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
+using System;
 using System.Collections.Generic;
 using Runtime.AI;
 using Runtime.AI.Interfaces;
@@ -34,6 +36,9 @@ namespace Runtime.BehaviourTree
         private Material _material;
         private bool _canSeePlayer;
         private Context _context;
+        private BlackboardKey<int> _stateReference;
+        private BlackboardKey<int> _alertSourceReference;
+        private BlackboardKey<Vector2> _investigateLocationReference;
 
         // ====================== Unity Events ======================
         
@@ -55,6 +60,10 @@ namespace Runtime.BehaviourTree
             GameObject sightVisual = Instantiate(sightVisualPrefab, transform);
             _material = sightVisual.GetComponent<MeshRenderer>().material;
             _material.color = idleColour;
+            
+            _stateReference = FindBlackboardKey<int>("ActiveState");
+            _alertSourceReference = FindBlackboardKey<int>("AlertSource");
+            _investigateLocationReference = FindBlackboardKey<Vector2>("InvestigateLocation");
         }
 
         private void Update() 
@@ -81,6 +90,9 @@ namespace Runtime.BehaviourTree
         public void OnHearing(NoiseEmitter sender)
         {
             Debug.Log($"{gameObject.name} heard {sender.gameObject.name}");
+            _investigateLocationReference.value = sender.transform.position;
+            _stateReference.value = 1;
+            _alertSourceReference.value = 0;
         }
         
         public void OnSightEnter()

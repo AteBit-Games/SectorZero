@@ -11,15 +11,16 @@
     
     public enum MonsterStates
     {
-        Idle,
-        Patrol,
-        Attack,
-        Flee,
-        Suspicious,
-        Search,
-        Wander,
-        Alert,
-        InvestigateSound,
-        InvestigateSight,
+        Idle = 0,
+        Alert = 1,
+        Aggro = 2,
+        // Patrol,
+        // Attack,
+        // Flee,
+        // Suspicious,
+        // Search,
+        // Wander,
+        // InvestigateSound,
+        // InvestigateSight,
     }
 }
