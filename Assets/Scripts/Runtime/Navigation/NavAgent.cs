@@ -285,6 +285,7 @@ namespace Runtime.Navigation
         public void Stop() 
         {
             ActivePath.Clear();
+            _animator.SetBool("isMoving", false);
             _currentVelocity = Vector2.zero;
             _requests = 0;
             PrimeGoal = Position;
@@ -313,6 +314,7 @@ namespace Runtime.Navigation
         {
             _animator.SetFloat("moveX", MovingDirection.x);
             _animator.SetFloat("moveY", MovingDirection.y);
+            _animator.SetBool("isMoving", true);
 
             var desiredVelocity = (target - Position).normalized * maxSpeed;
             var steer = desiredVelocity - _currentVelocity;
