@@ -2,18 +2,20 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.Events;
 
-namespace Runtime.InteractionSystem
+namespace Runtime.InteractionSystem.Objects
 {
-    public class Locker : MonoBehaviour, IInteractable
+    public class Locker : MonoBehaviour, IInteractable, IHideable
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
-
+        public bool ContainsPlayer { get; set; }
+        
         [SerializeField, Tooltip("The location to move the player when they enter the locker")] private Transform lockerPosition;
         [SerializeField, Tooltip("The location to move the player when the exit the locker")] private Transform revealPosition;
         
@@ -34,11 +36,13 @@ namespace Runtime.InteractionSystem
             if (GameManager.Instance.PlayerController.isHiding)
             {
                 GameManager.Instance.PlayerController.RevealPlayer(revealPosition.position);
+                ContainsPlayer = false;
                 _spriteRenderer.sprite = emptyLockerSprite;
             }
             else
             {
                 GameManager.Instance.PlayerController.HidePlayer(lockerPosition.position);
+                ContainsPlayer = true;
                 _spriteRenderer.sprite = playerLockerSprite;
             }
             

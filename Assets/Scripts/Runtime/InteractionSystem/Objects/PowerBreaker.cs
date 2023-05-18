@@ -4,9 +4,11 @@
 ****************************************************************/
 using System.Collections.Generic;
 using System.Linq;
+using Runtime.AI;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Runtime.InteractionSystem.Objects
@@ -22,12 +24,14 @@ namespace Runtime.InteractionSystem.Objects
         private bool _isActivated;
         private Animator _animator;
         private static readonly int IsEnabled = Animator.StringToHash("IsEnabled");
+        private NoiseEmitter _noiseEmitter;
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
             IsPowered = startPowered;
             SetPowered(IsPowered);
+            _noiseEmitter = GetComponent<NoiseEmitter>();
         }
 
         public bool OnInteract(GameObject player)
@@ -35,6 +39,7 @@ namespace Runtime.InteractionSystem.Objects
             GameManager.Instance.SoundSystem.Play(interactSound, transform);
             _isActivated = !_isActivated;
             SetPowered(_isActivated);
+            _noiseEmitter.EmitGlobal();
             return true;
         }
 
@@ -60,8 +65,8 @@ namespace Runtime.InteractionSystem.Objects
         {
             return true;
         }
-
         public bool IsPowered { get; set; }
+        
         public void PowerOn()
         {
             IsPowered = true;

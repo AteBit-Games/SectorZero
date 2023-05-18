@@ -149,5 +149,11 @@ namespace Runtime.Player
             inputReader.SneakEvent += HandleSneak;
         }
 
+        public void Die()
+        {
+            DisableInput();
+            _spriteRenderer.enabled = false;
+            _playerShadow.enabled = false;
+        }
     }
 }

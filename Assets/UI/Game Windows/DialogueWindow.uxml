@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
-    <ui:VisualElement name="dialogue-window" style="visibility: visible; display: flex; flex-grow: 1; align-items: stretch;">
+    <ui:VisualElement name="dialogue-window" style="visibility: visible; display: none; flex-grow: 1; align-items: stretch;">
         <ui:VisualElement name="dialogue-container" style="flex-grow: 1; align-items: center; justify-content: flex-end;">
             <ui:VisualElement name="dialogue-background" class="dialogue-background" style="width: 65%; height: 300px; background-image: url(&apos;project://database/Assets/Art/UI/Dialogue_window%203.png?fileID=2800000&amp;guid=70a59ca05650a5f47a89451f060b52e4&amp;type=3#Dialogue_window 3&apos;); -unity-background-scale-mode: scale-to-fit;">
                 <ui:VisualElement name="portrait-image" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 120px; height: 120px; position: absolute; top: 90px; left: 27px; background-image: url(&apos;project://database/Assets/Art/Sprites/IconsAndMugshots/TapeRecorderIcon.png?fileID=2800000&amp;guid=0ebb2054dcc37814fa3b35092eb81ac2&amp;type=3#TapeRecorderIcon&apos;);" />

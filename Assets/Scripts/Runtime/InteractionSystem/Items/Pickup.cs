@@ -11,6 +11,7 @@ using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Items
 {

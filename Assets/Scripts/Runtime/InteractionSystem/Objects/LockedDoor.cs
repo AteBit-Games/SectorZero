@@ -6,6 +6,7 @@ using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Objects
 {
