@@ -16,8 +16,7 @@ namespace Runtime.BehaviourTree.Decorators
         
         public RemapStatus successRemap = RemapStatus.Success;
         public RemapStatus failureRemap = RemapStatus.Failure;
-
-
+        
         protected override void OnStart() { }
 
         protected override void OnStop() { }
@@ -30,9 +29,9 @@ namespace Runtime.BehaviourTree.Decorators
             switch (childState)
             {
                 case State.Success:
-                    return (State)successRemap;
+                    return successRemap == RemapStatus.Success ? State.Success : State.Failure;
                 case State.Failure:
-                    return (State)failureRemap;
+                    return failureRemap == RemapStatus.Success ? State.Success : State.Failure;
                 case State.Inactive:
                     break;
                 case State.Running:

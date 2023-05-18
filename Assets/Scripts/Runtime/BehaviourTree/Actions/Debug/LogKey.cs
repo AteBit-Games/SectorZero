@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -32,7 +34,7 @@ namespace Runtime.BehaviourTree.Actions.Debug
             switch (logType) 
             {
                 case LogType.Log:
-                    UnityEngine.Debug.Log( messageKey.reference);
+                    UnityEngine.Debug.Log(messageKey.reference);
                     break;
                 case LogType.Warning:
                     UnityEngine.Debug.LogWarning(messageKey);

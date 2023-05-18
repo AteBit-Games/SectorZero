@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Runtime.BehaviourTree.Conditions.Blackboard
 {
@@ -9,7 +11,7 @@ namespace Runtime.BehaviourTree.Conditions.Blackboard
     [Description("Check if a list is empty")]
     public class ListIsEmpty : ConditionNode
     {
-        public NodeProperty<IList> targetList = new();
+        public NodeProperty<List<Collider2D>> targetList;
 
         protected override void OnStart() { }
 

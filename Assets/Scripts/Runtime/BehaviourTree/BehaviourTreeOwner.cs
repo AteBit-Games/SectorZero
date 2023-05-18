@@ -89,7 +89,6 @@ namespace Runtime.BehaviourTree
         
         public void OnHearing(NoiseEmitter sender)
         {
-            Debug.Log($"{gameObject.name} heard {sender.gameObject.name}");
             _investigateLocationReference.value = sender.transform.position;
             _stateReference.value = 1;
             _alertSourceReference.value = 0;

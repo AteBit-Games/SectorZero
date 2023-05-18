@@ -10,6 +10,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/328d09cedebb48f696abd1744ad5481c2d400/9a/696e5de3/GUIContent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/2f/432518a3/Enum.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/64/0018281a/Activator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/74/38d495f7/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/7e/ec4312ad/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/71077fac2f1f46619bbfc4e6592b25083dc00/7f/4dc80225/SearchTreeEntry.cs" root0="SKIP_HIGHLIGHTING" />
@@ -19,10 +20,15 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/AI/SentinelInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/DialogueSystem/DialogueManagerInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/AI/Sentinel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/GameObject/GetHideable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/GameObject/KillPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/GameObject/SelectRandomHideable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/DefineSearchSpace.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/MoveToGameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/StopMoving.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/Wander.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InputSystem/PlayerInputMappings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InteractionSystem/IHidable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InteractionSystem/IPowered.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InteractionSystem/Items/Pickup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Managers/LightManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -131,7 +137,9 @@
       <workItem from="1683840574485" duration="475000" />
       <workItem from="1683920508291" duration="3328000" />
       <workItem from="1683976968222" duration="14171000" />
-      <workItem from="1684428782363" duration="675000" />
+      <workItem from="1684428782363" duration="4596000" />
+      <workItem from="1684436613431" duration="49000" />
+      <workItem from="1684436739523" duration="6504000" />
     </task>
     <servers />
   </component>

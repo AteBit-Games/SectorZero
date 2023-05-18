@@ -27,7 +27,7 @@ Label {
     display: flex;
     position: absolute;
     top: 10px;
-    right: -325px;
+    right: -375px;
 }
 
 .overlay-inactive #blackboard-container {

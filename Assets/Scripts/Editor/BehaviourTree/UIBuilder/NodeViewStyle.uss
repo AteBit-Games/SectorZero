@@ -12,6 +12,13 @@
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-width: auto;
+    max-width: none;
+    flex-grow: 1;
 }
 
 #input {
@@ -42,6 +49,7 @@
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    flex-grow: 1;
 }
 
 :hover > #selection-border {
@@ -71,7 +79,11 @@
     margin-right: 2px;
     margin-top: 2px;
     margin-bottom: 2px;
-    width: 170px;
+    width: initial;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 #title-label {
