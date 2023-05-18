@@ -9,7 +9,7 @@ namespace Runtime.BehaviourTree.Conditions.Navigation
     [Description("Check if the agent has a valid path")]
     public class CheckValidPoint : ConditionNode
     {
-        public new NodeProperty<Vector2> positionToCheck;
+        public NodeProperty<Vector2> positionToCheck;
 
         protected override void OnStart() { }
 

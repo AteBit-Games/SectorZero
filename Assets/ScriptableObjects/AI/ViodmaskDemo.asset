@@ -33,6 +33,13 @@ MonoBehaviour:
   - rid: 6236232445669146641
   - rid: 6236232445669146643
   - rid: 484473834202726400
+  - rid: 1526963689735847947
+  - rid: 1526963689735847949
+  - rid: 1526963689735847952
+  - rid: 1526963689735847953
+  - rid: 1526963689735847954
+  - rid: 1526963689735847955
+  - rid: 1526963689735847957
   treeState: 1
   blackboard:
     keys:
@@ -49,8 +56,9 @@ MonoBehaviour:
     - rid: 6236232445669146636
     - rid: 6236232445669146640
     - rid: 6236232445669146642
-  viewPosition: {x: 909, y: -560, z: 0}
-  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
+    - rid: 1526963689735847948
+  viewPosition: {x: 384, y: -353, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -62,15 +70,131 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a1e988862754e4941a2a944c3cb35cf7
-        position: {x: -740, y: 1120}
+        position: {x: -1440, y: 1120}
         blackboard:
           keys: []
         comment: Check if the selected point is valid
         drawGizmos: 0
         positionToCheck:
           reference:
-            rid: -2
+            rid: 6236232439545200670
           defaultValue: {x: 0, y: 0}
+    - rid: 1526963689735847947
+      type: {class: Switch, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a9ad246921676fa49807b015bd7af893
+        position: {x: 280, y: 480}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 1526963689735847949
+        index:
+          reference:
+            rid: 1526963689735847948
+          defaultValue: 0
+        interruptable: 1
+    - rid: 1526963689735847948
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AlertSource
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 1526963689735847949
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f6ea3756376b2764c8b4d01bfa51e761
+        position: {x: 100, y: 620}
+        blackboard:
+          keys: []
+        comment: Was alerted by sound source
+        drawGizmos: 0
+        children:
+        - rid: 1526963689735847957
+    - rid: 1526963689735847952
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a16eb0817f36a4a48941ee09d2fb6999
+        position: {x: -540, y: 880}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 1526963689735847954
+        - rid: 1526963689735847955
+    - rid: 1526963689735847953
+      type: {class: CheckValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d80050443672550479d6a83c9b218ff7
+        position: {x: -540, y: 1160}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        positionToCheck:
+          reference:
+            rid: 6236232439545200655
+          defaultValue: {x: 0, y: 0}
+    - rid: 1526963689735847954
+      type: {class: Inverter, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 58b22eeedff25b4438f5e83783c53c9e
+        position: {x: -540, y: 1020}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 1526963689735847953
+    - rid: 1526963689735847955
+      type: {class: SetProperty, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 52ea0752981ed074d866834270f3c2c3
+        position: {x: -340, y: 1020}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        pair:
+          key:
+            rid: 6236232439545200661
+          value:
+            rid: 1526963689735847956
+    - rid: 1526963689735847956
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: 
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 1526963689735847957
+      type: {class: Remapper, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 449459f1754c73e47bd7e88b3e600189
+        position: {x: -540, y: 760}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 1526963689735847952
+        successRemap: 1
+        failureRemap: 1
     - rid: 6236232439545200640
       type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -147,7 +271,7 @@ MonoBehaviour:
       data:
         name: ActiveState
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 0
+        value: 1
     - rid: 6236232439545200662
       type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
@@ -157,7 +281,9 @@ MonoBehaviour:
         position: {x: 0, y: 80}
         blackboard:
           keys: []
-        comment: 
+        comment: '
+
+'
         drawGizmos: 0
         child:
           rid: 6236232439545200660
@@ -173,7 +299,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9e28f699f0f807042b70c148853c5fae
-        position: {x: -960, y: 340}
+        position: {x: -1420, y: 340}
         blackboard:
           keys: []
         comment: Patrol State
@@ -192,13 +318,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 91597303de299904b8298f2dab1a0214
-        position: {x: 40, y: 340}
+        position: {x: 280, y: 340}
         blackboard:
           keys: []
         comment: Alert State
         drawGizmos: 0
         child:
-          rid: -2
+          rid: 1526963689735847947
         restartOnSuccess: 1
         restartOnFailure: 0
         maxRepeats:
@@ -211,7 +337,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 29a6f5087f06a0e46b2c6ebf2c165af6
-        position: {x: 760, y: 340}
+        position: {x: 1240, y: 340}
         blackboard:
           keys: []
         comment: Aggro State
@@ -252,7 +378,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0e2bc20bfd0a45449abd77f35a81bc52
-        position: {x: -640, y: 600}
+        position: {x: -1340, y: 600}
         blackboard:
           keys: []
         comment: 'Search the room at random points
@@ -273,7 +399,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c3bbfcc3b543fd940a2af6e85cdf6f21
-        position: {x: -360, y: 860}
+        position: {x: -1060, y: 860}
         blackboard:
           keys: []
         comment: Idle for 2 seconds when reaching the point
@@ -288,7 +414,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c4ea7245bcc45f44fafc5f6a077be9c1
-        position: {x: -640, y: 720}
+        position: {x: -1340, y: 720}
         blackboard:
           keys: []
         comment: 
@@ -304,7 +430,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 4c6cbaf19fef70641bc98f95d7651724
-        position: {x: -1020, y: 1120}
+        position: {x: -1720, y: 1120}
         blackboard:
           keys: []
         comment: Select a point in the room
@@ -323,7 +449,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ff86fc615cf7bc1468bc9b200918115e
-        position: {x: -1440, y: 600}
+        position: {x: -1900, y: 600}
         blackboard:
           keys: []
         comment: Move to a random room and update the active room index
@@ -351,7 +477,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d11f154402bcf0e42a60800b5eaca45a
-        position: {x: -960, y: 460}
+        position: {x: -1420, y: 460}
         blackboard:
           keys: []
         comment: 
@@ -366,7 +492,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 020540c44026a4940a580a00a8cfcbe8
-        position: {x: -1180, y: 600}
+        position: {x: -1640, y: 600}
         blackboard:
           keys: []
         comment: When The room is reached, look around for a set number of times.
@@ -395,7 +521,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 32641dc512fe8df48ad035c87e6e96d7
-        position: {x: -860, y: 980}
+        position: {x: -1560, y: 980}
         blackboard:
           keys: []
         comment: 
@@ -409,7 +535,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 7774e6ab29602d0408b39792bd5b7af9
-        position: {x: -860, y: 860}
+        position: {x: -1560, y: 860}
         blackboard:
           keys: []
         comment: Try to find a valid point to move to.
@@ -434,7 +560,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: f958e112a629bda4e980b5ea9dc0f15f
-        position: {x: -540, y: 860}
+        position: {x: -1240, y: 860}
         blackboard:
           keys: []
         comment: Move to the selected point
@@ -459,7 +585,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 17ec1d42d6198ed4d8e44d77c7cbda42
-        position: {x: -180, y: 860}
+        position: {x: -880, y: 860}
         blackboard:
           keys: []
         comment: Have a chance to exit after moving to a point. Adding variable check
