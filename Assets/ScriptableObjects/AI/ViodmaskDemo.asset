@@ -30,9 +30,9 @@ MonoBehaviour:
   - rid: 6236232445669146624
   - rid: 6236232445669146637
   - rid: 6236232445669146638
-  - rid: 6236232445669146639
   - rid: 6236232445669146641
   - rid: 6236232445669146643
+  - rid: 484473834202726400
   treeState: 1
   blackboard:
     keys:
@@ -49,13 +49,28 @@ MonoBehaviour:
     - rid: 6236232445669146636
     - rid: 6236232445669146640
     - rid: 6236232445669146642
-  viewPosition: {x: 570, y: 14, z: 0}
-  viewScale: {x: 0.2842624, y: 0.2842624, z: 1}
+  viewPosition: {x: 909, y: -560, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 484473834202726400
+      type: {class: CheckValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a1e988862754e4941a2a944c3cb35cf7
+        position: {x: -740, y: 1120}
+        blackboard:
+          keys: []
+        comment: Check if the selected point is valid
+        drawGizmos: 0
+        positionToCheck:
+          reference:
+            rid: -2
+          defaultValue: {x: 0, y: 0}
     - rid: 6236232439545200640
       type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -289,7 +304,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 4c6cbaf19fef70641bc98f95d7651724
-        position: {x: -1000, y: 1120}
+        position: {x: -1020, y: 1120}
         blackboard:
           keys: []
         comment: Select a point in the room
@@ -387,7 +402,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 6236232440973885440
-        - rid: 6236232445669146639
+        - rid: 484473834202726400
     - rid: 6236232445669146638
       type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
@@ -407,21 +422,6 @@ MonoBehaviour:
           reference:
             rid: 6236232445669146640
           defaultValue: 0
-    - rid: 6236232445669146639
-      type: {class: CheckValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 0a15aa24f88c26245b7b2a2cb1262232
-        position: {x: -740, y: 1120}
-        blackboard:
-          keys: []
-        comment: Check if the selected point is valid
-        drawGizmos: 0
-        position:
-          reference:
-            rid: 6236232439545200670
-          defaultValue: {x: 0, y: 0}
     - rid: 6236232445669146640
       type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:

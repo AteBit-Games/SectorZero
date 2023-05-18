@@ -134,6 +134,12 @@
     left: 5px;
 }
 
+.condition #comment {
+    position: absolute;
+    top: 110%;
+    left: 5px;
+}
+
 .root #comment {
     position: absolute;
     top: auto;
@@ -257,4 +263,11 @@
     background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Invert.png?fileID=2800000&guid=07a04c07af73ec446a960461951fbcbe&type=3#Invert');
     width: 40px;
     -unity-background-image-tint-color: rgb(255, 100, 203);
+}
+
+.condition #image {
+    height: 40px;
+    width: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Condition.png?fileID=2800000&guid=ae5e5b4aee99b514784e3afb36c2c15a&type=3#Condition');
 }
