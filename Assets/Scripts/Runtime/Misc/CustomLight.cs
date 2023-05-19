@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 using Runtime.InteractionSystem;
+using Runtime.InteractionSystem.Interfaces;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 

@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
+using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
@@ -15,7 +16,8 @@ namespace Runtime.InteractionSystem.Objects
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         public bool ContainsPlayer { get; set; }
-        
+        public Transform MonsterInspectPosition { get; }
+
         [SerializeField, Tooltip("The location to move the player when they enter the locker")] private Transform lockerPosition;
         [SerializeField, Tooltip("The location to move the player when the exit the locker")] private Transform revealPosition;
         

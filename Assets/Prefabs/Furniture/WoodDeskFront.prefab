@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 2187616263461803615}
   - component: {fileID: 1274996693852694006}
   - component: {fileID: 2712231139678163433}
-  - component: {fileID: 8591887761454358428}
+  - component: {fileID: 711237531}
+  - component: {fileID: 2317644119437154989}
+  - component: {fileID: 4580010966215210633}
   m_Layer: 0
   m_Name: WoodDeskFront
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3441040897333876378}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -113,8 +115,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &8591887761454358428
-BoxCollider2D:
+--- !u!210 &711237531
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3441040897333876378}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
+--- !u!114 &2317644119437154989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3441040897333876378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c0a3830985ead49afca98818467a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapeType: 0
+  extraOffset: 0
+  invertPolygon: 1
+--- !u!60 &4580010966215210633
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -142,7 +171,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -155,6 +184,10 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.6, y: 3.8}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -3.3163383, y: 0.5602478}
+      - {x: -3.3, y: -1.9}
+      - {x: 3.3, y: -1.9}
+      - {x: 3.2836616, y: 0.51123273}
+  m_UseDelaunayMesh: 0

@@ -5,6 +5,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Runtime.AI;
+using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;

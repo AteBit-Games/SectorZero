@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 using Runtime.DialogueSystem;
+using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
@@ -36,6 +37,7 @@ namespace Runtime.InteractionSystem
             tapeInstance.itemType = ItemType.TapeRecording;
             tapeInstance.itemDescription = dialogueDescription;
             tapeInstance.dialogue = dialogue;
+
             return inventory.AddTapeToInventory(tapeInstance);
         }
 

@@ -1,5 +1,6 @@
 using System;
 using Runtime.InteractionSystem;
+using Runtime.InteractionSystem.Interfaces;
 using UnityEngine;
 
 namespace Runtime.BehaviourTree.Actions 

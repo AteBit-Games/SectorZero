@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 861878229128676145}
   - component: {fileID: 861878229128676144}
   - component: {fileID: 5836420187796048468}
+  - component: {fileID: 719941686}
   m_Layer: 3
   m_Name: Computer
   m_TagString: Untagged
@@ -33,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &861878229128676146
 SpriteRenderer:
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1963160158, guid: 5f6f463f5f9f4cc4cb6a403be0a1f129, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -179,3 +180,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &719941686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861878229128676140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180b4f69be4642109662238af8840ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactSound: {fileID: 11400000, guid: ee71ebac7b9200b4c84687a87519b73a, type: 2}
+  poweredOffSound: {fileID: 11400000, guid: eec31a25228a183458f4523b295949b5, type: 2}
+  linkedDoor: {fileID: 0}

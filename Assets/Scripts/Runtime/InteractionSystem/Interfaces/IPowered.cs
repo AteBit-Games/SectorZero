@@ -3,7 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
-namespace Runtime.InteractionSystem
+namespace Runtime.InteractionSystem.Interfaces
 {
     public interface IPowered
     {

@@ -4,6 +4,7 @@
 ****************************************************************/
 
 using Runtime.DialogueSystem;
+using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;

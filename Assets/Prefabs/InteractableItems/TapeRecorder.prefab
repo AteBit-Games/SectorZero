@@ -116,7 +116,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -241,4 +241,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactSound: {fileID: 11400000, guid: 5d8d250fff04a1b41a40edcf390dba60, type: 2}
-  dialogue: {fileID: 11400000, guid: a8979148722879b4e91068a74d0327a8, type: 2}
+  dialogue: {fileID: 11400000, guid: 807f0fecbb140644887e1ad122c4fc7d, type: 2}
+  dialogueDescription: Dialogue tape found in the main security office.
