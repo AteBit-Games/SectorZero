@@ -28,7 +28,7 @@ namespace Runtime.Managers
         public void ShowPickupNotification(BaseItem item)
         {
             _pickupIcon.style.backgroundImage = new StyleBackground(item.itemSprite);
-            _pickupText.text = item.itemName;
+            _pickupText.text = "Picked up "+item.itemName;
             _pickupContainer.AddToClassList("popup-show");
             
             Invoke(nameof(HidePickupNotification), 3.5f);

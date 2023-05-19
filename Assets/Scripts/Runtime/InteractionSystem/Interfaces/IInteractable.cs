@@ -4,9 +4,8 @@
 ****************************************************************/
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace Runtime.InteractionSystem
+namespace Runtime.InteractionSystem.Interfaces
 {
     public interface IInteractable
     {
