@@ -2,12 +2,11 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
-
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
+using Runtime.Player;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -33,21 +32,26 @@ namespace Runtime.InteractionSystem.Objects
 
         public bool OnInteract(GameObject player)
         {
-            GameManager.Instance.SoundSystem.Play(interactSound, transform);
-
-            if (GameManager.Instance.PlayerController.isHiding)
+            var playerController = player.GetComponentInParent<PlayerController>();
+            
+            if (playerController.isHiding && ContainsPlayer)
             {
-                GameManager.Instance.PlayerController.RevealPlayer(revealPosition.position);
+                playerController.RevealPlayer(revealPosition.position);
                 ContainsPlayer = false;
                 _spriteRenderer.sprite = emptyLockerSprite;
             }
-            else
+            else if(!playerController.isHiding)
             {
-                GameManager.Instance.PlayerController.HidePlayer(lockerPosition.position);
+                playerController.HidePlayer(lockerPosition.position);
                 ContainsPlayer = true;
                 _spriteRenderer.sprite = playerLockerSprite;
             }
+            else
+            {
+                return false;
+            }
             
+            GameManager.Instance.SoundSystem.Play(interactSound, transform);
             return true;
         }
         
