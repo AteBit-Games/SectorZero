@@ -2,9 +2,8 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
-
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using Runtime.InputSystem;
 using Runtime.InteractionSystem.Interfaces;
 using UnityEngine;
@@ -15,93 +14,103 @@ namespace Runtime.InteractionSystem
     {
         #region Header MOVEMENT DETAILS
         [Space(10)]
-        [Header("MOVEMENT DETAILS")]
+        [Header("INTERACTION DETAILS")]
         #endregion
-        [SerializeField] private CircleCollider2D interactionRadius;
         [SerializeField] private LayerMask interactionMask;
         [SerializeField] private InputReader inputReader;
         
-        private List<IInteractable> _interactables = new List<IInteractable>();
+        private CircleCollider2D _interactionRadius;
+        private readonly List<GameObject> _interactables = new();
 
         private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
         private static readonly int OutlineColor = Shader.PropertyToID("_OutlineColor");
-
-        private void OnTriggerEnter2D(Collider2D col)
+        
+        private void OnEnable()
         {
-            //check if the collider that triggered was the interaction radius
-            //if (col.
+            inputReader.InteractEvent += Interact;   
         }
-        //
-        // private void OnEnable()
-        // {
-        //     inputReader.InteractEvent += Interact;   
-        // }
-        //
-        // private void OnDisable()
-        // {
-        //     inputReader.InteractEvent -= Interact;
-        // }
-        //
-        // private void Awake()
-        // {
-        //     _castPosition = GetComponent<Collider2D>();
-        // }
-        //
-        // private void LateUpdate()
-        // {
-        //     _colliderCount = Physics2D.OverlapCircleNonAlloc(transform.position, interactionRadius, _colliders, interactionMask);
-        //     if(_colliderCount == 0) return;
-        //     
-        //     foreach (var collider1 in _colliders)
-        //     {
-        //         if (collider1 == null) continue;
-        //         var spriteRenderer = collider1.gameObject.GetComponent<SpriteRenderer>();
-        //         var distance = Vector2.Distance(_castPosition.bounds.center, collider1.transform.position);
-        //         spriteRenderer.material.SetFloat(OutlineThickness, distance <= interactionRadius ? 1f : 0f);
-        //     }
-        // }
-        //
-        // private void Update()
-        // {
-        //     _colliderCount = Physics2D.OverlapCircleNonAlloc(transform.position, interactionRadius, _colliders, interactionMask);
-        //     if(_colliderCount == 0) return;
-        //     
-        //     var closest = GetClosestInteractable(_colliders);
-        //     if(closest == null) return;
-        //     
-        //     var interactable = closest.GetComponent<IInteractable>();
-        //     var spriteRenderer = closest.gameObject.GetComponent<SpriteRenderer>();
-        //     spriteRenderer.material.SetColor(OutlineColor, interactable.CanInteract() ? new Color(255f, 255f, 255f) : new Color(0.88f, 0.56f, 0f));
-        // }
-        //
-        // private void Interact()
-        // {
-        //     if (_colliderCount == 0) return;
-        //     var closest = GetClosestInteractable(_colliders);
-        //     var interactable = closest.GetComponent<IInteractable>();
-        //     interactable?.OnInteract(gameObject);
-        // }
-        //
-        // private Collider2D GetClosestInteractable(Collider2D[] interactables)
-        // {
-        //     Collider2D bestTarget = null;
-        //     float closestDistanceSqr = Mathf.Infinity;
-        //     Vector3 currentPosition = _castPosition.bounds.center;
-        //     
-        //     foreach(var potentialTarget in interactables)
-        //     {
-        //         if(potentialTarget == null) continue;
-        //         Debug.Log(potentialTarget);
-        //         Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
-        //         float dSqrToTarget = directionToTarget.sqrMagnitude;
-        //         if(dSqrToTarget < closestDistanceSqr)
-        //         {
-        //             closestDistanceSqr = dSqrToTarget;
-        //             bestTarget = potentialTarget;
-        //         }
-        //     }             
-        //     return bestTarget;
-        // }
+        
+        
+        private void OnDisable()
+        {
+            inputReader.InteractEvent -= Interact;
+        }
+        
+        private void Awake()
+        {
+            _interactionRadius = GetComponent<CircleCollider2D>();
+        }
+        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (interactionMask != (interactionMask | (1 << other.gameObject.layer))) return;
+            
+            var interactable = other.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                _interactables.Add(other.gameObject);
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (interactionMask != (interactionMask | (1 << other.gameObject.layer))) return;
+
+            var interactable = other.GetComponent<IInteractable>();
+            if (interactable != null && _interactables.Contains(other.gameObject))
+            {
+                var spriteRenderer = other.GetComponent<SpriteRenderer>();
+                spriteRenderer.material.SetFloat(OutlineThickness, 0f);
+                _interactables.Remove(other.gameObject);
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            if(_interactables.Count == 0) return;
+
+            foreach (var spriteRenderer in _interactables.Select(interactable => interactable.GetComponent<SpriteRenderer>()))
+            {
+                spriteRenderer.material.SetFloat(OutlineThickness, 0f);
+            }
+            
+            var closest = GetClosestInteractable(_interactables.ToArray());
+            if(closest != null)
+            {
+                var interactable = closest.GetComponent<IInteractable>();
+                var spriteRenderer = closest.GetComponent<SpriteRenderer>();
+                spriteRenderer.material.SetFloat(OutlineThickness, 1f);
+                spriteRenderer.material.SetColor(OutlineColor, interactable.CanInteract() ? new Color(255f, 255f, 255f) : new Color(0.88f, 0.56f, 0f));
+            }
+        }
+
+        private void Interact()
+        {
+            if(_interactables.Count == 0) return;
+            var closest = GetClosestInteractable(_interactables.ToArray())?.GetComponent<IInteractable>();
+            closest?.OnInteract(gameObject);
+        }
+
+        private GameObject GetClosestInteractable(IEnumerable<GameObject> interactables)
+        {
+            GameObject bestTarget = null;
+            float closestDistanceSqr = Mathf.Infinity;
+            Vector3 currentPosition = _interactionRadius.bounds.center;
+            
+            foreach(var potentialTarget in interactables)
+            {
+                if(potentialTarget == null) continue;
+                Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
+                float dSqrToTarget = directionToTarget.sqrMagnitude;
+                if(dSqrToTarget < closestDistanceSqr)
+                {
+                    closestDistanceSqr = dSqrToTarget;
+                    bestTarget = potentialTarget;
+                }
+            }
+
+            return bestTarget;
+        }
     }
 }
 
