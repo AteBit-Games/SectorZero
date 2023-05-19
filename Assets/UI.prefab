@@ -34,7 +34,7 @@ Transform:
   - {fileID: 2444336974607860552}
   - {fileID: 2444336975014802416}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2444336974268369327
 MonoBehaviour:
@@ -222,3 +222,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f5ca142cf5447e81dc6a591d5b38f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSettingsOpen: 0
+  isPaused: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
+using Runtime.Player;
 using UnityEngine;
 
 namespace Runtime.AI
@@ -57,15 +58,19 @@ namespace Runtime.AI
                     bool playerHit = (_sight.PlayerMask.value & 1 << _hit.transform.gameObject.layer) > 0;
                     if (playerHit)
                     {
+                        //if the player is hiding, don't do anything
+                        if(_hit.collider.GetComponent<PlayerController>().isHiding) continue;
+                        
+                        //if the player is not hiding, call the OnSightEnter method
                         _sight.gameObject.GetComponent<ISightHandler>().OnSightEnter();
                         spottedPlayer = _hit.transform.gameObject;
                     }
-                    else
-                    {
+                    else if(_sight.debug) 
+                    { 
                         _viewVertex.Add(transform.position + dir.normalized * (_hit.distance));
                     }
                 }
-                else
+                else if(_sight.debug) 
                 {
                     _viewVertex.Add(transform.position + dir.normalized * _sight.ViewRadius);
                 }

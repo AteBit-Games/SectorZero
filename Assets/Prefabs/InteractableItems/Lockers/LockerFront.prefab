@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 461143468751046783}
   - component: {fileID: 7578781624321934407}
   - component: {fileID: 2908051468577464561}
+  - component: {fileID: 1253724928}
   m_Layer: 3
   m_Name: LockerFront
   m_TagString: Untagged
@@ -274,7 +275,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -294,6 +295,18 @@ PolygonCollider2D:
       - {x: 1.3000001, y: -3.4}
       - {x: 1.3000001, y: 3.4}
   m_UseDelaunayMesh: 0
+--- !u!210 &1253724928
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461143468751046662}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
 --- !u!1 &461143469602724629
 GameObject:
   m_ObjectHideFlags: 0
