@@ -27,6 +27,7 @@ namespace Runtime.InteractionSystem.Items
             gameObject.SetActive(false);
             GameManager.Instance.SoundSystem.Play(interactSound, transform);
             var inventory = player.GetComponent<PlayerInventory>();
+            GameManager.Instance.NotificationManager.ShowPickupNotification(item);
             return inventory.AddItemToInventory(item);
         }
 

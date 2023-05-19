@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8132226326687815663}
   - component: {fileID: 1080606266230007979}
   - component: {fileID: 2177145824112303712}
+  - component: {fileID: 4165824991889887}
   m_Layer: 7
   m_Name: CouchFront
   m_TagString: Untagged
@@ -158,7 +159,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -173,12 +174,26 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.4456804, y: 1.9077133}
-      - {x: -2.4765375, y: 0.82777107}
-      - {x: -2.746299, y: 0.5672829}
-      - {x: -2.7, y: -1.5}
-      - {x: -2.5, y: -1.9}
-      - {x: 2.5, y: -1.9}
-      - {x: 2.7, y: -1.7}
-      - {x: 2.7, y: 1.9}
+    - - {x: 2.0269089, y: 0.28195572}
+      - {x: -2.0008676, y: 0.29023206}
+      - {x: -2.3552263, y: 0.5581864}
+      - {x: -2.7058632, y: 0.54032445}
+      - {x: -2.686519, y: -1.2169418}
+      - {x: -2.2978172, y: -1.9}
+      - {x: 2.3112946, y: -1.9134811}
+      - {x: 2.7331676, y: -1.2126846}
+      - {x: 2.688055, y: 0.5526428}
+      - {x: 2.2282326, y: 0.57905805}
   m_UseDelaunayMesh: 0
+--- !u!210 &4165824991889887
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042562925000432207}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_SortAtRoot: 0

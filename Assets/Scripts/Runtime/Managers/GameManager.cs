@@ -37,6 +37,7 @@ namespace Runtime.Managers
         public SoundManager SoundSystem { get; private set; }
         public SaveManager SaveSystem { get; private set; }
         public PlayerController PlayerController { get; set; }
+        public NotificationManager NotificationManager { get; set; }
        
         private PauseMenu PauseMenu { get; set; }
         
@@ -80,13 +81,13 @@ namespace Runtime.Managers
         private void CloseInventoryWindow()
         {
             if(isMainMenu) return;
-            InventorySystem.CloseInventory();
+           //InventorySystem.CloseInventory();
         }
 
         private void OpenInventoryWindow()
         {
             if(isMainMenu) return;
-            InventorySystem.OpenInventory();
+            //InventorySystem.OpenInventory();
         }
 
         private void HandlePause()
@@ -139,6 +140,7 @@ namespace Runtime.Managers
             InventorySystem = FindObjectOfType<InventoryManager>(true);
             PauseMenu = FindObjectOfType<PauseMenu>(true);
             PlayerController = FindObjectOfType<PlayerController>(true);
+            NotificationManager = FindObjectOfType<NotificationManager>(true);
         }
         
         public Sound ClickSound()
