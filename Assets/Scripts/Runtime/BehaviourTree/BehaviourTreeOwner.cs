@@ -42,7 +42,6 @@ namespace Runtime.BehaviourTree
         private bool _canSeePlayer;
         private Context _context;
         private BlackboardKey<int> _stateReference;
-        private BlackboardKey<int> _alertSourceReference;
         private BlackboardKey<Vector2> _investigateLocationReference;
 
         // ====================== Unity Events ======================
@@ -67,7 +66,6 @@ namespace Runtime.BehaviourTree
             _material.color = idleColour;
             
             _stateReference = FindBlackboardKey<int>("ActiveState");
-            _alertSourceReference = FindBlackboardKey<int>("AlertSource");
             _investigateLocationReference = FindBlackboardKey<Vector2>("InvestigateLocation");
         }
 
@@ -94,22 +92,26 @@ namespace Runtime.BehaviourTree
         
         public void OnHearing(NoiseEmitter sender)
         {
+            if(_stateReference.value == 2) return;
             _investigateLocationReference.value = sender.transform.position;
             _stateReference.value = 1;
-            _alertSourceReference.value = 0;
         }
         
         public void OnSightEnter()
         {
             _canSeePlayer = true;
             _material.color = aggroColour;
+            
+            _stateReference.value = 2;
         }
 
-        public void OnSightExit()
+        public void OnSightExit(Vector2 lastKnownPosition)
         {
             if (_canSeePlayer)
             {
-                //event
+                _investigateLocationReference.value = lastKnownPosition;
+                _stateReference.value = 1;
+               
                 _material.color = idleColour;
             }
             _canSeePlayer = false;

@@ -26,7 +26,7 @@ namespace Runtime.BehaviourTree.Actions
             var circleCollider = searchSpace.AddComponent<CircleCollider2D>();
             circleCollider.radius = searchRadius.Value;
             circleCollider.isTrigger = true;
-            UnityEngine.Object.Destroy(searchSpace, 20f);
+            UnityEngine.Object.Destroy(searchSpace, 60f);
 
             outSearchSpace.Value = circleCollider;
         }

@@ -16,6 +16,8 @@ namespace Runtime.AI
         private int[] _triangles;
         private int _stepCount;
         private int _activated;
+        
+        private Vector2 _lastSeenPosition;
 
         private void Awake()
         {
@@ -71,7 +73,12 @@ namespace Runtime.AI
 
             if (spottedPlayer == null)
             {
-                _sight.gameObject.GetComponent<ISightHandler>().OnSightExit();
+                _sight.gameObject.GetComponent<ISightHandler>().OnSightExit(_lastSeenPosition);
+                _lastSeenPosition = Vector2.zero;
+            }
+            else
+            {
+                _lastSeenPosition = spottedPlayer.transform.position;
             }
         }
 

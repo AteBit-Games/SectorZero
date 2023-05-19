@@ -16,7 +16,6 @@ MonoBehaviour:
     rid: 6236232439545200640
   nodes:
   - rid: 6236232439545200640
-  - rid: 6236232439545200660
   - rid: 6236232439545200663
   - rid: 6236232439545200664
   - rid: 6236232439545200665
@@ -32,7 +31,6 @@ MonoBehaviour:
   - rid: 6236232445669146641
   - rid: 6236232445669146643
   - rid: 484473834202726400
-  - rid: 1526963689735847947
   - rid: 1526963689735847949
   - rid: 1526963689735847952
   - rid: 1526963689735847953
@@ -50,7 +48,6 @@ MonoBehaviour:
   - rid: 484473836275236878
   - rid: 484473836275236879
   - rid: 484473836275236880
-  - rid: 484473836275236881
   - rid: 484473836275236890
   - rid: 484473836275236891
   - rid: 484473836275236894
@@ -58,13 +55,26 @@ MonoBehaviour:
   - rid: 484473836275236898
   - rid: 484473836275236899
   - rid: 484473836275236900
-  - rid: 484473836275236903
-  - rid: 484473836275236904
-  - rid: 484473836275236905
   - rid: 484473836275236912
   - rid: 484473836275236914
-  - rid: 484473836275236915
   - rid: 484473836275236919
+  - rid: 484473836275236922
+  - rid: 484473836275236929
+  - rid: 484473836275236936
+  - rid: 484473836275236937
+  - rid: 484473836275236940
+  - rid: 484473836275236942
+  - rid: 484473836275236943
+  - rid: 484473836275236944
+  - rid: 484473836275236946
+  - rid: 484473836275236947
+  - rid: 484473836275236951
+  - rid: 484473836275236952
+  - rid: 484473836275236953
+  - rid: 484473836275236954
+  - rid: 484473836275236960
+  - rid: 484473836275236963
+  - rid: 484473836275236964
   treeState: 1
   blackboard:
     keys:
@@ -80,13 +90,12 @@ MonoBehaviour:
     - rid: 6236232439545200670
     - rid: 6236232445669146636
     - rid: 6236232445669146640
-    - rid: 1526963689735847948
     - rid: 6236232439545200655
     - rid: 484473835900633088
     - rid: 484473836275236877
     - rid: 484473836275236887
-  viewPosition: {x: -71, y: -34, z: 0}
-  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
+  viewPosition: {x: 1400, y: -94, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -113,7 +122,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a8daf7d56bb3dd4499a758f27c52aa72
-        position: {x: 20, y: 760}
+        position: {x: 160, y: 620}
         blackboard:
           keys: []
         comment: If the point exists move towards it
@@ -140,11 +149,10 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 7789154d45c5b0342b1cfbff1cd0fc3f
-        position: {x: 240, y: 760}
+        position: {x: 360, y: 620}
         blackboard:
           keys: []
-        comment: When monster reaches the sound source create a search space around
-          the area
+        comment: Define the space to search around the alert trigger
         drawGizmos: 0
         searchCenter:
           reference:
@@ -171,7 +179,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0015fb6f0a54c724d8335b911f8bc1fb
-        position: {x: -180, y: 1540}
+        position: {x: -320, y: 1440}
         blackboard:
           keys: []
         comment: Check if there are any items to search within the room
@@ -186,7 +194,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 5c59fa11995b85140b927f589a979f94
-        position: {x: 680, y: 1140}
+        position: {x: 820, y: 1040}
         blackboard:
           keys: []
         comment: First try to search a hideable object, if no objects exist or it
@@ -194,33 +202,35 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 484473836275236869
+        - rid: 484473836275236937
     - rid: 484473836275236869
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 86c862f88cfae0241aef0f19b9f2e387
-        position: {x: 320, y: 1280}
+        position: {x: 580, y: 1180}
         blackboard:
           keys: []
-        comment: 
+        comment: Tries to search a locker, has chance to fail
         drawGizmos: 0
         children:
+        - rid: 484473836275236871
         - rid: 484473836275236870
         - rid: 484473836275236891
         - rid: 484473836275236872
         - rid: 484473836275236880
         - rid: 484473836275236898
-        - rid: 484473836275236881
-        - rid: 484473836275236915
-        - rid: 484473836275236905
+        - rid: 484473836275236929
+        - rid: 484473836275236964
+        - rid: 484473836275236963
     - rid: 484473836275236870
       type: {class: Inverter, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 54041254091a15f4a9ba71ea0d4b479b
-        position: {x: -180, y: 1420}
+        position: {x: -320, y: 1320}
         blackboard:
           keys: []
         comment: 
@@ -233,19 +243,19 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1eaadfa3ab4107d46bfe2d337de19fd7
-        position: {x: -360, y: 1420}
+        position: {x: -520, y: 1320}
         blackboard:
           keys: []
         comment: Random chance to not search any hideable object
         drawGizmos: 0
-        chanceOfFailure: 0.5
+        chanceOfFailure: 0.25
     - rid: 484473836275236872
       type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: fb2c13fa8f4c96240b01614eee79cdf3
-        position: {x: 260, y: 1420}
+        position: {x: 120, y: 1320}
         blackboard:
           keys: []
         comment: Go to the hideable object
@@ -271,18 +281,18 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0cafcc4e95d7052439f33296bdf2e3a7
-        position: {x: 680, y: 1020}
+        position: {x: 820, y: 920}
         blackboard:
           keys: []
         comment: Search a set number of times within the space
         drawGizmos: 0
         child:
           rid: 484473836275236868
-        restartOnSuccess: 0
+        restartOnSuccess: 1
         restartOnFailure: 1
         maxRepeats:
           reference:
-            rid: -2
+            rid: 6236232445669146636
           defaultValue: 3
     - rid: 484473836275236879
       type: {class: CheckHideable, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
@@ -290,7 +300,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 42a7687cc64850b4d81f24fafa740355
-        position: {x: 540, y: 1840}
+        position: {x: 400, y: 1740}
         blackboard:
           keys: []
         comment: Check if the player is in the hideable object. If not the node will
@@ -306,28 +316,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9fd398160a4be404e9b597fff623364a
-        position: {x: 440, y: 1420}
+        position: {x: 300, y: 1320}
         blackboard:
           keys: []
-        comment: 
+        comment: Search the object
         drawGizmos: 0
         sound: {fileID: 11400000, guid: 5ececcaf60583d54e82ce681f1f82403, type: 2}
         waitActionFinish: 0
-    - rid: 484473836275236881
-      type: {class: KillPlayer, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 9ea38a110a2a867448f7151a88ec86d9
-        position: {x: 820, y: 1420}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        player:
-          reference:
-            rid: 6236232439545200641
-          defaultValue: {fileID: 0}
     - rid: 484473836275236887
       type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -342,10 +337,10 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 26be26b5db63bf343bb24a8057290d4a
-        position: {x: 480, y: 760}
+        position: {x: 580, y: 620}
         blackboard:
           keys: []
-        comment: 
+        comment: Find hidable object swithin
         drawGizmos: 0
         searchRadius:
           reference:
@@ -367,10 +362,10 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b76063d6b921dff488ca7c78bf4abc0b
-        position: {x: 0, y: 1420}
+        position: {x: -140, y: 1320}
         blackboard:
           keys: []
-        comment: 
+        comment: Select a random hidable object in the search area
         drawGizmos: 0
         hideables:
           reference:
@@ -390,10 +385,10 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 00bbcefcad415ce469dd0f8d04e6a3a0
-        position: {x: 980, y: 900}
+        position: {x: 1100, y: 800}
         blackboard:
           keys: []
-        comment: 
+        comment: Once the monster has investigated a few times it goes back on patrol
         drawGizmos: 0
         pair:
           key:
@@ -412,7 +407,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9564eb33b9756004da9e5088219f1fa7
-        position: {x: 640, y: 1560}
+        position: {x: 500, y: 1460}
         blackboard:
           keys: []
         comment: 
@@ -426,7 +421,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d8aabdf687471a9499e87df9a84410e8
-        position: {x: 640, y: 1420}
+        position: {x: 500, y: 1320}
         blackboard:
           keys: []
         comment: 
@@ -439,7 +434,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: f03f987ac15533246ac538b298c1f2bd
-        position: {x: 540, y: 1700}
+        position: {x: 400, y: 1600}
         blackboard:
           keys: []
         comment: 
@@ -452,73 +447,22 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3f6d4034ad3e693418265afa89b8a18d
-        position: {x: 740, y: 1700}
+        position: {x: 600, y: 1600}
         blackboard:
           keys: []
-        comment: 
+        comment: If player was not in the object wait a few seconds
         drawGizmos: 0
         duration:
           reference:
             rid: -2
           defaultValue: 4
-    - rid: 484473836275236903
-      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 1fae7a9741f3de24fa871500447563e2
-        position: {x: 2540, y: 340}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        children:
-        - rid: 484473836275236904
-    - rid: 484473836275236904
-      type: {class: LogMessage, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 922c8a2e67e625842bc856ad890685ee
-        position: {x: 2540, y: 460}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        logType: 0
-        message:
-          reference:
-            rid: -2
-          defaultValue: Killed Player
-    - rid: 484473836275236905
-      type: {class: SetProperty, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 8270ad01a981dff4ba7e846ac373c789
-        position: {x: 1140, y: 1420}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        pair:
-          key:
-            rid: 6236232439545200661
-          value:
-            rid: 484473836275236906
-    - rid: 484473836275236906
-      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
-      data:
-        name: 
-        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 3
     - rid: 484473836275236912
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: d98e8a287ac04814091f2a36b01e2168
-        position: {x: 840, y: 760}
+        position: {x: 960, y: 620}
         blackboard:
           keys: []
         comment: 
@@ -532,38 +476,22 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1f7e2b51157763c40a0e8291ad51b111
-        position: {x: 680, y: 900}
+        position: {x: 820, y: 800}
         blackboard:
           keys: []
-        comment: 
+        comment: Alerted by sound
         drawGizmos: 0
         child:
           rid: 484473836275236878
         successRemap: 1
         failureRemap: 1
-    - rid: 484473836275236915
-      type: {class: LogMessage, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 0f51a42222c7f0645b85857c438c8d57
-        position: {x: 980, y: 1420}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        logType: 0
-        message:
-          reference:
-            rid: -2
-          defaultValue: Killing Player
     - rid: 484473836275236919
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: d89360659d1863a488d2ef6056ab7c5a
-        position: {x: 660, y: 760}
+        position: {x: 740, y: 620}
         blackboard:
           keys: []
         comment: 
@@ -572,40 +500,298 @@ MonoBehaviour:
           reference:
             rid: 6236232439545200656
           defaultValue: 0
-    - rid: 1526963689735847947
+    - rid: 484473836275236922
       type: {class: Switch, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: a9ad246921676fa49807b015bd7af893
-        position: {x: 280, y: 480}
+        guid: b235c92a274db9b438d8db7542c477d2
+        position: {x: 0, y: 200}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
         children:
-        - rid: 1526963689735847949
+        - rid: 6236232439545200663
+        - rid: 6236232439545200664
+        - rid: 6236232439545200665
         index:
           reference:
-            rid: 1526963689735847948
+            rid: 6236232439545200661
           defaultValue: 0
         interruptable: 1
-    - rid: 1526963689735847948
-      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+    - rid: 484473836275236929
+      type: {class: KillPlayer, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
       data:
-        name: AlertSource
-        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 0
+        state: 0
+        started: 0
+        guid: 1ac61faa221508548bf2887470df5b78
+        position: {x: 680, y: 1320}
+        blackboard:
+          keys: []
+        comment: If player was found hiding kill them
+        drawGizmos: 0
+        player:
+          reference:
+            rid: 6236232439545200641
+          defaultValue: {fileID: 0}
+    - rid: 484473836275236936
+      type: {class: LoadSceneIndex, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b7d45e1f874fa0a4ea882c9f8b222b73
+        position: {x: 2200, y: 860}
+        blackboard:
+          keys: []
+        comment: Load main menu because player is dead
+        drawGizmos: 0
+        sceneIndex:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 484473836275236937
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 4cfb5317009f54040875db9f0b0c0d20
+        position: {x: 1480, y: 1180}
+        blackboard:
+          keys: []
+        comment: If locker check fails the monster pick a random spot in the room
+          to check
+        drawGizmos: 0
+        children:
+        - rid: 484473836275236943
+        - rid: 484473836275236944
+        - rid: 484473836275236940
+    - rid: 484473836275236940
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c9a99c2dba39eab41835e085d6a56caf
+        position: {x: 1700, y: 1320}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 4
+    - rid: 484473836275236942
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 168054ca4e5d93249971736825d9143d
+        position: {x: 1320, y: 1440}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 484473836275236947
+        - rid: 484473836275236946
+    - rid: 484473836275236943
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 8c580132b4ee1014caa12310d0f9b047
+        position: {x: 1320, y: 1320}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 484473836275236942
+        restartOnSuccess: 0
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 8
+    - rid: 484473836275236944
+      type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 15fa0c92f9dcde346a66ad01a4072be1
+        position: {x: 1500, y: 1320}
+        blackboard:
+          keys: []
+        comment: Move to the selected point
+        drawGizmos: 0
+        targetPosition:
+          reference:
+            rid: 6236232439545200655
+          defaultValue: {x: 0, y: 0}
+        speed:
+          reference:
+            rid: 6236232445669146642
+          defaultValue: 4
+    - rid: 484473836275236946
+      type: {class: CheckValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 70868ae93ae61e442b30b9693025b293
+        position: {x: 1400, y: 1580}
+        blackboard:
+          keys: []
+        comment: Retry until a valid point is found
+        drawGizmos: 0
+        positionToCheck:
+          reference:
+            rid: 6236232439545200655
+          defaultValue: {x: 0, y: 0}
+    - rid: 484473836275236947
+      type: {class: SelectPoint, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 39fb6f887e97504408ceea4115644fe4
+        position: {x: 1220, y: 1580}
+        blackboard:
+          keys: []
+        comment: Select a point within the search bounds
+        drawGizmos: 0
+        room:
+          reference:
+            rid: 484473835900633088
+          defaultValue: {fileID: 0}
+        outTarget:
+          reference:
+            rid: 6236232439545200655
+          defaultValue: {x: 0, y: 0}
+    - rid: 484473836275236951
+      type: {class: MoveToGameObject, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 3fa22e61781987047b7b4219e7b18c93
+        position: {x: 2500, y: 600}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        target:
+          reference:
+            rid: 6236232439545200641
+          defaultValue: {fileID: 0}
+        speed:
+          reference:
+            rid: -2
+          defaultValue: 5
+    - rid: 484473836275236952
+      type: {class: Parallel, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 3e2b75334127c6d4886d16c63f4c34f1
+        position: {x: 2320, y: 460}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 484473836275236953
+        - rid: 484473836275236951
+    - rid: 484473836275236953
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 149db49a7280087499f9ffd8e6ec5b2c
+        position: {x: 2120, y: 600}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 484473836275236954
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 484473836275236954
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 09459808ae8dad4428ddefe3555c0513
+        position: {x: 2120, y: 720}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 484473836275236960
+        - rid: 484473836275236936
+    - rid: 484473836275236960
+      type: {class: CheckDistance, ns: Runtime.BehaviourTree.Conditions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e63926c28d7580a448125e8b2538a8d4
+        position: {x: 2020, y: 860}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        distance:
+          reference:
+            rid: -2
+          defaultValue: 2.5
+        target:
+          reference:
+            rid: 6236232439545200641
+          defaultValue: {fileID: 0}
+    - rid: 484473836275236963
+      type: {class: LoadSceneIndex, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 653556726ac942e45a674b5985acb415
+        position: {x: 1000, y: 1320}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        sceneIndex:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 484473836275236964
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a8481fddbb04a5c4dbce51b91773e820
+        position: {x: 840, y: 1320}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 1
     - rid: 1526963689735847949
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: f6ea3756376b2764c8b4d01bfa51e761
-        position: {x: 100, y: 620}
+        position: {x: 220, y: 480}
         blackboard:
           keys: []
-        comment: Was alerted by sound source
+        comment: Was alerted
         drawGizmos: 0
         children:
         - rid: 1526963689735847957
@@ -620,7 +806,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a16eb0817f36a4a48941ee09d2fb6999
-        position: {x: -240, y: 880}
+        position: {x: -160, y: 740}
         blackboard:
           keys: []
         comment: 
@@ -634,10 +820,10 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d80050443672550479d6a83c9b218ff7
-        position: {x: -360, y: 1140}
+        position: {x: -280, y: 1000}
         blackboard:
           keys: []
-        comment: Check if the investigation point exists
+        comment: Check the validity of the alert
         drawGizmos: 0
         positionToCheck:
           reference:
@@ -649,7 +835,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 58b22eeedff25b4438f5e83783c53c9e
-        position: {x: -340, y: 1020}
+        position: {x: -260, y: 880}
         blackboard:
           keys: []
         comment: 
@@ -662,7 +848,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 52ea0752981ed074d866834270f3c2c3
-        position: {x: -140, y: 1020}
+        position: {x: -60, y: 880}
         blackboard:
           keys: []
         comment: If point does not exist exit back to patrol state
@@ -684,7 +870,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 449459f1754c73e47bd7e88b3e600189
-        position: {x: -240, y: 760}
+        position: {x: -160, y: 620}
         blackboard:
           keys: []
         comment: Enforce Success to avoid edge cases
@@ -705,7 +891,7 @@ MonoBehaviour:
         comment: 
         drawGizmos: 0
         child:
-          rid: 6236232439545200660
+          rid: 484473836275236922
     - rid: 6236232439545200641
       type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -738,27 +924,6 @@ MonoBehaviour:
         name: DidSeeEnter
         typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 0
-    - rid: 6236232439545200660
-      type: {class: Switch, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: eba8a110b74294143942a454b9ab5554
-        position: {x: 0, y: 200}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        children:
-        - rid: 6236232439545200663
-        - rid: 6236232439545200664
-        - rid: 6236232439545200665
-        - rid: 484473836275236903
-        index:
-          reference:
-            rid: 6236232439545200661
-          defaultValue: 0
-        interruptable: 1
     - rid: 6236232439545200661
       type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -790,15 +955,15 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 91597303de299904b8298f2dab1a0214
-        position: {x: 280, y: 340}
+        position: {x: 220, y: 340}
         blackboard:
           keys: []
         comment: Alert State
         drawGizmos: 0
         child:
-          rid: 1526963689735847947
+          rid: 1526963689735847949
         restartOnSuccess: 1
-        restartOnFailure: 0
+        restartOnFailure: 1
         maxRepeats:
           reference:
             rid: -2
@@ -809,15 +974,15 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 29a6f5087f06a0e46b2c6ebf2c165af6
-        position: {x: 1740, y: 340}
+        position: {x: 2320, y: 340}
         blackboard:
           keys: []
         comment: Aggro State
         drawGizmos: 0
         child:
-          rid: -2
+          rid: 484473836275236952
         restartOnSuccess: 1
-        restartOnFailure: 0
+        restartOnFailure: 1
         maxRepeats:
           reference:
             rid: -2
@@ -921,7 +1086,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ff86fc615cf7bc1468bc9b200918115e
-        position: {x: -1900, y: 600}
+        position: {x: -1740, y: 600}
         blackboard:
           keys: []
         comment: Move to a random room and update the active room index
@@ -964,7 +1129,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 020540c44026a4940a580a00a8cfcbe8
-        position: {x: -1640, y: 600}
+        position: {x: -1560, y: 600}
         blackboard:
           keys: []
         comment: When The room is reached, look around for a set number of times.
@@ -1050,7 +1215,7 @@ MonoBehaviour:
       data:
         name: Speed
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 5
+        value: 7
     - rid: 6236232445669146643
       type: {class: RandomFailure, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:

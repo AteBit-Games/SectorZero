@@ -8,6 +8,7 @@ namespace Runtime.BehaviourTree
         public Transform transform;
         public Animator animator;
         public NavAgent agent;
+        public BehaviourTree tree;
 
         public static Context CreateFromGameObject(GameObject gameObject) 
         {
@@ -16,6 +17,7 @@ namespace Runtime.BehaviourTree
                 transform = gameObject.transform,
                 animator = gameObject.GetComponent<Animator>(),
                 agent = gameObject.GetComponentInChildren<NavAgent>(),
+                tree = gameObject.GetComponent<BehaviourTreeOwner>().behaviourTree
             };
 
             return context;

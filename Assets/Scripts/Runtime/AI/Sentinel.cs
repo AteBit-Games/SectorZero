@@ -59,7 +59,7 @@ namespace Runtime.AI
             _material.color = aggroColour;
         }
 
-        public void OnSightExit()
+        public void OnSightExit(Vector2 lastSeenPosition)
         {
             if (_canSeePlayer)
             {
