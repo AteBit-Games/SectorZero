@@ -1,8 +1,7 @@
 using System;
 using Runtime.Player;
-using UnityEngine;
 
-namespace Runtime.BehaviourTree.Actions 
+namespace Runtime.BehaviourTree.Actions.GameObject 
 {
     [Serializable]
     [Name("Kill Player")]

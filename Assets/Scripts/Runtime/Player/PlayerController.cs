@@ -2,7 +2,6 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
-using Runtime.BehaviourTree;
 using Runtime.InputSystem;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
@@ -18,8 +17,7 @@ namespace Runtime.Player
         [Header("REFERENCES")]
         #endregion
         [SerializeField] private InputReader inputReader;
-        [SerializeField] private BehaviourTreeOwner behaviourTreeOwner;
-        
+
         #region Header MOVEMENT DETAILS
         [Space(10)]
         [Header("MOVEMENT DETAILS")]
@@ -113,7 +111,6 @@ namespace Runtime.Player
             SetData(false);
             DisableInput();
             _movementAnimator.SetBool(id: _isMoving, false);
-            behaviourTreeOwner.SetBlackboardValue("Is Player Hiding", isHiding);
             globalLight.intensity = 0.25f;
             transform.position = position;
         }
@@ -123,7 +120,6 @@ namespace Runtime.Player
             SetData(true);
             EnableInput();
             _movementAnimator.SetBool(id: _isSneaking, _sneaking);
-            behaviourTreeOwner.SetBlackboardValue("Is Player Hiding", isHiding);
             globalLight.intensity = 0.3f;
             transform.position = position;
         }

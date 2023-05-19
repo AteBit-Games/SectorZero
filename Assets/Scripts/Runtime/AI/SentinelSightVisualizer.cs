@@ -71,7 +71,7 @@ namespace Runtime.AI
 
             if (spottedPlayer == null)
             {
-                _sight.gameObject.GetComponent<ISightHandler>().OnSightExit();
+                //_sight.gameObject.GetComponent<ISightHandler>().OnSightExit();
             }
         }
 

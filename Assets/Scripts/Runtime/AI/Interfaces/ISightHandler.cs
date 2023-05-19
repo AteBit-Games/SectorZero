@@ -5,6 +5,6 @@ namespace Runtime.AI.Interfaces
     public interface ISightHandler
     {
         void OnSightEnter();
-        void OnSightExit();
+        void OnSightExit(Vector2 lastSeenPosition);
     }
 }
