@@ -12,8 +12,8 @@ namespace Runtime.Misc
     public class CustomLight : MonoBehaviour, IPowered
     {
         [SerializeField] private bool flicker;
-        [SerializeField] private float minSpeed = 0.1f;
-        [SerializeField] private float maxSpeed = 0.5f;
+        [SerializeField] private float minWait = 3f;
+        [SerializeField] private float maxWait = 6f;
         [SerializeField] private new Light2D light;
         [SerializeField] private bool startPowered;
         
