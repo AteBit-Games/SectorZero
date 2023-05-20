@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &694024253656269714
 SpriteRenderer:
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeType: 0
-  extraOffset: 0.075
-  invertPolygon: 1
+  extraOffset: -1.15
+  invertPolygon: 0
 --- !u!60 &2177145824112303712
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -75,26 +75,30 @@ MonoBehaviour:
   - rid: 484473836275236960
   - rid: 484473836275236963
   - rid: 484473836275236964
+  - rid: 484473872862412804
   treeState: 1
   blackboard:
     keys:
     - rid: 6236232439545200661
     - rid: 6236232439545200641
     - rid: 6236232445669146642
-    - rid: 6236232439545200658
-    - rid: 6236232439545200671
-    - rid: 484473834202726406
-    - rid: 6236232439545200675
-    - rid: 6236232439545200656
+    - rid: 484473872862412802
     - rid: 6236232439545200657
+    - rid: 484473872862412803
+    - rid: 484473872862412801
+    - rid: 6236232439545200671
+    - rid: 6236232439545200675
+    - rid: 484473834202726406
+    - rid: 6236232439545200658
+    - rid: 6236232439545200656
     - rid: 6236232439545200670
     - rid: 6236232445669146636
     - rid: 6236232445669146640
     - rid: 6236232439545200655
-    - rid: 484473835900633088
     - rid: 484473836275236877
     - rid: 484473836275236887
-  viewPosition: {x: -29, y: 73, z: 0}
+    - rid: 484473835900633088
+  viewPosition: {x: 399, y: 122, z: 0}
   viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
@@ -133,7 +137,7 @@ MonoBehaviour:
           defaultValue: {x: 0, y: 0}
         speed:
           reference:
-            rid: 6236232445669146642
+            rid: 484473872862412802
           defaultValue: 4
     - rid: 484473834202726406
       type: {class: GameObjectListKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
@@ -266,7 +270,7 @@ MonoBehaviour:
           defaultValue: {x: 0, y: 0}
         speed:
           reference:
-            rid: 6236232445669146642
+            rid: 484473872862412802
           defaultValue: 4
     - rid: 484473836275236877
       type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
@@ -455,7 +459,7 @@ MonoBehaviour:
         duration:
           reference:
             rid: -2
-          defaultValue: 4
+          defaultValue: 3
     - rid: 484473836275236912
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -580,7 +584,7 @@ MonoBehaviour:
         duration:
           reference:
             rid: -2
-          defaultValue: 4
+          defaultValue: 3
     - rid: 484473836275236942
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -631,7 +635,7 @@ MonoBehaviour:
           defaultValue: {x: 0, y: 0}
         speed:
           reference:
-            rid: 6236232445669146642
+            rid: 484473872862412802
           defaultValue: 4
     - rid: 484473836275236946
       type: {class: CheckValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
@@ -684,7 +688,7 @@ MonoBehaviour:
           defaultValue: {fileID: 0}
         speed:
           reference:
-            rid: -2
+            rid: 484473872862412801
           defaultValue: 5
     - rid: 484473836275236952
       type: {class: Parallel, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
@@ -782,6 +786,39 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 1
+    - rid: 484473872862412801
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AggroSpeed
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 2.4
+    - rid: 484473872862412802
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AlertSpeed
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 5
+    - rid: 484473872862412803
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: PatrolChecks
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 3
+    - rid: 484473872862412804
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 54b998c05f5a13a4eb70dac4cb275164
+        position: {x: -1680, y: 600}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 3
     - rid: 1526963689735847949
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -915,9 +952,9 @@ MonoBehaviour:
     - rid: 6236232439545200657
       type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
-        name: TimesToCheck
+        name: AlertChecks
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 3
+        value: 6
     - rid: 6236232439545200658
       type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -1043,7 +1080,7 @@ MonoBehaviour:
         drawGizmos: 0
         duration:
           reference:
-            rid: -2
+            rid: 6236232439545200656
           defaultValue: 2
     - rid: 6236232439545200681
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
@@ -1086,7 +1123,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ff86fc615cf7bc1468bc9b200918115e
-        position: {x: -1740, y: 600}
+        position: {x: -1840, y: 600}
         blackboard:
           keys: []
         comment: Move to a random room and update the active room index
@@ -1121,6 +1158,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 6236232440973885441
+        - rid: 484473872862412804
         - rid: 6236232445669146624
         - rid: 6236232439545200679
     - rid: 6236232445669146624
@@ -1129,7 +1167,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 020540c44026a4940a580a00a8cfcbe8
-        position: {x: -1560, y: 600}
+        position: {x: -1520, y: 600}
         blackboard:
           keys: []
         comment: When The room is reached, look around for a set number of times.
@@ -1140,7 +1178,7 @@ MonoBehaviour:
           defaultValue: {fileID: 0}
         times:
           reference:
-            rid: 6236232439545200657
+            rid: 484473872862412803
           defaultValue: 3
         lookTime:
           reference:
@@ -1213,9 +1251,9 @@ MonoBehaviour:
     - rid: 6236232445669146642
       type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
-        name: Speed
+        name: PatrolSpeed
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 7
+        value: 4
     - rid: 6236232445669146643
       type: {class: RandomFailure, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:

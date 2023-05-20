@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 711237531}
   - component: {fileID: 2317644119437154989}
   - component: {fileID: 4580010966215210633}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WoodDeskFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeType: 0
-  extraOffset: 0
+  extraOffset: 0.075
   invertPolygon: 1
 --- !u!60 &4580010966215210633
 PolygonCollider2D:
@@ -171,13 +171,13 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5012898, y: 0.99462366}
     oldSize: {x: 6.6, y: 3.8}
     newSize: {x: 4.125, y: 2.375}
     adaptiveTilingThreshold: 0.5
@@ -186,8 +186,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -3.3163383, y: 0.5602478}
-      - {x: -3.3, y: -1.9}
-      - {x: 3.3, y: -1.9}
-      - {x: 3.2836616, y: 0.51123273}
+    - - {x: 2.6377888, y: -1.5088768}
+      - {x: -3.2925575, y: -1.4374292}
+      - {x: -3.2286537, y: -3.8514504}
+      - {x: 3.206288, y: -3.845858}
+      - {x: 3.2137363, y: -1.5158173}
   m_UseDelaunayMesh: 0

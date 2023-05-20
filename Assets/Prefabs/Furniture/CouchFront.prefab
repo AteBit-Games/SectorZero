@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8132226326687815663}
   - component: {fileID: 1080606266230007979}
   - component: {fileID: 2177145824112303712}
-  - component: {fileID: 4165824991889887}
+  - component: {fileID: 1393999396}
   m_Layer: 7
   m_Name: CouchFront
   m_TagString: Untagged
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeType: 0
-  extraOffset: 0.075
-  invertPolygon: 1
+  extraOffset: -1.15
+  invertPolygon: 0
 --- !u!60 &2177145824112303712
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ PolygonCollider2D:
       - {x: 2.688055, y: 0.5526428}
       - {x: 2.2282326, y: 0.57905805}
   m_UseDelaunayMesh: 0
---- !u!210 &4165824991889887
+--- !u!210 &1393999396
 SortingGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
