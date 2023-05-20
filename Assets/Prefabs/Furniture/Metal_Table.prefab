@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 711237531}
   - component: {fileID: 2317644119437154989}
   - component: {fileID: 4580010966215210633}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Metal_Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1274996693852694006
 SpriteRenderer:
@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeType: 0
-  extraOffset: 0
-  invertPolygon: 1
+  extraOffset: -1.15
+  invertPolygon: 0
 --- !u!60 &4580010966215210633
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -186,8 +186,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.962855, y: 0.6100918}
-      - {x: -2.9421813, y: -1.7977656}
-      - {x: 2.919606, y: -1.9396142}
-      - {x: 2.975642, y: 0.5673758}
+    - - {x: -2.9208477, y: 0.736117}
+      - {x: -2.9281795, y: -1.8817824}
+      - {x: 2.919606, y: -1.883603}
+      - {x: 2.9196317, y: 0.7354094}
   m_UseDelaunayMesh: 0
