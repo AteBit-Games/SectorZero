@@ -2,10 +2,14 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
+using System;
+using System.Collections;
 using Runtime.InteractionSystem;
 using Runtime.InteractionSystem.Interfaces;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using Random = UnityEngine.Random;
 
 namespace Runtime.Misc
 {
@@ -17,7 +21,7 @@ namespace Runtime.Misc
         [SerializeField] private new Light2D light;
         [SerializeField] private bool startPowered;
         
-        private float _timer;
+        private Coroutine _coroutine;
         private AudioSource _audioSource;
         private Animator _animator;
         private static readonly int On = Animator.StringToHash("On");
@@ -31,27 +35,9 @@ namespace Runtime.Misc
             _animator = GetComponent<Animator>();
         }
 
-        private void Update()
+        private void Start()
         {
-            if(flicker) Flicker();
-        }
-
-        private void Flicker()
-        {
-            if (_timer > 0)
-            {
-                _audioSource.mute = false;
-                _animator.SetBool(On, true);
-                _timer -= Time.deltaTime;
-            }
-            
-            if(_timer <= 0)
-            {
-                _audioSource.mute = true;
-                _animator.SetBool(On, false);
-                _timer = Random.Range(minSpeed, maxSpeed);
-                light.enabled = !light.enabled;
-            }
+            if(flicker) _coroutine = StartCoroutine(FlickerOff());
         }
 
         public bool IsPowered { get; set; }
@@ -59,12 +45,30 @@ namespace Runtime.Misc
         {
             light.enabled = true;
             IsPowered = true;
+            if(flicker) _coroutine = StartCoroutine(FlickerOff());
         }
 
         public void PowerOff()
         {
             light.enabled = false;
             IsPowered = false;
+            if(_coroutine != null) StopCoroutine(_coroutine);
+        }
+        
+        private IEnumerator FlickerOff() 
+        {
+            light.enabled = true;
+            _audioSource.mute = false;
+            _animator.SetBool(On, true);
+            
+            yield return new WaitForSeconds(Random.Range(minWait, maxWait));
+            light.enabled = false;
+            _audioSource.mute = true;
+            _animator.SetBool(On, false);
+            
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
+            
+            _coroutine = StartCoroutine(FlickerOff());
         }
     }
 }
