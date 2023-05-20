@@ -5,6 +5,7 @@
 
 using System.Collections.Generic;
 using Runtime.InteractionSystem;
+using Runtime.InteractionSystem.Items;
 using UnityEngine;
 
 namespace Runtime.SaveSystem.Data

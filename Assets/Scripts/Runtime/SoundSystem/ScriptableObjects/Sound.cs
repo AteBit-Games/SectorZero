@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Runtime.SoundSystem.ScriptableObjects
 {
