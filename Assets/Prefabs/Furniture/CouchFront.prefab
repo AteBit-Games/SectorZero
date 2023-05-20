@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 453109581198632899}
   - component: {fileID: 694024253656269714}
   - component: {fileID: 8132226326687815663}
-  - component: {fileID: 1080606266230007979}
   - component: {fileID: 2177145824112303712}
   - component: {fileID: 1393999396}
+  - component: {fileID: 5637312041701157059}
   m_Layer: 7
   m_Name: CouchFront
   m_TagString: Untagged
@@ -115,21 +115,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1080606266230007979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9042562925000432207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c0a3830985ead49afca98818467a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shapeType: 0
-  extraOffset: -1.15
-  invertPolygon: 0
 --- !u!60 &2177145824112303712
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -197,3 +182,19 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_SortAtRoot: 0
+--- !u!114 &5637312041701157059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9042562925000432207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

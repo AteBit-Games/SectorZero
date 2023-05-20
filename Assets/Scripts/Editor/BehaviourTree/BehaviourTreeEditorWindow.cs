@@ -11,7 +11,6 @@ namespace Editor.BehaviourTree
 {
     public class BehaviourTreeEditorWindow : EditorWindow 
     {
-
         [Serializable]
         public class PendingScriptCreate 
         {
@@ -43,7 +42,7 @@ namespace Editor.BehaviourTree
                 return AssetDeleteResult.DidNotDelete;
             }
         }
-        public static BehaviourTreeEditorWindow Instance;
+        public static BehaviourTreeEditorWindow instance;
         public BehaviourTreeProjectSettings settings;
         public VisualTreeAsset behaviourTreeXml;
         public VisualTreeAsset nodeXml;
@@ -54,12 +53,13 @@ namespace Editor.BehaviourTree
         public TextAsset scriptTemplateConditionNode;
         
         public BehaviourTreeView treeView;
-        private InspectorView inspectorView;
-        private BlackboardView blackboardView;
-        private OverlayView overlayView;
-        private ToolbarMenu toolbarMenu;
-        private Label treeNameLabel;
+        private InspectorView _inspectorView;
+        private BlackboardView _blackboardView;
+        private OverlayView _overlayView;
+        private ToolbarMenu _toolbarMenu;
+        private Label _treeNameLabel;
         public NewScriptDialogView newScriptDialog;
+        public ToolbarBreadcrumbs breadcrumbs;
 
         [SerializeField]
         public PendingScriptCreate pendingScriptCreate = new();
@@ -97,7 +97,7 @@ namespace Editor.BehaviourTree
 
         public void CreateGUI()
         {
-            Instance = this; 
+            instance = this; 
             settings = BehaviourTreeProjectSettings.GetOrCreateSettings();
 
             // Each editor window contains a root VisualElement object
@@ -112,12 +112,13 @@ namespace Editor.BehaviourTree
             root.styleSheets.Add(styleSheet);
             
             treeView = root.Q<BehaviourTreeView>();
-            inspectorView = root.Q<InspectorView>();
-            blackboardView = root.Q<BlackboardView>();
-            toolbarMenu = root.Q<ToolbarMenu>();
-            overlayView = root.Q<OverlayView>("select-tree-overlay");
+            _inspectorView = root.Q<InspectorView>();
+            _blackboardView = root.Q<BlackboardView>();
+            _toolbarMenu = root.Q<ToolbarMenu>();
+            _overlayView = root.Q<OverlayView>("select-tree-overlay");
             newScriptDialog = root.Q<NewScriptDialogView>("new-script-overlay");
-            treeNameLabel = root.Q<Label>("active-tree");
+            breadcrumbs = root.Q<ToolbarBreadcrumbs>("breadcrumbs");
+            _treeNameLabel = root.Q<Label>("active-tree");
             
             //select main-container
             var mainContainer = root.Q("main-container");
@@ -126,35 +127,34 @@ namespace Editor.BehaviourTree
 
             treeView.styleSheets.Add(behaviourTreeStyle);
             
-            toolbarMenu.RegisterCallback<MouseEnterEvent>(_ => {
-                toolbarMenu.menu.MenuItems().Clear();
+            _toolbarMenu.RegisterCallback<MouseEnterEvent>(_ => {
+                _toolbarMenu.menu.MenuItems().Clear();
                 var behaviourTrees = EditorUtility.GetAssetPaths<Runtime.BehaviourTree.BehaviourTree>();
                 behaviourTrees.ForEach(path => {
                     var fileName = System.IO.Path.GetFileName(path);
-                    toolbarMenu.menu.AppendAction($"{fileName}", _ => {
+                    _toolbarMenu.menu.AppendAction($"{fileName}", _ => {
                         var behaviourTree = AssetDatabase.LoadAssetAtPath<Runtime.BehaviourTree.BehaviourTree>(path);
                         SelectNewTree(behaviourTree);
                         
                     });
                 });
-                toolbarMenu.menu.AppendSeparator();
-                toolbarMenu.menu.AppendAction("New Tree...", _ => OnToolbarNewAsset());
+                _toolbarMenu.menu.AppendSeparator();
+                _toolbarMenu.menu.AppendAction("New Tree...", _ => OnToolbarNewAsset());
             });
             
-            
-            treeView.OnNodeSelected -= OnNodeSelectionChanged;
-            treeView.OnNodeSelected += OnNodeSelectionChanged;
+            treeView.onNodeSelected -= OnNodeSelectionChanged;
+            treeView.onNodeSelected += OnNodeSelectionChanged;
 
             // Overlay view
-            overlayView.OnTreeSelected -= SelectTree;
-            overlayView.OnTreeSelected += SelectTree;
+            _overlayView.OnTreeSelected -= SelectTree;
+            _overlayView.OnTreeSelected += SelectTree;
 
             // New Script Dialog
             newScriptDialog.style.visibility = Visibility.Hidden;
 
             if (serializer == null) 
             {
-                overlayView.Show();
+                _overlayView.Show();
             } 
             else 
             {
@@ -222,10 +222,8 @@ namespace Editor.BehaviourTree
                     EditorApplication.delayCall += OnSelectionChange;
                     break;
                 case PlayModeStateChange.ExitingPlayMode:
-                    inspectorView?.Clear();
+                    _inspectorView?.Clear();
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(obj), obj, null);
             }
         }
 
@@ -243,6 +241,7 @@ namespace Editor.BehaviourTree
 
         private void SelectNewTree(Runtime.BehaviourTree.BehaviourTree newTree) 
         {
+            ClearBreadcrumbs();
             SelectTree(newTree);
         }
 
@@ -261,20 +260,23 @@ namespace Editor.BehaviourTree
             tree = newTree;
             serializer = new SerializedBehaviourTree(newTree);
             
-            overlayView?.Hide();
+            int childCount = breadcrumbs.childCount;
+            breadcrumbs.PushItem($"{serializer.tree.name}", () => PopToSubtree(childCount, newTree));
+            
+            _overlayView?.Hide();
             treeView?.PopulateView(serializer);
-            blackboardView?.Bind(serializer);
-            treeNameLabel.text = newTree.name.SplitCamelCase();
+            _blackboardView?.Bind(serializer);
+            _treeNameLabel.text = newTree.name.SplitCamelCase();
         }
 
         private void ClearSelection() 
         {
             tree = null;
             serializer = null;
-            inspectorView?.Clear();
+            _inspectorView?.Clear();
             treeView?.ClearView();
-            blackboardView?.ClearView();
-            overlayView?.Show();
+            _blackboardView?.ClearView();
+            _overlayView?.Show();
         }
 
         private void ClearIfSelected(string path)
@@ -290,7 +292,7 @@ namespace Editor.BehaviourTree
 
         private void OnNodeSelectionChanged(NodeView node)
         {
-            inspectorView.UpdateSelection(serializer, node);
+            _inspectorView.UpdateSelection(serializer, node);
         }
 
         private void OnInspectorUpdate()
@@ -310,6 +312,41 @@ namespace Editor.BehaviourTree
             }
         }
         
+        public void PushSubTreeView(SubTree subtreeNode) 
+        {
+            if (subtreeNode.treeAsset != null) {
+                if (Application.isPlaying) 
+                {
+                    var subTree = subtreeNode.treeInstance;
+                    subTree.blackboard = serializer.tree.blackboard;
+                    SelectTree(subtreeNode.treeInstance);
+                } 
+                else 
+                {
+                    var subTree = subtreeNode.treeAsset;
+                    subTree.blackboard = serializer.tree.blackboard;
+                    SelectTree(subtreeNode.treeAsset);
+                }
+            } 
+            else 
+            {
+                Debug.LogError("Invalid subtree assigned. Assign a a behaviour tree to the tree asset field");
+            }
+        }
         
+        public void PopToSubtree(int depth, Runtime.BehaviourTree.BehaviourTree tree) 
+        {
+            while (breadcrumbs != null && breadcrumbs.childCount > depth)
+            {
+                breadcrumbs.PopItem();
+            }
+            
+            if (tree) SelectTree(tree);
+        }
+        
+        public void ClearBreadcrumbs() 
+        {
+            PopToSubtree(0, null);
+        }
     }
 }

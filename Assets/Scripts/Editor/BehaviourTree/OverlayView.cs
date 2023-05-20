@@ -19,7 +19,7 @@ namespace Editor.BehaviourTree
 
         public void Show() 
         {
-            var settings = new SerializedObject(BehaviourTreeEditorWindow.Instance.settings);
+            var settings = new SerializedObject(BehaviourTreeEditorWindow.instance.settings);
             style.visibility = Visibility.Visible;
 
             // Configure fields

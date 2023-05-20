@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Runtime.BehaviourTree;
-using Runtime.BehaviourTree.Composites;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -15,16 +14,16 @@ namespace Editor.BehaviourTree
     {
         public new class UxmlFactory : UxmlFactory<BehaviourTreeView, UxmlTraits> { }
 
-        public const int gridSnapSize = 20;
-        public Action<NodeView> OnNodeSelected;
+        public const int GridSnapSize = 20;
+        public Action<NodeView> onNodeSelected;
         protected override bool canCopySelection => true;
         protected override bool canCutSelection => false;
         protected override bool canPaste => true;
         protected override bool canDuplicateSelection => true;
         protected override bool canDeleteSelection => true;
 
-        private SerializedBehaviourTree serializer;
-        private bool dontUpdateModel;
+        private SerializedBehaviourTree _serializer;
+        private bool _dontUpdateModel;
 
         [Serializable]
         private class CopyPasteData {
@@ -66,7 +65,7 @@ namespace Editor.BehaviourTree
             };
             
             unserializeAndPaste = (_, data) => {
-                serializer.BeginBatch();
+                _serializer.BeginBatch();
                 ClearSelection();
 
                 CopyPasteData copyPasteData = JsonUtility.FromJson<CopyPasteData>(data);
@@ -97,7 +96,7 @@ namespace Editor.BehaviourTree
                 
                 foreach (var nodeView in nodesToCopy) 
                 {
-                    Node newNode = serializer.CreateNode(nodeView.node.GetType(), nodeView.node.position + Vector2.one * 50);
+                    Node newNode = _serializer.CreateNode(nodeView.node.GetType(), nodeView.node.position + Vector2.one * 50);
                     NodeView newNodeView = CreateNodeView(newNode);
                     AddToSelection(newNodeView);
                     
@@ -112,11 +111,11 @@ namespace Editor.BehaviourTree
                     NodeView newParent = FindNodeView(oldToNewMapping[oldParent.node.guid]);
                     NodeView newChild = FindNodeView(oldToNewMapping[oldChild.node.guid]);
 
-                    serializer.AddChild(newParent.node, newChild.node);
+                    _serializer.AddChild(newParent.node, newChild.node);
                     AddChild(newParent, newChild);
                 }
                 
-                serializer.EndBatch();
+                _serializer.EndBatch();
             };
             
             canPasteSerializedData = _ => true;
@@ -127,7 +126,7 @@ namespace Editor.BehaviourTree
         {
             Vector3 position = contentViewContainer.transform.position;
             Vector3 transformScale = contentViewContainer.transform.scale;
-            serializer.SetViewTransform(position, transformScale);
+            _serializer.SetViewTransform(position, transformScale);
         }
 
         public NodeView FindNodeView(Node node) 
@@ -149,12 +148,12 @@ namespace Editor.BehaviourTree
 
         public void PopulateView(SerializedBehaviourTree tree) 
         {
-            serializer = tree;
+            _serializer = tree;
             ClearView();
-            Debug.Assert(serializer.tree.rootNode != null);
-            serializer.tree.nodes.ForEach(n => CreateNodeView(n));
+            Debug.Assert(_serializer.tree.rootNode != null);
+            _serializer.tree.nodes.ForEach(n => CreateNodeView(n));
             
-            serializer.tree.nodes.ForEach(n => {
+            _serializer.tree.nodes.ForEach(n => {
                 var children = Runtime.BehaviourTree.BehaviourTree.GetChildren(n);
                 children.ForEach(c => {
                     NodeView parentView = FindNodeView(n);
@@ -165,8 +164,8 @@ namespace Editor.BehaviourTree
                 });
             });
             
-            contentViewContainer.transform.position = serializer.tree.viewPosition;
-            contentViewContainer.transform.scale = serializer.tree.viewScale;
+            contentViewContainer.transform.position = _serializer.tree.viewPosition;
+            contentViewContainer.transform.scale = _serializer.tree.viewScale;
         }
 
         public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter) 
@@ -178,7 +177,7 @@ namespace Editor.BehaviourTree
 
         private GraphViewChange OnGraphViewChanged(GraphViewChange graphViewChange) 
         {
-            if (dontUpdateModel) return graphViewChange;
+            if (_dontUpdateModel) return graphViewChange;
             var blockedDeletes = new List<GraphElement>();
 
             if (graphViewChange.elementsToRemove != null) 
@@ -188,8 +187,8 @@ namespace Editor.BehaviourTree
                     {
                         if (nodeView.node is not RootNode) 
                         {
-                            OnNodeSelected(null);
-                            serializer.DeleteNode(nodeView.node);
+                            onNodeSelected(null);
+                            _serializer.DeleteNode(nodeView.node);
                             RemoveNodeView();
                         } 
                         else 
@@ -202,7 +201,7 @@ namespace Editor.BehaviourTree
                     {
                         NodeView parentView = edge.output.node as NodeView;
                         NodeView childView = edge.input.node as NodeView;
-                        serializer.RemoveChild(parentView.node, childView.node);
+                        _serializer.RemoveChild(parentView.node, childView.node);
                     }
                 });
             }
@@ -210,7 +209,7 @@ namespace Editor.BehaviourTree
             graphViewChange.edgesToCreate?.ForEach(edge => {
                 NodeView parentView = edge.output.node as NodeView;
                 NodeView childView = edge.input.node as NodeView;
-                serializer.AddChild(parentView.node, childView.node);
+                _serializer.AddChild(parentView.node, childView.node);
             });
 
             nodes.ForEach((n) => {
@@ -235,42 +234,42 @@ namespace Editor.BehaviourTree
 
         public NodeView CreateNode(Type type, Vector2 position, NodeView parentView) 
         {
-            serializer.BeginBatch();
+            _serializer.BeginBatch();
             
-            Node node = serializer.CreateNode(type, position);
-            if (parentView != null) serializer.AddChild(parentView.node, node);
+            Node node = _serializer.CreateNode(type, position);
+            if (parentView != null) _serializer.AddChild(parentView.node, node);
             
             NodeView nodeView = CreateNodeView(node);
             if (parentView != null) AddChild(parentView, nodeView);
 
-            serializer.EndBatch();
+            _serializer.EndBatch();
             return nodeView;
         }
 
         public NodeView CreateNodeWithChild(Type type, Vector2 position, NodeView childView)
         {
-            serializer.BeginBatch();
-            Node node = serializer.CreateNode(type, position);
+            _serializer.BeginBatch();
+            Node node = _serializer.CreateNode(type, position);
             
             foreach(var connection in childView.input.connections)
             {
-                if (connection.output.node is NodeView childParent) serializer.RemoveChild(childParent.node, childView.node);
+                if (connection.output.node is NodeView childParent) _serializer.RemoveChild(childParent.node, childView.node);
             }
-            serializer.AddChild(node, childView.node);
+            _serializer.AddChild(node, childView.node);
             
             NodeView nodeView = CreateNodeView(node);
             if (nodeView != null)  AddChild(nodeView, childView);
 
-            serializer.EndBatch();
+            _serializer.EndBatch();
             return nodeView;
         }
 
         private NodeView CreateNodeView(Node node)
         {
-            NodeView nodeView = new NodeView(node, BehaviourTreeEditorWindow.Instance.nodeXml);
+            NodeView nodeView = new NodeView(node, BehaviourTreeEditorWindow.instance.nodeXml);
             AddElement(nodeView);
 
-            nodeView.OnNodeSelected = OnNodeSelected;
+            nodeView.onNodeSelected = onNodeSelected;
             return nodeView;
         }
 
@@ -289,9 +288,9 @@ namespace Editor.BehaviourTree
 
         private void RemoveElements(IEnumerable<GraphElement> elementsToRemove) 
         {
-            dontUpdateModel = true;
+            _dontUpdateModel = true;
             DeleteElements(elementsToRemove);
-            dontUpdateModel = false;
+            _dontUpdateModel = false;
         }
 
         public void UpdateNodeStates()
@@ -317,7 +316,7 @@ namespace Editor.BehaviourTree
 
         private static void RemoveNodeView()
         {
-            var container = BehaviourTreeEditorWindow.Instance.rootVisualElement.Q("main-container");
+            var container = BehaviourTreeEditorWindow.instance.rootVisualElement.Q("main-container");
             container.ClearClassList();
             container.AddToClassList("none-selected");
         }

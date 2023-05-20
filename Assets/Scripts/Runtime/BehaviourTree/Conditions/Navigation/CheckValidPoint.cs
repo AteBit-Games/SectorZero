@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Runtime.BehaviourTree.Conditions.Navigation
 {
@@ -17,8 +18,7 @@ namespace Runtime.BehaviourTree.Conditions.Navigation
 
         protected override State OnUpdate()
         {
-            if(!context.agent.map) return State.Failure;
-            return context.agent.map.PointIsValid(positionToCheck.Value) ? State.Success : State.Failure;
+            return context.agent.CalculatePath(positionToCheck.Value, new NavMeshPath()) ? State.Success : State.Failure;
         }
 
         protected override void OnReset() { }

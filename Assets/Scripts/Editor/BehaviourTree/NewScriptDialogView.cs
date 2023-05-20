@@ -8,38 +8,38 @@ namespace Editor.BehaviourTree
     {
         public new class UxmlFactory : UxmlFactory<NewScriptDialogView, UxmlTraits> { }
 
-        private EditorUtility.ScriptTemplate scriptTemplate;
-        private TextField textField;
-        private Button confirmButton;
-        private NodeView source;
-        private bool isSourceParent;
-        private Vector2 nodePosition;
+        private EditorUtility.ScriptTemplate _scriptTemplate;
+        private TextField _textField;
+        private Button _confirmButton;
+        private NodeView _source;
+        private bool _isSourceParent;
+        private Vector2 _nodePosition;
 
         public void CreateScript(EditorUtility.ScriptTemplate scriptTemplate, NodeView source, bool isSourceParent, Vector2 position) 
         {
-            this.scriptTemplate = scriptTemplate;
-            this.source = source;
-            this.isSourceParent = isSourceParent;
-            nodePosition = position;
+            this._scriptTemplate = scriptTemplate;
+            this._source = source;
+            this._isSourceParent = isSourceParent;
+            _nodePosition = position;
 
             style.visibility = Visibility.Visible;
 
             var background = this.Q<VisualElement>("Background");
             var titleLabel = this.Q<Label>("Title");
-            textField = this.Q<TextField>("FileName");
-            confirmButton = this.Q<Button>();
+            _textField = this.Q<TextField>("FileName");
+            _confirmButton = this.Q<Button>();
 
             titleLabel.text = $"New {scriptTemplate.subFolder.TrimEnd('s')} Script";
 
-            textField.focusable = true;
-            RegisterCallback<PointerEnterEvent>(_ => textField[0].Focus());
+            _textField.focusable = true;
+            RegisterCallback<PointerEnterEvent>(_ => _textField[0].Focus());
 
-            textField.RegisterCallback<KeyDownEvent>((e) => {
+            _textField.RegisterCallback<KeyDownEvent>((e) => {
                 if (e.keyCode is KeyCode.Return or KeyCode.KeypadEnter) OnConfirm();
             });
 
-            confirmButton.clicked -= OnConfirm;
-            confirmButton.clicked += OnConfirm;
+            _confirmButton.clicked -= OnConfirm;
+            _confirmButton.clicked += OnConfirm;
 
             background.RegisterCallback<PointerDownEvent>((e) => {
                 e.StopImmediatePropagation(); 
@@ -54,18 +54,18 @@ namespace Editor.BehaviourTree
 
         private void OnConfirm() 
         {
-            string scriptName = textField.text;
+            string scriptName = _textField.text;
 
-            var newNodePath = $"{BehaviourTreeEditorWindow.Instance.settings.newNodePath}";
+            var newNodePath = $"{BehaviourTreeEditorWindow.instance.settings.newNodePath}";
             if (AssetDatabase.IsValidFolder(newNodePath)) 
             {
-                var destinationFolder = System.IO.Path.Combine(newNodePath, scriptTemplate.subFolder);
+                var destinationFolder = System.IO.Path.Combine(newNodePath, _scriptTemplate.subFolder);
                 var destinationPath = System.IO.Path.Combine(destinationFolder, $"{scriptName}.cs");
 
                 System.IO.Directory.CreateDirectory(destinationFolder);
                 var parentPath = System.IO.Directory.GetParent(Application.dataPath);
 
-                string templateString = scriptTemplate.templateFile.text;
+                string templateString = _scriptTemplate.templateFile.text;
                 templateString = templateString.Replace("#SCRIPTNAME#", scriptName);
                 if (parentPath != null)
                 {
@@ -75,18 +75,18 @@ namespace Editor.BehaviourTree
                     {
                         System.IO.File.WriteAllText(scriptPath, templateString);
                     
-                        BehaviourTreeEditorWindow.Instance.pendingScriptCreate.pendingCreate = true;
-                        BehaviourTreeEditorWindow.Instance.pendingScriptCreate.scriptName = scriptName;
-                        BehaviourTreeEditorWindow.Instance.pendingScriptCreate.nodePosition = nodePosition;
+                        BehaviourTreeEditorWindow.instance.pendingScriptCreate.pendingCreate = true;
+                        BehaviourTreeEditorWindow.instance.pendingScriptCreate.scriptName = scriptName;
+                        BehaviourTreeEditorWindow.instance.pendingScriptCreate.nodePosition = _nodePosition;
                     
-                        if (source != null) 
+                        if (_source != null) 
                         {
-                            BehaviourTreeEditorWindow.Instance.pendingScriptCreate.sourceGuid = source.node.guid;
-                            BehaviourTreeEditorWindow.Instance.pendingScriptCreate.isSourceParent = isSourceParent;
+                            BehaviourTreeEditorWindow.instance.pendingScriptCreate.sourceGuid = _source.node.guid;
+                            BehaviourTreeEditorWindow.instance.pendingScriptCreate.isSourceParent = _isSourceParent;
                         }
 
                         AssetDatabase.Refresh();
-                        confirmButton.SetEnabled(false);
+                        _confirmButton.SetEnabled(false);
                         EditorApplication.delayCall += WaitForCompilation;
                     } 
                     else 
@@ -106,7 +106,7 @@ namespace Editor.BehaviourTree
                 return;
             }
 
-            confirmButton.SetEnabled(true);
+            _confirmButton.SetEnabled(true);
             Close();
         }
     }

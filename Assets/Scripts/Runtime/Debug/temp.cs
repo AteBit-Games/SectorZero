@@ -2,30 +2,27 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
+using System;
 using Runtime.InputSystem;
 using Runtime.Managers;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Runtime.Player
 {
     public class Temp : MonoBehaviour
     {
-        [SerializeField] private InputReader inputReader;
+        private NavMeshAgent _agent;
         
-        private void OnEnable()
+        private void Awake()
         {
-            inputReader.SneakEvent += HandleSneak;
-        }
-        
-        private void OnDisable()
-        {
-            inputReader.SneakEvent -= HandleSneak;
-        }
-        
-        private static void HandleSneak()
-        {
-            GameManager.Instance.SaveSystem.SaveGame();
+            _agent = GetComponent<NavMeshAgent>();
         }
 
+        private void Start()
+        {
+            _agent.SetDestination(new Vector3(-14.1f, -45.7f, 0));
+        }
     }
 }

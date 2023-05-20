@@ -14,7 +14,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
     
         protected override State OnUpdate() 
         {
-            context.agent.Stop();
+            context.agent.isStopped = true;
             return State.Success;
         }
         

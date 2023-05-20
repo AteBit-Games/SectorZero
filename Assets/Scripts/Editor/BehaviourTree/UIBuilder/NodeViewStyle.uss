@@ -101,19 +101,6 @@
     margin-bottom: 5px;
 }
 
-#node-state {
-    position: absolute;
-    left: -1px;
-    top: -1px;
-    right: -1px;
-    bottom: -1px;
-    flex-grow: 0;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
 .running #node-state {
     background-color: rgb(255, 213, 0);
 }
@@ -171,6 +158,12 @@
     left: 105%;
 }
 
+.subTree #comment {
+    position: absolute;
+    top: 110%;
+    left: 5px;
+}
+
 .node-port {
     background-color: rgb(44, 44, 44);
 }
@@ -180,6 +173,26 @@
     width: 40px;
     -unity-background-scale-mode: scale-to-fit;
     background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Action.png?fileID=2800000&guid=2df82afc865af62459de915be293e84c&type=3#Action');
+}
+
+.subTree #image {
+    height: 40px;
+    width: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/BT.png?fileID=2800000&guid=fd5d0a7319987db4bb85e6f571f3318c&type=3#BT');
+}
+
+#node-state {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    flex-grow: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .sequencerNode #image {

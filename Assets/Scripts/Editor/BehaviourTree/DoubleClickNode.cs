@@ -1,3 +1,4 @@
+using Runtime.BehaviourTree;
 using Runtime.BehaviourTree.Actions;
 using UnityEditor;
 using UnityEngine;
@@ -59,12 +60,24 @@ namespace Editor.BehaviourTree
                 }
             }
             
-            BehaviourTreeEditorWindow.Instance.treeView.RemoveFromSelection(clickedElement);
+            BehaviourTreeEditorWindow.instance.treeView.RemoveFromSelection(clickedElement);
+        }
+
+        private void OpenSubtree(NodeView clickedElement) 
+        {
+            BehaviourTreeEditorWindow.instance.PushSubTreeView(clickedElement.node as SubTree);
         }
         
-        private static void OnDoubleClick(MouseDownEvent evt, NodeView clickedElement) 
+        private void OnDoubleClick(MouseDownEvent evt, NodeView clickedElement) 
         {
-            OpenScriptForNode(evt, clickedElement);
+            if(clickedElement.node is SubTree) 
+            {
+                OpenSubtree(clickedElement);
+            } 
+            else 
+            {
+                OpenScriptForNode(evt, clickedElement);
+            }
         }
     }
 }

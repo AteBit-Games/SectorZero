@@ -23,13 +23,13 @@ namespace Editor.BehaviourTree
 
             switch (type) {
                 case 0:
-                    return projectSettings.scriptTemplateActionNode ? projectSettings.scriptTemplateActionNode : BehaviourTreeEditorWindow.Instance.scriptTemplateActionNode;
+                    return projectSettings.scriptTemplateActionNode ? projectSettings.scriptTemplateActionNode : BehaviourTreeEditorWindow.instance.scriptTemplateActionNode;
                 case 1:
-                    return projectSettings.scriptTemplateCompositeNode ? projectSettings.scriptTemplateCompositeNode : BehaviourTreeEditorWindow.Instance.scriptTemplateCompositeNode;
+                    return projectSettings.scriptTemplateCompositeNode ? projectSettings.scriptTemplateCompositeNode : BehaviourTreeEditorWindow.instance.scriptTemplateCompositeNode;
                 case 2:
-                    return projectSettings.scriptTemplateDecoratorNode ? projectSettings.scriptTemplateDecoratorNode : BehaviourTreeEditorWindow.Instance.scriptTemplateDecoratorNode;
+                    return projectSettings.scriptTemplateDecoratorNode ? projectSettings.scriptTemplateDecoratorNode : BehaviourTreeEditorWindow.instance.scriptTemplateDecoratorNode;
                 case 3:
-                    return projectSettings.scriptTemplateConditionNode ? projectSettings.scriptTemplateConditionNode : BehaviourTreeEditorWindow.Instance.scriptTemplateConditionNode;
+                    return projectSettings.scriptTemplateConditionNode ? projectSettings.scriptTemplateConditionNode : BehaviourTreeEditorWindow.instance.scriptTemplateConditionNode;
             }
             Debug.LogError("Unhandled script template type:" + type);
             return null;
@@ -131,6 +131,9 @@ namespace Editor.BehaviourTree
                     }
                 }
             }
+            
+            void CreateSubtree() => CreateNode(typeof(SubTree), context);
+            tree.Add(new SearchTreeEntry(new GUIContent("Sub Tree")) { level = 1, userData = (Action)CreateSubtree });
 
             {
                 tree.Add(new SearchTreeGroupEntry(new GUIContent("New Script...")) { level = 1 });
@@ -160,7 +163,7 @@ namespace Editor.BehaviourTree
 
         private void CreateNode(Type type, SearchWindowContext context) 
         {
-            BehaviourTreeEditorWindow editorWindow = BehaviourTreeEditorWindow.Instance;
+            BehaviourTreeEditorWindow editorWindow = BehaviourTreeEditorWindow.instance;
             
             var windowMousePosition = editorWindow.rootVisualElement.ChangeCoordinatesTo(editorWindow.rootVisualElement.parent, context.screenMousePosition - editorWindow.position.position);
             var graphMousePosition = editorWindow.treeView.contentViewContainer.WorldToLocal(windowMousePosition);
@@ -182,7 +185,7 @@ namespace Editor.BehaviourTree
 
         private void CreateScript(EditorUtility.ScriptTemplate scriptTemplate, SearchWindowContext context) 
         {
-            BehaviourTreeEditorWindow editorWindow = BehaviourTreeEditorWindow.Instance;
+            BehaviourTreeEditorWindow editorWindow = BehaviourTreeEditorWindow.instance;
 
             var windowMousePosition = editorWindow.rootVisualElement.ChangeCoordinatesTo(editorWindow.rootVisualElement.parent, context.screenMousePosition - editorWindow.position.position);
             var graphMousePosition = editorWindow.treeView.contentViewContainer.WorldToLocal(windowMousePosition);
@@ -196,7 +199,7 @@ namespace Editor.BehaviourTree
         {
             Vector2 screenPoint = GUIUtility.GUIToScreenPoint(mousePosition);
             CreateNodeWindow searchWindowProvider = CreateInstance<CreateNodeWindow>();
-            searchWindowProvider.Initialise(BehaviourTreeEditorWindow.Instance.treeView, source, isSourceParent);
+            searchWindowProvider.Initialise(BehaviourTreeEditorWindow.instance.treeView, source, isSourceParent);
             SearchWindowContext windowContext = new SearchWindowContext(screenPoint, 240, 320);
             SearchWindow.Open(windowContext, searchWindowProvider);
         }

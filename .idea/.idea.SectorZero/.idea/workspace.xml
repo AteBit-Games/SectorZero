@@ -8,6 +8,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0f991abcc4f74284a2984f66b47aac27d400/69/201c6eb0/NavMeshAgent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0f991abcc4f74284a2984f66b47aac27d400/87/39501726/NavMeshPath.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0f991abcc4f74284a2984f66b47aac27d400/fe/589d242a/NavMesh.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/328d09cedebb48f696abd1744ad5481c2d400/9a/696e5de3/GUIContent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/2f/432518a3/Enum.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/64/0018281a/Activator.cs" root0="SKIP_HIGHLIGHTING" />
@@ -27,7 +30,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/DefineSearchSpace.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/MoveToGameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/StopMoving.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/Wander.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Conditions/GameObject/CheckDistance.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InputSystem/PlayerInputMappings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InteractionSystem/Items/Pickup.cs" root0="FORCE_HIGHLIGHTING" />
@@ -142,7 +144,7 @@
       <workItem from="1684436613431" duration="49000" />
       <workItem from="1684436739523" duration="12541000" />
       <workItem from="1684519870188" duration="11409000" />
-      <workItem from="1684571646175" duration="10420000" />
+      <workItem from="1684571646175" duration="27542000" />
     </task>
     <servers />
   </component>

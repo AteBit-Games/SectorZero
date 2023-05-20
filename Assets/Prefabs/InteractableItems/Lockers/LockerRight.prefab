@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 102670792}
-  - component: {fileID: 102670794}
   - component: {fileID: 102670793}
+  - component: {fileID: 4283437392955750710}
   m_Layer: 7
   m_Name: NavigationBlocker
   m_TagString: Untagged
@@ -33,21 +33,6 @@ Transform:
   m_Father: {fileID: 461143468751046659}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &102670794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102670791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c0a3830985ead49afca98818467a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shapeType: 0
-  extraOffset: -1.1
-  invertPolygon: 0
 --- !u!60 &102670793
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -97,6 +82,22 @@ PolygonCollider2D:
       - {x: 0.95271075, y: -3.2853}
       - {x: 0.95208454, y: -1.334882}
   m_UseDelaunayMesh: 0
+--- !u!114 &4283437392955750710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102670791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &461143468751046662
 GameObject:
   m_ObjectHideFlags: 0

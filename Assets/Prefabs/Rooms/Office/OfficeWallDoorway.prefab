@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2814793134096750495}
   - component: {fileID: 4653969113676520245}
   - component: {fileID: 5713267864343418224}
-  - component: {fileID: 428546383244770182}
+  - component: {fileID: 2499488618711160577}
   m_Layer: 6
   m_Name: OfficeWallDoorway
   m_TagString: Untagged
@@ -193,7 +193,7 @@ PolygonCollider2D:
       - {x: 0.4, y: -1.6}
       - {x: 0.4, y: 1.6}
   m_UseDelaunayMesh: 0
---- !u!114 &428546383244770182
+--- !u!114 &2499488618711160577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,9 +202,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6557283851200082622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c0a3830985ead49afca98818467a07, type: 3}
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeType: 0
-  extraOffset: 0.075
-  invertPolygon: 1
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
