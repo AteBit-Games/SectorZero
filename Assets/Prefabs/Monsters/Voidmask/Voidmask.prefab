@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4237888219301661138}
   - component: {fileID: 1349879614828776186}
   - component: {fileID: 2672757191909828585}
+  - component: {fileID: 1028305728}
+  - component: {fileID: 1028305729}
   m_Layer: 9
   m_Name: Voidmask
   m_TagString: Monster
@@ -34,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 8939251857853810976}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &246152223029157254
 Animator:
@@ -96,8 +98,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: bba03d697742a9e42a26a3c980717be1, type: 3}
+  m_SortingOrder: 15
+  m_Sprite: {fileID: 21300000, guid: a61b1e8e27c3c1841b625ebcc678d1af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -140,18 +142,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06932068, y: -3.206012}
+  m_Offset: {x: 0.18784523, y: -2.7735062}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.9, y: 7.9}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.3942566, y: 1.4879766}
+  m_Size: {x: 2.5993767, y: 1.2308121}
   m_EdgeRadius: 0
 --- !u!114 &2672757191909828585
 MonoBehaviour:
@@ -165,14 +167,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 8a09da72daa961644b7611d73a97d2dd, type: 2}
-  monsterState: 0
+  behaviourTree: {fileID: 11400000, guid: 6a49b74fd3456874e828d68d582b759e, type: 2}
   validate: 1
   blackboardOverrides:
   - key:
-      rid: 484473496444862472
+      rid: 6236232439545200647
     value:
-      rid: 484473496444862473
+      rid: 6236232439545200648
+  - key:
+      rid: 6236232439545200672
+    value:
+      rid: 6236232439545200673
+  - key:
+      rid: 484473836275236864
+    value:
+      rid: 484473834202726408
   obstacleMask:
     serializedVersion: 2
     m_Bits: 192
@@ -181,6 +190,12 @@ MonoBehaviour:
     m_Bits: 256
   viewRadius: 40
   viewAngle: 135
+  audioSource: {fileID: 1028305728}
+  footstepSounds:
+  - {fileID: 8300000, guid: 6d40f43e463f83249856931534b01e54, type: 3}
+  - {fileID: 8300000, guid: b7554ac8ed199054ab6829647aa3fbbc, type: 3}
+  - {fileID: 8300000, guid: 7c280ce81997e7a459b5dd7875438944, type: 3}
+  - {fileID: 8300000, guid: 481109d79ba98b5488e9f0a8fbab650e, type: 3}
   debug: 1
   sightVisualPrefab: {fileID: 4193361830035308745, guid: 7fbb647d3619d9b4898983be60e448e2, type: 3}
   idleColour: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0.5058824}
@@ -188,20 +203,197 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 484473496444862472
+    - rid: 484473834202726408
+      type: {class: GameObjectListKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: 
+        typeName: System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value:
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+    - rid: 484473836275236864
+      type: {class: GameObjectListKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Hideables
+        typeName: System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 6236232439545200647
       type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
         name: Player
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
-    - rid: 484473496444862473
+    - rid: 6236232439545200648
       type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
         name: 
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
+    - rid: 6236232439545200672
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Rooms
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 6236232439545200673
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: 
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value:
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+--- !u!82 &1028305728
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2672757191909828581}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 100
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.01
+      value: 1
+      inSlope: -3.5387547
+      outSlope: -3.5387547
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.08908044
+    - serializedVersion: 3
+      time: 0.44272733
+      value: 0.12852037
+      inSlope: -0.61651367
+      outSlope: -0.61651367
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15665914
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7928467
+      value: 0
+      inSlope: 0.02576907
+      outSlope: 0.02576907
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2359644
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.3099718
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.46003395
+      value: 0.8036547
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!210 &1028305729
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2672757191909828581}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
 --- !u!1 &5861918398972980214
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +405,7 @@ GameObject:
   - component: {fileID: 8939251857853810976}
   - component: {fileID: 256240480159786068}
   m_Layer: 9
-  m_Name: Perception
+  m_Name: Navigation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,12 +445,12 @@ MonoBehaviour:
   stoppingDistance: 1
   slowingDistance: 1
   lookAheadDistance: 1
-  avoidRadius: 0.92
+  avoidRadius: 1.38
   avoidanceConsiderStuckTime: 3
   avoidanceConsiderReachedDistance: 1
   rotateTransform: 1
   rotateSpeed: 350
-  centerOffset: {x: 0, y: 0}
+  centerOffset: {x: 0, y: -2.5}
   repath: 1
   restrict: 0
   closerPointOnInvalid: 1

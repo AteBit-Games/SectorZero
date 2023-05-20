@@ -55,10 +55,9 @@ namespace Runtime.AI
                 
                 if (_hit.collider != null)
                 {
-                    bool playerHit = (_sight.PlayerMask.value & 1 << _hit.transform.gameObject.layer) > 0;
+                    bool playerHit = (_sight.PlayerMask.value & 1 << _hit.transform.gameObject.layer) > 0 && _hit.collider.CompareTag("Player");
                     if (playerHit)
                     {
-                        //if the player is hiding, don't do anything
                         if(_hit.collider.GetComponent<PlayerController>().isHiding) continue;
                         
                         //if the player is not hiding, call the OnSightEnter method

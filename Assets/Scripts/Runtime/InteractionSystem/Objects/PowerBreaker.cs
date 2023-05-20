@@ -9,8 +9,6 @@ using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -22,7 +20,6 @@ namespace Runtime.InteractionSystem.Objects
         [SerializeField] private List<GameObject> connectedObjects = new();
         [SerializeField] private bool startPowered;
         
-        private bool _isActivated;
         private Animator _animator;
         private static readonly int IsEnabled = Animator.StringToHash("IsEnabled");
         private NoiseEmitter _noiseEmitter;
@@ -31,24 +28,28 @@ namespace Runtime.InteractionSystem.Objects
         {
             _animator = GetComponent<Animator>();
             IsPowered = startPowered;
-            SetPowered(IsPowered);
             _noiseEmitter = GetComponent<NoiseEmitter>();
+        }
+
+        private void Start()
+        {
+            SetPowered(startPowered);
         }
 
         public bool OnInteract(GameObject player)
         {
             GameManager.Instance.SoundSystem.Play(interactSound, transform);
-            _isActivated = !_isActivated;
-            SetPowered(_isActivated);
+            IsPowered = !IsPowered;
+            SetPowered(IsPowered);
             _noiseEmitter.EmitGlobal();
             return true;
         }
 
-        public void SetPowered(bool powered)
+        public void SetPowered(bool state)
         {
             foreach (var powerObject in connectedObjects.Select(poweredObject => poweredObject.GetComponent<IPowered>()).Where(poweredState => poweredState != null))
             {
-                if (powered)
+                if(state)
                 {
                     powerObject.PowerOn();
                     PowerOn();
@@ -59,7 +60,7 @@ namespace Runtime.InteractionSystem.Objects
                     PowerOff();
                 }
             }
-            _animator.SetBool(IsEnabled, powered);
+            _animator.SetBool(IsEnabled, state);
         }
 
         public bool CanInteract()
@@ -75,7 +76,7 @@ namespace Runtime.InteractionSystem.Objects
 
         public void PowerOff()
         {
-            IsPowered = true;
+            IsPowered = false;
         }
     }
 }

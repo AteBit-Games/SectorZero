@@ -48,11 +48,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56856c98bb1ff441b0a6889bd5aab69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flicker: 0
-  minWait: 5
-  maxWait: 7
   light: {fileID: 7384101036700095114}
   startPowered: 0
+  flicker: 0
+  minOn: 3
+  maxOn: 6
+  minOff: 0.1
+  maxOff: 0.3
+  onSound: {fileID: 11400000, guid: 24477554bcf8bc2439185617f7b147a8, type: 2}
+  flickerSound: {fileID: 11400000, guid: 761ff0295e7252d429dddc1b6ecdecb9, type: 2}
 --- !u!82 &5842894688934183266
 AudioSource:
   m_ObjectHideFlags: 0

@@ -2,11 +2,9 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
-
-using System;
 using System.Collections;
-using Runtime.InteractionSystem;
 using Runtime.InteractionSystem.Interfaces;
+using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
@@ -15,29 +13,33 @@ namespace Runtime.Misc
 {
     public class CustomLight : MonoBehaviour, IPowered
     {
-        [SerializeField] private bool flicker;
-        [SerializeField] private float minWait = 3f;
-        [SerializeField] private float maxWait = 6f;
         [SerializeField] private new Light2D light;
         [SerializeField] private bool startPowered;
         
+        [SerializeField] private bool flicker;
+        [SerializeField] private float minOn = 3f;
+        [SerializeField] private float maxOn = 6f;
+        [SerializeField] private float minOff = 0.1f;
+        [SerializeField] private float maxOff = 0.3f;
+        
+        [SerializeField] private Sound onSound;
+        [SerializeField] private Sound flickerSound;
+
         private Coroutine _coroutine;
-        private AudioSource _audioSource;
         private Animator _animator;
         private static readonly int On = Animator.StringToHash("On");
+        private AudioSource _audioSource;
 
         private void Awake()
         {
-            if(startPowered) PowerOn();
-            else PowerOff();
-            
             _audioSource = GetComponent<AudioSource>();
             _animator = GetComponent<Animator>();
         }
 
         private void Start()
         {
-            if(flicker) _coroutine = StartCoroutine(FlickerOff());
+            if(startPowered) PowerOn();
+            else PowerOff();
         }
 
         public bool IsPowered { get; set; }
@@ -58,16 +60,16 @@ namespace Runtime.Misc
         private IEnumerator FlickerOff() 
         {
             light.enabled = true;
-            _audioSource.mute = false;
             _animator.SetBool(On, true);
+            _audioSource.clip = onSound.clip;
             
-            yield return new WaitForSeconds(Random.Range(minWait, maxWait));
+            yield return new WaitForSeconds(Random.Range(minOn, maxOn));
             light.enabled = false;
             _audioSource.mute = true;
             _animator.SetBool(On, false);
-            
-            yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
-            
+            _audioSource.clip = flickerSound.clip;
+
+            yield return new WaitForSeconds(Random.Range(minOff, maxOff));
             _coroutine = StartCoroutine(FlickerOff());
         }
     }
