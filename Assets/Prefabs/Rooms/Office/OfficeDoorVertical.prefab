@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8373248534648300807}
   - component: {fileID: 6997788616318760557}
   - component: {fileID: 6626136638877500080}
+  - component: {fileID: 2071004999044986901}
+  - component: {fileID: 291002249}
   m_Layer: 6
   m_Name: OfficeDoorVertical
   m_TagString: Untagged
@@ -34,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3627508867514893235
 SpriteRenderer:
@@ -76,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1023495312, guid: 3d360d4b1d195c647ac20418572b04b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,13 +110,13 @@ MonoBehaviour:
   m_SelfShadows: 1
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: -0.40000153, y: -1.6000004, z: 0}
-  - {x: -0.40000153, y: 1.6000004, z: 0}
-  - {x: 0.1, y: 1.6, z: 0}
-  - {x: 0.1, y: -1.6, z: 0}
-  m_ShapePathHash: -1855041997
+  - {x: -0.28729916, y: -3.167595, z: 0}
+  - {x: -0.28729916, y: 2.224987, z: 0}
+  - {x: 0.28442287, y: 2.2352333, z: 0}
+  - {x: 0.30491447, y: -3.1573448, z: 0}
+  m_ShapePathHash: 1706738741
   m_Mesh: {fileID: 0}
-  m_InstanceId: 39282
+  m_InstanceId: -2676
 --- !u!50 &8373248534648300807
 Rigidbody2D:
   serializedVersion: 4
@@ -186,10 +188,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.4, y: 1.6}
-      - {x: -0.4, y: -1.6}
-      - {x: 0.4, y: -1.6}
-      - {x: 0.4, y: 1.6}
+    - - {x: -0.2770523, y: 2.2147422}
+      - {x: -0.3894724, y: -5.8763328}
+      - {x: 0.37108746, y: -5.8784423}
+      - {x: 0.2980503, y: 2.2155547}
   m_UseDelaunayMesh: 0
 --- !u!114 &6626136638877500080
 MonoBehaviour:
@@ -206,3 +208,31 @@ MonoBehaviour:
   shapeType: 0
   extraOffset: 0.075
   invertPolygon: 1
+--- !u!114 &2071004999044986901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032682214098807699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97d20150da546e6b65743b158ae4348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactSound: {fileID: 11400000, guid: ee71ebac7b9200b4c84687a87519b73a, type: 2}
+  lockedSound: {fileID: 11400000, guid: ee71ebac7b9200b4c84687a87519b73a, type: 2}
+  requiresKey: 1
+  key: {fileID: 11400000, guid: b4aa007d20db2c14faad1dddc2720de1, type: 2}
+--- !u!210 &291002249
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032682214098807699}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_SortAtRoot: 0

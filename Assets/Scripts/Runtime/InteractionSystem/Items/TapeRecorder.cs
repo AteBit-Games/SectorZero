@@ -2,6 +2,7 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
 using Runtime.DialogueSystem;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem;
@@ -11,9 +12,8 @@ using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace Runtime.InteractionSystem
+namespace Runtime.InteractionSystem.Items
 {
     public class TapeRecorder : MonoBehaviour, IInteractable, IPersistant
     {

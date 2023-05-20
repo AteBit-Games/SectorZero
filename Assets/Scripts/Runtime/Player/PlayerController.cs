@@ -36,6 +36,7 @@ namespace Runtime.Player
         private Animator _movementAnimator;
         private SpriteRenderer _playerShadow;
         private SpriteRenderer _spriteRenderer;
+        private AudioLowPassFilter _audioLowPassFilter;
         private Vector2 _movementInput;
         private bool _sneaking;
 
@@ -67,6 +68,7 @@ namespace Runtime.Player
             _movementAnimator = GetComponent<Animator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _playerShadow = GameObject.FindGameObjectWithTag("Shadow").GetComponent<SpriteRenderer>();
+            _audioLowPassFilter = GetComponent<AudioLowPassFilter>();
         }
 
         private void HandleMove(Vector2 direction)
@@ -111,8 +113,15 @@ namespace Runtime.Player
             SetData(false);
             DisableInput();
             _movementAnimator.SetBool(id: _isMoving, false);
-            globalLight.intensity = 0.25f;
+            globalLight.intensity = 0.2f;
             transform.position = position;
+            //enable low pass filter after 1 second
+            Invoke(nameof(EnableLowPassFilter), 1f);
+        }
+        
+        private void EnableLowPassFilter()
+        {
+            _audioLowPassFilter.enabled = true;
         }
         
         public void RevealPlayer(Vector2 position)
@@ -122,6 +131,7 @@ namespace Runtime.Player
             _movementAnimator.SetBool(id: _isSneaking, _sneaking);
             globalLight.intensity = 0.3f;
             transform.position = position;
+            _audioLowPassFilter.enabled = false;
         }
 
         private void SetData(bool state)
