@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5842894688934183266}
   - component: {fileID: 2957633101702529860}
   - component: {fileID: 9136431402383567561}
+  - component: {fileID: 6202617173814711936}
   m_Layer: 0
   m_Name: LongFloLight
   m_TagString: Untagged
@@ -226,6 +227,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &6202617173814711936
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004615307388922784}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 11
+  m_SortAtRoot: 0
 --- !u!1 &5237456380203910661
 GameObject:
   m_ObjectHideFlags: 0

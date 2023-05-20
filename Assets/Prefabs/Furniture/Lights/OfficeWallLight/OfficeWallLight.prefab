@@ -160,11 +160,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56856c98bb1ff441b0a6889bd5aab69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flicker: 0
-  minWait: 5
-  maxWait: 7
   light: {fileID: 9071387947411425715}
   startPowered: 0
+  flicker: 0
+  minOn: 3
+  maxOn: 6
+  minOff: 0.1
+  maxOff: 0.3
+  onSound: {fileID: 11400000, guid: 24477554bcf8bc2439185617f7b147a8, type: 2}
+  loopSound: {fileID: 11400000, guid: 642ecbeaba520d0469082481e91a9bca, type: 2}
+  offSound: {fileID: 11400000, guid: 2d9b75a258c4beb4aa7778758de6f4d9, type: 2}
 --- !u!82 &9071387947849427204
 AudioSource:
   m_ObjectHideFlags: 0
@@ -176,16 +181,16 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
   m_Pitch: 1
-  Loop: 0
-  Mute: 0
+  Loop: 1
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 5.588853
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

@@ -115,7 +115,7 @@ MonoBehaviour:
   - {x: 0.2841215, y: -3.139927, z: 0}
   m_ShapePathHash: 74876277
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2918
+  m_InstanceId: -17314
 --- !u!50 &8373248534648300807
 Rigidbody2D:
   serializedVersion: 4
@@ -205,8 +205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeType: 0
-  extraOffset: 0.075
-  invertPolygon: 1
+  extraOffset: -1.16
+  invertPolygon: 0
 --- !u!210 &1790789927
 SortingGroup:
   m_ObjectHideFlags: 0
