@@ -30,7 +30,7 @@ namespace Runtime.InteractionSystem.Items
             
             GameManager.Instance.SoundSystem.Play(interactSound, transform);
             
-            var inventory = player.GetComponent<PlayerInventory>();
+            var inventory = player.GetComponentInParent<PlayerInventory>();
             var tapeInstance = ScriptableObject.CreateInstance<Tape>();
             tapeInstance.itemName = dialogue.actor.Name;
             tapeInstance.itemSprite = dialogue.actor.Sprite;

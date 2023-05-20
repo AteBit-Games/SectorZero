@@ -2,12 +2,10 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
-
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -53,7 +51,7 @@ namespace Runtime.InteractionSystem.Objects
         
         public void PowerOff()
         {
-            //_animator.SetBool(Powered, false);
+            _animator.SetBool(Powered, false);
             IsPowered = false;
         }
 
