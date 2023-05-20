@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeType: 0
-  extraOffset: 0.075
-  invertPolygon: 1
+  extraOffset: -1.1
+  invertPolygon: 0
 --- !u!60 &4580010966215210633
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -186,9 +186,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.6377888, y: -1.5088768}
-      - {x: -3.2925575, y: -1.4374292}
-      - {x: -3.2286537, y: -3.8514504}
-      - {x: 3.206288, y: -3.845858}
-      - {x: 3.2137363, y: -1.5158173}
+    - - {x: -3.3035457, y: -1.470392}
+      - {x: -3.3055713, y: -3.7965074}
+      - {x: 3.2722156, y: -3.7909188}
+      - {x: 3.290652, y: -1.460878}
   m_UseDelaunayMesh: 0
