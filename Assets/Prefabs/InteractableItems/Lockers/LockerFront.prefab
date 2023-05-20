@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &330712564730175023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1757201452837377678}
+  m_Layer: 3
+  m_Name: InspectPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1757201452837377678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330712564730175023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 461143468751046659}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &461143468751046662
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,6 +67,7 @@ Transform:
   m_Children:
   - {fileID: 461143469602724628}
   - {fileID: 4695972531272769492}
+  - {fileID: 1757201452837377678}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -104,10 +136,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactSound: {fileID: 11400000, guid: 5ececcaf60583d54e82ce681f1f82403, type: 2}
-  lockerPosition: {fileID: 461143468751046659}
+  inspectPosition: {fileID: 1757201452837377678}
+  hidePosition: {fileID: 461143468751046659}
   revealPosition: {fileID: 461143469602724628}
   emptyLockerSprite: {fileID: 1372038064, guid: 676e058b6d393064185ac980d20a278a, type: 3}
-  playerLockerSprite: {fileID: 1721134738, guid: 676e058b6d393064185ac980d20a278a, type: 3}
+  hideLockerSprite: {fileID: 1721134738, guid: 676e058b6d393064185ac980d20a278a, type: 3}
 --- !u!82 &461143468751046658
 AudioSource:
   m_ObjectHideFlags: 0

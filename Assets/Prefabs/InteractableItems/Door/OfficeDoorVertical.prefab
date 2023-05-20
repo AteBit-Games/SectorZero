@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 6997788616318760557}
   - component: {fileID: 2071004999044986901}
   - component: {fileID: 291002249}
+  - component: {fileID: 3098855342452408125}
   m_Layer: 3
   m_Name: OfficeDoorVertical
   m_TagString: Untagged
@@ -155,7 +156,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: -876546973899608171, guid: 310699b7234200a4b987acab917fa888, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -213,7 +214,7 @@ MonoBehaviour:
   - {x: 0.30491447, y: -3.1573448, z: 0}
   m_ShapePathHash: 1706738741
   m_Mesh: {fileID: 0}
-  m_InstanceId: -17036
+  m_InstanceId: -1618
 --- !u!50 &8373248534648300807
 Rigidbody2D:
   serializedVersion: 4
@@ -318,3 +319,23 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_SortAtRoot: 0
+--- !u!95 &3098855342452408125
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032682214098807699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 475ca9e68d7a2834bb7a052dd82a13b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

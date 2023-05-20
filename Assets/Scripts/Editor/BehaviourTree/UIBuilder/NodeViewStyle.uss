@@ -18,7 +18,7 @@
     padding-bottom: 0;
     min-width: auto;
     max-width: none;
-    flex-grow: 1;
+    flex-grow: 0;
 }
 
 #input {
@@ -103,10 +103,11 @@
 
 #node-state {
     position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    left: -1px;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    flex-grow: 0;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;

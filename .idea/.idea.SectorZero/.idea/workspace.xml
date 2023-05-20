@@ -19,6 +19,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f2dfce7cc2b54f0da241b15d575ce07316dc00/00/8794a1ee/Resolution.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/AI/SentinelInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/DialogueSystem/DialogueManagerInspector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/InteractionSystem/CustomLockerInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/AI/Sentinel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/GameObject/GetHideable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/GameObject/KillPlayer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -141,7 +142,7 @@
       <workItem from="1684436613431" duration="49000" />
       <workItem from="1684436739523" duration="12541000" />
       <workItem from="1684519870188" duration="11409000" />
-      <workItem from="1684571646175" duration="4682000" />
+      <workItem from="1684571646175" duration="9007000" />
     </task>
     <servers />
   </component>

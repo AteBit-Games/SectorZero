@@ -98,7 +98,7 @@ MonoBehaviour:
     - rid: 484473836275236877
     - rid: 484473836275236887
     - rid: 484473835900633088
-  viewPosition: {x: 399, y: 122, z: 0}
+  viewPosition: {x: -54, y: -6, z: 0}
   viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
