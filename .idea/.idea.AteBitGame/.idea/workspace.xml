@@ -11,7 +11,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/DialogueSystem/Dialogue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/DialogueSystem/DialogueManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InventorySystem/InventoryManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/temp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.sprite@1.0.0/Editor/SpriteEditorModule/ISpriteEditorModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.8.2/Editor/BurstDisassembler.Core.x86.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.8.2/Editor/BurstInspectorGUI.cs" root0="SKIP_HIGHLIGHTING" />
@@ -129,6 +128,9 @@
       <workItem from="1684367052546" duration="642000" />
       <workItem from="1684427368880" duration="8795000" />
       <workItem from="1684571865306" duration="1312000" />
+      <workItem from="1684573526676" duration="647000" />
+      <workItem from="1684578937403" duration="8000" />
+      <workItem from="1684579126337" duration="2322000" />
     </task>
     <servers />
   </component>

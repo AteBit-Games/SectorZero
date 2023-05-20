@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da09ef4e6e9b5f74486f1c4010871c5d, type: 3}
-  m_Name: LightOn
+  m_Name: LightOnLoop
   m_EditorClassIdentifier: 
   mixGroup: {fileID: 11400000, guid: 52c044bba344d064dbaf311ca3cdd4de, type: 2}
-  clip: {fileID: 8300000, guid: a28a61e629281484ca19ecf7383de84f, type: 3}
+  clip: {fileID: 8300000, guid: f33ddad6d63e34e479530046426a5a3f, type: 3}
   volume: 1
   loop: 0

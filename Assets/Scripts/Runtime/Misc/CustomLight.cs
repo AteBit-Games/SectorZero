@@ -23,7 +23,8 @@ namespace Runtime.Misc
         [SerializeField] private float maxOff = 0.3f;
         
         [SerializeField] private Sound onSound;
-        [SerializeField] private Sound flickerSound;
+        [SerializeField] private Sound loopSound;
+        [SerializeField] private Sound offSound;
 
         private Coroutine _coroutine;
         private Animator _animator;
@@ -38,6 +39,8 @@ namespace Runtime.Misc
 
         private void Start()
         {
+            _audioSource.clip = loopSound.clip;
+            _audioSource.Play();
             if(startPowered) PowerOn();
             else PowerOff();
         }
@@ -47,6 +50,7 @@ namespace Runtime.Misc
         {
             light.enabled = true;
             IsPowered = true;
+            _audioSource.mute = false;
             if(flicker) _coroutine = StartCoroutine(FlickerOff());
         }
 
@@ -54,6 +58,7 @@ namespace Runtime.Misc
         {
             light.enabled = false;
             IsPowered = false;
+            _audioSource.mute = true;
             if(_coroutine != null) StopCoroutine(_coroutine);
         }
         
@@ -61,13 +66,12 @@ namespace Runtime.Misc
         {
             light.enabled = true;
             _animator.SetBool(On, true);
-            _audioSource.clip = onSound.clip;
+            _audioSource.PlayOneShot(onSound.clip);
             
             yield return new WaitForSeconds(Random.Range(minOn, maxOn));
             light.enabled = false;
-            _audioSource.mute = true;
             _animator.SetBool(On, false);
-            _audioSource.clip = flickerSound.clip;
+            _audioSource.PlayOneShot(offSound.clip);
 
             yield return new WaitForSeconds(Random.Range(minOff, maxOff));
             _coroutine = StartCoroutine(FlickerOff());
