@@ -15,13 +15,13 @@ namespace Runtime.Misc
     {
         [SerializeField] private new Light2D light;
         [SerializeField] private bool startPowered;
-        
+
         [SerializeField] private bool flicker;
         [SerializeField] private float minOn = 3f;
         [SerializeField] private float maxOn = 6f;
         [SerializeField] private float minOff = 0.1f;
         [SerializeField] private float maxOff = 0.3f;
-        
+
         [SerializeField] private Sound onSound;
         [SerializeField] private Sound loopSound;
         [SerializeField] private Sound offSound;
@@ -41,17 +41,18 @@ namespace Runtime.Misc
         {
             _audioSource.clip = loopSound.clip;
             _audioSource.Play();
-            if(startPowered) PowerOn();
+            if (startPowered) PowerOn();
             else PowerOff();
         }
 
         public bool IsPowered { get; set; }
+
         public void PowerOn()
         {
             light.enabled = true;
             IsPowered = true;
             _audioSource.mute = false;
-            if(flicker) _coroutine = StartCoroutine(FlickerOff());
+            if (flicker) _coroutine = StartCoroutine(FlickerOff());
         }
 
         public void PowerOff()
@@ -59,22 +60,38 @@ namespace Runtime.Misc
             light.enabled = false;
             IsPowered = false;
             _audioSource.mute = true;
-            if(_coroutine != null) StopCoroutine(_coroutine);
+            if (_coroutine != null) StopCoroutine(_coroutine);
         }
-        
-        private IEnumerator FlickerOff() 
+
+        private IEnumerator FlickerOff()
         {
             light.enabled = true;
             _animator.SetBool(On, true);
             _audioSource.PlayOneShot(onSound.clip);
-            
+
             yield return new WaitForSeconds(Random.Range(minOn, maxOn));
             light.enabled = false;
             _animator.SetBool(On, false);
             _audioSource.PlayOneShot(offSound.clip);
+            if(minOff >= 0.5)
+                yield return FadeOut();
 
             yield return new WaitForSeconds(Random.Range(minOff, maxOff));
+            _audioSource.Play();
             _coroutine = StartCoroutine(FlickerOff());
+        }
+
+        private IEnumerator FadeOut()
+        {
+            var initialVolume = _audioSource.volume;
+            while (_audioSource.volume > 0)
+            {
+                _audioSource.volume -= Time.deltaTime / 2f;
+                yield return null;
+            }
+
+            _audioSource.Stop();
+            _audioSource.volume = initialVolume;
         }
     }
 }

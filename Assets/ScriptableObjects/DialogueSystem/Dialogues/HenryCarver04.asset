@@ -10,10 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45592774a6613004c9d7daa230919261, type: 3}
-  m_Name: DemoTape1
+  m_Name: HenryCarver04
   m_EditorClassIdentifier: 
   lines:
-  - These damned power outtages are causing me to loose a lot of progress.
-  - I need to raise a query to the power department so that they can sort this out
-    as soon as possible.
+  - Subject One is still shows no signs of reaction.
+  - I've had the team increase the exposure to four hours.
+  - 'We just need results... I think we''re really on to something here. '
+  - But caution is key. Those suits aren't built for these conditions.
+  - Neither are the crew...
+  - ...
+  - Damnit... These outages are costing me a lot of progress.
+  - I need Techs to sort this out as soon as possible.
   actor: {fileID: 11400000, guid: 347354f323b16dd449428ca00338bceb, type: 2}
+  date: 1978.02.23

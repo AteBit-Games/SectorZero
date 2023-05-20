@@ -17,6 +17,7 @@ namespace Runtime.DialogueSystem
         
         private Label _dialogueTextElement;
         private Label _actorNameTextElement;
+        private Label _tapeDateTextElement;
         private VisualElement _actorImage;
         private VisualElement _dialogueContainer;
         private UIDocument _uiDocument;
@@ -34,7 +35,8 @@ namespace Runtime.DialogueSystem
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;
             _dialogueTextElement = rootVisualElement.Q<Label>("dialogue-text");
-            _actorNameTextElement = rootVisualElement.Q<Label>("actor-name");
+            _actorNameTextElement = rootVisualElement.Q<Label>("tape-name");
+            _tapeDateTextElement = rootVisualElement.Q<Label>("tape-date");
             _actorImage = rootVisualElement.Q<VisualElement>("portrait-image");
             _dialogueContainer = rootVisualElement.Q<VisualElement>("dialogue-window");
         }
@@ -55,6 +57,7 @@ namespace Runtime.DialogueSystem
             _currentDialogue = dialogue;
             _currentLineIndex = 0;
             _actorNameTextElement.text = dialogue.actor.Name;
+            _tapeDateTextElement.text = dialogue.date;
             _actorImage.style.backgroundImage = new StyleBackground(dialogue.actor.Sprite);
             CycleText();
         }
@@ -107,7 +110,7 @@ namespace Runtime.DialogueSystem
             _dialogueTextElement.text = "";
             _currentLineIndex++;
             
-            _currentRoutine = StartCoroutine(WaitForDialogue(_totalTimeToType + 2f));
+            _currentRoutine = StartCoroutine(WaitForDialogue(_totalTimeToType + 4f));
         }
 
         private void Show(bool show)

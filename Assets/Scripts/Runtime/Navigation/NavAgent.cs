@@ -215,7 +215,6 @@ namespace Runtime.Navigation
                 if((Position - NextPoint ).magnitude <= proximity)
                 {
                     ActivePath.RemoveAt(0);
-
                     if (!HasPath) 
                     {
                         OnArrived();
@@ -227,7 +226,7 @@ namespace Runtime.Navigation
                         {
                             Repath();
                         }
-
+                        
                         OnNavigationPointReached?.Invoke(Position);
                     }
                 }
