@@ -76,6 +76,8 @@ MonoBehaviour:
   - rid: 484473836275236963
   - rid: 484473836275236964
   - rid: 484473872862412804
+  - rid: 484473876114046980
+  - rid: 484473876114047071
   treeState: 1
   blackboard:
     keys:
@@ -98,8 +100,8 @@ MonoBehaviour:
     - rid: 484473836275236877
     - rid: 484473836275236887
     - rid: 484473835900633088
-  viewPosition: {x: 615, y: -1, z: 0}
-  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  viewPosition: {x: 383, y: 192, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -791,13 +793,13 @@ MonoBehaviour:
       data:
         name: AggroSpeed
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 8
+        value: 2.4
     - rid: 484473872862412802
       type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
         name: AlertSpeed
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 6.5
+        value: 5
     - rid: 484473872862412803
       type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -819,6 +821,34 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 2
+    - rid: 484473876114046980
+      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b6669c0380fdd314c8f2cfe28ab166ca
+        position: {x: -620, y: -320}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        treeAsset: {fileID: 11400000, guid: 8a09da72daa961644b7611d73a97d2dd, type: 2}
+        treeInstance: {fileID: 0}
+    - rid: 484473876114047071
+      type: {class: CheckValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f0e18effac2f2b14c80fbc38eb285340
+        position: {x: -40, y: 20}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        positionToCheck:
+          reference:
+            rid: -2
+          defaultValue: {x: 33.29, y: 9.2}
     - rid: 1526963689735847949
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -922,13 +952,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 5dac699e-4f75-4682-894b-943a58b94bad
-        position: {x: 0, y: 120}
+        position: {x: 0, y: -100}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
         child:
-          rid: 484473836275236922
+          rid: 484473876114047071
     - rid: 6236232439545200641
       type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -954,7 +984,7 @@ MonoBehaviour:
       data:
         name: AlertChecks
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 3
+        value: 6
     - rid: 6236232439545200658
       type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -1253,7 +1283,7 @@ MonoBehaviour:
       data:
         name: PatrolSpeed
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 5
+        value: 4
     - rid: 6236232445669146643
       type: {class: RandomFailure, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:

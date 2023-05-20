@@ -62,7 +62,7 @@ namespace Editor.BehaviourTree.PropertyDrawers {
             dropdown.RegisterCallback<ChangeEvent<BlackboardKey>>((evt) => {
                 BlackboardKey newKey = evt.newValue;
                 reference.managedReferenceValue = newKey;
-                BehaviourTreeEditorWindow.Instance.serializer.ApplyChanges();
+                BehaviourTreeEditorWindow.instance.serializer.ApplyChanges();
 
                 if (evt.newValue == null) 
                 {
@@ -129,7 +129,7 @@ namespace Editor.BehaviourTree.PropertyDrawers {
             dropdown.RegisterCallback<ChangeEvent<BlackboardKey>>((evt) => {
                 BlackboardKey newKey = evt.newValue;
                 reference.managedReferenceValue = newKey;
-                BehaviourTreeEditorWindow.Instance.serializer.ApplyChanges();
+                BehaviourTreeEditorWindow.instance.serializer.ApplyChanges();
             });
             
             return dropdown;

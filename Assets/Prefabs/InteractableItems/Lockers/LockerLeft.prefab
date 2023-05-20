@@ -366,7 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6035928156779976749}
   - component: {fileID: 6436881133403055247}
-  - component: {fileID: 2669802913904203878}
+  - component: {fileID: 7909538905287717378}
   m_Layer: 7
   m_Name: NavigationBlocker
   m_TagString: Untagged
@@ -438,7 +438,7 @@ PolygonCollider2D:
       - {x: 0.8583058, y: -3.2945695}
       - {x: 0.8533906, y: -1.1345954}
   m_UseDelaunayMesh: 0
---- !u!114 &2669802913904203878
+--- !u!114 &7909538905287717378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -447,9 +447,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6199395331957514533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c0a3830985ead49afca98818467a07, type: 3}
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeType: 0
-  extraOffset: -1.1
-  invertPolygon: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

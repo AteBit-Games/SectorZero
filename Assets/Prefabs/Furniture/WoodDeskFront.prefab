@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1274996693852694006}
   - component: {fileID: 2712231139678163433}
   - component: {fileID: 711237531}
-  - component: {fileID: 2317644119437154989}
   - component: {fileID: 4580010966215210633}
+  - component: {fileID: 1274951469628797843}
   m_Layer: 7
   m_Name: WoodDeskFront
   m_TagString: Untagged
@@ -127,21 +127,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_SortAtRoot: 0
---- !u!114 &2317644119437154989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3441040897333876378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c0a3830985ead49afca98818467a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shapeType: 0
-  extraOffset: -1.1
-  invertPolygon: 0
 --- !u!60 &4580010966215210633
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -191,3 +176,19 @@ PolygonCollider2D:
       - {x: 3.2722156, y: -3.7909188}
       - {x: 3.290652, y: -1.460878}
   m_UseDelaunayMesh: 0
+--- !u!114 &1274951469628797843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3441040897333876378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

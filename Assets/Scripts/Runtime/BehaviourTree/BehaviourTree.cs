@@ -84,7 +84,6 @@ namespace Runtime.BehaviourTree
             Traverse(rootNode, node => {
                 node.context = context;
                 node.blackboard = blackboard;
-                node.OnInit();
             });
         }
     }

@@ -11,40 +11,39 @@ namespace Runtime.BehaviourTree.Actions.Navigation
     {
         public NodeProperty<UnityEngine.GameObject> target;
         public NodeProperty<float> speed = new(){Value = 4f};
-    
-        private bool _destinationReached;
         
+        private Vector3? _lastRequest;
+
         protected override void OnStart()
         {
-            context.agent.maxSpeed = speed.Value;
-            context.agent.OnDestinationReached += OnDestinationReached;
+            context.agent.speed = speed.Value;
         }
-    
+
         protected override void OnStop()
         {
-            context.agent.Stop();
-            context.agent.OnDestinationReached -= OnDestinationReached;
+            context.agent.isStopped = true;
+            if(_lastRequest != null) context.agent.ResetPath();
+            _lastRequest = null;
         }
     
         protected override State OnUpdate()
         {
-            if(_destinationReached)
+            if(_lastRequest == null || Vector3.Distance(_lastRequest.Value, target.Value.transform.position) > 0.1f)
             {
-                _destinationReached = false;
-                return State.Success;
+                _lastRequest = target.Value.transform.position;
+                if (!context.agent.SetDestination(target.Value.transform.position)) return State.Failure;
             }
             
-            return !context.agent.SetDestination(target.Value.transform.position) ? State.Failure : State.Running;
+            if (!context.agent.pathPending)
+            {
+                if(context.agent.remainingDistance <= context.agent.stoppingDistance)
+                {
+                    return State.Success;
+                }
+            }
+            return State.Running;
         }
-        
-        private void OnDestinationReached()
-        {
-            _destinationReached = true;
-        }
-        
-        protected override void OnReset()
-        {
-            _destinationReached = false;
-        }
+
+        protected override void OnReset() { }
     }
 }

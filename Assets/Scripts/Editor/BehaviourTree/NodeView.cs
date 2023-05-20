@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PlasticPipe.PlasticProtocol.Messages;
 using Runtime.BehaviourTree;
 using Runtime.BehaviourTree.Composites;
 using Runtime.BehaviourTree.Decorators;
@@ -17,7 +18,7 @@ namespace Editor.BehaviourTree
 {
     public class NodeView : UnityEditor.Experimental.GraphView.Node 
     {
-        public Action<NodeView> OnNodeSelected;
+        public Action<NodeView> onNodeSelected;
         public readonly Node node;
         public Port input;
         public Port output;
@@ -62,7 +63,7 @@ namespace Editor.BehaviourTree
         
         public void SetupDataBinding() 
         {
-            SerializedBehaviourTree serializer = BehaviourTreeEditorWindow.Instance.serializer;
+            SerializedBehaviourTree serializer = BehaviourTreeEditorWindow.instance.serializer;
             var nodeProp = serializer.FindNode(serializer.Nodes, node);
             var commentProp = nodeProp?.FindPropertyRelative("comment");
             if (commentProp != null) 
@@ -89,6 +90,9 @@ namespace Editor.BehaviourTree
                     break;
                 case ConditionNode:
                     AddToClassList("condition");
+                    break;
+                case SubTree:
+                    AddToClassList("subTree");
                     break;
                 case RootNode:
                     AddToClassList("root");
@@ -127,7 +131,7 @@ namespace Editor.BehaviourTree
         {
             switch (node)
             {
-                case ActionNode: case CompositeNode: case DecoratorNode: case ConditionNode:
+                case ActionNode: case CompositeNode: case DecoratorNode: case ConditionNode: case SubTree:
                     input = new NodePort(Direction.Input, Port.Capacity.Single);
                     break;
                 case RootNode:
@@ -146,7 +150,7 @@ namespace Editor.BehaviourTree
         {
             switch (node)
             {
-                case ActionNode: case ConditionNode:
+                case ActionNode: case ConditionNode: case SubTree:
                     break;
                 case CompositeNode:
                     output = new NodePort(Direction.Output, Port.Capacity.Multi);
@@ -167,12 +171,12 @@ namespace Editor.BehaviourTree
 
         public override void SetPosition(Rect newPos) 
         {
-            newPos.x = EditorUtility.RoundTo(newPos.x, BehaviourTreeView.gridSnapSize);
-            newPos.y = EditorUtility.RoundTo(newPos.y, BehaviourTreeView.gridSnapSize);
+            newPos.x = EditorUtility.RoundTo(newPos.x, BehaviourTreeView.GridSnapSize);
+            newPos.y = EditorUtility.RoundTo(newPos.y, BehaviourTreeView.GridSnapSize);
 
             base.SetPosition(newPos);
 
-            SerializedBehaviourTree serializer = BehaviourTreeEditorWindow.Instance.serializer;
+            SerializedBehaviourTree serializer = BehaviourTreeEditorWindow.instance.serializer;
             Vector2 position = new Vector2(newPos.xMin, newPos.yMin);
             serializer.SetNodePosition(node, position);
         }
@@ -180,9 +184,9 @@ namespace Editor.BehaviourTree
         public override void OnSelected() 
         {
             base.OnSelected();
-            OnNodeSelected?.Invoke(this);
+            onNodeSelected?.Invoke(this);
 
-            var container = BehaviourTreeEditorWindow.Instance.rootVisualElement.Q("main-container");
+            var container = BehaviourTreeEditorWindow.instance.rootVisualElement.Q("main-container");
             container.ClearClassList();
             container.AddToClassList("node-selected");
         }

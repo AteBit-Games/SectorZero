@@ -11,39 +11,39 @@ namespace Runtime.BehaviourTree.Actions.Navigation
     {
         public NodeProperty<Vector2> targetPosition;
         public NodeProperty<float> speed = new(){Value = 4f};
-    
-        private bool _destinationReached;
+        
+        private Vector3? _lastRequest;
 
         protected override void OnStart()
         {
-            context.agent.maxSpeed = speed.Value;
-            context.agent.OnDestinationReached += OnDestinationReached;
+            context.agent.speed = speed.Value;
         }
 
         protected override void OnStop()
         {
-            context.agent.Stop();
-            context.agent.OnDestinationReached -= OnDestinationReached;
+            context.agent.isStopped = true;
+            if(_lastRequest != null) context.agent.ResetPath();
+            _lastRequest = null;
         }
     
         protected override State OnUpdate()
         {
-            if(_destinationReached)
+            if(_lastRequest == null || Vector3.Distance(_lastRequest.Value, targetPosition.Value) > 0.1f)
             {
-                _destinationReached = false;
-                return State.Success;
+                _lastRequest = targetPosition.Value;
+                if (!context.agent.SetDestination(targetPosition.Value)) return State.Failure;
             }
-            else return !context.agent.SetDestination(targetPosition.Value) ? State.Failure : State.Running;
-        }
-        
-        private void OnDestinationReached()
-        {
-            _destinationReached = true;
+            
+            if (!context.agent.pathPending)
+            {
+                if(context.agent.remainingDistance <= context.agent.stoppingDistance)
+                {
+                    return State.Success;
+                }
+            }
+            return State.Running;
         }
 
-        protected override void OnReset()
-        {
-            _destinationReached = false;
-        }
+        protected override void OnReset() { }
     }
 }

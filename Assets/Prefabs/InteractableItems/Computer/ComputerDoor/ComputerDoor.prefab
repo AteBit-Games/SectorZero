@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 1305347793538823038}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8397682706418858641
 SpriteRenderer:
@@ -129,7 +129,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1305347793538823038}
-  - component: {fileID: 1061382197}
   - component: {fileID: 1061382196}
   - component: {fileID: 3397549739560403633}
   m_Layer: 6
@@ -154,21 +153,6 @@ Transform:
   m_Father: {fileID: 2043458891265432735}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1061382197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7662086570708471113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c0a3830985ead49afca98818467a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shapeType: 0
-  extraOffset: 0
-  invertPolygon: 1
 --- !u!60 &1061382196
 PolygonCollider2D:
   m_ObjectHideFlags: 0

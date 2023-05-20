@@ -53,12 +53,12 @@ namespace Runtime.BehaviourTree.Actions.Navigation
             }
             
             outRoom.Value = targetList.Value[_index];
-            context.agent.maxSpeed = speed.Value;
+            context.agent.speed = speed.Value;
         }
 
         protected override void OnStop()
         {
-            if(_lastRequest != null) context.agent.Stop();
+            if(_lastRequest != null) context.agent.isStopped = true;
             _lastRequest = null;
         }
     
@@ -72,7 +72,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
                     return State.Failure;
                 }
             }
-
+            
             _lastRequest = target;
             return (context.agent.transform.position - target).magnitude < context.agent.stoppingDistance + keepDistance.Value ? State.Success : State.Running;
         }

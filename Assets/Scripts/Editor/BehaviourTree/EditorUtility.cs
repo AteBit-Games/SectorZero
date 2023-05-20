@@ -19,7 +19,6 @@ namespace Editor.BehaviourTree
             public string version;
         }
 
-
         public static Runtime.BehaviourTree.BehaviourTree CreateNewTree(string assetName, string folder) 
         {
             string path = System.IO.Path.Join(folder, $"{assetName}.asset");
@@ -38,7 +37,7 @@ namespace Editor.BehaviourTree
 
         public static void CreateNewScript(ScriptTemplate scriptTemplate, NodeView source, bool isSourceParent, Vector2 position) 
         {
-            BehaviourTreeEditorWindow.Instance.newScriptDialog.CreateScript(scriptTemplate, source, isSourceParent, position);
+            BehaviourTreeEditorWindow.instance.newScriptDialog.CreateScript(scriptTemplate, source, isSourceParent, position);
         }
 
 

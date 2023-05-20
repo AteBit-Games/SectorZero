@@ -14,7 +14,7 @@ namespace Runtime.BehaviourTree.Conditions.Navigation
 
         protected override State OnUpdate()
         {
-            return context.agent.HasPath ?  State.Success : State.Failure;
+            return context.agent.hasPath ?  State.Success : State.Failure;
         }
 
         protected override void OnReset() { }

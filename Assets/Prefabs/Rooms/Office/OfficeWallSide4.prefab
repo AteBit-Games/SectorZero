@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 308251256148449969}
   - component: {fileID: 8743876272229347153}
   - component: {fileID: 7217879216468430033}
-  - component: {fileID: 1279737904256315741}
+  - component: {fileID: 988164503824147001}
   m_Layer: 6
   m_Name: OfficeWallSide4
   m_TagString: Untagged
@@ -191,7 +191,7 @@ PolygonCollider2D:
       - {x: 0.4, y: -1.6}
       - {x: 0.4, y: 1.6}
   m_UseDelaunayMesh: 0
---- !u!114 &1279737904256315741
+--- !u!114 &988164503824147001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,9 +200,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6730637700951953852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c0a3830985ead49afca98818467a07, type: 3}
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeType: 0
-  extraOffset: 0.075
-  invertPolygon: 1
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

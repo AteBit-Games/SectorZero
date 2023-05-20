@@ -32,7 +32,7 @@ namespace Editor.BehaviourTree.PropertyDrawers
                 keyValue.style.flexGrow = 1.0f;
                 keyValue.bindingPath = nameof(BlackboardKey<object>.value);
                 keyValue.AddManipulator(new ContextualMenuManipulator((evt) => {
-                    evt.menu.AppendAction("Delete", (x) => BehaviourTreeEditorWindow.Instance.serializer.DeleteBlackboardKey(property.displayName), DropdownMenuAction.AlwaysEnabled);
+                    evt.menu.AppendAction("Delete", (x) => BehaviourTreeEditorWindow.instance.serializer.DeleteBlackboardKey(property.displayName), DropdownMenuAction.AlwaysEnabled);
                 }));
 
                 container.style.flexDirection = FlexDirection.Row;

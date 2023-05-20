@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3464109063969503832}
   - component: {fileID: 3406109687040593885}
   - component: {fileID: 4493479409298812627}
-  - component: {fileID: 174568154137052649}
+  - component: {fileID: -2885689413796525622}
   m_Layer: 6
   m_Name: OfficeWallBackThree2
   m_TagString: Untagged
@@ -178,7 +178,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.8, y: 0.4}
+    oldSize: {x: 4.8, y: 0.8}
     newSize: {x: 4.8, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -191,7 +191,7 @@ PolygonCollider2D:
       - {x: 2.4, y: -0.2}
       - {x: 2.4, y: 0.2}
   m_UseDelaunayMesh: 0
---- !u!114 &174568154137052649
+--- !u!114 &-2885689413796525622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,9 +200,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4677549994610881585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c0a3830985ead49afca98818467a07, type: 3}
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeType: 0
-  extraOffset: 0.075
-  invertPolygon: 1
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

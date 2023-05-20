@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Runtime.AI;
 using Runtime.AI.Interfaces;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 namespace Runtime.BehaviourTree 
@@ -39,6 +40,9 @@ namespace Runtime.BehaviourTree
         private Material _material;
         private bool _canSeePlayer;
         private Context _context;
+        private NavMeshAgent _navMeshAgent;
+        private Animator _animator;
+        
         private BlackboardKey<int> _stateReference;
         private BlackboardKey<Vector2> _investigateLocationReference;
 
@@ -65,11 +69,25 @@ namespace Runtime.BehaviourTree
             
             _stateReference = FindBlackboardKey<int>("ActiveState");
             _investigateLocationReference = FindBlackboardKey<Vector2>("InvestigateLocation");
+            
+            _navMeshAgent = _context.agent;
+            _navMeshAgent.updateRotation = false;
+            _navMeshAgent.updateUpAxis = false;
+            _animator = GetComponent<Animator>();
         }
 
         private void Update() 
         {
             if (behaviourTree) behaviourTree.Update();
+            _animator.transform.position = _navMeshAgent.transform.position;
+            
+            Vector3 movement = _navMeshAgent.velocity;
+            if (movement.magnitude > 0.1f)
+            {
+                _animator.SetFloat("moveX", movement.x);
+                _animator.SetFloat("moveY", movement.z);
+            }
+            _animator.SetBool("isMoving", movement.magnitude > 0.1f);
         }
 
         private void OnDrawGizmos() 

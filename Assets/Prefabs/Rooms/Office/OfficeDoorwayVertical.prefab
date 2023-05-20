@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1438100367128887136}
   - component: {fileID: 8373248534648300807}
   - component: {fileID: 6997788616318760557}
-  - component: {fileID: 6626136638877500080}
   - component: {fileID: 1790789927}
+  - component: {fileID: -2698824065782365121}
   m_Layer: 6
   m_Name: OfficeDoorwayVertical
   m_TagString: Untagged
@@ -192,21 +192,6 @@ PolygonCollider2D:
       - {x: 0.30160943, y: -3.1414542}
       - {x: 0.43567124, y: 2.6449447}
   m_UseDelaunayMesh: 0
---- !u!114 &6626136638877500080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032682214098807699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c0a3830985ead49afca98818467a07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shapeType: 0
-  extraOffset: -1.16
-  invertPolygon: 0
 --- !u!210 &1790789927
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -219,3 +204,19 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_SortAtRoot: 0
+--- !u!114 &-2698824065782365121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032682214098807699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

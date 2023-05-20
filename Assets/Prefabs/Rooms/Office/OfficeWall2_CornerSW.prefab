@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8751676156681736210}
   - component: {fileID: 234331445945185419}
   - component: {fileID: 304125717151829224}
-  - component: {fileID: 4180636233649738373}
+  - component: {fileID: 5730189864278950235}
   m_Layer: 6
   m_Name: OfficeWall2_CornerSW
   m_TagString: Untagged
@@ -163,7 +163,7 @@ PolygonCollider2D:
       - {x: 3.2, y: -4.8}
       - {x: 3.2, y: 4.8}
   m_UseDelaunayMesh: 0
---- !u!114 &4180636233649738373
+--- !u!114 &5730189864278950235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,9 +172,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6511367953749329060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c0a3830985ead49afca98818467a07, type: 3}
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeType: 0
-  extraOffset: 0.075
-  invertPolygon: 1
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
