@@ -9,6 +9,6 @@ namespace Runtime.InteractionSystem.Interfaces
     public interface IHideable
     {
         public bool ContainsPlayer { get; set; }
-        public Transform MonsterInspectPosition { get; }
+        public Transform InspectPosition { get; }
     }
 }

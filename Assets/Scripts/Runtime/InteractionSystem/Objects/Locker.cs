@@ -14,14 +14,17 @@ namespace Runtime.InteractionSystem.Objects
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
-        public bool ContainsPlayer { get; set; }
-        public Transform MonsterInspectPosition { get; }
+        
+        [SerializeField] private Transform inspectPosition;
+        public Transform InspectPosition => inspectPosition;
 
-        [SerializeField, Tooltip("The location to move the player when they enter the locker")] private Transform lockerPosition;
+        public bool ContainsPlayer { get; set; }
+        
+        [SerializeField, Tooltip("The location to move the player when they enter the locker")] private Transform hidePosition;
         [SerializeField, Tooltip("The location to move the player when the exit the locker")] private Transform revealPosition;
         
         [SerializeField] private Sprite emptyLockerSprite;
-        [SerializeField] private Sprite playerLockerSprite;
+        [SerializeField] private Sprite hideLockerSprite;
         
         private SpriteRenderer _spriteRenderer;
 
@@ -42,9 +45,9 @@ namespace Runtime.InteractionSystem.Objects
             }
             else if(!playerController.isHiding)
             {
-                playerController.HidePlayer(lockerPosition.position);
+                playerController.HidePlayer(hidePosition.position);
                 ContainsPlayer = true;
-                _spriteRenderer.sprite = playerLockerSprite;
+                _spriteRenderer.sprite = hideLockerSprite;
             }
             else
             {

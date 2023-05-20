@@ -28,7 +28,7 @@ namespace Runtime.InteractionSystem.Objects
         {
             _animator = GetComponent<Animator>();
             IsPowered = startPowered;
-            _noiseEmitter = GetComponent<NoiseEmitter>();
+            _noiseEmitter = GetComponentInChildren<NoiseEmitter>();
         }
 
         private void Start()

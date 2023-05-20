@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Runtime.InteractionSystem.Interfaces;
 using UnityEngine;
 
 namespace Runtime.BehaviourTree.Actions 
@@ -20,7 +21,9 @@ namespace Runtime.BehaviourTree.Actions
             {
                 var randomIndex = UnityEngine.Random.Range(0, hideables.Value.Count);
                 outHidable.Value = hideables.Value[randomIndex];
-                hidablePosition.Value = hideables.Value[randomIndex].transform.position;
+                
+                var hidable = hideables.Value[randomIndex].GetComponent<IHideable>();
+                hidablePosition.Value = hidable.InspectPosition.position;
             }
         }
     
