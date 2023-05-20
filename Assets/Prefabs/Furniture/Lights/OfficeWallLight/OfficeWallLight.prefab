@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 9071387947849427204}
   - component: {fileID: 9071387947849427205}
   - component: {fileID: 9071387947849427206}
+  - component: {fileID: 1134366930}
   m_Layer: 0
   m_Name: OfficeWallLight
   m_TagString: Untagged
@@ -159,9 +160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56856c98bb1ff441b0a6889bd5aab69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flicker: 1
-  minSpeed: 0.1
-  maxSpeed: 0.5
+  flicker: 0
+  minWait: 5
+  maxWait: 7
   light: {fileID: 9071387947411425715}
   startPowered: 0
 --- !u!82 &9071387947849427204
@@ -332,3 +333,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &1134366930
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071387947849427207}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 11
+  m_SortAtRoot: 0
