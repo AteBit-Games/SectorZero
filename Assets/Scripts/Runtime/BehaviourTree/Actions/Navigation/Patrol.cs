@@ -72,7 +72,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
                     return State.Failure;
                 }
             }
-            
+
             _lastRequest = target;
             return (context.agent.transform.position - target).magnitude < context.agent.stoppingDistance + keepDistance.Value ? State.Success : State.Running;
         }

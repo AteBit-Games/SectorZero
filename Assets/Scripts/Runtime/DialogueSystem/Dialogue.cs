@@ -12,5 +12,6 @@ namespace Runtime.DialogueSystem
     {
         [SerializeField, Tooltip("Lines that the actor will be speaking in order")] public List<string> lines;
         [SerializeField, Tooltip("Reference to the actor that will be speaking the lines")] public Actor actor;
+        [SerializeField, Tooltip("The date of the dialogue")] public string date;
     }
 }
