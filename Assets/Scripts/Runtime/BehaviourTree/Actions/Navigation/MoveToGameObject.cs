@@ -11,12 +11,14 @@ namespace Runtime.BehaviourTree.Actions.Navigation
     {
         public NodeProperty<UnityEngine.GameObject> target;
         public NodeProperty<float> speed = new(){Value = 4f};
+        public NodeProperty<float> stoppingDistance = new(){Value = 0.1f};
         
         private Vector3? _lastRequest;
 
         protected override void OnStart()
         {
             context.agent.speed = speed.Value;
+            context.agent.isStopped = false;
         }
 
         protected override void OnStop()
@@ -36,7 +38,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
             
             if (!context.agent.pathPending)
             {
-                if(context.agent.remainingDistance <= context.agent.stoppingDistance)
+                if(context.agent.remainingDistance <= stoppingDistance.Value)
                 {
                     return State.Success;
                 }
