@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45592774a6613004c9d7daa230919261, type: 3}
-  m_Name: Tape #32
+  m_Name: JeanBaker02
   m_EditorClassIdentifier: 
   lines:
-  - Kinda sus my guy  dwadwadawdwadaw dawd
-  - Extemely shitty text  dwadwadawdwadwa
-  - I dont know what im doing but yeet
-  - Bababooey  dawdwadawdwadwaa
+  - Tryna track down the root of these trips is lookin' harder than my bunk matress.
+  - Whoever built this place must've pissed off the Reds something special.
+  - Anyhow, I think something's come loose below in operations.
+  - 'I''ll call in a report, but I doubt this''ll be fixed soon. '
+  - Carver's gonna have to suffer a while longer.
   actor: {fileID: 11400000, guid: 486d177a86c7fe54a9bf322d8f4094f5, type: 2}
+  date: 1978.07.14

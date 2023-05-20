@@ -90,7 +90,6 @@ namespace Runtime.BehaviourTree
         
         public void OnHearing(NoiseEmitter sender)
         {
-            Debug.Log("Heard something");
             if(_stateReference.value == 2) return;
             _investigateLocationReference.value = sender.transform.position;
             _stateReference.value = 1;
