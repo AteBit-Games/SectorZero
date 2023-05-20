@@ -17,31 +17,17 @@ namespace Runtime.BehaviourTree.Actions.Navigation
         protected override void OnStart()
         {
             context.agent.speed = speed.Value;
+            context.agent.destination = targetPosition.Value;
+            context.agent.isStopped = false;
         }
 
-        protected override void OnStop()
-        {
-            context.agent.isStopped = true;
-            if(_lastRequest != null) context.agent.ResetPath();
-            _lastRequest = null;
-        }
+        protected override void OnStop(){ }
     
         protected override State OnUpdate()
         {
-            if(_lastRequest == null || Vector3.Distance(_lastRequest.Value, targetPosition.Value) > 0.1f)
-            {
-                _lastRequest = targetPosition.Value;
-                if (!context.agent.SetDestination(targetPosition.Value)) return State.Failure;
-            }
-            
-            if (!context.agent.pathPending)
-            {
-                if(context.agent.remainingDistance <= context.agent.stoppingDistance)
-                {
-                    return State.Success;
-                }
-            }
-            return State.Running;
+            if (context.agent.pathPending) return State.Running;
+            if (context.agent.remainingDistance < context.agent.stoppingDistance) return State.Success;
+            return context.agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathInvalid ? State.Failure : State.Running;
         }
 
         protected override void OnReset() { }
