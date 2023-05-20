@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &913945929
 Transform:
   m_ObjectHideFlags: 0
@@ -179,7 +179,6 @@ GameObject:
   - component: {fileID: 8191933988224299374}
   - component: {fileID: 5369596169685530728}
   - component: {fileID: 3754679611136714876}
-  - component: {fileID: 2089148866}
   - component: {fileID: 2089148865}
   m_Layer: 8
   m_Name: Nellie
@@ -430,21 +429,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_SortAtRoot: 1
---- !u!114 &2089148866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976050650754180519}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cab8b9f72ab553348b0b05deca7bce32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockingLayers:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!169 &2089148865
 AudioLowPassFilter:
   m_ObjectHideFlags: 0
@@ -452,7 +436,7 @@ AudioLowPassFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976050650754180519}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_LowpassResonanceQ: 1
   lowpassLevelCustomCurve:
