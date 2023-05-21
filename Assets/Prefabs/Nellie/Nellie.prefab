@@ -366,6 +366,7 @@ MonoBehaviour:
   moveSpeed: 7
   sneakSpeed: 4
   globalLight: {fileID: 0}
+  hideable: {fileID: 0}
   isHiding: 0
   isSeen: 0
 --- !u!114 &6096001555209978672

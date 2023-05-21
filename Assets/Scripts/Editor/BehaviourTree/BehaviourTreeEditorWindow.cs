@@ -317,14 +317,10 @@ namespace Editor.BehaviourTree
             if (subtreeNode.treeAsset != null) {
                 if (Application.isPlaying) 
                 {
-                    var subTree = subtreeNode.treeInstance;
-                    subTree.blackboard = serializer.tree.blackboard;
                     SelectTree(subtreeNode.treeInstance);
                 } 
                 else 
                 {
-                    var subTree = subtreeNode.treeAsset;
-                    subTree.blackboard = serializer.tree.blackboard;
                     SelectTree(subtreeNode.treeAsset);
                 }
             } 

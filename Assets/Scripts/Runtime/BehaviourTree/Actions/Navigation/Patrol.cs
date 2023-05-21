@@ -54,6 +54,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
             
             outRoom.Value = targetList.Value[_index];
             context.agent.speed = speed.Value;
+            context.agent.isStopped = false;
         }
 
         protected override void OnStop()

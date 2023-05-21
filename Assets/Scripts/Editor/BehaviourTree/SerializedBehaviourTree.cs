@@ -94,7 +94,7 @@ namespace Editor.BehaviourTree
             return arrayProperty.GetArrayElementAtIndex(arrayProperty.arraySize - 1);
         }
 
-        public Node CreateNode(Type type, Vector2 position) 
+        public Node CreateNode(Type type, Vector2 position)
         {
             Node child = CreateNodeInstance(type);
             child.position = position;

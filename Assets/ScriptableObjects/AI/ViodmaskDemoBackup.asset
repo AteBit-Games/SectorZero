@@ -98,8 +98,8 @@ MonoBehaviour:
     - rid: 484473836275236877
     - rid: 484473836275236887
     - rid: 484473835900633088
-  viewPosition: {x: 399, y: 122, z: 0}
-  viewScale: {x: 0.25, y: 0.25, z: 1}
+  viewPosition: {x: 494, y: -546, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -663,9 +663,9 @@ MonoBehaviour:
           keys: []
         comment: Select a point within the search bounds
         drawGizmos: 0
-        room:
+        collider:
           reference:
-            rid: 484473835900633088
+            rid: -2
           defaultValue: {fileID: 0}
         outTarget:
           reference:
@@ -690,6 +690,10 @@ MonoBehaviour:
           reference:
             rid: 484473872862412801
           defaultValue: 5
+        stoppingDistance:
+          reference:
+            rid: -2
+          defaultValue: 0.1
     - rid: 484473836275236952
       type: {class: Parallel, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -1109,9 +1113,9 @@ MonoBehaviour:
           keys: []
         comment: Select a point in the room
         drawGizmos: 0
-        room:
+        collider:
           reference:
-            rid: 6236232439545200675
+            rid: -2
           defaultValue: {fileID: 0}
         outTarget:
           reference:

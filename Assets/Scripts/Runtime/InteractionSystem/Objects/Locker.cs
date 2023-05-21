@@ -45,7 +45,7 @@ namespace Runtime.InteractionSystem.Objects
             }
             else if(!playerController.isHiding)
             {
-                playerController.HidePlayer(hidePosition.position);
+                playerController.HidePlayer(gameObject, hidePosition.position);
                 ContainsPlayer = true;
                 _spriteRenderer.sprite = hideLockerSprite;
             }

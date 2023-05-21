@@ -6,10 +6,10 @@ namespace Runtime.BehaviourTree.Actions.GameObject
     [Serializable]
     [Name("Select Point")]
     [Category("GameObject")]
-    [Description("Selects a random point within the bounds of the room.")]
+    [Description("Selects a random point within the bounds of a collider")]
     public class SelectPoint : ActionNode
     {
-        public NodeProperty<Collider2D> room;
+        public NodeProperty<Collider2D> collider;
         public NodeProperty<Vector2> outTarget;
         
         protected override void OnStart() { }
@@ -19,7 +19,7 @@ namespace Runtime.BehaviourTree.Actions.GameObject
         protected override State OnUpdate() 
         {
             //select a random point within the bounds of the room
-            var bounds = room.Value.bounds;
+            var bounds = collider.Value.bounds;
             var x = UnityEngine.Random.Range(bounds.min.x, bounds.max.x);
             var y = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
             outTarget.Value = new Vector2(x, y);

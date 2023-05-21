@@ -1,0 +1,355 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: CheckLocker
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 484473883717533740
+  nodes:
+  - rid: 484473883717533740
+  - rid: 484473896144994321
+  - rid: 484473896144994323
+  - rid: 484473896144994325
+  - rid: 484473896144994326
+  - rid: 484473896144994328
+  - rid: 484473896144994333
+  - rid: 484473896144994335
+  - rid: 484473896144994336
+  - rid: 484473896144994337
+  - rid: 484473896144994338
+  - rid: 484473896144994339
+  - rid: 484473896144994340
+  - rid: 484473896144994343
+  - rid: 484473896144994344
+  - rid: 484473896144994345
+  treeState: 1
+  blackboard:
+    keys:
+    - rid: 484473883717533745
+    - rid: 484473896144994304
+    - rid: 484473896144994322
+    - rid: 484473896144994329
+    - rid: 484473896144994330
+    - rid: 484473896144994341
+  viewPosition: {x: 356, y: -5, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 484473883717533740
+      type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 743f58bb-ec1e-4457-adfb-74fad29c451c
+        position: {x: 0, y: 20}
+        blackboard:
+          keys: []
+        comment: 'To Use SubTree Override:
+
+          - Bounds
+
+          - Speed
+
+          -
+          Player'
+        drawGizmos: 0
+        child:
+          rid: 484473896144994323
+    - rid: 484473883717533745
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Bounds
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 484473896144994304
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Speed
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 484473896144994321
+      type: {class: GetHideable, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ad3b89dc699fcf64fb76b5b9c4f7ec71
+        position: {x: -700, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        searchRadius:
+          reference:
+            rid: 484473883717533745
+          defaultValue: {fileID: 0}
+        objectsLayer:
+          reference:
+            rid: -2
+          defaultValue:
+            serializedVersion: 2
+            m_Bits: 8
+        outHideables:
+          reference:
+            rid: 484473896144994322
+          defaultValue: []
+    - rid: 484473896144994322
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: HideablesInSpace
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 484473896144994323
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c2ce1e8892476cf4a8a8fd6b65e727ab
+        position: {x: 0, y: 100}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 484473896144994321
+        - rid: 484473896144994325
+        - rid: 484473896144994328
+        - rid: 484473896144994333
+        - rid: 484473896144994335
+        - rid: 484473896144994336
+        - rid: 484473896144994343
+        - rid: 484473896144994344
+        - rid: 484473896144994345
+    - rid: 484473896144994325
+      type: {class: Inverter, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 0c36a529b6d046840aaf80132d255023
+        position: {x: -540, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 484473896144994326
+    - rid: 484473896144994326
+      type: {class: ListIsEmpty, ns: Runtime.BehaviourTree.Conditions.Blackboard, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 7b9a9c4574f9a82439487f63f8498451
+        position: {x: -540, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        targetList:
+          reference:
+            rid: 484473896144994322
+          defaultValue: []
+    - rid: 484473896144994328
+      type: {class: SelectRandomHideable, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e171f294a578a8c4eaca613bfe7e955b
+        position: {x: -380, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        hideables:
+          reference:
+            rid: 484473896144994322
+          defaultValue: []
+        outHidable:
+          reference:
+            rid: 484473896144994329
+          defaultValue: {fileID: 0}
+        hidablePosition:
+          reference:
+            rid: 484473896144994330
+          defaultValue: {x: 0, y: 0}
+    - rid: 484473896144994329
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SelectedHideable
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 484473896144994330
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: InspectPosition
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}
+    - rid: 484473896144994333
+      type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 56ee2d75f8e1e314991b7a6790c803c6
+        position: {x: -140, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        targetPosition:
+          reference:
+            rid: 484473896144994330
+          defaultValue: {x: 0, y: 0}
+        speed:
+          reference:
+            rid: 484473896144994304
+          defaultValue: 4
+    - rid: 484473896144994335
+      type: {class: PlayAudio, ns: Runtime.BehaviourTree.Actions.Sound, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 4663470b2d2bf514596c870220f3a5e2
+        position: {x: 40, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        sound: {fileID: 11400000, guid: 5ececcaf60583d54e82ce681f1f82403, type: 2}
+        waitActionFinish: 0
+    - rid: 484473896144994336
+      type: {class: Inverter, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d50c93be985f9d4409ebd832e13f723b
+        position: {x: 220, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 484473896144994337
+    - rid: 484473896144994337
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 0c491b708017bae49a13e9515739e4b9
+        position: {x: 220, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 484473896144994339
+        - rid: 484473896144994340
+    - rid: 484473896144994338
+      type: {class: CheckHideable, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: bd5c02cb0a3824549bc8412f5ae23e2c
+        position: {x: 100, y: 620}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        hideable:
+          reference:
+            rid: 484473896144994329
+          defaultValue: {fileID: 0}
+    - rid: 484473896144994339
+      type: {class: Inverter, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 236af91973cbfd94fbc3b63ec139acf3
+        position: {x: 100, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 484473896144994338
+    - rid: 484473896144994340
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 7287f71200a66ff479b2488ff6c67a7d
+        position: {x: 320, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 3
+    - rid: 484473896144994341
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 484473896144994343
+      type: {class: KillPlayer, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ecb045a2ce226e94e9a9e90eb79dbd6a
+        position: {x: 380, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        player:
+          reference:
+            rid: 484473896144994341
+          defaultValue: {fileID: 0}
+    - rid: 484473896144994344
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c618f6a0dc5ac19459eb17642d69bb38
+        position: {x: 540, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 0.5
+    - rid: 484473896144994345
+      type: {class: LoadSceneIndex, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 8c068abf189d9184284b1bc43467ebbf
+        position: {x: 700, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        sceneIndex:
+          reference:
+            rid: -2
+          defaultValue: 0
