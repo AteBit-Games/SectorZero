@@ -19,8 +19,7 @@ namespace Runtime.BehaviourTree.Actions.Utility
 
         protected override State OnUpdate() 
         {
-            float value = Random.value;
-            return value > chanceOfFailure ? State.Failure : State.Success;
+            return Random.value < chanceOfFailure ? State.Failure : State.Success;
         }
 
         protected override void OnReset() { }

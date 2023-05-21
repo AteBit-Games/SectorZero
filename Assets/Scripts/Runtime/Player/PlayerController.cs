@@ -2,7 +2,11 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
+using Runtime.AI.Interfaces;
+using Runtime.BehaviourTree;
 using Runtime.InputSystem;
+using Runtime.InteractionSystem.Interfaces;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
@@ -10,7 +14,7 @@ using UnityEngine.Rendering.Universal;
 
 namespace Runtime.Player
 {
-    public class PlayerController : MonoBehaviour, IPersistant
+    public class PlayerController : MonoBehaviour, IPersistant, ISightEntity
     {
         #region Header MOVEMENT DETAILS
         [Space(10)]
@@ -37,6 +41,11 @@ namespace Runtime.Player
         private SpriteRenderer _playerShadow;
         private SpriteRenderer _spriteRenderer;
         private AudioLowPassFilter _audioLowPassFilter;
+
+        private BehaviourTreeOwner _monster;
+        private BlackboardKey<bool> _seenEnter;
+        [HideInInspector] public Collider2D hideable;
+
         private Vector2 _movementInput;
         private bool _sneaking;
 
@@ -69,6 +78,9 @@ namespace Runtime.Player
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _playerShadow = GameObject.FindGameObjectWithTag("Shadow").GetComponent<SpriteRenderer>();
             _audioLowPassFilter = GetComponent<AudioLowPassFilter>();
+            _monster = FindObjectOfType<BehaviourTreeOwner>();
+            
+            _seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
         }
 
         private void HandleMove(Vector2 direction)
@@ -108,14 +120,16 @@ namespace Runtime.Player
             data.playerPosition = transform.position;
         }
         
-        public void HidePlayer(Vector2 position)
+        public void HidePlayer(GameObject hideable, Vector2 position)
         {
+            if(IsSeen) _seenEnter.value = true;
+            
             SetData(false);
             DisableInput();
             _movementAnimator.SetBool(id: _isMoving, false);
             globalLight.intensity = 0.2f;
             transform.position = position;
-            //enable low pass filter after 1 second
+            this.hideable = hideable.GetComponent<Collider2D>();
             Invoke(nameof(EnableLowPassFilter), 1f);
         }
         
@@ -132,6 +146,7 @@ namespace Runtime.Player
             globalLight.intensity = 0.3f;
             transform.position = position;
             _audioLowPassFilter.enabled = false;
+            _seenEnter.value = false;
         }
 
         private void SetData(bool state)
@@ -161,5 +176,7 @@ namespace Runtime.Player
             _spriteRenderer.enabled = false;
             _playerShadow.enabled = false;
         }
+
+        public bool IsSeen { get; set; }
     }
 }

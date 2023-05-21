@@ -5,6 +5,7 @@
 using System.Collections.Generic;
 using Runtime.AI;
 using Runtime.AI.Interfaces;
+using Runtime.Player;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -117,7 +118,6 @@ namespace Runtime.BehaviourTree
         {
             _canSeePlayer = true;
             _material.color = aggroColour;
-            
             _stateReference.value = 2;
         }
 
@@ -127,7 +127,7 @@ namespace Runtime.BehaviourTree
             {
                 _investigateLocationReference.value = lastKnownPosition;
                 _stateReference.value = 1;
-               
+                FindObjectOfType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
                 _material.color = idleColour;
             }
             _canSeePlayer = false;

@@ -31,6 +31,18 @@ namespace Runtime.BehaviourTree.Actions
                     }
                 }
             }
+            if(searchRadius.Value is BoxCollider2D boxCollider)
+            {
+                var colliders = Physics2D.OverlapBoxAll(searchRadius.Value.transform.position, boxCollider.size, boxCollider.transform.rotation.eulerAngles.z, objectsLayer.Value);
+                foreach (var c in colliders)
+                {
+                    var hideable = c.GetComponent<IHideable>();
+                    if (hideable != null)
+                    {
+                        hideables.Add(c);
+                    }
+                }
+            }
             outHideables.Value = hideables;
         }
     

@@ -56,7 +56,7 @@ MonoBehaviour:
     - rid: 6996063390683889700
     - rid: 6996063390683889715
     - rid: 6996063390683889725
-  viewPosition: {x: 1080, y: 254, z: 0}
+  viewPosition: {x: 835, y: 235, z: 0}
   viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
@@ -339,6 +339,10 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 4
+        stoppingDistance:
+          reference:
+            rid: -2
+          defaultValue: 0.1
     - rid: 6996063390683889711
       type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:

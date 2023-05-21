@@ -58,9 +58,11 @@ namespace Runtime.AI
                     bool playerHit = (_sight.PlayerMask.value & 1 << _hit.transform.gameObject.layer) > 0 && _hit.collider.CompareTag("Player");
                     if (playerHit)
                     {
-                        if(_hit.collider.GetComponent<PlayerController>().isHiding) continue;
+                        var player = _hit.collider.GetComponent<PlayerController>();
+                        if(player.isHiding) continue;
                         
                         //if the player is not hiding, call the OnSightEnter method
+                        player.GetComponent<ISightEntity>().IsSeen = true;
                         _sight.gameObject.GetComponent<ISightHandler>().OnSightEnter();
                         spottedPlayer = _hit.transform.gameObject;
                     }
