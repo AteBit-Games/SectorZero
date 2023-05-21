@@ -14,7 +14,7 @@ namespace Runtime.Managers
     {
         
         [SerializeField] private Sound ambiance;
-
+        
         private void Awake()
         {
             SceneManager.sceneLoaded += PlayAmbiance;

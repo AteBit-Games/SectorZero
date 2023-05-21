@@ -34,6 +34,7 @@ namespace Runtime.AI
             var targetsInRadius = Physics2D.OverlapCircleAll(transform.position, radius, targetMask);
             foreach (var t in targetsInRadius)
             {
+                
                 if(t.gameObject != gameObject)
                 {
                     var hearing = t.GetComponentInChildren<IHearingHandler>();

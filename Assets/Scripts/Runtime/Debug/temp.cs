@@ -3,26 +3,30 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
-using Runtime.InputSystem;
-using Runtime.Managers;
+using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.AI;
 
-namespace Runtime.Player
+
+public class Temp : MonoBehaviour
 {
-    public class Temp : MonoBehaviour
-    {
-        private NavMeshAgent _agent;
-        
-        private void Awake()
-        {
-            _agent = GetComponent<NavMeshAgent>();
-        }
+    [SerializeField] private Sound voices;
+    [SerializeField] private GameObject voidMask;
+    
+    private AudioSource _audioSource;
 
-        private void Start()
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
         {
-            _agent.SetDestination(new Vector3(-14.1f, -45.7f, 0));
+            _audioSource.clip = voices.clip;
+            _audioSource.loop = false;
+            _audioSource.Play();
+            voidMask.SetActive(true);
         }
     }
 }

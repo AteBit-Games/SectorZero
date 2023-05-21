@@ -92,8 +92,8 @@ MonoBehaviour:
     - rid: 484473835900633088
     - rid: 6236232439545200658
     - rid: 484473896144994402
-  viewPosition: {x: -787, y: 27, z: 0}
-  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
+  viewPosition: {x: -312, y: -116, z: 0}
+  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
   references:
     version: 2
     RefIds:
@@ -378,13 +378,13 @@ MonoBehaviour:
       data:
         name: AggroSpeed
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 7
+        value: 8
     - rid: 484473872862412802
       type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
         name: AlertSpeed
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 6.5
+        value: 7
     - rid: 484473872862412803
       type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
