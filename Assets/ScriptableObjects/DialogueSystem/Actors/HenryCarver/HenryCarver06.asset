@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45592774a6613004c9d7daa230919261, type: 3}
-  m_Name: Scientist
+  m_Script: {fileID: 11500000, guid: a17e9e19e65431e40a09d5e64a6f6f43, type: 3}
+  m_Name: HenryCarver06
   m_EditorClassIdentifier: 
-  lines:
-  - Ayo. This is my office bro.
-  - Get out of here nerd.
-  - 'Bro get out. Bababooey. :UrMomGay:'
-  actor: {fileID: 11400000, guid: ef32ab21da60fc744a38911345a80f9a, type: 2}
+  name: Tape #06 | Dr. Henry Carver
+  sprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}

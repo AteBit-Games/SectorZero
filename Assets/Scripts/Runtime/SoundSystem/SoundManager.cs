@@ -76,7 +76,7 @@ namespace Runtime.SoundSystem
                 
                 var audioSource = FindObjectOfType<LevelManager>().gameObject.GetComponent<AudioSource>();
                 audioSource.clip = sound.clip;
-                audioSource.volume = sound.volume;
+                // audioSource.volume = sound.volume;
                 audioSource.loop = sound.loop;
                 audioSource.spatialBlend = 0;
                 audioSource.Play();

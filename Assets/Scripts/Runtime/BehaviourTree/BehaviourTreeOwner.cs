@@ -158,7 +158,6 @@ namespace Runtime.BehaviourTree
         
         public void PlayFootstepSound()
         {
-            audioSource.volume = 0.12f;
             var sound = footstepSounds[Random.Range(0, footstepSounds.Count)];
             audioSource.PlayOneShot(sound);
         }
