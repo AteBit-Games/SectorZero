@@ -40,8 +40,8 @@ MonoBehaviour:
     - rid: 484473896144994329
     - rid: 484473896144994330
     - rid: 484473896144994341
-  viewPosition: {x: 356, y: -5, z: 0}
-  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
+  viewPosition: {x: 357, y: 95, z: 0}
+  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
   references:
     version: 2
     RefIds:
@@ -89,7 +89,7 @@ MonoBehaviour:
         position: {x: -700, y: 240}
         blackboard:
           keys: []
-        comment: 
+        comment: Get all hideables within the bounds
         drawGizmos: 0
         searchRadius:
           reference:
@@ -156,7 +156,7 @@ MonoBehaviour:
         position: {x: -540, y: 360}
         blackboard:
           keys: []
-        comment: 
+        comment: If none exist then we have nothing to do so exit
         drawGizmos: 0
         targetList:
           reference:
@@ -208,7 +208,7 @@ MonoBehaviour:
         position: {x: -140, y: 240}
         blackboard:
           keys: []
-        comment: 
+        comment: Go to the hideable
         drawGizmos: 0
         targetPosition:
           reference:
@@ -227,7 +227,7 @@ MonoBehaviour:
         position: {x: 40, y: 240}
         blackboard:
           keys: []
-        comment: 
+        comment: PLACEHOLDER FOR LOCKERS
         drawGizmos: 0
         sound: {fileID: 11400000, guid: 5ececcaf60583d54e82ce681f1f82403, type: 2}
         waitActionFinish: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
         position: {x: 100, y: 620}
         blackboard:
           keys: []
-        comment: 
+        comment: Check if player is within the locker
         drawGizmos: 0
         hideable:
           reference:
@@ -295,7 +295,7 @@ MonoBehaviour:
         position: {x: 320, y: 500}
         blackboard:
           keys: []
-        comment: 
+        comment: If player was not in locker wait a few seconds
         drawGizmos: 0
         duration:
           reference:
@@ -317,7 +317,7 @@ MonoBehaviour:
         position: {x: 380, y: 240}
         blackboard:
           keys: []
-        comment: 
+        comment: If player was in the hideable kill them
         drawGizmos: 0
         player:
           reference:
@@ -347,7 +347,7 @@ MonoBehaviour:
         position: {x: 700, y: 240}
         blackboard:
           keys: []
-        comment: 
+        comment: PLACEHOLDER TAKE TO MENU
         drawGizmos: 0
         sceneIndex:
           reference:
