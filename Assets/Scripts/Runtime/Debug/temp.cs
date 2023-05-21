@@ -27,6 +27,7 @@ public class Temp : MonoBehaviour
             _audioSource.loop = false;
             _audioSource.Play();
             voidMask.SetActive(true);
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 }
