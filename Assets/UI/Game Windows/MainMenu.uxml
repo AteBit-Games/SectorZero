@@ -2,19 +2,31 @@
     <ui:Template name="SettingsMenu" src="project://database/Assets/UI/Game%20Windows/SettingsMenu.uxml?fileID=9197481963319205126&amp;guid=013bfde6f25a18849b895653dad64b67&amp;type=3#SettingsMenu" />
     <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
     <ui:VisualElement name="main-menu-window" style="visibility: visible; display: flex; flex-grow: 1; align-items: stretch;">
-        <ui:VisualElement name="main-menu-container" style="flex-grow: 1; align-items: stretch; justify-content: flex-end;">
-            <ui:VisualElement name="control-root" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; top: 100px; bottom: 100px; right: 50px; width: 700px;">
-                <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-                    <ui:VisualElement name="movement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/Move%20Key.png?fileID=2800000&amp;guid=a96b910f93b291f4890cc3b8151408c9&amp;type=3#Move Key&apos;); -unity-background-scale-mode: scale-to-fit; width: 250px; height: 300px; position: relative;" />
+        <ui:VisualElement name="main-menu-container" style="flex-grow: 1; align-items: flex-end; justify-content: flex-end;">
+            <ui:VisualElement name="controls-menu" style="flex-grow: 1; position: relative; top: auto; bottom: auto; right: auto; align-items: flex-start; width: 800px; padding-left: 100px; padding-right: 100px; padding-top: 100px; padding-bottom: 100px;">
+                <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 250px; flex-direction: row;">
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 250px; height: 250px; align-items: center; align-self: center; justify-content: center;">
+                        <ui:VisualElement name="movement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/Move%20Key.png?fileID=2800000&amp;guid=a96b910f93b291f4890cc3b8151408c9&amp;type=3#Move Key&apos;); -unity-background-scale-mode: scale-to-fit; position: relative; justify-content: center; align-items: center; width: 200px; height: 200px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
                 </ui:VisualElement>
-                <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; height: 220px;">
-                    <ui:VisualElement name="movement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/Crouch%20Key.png?fileID=2800000&amp;guid=6bf77fa8f31db7844a74789d605b7dfc&amp;type=3#Crouch Key&apos;); -unity-background-scale-mode: scale-to-fit; width: 100px; position: relative; align-items: stretch; align-self: auto;" />
+                <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 150px; flex-direction: row;">
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 250px; height: 150px; align-items: center; align-self: center; justify-content: center;">
+                        <ui:VisualElement name="movement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/Interaction.png?fileID=2800000&amp;guid=ccf8402d6b1ab864cb80d61ed7cb0104&amp;type=3#Interaction&apos;); -unity-background-scale-mode: scale-to-fit; position: relative; justify-content: center; align-items: center; width: 80px; height: 80px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
                 </ui:VisualElement>
-                <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; height: 220px;">
-                    <ui:VisualElement name="movement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/Interaction.png?fileID=2800000&amp;guid=ccf8402d6b1ab864cb80d61ed7cb0104&amp;type=3#Interaction&apos;); -unity-background-scale-mode: scale-to-fit; width: 100px; position: relative; align-items: flex-start;" />
+                <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 150px; flex-direction: row;">
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 250px; height: 150px; align-items: center; align-self: center; justify-content: center;">
+                        <ui:VisualElement name="movement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/Interaction.png?fileID=2800000&amp;guid=ccf8402d6b1ab864cb80d61ed7cb0104&amp;type=3#Interaction&apos;); -unity-background-scale-mode: scale-to-fit; position: relative; justify-content: center; align-items: center; width: 80px; height: 80px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
                 </ui:VisualElement>
-                <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; height: 220px;">
-                    <ui:VisualElement name="movement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/Menu%20Key.png?fileID=2800000&amp;guid=66a3b0281c5b6b044a253278722ee61e&amp;type=3#Menu Key&apos;); -unity-background-scale-mode: scale-to-fit; width: 100px; position: relative; align-items: flex-start;" />
+                <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 150px; flex-direction: row;">
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 250px; height: 150px; align-items: center; align-self: center; justify-content: center;">
+                        <ui:VisualElement name="movement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/Interaction.png?fileID=2800000&amp;guid=ccf8402d6b1ab864cb80d61ed7cb0104&amp;type=3#Interaction&apos;); -unity-background-scale-mode: scale-to-fit; position: relative; justify-content: center; align-items: center; width: 80px; height: 80px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="control-group" style="flex-grow: 1; position: absolute; bottom: 50px; left: 100px; align-items: flex-start; overflow: visible; opacity: 1; visibility: visible;">

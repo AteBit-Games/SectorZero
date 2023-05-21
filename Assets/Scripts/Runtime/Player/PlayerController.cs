@@ -123,7 +123,6 @@ namespace Runtime.Player
         public void HidePlayer(GameObject hideable, Vector2 position)
         {
             if(IsSeen) _seenEnter.value = true;
-            
             SetData(false);
             DisableInput();
             _movementAnimator.SetBool(id: _isMoving, false);
