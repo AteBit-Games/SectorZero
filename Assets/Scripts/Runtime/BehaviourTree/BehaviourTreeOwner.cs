@@ -109,7 +109,7 @@ namespace Runtime.BehaviourTree
         
         public void OnHearing(NoiseEmitter sender)
         {
-            if(_stateReference.value == 2) return;
+            if(_stateReference.value is 2 or 3) return;
             _investigateLocationReference.value = sender.transform.position;
             _stateReference.value = 1;
         }

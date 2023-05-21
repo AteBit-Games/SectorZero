@@ -2,6 +2,8 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
+using Runtime.AI;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
@@ -18,10 +20,12 @@ namespace Runtime.InteractionSystem.Objects
         
         private bool _isActivated;
         private Animator _animator;
+        private NoiseEmitter _noiseEmitter;
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _noiseEmitter = GetComponent<NoiseEmitter>();
         }
 
         public void Open()
@@ -31,6 +35,7 @@ namespace Runtime.InteractionSystem.Objects
             GameManager.Instance.SoundSystem.Play(openSound, transform);
             _animator.SetTrigger("OpenDoor");
             _isActivated = true;
+            _noiseEmitter.EmitGlobal();
         }
     }
 }
