@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
+using NavMeshPlus.Components;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
@@ -24,6 +25,7 @@ namespace Runtime.InteractionSystem.Objects
 
         [SerializeField] private bool requiresKey;
         [SerializeField] private Item key;
+        [SerializeField] private NavMeshSurface navMeshSurface;
         
         private Animator _animator;
 
@@ -34,10 +36,9 @@ namespace Runtime.InteractionSystem.Objects
 
         public bool OnInteract(GameObject player)
         {
-            GameManager.Instance.SoundSystem.Play(interactSound, transform);
-
             if (GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(key) || !requiresKey)
             {
+                GameManager.Instance.SoundSystem.Play(interactSound, transform);
                 _animator.SetTrigger("OpenDoor");
                 return true;
             }
@@ -51,6 +52,16 @@ namespace Runtime.InteractionSystem.Objects
         public bool CanInteract()
         {
             return GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(key) || !requiresKey;
+        }
+
+        public void SetPassable()
+        {
+            transform.GetChild(0).GetComponent<NavMeshModifier>().area = 0;
+            GetComponentInChildren<Collider2D>().gameObject.SetActive(false);
+            // Set child game object NavigationModifier area type to Walkable
+            
+            // Update NavMesh
+            navMeshSurface.UpdateNavMesh(navMeshSurface.navMeshData);
         }
     }
 }

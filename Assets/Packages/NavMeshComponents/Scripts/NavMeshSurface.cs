@@ -111,6 +111,12 @@ namespace NavMeshPlus.Components
             Unregister(this);
         }
 
+        void Update()
+        {
+            // UpdateNavMesh
+            
+        }
+
         public void AddData()
         {
 #if UNITY_EDITOR
