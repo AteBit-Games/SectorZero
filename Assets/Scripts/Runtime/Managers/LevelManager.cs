@@ -20,6 +20,11 @@ namespace Runtime.Managers
             SceneManager.sceneLoaded += PlayAmbiance;
         }
 
+        private void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= PlayAmbiance;
+        }
+
         private void PlayAmbiance(Scene arg0, LoadSceneMode arg1)
         {
             if (ambiance == null) return;

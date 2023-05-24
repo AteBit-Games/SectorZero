@@ -1,11 +1,12 @@
 /****************************************************************
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
-****************************************************************/
+****************************************************************/   
+using System;
 using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
 using Runtime.InputSystem;
-using Runtime.Player;
+using Discord;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
 using Runtime.SoundSystem.ScriptableObjects;
@@ -40,6 +41,15 @@ namespace Runtime.Managers
        
         private PauseMenu PauseMenu { get; set; }
         
+        
+        //====== Discord ========
+        private const long applicationId = 1109955823121215509;
+        private const string largeImage = "sector_zero_icon";
+        private const string largeText = "Sector Zero";
+        public string details = "";
+        private long time;
+        private Discord.Discord discord;
+        
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -52,11 +62,35 @@ namespace Runtime.Managers
             Instance.SaveSystem = GetComponent<SaveManager>();
         
             DontDestroyOnLoad(gameObject);
-        
+            discord = new Discord.Discord(applicationId, (ulong)CreateFlags.NoRequireDiscord);
+            time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+
             if(testMode)
             {
                 SaveSystem.NewGame();
             }
+        }
+
+        private void Update()
+        {
+            try
+            {
+                discord.RunCallbacks();
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+        }
+
+        private void LateUpdate()
+        {
+            UpdateStatus();
+        }
+
+        private void OnApplicationQuit()
+        {
+            discord.Dispose();
         }
 
         private void OnEnable()
@@ -144,6 +178,37 @@ namespace Runtime.Managers
         public Sound ClickSound()
         {
             return menuClickSound;
+        }
+        
+        private void UpdateStatus()
+        {
+            try
+            {
+                var activityManager = discord.GetActivityManager();
+                var activity = new Activity
+                {
+                    State = "",
+                    Details = details,
+                    Assets =
+                    {
+                        LargeImage = largeImage,
+                        LargeText = largeText
+                    },
+                    Timestamps =
+                    {
+                        Start = time
+                    }
+                };
+
+                activityManager.UpdateActivity(activity, _ =>
+                {
+                    // ignored
+                });
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
         }
     }
 }
