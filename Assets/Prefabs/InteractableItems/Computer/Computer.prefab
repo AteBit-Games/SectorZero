@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 861878229128676144}
   - component: {fileID: 5836420187796048468}
   - component: {fileID: 719941686}
+  - component: {fileID: 719941691}
   m_Layer: 3
   m_Name: Computer
   m_TagString: Untagged
@@ -117,13 +118,13 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06891823, y: 1.5420303}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 2, y: 3.1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -131,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 2.4}
+  m_Size: {x: 1.6824226, y: 2.9341125}
   m_EdgeRadius: 0
 --- !u!50 &861878229128676144
 Rigidbody2D:
@@ -192,6 +193,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180b4f69be4642109662238af8840ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSound: {fileID: 11400000, guid: ee71ebac7b9200b4c84687a87519b73a, type: 2}
+  interactSound: {fileID: 11400000, guid: 3b2e2bf34cd3dc642bf9b24da7b3e302, type: 2}
   poweredOffSound: {fileID: 11400000, guid: eec31a25228a183458f4523b295949b5, type: 2}
   linkedDoor: {fileID: 0}
+--- !u!210 &719941691
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861878229128676140}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_SortAtRoot: 0
