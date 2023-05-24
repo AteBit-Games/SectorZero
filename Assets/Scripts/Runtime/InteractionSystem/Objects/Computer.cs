@@ -20,6 +20,8 @@ namespace Runtime.InteractionSystem.Objects
         private Animator _animator;
         private static readonly int Powered = Animator.StringToHash("IsPowered");
 
+        private bool _used;
+
         private void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -31,6 +33,7 @@ namespace Runtime.InteractionSystem.Objects
             {
                 GameManager.Instance.SoundSystem.Play(interactSound, transform);
                 linkedDoor.Open();
+                _used = true;
                 return true;
             }
             
@@ -40,7 +43,7 @@ namespace Runtime.InteractionSystem.Objects
 
         public bool CanInteract()
         {
-            return IsPowered;
+            return IsPowered && !_used;
         }
 
         public void PowerOn()

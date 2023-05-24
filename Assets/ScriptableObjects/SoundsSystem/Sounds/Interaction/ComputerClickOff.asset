@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da09ef4e6e9b5f74486f1c4010871c5d, type: 3}
-  m_Name: ComputerClick
+  m_Name: ComputerClickOff
   m_EditorClassIdentifier: 
   mixGroup: {fileID: 11400000, guid: 52c044bba344d064dbaf311ca3cdd4de, type: 2}
   clip: {fileID: 8300000, guid: a2140eaebb10c3543a4074d768891dec, type: 3}

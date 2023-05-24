@@ -116,7 +116,7 @@ MonoBehaviour:
   - {x: 1.5999985, y: -0.20000076, z: 0}
   m_ShapePathHash: -774313910
   m_Mesh: {fileID: 0}
-  m_InstanceId: -116412
+  m_InstanceId: -143896
 --- !u!50 &2203629738047816674
 Rigidbody2D:
   serializedVersion: 4
@@ -188,10 +188,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.6, y: 0.2}
+    - - {x: -1.6, y: 0.40720767}
       - {x: -1.6, y: -0.2}
       - {x: 1.6, y: -0.2}
-      - {x: 1.6, y: 0.2}
+      - {x: 1.6045033, y: 0.39819926}
   m_UseDelaunayMesh: 0
 --- !u!114 &-4080635208631521702
 MonoBehaviour:

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 010212989a88dad4e84b588325c5a7b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   - {x: 2.4000015, y: -0.20000076, z: 0}
   m_ShapePathHash: 1537271189
   m_Mesh: {fileID: 0}
-  m_InstanceId: -116736
+  m_InstanceId: -145144
 --- !u!50 &4611962083694203615
 Rigidbody2D:
   serializedVersion: 4
@@ -186,10 +186,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -2.4, y: 0.2}
+    - - {x: -2.4059796, y: 0.39732188}
       - {x: -2.4, y: -0.2}
       - {x: 2.4, y: -0.2}
-      - {x: 2.4, y: 0.2}
+      - {x: 2.4, y: 0.40928048}
   m_UseDelaunayMesh: 0
 --- !u!114 &7544163835670068585
 MonoBehaviour:
