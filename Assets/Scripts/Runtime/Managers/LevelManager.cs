@@ -14,6 +14,7 @@ namespace Runtime.Managers
     {
         
         [SerializeField] private Sound ambiance;
+        [SerializeField] private string levelDescription;
         
         private void Awake()
         {
@@ -27,6 +28,8 @@ namespace Runtime.Managers
 
         private void PlayAmbiance(Scene arg0, LoadSceneMode arg1)
         {
+            GameManager.Instance.details = levelDescription;
+            
             if (ambiance == null) return;
             GameManager.Instance.SoundSystem.Play(ambiance, transform, true);
         }
