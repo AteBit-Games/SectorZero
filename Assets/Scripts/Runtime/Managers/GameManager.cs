@@ -162,9 +162,10 @@ namespace Runtime.Managers
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            NotificationManager = FindObjectOfType<NotificationManager>(true);
+
             if (isMainMenu)
             {
-                Debug.Log("Main Menu Loaded");
                 inputReader.SetUI();
                 return;
             }
@@ -172,7 +173,6 @@ namespace Runtime.Managers
             DialogueSystem = FindObjectOfType<DialogueManager>(true);
             InventorySystem = FindObjectOfType<InventoryManager>(true);
             PauseMenu = FindObjectOfType<PauseMenu>(true);
-            NotificationManager = FindObjectOfType<NotificationManager>(true);
         }
         
         public Sound ClickSound()

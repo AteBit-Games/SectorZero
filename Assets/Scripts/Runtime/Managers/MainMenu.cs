@@ -2,6 +2,8 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
+using Runtime.ReporterSystem;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,14 +23,17 @@ namespace Runtime.Managers
         private Button _quitButton;
         private VisualElement _mainMenuWindow;
         private UIDocument _uiDocument;
+        private Button _reportBugButton;
         
         // Settings Items
         private VisualElement _settingsWindow;
+        private FeedbackForm _feedbackForm;
         
         private void Start()
         {
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;
+            _feedbackForm = FindObjectOfType<FeedbackForm>();
             
             _buttonDescription = rootVisualElement.Q<Label>("button-description");
             _mainMenuWindow = rootVisualElement.Q<VisualElement>("main-menu-window");
@@ -43,6 +48,15 @@ namespace Runtime.Managers
             });
             _continueButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Continue from the last checkpoint";
+            });
+            
+            _reportBugButton = rootVisualElement.Q<Button>("report-problem");
+            _reportBugButton.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                _feedbackForm.ShowForm();
+            });
+            _reportBugButton.RegisterCallback<MouseEnterEvent>(_ => {
+                _buttonDescription.text = "Report a problem";
             });
 
             _newGameButton = rootVisualElement.Q<Button>("new-game");
