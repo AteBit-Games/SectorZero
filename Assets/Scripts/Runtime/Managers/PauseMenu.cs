@@ -2,6 +2,8 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
+using Runtime.ReporterSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -22,15 +24,18 @@ namespace Runtime.Managers
         private VisualElement _pauseWindow;
         private VisualElement _pauseMenuContainer;
         private UIDocument _uiDocument;
+        private Button _reportBugButton;
         
         // Settings Items
         private VisualElement _settingsContainer;
         private VisualElement _overlay;
+        private FeedbackForm _feedbackForm;
         
         private void Awake()
         {
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;
+            _feedbackForm = FindObjectOfType<FeedbackForm>();
             
             // Main Pause Items
             _buttonDescription = rootVisualElement.Q<Label>("button-description");
@@ -38,6 +43,15 @@ namespace Runtime.Managers
             _pauseWindow = rootVisualElement.Q<VisualElement>("pause-window");
             _settingsContainer = rootVisualElement.Q<VisualElement>("settings-window");
             _overlay = rootVisualElement.Q<VisualElement>("overlay");
+
+            _reportBugButton = rootVisualElement.Q<Button>("report-problem");
+            _reportBugButton.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                _feedbackForm.ShowForm();
+            });
+            _reportBugButton.RegisterCallback<MouseEnterEvent>(_ => {
+                _buttonDescription.text = "Report a problem";
+            });
 
             // Main Pause Items
             _resumeButton = rootVisualElement.Q<Button>("resume");
@@ -94,11 +108,13 @@ namespace Runtime.Managers
             _pauseWindow.style.display = DisplayStyle.None;
             _overlay.style.display = DisplayStyle.None;
             isPaused = false;
+            _feedbackForm.HideForm();
         }
 
-        public static void LoadGame()
+        public void LoadGame()
         {
             GameManager.Instance.SaveSystem.LoadGame();
+            _feedbackForm.HideForm();
         }
         
         public void OpenSettings()
@@ -106,6 +122,7 @@ namespace Runtime.Managers
             _pauseMenuContainer.style.display = DisplayStyle.None;
             _settingsContainer.style.display = DisplayStyle.Flex;
             isSettingsOpen = true;
+            _feedbackForm.HideForm();
         }
         
         public void CloseSettings()

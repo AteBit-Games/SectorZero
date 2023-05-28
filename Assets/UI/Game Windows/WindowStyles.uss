@@ -1,3 +1,13 @@
+#overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 17, 22, 0.8);
+    flex-grow: 1;
+}
+
 .button {
     -unity-font: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
     -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
@@ -140,4 +150,169 @@
     position: absolute;
     right: 50px;
     bottom: 40px;
+}
+
+#feedback-option {
+    padding-bottom: 15px;
+    padding-top: 8px;
+}
+
+.feedback-option-heading {
+    -unity-font: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+}
+
+.unity-popup-field__input {
+    background-color: rgb(27, 27, 27);
+    border-left-color: rgba(24, 24, 24, 0);
+    border-right-color: rgba(24, 24, 24, 0);
+    border-top-color: rgba(24, 24, 24, 0);
+    border-bottom-color: rgba(24, 24, 24, 0);
+}
+
+.unity-popup-field:hover .unity-popup-field__input {
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-color: rgb(36, 36, 36);
+}
+
+.unity-popup-field:active .unity-popup-field__input {
+    background-color: rgb(31, 31, 31);
+}
+
+.unity-text-field__input {
+    background-color: rgb(27, 27, 27);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    --unity-cursor-color: rgb(255, 255, 255);
+}
+
+.unity-base-text-field:focus .unity-base-text-field__input {
+    background-color: rgb(27, 27, 27);
+    border-left-color: rgb(41, 41, 41);
+    border-right-color: rgb(41, 41, 41);
+    border-top-color: rgb(41, 41, 41);
+    border-bottom-color: rgb(41, 41, 41);
+    --unity-cursor-color: rgb(255, 255, 255);
+}
+
+.unity-base-dropdown__container-inner {
+    background-color: rgb(46, 46, 46);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.unity-base-dropdown__container-outer {
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.unity-base-dropdown__item {
+    -unity-font: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+.unity-base-dropdown__checkmark {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.unity-base-dropdown__item:hover {
+    background-color: rgb(33, 71, 96);
+}
+
+.unity-text-input__placeholder {
+    color: rgb(77, 77, 77);
+}
+
+.unity-text-input__value {
+    color: rgb(255, 255, 255);
+}
+
+#feedback-option .form-button {
+    background-color: rgb(27, 27, 27);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    -unity-font: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+#feedback-option .form-button:hover {
+    background-color: rgb(36, 36, 36);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.unity-ui-document__root {
+    flex-grow: 1;
+}
+
+#PauseMenu-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+#ReportWindow-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    flex-grow: 1;
+}
+
+#DialogueWindow-container {
+    position: absolute;
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+}
+
+#Notifications-container {
+    position: absolute;
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
+.result-hidden {
+    bottom: 160px;
+    position: absolute;
+    transform-origin: left;
+    translate: 105% 0;
+}
+
+.result-show {
+    position: absolute;
+    bottom: 160px;
+    transform-origin: right;
+    translate: 15px 0;
 }

@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0619d653d2d942238c5814f58df39d6916d600/bc/50b8883e/DropdownMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0f991abcc4f74284a2984f66b47aac27d400/69/201c6eb0/NavMeshAgent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0f991abcc4f74284a2984f66b47aac27d400/87/39501726/NavMeshPath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0f991abcc4f74284a2984f66b47aac27d400/fe/589d242a/NavMesh.cs" root0="SKIP_HIGHLIGHTING" />
@@ -36,6 +37,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Managers/LightManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Managers/NotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Managers/SettingsMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ReporterSystem/FeedbackForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/SoundSystem/PlayerAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.4/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.5/Runtime/2D/Light2DShape.cs" root0="SKIP_HIGHLIGHTING" />
@@ -146,6 +148,7 @@
       <workItem from="1684519870188" duration="11409000" />
       <workItem from="1684571646175" duration="36034000" />
       <workItem from="1684665383103" duration="16232000" />
+      <workItem from="1685197944593" duration="18156000" />
     </task>
     <servers />
   </component>
