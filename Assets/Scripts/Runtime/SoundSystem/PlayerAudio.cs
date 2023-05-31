@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Runtime.AI;
+using Runtime.Managers;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -32,7 +33,7 @@ namespace Runtime.SoundSystem
 
         public void PlayFootstepSound()
         {
-            audioSource.volume = 0.12f;
+            audioSource.volume = 0.12f * GameManager.Instance.SoundSystem.SfxVolume();
             audioSource.PlayOneShot(DetermineSound());
             _noiseEmitter.Radius = joggingRange;
             _noiseEmitter.EmitLocal();
@@ -42,7 +43,7 @@ namespace Runtime.SoundSystem
 
         public void PlaySneakSound()
         {
-            audioSource.volume = 0.06f;
+            audioSource.volume = 0.06f * GameManager.Instance.SoundSystem.SfxVolume();
             audioSource.PlayOneShot(DetermineSound());
             _noiseEmitter.Radius = sneakingRange;
             _noiseEmitter.EmitLocal();

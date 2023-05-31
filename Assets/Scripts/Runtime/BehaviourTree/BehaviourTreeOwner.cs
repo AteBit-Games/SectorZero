@@ -5,6 +5,7 @@
 using System.Collections.Generic;
 using Runtime.AI;
 using Runtime.AI.Interfaces;
+using Runtime.Managers;
 using Runtime.Player;
 using UnityEngine;
 using UnityEngine.AI;
@@ -158,6 +159,7 @@ namespace Runtime.BehaviourTree
         
         public void PlayFootstepSound()
         {
+            audioSource.volume = 0.8f * GameManager.Instance.SoundSystem.SfxVolume();
             var sound = footstepSounds[Random.Range(0, footstepSounds.Count)];
             audioSource.PlayOneShot(sound);
         }

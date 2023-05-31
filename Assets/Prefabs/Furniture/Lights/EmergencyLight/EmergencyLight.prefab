@@ -468,7 +468,7 @@ Transform:
   m_Children:
   - {fileID: 9071387947411425714}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9071387947849427203
 MonoBehaviour:
@@ -483,15 +483,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 9071387947411425715}
-  startPowered: 0
-  flicker: 0
+  startPowered: 1
+  flicker: 1
   minOn: 3
-  maxOn: 6
-  minOff: 0.1
-  maxOff: 0.3
+  maxOn: 3
+  minOff: 1
+  maxOff: 1
   onSound: {fileID: 11400000, guid: 24477554bcf8bc2439185617f7b147a8, type: 2}
   loopSound: {fileID: 11400000, guid: 642ecbeaba520d0469082481e91a9bca, type: 2}
   offSound: {fileID: 11400000, guid: 2d9b75a258c4beb4aa7778758de6f4d9, type: 2}
+  volumeScale: 0.3
 --- !u!82 &9071387947849427204
 AudioSource:
   m_ObjectHideFlags: 0
@@ -504,7 +505,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -541,14 +542,23 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 0.15928039
-      inSlope: -0.3050469
-      outSlope: -0.3050469
+      time: 0.9895935
+      value: 0.15804085
+      inSlope: -0.6262799
+      outSlope: -0.6262799
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9941228
+      value: 0
+      inSlope: -0.6563108
+      outSlope: -0.6563108
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -566,7 +576,7 @@ AudioSource:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.74218875
-      value: 0.9984677
+      value: 1.0099652
       inSlope: 0.0063522207
       outSlope: 0.0063522207
       tangentMode: 0

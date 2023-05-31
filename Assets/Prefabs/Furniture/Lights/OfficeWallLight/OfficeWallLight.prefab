@@ -107,10 +107,12 @@ MonoBehaviour:
   m_ShapeLightFalloffSize: 0.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
+  - {x: -2.4107685, y: -4.8430195, z: 0}
+  - {x: -0.019654274, y: -5.381112, z: 0}
+  - {x: 2.5701628, y: -4.872569, z: 0}
+  - {x: 1.7338333, y: 1.1989222, z: 0}
+  - {x: -0.07502079, y: 1.2471466, z: 0}
+  - {x: -1.8173337, y: 1.2697594, z: 0}
 --- !u!1 &9071387947849427207
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 9071387947411425715}
-  startPowered: 0
+  startPowered: 1
   flicker: 0
   minOn: 3
   maxOn: 6
@@ -170,6 +172,7 @@ MonoBehaviour:
   onSound: {fileID: 11400000, guid: 24477554bcf8bc2439185617f7b147a8, type: 2}
   loopSound: {fileID: 11400000, guid: 642ecbeaba520d0469082481e91a9bca, type: 2}
   offSound: {fileID: 11400000, guid: 2d9b75a258c4beb4aa7778758de6f4d9, type: 2}
+  volumeScale: 0.2
 --- !u!82 &9071387947849427204
 AudioSource:
   m_ObjectHideFlags: 0
@@ -182,7 +185,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f33ddad6d63e34e479530046426a5a3f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0

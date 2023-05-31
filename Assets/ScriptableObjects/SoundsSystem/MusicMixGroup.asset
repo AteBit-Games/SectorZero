@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4241ee7a10c4d5d8b0ba798d53d08d5, type: 3}
   m_Name: MusicMixGroup
   m_EditorClassIdentifier: 
-  parent: {fileID: 11400000, guid: 0807f2e9fafb2e44388f63d14f764492, type: 2}
+  type: 1
   volume: 1
