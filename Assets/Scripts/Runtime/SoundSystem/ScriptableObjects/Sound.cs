@@ -3,7 +3,6 @@
 * All rights reserved.
 ****************************************************************/
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Runtime.SoundSystem.ScriptableObjects
 {
@@ -14,8 +13,11 @@ namespace Runtime.SoundSystem.ScriptableObjects
         public AudioClip clip;
 
         [Range(0.0f, 1.0f)]
-        public float volume = 1f;
-        
+        public float volumeScale = 1f;
+
+        [Range(0.0f, 1.0f)] 
+        [HideInInspector] public float volume;
+
         public bool loop;
 
         private void OnEnable()
@@ -26,6 +28,15 @@ namespace Runtime.SoundSystem.ScriptableObjects
         private void OnDisable()
         {
             if (mixGroup != null) mixGroup.Sounds.Remove(this);
+        }
+        
+        public Sound CreateInstance()
+        {
+            var instance = CreateInstance<Sound>();
+            instance.clip = clip;
+            instance.volumeScale = volumeScale;
+            instance.loop = loop;
+            return instance;
         }
     }
 }

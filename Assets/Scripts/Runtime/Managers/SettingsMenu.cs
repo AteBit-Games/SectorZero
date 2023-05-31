@@ -149,7 +149,6 @@ namespace Runtime.Managers
             var vsyncSetting = rootVisualElement.Q<VisualElement>("vertical-sync");
             vsyncSetting.RegisterCallback<MouseEnterEvent>(_ =>
             {
-                Debug.Log("Mouse enter");
                 _settingDescription.text = "Toggle vertical sync";
             });
 
@@ -242,11 +241,16 @@ namespace Runtime.Managers
             _activeMasterVolume = LoadPlayerPref(MASTER_VOLUME_KEY, 1f);
             _activeSfxVolume = LoadPlayerPref(SFX_VOLUME_KEY, 1f);
             _activeMusicVolume = LoadPlayerPref(MUSIC_VOLUME_KEY, 1f);
+            
+            GameManager.Instance.SoundSystem.SetMasterVolume(_activeMasterVolume);
+            GameManager.Instance.SoundSystem.SetSfxVolume(_activeSfxVolume);
+            GameManager.Instance.SoundSystem.SetMusicVolume(_activeMusicVolume);
         }
         
-        private void SetPlayerPref(string key, float value)
+        private static void SetPlayerPref(string key, float value)
         {
             PlayerPrefs.SetFloat(key, value);
+            PlayerPrefs.Save();
         }
         
         private static float LoadPlayerPref(string key, float defaultValue)
