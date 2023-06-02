@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8002038641750619376}
   - component: {fileID: 5149916914308573363}
   - component: {fileID: 8741689906607715567}
+  - component: {fileID: 1170686102872554438}
   m_Layer: 6
   m_Name: OfficeWallSide2
   m_TagString: Untagged
@@ -207,3 +208,15 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!210 &1170686102872554438
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2931762788349525067}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 11
+  m_SortAtRoot: 0
