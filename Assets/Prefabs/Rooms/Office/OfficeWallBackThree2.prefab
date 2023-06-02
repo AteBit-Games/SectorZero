@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3406109687040593885}
   - component: {fileID: 4493479409298812627}
   - component: {fileID: -2885689413796525622}
+  - component: {fileID: 6803619097955852270}
   m_Layer: 6
   m_Name: OfficeWallBackThree2
   m_TagString: Untagged
@@ -114,7 +115,7 @@ MonoBehaviour:
   - {x: 2.4000015, y: -0.20000076, z: 0}
   m_ShapePathHash: 1537271189
   m_Mesh: {fileID: 0}
-  m_InstanceId: -144190
+  m_InstanceId: 52778
 --- !u!50 &3406109687040593885
 Rigidbody2D:
   serializedVersion: 4
@@ -174,7 +175,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -207,3 +208,15 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!210 &6803619097955852270
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4677549994610881585}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 11
+  m_SortAtRoot: 0

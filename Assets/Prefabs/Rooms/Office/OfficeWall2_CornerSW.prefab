@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 234331445945185419}
   - component: {fileID: 304125717151829224}
   - component: {fileID: 5730189864278950235}
+  - component: {fileID: 2793865849938745839}
   m_Layer: 6
   m_Name: OfficeWall2_CornerSW
   m_TagString: Untagged
@@ -179,3 +180,15 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!210 &2793865849938745839
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511367953749329060}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_SortAtRoot: 0

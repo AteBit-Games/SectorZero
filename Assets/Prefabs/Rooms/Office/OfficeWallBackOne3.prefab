@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5051240152486392402}
   - component: {fileID: 7676168080402859450}
   - component: {fileID: -7323968587557205971}
+  - component: {fileID: 1114161616623253931}
   m_Layer: 6
   m_Name: OfficeWallBackOne3
   m_TagString: Untagged
@@ -207,3 +208,15 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!210 &1114161616623253931
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456753504155086427}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 11
+  m_SortAtRoot: 0

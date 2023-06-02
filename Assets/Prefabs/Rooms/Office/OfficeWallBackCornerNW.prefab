@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2203629738047816674}
   - component: {fileID: 5619143566272535362}
   - component: {fileID: -431731646346297277}
+  - component: {fileID: 1211595633571471792}
   m_Layer: 6
   m_Name: OfficeWallBackCornerNW
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 57d5c2dabf7ec9b48960a89131f30a7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -116,7 +117,7 @@ MonoBehaviour:
   - {x: 1.5999985, y: -0.20000076, z: 0}
   m_ShapePathHash: -774313910
   m_Mesh: {fileID: 0}
-  m_InstanceId: -116412
+  m_InstanceId: 53222
 --- !u!50 &2203629738047816674
 Rigidbody2D:
   serializedVersion: 4
@@ -176,7 +177,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -209,3 +210,15 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!210 &1211595633571471792
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8560268115060281410}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 11
+  m_SortAtRoot: 0
