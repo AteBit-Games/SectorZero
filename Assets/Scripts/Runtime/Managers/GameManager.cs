@@ -15,6 +15,7 @@ using UnityEngine.SceneManagement;
 
 namespace Runtime.Managers
 {
+    [DefaultExecutionOrder(0)]
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
@@ -38,6 +39,7 @@ namespace Runtime.Managers
         public SoundManager SoundSystem { get; private set; }
         public SaveManager SaveSystem { get; private set; }
         public NotificationManager NotificationManager { get; set; }
+        public HUD HUD { get; set; }
        
         private PauseMenu PauseMenu { get; set; }
         
@@ -173,6 +175,7 @@ namespace Runtime.Managers
             DialogueSystem = FindObjectOfType<DialogueManager>(true);
             InventorySystem = FindObjectOfType<InventoryManager>(true);
             PauseMenu = FindObjectOfType<PauseMenu>(true);
+            HUD = FindObjectOfType<HUD>(true);
         }
         
         public Sound ClickSound()

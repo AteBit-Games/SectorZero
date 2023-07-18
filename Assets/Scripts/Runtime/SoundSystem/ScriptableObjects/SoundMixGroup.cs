@@ -39,7 +39,6 @@ namespace Runtime.SoundSystem.ScriptableObjects
                     break;
                 
                 case SoundMixGroupType.Music: case SoundMixGroupType.SFX:
-                    Debug.Log($"Setting volume of {type} to {newVolume}");
                     volume = newVolume;
                     foreach (var sound in _sounds)
                     {

@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
+    <ui:VisualElement name="HUD-window" style="visibility: visible; display: flex; flex-grow: 1; align-items: stretch;">
+        <ui:VisualElement name="HUD-container" style="flex-grow: 1; align-items: stretch; justify-content: flex-end;">
+            <ui:VisualElement name="active-throwable" style="left: 25px; position: absolute; right: auto; bottom: 25px; visibility: visible; display: none;">
+                <ui:VisualElement name="throwable-image" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/Sprites/IconsAndMugshots/RockIcon.png?fileID=2800000&amp;guid=26b005d1da6987f43a9ed0f3708b5f8e&amp;type=3#RockIcon&apos;); -unity-background-scale-mode: scale-to-fit; width: 100px; height: 100px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

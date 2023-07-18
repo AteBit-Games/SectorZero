@@ -4,6 +4,7 @@
 ****************************************************************/
 using System.Collections.Generic;
 using Runtime.InventorySystem.ScriptableObjects;
+using Runtime.Managers;
 using UnityEngine;
 
 namespace Runtime.InventorySystem
@@ -19,6 +20,9 @@ namespace Runtime.InventorySystem
         // ReSharper disable once CollectionNeverQueried.Global
         public readonly List<Tape> tapeInventory = new();
         public readonly List<Item> itemInventory = new();
+        public GameObject throwableItem;
+        
+        public bool HasThrowableItem => throwableItem != null;
 
         public bool AddTapeToInventory(Tape item)
         {
@@ -40,6 +44,21 @@ namespace Runtime.InventorySystem
         public void UseItemInInventory(Item item)
         {
             itemInventory.Remove(item);
+        }
+        
+        public void PickUpThrowable(GameObject item)
+        {
+            throwableItem = item;
+        }
+        
+        public void DropThrowable()
+        {
+            throwableItem = null;
+        }
+        
+        public GameObject GetThrowable()
+        {
+            return throwableItem;
         }
     }
 }
