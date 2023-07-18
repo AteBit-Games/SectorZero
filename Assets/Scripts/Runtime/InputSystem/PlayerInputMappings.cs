@@ -91,6 +91,15 @@ namespace Runtime.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c2019fa-3c04-4598-9f31-c3d95758e33e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -344,6 +353,17 @@ namespace Runtime.InputSystem
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d2a24ef5-f013-4b8a-9e71-67a8b2ec643d"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -810,6 +830,7 @@ namespace Runtime.InputSystem
             m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
             m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
             m_Gameplay_Inventory = m_Gameplay.FindAction("Inventory", throwIfNotFound: true);
+            m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -886,6 +907,7 @@ namespace Runtime.InputSystem
         private readonly InputAction m_Gameplay_Pause;
         private readonly InputAction m_Gameplay_Interact;
         private readonly InputAction m_Gameplay_Inventory;
+        private readonly InputAction m_Gameplay_Aim;
         public struct GameplayActions
         {
             private @PlayerInput m_Wrapper;
@@ -897,6 +919,7 @@ namespace Runtime.InputSystem
             public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
             public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
             public InputAction @Inventory => m_Wrapper.m_Gameplay_Inventory;
+            public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -927,6 +950,9 @@ namespace Runtime.InputSystem
                     @Inventory.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInventory;
                     @Inventory.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInventory;
                     @Inventory.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInventory;
+                    @Aim.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                    @Aim.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                    @Aim.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
                 }
                 m_Wrapper.m_GameplayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -952,6 +978,9 @@ namespace Runtime.InputSystem
                     @Inventory.started += instance.OnInventory;
                     @Inventory.performed += instance.OnInventory;
                     @Inventory.canceled += instance.OnInventory;
+                    @Aim.started += instance.OnAim;
+                    @Aim.performed += instance.OnAim;
+                    @Aim.canceled += instance.OnAim;
                 }
             }
         }
@@ -1099,6 +1128,7 @@ namespace Runtime.InputSystem
             void OnPause(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
             void OnInventory(InputAction.CallbackContext context);
+            void OnAim(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

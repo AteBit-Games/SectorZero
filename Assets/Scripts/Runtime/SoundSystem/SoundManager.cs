@@ -39,6 +39,9 @@ namespace Runtime.SoundSystem
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
+            _activeSoundEntitySources.Clear();
+            _activeMusicSources.Clear();
+            
             var soundSources = SceneManager.GetActiveScene().GetRootGameObjects().SelectMany(x => x.GetComponentsInChildren<ISoundEntity>()).ToList();
             foreach (var soundSource in soundSources)
             {
@@ -70,7 +73,7 @@ namespace Runtime.SoundSystem
             }
             else
             {
-                if (_activeMusic != null)
+                if (_activeMusic != null && _activeMusicSources.Any())
                 {
                     _activeMusicSources.First().Key.Stop();
                 }
@@ -164,6 +167,7 @@ namespace Runtime.SoundSystem
             
             foreach (var soundSource in _activeSoundEntitySources)
             {
+                if(soundSource.AudioSource == null) continue;
                 soundSource.Volume = volume * soundSource.VolumeScale;
                 soundSource.AudioSource.volume = soundSource.Volume;
             }
@@ -172,13 +176,13 @@ namespace Runtime.SoundSystem
         private IEnumerator DestroySoundSource(AudioSource audioSource, float delay)
         {
             yield return new WaitForSecondsRealtime(delay);
+            if(audioSource == null) yield break;
             _activeSoundInstanceSources.Remove(audioSource);
             Destroy(audioSource.gameObject);
         }
         
         public float SfxVolume()
         {
-            Debug.Log(sfxMixGroup.volume);
             return sfxMixGroup.volume;
         }
     }

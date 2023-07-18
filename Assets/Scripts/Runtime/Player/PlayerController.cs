@@ -3,35 +3,44 @@
 * All rights reserved.
 ****************************************************************/
 
+using System;
+using System.Collections;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
 using Runtime.InputSystem;
 using Runtime.InteractionSystem.Interfaces;
+using Runtime.InventorySystem;
+using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using Random = UnityEngine.Random;
 
 namespace Runtime.Player
 {
     public class PlayerController : MonoBehaviour, IPersistant, ISightEntity
     {
-        #region Header MOVEMENT DETAILS
         [Space(10)]
         [Header("REFERENCES")]
-        #endregion
         [SerializeField] private InputReader inputReader;
-
-        #region Header MOVEMENT DETAILS
+        
         [Space(10)]
         [Header("MOVEMENT DETAILS")]
-        #endregion
         [SerializeField] private float moveSpeed = 1f;
 
-        #region Header MOVEMENT DETAILS
+        [Space(10)] 
+        [Header("Look Details")] 
+        [SerializeField] private Transform lookPointer;
+        [SerializeField] private Collider2D lookDeadZone;
+        [SerializeField] private Collider2D lookOuterBounds;
+        
+        [Space(10)] 
+        [Header("Throwing System")]
+        [SerializeField] private GameObject throwIndicator;
+
         [Space(10)]
         [Header("STEALTH DETAILS")]
-        #endregion
         [SerializeField] private float sneakSpeed = 1f;
         [SerializeField] private Light2D globalLight;
 
@@ -59,16 +68,27 @@ namespace Runtime.Player
         private readonly int _isMoving = Animator.StringToHash("isMoving");
         private readonly int _isSneaking = Animator.StringToHash("isSneaking");
         
+        // ============ Throwing System ============
+        private bool _isAiming;
+        private SpriteRenderer _indicatorSpriteRenderer;
+        private Coroutine _throwCoroutine;
+
         private void OnEnable()
         {
             inputReader.MoveEvent += HandleMove;
             inputReader.SneakEvent += HandleSneak;
+            inputReader.AimEvent += HandleAim;
+            inputReader.AimCancelEvent += HandleAimCancel;
+            inputReader.LeftClickEvent += HandleThrow;
         }
 
         private void OnDisable()
         {
             inputReader.MoveEvent -= HandleMove;
             inputReader.SneakEvent -= HandleSneak;
+            inputReader.AimEvent -= HandleAim;
+            inputReader.AimCancelEvent -= HandleAimCancel;
+            inputReader.LeftClickEvent -= HandleThrow;
         }
 
         private void Awake()
@@ -81,6 +101,7 @@ namespace Runtime.Player
             _monster = FindObjectOfType<BehaviourTreeOwner>(true);
             
             _seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
+            _indicatorSpriteRenderer = throwIndicator.GetComponent<SpriteRenderer>();
         }
 
         private void HandleMove(Vector2 direction)
@@ -108,8 +129,10 @@ namespace Runtime.Player
             }
             
             _rb.MovePosition(_rb.position + _movementInput * ((_sneaking ? sneakSpeed : moveSpeed) * Time.fixedDeltaTime));
+            UpdateMouseLook();
+            if(_isAiming) UpdateThrowIndicator();
         }
-        
+
         public void LoadData(SaveData data)
         {
             transform.position = data.playerPosition;
@@ -132,10 +155,14 @@ namespace Runtime.Player
             Invoke(nameof(EnableLowPassFilter), 1f);
         }
         
-        private void EnableLowPassFilter()
+        public void Die()
         {
-            _audioLowPassFilter.enabled = true;
+            DisableInput();
+            _spriteRenderer.enabled = false;
+            _playerShadow.enabled = false;
         }
+
+        public bool IsSeen { get; set; }
         
         public void RevealPlayer(Vector2 position)
         {
@@ -148,6 +175,124 @@ namespace Runtime.Player
             _seenEnter.value = false;
         }
 
+        private void UpdateMouseLook()
+        {
+            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            var deadZoneBounds = lookDeadZone.bounds;
+            var deadZoneMinX = deadZoneBounds.min.x;
+            var deadZoneMaxX = deadZoneBounds.max.x;
+            
+            var deadZoneMinY = deadZoneBounds.min.y;
+            var deadZoneMaxY = deadZoneBounds.max.y;
+            
+            //check if mouse is in dead zone
+            if (mousePos.x > deadZoneMinX && mousePos.x < deadZoneMaxX && mousePos.y > deadZoneMinY && mousePos.y < deadZoneMaxY)
+            {
+                lookPointer.position = gameObject.transform.position;
+            }
+            else
+            {
+                var outerBounds = lookOuterBounds.bounds;
+                var outerBoundsMinX = outerBounds.min.x;
+                var outerBoundsMaxX = outerBounds.max.x;
+
+                var outerBoundsMinY = outerBounds.min.y;
+                var outerBoundsMaxY = outerBounds.max.y;
+
+                mousePos.x = Mathf.Clamp(mousePos.x, outerBoundsMinX, outerBoundsMaxX);
+                mousePos.y = Mathf.Clamp(mousePos.y, outerBoundsMinY, outerBoundsMaxY);
+                mousePos.z = 0;
+            
+                lookPointer.position = mousePos;
+            }
+        }
+        
+        private void HandleAim()
+        {
+            if(gameObject.GetComponent<PlayerInventory>().HasThrowableItem)
+            {
+                _isAiming = true;
+                DisableMovement();
+                UpdateThrowIndicator();
+                _indicatorSpriteRenderer.enabled = true;
+            }
+        }
+
+        private void HandleThrow()
+        {
+            if (_isAiming)
+            {
+                var inventory = gameObject.GetComponent<PlayerInventory>();
+                Throw(inventory.GetThrowable());
+                inventory.DropThrowable();
+                HandleAimCancel();
+                GameManager.Instance.HUD.ShowThrowableIcon(false);
+            }
+        }
+
+        private void HandleAimCancel()
+        {
+            _isAiming = false;
+            EnableMovement();
+            _indicatorSpriteRenderer.enabled = false;
+        }
+        
+        private void UpdateThrowIndicator()
+        {
+            //move the game object to the mouse position based on rigidbody physics
+            var rbIndicator = throwIndicator.GetComponent<Rigidbody2D>();
+            rbIndicator.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+            //scale the indicator based on the distance from the player
+            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var distance = Vector2.Distance(transform.position, mousePos);
+            var scale = Mathf.Clamp(distance/25, 0.5f, 1f);
+
+            throwIndicator.transform.localScale = new Vector3(scale, scale, 1);
+        }
+
+        private void Throw(GameObject throwable)
+        {
+            //pick a random point in the circle
+            var range = throwIndicator.GetComponent<CircleCollider2D>();
+            var randomPoint = Random.insideUnitCircle * range.radius;
+            var throwPosition = new Vector3(randomPoint.x, randomPoint.y, 0) + throwIndicator.transform.position;
+            
+            throwable.SetActive(true);
+            throwable.transform.position = gameObject.transform.position;
+            
+            var point = new Vector2[3];
+            point[0] = gameObject.transform.position;
+            point[2] = throwPosition;
+            point[1] = point[0] +(point[2] -point[0])/2 + Vector2.up * 8f;
+            
+            _throwCoroutine = StartCoroutine(ThrowCoroutine(0.0f, throwable, point, 0.03f));
+        }
+
+        private IEnumerator ThrowCoroutine(float count, GameObject throwable, Vector2[] point, float countModifier)
+        {
+            if(count <= 1.0f)
+            {
+                var bezierPoint = Mathf.Pow(1.0f - count, 2) * point[0] + 2.0f * (1.0f - count) * count * point[1] + Mathf.Pow(count, 2) * point[2];
+                throwable.transform.position = bezierPoint;
+                
+                if(count <= 0.5) countModifier = Mathf.Clamp(countModifier - 0.0006f, 0, 1);
+                else countModifier = Mathf.Clamp(countModifier + 0.0003f, 0, 1);
+                
+                yield return new WaitForSeconds(0.02f);
+                _throwCoroutine = StartCoroutine(ThrowCoroutine(count + countModifier, throwable, point, countModifier));
+            }
+            else
+            {
+                StopCoroutine(_throwCoroutine);
+                _throwCoroutine = null;
+                throwable.GetComponent<IThrowable>().OnDrop(throwable.transform);
+            }
+        }
+
+        // ==================== Helper Methods ====================
+        
         private void SetData(bool state)
         {
             isHiding = !state;
@@ -169,13 +314,20 @@ namespace Runtime.Player
             inputReader.SneakEvent += HandleSneak;
         }
 
-        public void Die()
+        private void DisableMovement()
         {
-            DisableInput();
-            _spriteRenderer.enabled = false;
-            _playerShadow.enabled = false;
+            inputReader.MoveEvent -= HandleMove;
+            _movementInput = Vector2.zero;
         }
 
-        public bool IsSeen { get; set; }
+        private void EnableMovement()
+        {
+            inputReader.MoveEvent += HandleMove;
+        }
+
+        private void EnableLowPassFilter()
+        {
+            _audioLowPassFilter.enabled = true;
+        }
     }
 }

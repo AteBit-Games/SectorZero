@@ -34,6 +34,9 @@ namespace Runtime.InputSystem
         public event Action LeftClickEvent;
         public event Action InteractEvent;
         public event Action SneakEvent;
+        
+        public event Action AimEvent;
+        public event Action AimCancelEvent;
 
         public void OnMove(InputAction.CallbackContext context)
         {
@@ -51,11 +54,6 @@ namespace Runtime.InputSystem
             {
                 LeftClickEvent?.Invoke();
             }
-        }
-
-        public void OnRightClick(InputAction.CallbackContext context)
-        {
-            
         }
 
         public void OnSecondaryClick(InputAction.CallbackContext context)
@@ -101,6 +99,18 @@ namespace Runtime.InputSystem
             {
                 OpenInventoryEvent?.Invoke();
                 //SetUI();
+            }
+        }
+
+        public void OnAim(InputAction.CallbackContext context)
+        {
+            if(context.phase == InputActionPhase.Performed)
+            {
+                AimEvent?.Invoke();
+            }
+            else if(context.phase == InputActionPhase.Canceled)
+            {
+                AimCancelEvent?.Invoke();
             }
         }
 
