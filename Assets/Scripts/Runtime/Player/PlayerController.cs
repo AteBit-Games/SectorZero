@@ -99,8 +99,12 @@ namespace Runtime.Player
             _playerShadow = GameObject.FindGameObjectWithTag("Shadow").GetComponent<SpriteRenderer>();
             _audioLowPassFilter = GetComponent<AudioLowPassFilter>();
             _monster = FindObjectOfType<BehaviourTreeOwner>(true);
+
+            if (_monster != null)
+            {
+                _seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
+            }
             
-            _seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
             _indicatorSpriteRenderer = throwIndicator.GetComponent<SpriteRenderer>();
         }
 
