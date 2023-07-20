@@ -4,7 +4,6 @@
 ****************************************************************/
 
 using System.Collections.Generic;
-using Runtime.InteractionSystem;
 using Runtime.InteractionSystem.Items;
 using UnityEngine;
 
@@ -20,7 +19,7 @@ namespace Runtime.SaveSystem.Data
 
         public SaveData() 
         {
-            playerPosition = new Vector3(33f, 5f, 0);
+            playerPosition = new Vector3(-0.9f, 9.55f, 0);
         }
     }
 }

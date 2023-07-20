@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6009591505208224406}
   - component: {fileID: 265924288060933752}
   - component: {fileID: 5051240152486392402}
-  - component: {fileID: 7676168080402859450}
   - component: {fileID: -7323968587557205971}
   - component: {fileID: 1114161616623253931}
+  - component: {fileID: 7504770559118862841}
   m_Layer: 6
   m_Name: OfficeWallBackOne3
   m_TagString: Untagged
@@ -109,13 +109,13 @@ MonoBehaviour:
   m_SelfShadows: 1
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: -0.80000305, y: -0.20000076, z: 0}
-  - {x: -0.8, y: 0.1, z: 0}
-  - {x: 0.8, y: 0.1, z: 0}
-  - {x: 0.80000305, y: -0.20000076, z: 0}
-  m_ShapePathHash: -553275329
+  - {x: -0.5, y: -0.125, z: 0}
+  - {x: -0.5, y: 0.0625, z: 0}
+  - {x: 0.5, y: 0.0625, z: 0}
+  - {x: 0.5, y: -0.125, z: 0}
+  m_ShapePathHash: 26604821
   m_Mesh: {fileID: 0}
-  m_InstanceId: -116400
+  m_InstanceId: -151538
 --- !u!50 &5051240152486392402
 Rigidbody2D:
   serializedVersion: 4
@@ -143,8 +143,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &7676168080402859450
-PolygonCollider2D:
+--- !u!114 &-7323968587557205971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456753504155086427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!210 &1114161616623253931
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456753504155086427}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 11
+  m_SortAtRoot: 0
+--- !u!61 &7504770559118862841
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -175,48 +203,16 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 0.8}
+    oldSize: {x: 1, y: 0.5}
     newSize: {x: 1.6, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.8, y: 0.2}
-      - {x: -0.8, y: -0.2}
-      - {x: 0.8, y: -0.2}
-      - {x: 0.8, y: 0.2}
-  m_UseDelaunayMesh: 0
---- !u!114 &-7323968587557205971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456753504155086427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
---- !u!210 &1114161616623253931
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456753504155086427}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 11
-  m_SortAtRoot: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5}
+  m_EdgeRadius: 0

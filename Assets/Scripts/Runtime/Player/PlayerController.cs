@@ -15,6 +15,7 @@ using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Runtime.Player
@@ -102,10 +103,16 @@ namespace Runtime.Player
 
             if (_monster != null)
             {
-                _seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
+                //_seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
             }
             
             _indicatorSpriteRenderer = throwIndicator.GetComponent<SpriteRenderer>();
+
+            if (SceneManager.GetActiveScene().name == "Tutorial")
+            {
+                TutorialManager.StartListening("TutorialStage3", Init);
+                gameObject.SetActive(false);
+            }
         }
 
         private void HandleMove(Vector2 direction)
@@ -305,14 +312,14 @@ namespace Runtime.Player
             _playerShadow.enabled = state;
         }
 
-        private void DisableInput()
+        public void DisableInput()
         {
             inputReader.MoveEvent -= HandleMove;
             inputReader.SneakEvent -= HandleSneak;
             _movementInput = Vector2.zero;
         }
 
-        private void EnableInput()
+        public void EnableInput()
         {
             inputReader.MoveEvent += HandleMove;
             inputReader.SneakEvent += HandleSneak;
@@ -332,6 +339,12 @@ namespace Runtime.Player
         private void EnableLowPassFilter()
         {
             _audioLowPassFilter.enabled = true;
+        }
+
+        private void Init()
+        {
+            gameObject.SetActive(true);
+            _movementAnimator.SetFloat(id: _moveX, 1);
         }
     }
 }

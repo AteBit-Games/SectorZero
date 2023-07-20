@@ -70,12 +70,13 @@ namespace Runtime.BehaviourTree
             _material.color = idleColour;
             
             _stateReference = FindBlackboardKey<int>("ActiveState");
-            _investigateLocationReference = FindBlackboardKey<Vector2>("InvestigateLocation");
-            
+            //_investigateLocationReference = FindBlackboardKey<Vector2>("InvestigateLocation");
+
             _navMeshAgent = _context.agent;
             _navMeshAgent.updateRotation = false;
             _navMeshAgent.updateUpAxis = false;
             _animator = GetComponent<Animator>();
+            
         }
 
         private void Update() 
@@ -111,7 +112,7 @@ namespace Runtime.BehaviourTree
         public void OnHearing(NoiseEmitter sender)
         {
             if(_stateReference.value is 2 or 3) return;
-            _investigateLocationReference.value = sender.transform.position;
+            //_investigateLocationReference.value = sender.transform.position;
             _stateReference.value = 1;
         }
         
