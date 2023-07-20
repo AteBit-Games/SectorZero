@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 549101679}
   - component: {fileID: 549101680}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: OuterBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 29.877058, y: 24.040207}
+  m_Size: {x: 18.673162, y: 15.025131}
   m_EdgeRadius: 0
 --- !u!1 &1534497412
 GameObject:
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1534497413}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: CameraBounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1605926857}
   - component: {fileID: 1605926858}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DeadZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9, y: 9}
+  m_Size: {x: 5.625, y: 5.625}
   m_EdgeRadius: 0
 --- !u!1 &1331090051139858876
 GameObject:
@@ -373,7 +373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331090051139858876}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.080005065, y: -2.5100002, z: 0}
+  m_LocalPosition: {x: 0.080005065, y: -1.56875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -609,18 +609,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07329559, y: -2.2822447}
+  m_Offset: {x: 0.07329559, y: -1.4264032}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.4, y: 6.4}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 6.4, y: 6.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7511749, y: 1.0131664}
+  m_Size: {x: 1.0944843, y: 0.6332288}
   m_EdgeRadius: 0
 --- !u!114 &5110957043021775148
 MonoBehaviour:
@@ -758,7 +758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4412620557757542691}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09730607, y: -2.58, z: 0}
+  m_LocalPosition: {x: 0.09730607, y: -1.6125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -960,4 +960,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.1, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 1.875

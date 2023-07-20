@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 585072066905521859}
   - component: {fileID: 609080630548196745}
   - component: {fileID: 2203629738047816674}
-  - component: {fileID: 5619143566272535362}
   - component: {fileID: 8613561173713175338}
   - component: {fileID: -4589719549702984690}
+  - component: {fileID: 4116364076419254749}
   m_Layer: 6
   m_Name: OfficeWallBackCornerSW
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &585072066905521859
 SpriteRenderer:
@@ -109,15 +109,15 @@ MonoBehaviour:
   m_SelfShadows: 1
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: -1.5999985, y: -0.20000076, z: 0}
-  - {x: -1.5999985, y: 0.20000076, z: 0}
-  - {x: -1, y: 0.2, z: 0}
-  - {x: -1, y: 0.1, z: 0}
-  - {x: 1.6, y: 0.1, z: 0}
-  - {x: 1.5999985, y: -0.20000076, z: 0}
-  m_ShapePathHash: -774313910
+  - {x: -0.99999875, y: -0.1250005, z: 0}
+  - {x: -0.99999875, y: 0.1250005, z: 0}
+  - {x: -0.625, y: 0.125, z: 0}
+  - {x: -0.625, y: 0.0625, z: 0}
+  - {x: 1, y: 0.0625, z: 0}
+  - {x: 0.99999875, y: -0.1250005, z: 0}
+  m_ShapePathHash: -654181468
   m_Mesh: {fileID: 0}
-  m_InstanceId: 52920
+  m_InstanceId: 77850
 --- !u!50 &2203629738047816674
 Rigidbody2D:
   serializedVersion: 4
@@ -145,8 +145,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &5619143566272535362
-PolygonCollider2D:
+--- !u!114 &8613561173713175338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8560268115060281410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!210 &-4589719549702984690
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8560268115060281410}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 11
+  m_SortAtRoot: 0
+--- !u!61 &4116364076419254749
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -177,51 +205,16 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 0.8}
+    oldSize: {x: 2, y: 0.5}
     newSize: {x: 3.2, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.82860184, y: 0.20000076}
-      - {x: -0.82860184, y: 1.4838638}
-      - {x: -1.6027527, y: 1.4747925}
-      - {x: -1.6, y: 0.19999999}
-      - {x: -1.6, y: -0.20000005}
-      - {x: 1.6, y: -0.20000005}
-      - {x: 1.6, y: 0.19999999}
-  m_UseDelaunayMesh: 0
---- !u!114 &8613561173713175338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8560268115060281410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
---- !u!210 &-4589719549702984690
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8560268115060281410}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 11
-  m_SortAtRoot: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.5}
+  m_EdgeRadius: 0

@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: VincentTutorial
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 2045281184782221313
+  nodes:
+  - rid: 2045281184782221313
+  treeState: 1
+  blackboard:
+    keys:
+    - rid: 2045281185404289024
+    - rid: 2045281185404289025
+  viewPosition: {x: 600, y: 300, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2045281184782221313
+      type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 50395d62-eab4-4aa5-842c-1e144e54d88d
+        position: {x: 0, y: 0}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: -2
+    - rid: 2045281185404289024
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 2045281185404289025
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: ActiveState
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
