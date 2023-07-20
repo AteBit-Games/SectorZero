@@ -3,13 +3,12 @@
 * All rights reserved.
 ****************************************************************/
 
-using NavMeshPlus.Components;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
+using Unity.AI.Navigation;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Objects
 {
