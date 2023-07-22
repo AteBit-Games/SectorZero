@@ -89,6 +89,7 @@ namespace Runtime.InputSystem
         {
             if(context.phase == InputActionPhase.Performed)
             {
+                Debug.Log("On Interact called");
                 InteractEvent?.Invoke();
             }
         }
