@@ -61,6 +61,7 @@ namespace Runtime.Player
         [HideInInspector] public Collider2D hideable;
 
         private Vector2 _movementInput;
+        private Vector2 _lastPosition;
         private bool _sneaking;
 
         // ============ Hiding System ============
@@ -141,20 +142,23 @@ namespace Runtime.Player
         
         private void FixedUpdate()
         {
+            var newPosition = _rb.position + _movementInput * ((_sneaking ? sneakSpeed : moveSpeed) * Time.fixedDeltaTime);
+            _rb.MovePosition(newPosition);
+            UpdateMouseLook();
+            if(_isAiming) UpdateThrowIndicator();
+
             if (_movementInput != Vector2.zero)
             {
                 _movementAnimator.SetFloat(id: _moveX, _movementInput.x);
                 _movementAnimator.SetFloat(id: _moveY, _movementInput.y);
-                _movementAnimator.SetBool(id: _isMoving, true);
+                _movementAnimator.SetBool(id: _isMoving, Vector2.Distance(_lastPosition, _rb.position) > 0.01f);
             }
             else
             {
                 _movementAnimator.SetBool(id: _isMoving, false);
             }
             
-            _rb.MovePosition(_rb.position + _movementInput * ((_sneaking ? sneakSpeed : moveSpeed) * Time.fixedDeltaTime));
-            UpdateMouseLook();
-            if(_isAiming) UpdateThrowIndicator();
+            _lastPosition = _rb.position;
         }
 
         public void LoadData(SaveData data)

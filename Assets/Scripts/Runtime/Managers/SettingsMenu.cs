@@ -14,26 +14,28 @@ namespace Runtime.Managers
     {
         private Label _settingDescription;
         private UIDocument _uiDocument;
+        
+        private Button _backButton;
 
         private readonly Resolution[] _resolutions = new Resolution[3];
         private Resolution _activeResolution;
-        private readonly string[] _resolutionNames = new string[]{ "1280x720", "1366x768", "1920x1080" };
+        private readonly string[] _resolutionNames = { "1280x720", "1366x768", "1920x1080" };
         
-        private readonly int[] _vsync = new int[] { 0, 1 };
+        private readonly int[] _vsync = { 0, 1 };
         private int _activeVsync;
-        private readonly string[] _vsyncNames = new string[] { "Off", "On" };
+        private readonly string[] _vsyncNames = { "Off", "On" };
         
-        private readonly FullScreenMode[] _displayModes = new FullScreenMode[] { FullScreenMode.Windowed, FullScreenMode.MaximizedWindow, FullScreenMode.FullScreenWindow };
+        private readonly FullScreenMode[] _displayModes = { FullScreenMode.Windowed, FullScreenMode.MaximizedWindow, FullScreenMode.FullScreenWindow };
         private FullScreenMode _activeDisplayMode;
-        private readonly string[] _displayModeNames = new string[] { "Windowed", "Borderless", "Fullscreen" };
+        private readonly string[] _displayModeNames = { "Windowed", "Borderless", "Fullscreen" };
         
-        private const string MASTER_VOLUME_KEY = "master-volume";
+        private const string MasterVolumeKey = "master-volume";
         private float _activeMasterVolume;
         
-        private const string MUSIC_VOLUME_KEY = "music-volume";
+        private const string MusicVolumeKey = "music-volume";
         private float _activeMusicVolume;
         
-        private const string SFX_VOLUME_KEY = "sfx-volume";
+        private const string SfxVolumeKey = "sfx-volume";
         private float _activeSfxVolume;
 
         private void Awake()
@@ -41,7 +43,18 @@ namespace Runtime.Managers
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;
             _settingDescription = rootVisualElement.Q<Label>("setting-description");
-
+            
+            _backButton = rootVisualElement.Q<Button>("back-button");
+            _backButton.RegisterCallback<MouseEnterEvent>(_ =>
+            {
+                _settingDescription.text = "Exit the settings menu";
+            });
+            _backButton.RegisterCallback<ClickEvent>(_ =>
+            {
+                GameManager.Instance.HandleEscape();
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+            });
+            
             _activeDisplayMode = Screen.fullScreenMode;
             RegisterDisplayModeSetting();
 
@@ -214,7 +227,7 @@ namespace Runtime.Managers
             masterVolume.RegisterValueChangedCallback(evt =>
             {
                 _activeMasterVolume = evt.newValue;
-                SetPlayerPref(MASTER_VOLUME_KEY, _activeMasterVolume);
+                SetPlayerPref(MasterVolumeKey, _activeMasterVolume);
                 GameManager.Instance.SoundSystem.SetMasterVolume(_activeMasterVolume);
             });
             
@@ -223,7 +236,7 @@ namespace Runtime.Managers
             soundVolume.RegisterValueChangedCallback(evt =>
             {
                 _activeSfxVolume = evt.newValue;
-                SetPlayerPref(SFX_VOLUME_KEY, _activeSfxVolume);
+                SetPlayerPref(SfxVolumeKey, _activeSfxVolume);
                 GameManager.Instance.SoundSystem.SetSfxVolume(_activeSfxVolume);
             });
             
@@ -232,16 +245,16 @@ namespace Runtime.Managers
             musicVolume.RegisterValueChangedCallback(evt =>
             {
                 _activeMusicVolume = evt.newValue;
-                SetPlayerPref(MUSIC_VOLUME_KEY, _activeMusicVolume);
+                SetPlayerPref(MusicVolumeKey, _activeMusicVolume);
                 GameManager.Instance.SoundSystem.SetMusicVolume(_activeMusicVolume);
             });
         }
         
         private void RegisterPlayerPrefs()
         {
-            _activeMasterVolume = LoadPlayerPref(MASTER_VOLUME_KEY, 1f);
-            _activeSfxVolume = LoadPlayerPref(SFX_VOLUME_KEY, 1f);
-            _activeMusicVolume = LoadPlayerPref(MUSIC_VOLUME_KEY, 1f);
+            _activeMasterVolume = LoadPlayerPref(MasterVolumeKey, 1f);
+            _activeSfxVolume = LoadPlayerPref(SfxVolumeKey, 1f);
+            _activeMusicVolume = LoadPlayerPref(MusicVolumeKey, 1f);
             
             GameManager.Instance.SoundSystem.SetMasterVolume(_activeMasterVolume);
             GameManager.Instance.SoundSystem.SetSfxVolume(_activeSfxVolume);
