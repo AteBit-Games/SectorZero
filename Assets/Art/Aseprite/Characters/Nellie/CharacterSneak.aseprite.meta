@@ -1,7 +1,500 @@
 fileFormatVersion: 2
 guid: afb98bc820ddb7447a8f81daa691e014
-DefaultImporter:
+ScriptedImporter:
+  internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: CharacterSneak_Frame_0
+    originalName: 
+    pivot: {x: 0.5909091, y: -1.2972974}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 142
+      width: 22
+      height: 37
+    spriteID: 2223855ec57e1d94fb4b7d6d90471980
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 142}
+  - name: CharacterSneak_Frame_1
+    originalName: 
+    pivot: {x: 0.6363636, y: -1.4285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 65
+      y: 88
+      width: 22
+      height: 35
+    spriteID: b8c75ddf2d60ce34c82a4538cf0cbadc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 65, y: 88}
+  - name: CharacterSneak_Frame_2
+    originalName: 
+    pivot: {x: 0.6363636, y: -1.2368422}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 96
+      width: 22
+      height: 38
+    spriteID: 7eb75ae68b1d65b489f5b23c653c8c65
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 96}
+  - name: CharacterSneak_Frame_3
+    originalName: 
+    pivot: {x: 0.6363636, y: -1.2702703}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 187
+      width: 22
+      height: 37
+    spriteID: 32d132c7fc976df4aa7ba429b4b1891a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 187}
+  - name: CharacterSneak_Frame_4
+    originalName: 
+    pivot: {x: 0.6086957, y: -1.1794872}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 23
+      height: 39
+    spriteID: 10bc3b206595617419cb655ab510b948
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: CharacterSneak_Frame_5
+    originalName: 
+    pivot: {x: 0.6086957, y: -1.2972974}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 51
+      width: 23
+      height: 37
+    spriteID: 3c29237370fb1cd4f883396299d280f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 51}
+  - name: CharacterSneak_Frame_6
+    originalName: 
+    pivot: {x: 0.5909091, y: -1.3611112}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 4
+      width: 22
+      height: 36
+    spriteID: b826dfb6fa2a032439263ea0ecb113c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 4}
+  - name: CharacterSneak_Frame_7
+    originalName: 
+    pivot: {x: 0.6363636, y: -1.4285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 65
+      y: 131
+      width: 22
+      height: 35
+    spriteID: 2dd1866fbc4c3d54389a01a7584b94cc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 65, y: 131}
+  - name: CharacterSneak_Frame_8
+    originalName: 
+    pivot: {x: 0.6363636, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 65
+      y: 174
+      width: 22
+      height: 34
+    spriteID: 64de83121ec4eef4e8d1f7018bc77ca3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 65, y: 174}
+  - name: CharacterSneak_Frame_9
+    originalName: 
+    pivot: {x: 0.6363636, y: -1.625}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 48
+      width: 22
+      height: 32
+    spriteID: b9dfb73642f14274bbf565eebfb6f924
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 48}
+  - name: CharacterSneak_Frame_10
+    originalName: 
+    pivot: {x: 0.6086957, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 65
+      y: 4
+      width: 23
+      height: 34
+    spriteID: 477cf89e1de8bd2419622b8f99f6ec80
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 65, y: 4}
+  - name: CharacterSneak_Frame_11
+    originalName: 
+    pivot: {x: 0.6086957, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 65
+      y: 46
+      width: 23
+      height: 34
+    spriteID: d4a1bb0cdcaf32448b7a76e0e5f40c75
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 65, y: 46}
+  - name: CharacterSneak_Frame_12
+    originalName: 
+    pivot: {x: 0.5909091, y: -1.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 65
+      y: 216
+      width: 22
+      height: 34
+    spriteID: 0f2293e7c2f136743a2526225abf0d0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 65, y: 216}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1722232167
+    name: CharacterSneak
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: CharacterSneak_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 51
+        y: 48
+        width: 22
+        height: 37
+      spriteId: 2223855ec57e1d94fb4b7d6d90471980
+    - name: CharacterSneak_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 50
+        y: 50
+        width: 22
+        height: 35
+      spriteId: b8c75ddf2d60ce34c82a4538cf0cbadc
+    - name: CharacterSneak_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 50
+        y: 47
+        width: 22
+        height: 38
+      spriteId: 7eb75ae68b1d65b489f5b23c653c8c65
+    - name: CharacterSneak_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 50
+        y: 47
+        width: 22
+        height: 37
+      spriteId: 32d132c7fc976df4aa7ba429b4b1891a
+    - name: CharacterSneak_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 50
+        y: 46
+        width: 23
+        height: 39
+      spriteId: 10bc3b206595617419cb655ab510b948
+    - name: CharacterSneak_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 50
+        y: 48
+        width: 23
+        height: 37
+      spriteId: 3c29237370fb1cd4f883396299d280f4
+    - name: CharacterSneak_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 51
+        y: 49
+        width: 22
+        height: 36
+      spriteId: b826dfb6fa2a032439263ea0ecb113c3
+    - name: CharacterSneak_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 50
+        y: 50
+        width: 22
+        height: 35
+      spriteId: 2dd1866fbc4c3d54389a01a7584b94cc
+    - name: CharacterSneak_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 50
+        y: 51
+        width: 22
+        height: 34
+      spriteId: 64de83121ec4eef4e8d1f7018bc77ca3
+    - name: CharacterSneak_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 50
+        y: 52
+        width: 22
+        height: 32
+      spriteId: b9dfb73642f14274bbf565eebfb6f924
+    - name: CharacterSneak_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 50
+        y: 51
+        width: 23
+        height: 34
+      spriteId: 477cf89e1de8bd2419622b8f99f6ec80
+    - name: CharacterSneak_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 50
+        y: 51
+        width: 23
+        height: 34
+      spriteId: d4a1bb0cdcaf32448b7a76e0e5f40c75
+    - name: CharacterSneak_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 51
+        y: 51
+        width: 22
+        height: 34
+      spriteId: 0f2293e7c2f136743a2526225abf0d0c
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 128, y: 128}

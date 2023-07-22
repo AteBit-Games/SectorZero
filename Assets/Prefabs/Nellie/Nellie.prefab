@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441907412}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3199997, y: -1.0700002, z: 0}
+  m_LocalPosition: {x: 0.03989792, y: -0.74350214, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 188148890311146141}
   - component: {fileID: 2867399463357378519}
   - component: {fileID: 4562999743767145021}
-  - component: {fileID: 6201537363481772649}
+  - component: {fileID: 1954427526}
   - component: {fileID: 5110957043021775148}
   - component: {fileID: 6096001555209978672}
   - component: {fileID: 8191933988224299374}
@@ -476,7 +476,7 @@ Transform:
   - {fileID: 1534497413}
   - {fileID: 441907413}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &188148890311146141
 SpriteRenderer:
@@ -577,8 +577,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6201537363481772649
-BoxCollider2D:
+--- !u!58 &1954427526
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -609,19 +609,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07329559, y: -1.4264032}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
-    newSize: {x: 6.4, y: 6.4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.07, y: -1.48}
   serializedVersion: 2
-  m_Size: {x: 1.0944843, y: 0.6332288}
-  m_EdgeRadius: 0
+  m_Radius: 0.43
 --- !u!114 &5110957043021775148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,13 +625,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
-  moveSpeed: 7
+  moveSpeed: 5.5
   lookPointer: {fileID: 0}
   lookDeadZone: {fileID: 1605926858}
   lookOuterBounds: {fileID: 549101680}
   throwIndicator: {fileID: 441907412}
-  sneakSpeed: 4
+  sneakSpeed: 3
   globalLight: {fileID: 0}
+  debug: 1
   hideable: {fileID: 0}
   isHiding: 0
   isSeen: 0

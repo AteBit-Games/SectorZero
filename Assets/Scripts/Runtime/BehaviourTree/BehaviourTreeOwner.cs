@@ -3,12 +3,16 @@
 * All rights reserved.
 ****************************************************************/
 using System.Collections.Generic;
+using ElRaccoone.Tweens;
+using ElRaccoone.Tweens.Core;
 using Runtime.AI;
 using Runtime.AI.Interfaces;
 using Runtime.Managers;
 using Runtime.Player;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
 namespace Runtime.BehaviourTree 
@@ -65,7 +69,7 @@ namespace Runtime.BehaviourTree
                 behaviourTree = null;
             }
             
-            GameObject sightVisual = Instantiate(sightVisualPrefab, transform);
+            var sightVisual = Instantiate(sightVisualPrefab, transform);
             _material = sightVisual.GetComponent<MeshRenderer>().material;
             _material.color = idleColour;
             
@@ -118,6 +122,16 @@ namespace Runtime.BehaviourTree
         
         public void OnSightEnter()
         {
+            if (!_canSeePlayer)
+            {
+                var volume = FindObjectOfType<Volume>();
+                var vignette = volume.sharedProfile.components[0] as Vignette;
+
+                volume.TweenValueFloat(0.25f, 2f, value =>
+                {
+                    if (vignette != null) vignette.intensity.value = value;
+                }).SetFrom(0f).SetEaseSineInOut();
+            }
             _canSeePlayer = true;
             _material.color = aggroColour;
             _stateReference.value = 2;
@@ -127,10 +141,18 @@ namespace Runtime.BehaviourTree
         {
             if (_canSeePlayer)
             {
-                _investigateLocationReference.value = lastKnownPosition;
+                //_investigateLocationReference.value = lastKnownPosition;
                 _stateReference.value = 1;
                 FindObjectOfType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
                 _material.color = idleColour;
+                
+                var volume = FindObjectOfType<Volume>();
+                var vignette = volume.sharedProfile.components[0] as Vignette;
+                
+                volume.TweenValueFloat(0f, 1f, value =>
+                {
+                    if (vignette != null) vignette.intensity.value = value;
+                }).SetFrom(0.25f).SetEaseSineInOut();
             }
             _canSeePlayer = false;
         }

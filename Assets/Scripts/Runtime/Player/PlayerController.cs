@@ -44,6 +44,10 @@ namespace Runtime.Player
         [Header("STEALTH DETAILS")]
         [SerializeField] private float sneakSpeed = 1f;
         [SerializeField] private Light2D globalLight;
+        
+        [Space(10)]
+        [Header("DEBUG")]
+        [SerializeField] private bool debug;
 
         // ============ Movement System ============
         private Rigidbody2D _rb;
@@ -113,6 +117,13 @@ namespace Runtime.Player
                 TutorialManager.StartListening("TutorialStage3", Init);
                 gameObject.SetActive(false);
             }
+
+            if (debug)
+            {
+                var nellient = FindObjectOfType<Nellient>();
+                if (nellient != null) nellient.gameObject.SetActive(false);
+                Init();
+            }
         }
 
         private void HandleMove(Vector2 direction)
@@ -122,6 +133,8 @@ namespace Runtime.Player
         
         private void HandleSneak()
         {
+            Debug.Log(gameObject.name + " is sneaking");
+            Debug.Log("Sneak");
             _sneaking = !_sneaking;
             _movementAnimator.SetBool(id: _isSneaking, _sneaking);
         }
@@ -174,7 +187,7 @@ namespace Runtime.Player
         }
 
         public bool IsSeen { get; set; }
-        
+
         public void RevealPlayer(Vector2 position)
         {
             SetData(true);
