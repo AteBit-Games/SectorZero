@@ -131,7 +131,7 @@ namespace Runtime.Managers
             PauseMenu.Pause();
         }
         
-        private void HandleEscape()
+        public void HandleEscape()
         {
             if (isMainMenu)
             {
