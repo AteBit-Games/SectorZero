@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: NellieBed
     originalName: 
-    pivot: {x: 0.43478262, y: -0.6666667}
+    pivot: {x: 0.7826087, y: -0.63414633}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
+      x: 106
+      y: 153
       width: 23
-      height: 39
+      height: 41
     spriteID: efcc54622e67ca94f98bbe5594ac8a29
     spriteBone: []
     spriteOutline: []
@@ -138,7 +138,687 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
+    uvTransform: {x: 106, y: 153}
+  - name: NellieBed_Frame_1
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 202
+      width: 23
+      height: 41
+    spriteID: aa2a5c16bbbd5b844857d6c24fa64802
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 202}
+  - name: NellieBed_Frame_2
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 4
+      width: 23
+      height: 41
+    spriteID: cfe9a74f7d015e64fa7f7f1322e58db0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 4}
+  - name: NellieBed_Frame_3
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 53
+      width: 23
+      height: 41
+    spriteID: 6fbde4e4f6d32d943a016963af094e8a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 53}
+  - name: NellieBed_Frame_4
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 102
+      width: 23
+      height: 41
+    spriteID: c7b52e194d14377418bb80d818e11027
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 102}
+  - name: NellieBed_Frame_5
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 151
+      width: 23
+      height: 41
+    spriteID: a6a10636da0d2dd46aecebc639741940
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 151}
+  - name: NellieBed_Frame_6
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 200
+      width: 23
+      height: 41
+    spriteID: 9de8875c978b6b04986d04a72b417daa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 200}
+  - name: NellieBed_Frame_7
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 4
+      width: 23
+      height: 41
+    spriteID: 98b8d622dbb918344a5b4dbbf1dcbf4a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 170, y: 4}
+  - name: NellieBed_Frame_8
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 53
+      width: 23
+      height: 41
+    spriteID: 8e7be93cbb4618048bd7e5d6d9408c86
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 170, y: 53}
+  - name: NellieBed_Frame_9
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 102
+      width: 23
+      height: 41
+    spriteID: c9b8b1b6602963249947dc58c8ce8741
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 170, y: 102}
+  - name: NellieBed_Frame_10
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 151
+      width: 23
+      height: 41
+    spriteID: a1dd1cf744c870746a62f4300dce43d1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 170, y: 151}
+  - name: NellieBed_Frame_11
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 200
+      width: 23
+      height: 41
+    spriteID: aec2d83f73debad458572bfeabb91bb6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 170, y: 200}
+  - name: NellieBed_Frame_12
+    originalName: 
+    pivot: {x: 0.7826087, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 201
+      y: 4
+      width: 23
+      height: 41
+    spriteID: 87afbeeae4998f34387629d6f09c3914
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 201, y: 4}
+  - name: NellieBed_Frame_13
+    originalName: 
+    pivot: {x: 0.8181819, y: -0.60465115}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 102
+      width: 22
+      height: 43
+    spriteID: 0232230b769b2a447b1568327a25a0d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 102}
+  - name: NellieBed_Frame_14
+    originalName: 
+    pivot: {x: 0.8095239, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 201
+      y: 53
+      width: 21
+      height: 41
+    spriteID: 4c7f1274d832efa44bcfca8cd22d3153
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 201, y: 53}
+  - name: NellieBed_Frame_15
+    originalName: 
+    pivot: {x: 0.8095239, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 201
+      y: 102
+      width: 21
+      height: 41
+    spriteID: 5fd48d9f15fbb5047a2879c6f1703dab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 201, y: 102}
+  - name: NellieBed_Frame_16
+    originalName: 
+    pivot: {x: 0.8095239, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 201
+      y: 151
+      width: 21
+      height: 41
+    spriteID: b04beb80f3251454da7e3765c08afbbd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 201, y: 151}
+  - name: NellieBed_Frame_17
+    originalName: 
+    pivot: {x: 0.8095239, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 201
+      y: 200
+      width: 21
+      height: 41
+    spriteID: 464f719b6917d6a4a87d130167402d82
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 201, y: 200}
+  - name: NellieBed_Frame_18
+    originalName: 
+    pivot: {x: 0.68, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 39
+      y: 101
+      width: 25
+      height: 41
+    spriteID: 035fab24ab9e2be4584b440e5d7a0a61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 39, y: 101}
+  - name: NellieBed_Frame_19
+    originalName: 
+    pivot: {x: 0.5555556, y: -0.63414633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 27
+      height: 41
+    spriteID: 51a4ac0628aff8b43992a491aba4645e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: NellieBed_Frame_20
+    originalName: 
+    pivot: {x: 0.53846157, y: -0.675}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 39
+      y: 53
+      width: 26
+      height: 40
+    spriteID: 4819bd545396d074fa1b54b97c615269
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 39, y: 53}
+  - name: NellieBed_Frame_21
+    originalName: 
+    pivot: {x: 0.5199999, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 39
+      y: 150
+      width: 25
+      height: 41
+    spriteID: 139304feec394664c8acf6d898aba951
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 39, y: 150}
+  - name: NellieBed_Frame_22
+    originalName: 
+    pivot: {x: 0.5199999, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 39
+      y: 199
+      width: 25
+      height: 41
+    spriteID: 02e3121e4f058164694772c1c5795b0f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 39, y: 199}
+  - name: NellieBed_Frame_23
+    originalName: 
+    pivot: {x: 0.5199999, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 4
+      width: 25
+      height: 41
+    spriteID: 13aeb0e251d068f4fb68f7e22a8eae67
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 4}
+  - name: NellieBed_Frame_24
+    originalName: 
+    pivot: {x: 0.5199999, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 53
+      width: 25
+      height: 41
+    spriteID: db17a22d3164ae741afde8443da3247f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 53}
+  - name: NellieBed_Frame_25
+    originalName: 
+    pivot: {x: 0.5199999, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 102
+      width: 25
+      height: 41
+    spriteID: 9015886b4d6f94a43a03855a22e140d4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 102}
+  - name: NellieBed_Frame_26
+    originalName: 
+    pivot: {x: 0.5199999, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 151
+      width: 25
+      height: 41
+    spriteID: 39ab4adac2cde74498d753e35aed5411
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 151}
+  - name: NellieBed_Frame_27
+    originalName: 
+    pivot: {x: 0.5199999, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 200
+      width: 25
+      height: 41
+    spriteID: f63f5e87a1091d8488aeca1f215b7999
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 200}
+  - name: NellieBed_Frame_28
+    originalName: 
+    pivot: {x: 0.48148146, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 53
+      width: 27
+      height: 41
+    spriteID: ec07d0682a8b0b44b950280dd639496a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 53}
+  - name: NellieBed_Frame_29
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 151
+      width: 26
+      height: 41
+    spriteID: 18b792ab96504bd448d390b7c30c0066
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 151}
+  - name: NellieBed_Frame_30
+    originalName: 
+    pivot: {x: 0.5199999, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 4
+      width: 25
+      height: 41
+    spriteID: fb828d4d11311cc44bfcc6b1cab42210
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 4}
+  - name: NellieBed_Frame_31
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 200
+      width: 26
+      height: 41
+    spriteID: 3359f001056e8af4bb41f980707d8e94
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 200}
+  - name: NellieBed_Frame_32
+    originalName: 
+    pivot: {x: 0.48148146, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 102
+      width: 27
+      height: 41
+    spriteID: 8440db600829f0a4588f65748bdacb31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 102}
+  - name: NellieBed_Frame_33
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 39
+      y: 4
+      width: 26
+      height: 41
+    spriteID: 97cc2d771be611d4fa41b879f1095625
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 39, y: 4}
+  - name: NellieBed_Frame_34
+    originalName: 
+    pivot: {x: 0.5199999, y: -0.6585366}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 106
+      y: 53
+      width: 25
+      height: 41
+    spriteID: e538da8f1c0937d4282b9b44d8bd0772
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 106, y: 53}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -148,17 +828,289 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: NellieBed
+    - name: NellieBed_Frame_0
       frameIndex: 0
       cellRect:
         x: 6
         y: 26
         width: 23
-        height: 39
+        height: 41
       spriteId: efcc54622e67ca94f98bbe5594ac8a29
+    - name: NellieBed_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: aa2a5c16bbbd5b844857d6c24fa64802
+    - name: NellieBed_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: cfe9a74f7d015e64fa7f7f1322e58db0
+    - name: NellieBed_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: 6fbde4e4f6d32d943a016963af094e8a
+    - name: NellieBed_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: c7b52e194d14377418bb80d818e11027
+    - name: NellieBed_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: a6a10636da0d2dd46aecebc639741940
+    - name: NellieBed_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: 9de8875c978b6b04986d04a72b417daa
+    - name: NellieBed_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: 98b8d622dbb918344a5b4dbbf1dcbf4a
+    - name: NellieBed_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: 8e7be93cbb4618048bd7e5d6d9408c86
+    - name: NellieBed_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: c9b8b1b6602963249947dc58c8ce8741
+    - name: NellieBed_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: a1dd1cf744c870746a62f4300dce43d1
+    - name: NellieBed_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: aec2d83f73debad458572bfeabb91bb6
+    - name: NellieBed_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 6
+        y: 26
+        width: 23
+        height: 41
+      spriteId: 87afbeeae4998f34387629d6f09c3914
+    - name: NellieBed_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 6
+        y: 26
+        width: 22
+        height: 43
+      spriteId: 0232230b769b2a447b1568327a25a0d2
+    - name: NellieBed_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 7
+        y: 26
+        width: 21
+        height: 41
+      spriteId: 4c7f1274d832efa44bcfca8cd22d3153
+    - name: NellieBed_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 7
+        y: 26
+        width: 21
+        height: 41
+      spriteId: 5fd48d9f15fbb5047a2879c6f1703dab
+    - name: NellieBed_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 7
+        y: 26
+        width: 21
+        height: 41
+      spriteId: b04beb80f3251454da7e3765c08afbbd
+    - name: NellieBed_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 7
+        y: 26
+        width: 21
+        height: 41
+      spriteId: 464f719b6917d6a4a87d130167402d82
+    - name: NellieBed_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 7
+        y: 26
+        width: 25
+        height: 41
+      spriteId: 035fab24ab9e2be4584b440e5d7a0a61
+    - name: NellieBed_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 9
+        y: 26
+        width: 27
+        height: 41
+      spriteId: 51a4ac0628aff8b43992a491aba4645e
+    - name: NellieBed_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 10
+        y: 27
+        width: 26
+        height: 40
+      spriteId: 4819bd545396d074fa1b54b97c615269
+    - name: NellieBed_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 11
+        y: 27
+        width: 25
+        height: 41
+      spriteId: 139304feec394664c8acf6d898aba951
+    - name: NellieBed_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 11
+        y: 27
+        width: 25
+        height: 41
+      spriteId: 02e3121e4f058164694772c1c5795b0f
+    - name: NellieBed_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 11
+        y: 27
+        width: 25
+        height: 41
+      spriteId: 13aeb0e251d068f4fb68f7e22a8eae67
+    - name: NellieBed_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 11
+        y: 27
+        width: 25
+        height: 41
+      spriteId: db17a22d3164ae741afde8443da3247f
+    - name: NellieBed_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 11
+        y: 27
+        width: 25
+        height: 41
+      spriteId: 9015886b4d6f94a43a03855a22e140d4
+    - name: NellieBed_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 11
+        y: 27
+        width: 25
+        height: 41
+      spriteId: 39ab4adac2cde74498d753e35aed5411
+    - name: NellieBed_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 11
+        y: 27
+        width: 25
+        height: 41
+      spriteId: f63f5e87a1091d8488aeca1f215b7999
+    - name: NellieBed_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 11
+        y: 27
+        width: 27
+        height: 41
+      spriteId: ec07d0682a8b0b44b950280dd639496a
+    - name: NellieBed_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 11
+        y: 27
+        width: 26
+        height: 41
+      spriteId: 18b792ab96504bd448d390b7c30c0066
+    - name: NellieBed_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 11
+        y: 27
+        width: 25
+        height: 41
+      spriteId: fb828d4d11311cc44bfcc6b1cab42210
+    - name: NellieBed_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 11
+        y: 27
+        width: 26
+        height: 41
+      spriteId: 3359f001056e8af4bb41f980707d8e94
+    - name: NellieBed_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 11
+        y: 27
+        width: 27
+        height: 41
+      spriteId: 8440db600829f0a4588f65748bdacb31
+    - name: NellieBed_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 11
+        y: 27
+        width: 26
+        height: 41
+      spriteId: 97cc2d771be611d4fa41b879f1095625
+    - name: NellieBed_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 11
+        y: 27
+        width: 25
+        height: 41
+      spriteId: e538da8f1c0937d4282b9b44d8bd0772
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 80}
+  canvasSize: {x: 48, y: 80}
