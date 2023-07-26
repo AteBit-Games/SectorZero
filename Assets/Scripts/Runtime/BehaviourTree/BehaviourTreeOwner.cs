@@ -152,7 +152,7 @@ namespace Runtime.BehaviourTree
                 volume.TweenValueFloat(0f, 1f, value =>
                 {
                     if (vignette != null) vignette.intensity.value = value;
-                }).SetFrom(0.25f).SetEaseSineInOut();
+                }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
             }
             _canSeePlayer = false;
         }

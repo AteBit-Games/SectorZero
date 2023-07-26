@@ -283,39 +283,64 @@ namespace Runtime.Player
         private void Throw(GameObject throwable)
         {
             //pick a random point in the circle
-            var range = throwIndicator.GetComponent<CircleCollider2D>();
-            var randomPoint = Random.insideUnitCircle * range.radius;
-            var throwPosition = new Vector3(randomPoint.x, randomPoint.y, 0) + throwIndicator.transform.position;
-            
+            var landingRange = throwIndicator.GetComponent<CircleCollider2D>();
+            var randomPointInRange = Random.insideUnitCircle * landingRange.radius;
+            var throwPosition = new Vector3(randomPointInRange.x, randomPointInRange.y, 0) + throwIndicator.transform.position;
+
+            //Determine the distance of the throw
+            var throwDistance = Vector2.Distance(throwPosition, gameObject.transform.position);
+            var height = Mathf.Clamp(throwDistance/1.5f, 2f, 8f);
+
+            //Enable the throwable and set its position to the origin of the player
             throwable.SetActive(true);
             throwable.transform.position = gameObject.transform.position;
             
+            //Calculate the bezier curve
             var point = new Vector2[3];
             point[0] = gameObject.transform.position;
             point[2] = throwPosition;
-            point[1] = point[0] +(point[2] -point[0])/2 + Vector2.up * 8f;
+            point[1] = point[0] +(point[2] -point[0])/2 + Vector2.up * height;
             
-            _throwCoroutine = StartCoroutine(ThrowCoroutine(0.0f, throwable, point, 0.03f));
+            //Based on higher distance have less bounces
+            var bounces = Mathf.RoundToInt(3 - Mathf.Clamp(Mathf.RoundToInt(throwDistance/4), 1, 2));
+            
+            //Fall speed modifier
+            var modifier = -Mathf.Clamp(throwDistance / 120, 0.065f, 0.07f);
+            modifier += 0.1f;
+
+            //Start the coroutine to move the throwable on the curve
+            _throwCoroutine = StartCoroutine(ThrowCoroutine(0.0f, throwable, point, modifier, bounces, throwDistance));
         }
 
-        private IEnumerator ThrowCoroutine(float count, GameObject throwable, Vector2[] point, float countModifier)
+        private IEnumerator ThrowCoroutine(float bezierCount, GameObject throwable, Vector2[] points, float countModifier, int bounces, float distance)
         {
-            if(count <= 1.0f)
+            if(bezierCount <= 1.0f)
             {
-                var bezierPoint = Mathf.Pow(1.0f - count, 2) * point[0] + 2.0f * (1.0f - count) * count * point[1] + Mathf.Pow(count, 2) * point[2];
+                var bezierPoint = Mathf.Pow(1.0f - bezierCount, 2) * points[0] + 2.0f * (1.0f - bezierCount) * bezierCount * points[1] + Mathf.Pow(bezierCount, 2) * points[2];
                 throwable.transform.position = bezierPoint;
                 
-                if(count <= 0.5) countModifier = Mathf.Clamp(countModifier - 0.0006f, 0, 1);
+                if(bezierCount <= 0.5) countModifier = Mathf.Clamp(countModifier - 0.0006f, 0, 1);
                 else countModifier = Mathf.Clamp(countModifier + 0.0003f, 0, 1);
                 
                 yield return new WaitForSeconds(0.02f);
-                _throwCoroutine = StartCoroutine(ThrowCoroutine(count + countModifier, throwable, point, countModifier));
+                _throwCoroutine = StartCoroutine(ThrowCoroutine(bezierCount + countModifier, throwable, points, countModifier, bounces, distance));
             }
             else
             {
-                StopCoroutine(_throwCoroutine);
-                _throwCoroutine = null;
                 throwable.GetComponent<IThrowable>().OnDrop(throwable.transform);
+
+                if (bounces > 0)
+                {
+                    points[0] = throwable.transform.position;
+                    points[2] += (points[0] - (Vector2)transform.position).normalized * distance/8;
+                    points[1] = points[0] + (points[2] -points[0])/2 + Vector2.up * ((distance/6) * bounces);
+                    StartCoroutine(ThrowCoroutine(0.0f, throwable, points, countModifier+0.04f, bounces-1, distance));
+                }
+                else
+                {
+                    StopCoroutine(_throwCoroutine);
+                    _throwCoroutine = null;
+                }
             }
         }
 
