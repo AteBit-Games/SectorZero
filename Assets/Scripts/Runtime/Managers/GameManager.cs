@@ -46,7 +46,7 @@ namespace Runtime.Managers
         
         //====== Discord ========
         private const long applicationId = 1109955823121215509;
-        private const string largeImage = "sector_zero_icon";
+        private const string largeImage = "sectorzerologo";
         private const string largeText = "Sector Zero";
         public string details = "";
         private long time;

@@ -19,7 +19,7 @@ namespace Runtime.SaveSystem.Data
 
         public SaveData() 
         {
-            playerPosition = new Vector3(-0.9f, 9.55f, 0);
+            playerPosition = new Vector3(-0.54f, 7.25f, 0);
         }
     }
 }

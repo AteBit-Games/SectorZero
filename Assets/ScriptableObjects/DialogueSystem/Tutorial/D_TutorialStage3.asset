@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a17e9e19e65431e40a09d5e64a6f6f43, type: 3}
-  m_Name: JeanBaker02
+  m_Script: {fileID: 11500000, guid: 45592774a6613004c9d7daa230919261, type: 3}
+  m_Name: D_TutorialStage3
   m_EditorClassIdentifier: 
-  name: 'Tape #02 | Jean Baker '
-  sprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
+  lines:
+  - dawdawdawdawd
+  - awdawdawd
+  - awdawdawd
+  actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
+  date: 

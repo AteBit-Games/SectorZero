@@ -110,7 +110,7 @@ namespace Runtime.DialogueSystem
             _dialogueTextElement.text = "";
             _currentLineIndex++;
             
-            _currentRoutine = StartCoroutine(WaitForDialogue(_totalTimeToType + 4f));
+            _currentRoutine = StartCoroutine(WaitForDialogue(_totalTimeToType + 2f));
         }
 
         private void Show(bool show)
