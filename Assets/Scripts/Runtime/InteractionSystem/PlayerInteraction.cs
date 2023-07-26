@@ -87,7 +87,6 @@ namespace Runtime.InteractionSystem
         private void Interact()
         {
             if(_interactables.Count == 0) return;
-            Debug.Log("Interacting");
             var closest = GetClosestInteractable(_interactables.ToArray())?.GetComponent<IInteractable>();
             closest?.OnInteract(gameObject);
         }

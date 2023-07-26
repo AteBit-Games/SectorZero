@@ -3,7 +3,6 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
@@ -96,6 +95,11 @@ namespace Runtime.Managers
         public void TriggerStage2()
         {
             TriggerEvent("TutorialStage2");
+        }
+        
+        public static void TriggerStage3()
+        {
+            TriggerEvent("TutorialStage3");
         }
         
         public void TriggerDialogue(int index)
