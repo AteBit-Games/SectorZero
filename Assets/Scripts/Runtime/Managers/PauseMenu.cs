@@ -4,6 +4,7 @@
 ****************************************************************/
 
 using Runtime.ReporterSystem;
+using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -94,21 +95,24 @@ namespace Runtime.Managers
         
         public void Pause()
         {
-            Time.timeScale = 0; 
-            _pauseWindow.style.display = DisplayStyle.Flex;
-            _overlay.style.display = DisplayStyle.Flex;
+            Time.timeScale = 0;
             isPaused = true;
+            
+            UI_Utils.ShowUIElement(_pauseWindow);
+            UI_Utils.ShowUIElement(_overlay);
         }
         
         public void Resume()
         {
+            
             Time.timeScale = 1;
             GameManager.Instance.ResetInput();
             GameManager.Instance.SoundSystem.ResumeAll();
-            _pauseWindow.style.display = DisplayStyle.None;
-            _overlay.style.display = DisplayStyle.None;
             isPaused = false;
             _feedbackForm.HideForm();
+            
+            UI_Utils.HideUIElement(_pauseWindow);
+            UI_Utils.HideUIElement(_overlay);
         }
 
         public void LoadGame()
@@ -119,16 +123,16 @@ namespace Runtime.Managers
         
         public void OpenSettings()
         {
-            _pauseMenuContainer.style.display = DisplayStyle.None;
-            _settingsContainer.style.display = DisplayStyle.Flex;
+            UI_Utils.HideUIElement(_pauseMenuContainer);
+            UI_Utils.ShowUIElement(_settingsContainer);
             isSettingsOpen = true;
             _feedbackForm.HideForm();
         }
         
         public void CloseSettings()
         {
-            _pauseMenuContainer.style.display = DisplayStyle.Flex;
-            _settingsContainer.style.display = DisplayStyle.None;
+            UI_Utils.HideUIElement(_settingsContainer);
+            UI_Utils.ShowUIElement(_pauseMenuContainer);
             isSettingsOpen = false;
         }
         

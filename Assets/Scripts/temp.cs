@@ -1,23 +1,28 @@
 
-using Runtime.DialogueSystem;
+using Runtime.BehaviourTree;
 using Runtime.Managers;
+using Runtime.Player;
+using Runtime.Utils;
 using UnityEngine;
 
 [DefaultExecutionOrder(999)]
 public class temp : MonoBehaviour
 {
-    [SerializeField] private Dialogue dialogue;
-    private bool started;
+    private PlayerController _player;
+    private bool _done;
+
+    private void Start()
+    {
+        _player = FindObjectOfType<PlayerController>();
+    }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && !_done)
         {
-            if (!started)
-            {
-                GameManager.Instance.DialogueSystem.StartDialogue(dialogue);
-                started = true;
-            }
+            GameManager.Instance.SaveSystem.SaveGame();
+            _player.Die(DeathType.Locker);
+            _done = true;
         }
     }
 }

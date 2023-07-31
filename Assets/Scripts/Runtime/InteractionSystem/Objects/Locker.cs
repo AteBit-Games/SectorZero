@@ -10,6 +10,14 @@ using UnityEngine;
 
 namespace Runtime.InteractionSystem.Objects
 {
+    enum ExitDirection
+    {
+        Left,
+        Right,
+        Up,
+        Down
+    }
+    
     public class Locker : MonoBehaviour, IInteractable, IHideable
     {
         [SerializeField] private Sound interactSound;
@@ -22,6 +30,7 @@ namespace Runtime.InteractionSystem.Objects
         
         [SerializeField, Tooltip("The location to move the player when they enter the locker")] private Transform hidePosition;
         [SerializeField, Tooltip("The location to move the player when the exit the locker")] private Transform revealPosition;
+        [SerializeField] private ExitDirection exitDirection;
         
         [SerializeField] private Sprite emptyLockerSprite;
         [SerializeField] private Sprite hideLockerSprite;
@@ -39,7 +48,16 @@ namespace Runtime.InteractionSystem.Objects
             
             if (playerController.isHiding && ContainsPlayer)
             {
-                playerController.RevealPlayer(revealPosition.position);
+                var facingDirection = exitDirection switch
+                {
+                    ExitDirection.Left => Vector2.left,
+                    ExitDirection.Right => Vector2.right,
+                    ExitDirection.Up => Vector2.up,
+                    ExitDirection.Down => Vector2.down,
+                    _ => Vector2.zero
+                };
+
+                playerController.RevealPlayer(revealPosition.position, facingDirection);
                 ContainsPlayer = false;
                 _spriteRenderer.sprite = emptyLockerSprite;
             }

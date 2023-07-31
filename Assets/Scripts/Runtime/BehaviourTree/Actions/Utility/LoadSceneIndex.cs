@@ -1,8 +1,8 @@
 using System;
-using UnityEngine;
+using Runtime.Managers;
 using UnityEngine.SceneManagement;
 
-namespace Runtime.BehaviourTree.Actions 
+namespace Runtime.BehaviourTree.Actions.Utility 
 {
     [Serializable]
     [Name("Load Scene Index")]

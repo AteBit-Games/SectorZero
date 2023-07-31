@@ -51,7 +51,17 @@ namespace Runtime.AI
             {
                 float angle = _sight.transform.eulerAngles.y - _sight.ViewAngle / 2 + stepAngle * i + 90;
                 Vector3 dir = _sight.DirFromAngle(angle) * Mathf.Sign(transform.parent.transform.localScale.x);
-                _hit = Physics2D.Raycast(_sight.transform.position, dir, _sight.ViewRadius, _sight.ObstacleMask | _sight.PlayerMask);
+                
+                
+                //if the player is crouching take into account the obstacle mask
+                if (_sight.isPlayerCrouching)
+                {
+                    _hit = Physics2D.Raycast(_sight.transform.position, dir, _sight.ViewRadius, _sight.ObstacleMask | _sight.PlayerMask);
+                }
+                else
+                {
+                    _hit = Physics2D.Raycast(_sight.transform.position, dir, _sight.ViewRadius, _sight.PlayerMask);
+                }
                 
                 if (_hit.collider != null)
                 {

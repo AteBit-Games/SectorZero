@@ -3,7 +3,6 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
 using System.Collections;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
@@ -13,6 +12,7 @@ using Runtime.InventorySystem;
 using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
+using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
@@ -20,6 +20,7 @@ using Random = UnityEngine.Random;
 
 namespace Runtime.Player
 {
+    
     public class PlayerController : MonoBehaviour, IPersistant, ISightEntity
     {
         [Space(10)]
@@ -63,6 +64,7 @@ namespace Runtime.Player
         private Vector2 _movementInput;
         private Vector2 _lastPosition;
         private bool _sneaking;
+        private bool _isDead;
 
         // ============ Hiding System ============
        [HideInInspector] public bool isHiding;
@@ -134,14 +136,15 @@ namespace Runtime.Player
         
         private void HandleSneak()
         {
-            Debug.Log(gameObject.name + " is sneaking");
-            Debug.Log("Sneak");
             _sneaking = !_sneaking;
             _movementAnimator.SetBool(id: _isSneaking, _sneaking);
+            if(_monster != null) _monster.isPlayerCrouching = _sneaking;
         }
         
         private void FixedUpdate()
         {
+            if(_isDead) return;
+            
             var newPosition = _rb.position + _movementInput * ((_sneaking ? sneakSpeed : moveSpeed) * Time.fixedDeltaTime);
             _rb.MovePosition(newPosition);
             UpdateMouseLook();
@@ -183,16 +186,19 @@ namespace Runtime.Player
             Invoke(nameof(EnableLowPassFilter), 1f);
         }
         
-        public void Die()
+        public void Die(DeathType deathType)
         {
             DisableInput();
             _spriteRenderer.enabled = false;
             _playerShadow.enabled = false;
+            GameManager.Instance.GameOver(deathType);
+            lookPointer.position = gameObject.transform.position;
+            _isDead = true;
         }
 
         public bool IsSeen { get; set; }
 
-        public void RevealPlayer(Vector2 position)
+        public void RevealPlayer(Vector2 position, Vector2 facingDirection)
         {
             SetData(true);
             EnableInput();
@@ -200,7 +206,13 @@ namespace Runtime.Player
             globalLight.intensity = 0.3f;
             transform.position = position;
             _audioLowPassFilter.enabled = false;
-            _seenEnter.value = false;
+            //_seenEnter.value = false;
+            
+            if (facingDirection != Vector2.zero)
+            {
+                _movementAnimator.SetFloat(id: _moveX, facingDirection.x);
+                _movementAnimator.SetFloat(id: _moveY, facingDirection.y);
+            }
         }
 
         private void UpdateMouseLook()

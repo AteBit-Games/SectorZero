@@ -4,7 +4,6 @@
 ****************************************************************/
 using System.Collections.Generic;
 using ElRaccoone.Tweens;
-using ElRaccoone.Tweens.Core;
 using Runtime.AI;
 using Runtime.AI.Interfaces;
 using Runtime.Managers;
@@ -22,9 +21,7 @@ namespace Runtime.BehaviourTree
     {
         [Tooltip("BehaviourTree asset to instantiate during Awake")] 
         public BehaviourTree behaviourTree;
-        [Tooltip("Run behaviour tree validation at startup")] 
-        public bool validate = true;
-        
+
         [Tooltip("Override blackboard values from the behaviour tree asset")]
         public List<BlackboardKeyValuePair> blackboardOverrides = new();
         
@@ -51,6 +48,9 @@ namespace Runtime.BehaviourTree
         
         private BlackboardKey<int> _stateReference;
         private BlackboardKey<Vector2> _investigateLocationReference;
+        private static readonly int MoveX = Animator.StringToHash("moveX");
+        private static readonly int MoveY = Animator.StringToHash("moveY");
+        private static readonly int IsMoving = Animator.StringToHash("isMoving");
 
         // ====================== Unity Events ======================
         
@@ -91,10 +91,10 @@ namespace Runtime.BehaviourTree
             Vector3 movement = _navMeshAgent.velocity;
             if (movement.magnitude > 0.1f)
             {
-                _animator.SetFloat("moveX", movement.x);
-                _animator.SetFloat("moveY", movement.z);
+                _animator.SetFloat(MoveX, movement.x);
+                _animator.SetFloat(MoveY, movement.z);
             }
-            _animator.SetBool("isMoving", movement.magnitude > 0.1f);
+            _animator.SetBool(IsMoving, movement.magnitude > 0.1f);
         }
 
         private void OnDrawGizmos() 
@@ -112,6 +112,8 @@ namespace Runtime.BehaviourTree
         public float ViewRadius => viewRadius;
         public LayerMask ObstacleMask => obstacleMask;
         public LayerMask PlayerMask => playerMask;
+        [HideInInspector] public bool isPlayerCrouching;
+        
         
         public void OnHearing(NoiseEmitter sender)
         {

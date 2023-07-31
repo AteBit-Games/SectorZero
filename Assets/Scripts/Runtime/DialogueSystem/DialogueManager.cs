@@ -86,6 +86,8 @@ namespace Runtime.DialogueSystem
 
         private void ContinueDialogue() 
         {
+            if(_currentDialogue == null) return;
+            
             if (_currentLineIndex < _currentDialogue.lines.Count)
             {
                 _skipDialogue = false;
@@ -102,6 +104,8 @@ namespace Runtime.DialogueSystem
             {
                 if (_skipDialogue) ShowDialogue(false);
                 else StartCoroutine(ExitDialogue());
+                
+                _currentDialogue = null;
             }
         }
 

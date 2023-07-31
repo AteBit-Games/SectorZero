@@ -38,7 +38,6 @@ MonoBehaviour:
   - rid: 484473836275236914
   - rid: 484473836275236919
   - rid: 484473836275236922
-  - rid: 484473836275236936
   - rid: 484473836275236951
   - rid: 484473836275236952
   - rid: 484473836275236953
@@ -73,7 +72,6 @@ MonoBehaviour:
   - rid: 484473896144994408
   - rid: 484473896144994410
   - rid: 484473896144994411
-  - rid: 484473896144994412
   treeState: 1
   blackboard:
     keys:
@@ -92,8 +90,8 @@ MonoBehaviour:
     - rid: 484473835900633088
     - rid: 6236232439545200658
     - rid: 484473896144994402
-  viewPosition: {x: -2228, y: -143, z: 0}
-  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
+  viewPosition: {x: 336, y: 368, z: 0}
+  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
   references:
     version: 2
     RefIds:
@@ -269,21 +267,6 @@ MonoBehaviour:
             rid: 6236232439545200661
           defaultValue: 0
         interruptable: 1
-    - rid: 484473836275236936
-      type: {class: LoadSceneIndex, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: b7d45e1f874fa0a4ea882c9f8b222b73
-        position: {x: 2040, y: 860}
-        blackboard:
-          keys: []
-        comment: Load main menu because player is dead
-        drawGizmos: 0
-        sceneIndex:
-          reference:
-            rid: -2
-          defaultValue: 0
     - rid: 484473836275236951
       type: {class: MoveToGameObject, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
       data:
@@ -353,7 +336,6 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 484473836275236960
-        - rid: 484473836275236936
     - rid: 484473836275236960
       type: {class: CheckDistance, ns: Runtime.BehaviourTree.Conditions.GameObject, asm: Assembly-CSharp}
       data:
@@ -828,7 +810,6 @@ MonoBehaviour:
         - rid: 484473896144994406
         - rid: 484473896144994410
         - rid: 484473896144994411
-        - rid: 484473896144994412
     - rid: 484473896144994401
       type: {class: GetPlayerHideable, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
       data:
@@ -985,21 +966,6 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 0.5
-    - rid: 484473896144994412
-      type: {class: LoadSceneIndex, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: b3671395350565b4ea0e96abf235d7c4
-        position: {x: 4160, y: 740}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        sceneIndex:
-          reference:
-            rid: -2
-          defaultValue: 0
     - rid: 1526963689735847949
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
