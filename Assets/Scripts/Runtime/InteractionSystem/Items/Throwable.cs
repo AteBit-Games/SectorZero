@@ -16,7 +16,7 @@ using UnityEngine;
 
 namespace Runtime.InteractionSystem.Items
 {
-    public class Rock : MonoBehaviour, IInteractable, IPersistant, IThrowable
+    public class Throwable : MonoBehaviour, IInteractable, IPersistant, IThrowable
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
@@ -24,14 +24,17 @@ namespace Runtime.InteractionSystem.Items
         [SerializeField] private Sound dropSound;
         public Sound DropSound => dropSound;
         
+        [SerializeField] private Sprite icon;
+       
         
         public bool OnInteract(GameObject player)
         {
             gameObject.SetActive(false);
-            GameManager.Instance.SoundSystem.Play(interactSound, transform);
-            //GameManager.Instance.HUD.SetThrowableIcon();
-            
-            GameManager.Instance.HUD.ShowThrowableIcon(true);
+
+            var gameManager = GameManager.Instance;
+            gameManager.SoundSystem.Play(interactSound, transform);
+            gameManager.HUD.SetThrowableIcon(icon);
+            gameManager.HUD.ShowThrowableIcon(true);
 
             var inventory = player.GetComponentInParent<PlayerInventory>();
             inventory.PickUpThrowable(gameObject);
