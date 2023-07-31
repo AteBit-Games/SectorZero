@@ -151,7 +151,7 @@ namespace Runtime.SoundSystem
         public void SetMusicVolume(float volume)
         {
             musicMixGroup.SetVolume(volume);
-            foreach (var musicSource in _activeMusicSources)
+            foreach (var musicSource in _activeMusicSources.Where(musicSource => musicSource.Key != null))
             {
                 musicSource.Key.volume = volume * musicSource.Value.volumeScale;
             }
@@ -179,6 +179,14 @@ namespace Runtime.SoundSystem
             if(audioSource == null) yield break;
             _activeSoundInstanceSources.Remove(audioSource);
             Destroy(audioSource.gameObject);
+        }
+
+        public void ResetSystem()
+        {
+            StopAll();
+            _activeSoundInstanceSources.Clear();
+            _activeMusicSources.Clear();
+            _activeSoundEntitySources.Clear();
         }
         
         public float SfxVolume()

@@ -11,6 +11,7 @@ namespace Runtime.DialogueSystem
     [CreateAssetMenu(fileName = "New Actor", menuName = "Dialogue System/Actor")]
     public class Actor : ScriptableObject
     {
+        
         [SerializeField, Tooltip("Name of the actor")] private new string name;
         [SerializeField, Tooltip("Sprite to display in the UI")] private Sprite sprite;
         [SerializeField] private List<AudioClip> actorSounds;

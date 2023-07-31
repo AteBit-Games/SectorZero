@@ -1,5 +1,6 @@
 using System;
 using Runtime.Player;
+using Runtime.Utils;
 
 namespace Runtime.BehaviourTree.Actions.GameObject 
 {
@@ -10,12 +11,13 @@ namespace Runtime.BehaviourTree.Actions.GameObject
     public class KillPlayer : ActionNode
     {
         public NodeProperty<UnityEngine.GameObject> player;
+        public DeathType deathType;
 
         protected override void OnStart()
         {
             if(player.Value.TryGetComponent(out PlayerController playerController))
             {
-                playerController.Die();
+                playerController.Die(deathType);
             }
         }
     

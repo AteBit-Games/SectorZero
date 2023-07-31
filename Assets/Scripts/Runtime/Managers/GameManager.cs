@@ -3,13 +3,16 @@
 * All rights reserved.
 ****************************************************************/   
 using System;
+using Cinemachine;
 using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
 using Runtime.InputSystem;
 using Discord;
+using Runtime.BehaviourTree;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
 using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,16 +41,19 @@ namespace Runtime.Managers
         public InventoryManager InventorySystem { get; private set; }
         public SoundManager SoundSystem { get; private set; }
         public SaveManager SaveSystem { get; private set; }
-        public NotificationManager NotificationManager { get; set; }
-        public HUD HUD { get; set; }
-       
-        private PauseMenu PauseMenu { get; set; }
+        public NotificationManager NotificationManager { get; private set; }
+        public HUD HUD { get; private set; }
         
+        private DeathScreen DeathScreen { get; set; }
+        private PauseMenu PauseMenu { get; set; }
+
+
+        private CinemachineVirtualCamera _camera;
         
         //====== Discord ========
-        private const long applicationId = 1109955823121215509;
-        private const string largeImage = "sectorzerologo";
-        private const string largeText = "Sector Zero";
+        private const long ApplicationId = 1109955823121215509;
+        private const string LargeImage = "sectorzerologo";
+        private const string LargeText = "Sector Zero";
         public string details = "";
         private long time;
         private Discord.Discord discord;
@@ -60,13 +66,13 @@ namespace Runtime.Managers
                 return;
             }
             Instance = this;
+            
+            DontDestroyOnLoad(gameObject);
+            discord = new Discord.Discord(ApplicationId, (ulong)CreateFlags.NoRequireDiscord);
+            time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             Instance.SoundSystem = GetComponent<SoundManager>();
             Instance.SaveSystem = GetComponent<SaveManager>();
-        
-            DontDestroyOnLoad(gameObject);
-            discord = new Discord.Discord(applicationId, (ulong)CreateFlags.NoRequireDiscord);
-            time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-
+            
             if(testMode)
             {
                 SaveSystem.NewGame();
@@ -127,7 +133,7 @@ namespace Runtime.Managers
 
         private void HandlePause()
         {
-            if(isMainMenu) return;
+            if(isMainMenu || DeathScreen.isOpen) return;
             PauseMenu.Pause();
         }
         
@@ -164,7 +170,10 @@ namespace Runtime.Managers
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            //Required objects for all scenes
+            _camera = FindObjectOfType<CinemachineVirtualCamera>();
             NotificationManager = FindObjectOfType<NotificationManager>(true);
+            SoundSystem.ResetSystem();
 
             if (isMainMenu)
             {
@@ -172,10 +181,15 @@ namespace Runtime.Managers
                 return;
             }
             
+            //Required objects for gameplay scenes
             DialogueSystem = FindObjectOfType<DialogueManager>(true);
             InventorySystem = FindObjectOfType<InventoryManager>(true);
             PauseMenu = FindObjectOfType<PauseMenu>(true);
             HUD = FindObjectOfType<HUD>(true);
+            DeathScreen = FindObjectOfType<DeathScreen>(true);
+            
+            //Reset input to gameplay - overriden in other scripts when needed
+            ResetInput();
         }
         
         public Sound ClickSound()
@@ -194,8 +208,8 @@ namespace Runtime.Managers
                     Details = details,
                     Assets =
                     {
-                        LargeImage = largeImage,
-                        LargeText = largeText
+                        LargeImage = LargeImage,
+                        LargeText = LargeText
                     },
                     Timestamps =
                     {
@@ -212,6 +226,14 @@ namespace Runtime.Managers
             {
                 // ignored
             }
+        }
+
+        public void GameOver(DeathType deathType)
+        {
+            var transposer = _camera.GetCinemachineComponent<CinemachineTransposer>();
+            transposer.m_FollowOffset = new Vector3(-4f, 0f, -10f);
+            inputReader.SetUI();
+            DeathScreen.Show(EnumUtils.GetDeathMessage(deathType));
         }
     }
 }

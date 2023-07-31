@@ -12,9 +12,12 @@ namespace Editor.BehaviourTree.CustomEditors
         
         public override VisualElement CreateInspectorGUI() 
         {
-            VisualElement root = new VisualElement();
+            var root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
             
+            var openScriptButton = root.Q<Button>("open-button");
+            openScriptButton.RegisterCallback<ClickEvent>(_ => CustomInspectorUtils.OpenScriptForEditor(target));
+
             var foldout = new Foldout
             {
                 text = "Default Inspector",
