@@ -1,0 +1,360 @@
+fileFormatVersion: 2
+guid: 973a0ff8ff2d77e4db02e73a1a258d46
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: StripedDoorwayVerticalBreakBottom_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.03821656}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 153
+      y: 4
+      width: 16
+      height: 157
+    spriteID: 76b0b42b88b8c854e909c07fbf86eefb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 153, y: 4}
+  - name: StripedDoorwayVerticalBreakBottom_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.03821656}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 177
+      y: 4
+      width: 16
+      height: 157
+    spriteID: bab1309795bc5304887717b3c7c8181a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 177, y: 4}
+  - name: StripedDoorwayVerticalBreakBottom_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.03821656}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 201
+      y: 4
+      width: 16
+      height: 157
+    spriteID: d7701e0e0ccc68b4f9be42326d49c80b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 201, y: 4}
+  - name: StripedDoorwayVerticalBreakBottom_Frame_3
+    originalName: 
+    pivot: {x: 0.47058824, y: -0.03821656}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 4
+      width: 17
+      height: 157
+    spriteID: fc88737360f4a0248980e3e26cc88970
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 128, y: 4}
+  - name: StripedDoorwayVerticalBreakBottom_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.03821656}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 225
+      y: 4
+      width: 16
+      height: 157
+    spriteID: 764e015c9bc6ec742b2fb0f7b101ceea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 225, y: 4}
+  - name: StripedDoorwayVerticalBreakBottom_Frame_5
+    originalName: 
+    pivot: {x: 0.24242425, y: -0.03821656}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 49
+      y: 4
+      width: 33
+      height: 157
+    spriteID: 12de8522547f090498f91504e57c1db8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 49, y: 4}
+  - name: StripedDoorwayVerticalBreakBottom_Frame_6
+    originalName: 
+    pivot: {x: 0.21621622, y: -0.03821656}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 37
+      height: 157
+    spriteID: e0bc09374b79a544ca4713af71355418
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: StripedDoorwayVerticalBreakBottom_Frame_7
+    originalName: 
+    pivot: {x: 0.26666668, y: -0.03821656}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 4
+      width: 30
+      height: 157
+    spriteID: 2e3a3332ffe255d499239c2b605a9f77
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 4}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -331019970
+    name: StripedDoorwayVerticalBreakBottom
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: StripedDoorwayVerticalBreakBottom_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 24
+        y: 6
+        width: 16
+        height: 157
+      spriteId: 76b0b42b88b8c854e909c07fbf86eefb
+    - name: StripedDoorwayVerticalBreakBottom_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 24
+        y: 6
+        width: 16
+        height: 157
+      spriteId: bab1309795bc5304887717b3c7c8181a
+    - name: StripedDoorwayVerticalBreakBottom_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 24
+        y: 6
+        width: 16
+        height: 157
+      spriteId: d7701e0e0ccc68b4f9be42326d49c80b
+    - name: StripedDoorwayVerticalBreakBottom_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 24
+        y: 6
+        width: 17
+        height: 157
+      spriteId: fc88737360f4a0248980e3e26cc88970
+    - name: StripedDoorwayVerticalBreakBottom_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 24
+        y: 6
+        width: 16
+        height: 157
+      spriteId: 764e015c9bc6ec742b2fb0f7b101ceea
+    - name: StripedDoorwayVerticalBreakBottom_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 24
+        y: 6
+        width: 33
+        height: 157
+      spriteId: 12de8522547f090498f91504e57c1db8
+    - name: StripedDoorwayVerticalBreakBottom_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 24
+        y: 6
+        width: 37
+        height: 157
+      spriteId: e0bc09374b79a544ca4713af71355418
+    - name: StripedDoorwayVerticalBreakBottom_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 24
+        y: 6
+        width: 30
+        height: 157
+      spriteId: 2e3a3332ffe255d499239c2b605a9f77
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 168}
