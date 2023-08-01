@@ -36,6 +36,7 @@ namespace Runtime.InteractionSystem.Objects
         
         public void OpenDoor()
         {
+            Debug.Log("Open door");
             GameManager.Instance.SoundSystem.Play(openSound, transform);
             _mainAnimator.SetBool(_isOpen, true);
         }
