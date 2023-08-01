@@ -374,7 +374,7 @@
 }
 
 #confirm-option .option-button {
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(46, 46, 46);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
@@ -385,10 +385,11 @@
     font-size: 28px;
     margin-left: 10px;
     margin-right: 10px;
+    width: 125px;
 }
 
 #confirm-option .option-button:hover {
-    background-color: rgb(36, 36, 36);
+    background-color: rgb(60, 60, 60);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);

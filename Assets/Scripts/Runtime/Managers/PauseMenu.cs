@@ -32,6 +32,10 @@ namespace Runtime.Managers
         private VisualElement _overlay;
         private FeedbackForm _feedbackForm;
         
+        private VisualElement _confirmMenuPopup;
+        private Button _confirmMenuQuit;
+        private Button _cancelMenuQuit;
+        
         private void Awake()
         {
             _uiDocument = GetComponent<UIDocument>();
@@ -44,6 +48,10 @@ namespace Runtime.Managers
             _pauseWindow = rootVisualElement.Q<VisualElement>("pause-window");
             _settingsContainer = rootVisualElement.Q<VisualElement>("settings-window");
             _overlay = rootVisualElement.Q<VisualElement>("overlay");
+            
+            _confirmMenuPopup = rootVisualElement.Q<VisualElement>("confirm-menu-popup");
+            _confirmMenuQuit = rootVisualElement.Q<Button>("confirm-menu-option");
+            _cancelMenuQuit = rootVisualElement.Q<Button>("cancel-menu-option");
 
             _reportBugButton = rootVisualElement.Q<Button>("report-problem");
             _reportBugButton.RegisterCallback<ClickEvent>(_ => {
@@ -58,6 +66,7 @@ namespace Runtime.Managers
             _resumeButton = rootVisualElement.Q<Button>("resume");
             _resumeButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                UI_Utils.HideUIElement(_confirmMenuPopup);
                 Resume();
             });
             _resumeButton.RegisterCallback<MouseEnterEvent>(_ => {
@@ -67,6 +76,7 @@ namespace Runtime.Managers
             _loadButton = rootVisualElement.Q<Button>("load");
             _loadButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                UI_Utils.HideUIElement(_confirmMenuPopup);
                 LoadGame();
             });
             _loadButton.RegisterCallback<MouseEnterEvent>(_ => {
@@ -86,11 +96,13 @@ namespace Runtime.Managers
             _quitButton = rootVisualElement.Q<Button>("quit");
             _quitButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                GoToMainMenu();
+                OpenConfirmPopup(_confirmMenuPopup);
             });
             _quitButton.RegisterCallback<MouseEnterEvent>(_ => {
-                _buttonDescription.text = "Quit the game";
+                _buttonDescription.text = "Quit to main menu";
             });
+            
+            SetupPopups();
         }
         
         public void Pause()
@@ -115,24 +127,27 @@ namespace Runtime.Managers
             UI_Utils.HideUIElement(_overlay);
         }
 
-        public void LoadGame()
+        private void LoadGame()
         {
             GameManager.Instance.SaveSystem.LoadGame();
             _feedbackForm.HideForm();
         }
-        
-        public void OpenSettings()
+
+        private void OpenSettings()
         {
-            UI_Utils.HideUIElement(_pauseMenuContainer);
+            UI_Utils.HideUIElement(_pauseWindow);
             UI_Utils.ShowUIElement(_settingsContainer);
             isSettingsOpen = true;
+            
+            // Hide Elements
             _feedbackForm.HideForm();
+            UI_Utils.HideUIElement(_confirmMenuPopup);
         }
         
         public void CloseSettings()
         {
             UI_Utils.HideUIElement(_settingsContainer);
-            UI_Utils.ShowUIElement(_pauseMenuContainer);
+            UI_Utils.ShowUIElement(_pauseWindow);
             isSettingsOpen = false;
         }
         
@@ -145,9 +160,23 @@ namespace Runtime.Managers
             SceneManager.LoadScene(0);
         }
         
-        public static void QuitGame()
+        private static void OpenConfirmPopup(VisualElement popup)
         {
-            Application.Quit();
+            UI_Utils.ShowUIElement(popup);
+        }
+        
+        private void SetupPopups()
+        {
+            //Bind Menu Popup Buttons
+            _confirmMenuQuit.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                GoToMainMenu();
+            });
+            
+            _cancelMenuQuit.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                UI_Utils.HideUIElement(_confirmMenuPopup);
+            });
         }
     }
 }

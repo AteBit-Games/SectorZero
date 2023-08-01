@@ -25,6 +25,8 @@ namespace Runtime.Managers
 
         private void Start()
         {
+            if(navMeshSurface == null) return;
+            navMeshSurface.hideEditorLogs = true;
             navMeshSurface.BuildNavMesh();
         }
 

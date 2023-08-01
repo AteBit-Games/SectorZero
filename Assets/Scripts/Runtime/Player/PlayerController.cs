@@ -166,12 +166,12 @@ namespace Runtime.Player
 
         public void LoadData(SaveData data)
         {
-            transform.position = data.playerPosition;
+            transform.position = data.playerData.position;
         }
         
         public void SaveData(SaveData data)
         {
-            data.playerPosition = transform.position;
+            data.playerData.position = transform.position;
         }
         
         public void HidePlayer(GameObject hideable, Vector2 position)

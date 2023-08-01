@@ -5,6 +5,7 @@
 
 using Runtime.ReporterSystem;
 using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -29,6 +30,15 @@ namespace Runtime.Managers
         private VisualElement _settingsWindow;
         private FeedbackForm _feedbackForm;
         
+        private VisualElement _confirmTutorialPopup;
+        private Button _yesTutorial;
+        private Button _noTutorial;
+        
+        private VisualElement _confirmQuitPopup;
+        private Button _confirmDesktopQuit;
+        private Button _cancelDesktopQuit;
+        
+
         private void Start()
         {
             _uiDocument = GetComponent<UIDocument>();
@@ -38,6 +48,14 @@ namespace Runtime.Managers
             _buttonDescription = rootVisualElement.Q<Label>("button-description");
             _mainMenuWindow = rootVisualElement.Q<VisualElement>("main-menu-window");
             _settingsWindow = rootVisualElement.Q<VisualElement>("settings-window");
+
+            _confirmTutorialPopup = rootVisualElement.Q<VisualElement>("confirm-tutorial-popup");
+            _yesTutorial = rootVisualElement.Q<Button>("confirm-tutorial-option");
+            _noTutorial = rootVisualElement.Q<Button>("cancel-tutorial-option");
+            
+            _confirmQuitPopup = rootVisualElement.Q<VisualElement>("confirm-quit-popup");
+            _confirmDesktopQuit = rootVisualElement.Q<Button>("confirm-desktop-option");
+            _cancelDesktopQuit = rootVisualElement.Q<Button>("cancel-desktop-option");
             
             // Main Menu Items
             _continueButton = rootVisualElement.Q<Button>("continue");
@@ -62,7 +80,7 @@ namespace Runtime.Managers
             _newGameButton = rootVisualElement.Q<Button>("new-game");
             _newGameButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                StartNewGame();
+                OpenConfirmPopup(_confirmTutorialPopup);
             });
             _newGameButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Start a new game";
@@ -81,11 +99,41 @@ namespace Runtime.Managers
             _quitButton = rootVisualElement.Q<Button>("quit");
             _quitButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                QuitGame();
+                OpenConfirmPopup(_confirmQuitPopup);
             });
             _quitButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Quit the game";
             });
+            
+            SetupPopups();
+        }
+        
+        private void SetupPopups()
+        {
+            _yesTutorial.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                StartNewGame(1);
+            });
+            
+            _noTutorial.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                StartNewGame(2);
+            });
+
+            _confirmDesktopQuit.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                Application.Quit();
+            });
+            
+            _cancelDesktopQuit.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                UI_Utils.HideUIElement(_confirmQuitPopup);
+            });
+        }
+        
+        private static void OpenConfirmPopup(VisualElement popup)
+        {
+            UI_Utils.ShowUIElement(popup);
         }
         
         public void OpenSettings()
@@ -102,12 +150,11 @@ namespace Runtime.Managers
             isSettingsOpen = false;
         }
 
-        public static void StartNewGame()
+        private static void StartNewGame(int level)
         {
             GameManager.Instance.SaveSystem.NewGame();
             GameManager.Instance.isMainMenu = false;
-            GameManager.Instance.ResetInput();
-            SceneManager.LoadScene(1);
+            GameManager.Instance.LoadScene(level);
         }
         
         public static void LoadGame()

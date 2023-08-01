@@ -38,6 +38,8 @@ namespace Runtime.InputSystem
         public event Action AimEvent;
         public event Action AimCancelEvent;
 
+        public event Action ContinueAction;
+
         public void OnMove(InputAction.CallbackContext context)
         {
             MoveEvent?.Invoke(context.ReadValue<Vector2>());
@@ -134,7 +136,10 @@ namespace Runtime.InputSystem
 
         public void OnSelect(InputAction.CallbackContext context)
         {
-            
+            if (context.phase == InputActionPhase.Performed)
+            {
+                ContinueAction?.Invoke();
+            }
         }
 
         public void OnScrollWheel(InputAction.CallbackContext context)
