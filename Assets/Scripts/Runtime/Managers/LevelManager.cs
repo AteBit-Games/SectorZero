@@ -7,6 +7,7 @@ using System;
 using UnityEngine.SceneManagement;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using NavMeshPlus.Components;
 
 namespace Runtime.Managers
 {
@@ -15,10 +16,16 @@ namespace Runtime.Managers
         
         [SerializeField] private Sound ambiance;
         [SerializeField] private string levelDescription;
+        [SerializeField] private NavMeshSurface navMeshSurface;
         
         private void Awake()
         {
             SceneManager.sceneLoaded += PlayAmbiance;
+        }
+
+        private void Start()
+        {
+            navMeshSurface.BuildNavMesh();
         }
 
         private void OnDestroy()
