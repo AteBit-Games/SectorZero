@@ -56,11 +56,11 @@ namespace Runtime.AI
                 //if the player is crouching take into account the obstacle mask
                 if (_sight.isPlayerCrouching)
                 {
-                    _hit = Physics2D.Raycast(_sight.transform.position, dir, _sight.ViewRadius, _sight.ObstacleMask | _sight.PlayerMask);
+                    _hit = Physics2D.Raycast(_sight.transform.position, dir, _sight.ViewRadius, _sight.WallMask | _sight.ObstacleMask | _sight.PlayerMask);
                 }
                 else
                 {
-                    _hit = Physics2D.Raycast(_sight.transform.position, dir, _sight.ViewRadius, _sight.PlayerMask);
+                    _hit = Physics2D.Raycast(_sight.transform.position, dir, _sight.ViewRadius, _sight.PlayerMask | _sight.WallMask);
                 }
                 
                 if (_hit.collider != null)
@@ -69,6 +69,7 @@ namespace Runtime.AI
                     if (playerHit)
                     {
                         var player = _hit.collider.GetComponent<PlayerController>();
+                        if(player == null) player = _hit.collider.GetComponentInParent<PlayerController>();
                         if(player.isHiding) continue;
                         
                         //if the player is not hiding, call the OnSightEnter method

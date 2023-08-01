@@ -3,10 +3,12 @@
 * All rights reserved.
 ****************************************************************/
 
+using System;
 using System.Collections;
 using Runtime.InputSystem;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 namespace Runtime.DialogueSystem
 {
@@ -16,11 +18,11 @@ namespace Runtime.DialogueSystem
         [SerializeField] private InputReader inputReader;
         [SerializeField, Tooltip("Speed the text is 'typed' onto the screen")] private float textSpeed = 0.05f;
         
-        //============== Sound Settings ================
+        //============== Settings ================
+        [HideInInspector] public event Action OnDialogueFinish;
         private AudioSource _audioSource;
         
         //================ UI Elements ==================
-        
         private Label _dialogueTextElement;
         private Label _actorNameTextElement;
         private Label _dateTextElement;
@@ -29,12 +31,10 @@ namespace Runtime.DialogueSystem
         private UIDocument _uiDocument;
 
         //================ Dialogue ==================
-        
         private Dialogue _currentDialogue;
         private bool _skipDialogue;
         
         //================ Tracking ==================
-        
         private int _currentLineIndex;
         private Coroutine displayLineCoroutine;
 
@@ -104,7 +104,8 @@ namespace Runtime.DialogueSystem
             {
                 if (_skipDialogue) ShowDialogue(false);
                 else StartCoroutine(ExitDialogue());
-                
+
+                OnDialogueFinish?.Invoke();
                 _currentDialogue = null;
             }
         }
@@ -164,8 +165,7 @@ namespace Runtime.DialogueSystem
                     _audioSource.pitch = Random.Range(actor.MinPitch, actor.MaxPitch);
                     soundClip = actor.ActorSounds[Random.Range(0, actor.ActorSounds.Count)];
                 }
-                
-                
+
                 _audioSource.PlayOneShot(soundClip);
             }
         }

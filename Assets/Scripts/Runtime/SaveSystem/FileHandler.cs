@@ -78,7 +78,6 @@ namespace Runtime.SaveSystem
         private readonly string _savePath;
         private readonly string _saveFileName;
         private readonly EncryptionType _encryptionType;
-        private const string BackupExtension = ".bak";
 
         public FileHandler(string savePath, string saveFileName, EncryptionType encryptionType)
         {
@@ -87,7 +86,7 @@ namespace Runtime.SaveSystem
             _encryptionType = encryptionType;
         }
 
-        public SaveData Load(bool allowRestoreFromBackup = true)
+        public SaveData Load()
         {
             var savePath = Path.Combine(_savePath, _saveFileName);
             
@@ -111,17 +110,7 @@ namespace Runtime.SaveSystem
                 }
                 catch
                 {
-                    if (!allowRestoreFromBackup) return saveData;
-                    
-                    var rollbackSuccess = AttemptRollback(savePath);
-                    if (rollbackSuccess)
-                    {
-                        saveData = Load(false);
-                    }
-                    else
-                    {
-                        Debug.LogError("Rollback failed. Unable to load data.");
-                    }
+                    Debug.LogError("Error occured when trying to load data from file: " + savePath);
                 }
             }
 
@@ -131,7 +120,7 @@ namespace Runtime.SaveSystem
         public void Save(SaveData data)
         {
             var savePath = Path.Combine(_savePath, _saveFileName);
-            var backupFilePath = savePath + BackupExtension;
+            
             try 
             {
                 // create the directory the file will be written to if it doesn't already exist
@@ -150,11 +139,7 @@ namespace Runtime.SaveSystem
 
                 // verify the newly saved file can be loaded successfully
                 var verifiedGameData = Load();
-                if (verifiedGameData != null)
-                {
-                    File.Copy(savePath, backupFilePath, true);
-                }
-                else 
+                if (verifiedGameData == null)
                 {
                     throw new Exception("Save file could not be verified and backup could not be created.");
                 }
@@ -168,16 +153,11 @@ namespace Runtime.SaveSystem
         public void ClearSaves()
         {
             var savePath = Path.Combine(_savePath, _saveFileName);
-            var backupFilePath = savePath + BackupExtension;
             try
             {
                 if (File.Exists(savePath))
                 {
                     File.Delete(savePath);
-                }
-                if (File.Exists(backupFilePath))
-                {
-                    File.Delete(backupFilePath);
                 }
             }
             catch (Exception e)
@@ -192,30 +172,6 @@ namespace Runtime.SaveSystem
             return File.Exists(savePath);
         }
 
-        private static bool AttemptRollback(string path)
-        {
-            var backupFilePath = path + BackupExtension;
-            if (File.Exists(backupFilePath))
-            {
-                try
-                {
-                    File.Copy(backupFilePath, path, true);
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError("Failed to roll back to backup file: " + backupFilePath + "\n" + e);
-                }
-            }
-            else
-            {
-                Debug.LogError("No backup file found at: " + backupFilePath);
-            }
-
-            return false;
-        }
-        
-        
         private string EncryptData(string data)
         {
             return EncryptionUtils.EncryptAES(data);

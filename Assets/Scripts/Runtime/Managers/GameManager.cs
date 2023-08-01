@@ -3,12 +3,12 @@
 * All rights reserved.
 ****************************************************************/   
 using System;
+using System.Collections;
 using Cinemachine;
 using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
 using Runtime.InputSystem;
 using Discord;
-using Runtime.BehaviourTree;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
 using Runtime.SoundSystem.ScriptableObjects;
@@ -46,15 +46,16 @@ namespace Runtime.Managers
         
         private DeathScreen DeathScreen { get; set; }
         private PauseMenu PauseMenu { get; set; }
-
-
+        private LoadingScreen LoadingScreen { get; set; }
+        
         private CinemachineVirtualCamera _camera;
+        private bool _isReady;
         
         //====== Discord ========
         private const long ApplicationId = 1109955823121215509;
         private const string LargeImage = "sectorzerologo";
         private const string LargeText = "Sector Zero";
-        public string details = "";
+        [HideInInspector] public string details = "";
         private long time;
         private Discord.Discord discord;
         
@@ -70,6 +71,8 @@ namespace Runtime.Managers
             DontDestroyOnLoad(gameObject);
             discord = new Discord.Discord(ApplicationId, (ulong)CreateFlags.NoRequireDiscord);
             time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            
+            Instance.LoadingScreen = GetComponentInChildren<LoadingScreen>();
             Instance.SoundSystem = GetComponent<SoundManager>();
             Instance.SaveSystem = GetComponent<SaveManager>();
             
@@ -108,6 +111,7 @@ namespace Runtime.Managers
             inputReader.OpenInventoryEvent += OpenInventoryWindow;
             inputReader.CloseUIEvent += CloseInventoryWindow;
             inputReader.CloseUIEvent += HandleEscape;
+            inputReader.ContinueAction += FinishLoad;
         }
 
         private void OnDisable()
@@ -117,6 +121,7 @@ namespace Runtime.Managers
             inputReader.OpenInventoryEvent -= OpenInventoryWindow;
             inputReader.CloseUIEvent -= CloseInventoryWindow;
             inputReader.CloseUIEvent -= HandleEscape;
+            inputReader.ContinueAction -= FinishLoad;
         }
 
         private void CloseInventoryWindow()
@@ -180,7 +185,7 @@ namespace Runtime.Managers
                 inputReader.SetUI();
                 return;
             }
-            
+
             //Required objects for gameplay scenes
             DialogueSystem = FindObjectOfType<DialogueManager>(true);
             InventorySystem = FindObjectOfType<InventoryManager>(true);
@@ -188,8 +193,16 @@ namespace Runtime.Managers
             HUD = FindObjectOfType<HUD>(true);
             DeathScreen = FindObjectOfType<DeathScreen>(true);
             
-            //Reset input to gameplay - overriden in other scripts when needed
-            ResetInput();
+            if(testMode)
+            {
+                ResetInput();
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                SoundSystem.PauseAll();
+                Time.timeScale = 0f;
+            }
         }
         
         public Sound ClickSound()
@@ -234,6 +247,35 @@ namespace Runtime.Managers
             transposer.m_FollowOffset = new Vector3(-4f, 0f, -10f);
             inputReader.SetUI();
             DeathScreen.Show(EnumUtils.GetDeathMessage(deathType));
+        }
+        
+        public void LoadScene(int sceneIndex)
+        {
+            _isReady = false;
+            inputReader.SetUI();
+            StartCoroutine(LoadSceneAsync(sceneIndex));
+        }
+        
+        private IEnumerator LoadSceneAsync(int sceneIndex)
+        {
+            var asyncOperation = SceneManager.LoadSceneAsync(sceneIndex);
+            LoadingScreen.ShowLoading();
+            while (!asyncOperation.isDone)
+            {
+                yield return null;
+            }
+            LoadingScreen.ShowContinue();
+            _isReady = true;
+        }
+
+        private void FinishLoad()
+        {
+            if (_isReady)
+            {
+                Time.timeScale = 1f;
+                ResetInput();
+                LoadingScreen.HideLoading();
+            }
         }
     }
 }

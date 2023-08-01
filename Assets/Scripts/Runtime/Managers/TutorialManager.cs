@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
@@ -10,12 +11,30 @@ using Runtime.DialogueSystem;
 
 namespace Runtime.Managers
 {
+    [DefaultExecutionOrder(10)]
     public class TutorialManager : MonoBehaviour
     {
         public List<Dialogue> tutorialDialogue;
+        public int activeStage;
         
         private Dictionary <string, UnityEvent[]> eventDictionary;
         private static TutorialManager _tutorialManager;
+
+        private void OnEnable()
+        {
+            StartCoroutine(Delay());
+        }
+
+        private static IEnumerator Delay()
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+            GameManager.Instance.DialogueSystem.OnDialogueFinish += TriggerStage4;
+        }
+        
+        private void OnDisable()
+        {
+            GameManager.Instance.DialogueSystem.OnDialogueFinish -= TriggerStage4;
+        }
 
         private static TutorialManager instance
         {
@@ -96,10 +115,10 @@ namespace Runtime.Managers
         {
             TriggerEvent("TutorialStage2");
         }
-        
-        public static void TriggerStage3()
+
+        private static void TriggerStage4()
         {
-            TriggerEvent("TutorialStage3");
+            TriggerEvent("TutorialStage4");
         }
         
         public void TriggerDialogue(int index)

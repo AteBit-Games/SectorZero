@@ -26,6 +26,7 @@ namespace Runtime.BehaviourTree
         public List<BlackboardKeyValuePair> blackboardOverrides = new();
         
         [Tooltip("Masks that block field of view"), SerializeField] private LayerMask obstacleMask;
+        [Tooltip("Wall Mask"), SerializeField] private LayerMask wallMask;
         [Tooltip("Masks that contains the player character"), SerializeField] private LayerMask playerMask;
         [Tooltip("Maximum view distance"), SerializeField] private float viewRadius = 5.0f;
         [Tooltip("Maximum angle that the monster can see"), SerializeField, Range(0f, 360f)] private float viewAngle = 135.0f;
@@ -111,6 +112,7 @@ namespace Runtime.BehaviourTree
         public float ViewAngle => viewAngle;
         public float ViewRadius => viewRadius;
         public LayerMask ObstacleMask => obstacleMask;
+        public LayerMask WallMask => wallMask;
         public LayerMask PlayerMask => playerMask;
         [HideInInspector] public bool isPlayerCrouching;
         

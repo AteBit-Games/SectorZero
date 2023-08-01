@@ -14,7 +14,7 @@ namespace Runtime.Misc
 {
     public class CustomLight : MonoBehaviour, IPowered, ISoundEntity
     {
-        [SerializeField] private new Light2D light;
+        [SerializeField] private Light2D light;
         [SerializeField] private bool startPowered;
 
         [SerializeField] private bool flicker;
