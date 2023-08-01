@@ -23,6 +23,7 @@ namespace Runtime.InteractionSystem.Objects
         [SerializeField] private NavMeshSurface navMeshSurface;
         [SerializeField] private Collider2D navigationBlocker;
         [SerializeField] private Animator bottomAnimator;
+        [SerializeField] private bool startOpen;
 
         private Animator _mainAnimator;
         
@@ -32,6 +33,10 @@ namespace Runtime.InteractionSystem.Objects
         private void Awake()
         {
             _mainAnimator = GetComponent<Animator>();
+            if (startOpen)
+            {
+                _mainAnimator.SetBool(_isOpen, true);
+            }
         }
         
         public void OpenDoor()
