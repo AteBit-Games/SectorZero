@@ -77,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -89,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -101,259 +103,260 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_SneakWalk_W_0
+      name: Nellie_SneakWalk_W_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a40094f983181434c847eed727ac3776
-      internalID: 1027898452
+      spriteID: cbc879af618091f4fada8b95bd2451a1
+      internalID: -1072888062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_SneakWalk_W_1
+      name: Nellie_SneakWalk_W_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42e2b2f3f14922542a421ef05b33ce29
-      internalID: -918914116
+      spriteID: 4dfe152942ff355468b7786173f5fff0
+      internalID: 1598449561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_SneakWalk_W_2
+      name: Nellie_SneakWalk_W_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34720e2361fbd144ebe436d13016c1d8
-      internalID: 1554515364
+      spriteID: 643cdd23e9b0cd74aa102bec0cf6ab85
+      internalID: -1394772494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_SneakWalk_W_3
+      name: Nellie_SneakWalk_W_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae3ce0b4f70059648ad61d87c2c87cbe
-      internalID: 173052209
+      spriteID: 2ca2bd4e562c4644797ce7d1645ccf76
+      internalID: 1267851282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_SneakWalk_W_4
+      name: Nellie_SneakWalk_W_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f508e6062d547b4b972cc6d58551359
-      internalID: 489273525
+      spriteID: 92b0976b4a7433f4680ff6728e1acd41
+      internalID: -177402025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_SneakWalk_W_5
+      name: Nellie_SneakWalk_W_5
       rect:
         serializedVersion: 2
         x: 320
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecf414f3ef8831e42b83c5e93ea12f6a
-      internalID: 393436529
+      spriteID: ff6fbde8c136eb34d97eab43088807f8
+      internalID: 1160639270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_SneakWalk_W_6
+      name: Nellie_SneakWalk_W_6
       rect:
         serializedVersion: 2
         x: 384
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dfee4e0de6f89e4b8ed42ab0a5c3254
-      internalID: -1961486431
+      spriteID: 35708445552d85c409ab271e413d8b02
+      internalID: -1042617098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_SneakWalk_W_7
+      name: Nellie_SneakWalk_W_7
       rect:
         serializedVersion: 2
         x: 448
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cd8b63edccc8dc4e89464d4d70520e1
-      internalID: -365168831
+      spriteID: ed4a6277ccd4e8e4eb5eaa62f1fd86d0
+      internalID: -1067790701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_SneakWalk_W_8
+      name: Nellie_SneakWalk_W_8
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44d8dd1ecb49dcb4a9ed3c0b4497f222
-      internalID: -657760434
+      spriteID: 14cde3894e556fc44aa5336030682cfb
+      internalID: -1283023874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_SneakWalk_W_9
+      name: Nellie_SneakWalk_W_9
       rect:
         serializedVersion: 2
         x: 576
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2aae0161646d344d8737166ea9e0604
-      internalID: -2079852150
+      spriteID: ee865f6797eabb4478b1e75f9da2a083
+      internalID: 1688924301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_SneakWalk_W_10
+      name: Nellie_SneakWalk_W_10
       rect:
         serializedVersion: 2
         x: 640
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9780d3325a672c54d91a70346fa64eee
-      internalID: -652555889
+      spriteID: 44b487de045a44248a114020d0172973
+      internalID: -55051375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_SneakWalk_W_11
+      name: Nellie_SneakWalk_W_11
       rect:
         serializedVersion: 2
         x: 704
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3168471a36b2b394aa2f8215976bebb6
-      internalID: 1779785903
+      spriteID: 4fbd30adc222c5e4fafbeb2d34c998c8
+      internalID: -1737016424
       vertices: []
       indices: 
       edges: []
@@ -369,18 +372,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MC_SneakWalk_W_10: -652555889
-      MC_SneakWalk_W_4: 489273525
-      MC_SneakWalk_W_3: 173052209
-      MC_SneakWalk_W_9: -2079852150
-      MC_SneakWalk_W_11: 1779785903
-      MC_SneakWalk_W_8: -657760434
-      MC_SneakWalk_W_7: -365168831
-      MC_SneakWalk_W_5: 393436529
-      MC_SneakWalk_W_6: -1961486431
-      MC_SneakWalk_W_1: -918914116
-      MC_SneakWalk_W_2: 1554515364
-      MC_SneakWalk_W_0: 1027898452
+      Nellie_SneakWalk_W_0: -1072888062
+      Nellie_SneakWalk_W_1: 1598449561
+      Nellie_SneakWalk_W_10: -55051375
+      Nellie_SneakWalk_W_11: -1737016424
+      Nellie_SneakWalk_W_2: -1394772494
+      Nellie_SneakWalk_W_3: 1267851282
+      Nellie_SneakWalk_W_4: -177402025
+      Nellie_SneakWalk_W_5: 1160639270
+      Nellie_SneakWalk_W_6: -1042617098
+      Nellie_SneakWalk_W_7: -1067790701
+      Nellie_SneakWalk_W_8: -1283023874
+      Nellie_SneakWalk_W_9: 1688924301
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -77,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -89,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -101,301 +103,302 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_StandJog_E_0
+      name: Nellie_StandJog_E_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3718be4893dcdca47808db90d3026616
-      internalID: -358195616
+      spriteID: 8050fef5db132e1428a1c9215bc80fe3
+      internalID: 1799319426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_1
+      name: Nellie_StandJog_E_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d961d7fd58564914faf5cfd1ade3f9b3
-      internalID: -1623133091
+      spriteID: cf1cd98b679a9cd488341d9c31b23af7
+      internalID: 1193921441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_2
+      name: Nellie_StandJog_E_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1db999bf2a7609a4991766cc540b53e9
-      internalID: 570073319
+      spriteID: 8b6dcfe097a59b74a95cb941d9cf3f2f
+      internalID: 522223702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_3
+      name: Nellie_StandJog_E_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d5c7c3b865284b4abb0730e0f1e7f6c
-      internalID: -227540668
+      spriteID: b13c488165e5a0c41b4de4ce77b98a73
+      internalID: 2928259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_4
+      name: Nellie_StandJog_E_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f12a06aa9c02928488eb33a0df29dbd3
-      internalID: -2046033361
+      spriteID: 6beb0e30c5e8bef4491f091a3b486480
+      internalID: 1596420645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_5
+      name: Nellie_StandJog_E_5
       rect:
         serializedVersion: 2
         x: 320
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12a3a681dba4947419b938f8eed26273
-      internalID: 1187077539
+      spriteID: 4ec4ca34bc412384d8e672a05aa7aef9
+      internalID: -1884971805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_6
+      name: Nellie_StandJog_E_6
       rect:
         serializedVersion: 2
         x: 384
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba226478b32a86c41a56065f6f694c6f
-      internalID: -57687529
+      spriteID: 6559c0ea44cf28241a976c6e27146ad9
+      internalID: 1982008997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_7
+      name: Nellie_StandJog_E_7
       rect:
         serializedVersion: 2
         x: 448
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3df819ad112bf4498eb15c660f816e4
-      internalID: 890417749
+      spriteID: e9fd718b803ca314096b2bd98f3a6d21
+      internalID: -181008618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_8
+      name: Nellie_StandJog_E_8
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f887a9f6d7ab0c845ba131388920361d
-      internalID: 686470895
+      spriteID: e726f56e3fa35bc41a5f5add65dbe22b
+      internalID: 1067148966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_9
+      name: Nellie_StandJog_E_9
       rect:
         serializedVersion: 2
         x: 576
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b0df42bd42272a41a2c8cfc835aad2d
-      internalID: -93367456
+      spriteID: 87223fa6fc1608c4d83a240086a3ba1c
+      internalID: 941426630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_10
+      name: Nellie_StandJog_E_10
       rect:
         serializedVersion: 2
         x: 640
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c2e1c01add84e54badd3e23f75d3f84
-      internalID: -834402212
+      spriteID: 7d1ec9dd7df155b4e97bb1277c10cb1f
+      internalID: -1156500691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_11
+      name: Nellie_StandJog_E_11
       rect:
         serializedVersion: 2
         x: 704
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fad1457c28eed6488e355ac6da77adf
-      internalID: 1806793259
+      spriteID: fbbfeee88a1670d4aaf12afb63b15265
+      internalID: 1193718727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_12
+      name: Nellie_StandJog_E_12
       rect:
         serializedVersion: 2
         x: 768
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a0b1b9b3f9c83944ab18160a968482e
-      internalID: 1756243098
+      spriteID: a8340fda222fb9f43adfffd995a67942
+      internalID: 639652862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MC_StandJog_E_13
+      name: Nellie_StandJog_E_13
       rect:
         serializedVersion: 2
         x: 832
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17bbc495112e5ce43b3b536153c9456f
-      internalID: 183519478
+      spriteID: ad0b09ba8f2fa514fa9c7352bc79503f
+      internalID: 1821964706
       vertices: []
       indices: 
       edges: []
@@ -411,20 +414,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MC_StandJog_E_2: 570073319
-      MC_StandJog_E_9: -93367456
-      MC_StandJog_E_12: 1756243098
-      MC_StandJog_E_4: -2046033361
-      MC_StandJog_E_3: -227540668
-      MC_StandJog_E_5: 1187077539
-      MC_StandJog_E_7: 890417749
-      MC_StandJog_E_0: -358195616
-      MC_StandJog_E_8: 686470895
-      MC_StandJog_E_6: -57687529
-      MC_StandJog_E_10: -834402212
-      MC_StandJog_E_13: 183519478
-      MC_StandJog_E_1: -1623133091
-      MC_StandJog_E_11: 1806793259
+      Nellie_StandJog_E_0: 1799319426
+      Nellie_StandJog_E_1: 1193921441
+      Nellie_StandJog_E_10: -1156500691
+      Nellie_StandJog_E_11: 1193718727
+      Nellie_StandJog_E_12: 639652862
+      Nellie_StandJog_E_13: 1821964706
+      Nellie_StandJog_E_2: 522223702
+      Nellie_StandJog_E_3: 2928259
+      Nellie_StandJog_E_4: 1596420645
+      Nellie_StandJog_E_5: -1884971805
+      Nellie_StandJog_E_6: 1982008997
+      Nellie_StandJog_E_7: -181008618
+      Nellie_StandJog_E_8: 1067148966
+      Nellie_StandJog_E_9: 941426630
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

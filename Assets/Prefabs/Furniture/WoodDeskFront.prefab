@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1274996693852694006}
   - component: {fileID: 2712231139678163433}
   - component: {fileID: 711237531}
-  - component: {fileID: 4580010966215210633}
   - component: {fileID: 1274951469628797843}
+  - component: {fileID: 6071445359671267473}
   m_Layer: 7
   m_Name: WoodDeskFront
   m_TagString: Untagged
@@ -127,8 +127,24 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_SortAtRoot: 0
---- !u!60 &4580010966215210633
-PolygonCollider2D:
+--- !u!114 &1274951469628797843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3441040897333876378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!61 &6071445359671267473
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -159,36 +175,16 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.64}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5012898, y: 0.99462366}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4.125, y: 2.375}
     newSize: {x: 4.125, y: 2.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -2.0647163, y: -0.918995}
-      - {x: -2.0659819, y: -2.3728168}
-      - {x: 2.045135, y: -2.3693244}
-      - {x: 2.0566576, y: -0.91304874}
-  m_UseDelaunayMesh: 0
---- !u!114 &1274951469628797843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3441040897333876378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
+  serializedVersion: 2
+  m_Size: {x: 4.125, y: 1.3108635}
+  m_EdgeRadius: 0
