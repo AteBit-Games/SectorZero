@@ -2,8 +2,10 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
 using System.Collections.Generic;
 using ElRaccoone.Tweens;
+using ElRaccoone.Tweens.Core;
 using Runtime.AI;
 using Runtime.AI.Interfaces;
 using Runtime.Managers;
@@ -52,6 +54,8 @@ namespace Runtime.BehaviourTree
         private static readonly int MoveX = Animator.StringToHash("moveX");
         private static readonly int MoveY = Animator.StringToHash("moveY");
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
+
+        private Tween<float> _activeTween;
 
         // ====================== Unity Events ======================
         
@@ -131,7 +135,8 @@ namespace Runtime.BehaviourTree
                 var volume = FindObjectOfType<Volume>();
                 var vignette = volume.sharedProfile.components[0] as Vignette;
 
-                volume.TweenValueFloat(0.25f, 2f, value =>
+                if(_activeTween != null) _activeTween.Cancel();
+                _activeTween = volume.TweenValueFloat(0.25f, 2f, value =>
                 {
                     if (vignette != null) vignette.intensity.value = value;
                 }).SetFrom(0f).SetEaseSineInOut();
@@ -153,7 +158,8 @@ namespace Runtime.BehaviourTree
                 var volume = FindObjectOfType<Volume>();
                 var vignette = volume.sharedProfile.components[0] as Vignette;
                 
-                volume.TweenValueFloat(0f, 1f, value =>
+                if(_activeTween != null) _activeTween.Cancel();
+                _activeTween = volume.TweenValueFloat(0f, 1f, value =>
                 {
                     if (vignette != null) vignette.intensity.value = value;
                 }).SetFrom(vignette.intensity.value).SetEaseSineInOut();

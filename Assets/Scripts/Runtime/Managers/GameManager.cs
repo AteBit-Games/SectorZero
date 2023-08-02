@@ -35,7 +35,7 @@ namespace Runtime.Managers
         [Space(10)]
         [Header("DEBUG")]
         #endregion 
-        [SerializeField] private bool testMode;
+        [SerializeField] public bool testMode;
 
         public DialogueManager DialogueSystem { get; private set;  }
         public InventoryManager InventorySystem { get; private set; }
