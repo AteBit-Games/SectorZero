@@ -19,7 +19,7 @@ namespace Runtime.Managers
         private int _loadingIndex;
         private Coroutine _loadingIconCoroutine;
         
-        private void Awake()
+        private void Start()
         {
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;

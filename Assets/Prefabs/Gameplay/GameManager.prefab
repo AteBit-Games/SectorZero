@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6510488687384232656}
   - component: {fileID: 4132463351503716538}
+  - component: {fileID: 4424986855319307660}
   m_Layer: 0
   m_Name: LoadScreen
   m_TagString: Untagged
@@ -48,6 +49,24 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: b37ad1ba155c6384db898255b0f1d3ab, type: 3}
   m_SortingOrder: 1
+--- !u!114 &4424986855319307660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6264301254492751911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d46d4b186642464da14c1a8147c70ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconStates:
+  - {fileID: 1771285699, guid: a07d92164218b4d45aa9e08746711f14, type: 3}
+  - {fileID: 693103602, guid: a07d92164218b4d45aa9e08746711f14, type: 3}
+  - {fileID: -1957200121, guid: a07d92164218b4d45aa9e08746711f14, type: 3}
+  - {fileID: 132823136, guid: a07d92164218b4d45aa9e08746711f14, type: 3}
+  iconSpeed: 0.08
 --- !u!1 &8917896545657216827
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveFileName: save.sctr
   useEncryption: 1
+  playerStartPosition: {x: 0, y: 0, z: 0}
   saveExists: 0
 --- !u!114 &864986145695122940
 MonoBehaviour:
