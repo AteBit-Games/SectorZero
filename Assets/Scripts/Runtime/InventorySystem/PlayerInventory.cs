@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 using System.Collections.Generic;
+using Runtime.InteractionSystem.Items;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace Runtime.InventorySystem
         // ReSharper disable once CollectionNeverQueried.Global
         public readonly List<Tape> tapeInventory = new();
         public readonly List<Item> itemInventory = new();
-        public GameObject throwableItem;
+        public Throwable throwableItem;
         
         public bool HasThrowableItem => throwableItem != null;
 
@@ -48,7 +49,7 @@ namespace Runtime.InventorySystem
         
         public void PickUpThrowable(GameObject item)
         {
-            throwableItem = item;
+            throwableItem = item.GetComponent<Throwable>();
         }
         
         public void DropThrowable()
@@ -56,7 +57,7 @@ namespace Runtime.InventorySystem
             throwableItem = null;
         }
         
-        public GameObject GetThrowable()
+        public Throwable GetThrowable()
         {
             return throwableItem;
         }
