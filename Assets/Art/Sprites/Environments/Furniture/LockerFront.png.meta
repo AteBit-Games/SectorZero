@@ -77,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -89,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -101,49 +103,50 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Locker_0
+      name: LockerFront_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 26
         height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca306d58596c679498d67ed2cd58e981
-      internalID: 1372038064
+      spriteID: 5bb9c4a8ad4e9c349be4ca0ab1a22a7a
+      internalID: -1580726971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Locker_1
+      name: LockerFront_1
       rect:
         serializedVersion: 2
         x: 26
         y: 0
         width: 26
         height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f3c3b1e8cbfe6f4fa9bcf489d4fe95e
-      internalID: 1721134738
+      spriteID: aab1b4a36e0c3a74bab2e8c487c198e2
+      internalID: 1755429291
       vertices: []
       indices: 
       edges: []
@@ -159,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Locker_0: 1372038064
-      Locker_1: 1721134738
+      LockerFront_0: -1580726971
+      LockerFront_1: 1755429291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

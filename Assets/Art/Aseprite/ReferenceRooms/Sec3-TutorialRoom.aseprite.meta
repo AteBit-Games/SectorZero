@@ -121,14 +121,14 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Sec3-TutorialRoom
     originalName: 
-    pivot: {x: 0.7616822, y: 0}
+    pivot: {x: 0.65549594, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 642
+      width: 746
       height: 280
     spriteID: f239770244d9dac4d8ec20408a71e423
     spriteBone: []
@@ -153,7 +153,7 @@ ScriptedImporter:
       cellRect:
         x: -198
         y: 0
-        width: 642
+        width: 746
         height: 280
       spriteId: f239770244d9dac4d8ec20408a71e423
     linkedCells: []
