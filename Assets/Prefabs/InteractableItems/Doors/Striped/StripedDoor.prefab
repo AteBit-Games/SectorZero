@@ -152,7 +152,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9de0fdd37e4a63c459326cb9bfc943d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -246,7 +246,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.25}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4, y: 6}
     newSize: {x: 6.4, y: 9.6}
     adaptiveTilingThreshold: 0.5
@@ -255,16 +255,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.532881, y: 4.5}
-      - {x: -2, y: 4.5}
-      - {x: -2, y: -1.5}
-      - {x: -1.4429419, y: -1.434265}
-      - {x: -1.4186387, y: 2.863382}
-      - {x: 1.4219288, y: 2.884487}
-      - {x: 1.4166574, y: -1.460633}
-      - {x: 2, y: -1.5}
-      - {x: 2, y: 0.725384}
-      - {x: 2, y: 4.5}
+    - - {x: -0.532881, y: 6}
+      - {x: -2, y: 6}
+      - {x: -2, y: 0}
+      - {x: -1.4429419, y: 0.065735}
+      - {x: -1.4186387, y: 4.363382}
+      - {x: 1.4219288, y: 4.384487}
+      - {x: 1.4166574, y: 0.039367}
+      - {x: 2, y: 0}
+      - {x: 2, y: 2.225384}
+      - {x: 2, y: 6}
   m_UseDelaunayMesh: 0
 --- !u!210 &6691542696565207430
 SortingGroup:
@@ -295,6 +295,7 @@ MonoBehaviour:
   navMeshSurface: {fileID: 0}
   navigationBlocker: {fileID: 1558445421142627366}
   bottomAnimator: {fileID: 0}
+  startOpen: 0
 --- !u!95 &2219692982887217446
 Animator:
   serializedVersion: 5
