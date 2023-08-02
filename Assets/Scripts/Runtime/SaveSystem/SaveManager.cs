@@ -18,6 +18,8 @@ namespace Runtime.SaveSystem
         [SerializeField] private string saveFileName;
         [SerializeField] private bool useEncryption;
         
+        [SerializeField] private Vector3 playerStartPosition;
+        
         [HideInInspector] public bool saveExists;
 
         private List<IPersistant> _persistantObjects;
@@ -62,8 +64,13 @@ namespace Runtime.SaveSystem
         public void NewGame() 
         {
             DeleteSaveData();
-            _saveData = new SaveData();
             saveExists = false;
+            _saveData = new SaveData();
+
+            if (GameManager.Instance.testMode)
+            {
+                _saveData.playerData.position = playerStartPosition;
+            }
         }
 
         public void SaveGame()
