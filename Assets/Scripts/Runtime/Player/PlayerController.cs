@@ -3,11 +3,11 @@
 * All rights reserved.
 ****************************************************************/
 
-using System.Collections;
+using System;
+using System.Linq;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
 using Runtime.InputSystem;
-using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem;
 using Runtime.Managers;
 using Runtime.SaveSystem;
@@ -16,7 +16,6 @@ using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
 
 namespace Runtime.Player
 {
@@ -40,6 +39,7 @@ namespace Runtime.Player
         [Space(10)] 
         [Header("Throwing System")]
         [SerializeField] private GameObject throwIndicator;
+        [SerializeField] private LayerMask throwBoundsMask;
 
         [Space(10)]
         [Header("STEALTH DETAILS")]
@@ -78,8 +78,10 @@ namespace Runtime.Player
         
         // ============ Throwing System ============
         private bool _isAiming;
+        private bool _canThrow;
         private SpriteRenderer _indicatorSpriteRenderer;
-        private Coroutine _throwCoroutine;
+        private Rigidbody2D _indicatorRb;
+        private CircleCollider2D _indicatorCollider;
 
         private void OnEnable()
         {
@@ -114,6 +116,8 @@ namespace Runtime.Player
             }
             
             _indicatorSpriteRenderer = throwIndicator.GetComponent<SpriteRenderer>();
+            _indicatorRb = throwIndicator.GetComponent<Rigidbody2D>();
+            _indicatorCollider = throwIndicator.GetComponent<CircleCollider2D>();
 
             if (SceneManager.GetActiveScene().name == "Tutorial")
             {
@@ -131,7 +135,7 @@ namespace Runtime.Player
 
         private void HandleMove(Vector2 direction)
         {
-            _movementInput = direction;
+            if(!_isAiming) _movementInput = direction;
         }
         
         private void HandleSneak()
@@ -254,17 +258,18 @@ namespace Runtime.Player
             {
                 _isAiming = true;
                 DisableMovement();
-                UpdateThrowIndicator();
                 _indicatorSpriteRenderer.enabled = true;
+                UpdateThrowIndicator();
             }
         }
 
         private void HandleThrow()
         {
-            if (_isAiming)
+            if (_isAiming && _canThrow)
             {
                 var inventory = gameObject.GetComponent<PlayerInventory>();
-                Throw(inventory.GetThrowable());
+
+                inventory.GetThrowable().Throw(new Vector2(transform.position.x, transform.position.y + 1f), throwIndicator);
                 inventory.DropThrowable();
                 HandleAimCancel();
                 GameManager.Instance.HUD.ShowThrowableIcon(false);
@@ -281,8 +286,7 @@ namespace Runtime.Player
         private void UpdateThrowIndicator()
         {
             //move the game object to the mouse position based on rigidbody physics
-            var rbIndicator = throwIndicator.GetComponent<Rigidbody2D>();
-            rbIndicator.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            _indicatorRb.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
             //scale the indicator based on the distance from the player
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -290,70 +294,22 @@ namespace Runtime.Player
             var scale = Mathf.Clamp(distance/25, 0.5f, 1f);
 
             throwIndicator.transform.localScale = new Vector3(scale, scale, 1);
-        }
-
-        private void Throw(GameObject throwable)
-        {
-            //pick a random point in the circle
-            var landingRange = throwIndicator.GetComponent<CircleCollider2D>();
-            var randomPointInRange = Random.insideUnitCircle * landingRange.radius;
-            var throwPosition = new Vector3(randomPointInRange.x, randomPointInRange.y, 0) + throwIndicator.transform.position;
-
-            //Determine the distance of the throw
-            var throwDistance = Vector2.Distance(throwPosition, gameObject.transform.position);
-            var height = Mathf.Clamp(throwDistance/1.5f, 2f, 8f);
-
-            //Enable the throwable and set its position to the origin of the player
-            throwable.SetActive(true);
-            throwable.transform.position = gameObject.transform.position;
             
-            //Calculate the bezier curve
-            var point = new Vector2[3];
-            point[0] = gameObject.transform.position;
-            point[2] = throwPosition;
-            point[1] = point[0] +(point[2] -point[0])/2 + Vector2.up * height;
+            //get list of all colliders that the indicator is overlapping
+            var roomBound = Physics2D.OverlapPoint(throwIndicator.transform.position, throwBoundsMask);
             
-            //Based on higher distance have less bounces
-            var bounces = Mathf.RoundToInt(3 - Mathf.Clamp(Mathf.RoundToInt(throwDistance/4), 1, 2));
-            
-            //Fall speed modifier
-            var modifier = -Mathf.Clamp(throwDistance / 120, 0.065f, 0.07f);
-            modifier += 0.1f;
+            //if overlapping with a object with tag "RoomBounds" then change the color to red
 
-            //Start the coroutine to move the throwable on the curve
-            _throwCoroutine = StartCoroutine(ThrowCoroutine(0.0f, throwable, point, modifier, bounces, throwDistance));
-        }
-
-        private IEnumerator ThrowCoroutine(float bezierCount, GameObject throwable, Vector2[] points, float countModifier, int bounces, float distance)
-        {
-            if(bezierCount <= 1.0f)
+            if (roomBound != null)
             {
-                var bezierPoint = Mathf.Pow(1.0f - bezierCount, 2) * points[0] + 2.0f * (1.0f - bezierCount) * bezierCount * points[1] + Mathf.Pow(bezierCount, 2) * points[2];
-                throwable.transform.position = bezierPoint;
-                
-                if(bezierCount <= 0.5) countModifier = Mathf.Clamp(countModifier - 0.0006f, 0, 1);
-                else countModifier = Mathf.Clamp(countModifier + 0.0003f, 0, 1);
-                
-                yield return new WaitForSeconds(0.02f);
-                _throwCoroutine = StartCoroutine(ThrowCoroutine(bezierCount + countModifier, throwable, points, countModifier, bounces, distance));
+                _canThrow = true;
+                _indicatorSpriteRenderer.color = Color.white;
             }
             else
             {
-                throwable.GetComponent<IThrowable>().OnDrop(throwable.transform);
-
-                if (bounces > 0)
-                {
-                    points[0] = throwable.transform.position;
-                    points[2] += (points[0] - (Vector2)transform.position).normalized * distance/8;
-                    points[1] = points[0] + (points[2] -points[0])/2 + Vector2.up * ((distance/6) * bounces);
-                    StartCoroutine(ThrowCoroutine(0.0f, throwable, points, countModifier+0.04f, bounces-1, distance));
-                }
-                else
-                {
-                    StopCoroutine(_throwCoroutine);
-                    _throwCoroutine = null;
-                }
-            }
+                _canThrow = false;
+                _indicatorSpriteRenderer.color = Color.red;
+            };
         }
 
         // ==================== Helper Methods ====================
