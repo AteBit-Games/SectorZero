@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 461143468751046783}
   - component: {fileID: 1253724928}
   - component: {fileID: 6610655758530805637}
+  - component: {fileID: 7183558221093178581}
   m_Layer: 3
   m_Name: LockerFront
   m_TagString: Untagged
@@ -322,6 +323,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4977815, y: 4.1440563}
   m_EdgeRadius: 0
+--- !u!114 &7183558221093178581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461143468751046662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 0000000073213335
+  m_ShapePath:
+  - {x: -0.8125, y: -2.125, z: 0}
+  - {x: -0.8125, y: 2.125, z: 0}
+  - {x: 0.8125, y: 2.125, z: 0}
+  - {x: 0.8125, y: -2.125, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -184946
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.8125, y: 2.125, z: 0}
 --- !u!1 &461143469602724629
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +378,7 @@ Transform:
   m_GameObject: {fileID: 461143469602724629}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -3.13, z: 0}
+  m_LocalPosition: {x: -0.03, y: -1.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
