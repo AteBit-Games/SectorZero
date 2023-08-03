@@ -333,6 +333,7 @@ namespace Runtime.Player
 
         public void EnableInput()
         {
+            _inputDisabled = false;
             inputReader.MoveEvent += HandleMove;
             inputReader.SneakEvent += HandleSneak;
         }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7c0f1d133ed625d4ab018c5e90dfe981
+guid: 10709d43030164142a1676be9784d8dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,11 +43,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 7
-  spritePivot: {x: 0.5, y: 0}
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -108,91 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Canvas_Nellie_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 24
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48e610aeedd47e64a9faa478bbf063d6
-      internalID: -1851029725
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Canvas_Nellie_1
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 24
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4491a1bcb1e70f34eb1c5f7bcef67194
-      internalID: -1058954347
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Canvas_Nellie_2
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 24
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5e70c4c5d9dd6c489501165c5f6ca59
-      internalID: -815499442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Canvas_Nellie_3
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 0
-        width: 24
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06ae91e4a2174574c813ae78cecf146d
-      internalID: 1648188570
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -203,11 +119,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Canvas_Nellie_0: -1851029725
-      Canvas_Nellie_1: -1058954347
-      Canvas_Nellie_2: -815499442
-      Canvas_Nellie_3: 1648188570
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

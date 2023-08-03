@@ -121,7 +121,7 @@ namespace Runtime.Managers
         {
             TriggerEvent("TutorialStage4");
         }
-        
+
         public void TriggerDialogue(int index)
         {
             GameManager.Instance.DialogueSystem.StartDialogue(tutorialDialogue[index]);
