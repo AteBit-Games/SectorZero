@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45592774a6613004c9d7daa230919261, type: 3}
-  m_Name: D_TutorialStage3
+  m_Name: D_TutorialStage4
   m_EditorClassIdentifier: 
   date: 
   dialogueLines:
   - actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
-    line: wadwadawdawdwad
-  - actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
-    line: dwadwadawdawdawd
+    line: Hey bitch, go to the canvussy
   trigger: 1

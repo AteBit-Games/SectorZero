@@ -97,14 +97,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6581286459559212728}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 256
@@ -175,6 +175,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactSound: {fileID: 11400000, guid: ee71ebac7b9200b4c84687a87519b73a, type: 2}
   dropSound: {fileID: 11400000, guid: 5d8d250fff04a1b41a40edcf390dba60, type: 2}
+  icon: {fileID: 21300000, guid: df8fab419005ff8409192d48fd963ba7, type: 3}
+  maxBounces: 1
+  bounceDistanceDivider: 7
+  bounceHeightDivider: 10
+  randomizeLand: 0
 --- !u!210 &7093625508643843312
 SortingGroup:
   m_ObjectHideFlags: 0
