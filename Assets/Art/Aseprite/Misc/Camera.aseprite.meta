@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Camera
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.28571427, y: -0.25}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
-      width: 17
-      height: 20
+      x: 100
+      y: 28
+      width: 14
+      height: 16
     spriteID: 10ae8ac4d6d47ba4b95fa658cc5e9177
     spriteBone: []
     spriteOutline: []
@@ -138,7 +138,207 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
+    uvTransform: {x: 100, y: 28}
+  - name: Camera_Frame_1
+    originalName: 
+    pivot: {x: 0.375, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 79
+      y: 4
+      width: 16
+      height: 16
+    spriteID: f908d6f953218fe47aa4cd0e5f03ec96
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 79, y: 4}
+  - name: Camera_Frame_2
+    originalName: 
+    pivot: {x: 0.375, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 4
+      width: 16
+      height: 16
+    spriteID: 66b1d19ddcb46254f9cf0fd8f8b2a7ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 103, y: 4}
+  - name: Camera_Frame_3
+    originalName: 
+    pivot: {x: 0.375, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 28
+      width: 16
+      height: 16
+    spriteID: 7419def10a49b3b4fab0a3320786d4e9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 28}
+  - name: Camera_Frame_4
+    originalName: 
+    pivot: {x: 0.375, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 28
+      width: 16
+      height: 16
+    spriteID: b05878a2a2e401948a619d08c07c32ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 28}
+  - name: Camera_Frame_5
+    originalName: 
+    pivot: {x: 0.28571427, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 52
+      width: 14
+      height: 16
+    spriteID: c7a35467075e2b5449ec5855a65036f9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 52}
+  - name: Camera_Frame_6
+    originalName: 
+    pivot: {x: 0.375, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 28
+      width: 16
+      height: 16
+    spriteID: 9666542b8a9890b48bd82447ad046f33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 28}
+  - name: Camera_Frame_7
+    originalName: 
+    pivot: {x: 0.4117647, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 17
+      height: 16
+    spriteID: 373b74fffd9527b42ac3fd6d03a9cbb3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Camera_Frame_8
+    originalName: 
+    pivot: {x: 0.4117647, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 4
+      width: 17
+      height: 16
+    spriteID: 6e0cb0db79bfb8543894beaad94784de
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 4}
+  - name: Camera_Frame_9
+    originalName: 
+    pivot: {x: 0.4117647, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 54
+      y: 4
+      width: 17
+      height: 16
+    spriteID: f0b2031099386064a8d8ad4f05ed6376
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 54, y: 4}
+  - name: Camera_Frame_10
+    originalName: 
+    pivot: {x: 0.375, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 28
+      width: 16
+      height: 16
+    spriteID: 44b11cc7b98618e46a44e41356807498
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 28}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -148,17 +348,97 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Camera
+    - name: Camera_Frame_0
       frameIndex: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 17
-        height: 20
+        x: 6
+        y: 4
+        width: 14
+        height: 16
       spriteId: 10ae8ac4d6d47ba4b95fa658cc5e9177
+    - name: Camera_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 4
+        y: 4
+        width: 16
+        height: 16
+      spriteId: f908d6f953218fe47aa4cd0e5f03ec96
+    - name: Camera_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 4
+        y: 4
+        width: 16
+        height: 16
+      spriteId: 66b1d19ddcb46254f9cf0fd8f8b2a7ab
+    - name: Camera_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 4
+        y: 4
+        width: 16
+        height: 16
+      spriteId: 7419def10a49b3b4fab0a3320786d4e9
+    - name: Camera_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 4
+        y: 4
+        width: 16
+        height: 16
+      spriteId: b05878a2a2e401948a619d08c07c32ab
+    - name: Camera_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 6
+        y: 4
+        width: 14
+        height: 16
+      spriteId: c7a35467075e2b5449ec5855a65036f9
+    - name: Camera_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 4
+        y: 4
+        width: 16
+        height: 16
+      spriteId: 9666542b8a9890b48bd82447ad046f33
+    - name: Camera_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 16
+      spriteId: 373b74fffd9527b42ac3fd6d03a9cbb3
+    - name: Camera_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 16
+      spriteId: 6e0cb0db79bfb8543894beaad94784de
+    - name: Camera_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 16
+      spriteId: f0b2031099386064a8d8ad4f05ed6376
+    - name: Camera_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 4
+        y: 4
+        width: 16
+        height: 16
+      spriteId: 44b11cc7b98618e46a44e41356807498
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 17, y: 20}
+  canvasSize: {x: 20, y: 20}
