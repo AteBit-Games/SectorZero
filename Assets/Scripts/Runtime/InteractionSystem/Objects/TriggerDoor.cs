@@ -50,10 +50,14 @@ namespace Runtime.InteractionSystem.Objects
             GameManager.Instance.SoundSystem.Play(closeSound, transform);
             _mainAnimator.SetBool(_isOpen, false);
         }
+        
+        public void TriggerHit()
+        {
+            _mainAnimator.SetTrigger("hit");
+        }
 
         public void BreakDoor()
         {
-            GameManager.Instance.SoundSystem.Play(closeSound, transform);
             _mainAnimator.SetTrigger("break");
         }
 
