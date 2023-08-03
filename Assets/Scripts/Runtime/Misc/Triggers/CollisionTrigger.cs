@@ -11,12 +11,13 @@ namespace Runtime.Misc.Triggers
     public class CollisionTrigger : MonoBehaviour
     {
         [SerializeField] private UnityEvent triggerEvent;
-    
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
                 triggerEvent.Invoke();
+                gameObject.SetActive(false);
             }
         }
     }
