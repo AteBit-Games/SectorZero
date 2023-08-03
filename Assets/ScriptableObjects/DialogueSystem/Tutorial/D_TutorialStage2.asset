@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45592774a6613004c9d7daa230919261, type: 3}
   m_Name: D_TutorialStage2
   m_EditorClassIdentifier: 
-  lines:
-  - Look! I told you she would be alright.
-  - Whoa there! Take it easy, we can't have you passing out again.
-  - Hey, if you can hear me. Come up to the glass when you're ready.
-  actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
   date: 
+  dialogueLines:
+  - actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
+    line: Look! I told you she would be alright.
+  - actor: {fileID: 11400000, guid: acc7cfc24a2970e4c99b7ca256c353d3, type: 2}
+    line: Whoa there! Take it easy, we can't have you passing out again.
+  - actor: {fileID: 11400000, guid: acc7cfc24a2970e4c99b7ca256c353d3, type: 2}
+    line: Hey, if you can hear me. Come up to the glass when you're ready.
+  trigger: 0

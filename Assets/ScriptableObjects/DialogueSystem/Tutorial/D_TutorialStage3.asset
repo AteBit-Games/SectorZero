@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45592774a6613004c9d7daa230919261, type: 3}
   m_Name: D_TutorialStage3
   m_EditorClassIdentifier: 
-  actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
   date: 
-  lines:
-  - dawdawdaawdwadawd   dawdawdwa  dawd dwa dwawdawd
-  - wdadwadaw dwaad awd wadawdwa aw d wad awwa
+  dialogueLines:
+  - actor: {fileID: 11400000, guid: acc7cfc24a2970e4c99b7ca256c353d3, type: 2}
+    line: wadwadawdawdwad
+  - actor: {fileID: 11400000, guid: acc7cfc24a2970e4c99b7ca256c353d3, type: 2}
+    line: dwadwadawdawdawd
+  trigger: 1

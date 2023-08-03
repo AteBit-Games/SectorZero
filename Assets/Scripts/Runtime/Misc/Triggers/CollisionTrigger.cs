@@ -3,14 +3,12 @@
 * All rights reserved.
 ****************************************************************/
 
-using System.Collections.Generic;
-using Runtime.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Runtime.Tutorial
+namespace Runtime.Misc.Triggers
 {
-    public class Trigger : MonoBehaviour
+    public class CollisionTrigger : MonoBehaviour
     {
         [SerializeField] private UnityEvent triggerEvent;
     

@@ -11,17 +11,17 @@ namespace Runtime.InteractionSystem.Objects
     public class TutorialDoor : MonoBehaviour
     {
         [SerializeField] private string tutorialStage;
-        private TriggerDoor triggerDoor;
+        private Collider2D triggerDoor;
 
         private void Awake()
         {
-            triggerDoor = GetComponent<TriggerDoor>();
+            triggerDoor = GetComponent<Collider2D>();
             TutorialManager.StartListening(tutorialStage, Trigger);
         }
         
         private void Trigger()
         {
-            triggerDoor.OpenDoor();
+            triggerDoor.enabled = true;
         }
     }
 }
