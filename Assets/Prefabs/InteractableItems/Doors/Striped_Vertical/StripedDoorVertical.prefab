@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1288620181424130991}
   - component: {fileID: 3426687566672616451}
   - component: {fileID: 754211185299575299}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: VerticalBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 57506138857328740}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3.5592034, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 2010079168897148027}
   - component: {fileID: 4918035435952409087}
   - component: {fileID: 5453075131689179816}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: StripedDoorVertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20, y: -3.25, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1654113359232365802}
@@ -325,7 +325,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513579254062398314}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -350,10 +350,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 5}
+  m_Offset: {x: 0, y: 3.223378}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.339}
     oldSize: {x: 4, y: 10.5}
     newSize: {x: 0.8, y: 3.2}
     adaptiveTilingThreshold: 0.5
@@ -361,7 +361,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0012169, y: 6.4414787}
+  m_Size: {x: 1.0012169, y: 6.4470353}
   m_EdgeRadius: 0
 --- !u!210 &4918035435952409087
 SortingGroup:
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 5212919147614897075}
   - component: {fileID: 4544184202133311659}
   - component: {fileID: 8307957626412204353}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: NavigationBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ Transform:
   m_GameObject: {fileID: 8870739233594927491}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.40625, y: 0.4375, z: 0}
+  m_LocalPosition: {x: 0.40625, y: -3.125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -517,7 +517,7 @@ MonoBehaviour:
   - {x: -0.9003639, y: 0.05731964, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -255170
+  m_InstanceId: -213212
   m_LocalBounds:
     m_Center: {x: -0.40282822, y: 3, z: 0}
     m_Extent: {x: 0.4975357, y: 2.9426804, z: 0}

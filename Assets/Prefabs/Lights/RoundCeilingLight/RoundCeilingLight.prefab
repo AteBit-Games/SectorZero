@@ -184,7 +184,7 @@ Animator:
   m_GameObject: {fileID: 1823490569141454640}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1eac9636ac14c7b419429a65933666fa, type: 2}
+  m_Controller: {fileID: 9100000, guid: 65f75fbc7b42ceb48a128e9a68255aea, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -257,7 +257,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 21
   m_SortAtRoot: 0
 --- !u!1 &5892944920742133118
 GameObject:
@@ -308,8 +308,8 @@ MonoBehaviour:
   m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.82
-  m_Color: {r: 1, g: 0.8437388, b: 0.5896226, a: 1}
-  m_Intensity: 0.75
+  m_Color: {r: 1, g: 0.8724169, b: 0.6650944, a: 1}
+  m_Intensity: 1.1
   m_LightVolumeIntensity: 0.09
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
+  m_OverlapOperation: 1
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
@@ -326,8 +326,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.019399643, y: -1.9927502, z: 0}
-    m_Extent: {x: 10.7689, y: 11.09645, z: 0}
+    m_Center: {x: 0.017549992, y: -1.9859004, z: 0}
+    m_Extent: {x: 10.76165, y: 11.1022, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
