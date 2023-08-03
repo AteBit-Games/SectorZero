@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   date: 
   dialogueLines:
-  - actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
+  - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
     line: Hey bitch, go to the canvussy
   trigger: 1

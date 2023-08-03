@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: A_Scientist2
   m_EditorClassIdentifier: 
   name: Scientist 2
-  sprite: {fileID: 21300000, guid: b21909fc55ee3704abb9454d98a0879b, type: 3}
+  sprite: {fileID: 21300000, guid: 7b005fe9c1e12a249837de02e72f1936, type: 3}
   actorSounds:
   - {fileID: 8300000, guid: 6c0d30724da7d334d913d2e5844416b0, type: 3}
   - {fileID: 8300000, guid: 9062016096b9e394f9623031c8123ced, type: 3}
