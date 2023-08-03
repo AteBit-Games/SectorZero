@@ -3,8 +3,6 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
-using System.Linq;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
 using Runtime.InputSystem;
@@ -81,7 +79,6 @@ namespace Runtime.Player
         private bool _canThrow;
         private SpriteRenderer _indicatorSpriteRenderer;
         private Rigidbody2D _indicatorRb;
-        private CircleCollider2D _indicatorCollider;
 
         private void OnEnable()
         {
@@ -117,7 +114,6 @@ namespace Runtime.Player
             
             _indicatorSpriteRenderer = throwIndicator.GetComponent<SpriteRenderer>();
             _indicatorRb = throwIndicator.GetComponent<Rigidbody2D>();
-            _indicatorCollider = throwIndicator.GetComponent<CircleCollider2D>();
 
             if (SceneManager.GetActiveScene().name == "Tutorial")
             {
@@ -292,8 +288,12 @@ namespace Runtime.Player
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var distance = Vector2.Distance(transform.position, mousePos);
             var scale = Mathf.Clamp(distance/25, 0.5f, 1f);
-
             throwIndicator.transform.localScale = new Vector3(scale, scale, 1);
+
+            //calculate the angle between the player and the mouse and set the rotation of the player animation of vector 2
+            var direction = (mousePos - transform.position).normalized;
+            _movementAnimator.SetFloat(id: _moveX, direction.x);
+            _movementAnimator.SetFloat(id: _moveY, direction.y);
             
             //get list of all colliders that the indicator is overlapping
             var roomBound = Physics2D.OverlapPoint(throwIndicator.transform.position, throwBoundsMask);

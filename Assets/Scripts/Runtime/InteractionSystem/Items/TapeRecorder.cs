@@ -32,11 +32,11 @@ namespace Runtime.InteractionSystem.Items
             
             var inventory = player.GetComponentInParent<PlayerInventory>();
             var tapeInstance = ScriptableObject.CreateInstance<Tape>();
-            tapeInstance.itemName = dialogue.actor.Name;
-            tapeInstance.itemSprite = dialogue.actor.Sprite;
-            tapeInstance.itemType = ItemType.TapeRecording;
-            tapeInstance.itemDescription = dialogueDescription;
-            tapeInstance.dialogue = dialogue;
+            // tapeInstance.itemName = dialogue.actor.Name;
+            // tapeInstance.itemSprite = dialogue.actor.Sprite;
+            // tapeInstance.itemType = ItemType.TapeRecording;
+            // tapeInstance.itemDescription = dialogueDescription;
+            // tapeInstance.dialogue = dialogue;
 
             return inventory.AddTapeToInventory(tapeInstance);
         }

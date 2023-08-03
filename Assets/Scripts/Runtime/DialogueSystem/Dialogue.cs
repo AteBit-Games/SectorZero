@@ -2,17 +2,26 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Runtime.DialogueSystem
 {
+    [Serializable]
+    public class DialogueLine
+    {
+        [SerializeField, Tooltip("The actor that will be speaking the line")] public Actor actor;
+        [SerializeField, Tooltip("The line that the actor will be speaking")] public string line;
+    }
+    
     [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue System/Dialogue")]
     public class Dialogue : ScriptableObject
     {
-        [SerializeField, Tooltip("Reference to the actor that will be speaking the lines")] public Actor actor;
         [SerializeField, Tooltip("The date of the dialogue")] public string date;
-        [SerializeField, Tooltip("Lines that the actor will be speaking in order")] public List<string> lines;
+        [SerializeField, Tooltip("Lines that the actor will be speaking in order")] public List<DialogueLine> dialogueLines;
+        [SerializeField, Tooltip("If this dialogue should trigger an event")] public bool trigger;
     }
 }

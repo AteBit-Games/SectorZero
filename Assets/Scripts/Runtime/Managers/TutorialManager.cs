@@ -25,7 +25,7 @@ namespace Runtime.Managers
             StartCoroutine(Delay());
         }
 
-        private static IEnumerator Delay()
+        private IEnumerator Delay()
         {
             yield return new WaitForSecondsRealtime(0.1f);
             GameManager.Instance.DialogueSystem.OnDialogueFinish += TriggerStage4;
@@ -113,10 +113,11 @@ namespace Runtime.Managers
         
         public void TriggerStage2()
         {
+            activeStage = 2;
             TriggerEvent("TutorialStage2");
         }
 
-        private static void TriggerStage4()
+        private void TriggerStage4()
         {
             TriggerEvent("TutorialStage4");
         }

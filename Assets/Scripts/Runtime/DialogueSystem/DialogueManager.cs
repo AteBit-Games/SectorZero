@@ -19,7 +19,7 @@ namespace Runtime.DialogueSystem
         [SerializeField, Tooltip("Speed the text is 'typed' onto the screen")] private float textSpeed = 0.05f;
         
         //============== Settings ================
-        [HideInInspector] public event Action OnDialogueFinish;
+        public event Action OnDialogueFinish;
         private AudioSource _audioSource;
         
         //================ UI Elements ==================
@@ -76,9 +76,9 @@ namespace Runtime.DialogueSystem
             _currentLineIndex = 0;
             _skipDialogue = false;
             
-            _actorNameTextElement.text = dialogue.actor.Name;
+            _actorNameTextElement.text = dialogue.dialogueLines[_currentLineIndex].actor.Name;
             _dateTextElement.text = dialogue.date;
-            _actorImage.style.backgroundImage = new StyleBackground(dialogue.actor.Sprite);
+            _actorImage.style.backgroundImage = new StyleBackground(dialogue.dialogueLines[_currentLineIndex].actor.Sprite);
             _dialogueTextElement.text = "";
             
             ContinueDialogue();
@@ -88,7 +88,7 @@ namespace Runtime.DialogueSystem
         {
             if(_currentDialogue == null) return;
             
-            if (_currentLineIndex < _currentDialogue.lines.Count)
+            if (_currentLineIndex < _currentDialogue.dialogueLines.Count)
             {
                 _skipDialogue = false;
                 
@@ -105,7 +105,7 @@ namespace Runtime.DialogueSystem
                 if (_skipDialogue) ShowDialogue(false);
                 else StartCoroutine(ExitDialogue());
 
-                OnDialogueFinish?.Invoke();
+                if(_currentDialogue.trigger) OnDialogueFinish?.Invoke();
                 _currentDialogue = null;
             }
         }
@@ -113,23 +113,25 @@ namespace Runtime.DialogueSystem
         private IEnumerator DisplayLine(Dialogue dialogue, int lineIndex)
         {
             var currentLetterIndex = 0;
+            _actorNameTextElement.text = dialogue.dialogueLines[_currentLineIndex].actor.Name;
+            _actorImage.style.backgroundImage = new StyleBackground(dialogue.dialogueLines[_currentLineIndex].actor.Sprite);
             
-            foreach(var character in dialogue.lines[lineIndex])
+            foreach(var character in dialogue.dialogueLines[lineIndex].line)
             {
                 // finish up displaying the line right away if left click is pressed
                 if(_skipDialogue) break;
 
                 //Add a letter to the dialogue text
-                var text = dialogue.lines[lineIndex][..currentLetterIndex];
+                var text = dialogue.dialogueLines[lineIndex].line[..currentLetterIndex];
                 _dialogueTextElement.text = text;
                 
                 //Play a sound
-                PlayDialogueSound(dialogue.actor, currentLetterIndex, character);
+                PlayDialogueSound(dialogue.dialogueLines[lineIndex].actor, currentLetterIndex, character);
                 currentLetterIndex++;
                 yield return new WaitForSeconds(textSpeed);
             }
             
-            _dialogueTextElement.text = dialogue.lines[lineIndex];
+            _dialogueTextElement.text = dialogue.dialogueLines[lineIndex].line;
             yield return new WaitForSeconds(2f);
             ContinueDialogue();
         }
