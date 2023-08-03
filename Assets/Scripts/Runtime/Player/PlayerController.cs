@@ -63,6 +63,7 @@ namespace Runtime.Player
         private Vector2 _lastPosition;
         private bool _sneaking;
         private bool _isDead;
+        private bool _inputDisabled;
 
         // ============ Hiding System ============
        [HideInInspector] public bool isHiding;
@@ -131,7 +132,7 @@ namespace Runtime.Player
 
         private void HandleMove(Vector2 direction)
         {
-            if(!_isAiming) _movementInput = direction;
+            if(!_inputDisabled) _movementInput = direction;
         }
         
         private void HandleSneak()
@@ -324,6 +325,7 @@ namespace Runtime.Player
 
         public void DisableInput()
         {
+            _inputDisabled = true;
             inputReader.MoveEvent -= HandleMove;
             inputReader.SneakEvent -= HandleSneak;
             _movementInput = Vector2.zero;
@@ -335,14 +337,22 @@ namespace Runtime.Player
             inputReader.SneakEvent += HandleSneak;
         }
 
+        public void LookAt(Vector2 direction)
+        {
+            _movementAnimator.SetFloat(id: _moveX, direction.x);
+            _movementAnimator.SetFloat(id: _moveY, direction.y);
+        }
+
         private void DisableMovement()
         {
+            _inputDisabled = true;
             inputReader.MoveEvent -= HandleMove;
             _movementInput = Vector2.zero;
         }
 
         private void EnableMovement()
         {
+            _inputDisabled = false;
             inputReader.MoveEvent += HandleMove;
         }
 

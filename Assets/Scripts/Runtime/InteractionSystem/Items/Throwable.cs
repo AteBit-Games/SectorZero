@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
+using System;
 using System.Collections;
 using Runtime.AI;
 using Runtime.InteractionSystem.Interfaces;
@@ -12,6 +13,7 @@ using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
 
 namespace Runtime.InteractionSystem.Items
@@ -31,12 +33,19 @@ namespace Runtime.InteractionSystem.Items
 
         [SerializeField] private bool randomizeLand = true;
         private Coroutine _throwCoroutine;
+        private SortingGroup _sortingGroup;
+
+        private void Awake()
+        {
+            _sortingGroup = GetComponent<SortingGroup>();
+        }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
             if(other.gameObject.layer == LayerMask.NameToLayer("Walls"))
             {
                 if (_throwCoroutine != null) StopCoroutine(_throwCoroutine);
+                _sortingGroup.sortingOrder = 9;
                 GameManager.Instance.SoundSystem.Play(dropSound, transform);
             }
         }
@@ -82,6 +91,7 @@ namespace Runtime.InteractionSystem.Items
             //pick a random point in the circle
             var landingRange = throwIndicator.GetComponent<CircleCollider2D>();
 
+            _sortingGroup.sortingOrder = 11;
             Vector3 throwPosition;
 
             if (randomizeLand)
@@ -146,6 +156,7 @@ namespace Runtime.InteractionSystem.Items
                 }
                 else
                 {
+                    _sortingGroup.sortingOrder = 9;
                     StopCoroutine(_throwCoroutine);
                     _throwCoroutine = null;
                 }
