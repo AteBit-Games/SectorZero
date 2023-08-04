@@ -65,6 +65,8 @@ namespace Runtime.DialogueSystem
 
         private void SkipDialogue()
         {
+            if(!_currentDialogue.canSkip) return;
+            
             if(_skipDialogue) ContinueDialogue();
             else _skipDialogue = true;
         }
@@ -132,7 +134,7 @@ namespace Runtime.DialogueSystem
             }
             
             _dialogueTextElement.text = dialogue.dialogueLines[lineIndex].line;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(_currentDialogue.autoSkipDelay);
             ContinueDialogue();
         }
         
