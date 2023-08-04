@@ -65,6 +65,7 @@ namespace Runtime.DialogueSystem
 
         private void SkipDialogue()
         {
+            if(_currentDialogue == null) return;
             if(!_currentDialogue.canSkip) return;
             
             if(_skipDialogue) ContinueDialogue();
