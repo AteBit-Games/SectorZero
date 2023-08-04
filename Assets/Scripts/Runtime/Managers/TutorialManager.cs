@@ -121,6 +121,11 @@ namespace Runtime.Managers
         {
             TriggerEvent("TutorialStage4");
         }
+        
+        private void TriggerStag5()
+        {
+            TriggerEvent("TutorialStage5");
+        }
 
         public void TriggerDialogue(int index)
         {

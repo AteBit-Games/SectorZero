@@ -6,6 +6,7 @@ using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -45,6 +46,8 @@ namespace Runtime.InteractionSystem.Objects
         {
             return IsPowered && !_used;
         }
+
+        public UnityEvent OnInteractEvents { get; }
 
         public void PowerOn()
         {

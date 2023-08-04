@@ -46,5 +46,7 @@ namespace Runtime.InteractionSystem.Items
         {
             return true;
         }
+
+        public UnityEvent OnInteractEvents { get; }
     }
 }
