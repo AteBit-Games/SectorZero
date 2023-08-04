@@ -197,6 +197,8 @@ GameObject:
   - component: {fileID: 2010079168897148027}
   - component: {fileID: 4918035435952409087}
   - component: {fileID: 5453075131689179816}
+  - component: {fileID: 4359765970848489990}
+  - component: {fileID: 5416056927046984591}
   m_Layer: 6
   m_Name: StripedDoorVertical
   m_TagString: Untagged
@@ -285,8 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26ca347213e64544b50a75e471a7d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 11400000, guid: 7c76a67519bfe11409ba7affe3fe42f4, type: 2}
+  closeSound: {fileID: 11400000, guid: 94f8286b2041c774db147546c0a449ad, type: 2}
   navMeshSurface: {fileID: 0}
   navigationBlocker: {fileID: 4544184202133311659}
   bottomAnimator: {fileID: 3426687566672616451}
@@ -396,6 +398,118 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4359765970848489990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513579254062398314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a24561ac4d2664a8554b0e27a2934f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 11400000, guid: aa8dfbcad90789e4da2b5de202c074bb, type: 2}
+  - {fileID: 11400000, guid: 632392da4b469d64396709236dfc8bee, type: 2}
+  - {fileID: 11400000, guid: 8696719a97714294496810caa6dfb4dc, type: 2}
+--- !u!82 &5416056927046984591
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513579254062398314}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8870739233594927491
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +631,7 @@ MonoBehaviour:
   - {x: -0.9003639, y: 0.05731964, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -213212
+  m_InstanceId: -810692
   m_LocalBounds:
     m_Center: {x: -0.40282822, y: 3, z: 0}
     m_Extent: {x: 0.4975357, y: 2.9426804, z: 0}

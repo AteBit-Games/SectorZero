@@ -15,16 +15,9 @@ MonoBehaviour:
   name: Scientist
   sprite: {fileID: 21300000, guid: 862f5f40810f51f489ddc83d98569795, type: 3}
   actorSounds:
-  - {fileID: 8300000, guid: 6c0d30724da7d334d913d2e5844416b0, type: 3}
-  - {fileID: 8300000, guid: 9062016096b9e394f9623031c8123ced, type: 3}
-  - {fileID: 8300000, guid: ff2d1621cb14ed0499708e34fea720ac, type: 3}
-  - {fileID: 8300000, guid: c7a502130ef61ac4c9de2c2d4af73b6d, type: 3}
-  - {fileID: 8300000, guid: 1f82ff2f7b32bdd4a82f91756ab1a79a, type: 3}
-  - {fileID: 8300000, guid: 2743542352c400746b605532f6923e6c, type: 3}
-  - {fileID: 8300000, guid: 34c518dab39ae9c4d99c267b11c88ffb, type: 3}
-  - {fileID: 8300000, guid: eb21540d98ff0fa4fa8d3a81a2c55fea, type: 3}
+  - {fileID: 8300000, guid: f669ea07a32cfb84e8ad6c1539e3c2b4, type: 3}
   frequency: 3
-  minPitch: 0.8
-  maxPitch: 1
+  minPitch: 1
+  maxPitch: 1.1
   stopAudioSource: 0
   useHash: 1
