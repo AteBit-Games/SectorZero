@@ -152,7 +152,7 @@ MonoBehaviour:
   useEncryption: 0
   playerConfig:
   - sceneIndex: 1
-    startPosition: {x: -0.375, y: 5.3125, z: 0}
+    startPosition: {x: -0.8211489, y: 5.643502, z: 0}
   - sceneIndex: 2
     startPosition: {x: 0, y: 0, z: 0}
   saveExists: 0
