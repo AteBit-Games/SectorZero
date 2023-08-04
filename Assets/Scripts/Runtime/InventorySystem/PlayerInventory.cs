@@ -5,7 +5,8 @@
 using System.Collections.Generic;
 using Runtime.InteractionSystem.Items;
 using Runtime.InventorySystem.ScriptableObjects;
-using Runtime.Managers;
+using Runtime.SaveSystem;
+using Runtime.SaveSystem.Data;
 using UnityEngine;
 
 namespace Runtime.InventorySystem
@@ -16,11 +17,11 @@ namespace Runtime.InventorySystem
         Item
     }
     
-    public class PlayerInventory : MonoBehaviour
+    public class PlayerInventory : MonoBehaviour, IPersistant
     {
         // ReSharper disable once CollectionNeverQueried.Global
-        public readonly List<Tape> tapeInventory = new();
-        public readonly List<Item> itemInventory = new();
+        public List<Tape> tapeInventory = new();
+        public List<Item> itemInventory = new();
         public Throwable throwableItem;
         
         public bool HasThrowableItem => throwableItem != null;
@@ -60,6 +61,19 @@ namespace Runtime.InventorySystem
         public Throwable GetThrowable()
         {
             return throwableItem;
+        }
+
+        public string ID { get; set; }
+        public void LoadData(SaveData data)
+        {
+            itemInventory = data.playerData.itemInventory;
+            tapeInventory = data.playerData.tapeInventory;
+        }
+
+        public void SaveData(SaveData data)
+        {
+            data.playerData.itemInventory = itemInventory;
+            data.playerData.tapeInventory = tapeInventory;
         }
     }
 }

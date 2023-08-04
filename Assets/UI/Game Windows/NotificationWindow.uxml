@@ -10,6 +10,7 @@
                 <ui:VisualElement name="status-image" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/check.png?fileID=2800000&amp;guid=90628963cdaa1af4a891f126e7f1184e&amp;type=3#check&apos;); -unity-background-scale-mode: scale-to-fit; width: 36px; height: 40px; margin-right: 10px; margin-left: 6px;" />
                 <ui:Label tabindex="-1" text="Submitted" display-tooltip-when-elided="true" name="status-message" style="-unity-font: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 35px; color: rgb(255, 255, 255); margin-top: 0; margin-left: 4px; margin-right: 0; margin-bottom: 0;" />
             </ui:VisualElement>
+            <ui:VisualElement name="saving-icon" class="saving-hidden" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/Loader.png?fileID=1771285699&amp;guid=a07d92164218b4d45aa9e08746711f14&amp;type=3#Loader_0&apos;); width: 144px; height: 96px; position: absolute; right: 50px; bottom: 50px; transition-property: -unity-background-image-tint-color; transition-duration: 0.55s; transition-timing-function: ease-in-out;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

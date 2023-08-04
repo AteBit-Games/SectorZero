@@ -20,6 +20,13 @@ namespace Runtime.InteractionSystem.Items
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
+        
+        [SerializeField] private string persistentID;
+        public string ID
+        {
+            get => persistentID;
+            set => persistentID = value;
+        }
 
         [SerializeField] private Item item;
 
@@ -34,14 +41,18 @@ namespace Runtime.InteractionSystem.Items
 
         public void LoadData(SaveData data)
         {
-            //data.tapeRecorders.Add(this, gameObject.activeSelf);
+            if (data.worldData.pickups.ContainsKey(persistentID))
+            {
+                gameObject.SetActive(data.worldData.pickups[persistentID]);
+            }
         }
 
         public void SaveData(SaveData data)
         {
-            //data.tapeRecorders[this] = gameObject.activeSelf;
+            if(!data.worldData.pickups.ContainsKey(persistentID)) data.worldData.pickups.Add(persistentID, gameObject.activeSelf);
+            else data.worldData.pickups[persistentID] = gameObject.activeSelf;
         }
-
+        
         public bool CanInteract()
         {
             return true;

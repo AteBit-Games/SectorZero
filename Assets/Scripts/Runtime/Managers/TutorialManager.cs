@@ -15,8 +15,7 @@ namespace Runtime.Managers
     public class TutorialManager : MonoBehaviour
     {
         public List<Dialogue> tutorialDialogue;
-        public int activeStage;
-        
+
         private Dictionary <string, UnityEvent[]> eventDictionary;
         private static TutorialManager _tutorialManager;
 
@@ -113,7 +112,6 @@ namespace Runtime.Managers
         
         public void TriggerStage2()
         {
-            activeStage = 2;
             TriggerEvent("TutorialStage2");
         }
 
@@ -121,12 +119,12 @@ namespace Runtime.Managers
         {
             TriggerEvent("TutorialStage4");
         }
-        
-        private void TriggerStag5()
-        {
-            TriggerEvent("TutorialStage5");
-        }
 
+        public void TriggerStage5()
+        {
+            GameManager.Instance.SaveSystem.SaveGame();
+        }
+        
         public void TriggerDialogue(int index)
         {
             GameManager.Instance.DialogueSystem.StartDialogue(tutorialDialogue[index]);

@@ -3,12 +3,14 @@
 * All rights reserved.
 ****************************************************************/
 
+using Runtime.SaveSystem;
+using Runtime.SaveSystem.Data;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Runtime.Misc.Triggers
 {
-    public class CollisionTrigger : MonoBehaviour
+    public class CollisionTrigger : MonoBehaviour, IPersistant
     {
         [SerializeField] private UnityEvent triggerEvent;
 
@@ -19,6 +21,27 @@ namespace Runtime.Misc.Triggers
                 triggerEvent.Invoke();
                 gameObject.SetActive(false);
             }
+        }
+
+        [SerializeField] private string persistentID;
+        public string ID
+        {
+            get => persistentID;
+            set => persistentID = value;
+        }
+        
+        public void LoadData(SaveData data)
+        {
+            if (data.worldData.triggers.ContainsKey(persistentID))
+            {
+                gameObject.SetActive(data.worldData.triggers[persistentID]);
+            }
+        }
+
+        public void SaveData(SaveData data)
+        {
+            if(!data.worldData.triggers.ContainsKey(persistentID)) data.worldData.triggers.Add(persistentID, gameObject.activeSelf);
+            else data.worldData.triggers[persistentID] = gameObject.activeSelf;
         }
     }
 }
