@@ -20,6 +20,7 @@ namespace Runtime.InteractionSystem.Objects
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         
+        [SerializeField] private UnityEvent onTriggerEvents;
         [SerializeField] private Transform playerStandPosition;
         [SerializeField] private Item paintingSupplies;
         [SerializeField] private List<UnityEvent> finishTriggerEvents;
@@ -29,9 +30,7 @@ namespace Runtime.InteractionSystem.Objects
         private SpriteRenderer _spriteRenderer;
         private bool _hasInteracted;
         private PlayerController _playerController;
-        
-        
-        
+
         private static readonly int Paint = Animator.StringToHash("paint");
 
         private void Awake()
@@ -41,6 +40,7 @@ namespace Runtime.InteractionSystem.Objects
 
         public bool OnInteract(GameObject player)
         {
+            onTriggerEvents.Invoke();
             GameManager.Instance.SoundSystem.Play(interactSound, transform);
 
             player = player.transform.parent.gameObject;

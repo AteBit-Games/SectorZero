@@ -22,6 +22,8 @@ namespace Runtime.DialogueSystem
     {
         [SerializeField, Tooltip("The date of the dialogue")] public string date;
         [SerializeField, Tooltip("Lines that the actor will be speaking in order")] public List<DialogueLine> dialogueLines;
+        [SerializeField, Tooltip("Can dialogue be skipped")] public bool canSkip;
+        [SerializeField, Tooltip("Can dialogue be skipped")] public float autoSkipDelay;
         [SerializeField, Tooltip("If this dialogue should trigger an event")] public bool trigger;
     }
 }
