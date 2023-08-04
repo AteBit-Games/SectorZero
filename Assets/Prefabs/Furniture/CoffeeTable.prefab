@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2326853823064934518}
   - component: {fileID: 1215857962326754757}
   - component: {fileID: 1268527597497912856}
-  - component: {fileID: 6527690496917727588}
+  - component: {fileID: 3652561865045394650}
   m_Layer: 0
   m_Name: CoffeeTable
   m_TagString: Untagged
@@ -113,8 +113,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &6527690496917727588
-PolygonCollider2D:
+--- !u!58 &3652561865045394650
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -145,39 +145,6 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2, y: 2.0625}
-    newSize: {x: 3.2, y: 3.3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.3117734, y: 1.033765}
-      - {x: -0.63026875, y: 0.9092513}
-      - {x: -0.89180064, y: 0.71331125}
-      - {x: -1.0186863, y: 0.413965}
-      - {x: -1.02108, y: -0.007038119}
-      - {x: -0.93752, y: -0.178035}
-      - {x: -0.909395, y: -0.4675412}
-      - {x: -0.8085631, y: -0.573504}
-      - {x: -0.6967781, y: -0.5719125}
-      - {x: -0.59242725, y: -0.47787908}
-      - {x: -0.15997413, y: -0.63541186}
-      - {x: -0.16808607, y: -0.9172919}
-      - {x: -0.102047935, y: -1.0583375}
-      - {x: 0.16473293, y: -1.02689}
-      - {x: 0.15319826, y: -0.6450581}
-      - {x: 0.59966564, y: -0.4840982}
-      - {x: 0.73962814, y: -0.5888512}
-      - {x: 0.9037875, y: -0.49007776}
-      - {x: 0.90886563, y: -0.18787625}
-      - {x: 1.0186387, y: -0.09174106}
-      - {x: 1.0156919, y: 0.5024779}
-      - {x: 0.602541, y: 0.97513187}
-      - {x: 0.041466724, y: 1.072725}
-  m_UseDelaunayMesh: 0
+  m_Offset: {x: 0, y: 0.84}
+  serializedVersion: 2
+  m_Radius: 0.84

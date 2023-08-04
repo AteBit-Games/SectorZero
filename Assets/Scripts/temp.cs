@@ -24,4 +24,9 @@ public class temp : MonoBehaviour
             _done = true;
         }
     }
+    
+    public void DebugMessage(string message)
+    {
+        Debug.Log(message);
+    }
 }

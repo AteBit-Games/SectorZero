@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
+using System;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
@@ -12,17 +13,18 @@ namespace Runtime.Misc.Triggers
 {
     public class CollisionTrigger : MonoBehaviour, IPersistant
     {
-        [SerializeField] private UnityEvent triggerEvent;
+        [SerializeField] protected UnityEvent triggerEvent;
+        [SerializeField] protected bool triggerOnce = true;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && triggerOnce)
             {
                 triggerEvent.Invoke();
                 gameObject.SetActive(false);
             }
         }
-
+        
         [SerializeField] private string persistentID;
         public string ID
         {

@@ -18,13 +18,14 @@ namespace Runtime.Managers
     {
         public CinematicManager cinematicManager;
         public List<Dialogue> tutorialDialogue;
+        public bool debug;
 
         private Dictionary <string, UnityEvent[]> eventDictionary;
         private static TutorialManager _tutorialManager;
 
         private void Start()
         {
-            cinematicManager.TriggerCinematic(0);
+            if(!debug) cinematicManager.TriggerCinematic(0);
         }
 
         private void OnEnable()

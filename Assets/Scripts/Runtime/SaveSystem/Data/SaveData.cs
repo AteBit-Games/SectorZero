@@ -57,7 +57,7 @@ namespace Runtime.SaveSystem.Data
     public class PlayerSaveData
     {
         public Vector3 position;
-        public bool enabled;
+        public bool enabled = true;
         
         //Inventory
         public List<Tape> tapeInventory = new();

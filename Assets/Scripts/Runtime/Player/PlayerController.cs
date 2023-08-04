@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
+using System.Collections;
 using Cinemachine;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
@@ -144,12 +145,25 @@ namespace Runtime.Player
         {
             if(!_inputDisabled) _movementInput = direction;
         }
-        
+
+
+        private bool _sneakCooldownActive;
         private void HandleSneak()
         {
-            _sneaking = !_sneaking;
-            _movementAnimator.SetBool(id: _isSneaking, _sneaking);
-            if(_monster != null) _monster.isPlayerCrouching = _sneaking;
+            if(!_sneakCooldownActive)
+            {
+                _sneakCooldownActive = true;
+                _sneaking = !_sneaking;
+                _movementAnimator.SetBool(id: _isSneaking, _sneaking);
+                if(_monster != null) _monster.isPlayerCrouching = _sneaking;
+                StartCoroutine(SneakCooldown());
+            }
+        }
+
+        private IEnumerator SneakCooldown()
+        {
+            yield return new WaitForSeconds(0.1f);
+            _sneakCooldownActive = false;
         }
         
         private void FixedUpdate()
@@ -340,16 +354,12 @@ namespace Runtime.Player
         public void DisableInput()
         {
             _inputDisabled = true;
-            inputReader.MoveEvent -= HandleMove;
-            inputReader.SneakEvent -= HandleSneak;
             _movementInput = Vector2.zero;
         }
 
         public void EnableInput()
         {
             _inputDisabled = false;
-            inputReader.MoveEvent += HandleMove;
-            inputReader.SneakEvent += HandleSneak;
         }
 
         public void LookAt(Vector2 direction)
@@ -381,5 +391,7 @@ namespace Runtime.Player
             gameObject.SetActive(true);
             _movementAnimator.SetFloat(id: _moveX, 1);
         }
+
+        public bool IsSneaking => _sneaking;
     }
 }
