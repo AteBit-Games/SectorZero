@@ -18,7 +18,7 @@ MonoBehaviour:
     line: Interesting...
   - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
     line: Alright miss, we are almost done here. Please head to the...
-  - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
+  - actor: {fileID: 11400000, guid: 86d0f507d42d760418417ba7595a3e31, type: 2}
     line: Shit... That is the other patient. Find somewhere to hide. Quickly now!
   canSkip: 0
   autoSkipDelay: 2

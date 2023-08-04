@@ -149,10 +149,11 @@ namespace Runtime.DialogueSystem
                 if (actor.UseHash)
                 {
                     var hash = character.GetHashCode();
+                    
                     soundClip = actor.ActorSounds[hash % actor.ActorSounds.Count];
 
-                    var minPitchHash = (int) actor.MinPitch * 100;
-                    var maxPitchHash = (int) actor.MaxPitch * 100;
+                    var minPitchHash = (int) (actor.MinPitch * 100);
+                    var maxPitchHash = (int) (actor.MaxPitch * 100);
                     var pitchRange = maxPitchHash - minPitchHash;
 
                     if (pitchRange == 0)
@@ -161,7 +162,7 @@ namespace Runtime.DialogueSystem
                     }
                     else
                     {
-                        var pitchHash = hash % pitchRange + minPitchHash;
+                        var pitchHash = (hash % pitchRange) + minPitchHash;
                         _audioSource.pitch = pitchHash / 100f;
                     }
                 }
