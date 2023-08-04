@@ -15,9 +15,12 @@ MonoBehaviour:
   date: 
   dialogueLines:
   - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
-    line: Good job on the drawing. dawdwadawdawddawd dawd
+    line: Interesting...
   - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
-    line: So next we need you to ....
+    line: Alright miss, we are almost finished here. Please head to the...
   - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
-    line: The other patient has woken up and he is gonna woop your ass so hide
+    line: Shit... The other patient has woken up. Find somewhere to hide. Quickly
+      now!
+  canSkip: 0
+  autoSkipDelay: 2
   trigger: 1

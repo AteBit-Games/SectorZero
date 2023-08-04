@@ -17,6 +17,8 @@ MonoBehaviour:
   - actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
     line: 'Alright let''s see... Hmm. Nothing looks out of the ordinary. '
   - actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
-    line: Miss, I'm going to open the door below you. Please step into the room at
-      the end of the hallway.
+    line: Miss, I'm going to open the door behind you. Please make your way to the
+      room at the end of the passage.
+  canSkip: 0
+  autoSkipDelay: 2
   trigger: 1
