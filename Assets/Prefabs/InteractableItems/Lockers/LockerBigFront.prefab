@@ -113,12 +113,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: f2965bfdbecae3449b2585451965d8fa, type: 3}
+  m_Sprite: {fileID: 958507350, guid: f2965bfdbecae3449b2585451965d8fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.625, y: 4.25}
+  m_Size: {x: 3.0625, y: 4.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -137,12 +137,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactSound: {fileID: 11400000, guid: 5ececcaf60583d54e82ce681f1f82403, type: 2}
+  onTriggerEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   inspectPosition: {fileID: 1757201452837377678}
   hidePosition: {fileID: 461143468751046659}
   revealPosition: {fileID: 461143469602724628}
   exitDirection: 3
-  emptyLockerSprite: {fileID: 21300000, guid: f2965bfdbecae3449b2585451965d8fa, type: 3}
-  hideLockerSprite: {fileID: 21300000, guid: f2965bfdbecae3449b2585451965d8fa, type: 3}
+  emptyLockerSprite: {fileID: 958507350, guid: f2965bfdbecae3449b2585451965d8fa, type: 3}
+  hideLockerSprite: {fileID: -1202767408, guid: f2965bfdbecae3449b2585451965d8fa, type: 3}
 --- !u!82 &461143468751046658
 AudioSource:
   m_ObjectHideFlags: 0
@@ -310,18 +325,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0005912781, y: 0.56999993}
+  m_Offset: {x: 0.016189575, y: 2.678081}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
     oldSize: {x: 3.0625, y: 4.25}
-    newSize: {x: 1.625, y: 4.25}
+    newSize: {x: 3.0625, y: 4.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9502335, y: 1.0201683}
+  m_Size: {x: 1.2049103, y: 2.0950994}
   m_EdgeRadius: 0
 --- !u!114 &7183558221093178581
 MonoBehaviour:
@@ -349,7 +364,7 @@ MonoBehaviour:
   - {x: 1.4939804, y: 0.042319298, z: 0}
   m_ShapePathHash: 1712738125
   m_Mesh: {fileID: 0}
-  m_InstanceId: 100782
+  m_InstanceId: -324562
   m_LocalBounds:
     m_Center: {x: 0, y: 2.133237, z: 0}
     m_Extent: {x: 1.5022812, y: 2.0909176, z: 0}
