@@ -90,8 +90,8 @@ MonoBehaviour:
     - rid: 484473835900633088
     - rid: 6236232439545200658
     - rid: 484473896144994402
-  viewPosition: {x: 336, y: 368, z: 0}
-  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
+  viewPosition: {x: 372, y: 187.2, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
     RefIds:
@@ -951,6 +951,7 @@ MonoBehaviour:
           reference:
             rid: 6236232439545200641
           defaultValue: {fileID: 0}
+        deathType: 0
     - rid: 484473896144994411
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
