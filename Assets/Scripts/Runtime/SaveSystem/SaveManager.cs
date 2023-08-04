@@ -12,7 +12,7 @@ using UnityEngine.SceneManagement;
 
 namespace Runtime.SaveSystem
 {
-    [DefaultExecutionOrder(0)]
+    [DefaultExecutionOrder(-1)]
     public class SaveManager : MonoBehaviour
     {
         [Header("SAVE SYSTEM CONFIG")]

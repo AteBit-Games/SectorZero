@@ -75,16 +75,13 @@ namespace Runtime.Managers
             Instance.LoadingScreen = GetComponentInChildren<LoadingScreen>();
             Instance.SoundSystem = GetComponent<SoundManager>();
             Instance.SaveSystem = GetComponent<SaveManager>();
-        }
-
-        private void Start()
-        {
+            
             if(testMode)
             {
                 SaveSystem.NewGame();
             }
         }
-
+        
         private void Update()
         {
             try
