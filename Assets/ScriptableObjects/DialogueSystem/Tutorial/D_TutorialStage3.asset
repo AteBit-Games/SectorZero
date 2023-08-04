@@ -15,7 +15,8 @@ MonoBehaviour:
   date: 
   dialogueLines:
   - actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
-    line: wadwadawdawdwad
+    line: 'Alright let''s see... Hmm. Nothing looks out of the ordinary. '
   - actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
-    line: dwadwadawdawdawd
+    line: Miss, I'm going to open the door below you. Please step into the room at
+      the end of the hallway.
   trigger: 1

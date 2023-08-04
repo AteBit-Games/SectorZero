@@ -81,7 +81,7 @@ namespace Runtime.Managers
             _newGameButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 //OpenConfirmPopup(_confirmTutorialPopup);
-                StartNewGame(0);
+                StartNewGame(1);
             });
             _newGameButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Start a new game";
