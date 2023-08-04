@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17e9e19e65431e40a09d5e64a6f6f43, type: 3}
+  m_Name: A_Intercom_Distress
+  m_EditorClassIdentifier: 
+  name: Scientist
+  sprite: {fileID: 21300000, guid: 7b005fe9c1e12a249837de02e72f1936, type: 3}
+  actorSounds:
+  - {fileID: 8300000, guid: 5b7dc85693f758040a022ce189acce24, type: 3}
+  frequency: 3
+  minPitch: 1.15
+  maxPitch: 1.25
+  stopAudioSource: 0
+  useHash: 1
