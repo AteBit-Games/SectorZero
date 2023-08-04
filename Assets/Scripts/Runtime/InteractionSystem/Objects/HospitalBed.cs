@@ -9,6 +9,7 @@ using Runtime.Managers;
 using Runtime.Player;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -56,5 +57,7 @@ namespace Runtime.InteractionSystem.Objects
         {
             return active;
         }
+
+        public UnityEvent OnInteractEvents { get; }
     }
 }

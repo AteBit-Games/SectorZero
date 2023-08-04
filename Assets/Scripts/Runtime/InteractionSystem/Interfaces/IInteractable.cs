@@ -4,6 +4,7 @@
 ****************************************************************/
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Interfaces
 {
@@ -12,5 +13,6 @@ namespace Runtime.InteractionSystem.Interfaces
         [Tooltip("Sound to play when the player interacts with the object")] public Sound InteractSound { get; }
         public bool OnInteract(GameObject player);
         public bool CanInteract();
+        public UnityEvent OnInteractEvents { get; }
     }
 }

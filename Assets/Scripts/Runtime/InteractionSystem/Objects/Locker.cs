@@ -7,6 +7,7 @@ using Runtime.Managers;
 using Runtime.Player;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -22,6 +23,9 @@ namespace Runtime.InteractionSystem.Objects
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
+        
+        [SerializeField] private UnityEvent onTriggerEvents;
+        public UnityEvent OnInteractEvents => onTriggerEvents;
         
         [SerializeField] private Transform inspectPosition;
         public Transform InspectPosition => inspectPosition;

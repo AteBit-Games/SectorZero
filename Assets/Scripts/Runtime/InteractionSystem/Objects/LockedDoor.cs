@@ -9,6 +9,7 @@ using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -52,6 +53,8 @@ namespace Runtime.InteractionSystem.Objects
         {
             return GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(key) || !requiresKey;
         }
+
+        public UnityEvent OnInteractEvents { get; }
 
         public void SetPassable()
         {

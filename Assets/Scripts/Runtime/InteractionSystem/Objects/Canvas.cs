@@ -79,5 +79,7 @@ namespace Runtime.InteractionSystem.Objects
         {
             return GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(paintingSupplies) && !_hasInteracted;
         }
+
+        public UnityEvent OnInteractEvents { get; }
     }
 }
