@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1491194354819812865}
   - component: {fileID: 5028364410212643289}
   m_Layer: 0
-  m_Name: Intercom_Pivot
+  m_Name: Intercom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 2384482481548730395}
   - component: {fileID: 6585787533566557986}
   m_Layer: 0
-  m_Name: Intercom_0
+  m_Name: Intercom_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
