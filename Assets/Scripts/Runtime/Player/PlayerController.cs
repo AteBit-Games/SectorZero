@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
+using Cinemachine;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
 using Runtime.InputSystem;
@@ -176,12 +177,16 @@ namespace Runtime.Player
 
         public void LoadData(SaveData data)
         {
+            FindObjectOfType<CinemachineTargetGroup>().transform.position = data.playerData.position;
             transform.position = data.playerData.position;
+            lookPointer.position = gameObject.transform.position;
+            gameObject.SetActive(data.playerData.enabled);
         }
         
         public void SaveData(SaveData data)
         {
             data.playerData.position = transform.position;
+            data.playerData.enabled = gameObject.activeSelf;
         }
         
         public void HidePlayer(GameObject hideable, Vector2 position)

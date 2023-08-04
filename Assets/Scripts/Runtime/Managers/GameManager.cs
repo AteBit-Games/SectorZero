@@ -78,7 +78,7 @@ namespace Runtime.Managers
             
             if(testMode)
             {
-                SaveSystem.NewGame(true);
+                SaveSystem.NewGame(true, SceneManager.GetActiveScene().buildIndex);
             }
         }
         

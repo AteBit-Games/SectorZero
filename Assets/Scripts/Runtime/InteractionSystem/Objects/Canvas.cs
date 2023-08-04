@@ -65,7 +65,6 @@ namespace Runtime.InteractionSystem.Objects
             //Disable collider and remove item from inventory
             GetComponent<Collider2D>().enabled = false;
             GameManager.Instance.InventorySystem.PlayerInventory.UseItemInInventory(paintingSupplies);
-            _hasInteracted = true;
 
             return true;
         }
@@ -73,8 +72,17 @@ namespace Runtime.InteractionSystem.Objects
         public void FinishInteraction()
         {
             _playerController.EnableInput();
+            _hasInteracted = true;
             StartCoroutine(TriggerStage5());
+            StartCoroutine(TriggerSave());
         }
+
+        private IEnumerator TriggerSave()
+        {
+            yield return new WaitForSeconds(1f);
+            GameManager.Instance.SaveSystem.SaveGame();
+        }
+
 
         private IEnumerator TriggerStage5()
         {

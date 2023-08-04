@@ -12,14 +12,20 @@ using UnityEngine.SceneManagement;
 
 namespace Runtime.SaveSystem
 {
+    [Serializable]
+    internal class PlayerConfig
+    {
+        public int sceneIndex;
+        public Vector3 startPosition;
+    }
+    
     [DefaultExecutionOrder(-1)]
     public class SaveManager : MonoBehaviour
     {
         [Header("SAVE SYSTEM CONFIG")]
         [SerializeField] private string saveFileName;
         [SerializeField] private bool useEncryption;
-        
-        [SerializeField] private Vector3 playerStartPosition;
+        [SerializeField] private List<PlayerConfig> playerConfig;
         
         [HideInInspector] public bool saveExists;
 
@@ -59,23 +65,23 @@ namespace Runtime.SaveSystem
         public void LoadGame()
         {
             _saveData = _dataHandler.Load();
-            SceneManager.LoadScene(_saveData.currentScene);
+            GameManager.Instance.LoadScene(_saveData.currentScene);
         }
 
-        public void NewGame(bool testMode)
+        public void NewGame(bool testMode, int scene)
         {
             DeleteSaveData();
             saveExists = false;
             _saveData = new SaveData();
-
-            if (testMode)
-            {
-                _saveData.playerData.position = playerStartPosition;
-            }
+            
+            var sceneIndex = playerConfig.FindIndex(config => config.sceneIndex == scene);
+            _saveData.playerData.position = playerConfig[sceneIndex].startPosition;
         }
 
         public void SaveGame()
         {
+            Debug.Log("Saving game...");
+            
             if (_saveData == null) 
             {
                 Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");

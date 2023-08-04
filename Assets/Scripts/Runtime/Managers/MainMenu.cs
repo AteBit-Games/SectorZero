@@ -153,7 +153,7 @@ namespace Runtime.Managers
 
         private static void StartNewGame(int level)
         {
-            GameManager.Instance.SaveSystem.NewGame(false);
+            GameManager.Instance.SaveSystem.NewGame(false, level);
             GameManager.Instance.isMainMenu = false;
             GameManager.Instance.LoadScene(level);
         }

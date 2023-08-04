@@ -3,21 +3,29 @@
 * All rights reserved.
 ****************************************************************/
 
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using Runtime.DialogueSystem;
+using UnityEngine.Timeline;
 
 namespace Runtime.Managers
 {
     [DefaultExecutionOrder(10)]
     public class TutorialManager : MonoBehaviour
     {
+        public CinematicManager cinematicManager;
         public List<Dialogue> tutorialDialogue;
 
         private Dictionary <string, UnityEvent[]> eventDictionary;
         private static TutorialManager _tutorialManager;
+
+        private void Start()
+        {
+            cinematicManager.TriggerCinematic(0);
+        }
 
         private void OnEnable()
         {

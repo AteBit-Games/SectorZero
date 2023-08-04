@@ -5,14 +5,22 @@
 
 using System;
 using Runtime.Managers;
+using Runtime.SaveSystem;
+using Runtime.SaveSystem.Data;
 using UnityEngine;
 
 namespace Runtime.Player
 {
-    public class Nellient : MonoBehaviour
+    public class Nellient : MonoBehaviour, IPersistant
     {
+        [SerializeField] private string persistentID;
+        public string ID
+        {
+            get => persistentID;
+            set => persistentID = value;
+        }
+        
         private static readonly int Up = Animator.StringToHash("sitUp");
-
         private Animator animator;
 
         private void Awake()
@@ -29,6 +37,16 @@ namespace Runtime.Player
         {
             TutorialManager.TriggerEvent("TutorialStage3");
             gameObject.SetActive(false);
+        }
+        
+        public void LoadData(SaveData data)
+        {
+            gameObject.SetActive(data.tutorialData.nellientState);
+        }
+
+        public void SaveData(SaveData data)
+        {
+            data.tutorialData.nellientState = gameObject.activeSelf;
         }
     }
 }

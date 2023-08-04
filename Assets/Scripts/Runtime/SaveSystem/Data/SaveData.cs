@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using Runtime.InteractionSystem.Items;
 using Runtime.InventorySystem.ScriptableObjects;
+using Runtime.Managers;
 using UnityEngine;
 
 namespace Runtime.SaveSystem.Data
@@ -56,23 +57,18 @@ namespace Runtime.SaveSystem.Data
     public class PlayerSaveData
     {
         public Vector3 position;
+        public bool enabled;
         
         //Inventory
         public List<Tape> tapeInventory = new();
         public List<Item> itemInventory = new();
         public Throwable throwableItem;
-
-        public PlayerSaveData()
-        {
-            position = new Vector3(-0.54f, 7.25f, 0);
-        }
     }
 
     [Serializable]
     public class TutorialData
     {
-        public bool isTutorialLevel;
-        public int activeStage;
+        public bool nellientState = true;
         public SerializableDictionary<string, bool> canvas = new();
     }
 
@@ -82,6 +78,15 @@ namespace Runtime.SaveSystem.Data
         public SerializableDictionary<string, bool> pickups = new();
         public SerializableDictionary<string, bool> tapeRecorders = new();
         public SerializableDictionary<string, bool> triggers = new();
+        
+        public List<CinematicData> cinematics = new();
+    }
+
+    [Serializable]
+    public class CinematicData
+    {
+        public string managerID;
+        public List<bool> cinematicStates = new();
     }
     
     [Serializable]

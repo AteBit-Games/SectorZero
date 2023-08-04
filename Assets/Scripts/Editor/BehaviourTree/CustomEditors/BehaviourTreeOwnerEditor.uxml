@@ -26,5 +26,5 @@
             <uie:PropertyField binding-path="aggroColour" name="property" style="padding-top: 5px;" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:Button text="Edit Script" display-tooltip-when-elided="true" name="open-button" style="padding-top: 3px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; margin-top: 10px; margin-bottom: 5px;" />
+    <ui:Button text="Edit Script" display-tooltip-when-elided="true" name="open-button" class="button" style="padding-top: 3px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; margin-top: 10px; margin-bottom: 5px;" />
 </ui:UXML>
