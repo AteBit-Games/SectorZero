@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/Editor/CustomInspectorStyles.uss?fileID=7433441132597879392&amp;guid=31f6efb7b9ca653478a36740be2f9e3c&amp;type=3#CustomInspectorStyles" />
+    <ui:VisualElement name="VisualElement" class="property-group">
+        <ui:Label tabindex="-1" text="Interaction Settings" display-tooltip-when-elided="true" name="header" enable-rich-text="true" />
+        <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <uie:PropertyField binding-path="interactSound" name="property" />
+            <uie:PropertyField binding-path="playerStandPosition" name="property" />
+            <uie:PropertyField binding-path="paintingSupplies" name="property" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="VisualElement" class="property-group">
+        <ui:Label tabindex="-1" text="Tutorial Settings" display-tooltip-when-elided="true" name="header" enable-rich-text="true" />
+        <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <uie:PropertyField binding-path="finishTriggerEvents" name="property" />
+            <uie:PropertyField binding-path="delayBeforeTriggeringStage5" name="property" />
+            <ui:VisualElement name="GUID" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center;">
+                <uie:PropertyField binding-path="persistentID" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
+                <ui:Button text="Generate" display-tooltip-when-elided="true" name="generate-button" class="button" style="padding-top: 3px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Button text="Edit Script" display-tooltip-when-elided="true" name="open-button" class="button" style="padding-top: 3px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; margin-top: 10px; margin-bottom: 5px;" />
+</ui:UXML>

@@ -45,6 +45,15 @@ namespace Runtime.Player
         [SerializeField] private Light2D globalLight;
         
         [Space(10)]
+        [Header("SAVING SYSTEM")]
+        [SerializeField] private string persistentID;
+        public string ID
+        {
+            get => persistentID;
+            set => persistentID = value;
+        }
+
+        [Space(10)]
         [Header("DEBUG")]
         [SerializeField] private bool debug;
 
@@ -68,8 +77,8 @@ namespace Runtime.Player
         // ============ Hiding System ============
        [HideInInspector] public bool isHiding;
        [HideInInspector] public bool isSeen;
-        
-        // ============ Animator Hashes ============
+
+       // ============ Animator Hashes ============
         private readonly int _moveX = Animator.StringToHash("moveX");
         private readonly int _moveY = Animator.StringToHash("moveY");
         private readonly int _isMoving = Animator.StringToHash("isMoving");

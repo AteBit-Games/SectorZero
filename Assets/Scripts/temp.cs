@@ -20,7 +20,7 @@ public class temp : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) && !_done)
         {
             GameManager.Instance.SaveSystem.SaveGame();
-            _player.Die(DeathType.Locker);
+            // _player.Die(DeathType.Locker);
             _done = true;
         }
     }

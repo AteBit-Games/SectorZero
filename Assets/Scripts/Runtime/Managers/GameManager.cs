@@ -78,7 +78,7 @@ namespace Runtime.Managers
             
             if(testMode)
             {
-                SaveSystem.NewGame();
+                SaveSystem.NewGame(true);
             }
         }
         

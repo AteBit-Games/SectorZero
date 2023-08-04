@@ -9,13 +9,15 @@ using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.Player;
+using Runtime.SaveSystem;
+using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Objects
 {
-    public class Canvas : MonoBehaviour, IInteractable
+    public class Canvas : MonoBehaviour, IInteractable, IPersistant
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
@@ -25,13 +27,21 @@ namespace Runtime.InteractionSystem.Objects
         [SerializeField] private Item paintingSupplies;
         [SerializeField] private List<UnityEvent> finishTriggerEvents;
         [SerializeField] private float delayBeforeTriggeringStage5 = 1f;
-        
+                
+        [SerializeField] private string persistentID;
+        public string ID
+        {
+            get => persistentID;
+            set => persistentID = value;
+        }
+
         private Animator _animator;
         private SpriteRenderer _spriteRenderer;
         private bool _hasInteracted;
         private PlayerController _playerController;
 
         private static readonly int Paint = Animator.StringToHash("paint");
+        private static readonly int Finish = Animator.StringToHash("finished");
 
         private void Awake()
         {
@@ -45,7 +55,6 @@ namespace Runtime.InteractionSystem.Objects
 
             player = player.transform.parent.gameObject;
             _playerController = player.GetComponent<PlayerController>();
-
 
             //Setup player and trigger animation
             _animator.SetTrigger(Paint);
@@ -81,5 +90,24 @@ namespace Runtime.InteractionSystem.Objects
         }
 
         public UnityEvent OnInteractEvents { get; }
+        
+        public void LoadData(SaveData data)
+        {
+            if (data.tutorialData.canvas.ContainsKey(persistentID))
+            {
+                if (data.tutorialData.canvas[persistentID])
+                {
+                    StartCoroutine(TriggerStage5());
+                    _animator.SetTrigger(Finish);
+                    GetComponent<Collider2D>().enabled = false;
+                }
+            }
+        }
+
+        public void SaveData(SaveData data)
+        {
+            if(!data.tutorialData.canvas.ContainsKey(persistentID)) data.tutorialData.canvas.Add(persistentID, _hasInteracted);
+            else data.tutorialData.canvas[persistentID] = _hasInteracted;
+        }
     }
 }

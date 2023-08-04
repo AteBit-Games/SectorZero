@@ -24,6 +24,13 @@ namespace Runtime.InteractionSystem.Items
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         
+        [SerializeField] private string persistentID;
+        public string ID
+        {
+            get => persistentID;
+            set => persistentID = value;
+        }
+
         [SerializeField] private Sound dropSound;
         public Sound DropSound => dropSound;
         [SerializeField] private Sprite icon;

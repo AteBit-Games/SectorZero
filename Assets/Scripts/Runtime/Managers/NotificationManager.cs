@@ -7,6 +7,10 @@ namespace Runtime.Managers
 {
     public class NotificationManager : MonoBehaviour
     {
+        [SerializeField] private Sprite[] savingIconStates;
+        [SerializeField] private float iconSpeed = 0.5f;
+        private int _savingIndex;
+        
         private UIDocument _uiDocument;
 
         // Pickup Notification Items
@@ -19,6 +23,10 @@ namespace Runtime.Managers
         private Label _resultText;
         private VisualElement _resultIcon;
         
+        //Saving notification items
+        private VisualElement _savingIcon;
+
+        private Coroutine _savingLoopCoroutine;
         private Coroutine _pickupCoroutine;
         private Coroutine _resultCoroutine;
         
@@ -35,6 +43,13 @@ namespace Runtime.Managers
             _resultIcon = rootVisualElement.Q<VisualElement>("status-image");
             _resultText = rootVisualElement.Q<Label>("status-message");
             _resultContainer = rootVisualElement.Q<VisualElement>("report-status");
+            
+            _savingIcon = rootVisualElement.Q<VisualElement>("saving-icon");
+        }
+
+        public void HideSavingNotification()
+        {
+            _savingIcon.RemoveFromClassList("saving-show");
         }
         
         public void ShowPickupNotification(BaseItem item)
@@ -76,6 +91,28 @@ namespace Runtime.Managers
         {
             yield return new WaitForSecondsRealtime(3.5f);
             _resultContainer.RemoveFromClassList("result-show");
+        }
+        
+        public void ShowSaving()
+        {
+            _savingIcon.AddToClassList("saving-show");
+            StartCoroutine(HideLoading());
+            _savingLoopCoroutine = StartCoroutine(SavingIcon());
+        }
+        
+        public IEnumerator HideLoading()
+        {
+            yield return new WaitForSecondsRealtime(3.1f);
+            _savingIcon.RemoveFromClassList("saving-show");
+            StopCoroutine(_savingLoopCoroutine);
+        }
+        
+        private IEnumerator SavingIcon()
+        {
+            _savingIcon.style.backgroundImage = new StyleBackground(savingIconStates[_savingIndex]);
+            _savingIndex = (_savingIndex + 1) % savingIconStates.Length;
+            yield return new WaitForSecondsRealtime(iconSpeed);
+            _savingLoopCoroutine = StartCoroutine(SavingIcon());
         }
     }
 }

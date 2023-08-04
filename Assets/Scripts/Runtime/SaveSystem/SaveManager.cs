@@ -62,13 +62,13 @@ namespace Runtime.SaveSystem
             SceneManager.LoadScene(_saveData.currentScene);
         }
 
-        public void NewGame() 
+        public void NewGame(bool testMode)
         {
             DeleteSaveData();
             saveExists = false;
             _saveData = new SaveData();
 
-            if (GameManager.Instance.testMode)
+            if (testMode)
             {
                 _saveData.playerData.position = playerStartPosition;
             }
@@ -90,6 +90,7 @@ namespace Runtime.SaveSystem
             _saveData.currentScene = SceneManager.GetActiveScene().buildIndex;
             _dataHandler.Save(_saveData);
             saveExists = true;
+            GameManager.Instance.NotificationManager.ShowSaving();
         }
         
         // ======================================= PRIVATE METHODS =======================================

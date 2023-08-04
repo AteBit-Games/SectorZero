@@ -20,6 +20,13 @@ namespace Runtime.InteractionSystem.Items
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
+        
+        [SerializeField] private string persistentID;
+        public string ID
+        {
+            get => persistentID;
+            set => persistentID = value;
+        }
 
         [SerializeField] private Dialogue dialogue;
         [SerializeField] private string dialogueDescription;
@@ -44,12 +51,12 @@ namespace Runtime.InteractionSystem.Items
 
         public void LoadData(SaveData data)
         {
-            data.tapeRecorders.Add(this, gameObject.activeSelf);
+            data.worldData.tapeRecorders.Add(persistentID, gameObject.activeSelf);
         }
 
         public void SaveData(SaveData data)
         {
-            data.tapeRecorders[this] = gameObject.activeSelf;
+            data.worldData.tapeRecorders[persistentID] = gameObject.activeSelf;
         }
 
         public bool CanInteract()
