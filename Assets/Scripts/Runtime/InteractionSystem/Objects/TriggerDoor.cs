@@ -26,6 +26,7 @@ namespace Runtime.InteractionSystem.Objects
         [SerializeField] private bool startOpen;
 
         private Animator _mainAnimator;
+        private AudioSource _audioSource;
         
         // ============ Animator Hashes ============
         private readonly int _isOpen = Animator.StringToHash("isOpen");
@@ -33,6 +34,7 @@ namespace Runtime.InteractionSystem.Objects
         private void Awake()
         {
             _mainAnimator = GetComponent<Animator>();
+            _audioSource = GetComponent<AudioSource>();
             if (startOpen)
             {
                 _mainAnimator.SetBool(_isOpen, true);
@@ -41,13 +43,17 @@ namespace Runtime.InteractionSystem.Objects
         
         public void OpenDoor()
         {
-            GameManager.Instance.SoundSystem.Play(openSound, transform);
+            // GameManager.Instance.SoundSystem.Play(openSound, transform);
+            _audioSource.volume = openSound.volumeScale;
+            _audioSource.PlayOneShot(openSound.clip);
             _mainAnimator.SetBool(_isOpen, true);
         }
 
         public void CloseDoor()
         {
-            GameManager.Instance.SoundSystem.Play(closeSound, transform);
+            // GameManager.Instance.SoundSystem.Play(closeSound, transform);
+            _audioSource.volume = closeSound.volumeScale;
+            _audioSource.PlayOneShot(closeSound.clip);
             _mainAnimator.SetBool(_isOpen, false);
         }
         

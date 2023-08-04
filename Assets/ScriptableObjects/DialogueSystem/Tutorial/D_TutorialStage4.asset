@@ -20,8 +20,7 @@ MonoBehaviour:
     line: We are going to run a couple of tests. Please take the painting supplies
       and use them on the blank canvas.
   - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
-    line: This may sound arbitrary, but just paint the first thing that comes to
-      mind.
+    line: This may seem arbitrary, but just paint the first thing that comes to mind.
   canSkip: 0
   autoSkipDelay: 2
   trigger: 1

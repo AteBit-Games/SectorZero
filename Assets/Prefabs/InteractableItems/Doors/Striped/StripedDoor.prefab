@@ -290,8 +290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26ca347213e64544b50a75e471a7d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 11400000, guid: 1eef30045895d244db5ad50821af61fe, type: 2}
+  closeSound: {fileID: 11400000, guid: 733e4738d3f84dc41ad344145ad0ea42, type: 2}
   navMeshSurface: {fileID: 0}
   navigationBlocker: {fileID: 1558445421142627366}
   bottomAnimator: {fileID: 0}
