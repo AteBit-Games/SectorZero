@@ -156,14 +156,14 @@
 
 .popup-hidden {
     bottom: -70px;
-    right: 50px;
+    right: 35px;
     position: absolute;
 }
 
 .popup-show {
     position: absolute;
-    right: 50px;
-    bottom: 40px;
+    right: 35px;
+    bottom: 15px;
 }
 
 #feedback-option {

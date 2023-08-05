@@ -51,6 +51,7 @@ namespace Runtime.InteractionSystem.Objects
         public bool OnInteract(GameObject player)
         {
             var playerController = player.GetComponentInParent<PlayerController>();
+            if(playerController.MovementDisabled) return false;
             
             if (playerController.isHiding && ContainsPlayer)
             {

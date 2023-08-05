@@ -78,8 +78,8 @@ MonoBehaviour:
     - rid: 2098102505811476487
     - rid: 2098102505811476507
     - rid: 2098102505811476534
-  viewPosition: {x: -933, y: 209, z: 0}
-  viewScale: {x: 0.375937, y: 0.375937, z: 1}
+  viewPosition: {x: 249, y: 255, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
     RefIds:
@@ -213,7 +213,7 @@ MonoBehaviour:
         speed:
           reference:
             rid: -2
-          defaultValue: 3
+          defaultValue: 4
         stoppingDistance:
           reference:
             rid: -2
@@ -325,7 +325,7 @@ MonoBehaviour:
         duration:
           reference:
             rid: -2
-          defaultValue: 2.2
+          defaultValue: 1.75
     - rid: 2098102505195438081
       type: {class: LookAt, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
       data:
@@ -344,7 +344,7 @@ MonoBehaviour:
         lookTime:
           reference:
             rid: -2
-          defaultValue: 5
+          defaultValue: 3
     - rid: 2098102505195438082
       type: {class: SetProperty, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
       data:
@@ -677,7 +677,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 74cf8d60f1f831243861ca517984f6c9
-        position: {x: 1760, y: 520}
+        position: {x: 1800, y: 520}
         blackboard:
           keys: []
         comment: 
@@ -696,7 +696,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6cfcb452c8e84ba449a14f356660c464
-        position: {x: 1760, y: 640}
+        position: {x: 1800, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -710,7 +710,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: fa3ceff6051fce642b81c578ea713cd8
-        position: {x: 1660, y: 780}
+        position: {x: 1700, y: 780}
         blackboard:
           keys: []
         comment: 
@@ -729,7 +729,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 5f9fd89e0c521dd4c9845ba2f1c3b655
-        position: {x: 1840, y: 780}
+        position: {x: 1880, y: 780}
         blackboard:
           keys: []
         comment: 
@@ -751,7 +751,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 7b3b1ac24909d094a94d1a0c3118054b
-        position: {x: 2080, y: 520}
+        position: {x: 2040, y: 520}
         blackboard:
           keys: []
         comment: 
@@ -763,7 +763,7 @@ MonoBehaviour:
         speed:
           reference:
             rid: -2
-          defaultValue: 3
+          defaultValue: 5
         stoppingDistance:
           reference:
             rid: -2
@@ -867,7 +867,7 @@ MonoBehaviour:
       data:
         name: Speed
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 3
+        value: 3.6
     - rid: 2098102505811476535
       type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -942,7 +942,7 @@ MonoBehaviour:
         speed:
           reference:
             rid: -2
-          defaultValue: 3
+          defaultValue: 4
     - rid: 2098102505811476545
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:

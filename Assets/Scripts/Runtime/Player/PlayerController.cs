@@ -424,5 +424,6 @@ namespace Runtime.Player
         }
 
         public bool IsSneaking => _sneaking;
+        public bool MovementDisabled => _inputDisabled;
     }
 }

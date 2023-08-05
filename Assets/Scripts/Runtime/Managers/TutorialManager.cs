@@ -8,6 +8,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using System.Linq;
 using Runtime.DialogueSystem;
 using UnityEngine.Timeline;
 
@@ -25,7 +26,11 @@ namespace Runtime.Managers
 
         private void Start()
         {
-            if(!debug) cinematicManager.TriggerCinematic(0);
+            if (!debug)
+            {
+                cinematicManager.director.ElementAt(0).Key.time = 0;
+                cinematicManager.TriggerCinematic(0);
+            }
         }
 
         private void OnEnable()

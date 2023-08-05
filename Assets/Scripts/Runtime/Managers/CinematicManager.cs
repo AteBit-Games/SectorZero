@@ -16,28 +16,25 @@ namespace Runtime.Managers
     public class CinematicManager : MonoBehaviour, IPersistant
     {
         [SerializeField] private string persistentID;
-        
-        
-        
         public string ID
         {
             get => persistentID;
             set => persistentID = value;
         }
         
-        private Dictionary<PlayableDirector, bool> _director;
+        public Dictionary<PlayableDirector, bool> director;
 
         private void Awake()
         {
-            _director = GetComponentsInChildren<PlayableDirector>().ToDictionary(director => director, _ => false);
+            director = GetComponentsInChildren<PlayableDirector>().ToDictionary(director => director, _ => false);
         }
         
         public void TriggerCinematic(int index)
         {
-            if(index >= _director.Count) Debug.LogError("Index out of range");
-            if (!_director.ElementAt(index).Value)
+            if(index >= director.Count) Debug.LogError("Index out of range");
+            if (!director.ElementAt(index).Value)
             {
-                _director.ElementAt(index).Key.Play();
+                director.ElementAt(index).Key.Play();
             }
         }
         
@@ -46,10 +43,10 @@ namespace Runtime.Managers
             if (!data.worldData.cinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
             {
                 var cinematicData = data.worldData.cinematics.Find(cinematicData => cinematicData.managerID == persistentID);
-                for (var i = 0; i < _director.Count; i++)
+                for (var i = 0; i < director.Count; i++)
                 {
-                    _director[_director.ElementAt(i).Key] = cinematicData.cinematicStates[i];
-                    if(cinematicData.cinematicStates[i]) _director.ElementAt(i).Key.time = _director.ElementAt(i).Key.duration;
+                    director[director.ElementAt(i).Key] = cinematicData.cinematicStates[i];
+                    if(cinematicData.cinematicStates[i]) director.ElementAt(i).Key.time = director.ElementAt(i).Key.duration;
                 }
             }
         }
@@ -59,9 +56,9 @@ namespace Runtime.Managers
             if(!data.worldData.cinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
             {
                 var cinematicData = data.worldData.cinematics.Find(cinematicData => cinematicData.managerID == persistentID);
-                for (var i = 0; i < _director.Count; i++)
+                for (var i = 0; i < director.Count; i++)
                 {
-                    cinematicData.cinematicStates[i] = Math.Abs(_director.ElementAt(i).Key.time - _director.ElementAt(i).Key.duration) < 0.01f;
+                    cinematicData.cinematicStates[i] = Math.Abs(director.ElementAt(i).Key.time - director.ElementAt(i).Key.duration) < 0.01f;
                 }
             }
             else
@@ -72,7 +69,7 @@ namespace Runtime.Managers
                     cinematicStates = new List<bool>()
                 };
 
-                foreach (var director in _director)
+                foreach (var director in director)
                 {
                     cinematicData.cinematicStates.Add(Math.Abs(director.Key.time - director.Key.duration) < 0.01f);
                 }
