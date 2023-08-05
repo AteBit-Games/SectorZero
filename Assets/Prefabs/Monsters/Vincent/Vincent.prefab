@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1595203270892655072}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.0875, y: 14.57, z: 0}
+  m_LocalPosition: {x: 18.5, y: -6.0625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,7 +48,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 350
-  m_StoppingDistance: 3
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 920597040}
   - component: {fileID: 920597039}
   - component: {fileID: 1875962746}
+  - component: {fileID: 9035896067577339051}
   m_Layer: 9
   m_Name: Visual
   m_TagString: Untagged
@@ -145,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 3369446493431426671}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.049732, y: 3.622371, z: 0}
+  m_LocalPosition: {x: 17.78125, y: -5.90625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -192,7 +193,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 908d79952cc41704c835cb1ecc1527fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -213,7 +214,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: 1718118433, guid: b71327a4cafa84f41b07f0f2c63e489f, type: 3}
+  m_Sprite: {fileID: 1623477947, guid: b71327a4cafa84f41b07f0f2c63e489f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -362,16 +363,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: 794f6ba923c0ecd47824b93b8ce15d9d, type: 2}
-  validate: 1
+  behaviourTree: {fileID: 11400000, guid: a8f5d6ddcfc4c0946b84f2dc125397ed, type: 2}
   blackboardOverrides:
   - key:
-      rid: 6236232439545200647
+      rid: 2098102494435999795
     value:
-      rid: 6236232439545200648
+      rid: 2098102494435999792
+  - key:
+      rid: 2098102494435999802
+    value:
+      rid: 2098102494435999803
+  - key:
+      rid: 2098102494435999798
+    value:
+      rid: 2098102494435999799
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 128
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 64
   playerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -387,17 +398,46 @@ MonoBehaviour:
   sightVisualPrefab: {fileID: 4193361830035308745, guid: 7fbb647d3619d9b4898983be60e448e2, type: 3}
   idleColour: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0.5058824}
   aggroColour: {r: 0.7075472, g: 0.12281949, b: 0.12281949, a: 0.5254902}
+  isPlayerCrouching: 0
   references:
     version: 2
     RefIds:
-    - rid: 6236232439545200647
+    - rid: 2098102494435999792
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: 
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 2098102494435999795
       type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
         name: Player
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
-    - rid: 6236232439545200648
+    - rid: 2098102494435999798
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: InspectPosition
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 2098102494435999799
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: 
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 2098102494435999802
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: StartPosition
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 2098102494435999803
       type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
         name: 
@@ -436,10 +476,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.099731445, y: -1.2811971}
+  m_Offset: {x: -0.099731445, y: 0.018803}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.2}
     oldSize: {x: 5, y: 5}
     newSize: {x: 5, y: 5}
     adaptiveTilingThreshold: 0.5
@@ -449,3 +489,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7909241, y: 1.1270895}
   m_EdgeRadius: 0
+--- !u!114 &9035896067577339051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369446493431426671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 6d332bd496064474589c586b43af1808, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 920597039}
+          m_TargetAssemblyTypeName: Runtime.BehaviourTree.BehaviourTreeOwner, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

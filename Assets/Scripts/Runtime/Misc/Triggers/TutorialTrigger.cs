@@ -17,6 +17,8 @@ namespace Runtime.Misc.Triggers
             if (other.CompareTag("Player"))
             {
                 var player = other.GetComponent<PlayerController>();
+                if(player == null) player = other.GetComponentInParent<PlayerController>();
+                
                 if (player.IsSneaking)
                 {
                     triggerEvent.Invoke();

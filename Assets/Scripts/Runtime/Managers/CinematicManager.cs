@@ -17,6 +17,8 @@ namespace Runtime.Managers
     {
         [SerializeField] private string persistentID;
         
+        
+        
         public string ID
         {
             get => persistentID;
@@ -33,9 +35,12 @@ namespace Runtime.Managers
         public void TriggerCinematic(int index)
         {
             if(index >= _director.Count) Debug.LogError("Index out of range");
-            if(!_director.ElementAt(index).Value) _director.ElementAt(index).Key.Play();
+            if (!_director.ElementAt(index).Value)
+            {
+                _director.ElementAt(index).Key.Play();
+            }
         }
-
+        
         public void LoadData(SaveData data)
         {
             if (!data.worldData.cinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))

@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
+using System;
 using System.Collections.Generic;
 using ElRaccoone.Tweens;
 using ElRaccoone.Tweens.Core;
@@ -18,6 +19,21 @@ using Random = UnityEngine.Random;
 
 namespace Runtime.BehaviourTree 
 {
+    
+    [Serializable]
+    public class TreeState
+    {
+        public enum State
+        {
+            Inspect,
+            LastKnown,
+            Aggro,
+        }
+        
+        public State state;
+        public int stateIndex;
+    }
+    
     [AddComponentMenu("BehaviourTree/BehaviourTreeOwner")]
     public class BehaviourTreeOwner : MonoBehaviour, IHearingHandler, ISightHandler
     {
@@ -26,6 +42,7 @@ namespace Runtime.BehaviourTree
 
         [Tooltip("Override blackboard values from the behaviour tree asset")]
         public List<BlackboardKeyValuePair> blackboardOverrides = new();
+        public List<TreeState> treeStates = new();
         
         [Tooltip("Masks that block field of view"), SerializeField] private LayerMask obstacleMask;
         [Tooltip("Wall Mask"), SerializeField] private LayerMask wallMask;
@@ -96,14 +113,7 @@ namespace Runtime.BehaviourTree
         {
             if (behaviourTree) behaviourTree.Update();
             _animator.transform.position = _navMeshAgent.transform.position;
-            
-            Vector3 movement = _navMeshAgent.velocity;
-            if (movement.magnitude > 0.1f)
-            {
-                _animator.SetFloat(MoveX, movement.x);
-                _animator.SetFloat(MoveY, movement.z);
-            }
-            _animator.SetBool(IsMoving, movement.magnitude > 0.1f);
+            _animator.SetBool(IsMoving, _navMeshAgent.velocity.magnitude > 0.1f);
         }
 
         private void OnDrawGizmos() 
@@ -127,9 +137,11 @@ namespace Runtime.BehaviourTree
         
         public void OnHearing(NoiseEmitter sender)
         {
-            if(_stateReference.value is 2 or 3) return;
-            //_investigateLocationReference.value = sender.transform.position;
-            _stateReference.value = 1;
+            if(treeStates.Find(x => x.state == TreeState.State.Inspect) == null) Debug.LogError("No Inspect state found");
+            else
+            {
+                SetActiveState(treeStates.Find(x => x.state == TreeState.State.Inspect).stateIndex);
+            }
         }
         
         public void OnSightEnter()
@@ -144,10 +156,15 @@ namespace Runtime.BehaviourTree
                 {
                     if (vignette != null) vignette.intensity.value = value;
                 }).SetFrom(0f).SetEaseSineInOut();
+                
+                if(treeStates.Find(x => x.state == TreeState.State.Aggro) == null) Debug.LogError("No aggro state found");
+                else
+                {
+                    _canSeePlayer = true;
+                    _material.color = aggroColour;
+                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.Aggro).stateIndex);
+                }
             }
-            _canSeePlayer = true;
-            _material.color = aggroColour;
-            _stateReference.value = 2;
         }
 
         public void OnSightExit(Vector2 lastKnownPosition)
@@ -155,7 +172,6 @@ namespace Runtime.BehaviourTree
             if (_canSeePlayer)
             {
                 //_investigateLocationReference.value = lastKnownPosition;
-                _stateReference.value = 1;
                 FindObjectOfType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
                 _material.color = idleColour;
                 
@@ -167,6 +183,13 @@ namespace Runtime.BehaviourTree
                 {
                     if (vignette != null) vignette.intensity.value = value;
                 }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
+                
+                if(treeStates.Find(x => x.state == TreeState.State.LastKnown) == null) Debug.LogError("No last known state state specified");
+                else
+                {
+                    _material.color = idleColour;
+                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.LastKnown).stateIndex);
+                }
             }
             _canSeePlayer = false;
         }
@@ -227,6 +250,12 @@ namespace Runtime.BehaviourTree
             }
 
             return true;
+        }
+        
+        public void SetLookDirection(Vector2 direction)
+        {
+            _animator.SetFloat(MoveX, direction.x);
+            _animator.SetFloat(MoveY, direction.y);
         }
     }
 }

@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: TestTree
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 2098102503561494533
+  nodes:
+  - rid: 2098102503561494533
+  - rid: 2098102503561494535
+  treeState: 1
+  blackboard:
+    keys:
+    - rid: 2098102503561494534
+  viewPosition: {x: 600, y: 300, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2098102503561494533
+      type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 1d8eefba-bed6-46fc-9762-d7b7c373c0ac
+        position: {x: 0, y: 0}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 2098102503561494535
+    - rid: 2098102503561494534
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: ActiveState
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 2098102503561494535
+      type: {class: LookAt, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a02617e41191d3c4a8c5e79da577d32d
+        position: {x: 0, y: 120}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        target:
+          reference:
+            rid: -2
+          defaultValue: {x: 39.5, y: -0.75}
+        lookTime:
+          reference:
+            rid: -2
+          defaultValue: 20

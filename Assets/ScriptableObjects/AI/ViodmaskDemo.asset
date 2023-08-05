@@ -90,8 +90,8 @@ MonoBehaviour:
     - rid: 484473835900633088
     - rid: 6236232439545200658
     - rid: 484473896144994402
-  viewPosition: {x: 372, y: 187.2, z: 0}
-  viewScale: {x: 0.25, y: 0.25, z: 1}
+  viewPosition: {x: -474, y: 56, z: 0}
+  viewScale: {x: 0.375937, y: 0.375937, z: 1}
   references:
     version: 2
     RefIds:
@@ -290,6 +290,10 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 0.1
+        accelerationSpeed:
+          reference:
+            rid: -2
+          defaultValue: 5
     - rid: 484473836275236952
       type: {class: Parallel, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:

@@ -45,6 +45,7 @@ namespace Runtime.Player
         [Header("STEALTH DETAILS")]
         [SerializeField] private float sneakSpeed = 1f;
         [SerializeField] private Light2D globalLight;
+        [SerializeField] private BoxCollider2D viewBounds;
         
         [Space(10)]
         [Header("SAVING SYSTEM")]
@@ -150,6 +151,7 @@ namespace Runtime.Player
                 _sneaking = !_sneaking;
                 _movementAnimator.SetBool(id: _isSneaking, _sneaking);
                 if(_monster != null) _monster.isPlayerCrouching = _sneaking;
+                SetViewBounds(_sneaking);
                 StartCoroutine(SneakCooldown());
             }
         }
@@ -158,6 +160,20 @@ namespace Runtime.Player
         {
             yield return new WaitForSeconds(0.1f);
             _sneakCooldownActive = false;
+        }
+
+        private void SetViewBounds(bool sneaking)
+        {
+            if (!sneaking)
+            {
+                viewBounds.offset = new Vector2(-0.02924603f, 1.228924f);
+                viewBounds.size = new Vector2(0.787723303f,2.72889376f);
+            }
+            else
+            {
+                viewBounds.offset = new Vector2(-0.1f, 0.8f);
+                viewBounds.size = new Vector2(1.5f, 1.9f);
+            }
         }
         
         private void FixedUpdate()
