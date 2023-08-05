@@ -32,8 +32,6 @@ MonoBehaviour:
   - rid: 2098102505195438086
   - rid: 2098102505811476481
   - rid: 2098102505811476484
-  - rid: 2098102505811476485
-  - rid: 2098102505811476486
   - rid: 2098102505811476493
   - rid: 2098102505811476494
   - rid: 2098102505811476498
@@ -61,6 +59,10 @@ MonoBehaviour:
   - rid: 2098102505811476544
   - rid: 2098102505811476545
   - rid: 2098102505811476546
+  - rid: 2098102505811476548
+  - rid: 2098102505811476550
+  - rid: 2098102505811476551
+  - rid: 2098102505811476552
   treeState: 1
   blackboard:
     keys:
@@ -74,8 +76,8 @@ MonoBehaviour:
     - rid: 2098102505811476487
     - rid: 2098102505811476507
     - rid: 2098102505811476534
-  viewPosition: {x: -915, y: 50, z: 0}
-  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
+  viewPosition: {x: -1647, y: -14, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -112,7 +114,7 @@ MonoBehaviour:
         - rid: 2098102505195438086
         - rid: 2098102505811476481
         - rid: 2098102505811476484
-        - rid: 2098102505811476486
+        - rid: 2098102505811476550
         index:
           reference:
             rid: 2098102494435999785
@@ -439,40 +441,6 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 0
-    - rid: 2098102505811476485
-      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 9e81832669dd87947a37b6252c7a09cb
-        position: {x: 4420, y: 380}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        duration:
-          reference:
-            rid: -2
-          defaultValue: 0
-    - rid: 2098102505811476486
-      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 96b28d34339dfea43836efc104027637
-        position: {x: 4420, y: 260}
-        blackboard:
-          keys: []
-        comment: Kill State
-        drawGizmos: 0
-        child:
-          rid: 2098102505811476485
-        restartOnSuccess: 1
-        restartOnFailure: 0
-        maxRepeats:
-          reference:
-            rid: -2
-          defaultValue: 0
     - rid: 2098102505811476487
       type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -748,7 +716,7 @@ MonoBehaviour:
         distance:
           reference:
             rid: -2
-          defaultValue: 2.5
+          defaultValue: 1.8
         target:
           reference:
             rid: 2098102494435999786
@@ -1009,3 +977,58 @@ MonoBehaviour:
         name: 
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 2
+    - rid: 2098102505811476548
+      type: {class: KillPlayer, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 399cf7d6a6a6ade46b248b2746ebf87f
+        position: {x: 4540, y: 400}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        player:
+          reference:
+            rid: 2098102494435999786
+          defaultValue: {fileID: 0}
+    - rid: 2098102505811476550
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ff0d80fa50d2486418e2ecf1422b5034
+        position: {x: 4720, y: 260}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 2098102505811476548
+        - rid: 2098102505811476551
+        - rid: 2098102505811476552
+    - rid: 2098102505811476551
+      type: {class: PlayAnimation, ns: Runtime.BehaviourTree.Actions.Animation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 81950dabee5b16445ac2302e7bcfcad7
+        position: {x: 4720, y: 400}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        animationClip: {fileID: 7400000, guid: 2e50ff645e9435e47a3f30a4f1a944bc, type: 2}
+        waitUntilFinish: 1
+    - rid: 2098102505811476552
+      type: {class: ShowDeathScreen, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 6105a7f9ec9a614408738db0cdd620dc
+        position: {x: 4900, y: 400}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        deathType: 1
