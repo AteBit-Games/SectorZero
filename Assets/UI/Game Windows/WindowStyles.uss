@@ -179,7 +179,7 @@
 }
 
 .unity-popup-field__input {
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(38, 38, 38);
     border-left-color: rgba(24, 24, 24, 0);
     border-right-color: rgba(24, 24, 24, 0);
     border-top-color: rgba(24, 24, 24, 0);
@@ -199,7 +199,7 @@
 }
 
 .unity-text-field__input {
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(38, 38, 38);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
@@ -208,7 +208,7 @@
 }
 
 .unity-base-text-field:focus .unity-base-text-field__input {
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(41, 41, 41);
     border-left-color: rgb(41, 41, 41);
     border-right-color: rgb(41, 41, 41);
     border-top-color: rgb(41, 41, 41);
@@ -259,7 +259,7 @@
 }
 
 #feedback-option .form-button {
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(46, 46, 46);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
@@ -271,7 +271,7 @@
 }
 
 #feedback-option .form-button:hover {
-    background-color: rgb(36, 36, 36);
+    background-color: rgb(53, 53, 53);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);

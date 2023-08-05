@@ -19,6 +19,13 @@
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="VisualElement" class="property-group">
+        <ui:Label tabindex="-1" text="Sound Settings" display-tooltip-when-elided="true" name="header" />
+        <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <uie:PropertyField binding-path="audioSource" name="property" />
+            <uie:PropertyField binding-path="footstepSounds" name="property" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="VisualElement" class="property-group">
         <ui:Label tabindex="-1" text="DEBUG" display-tooltip-when-elided="true" name="header" />
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <uie:PropertyField binding-path="debug" name="property" />

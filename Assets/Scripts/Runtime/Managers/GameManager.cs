@@ -81,6 +81,10 @@ namespace Runtime.Managers
             {
                 SaveSystem.NewGame(true, SceneManager.GetActiveScene().buildIndex);
             }
+            else
+            {
+                SaveSystem.NewGame(false, SceneManager.GetActiveScene().buildIndex);
+            }
         }
         
         private void Update()
