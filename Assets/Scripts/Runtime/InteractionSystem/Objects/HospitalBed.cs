@@ -17,6 +17,8 @@ namespace Runtime.InteractionSystem.Objects
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
+
+        [SerializeField] private Animator _towelAnimator;
         
         private Collider2D _interactionCollider;
 
@@ -57,6 +59,11 @@ namespace Runtime.InteractionSystem.Objects
         public bool CanInteract()
         {
             return active;
+        }
+        
+        public void DropTowel()
+        {
+            _towelAnimator.SetTrigger("Start");
         }
 
         public UnityEvent OnInteractEvents { get; }

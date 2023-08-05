@@ -1,0 +1,1116 @@
+fileFormatVersion: 2
+guid: ab5cbea963e82e940a80450726aada18
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: NellieBed_Towel_Frame_0
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 85
+      width: 17
+      height: 25
+    spriteID: 86fecc4e15efbe841b4ab39092d1c5c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 85}
+  - name: NellieBed_Towel_Frame_1
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 118
+      width: 17
+      height: 25
+    spriteID: ccd4de5d3728d0a4db778aa0ca00fa50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 118}
+  - name: NellieBed_Towel_Frame_2
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 151
+      width: 17
+      height: 25
+    spriteID: c4b23ab7bd0c8894fabace83f155ee33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 151}
+  - name: NellieBed_Towel_Frame_3
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 184
+      width: 17
+      height: 25
+    spriteID: 7ec61bc21a13ff748ac1ab99123ecb47
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 184}
+  - name: NellieBed_Towel_Frame_4
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 217
+      width: 17
+      height: 25
+    spriteID: ee69ee1cd3bc6fa409c76814b386b0d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 217}
+  - name: NellieBed_Towel_Frame_5
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 81
+      width: 17
+      height: 25
+    spriteID: 9a6d3f42054305b4dbb335dc84045e89
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 81}
+  - name: NellieBed_Towel_Frame_6
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 114
+      width: 17
+      height: 25
+    spriteID: 52e63814deb058f4782cbba331783d87
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 114}
+  - name: NellieBed_Towel_Frame_7
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 147
+      width: 17
+      height: 25
+    spriteID: 626a48e258fffa24cad0c420b5ea9e7d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 147}
+  - name: NellieBed_Towel_Frame_8
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 180
+      width: 17
+      height: 25
+    spriteID: cd72bd2c38cf585439723910761c857d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 180}
+  - name: NellieBed_Towel_Frame_9
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 213
+      width: 17
+      height: 25
+    spriteID: 8eee103f33df1bc45b5c896678b9ea39
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 213}
+  - name: NellieBed_Towel_Frame_10
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 52
+      width: 17
+      height: 25
+    spriteID: 5c3f28c886a5c0e419bcb9f15d2a7988
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 52}
+  - name: NellieBed_Towel_Frame_11
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 85
+      width: 17
+      height: 25
+    spriteID: 508a320d18cec7540aa1bfa14c9e9830
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 85}
+  - name: NellieBed_Towel_Frame_12
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 118
+      width: 17
+      height: 25
+    spriteID: b26f1686b6b36cc49a2c3b5c0c306471
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 118}
+  - name: NellieBed_Towel_Frame_13
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 151
+      width: 17
+      height: 25
+    spriteID: 8ce4aa70c5e38fa4e8d9a157791a699b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 151}
+  - name: NellieBed_Towel_Frame_14
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 184
+      width: 17
+      height: 24
+    spriteID: 61fe7386113abb34992dac6428a106dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 184}
+  - name: NellieBed_Towel_Frame_15
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 216
+      width: 17
+      height: 24
+    spriteID: 6cc463fbcd12953418c570869705d734
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 55, y: 216}
+  - name: NellieBed_Towel_Frame_16
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 52
+      width: 17
+      height: 24
+    spriteID: 08056ed9856cdc644bd6205d8a23903a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 80, y: 52}
+  - name: NellieBed_Towel_Frame_17
+    originalName: 
+    pivot: {x: 1.7058823, y: -0.6666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 84
+      width: 17
+      height: 24
+    spriteID: 8ea40c0c993d34740b565bda55cae041
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 80, y: 84}
+  - name: NellieBed_Towel_Frame_18
+    originalName: 
+    pivot: {x: 1.5555555, y: -0.6}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 52
+      width: 18
+      height: 25
+    spriteID: 6e6e350e7ad02454d9aef8c2f0b09180
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 52}
+  - name: NellieBed_Towel_Frame_19
+    originalName: 
+    pivot: {x: 1.4705883, y: -0.37931037}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 17
+      height: 29
+    spriteID: 0e690067d1e1aaf4b9bc2257e0c37256
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: NellieBed_Towel_Frame_20
+    originalName: 
+    pivot: {x: 1.4666667, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 41
+      width: 15
+      height: 32
+    spriteID: 4182c8b7b13e80f46b7d718f825934fa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 41}
+  - name: NellieBed_Towel_Frame_21
+    originalName: 
+    pivot: {x: 1.4999999, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 175
+      width: 10
+      height: 24
+    spriteID: dd4223d6137d9364fa41119187a27fe5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 80, y: 175}
+  - name: NellieBed_Towel_Frame_22
+    originalName: 
+    pivot: {x: 1.2499999, y: -0.26086956}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 144
+      width: 12
+      height: 23
+    spriteID: cd03142a96bfc7743b256dc3c0b61205
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 80, y: 144}
+  - name: NellieBed_Towel_Frame_23
+    originalName: 
+    pivot: {x: 0.99999994, y: -0.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 116
+      width: 15
+      height: 20
+    spriteID: cc066c615a0d69f4ba2f81ad213a9a43
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 80, y: 116}
+  - name: NellieBed_Towel_Frame_24
+    originalName: 
+    pivot: {x: 0.6521739, y: -0.29411766}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 52
+      width: 23
+      height: 17
+    spriteID: 2d9e83f1a694aa34fb5c7e08e186fc35
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 52}
+  - name: NellieBed_Towel_Frame_25
+    originalName: 
+    pivot: {x: 0.51724136, y: -0.3125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 4
+      width: 29
+      height: 16
+    spriteID: 97021908f03938d488b0ab49f391de06
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 4}
+  - name: NellieBed_Towel_Frame_26
+    originalName: 
+    pivot: {x: 0.51724136, y: -0.3125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 66
+      y: 4
+      width: 29
+      height: 16
+    spriteID: 429d908bab815474da10cb358c46c2b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 66, y: 4}
+  - name: NellieBed_Towel_Frame_27
+    originalName: 
+    pivot: {x: 0.51724136, y: -0.3125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 4
+      width: 29
+      height: 16
+    spriteID: cc221438218fdb84e8c69e8e16684bf8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 103, y: 4}
+  - name: NellieBed_Towel_Frame_28
+    originalName: 
+    pivot: {x: 0.51724136, y: -0.3125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 4
+      width: 29
+      height: 16
+    spriteID: f80d9f36606fad244bcec3a326c5e48b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 4}
+  - name: NellieBed_Towel_Frame_29
+    originalName: 
+    pivot: {x: 0.51724136, y: -0.3125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 177
+      y: 4
+      width: 29
+      height: 16
+    spriteID: 7cbf86b2e91dbd64b89b6808941457d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 177, y: 4}
+  - name: NellieBed_Towel_Frame_30
+    originalName: 
+    pivot: {x: 0.51724136, y: -0.3125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 214
+      y: 4
+      width: 29
+      height: 16
+    spriteID: bf6a1f7d1e2b17c4e8c59dbe861899a4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 214, y: 4}
+  - name: NellieBed_Towel_Frame_31
+    originalName: 
+    pivot: {x: 0.51724136, y: -0.3125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 28
+      width: 29
+      height: 16
+    spriteID: 710d5bb7c7dd93c4c8a64ba58f0dc04d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 28}
+  - name: NellieBed_Towel_Frame_32
+    originalName: 
+    pivot: {x: 0.51724136, y: -0.3125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 66
+      y: 28
+      width: 29
+      height: 16
+    spriteID: 8bc559e51c1505543a01e6a0f5ecfd71
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 66, y: 28}
+  - name: NellieBed_Towel_Frame_33
+    originalName: 
+    pivot: {x: 0.51724136, y: -0.3125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 28
+      width: 29
+      height: 16
+    spriteID: d009fa45b5675a047a9108242126db44
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 103, y: 28}
+  - name: NellieBed_Towel_Frame_34
+    originalName: 
+    pivot: {x: 0.51724136, y: -0.3125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 140
+      y: 28
+      width: 29
+      height: 16
+    spriteID: 8a8a1ece8d327ac48b1d87013d7626b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 140, y: 28}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1625742956
+    name: NellieBed_Towel
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: NellieBed_Towel_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: 86fecc4e15efbe841b4ab39092d1c5c1
+    - name: NellieBed_Towel_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: ccd4de5d3728d0a4db778aa0ca00fa50
+    - name: NellieBed_Towel_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: c4b23ab7bd0c8894fabace83f155ee33
+    - name: NellieBed_Towel_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: 7ec61bc21a13ff748ac1ab99123ecb47
+    - name: NellieBed_Towel_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: ee69ee1cd3bc6fa409c76814b386b0d2
+    - name: NellieBed_Towel_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: 9a6d3f42054305b4dbb335dc84045e89
+    - name: NellieBed_Towel_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: 52e63814deb058f4782cbba331783d87
+    - name: NellieBed_Towel_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: 626a48e258fffa24cad0c420b5ea9e7d
+    - name: NellieBed_Towel_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: cd72bd2c38cf585439723910761c857d
+    - name: NellieBed_Towel_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: 8eee103f33df1bc45b5c896678b9ea39
+    - name: NellieBed_Towel_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: 5c3f28c886a5c0e419bcb9f15d2a7988
+    - name: NellieBed_Towel_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: 508a320d18cec7540aa1bfa14c9e9830
+    - name: NellieBed_Towel_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: b26f1686b6b36cc49a2c3b5c0c306471
+    - name: NellieBed_Towel_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 15
+        y: 15
+        width: 17
+        height: 25
+      spriteId: 8ce4aa70c5e38fa4e8d9a157791a699b
+    - name: NellieBed_Towel_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 15
+        y: 16
+        width: 17
+        height: 24
+      spriteId: 61fe7386113abb34992dac6428a106dd
+    - name: NellieBed_Towel_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 15
+        y: 16
+        width: 17
+        height: 24
+      spriteId: 6cc463fbcd12953418c570869705d734
+    - name: NellieBed_Towel_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 15
+        y: 16
+        width: 17
+        height: 24
+      spriteId: 08056ed9856cdc644bd6205d8a23903a
+    - name: NellieBed_Towel_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 15
+        y: 16
+        width: 17
+        height: 24
+      spriteId: 8ea40c0c993d34740b565bda55cae041
+    - name: NellieBed_Towel_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 16
+        y: 15
+        width: 18
+        height: 25
+      spriteId: 6e6e350e7ad02454d9aef8c2f0b09180
+    - name: NellieBed_Towel_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 19
+        y: 11
+        width: 17
+        height: 29
+      spriteId: 0e690067d1e1aaf4b9bc2257e0c37256
+    - name: NellieBed_Towel_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 22
+        y: 8
+        width: 15
+        height: 32
+      spriteId: 4182c8b7b13e80f46b7d718f825934fa
+    - name: NellieBed_Towel_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 29
+        y: 6
+        width: 10
+        height: 24
+      spriteId: dd4223d6137d9364fa41119187a27fe5
+    - name: NellieBed_Towel_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 29
+        y: 6
+        width: 12
+        height: 23
+      spriteId: cd03142a96bfc7743b256dc3c0b61205
+    - name: NellieBed_Towel_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 29
+        y: 5
+        width: 15
+        height: 20
+      spriteId: cc066c615a0d69f4ba2f81ad213a9a43
+    - name: NellieBed_Towel_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 29
+        y: 5
+        width: 23
+        height: 17
+      spriteId: 2d9e83f1a694aa34fb5c7e08e186fc35
+    - name: NellieBed_Towel_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 29
+        y: 5
+        width: 29
+        height: 16
+      spriteId: 97021908f03938d488b0ab49f391de06
+    - name: NellieBed_Towel_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 29
+        y: 5
+        width: 29
+        height: 16
+      spriteId: 429d908bab815474da10cb358c46c2b7
+    - name: NellieBed_Towel_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 29
+        y: 5
+        width: 29
+        height: 16
+      spriteId: cc221438218fdb84e8c69e8e16684bf8
+    - name: NellieBed_Towel_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 29
+        y: 5
+        width: 29
+        height: 16
+      spriteId: f80d9f36606fad244bcec3a326c5e48b
+    - name: NellieBed_Towel_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 29
+        y: 5
+        width: 29
+        height: 16
+      spriteId: 7cbf86b2e91dbd64b89b6808941457d3
+    - name: NellieBed_Towel_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 29
+        y: 5
+        width: 29
+        height: 16
+      spriteId: bf6a1f7d1e2b17c4e8c59dbe861899a4
+    - name: NellieBed_Towel_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 29
+        y: 5
+        width: 29
+        height: 16
+      spriteId: 710d5bb7c7dd93c4c8a64ba58f0dc04d
+    - name: NellieBed_Towel_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 29
+        y: 5
+        width: 29
+        height: 16
+      spriteId: 8bc559e51c1505543a01e6a0f5ecfd71
+    - name: NellieBed_Towel_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 29
+        y: 5
+        width: 29
+        height: 16
+      spriteId: d009fa45b5675a047a9108242126db44
+    - name: NellieBed_Towel_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 29
+        y: 5
+        width: 29
+        height: 16
+      spriteId: 8a8a1ece8d327ac48b1d87013d7626b7
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 88, y: 80}
