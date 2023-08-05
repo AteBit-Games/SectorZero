@@ -10,6 +10,7 @@ using Runtime.Player;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -64,6 +65,13 @@ namespace Runtime.InteractionSystem.Objects
         public void DropTowel()
         {
             _towelAnimator.SetTrigger("Start");
+        }
+        
+        public void TowelEnd()
+        {
+            var towel = _towelAnimator.gameObject.GetComponent<SortingGroup>();
+            towel.sortingOrder = 9;
+            towel.sortAtRoot = true;
         }
 
         public UnityEvent OnInteractEvents { get; }
