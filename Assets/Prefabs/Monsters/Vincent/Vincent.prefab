@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 1875962746}
   - component: {fileID: 9035896067577339051}
   - component: {fileID: 6593381512214898877}
+  - component: {fileID: 365128555534112830}
   m_Layer: 9
   m_Name: Visual
   m_TagString: Untagged
@@ -290,7 +291,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 100
+  MaxDistance: 16
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -613,3 +614,26 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &365128555534112830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369446493431426671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a24561ac4d2664a8554b0e27a2934f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 11400000, guid: 804deabe8651c8841a41865e8decb8f4, type: 2}
+  - {fileID: 11400000, guid: 9b7ebabbdca75b14fb790fdb683ff53f, type: 2}
+  - {fileID: 11400000, guid: 6c7b322d3ccf2a748aa7993cc077e4e3, type: 2}
+  - {fileID: 11400000, guid: 9365fc25526ff184cbf321fcdf5da543, type: 2}
+  - {fileID: 11400000, guid: 7a4885db155defe499b56f5804ef45a2, type: 2}
+  - {fileID: 11400000, guid: 9ee76f30c43532c479058f3013d7ac80, type: 2}
+  - {fileID: 11400000, guid: 06b781c215c0faa4ca32ebe1ea77cf76, type: 2}
+  - {fileID: 11400000, guid: b04aa8b18f65529449d929598faf59aa, type: 2}
+  - {fileID: 11400000, guid: 5509104b67c7a6a4e8a109b1bb3ff71b, type: 2}
+  - {fileID: 11400000, guid: c3eb4d56d8588d54eb03fbe7fb14c97e, type: 2}
