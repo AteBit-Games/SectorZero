@@ -129,8 +129,6 @@ namespace Runtime.Managers
             TriggerEvent("TutorialStage4");
         }
         
-        
-
         public void TriggerStage5()
         {
             GameManager.Instance.SaveSystem.SaveGame();
@@ -139,6 +137,11 @@ namespace Runtime.Managers
         public void TriggerDialogue(int index)
         {
             GameManager.Instance.DialogueSystem.StartDialogue(tutorialDialogue[index]);
+        }
+
+        public void TriggerTutorialEnd()
+        {
+            GameManager.Instance.EndGame();
         }
     }
 }

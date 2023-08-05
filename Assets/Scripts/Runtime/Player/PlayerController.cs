@@ -255,9 +255,19 @@ namespace Runtime.Player
             
             if (facingDirection != Vector2.zero)
             {
-                _movementAnimator.SetFloat(id: _moveX, facingDirection.x);
-                _movementAnimator.SetFloat(id: _moveY, facingDirection.y);
+                SetFacingDirection(facingDirection);
             }
+        }
+        
+        private void SetFacingDirection(Vector2 direction)
+        {
+            _movementAnimator.SetFloat(id: _moveX, direction.x);
+            _movementAnimator.SetFloat(id: _moveY, direction.y);
+        }
+        
+        public void LookDown()
+        {
+            SetFacingDirection(Vector2.down);
         }
 
         private void UpdateMouseLook()
@@ -274,7 +284,7 @@ namespace Runtime.Player
             //check if mouse is in dead zone
             if (mousePos.x > deadZoneMinX && mousePos.x < deadZoneMaxX && mousePos.y > deadZoneMinY && mousePos.y < deadZoneMaxY)
             {
-                lookPointer.position = gameObject.transform.position;
+                lookPointer.position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y+2.8f);
             }
             else
             {

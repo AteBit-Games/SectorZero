@@ -37,6 +37,7 @@ namespace Runtime.DialogueSystem
         //================ Tracking ==================
         private int _currentLineIndex;
         private Coroutine displayLineCoroutine;
+        private Coroutine endDialogueCoroutine;
 
         private void Awake()
         {
@@ -84,6 +85,9 @@ namespace Runtime.DialogueSystem
             _actorImage.style.backgroundImage = new StyleBackground(dialogue.dialogueLines[_currentLineIndex].actor.Sprite);
             _dialogueTextElement.text = "";
             
+            if (displayLineCoroutine != null) StopCoroutine(displayLineCoroutine);
+            if (endDialogueCoroutine != null) StopCoroutine(endDialogueCoroutine);
+
             ContinueDialogue();
         }
 
@@ -106,7 +110,7 @@ namespace Runtime.DialogueSystem
             else
             {
                 if (_skipDialogue) ShowDialogue(false);
-                else StartCoroutine(ExitDialogue());
+                else endDialogueCoroutine = StartCoroutine(ExitDialogue());
 
                 if(_currentDialogue.trigger) OnDialogueFinish?.Invoke();
                 _currentDialogue = null;

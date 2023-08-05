@@ -78,8 +78,10 @@ namespace Runtime.SaveSystem.Data
         public SerializableDictionary<string, bool> pickups = new();
         public SerializableDictionary<string, bool> tapeRecorders = new();
         public SerializableDictionary<string, bool> triggers = new();
+        public SerializableDictionary<string, bool> doors = new();
         
         public List<CinematicData> cinematics = new();
+        public SerializableDictionary<string, bool> miscItems = new();
     }
 
     [Serializable]

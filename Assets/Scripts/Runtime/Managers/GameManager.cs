@@ -15,6 +15,8 @@ using Runtime.SoundSystem;
 using Runtime.SoundSystem.ScriptableObjects;
 using Runtime.Utils;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 namespace Runtime.Managers
@@ -81,10 +83,6 @@ namespace Runtime.Managers
             if(testMode)
             {
                 SaveSystem.NewGame(true, SceneManager.GetActiveScene().buildIndex);
-            }
-            else
-            {
-                SaveSystem.NewGame(false, SceneManager.GetActiveScene().buildIndex);
             }
         }
         
@@ -181,6 +179,10 @@ namespace Runtime.Managers
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
+            var volume = FindObjectOfType<Volume>();
+            var vignette = volume.sharedProfile.components[0] as Vignette;
+            if (vignette != null) vignette.intensity.value = 0f;
+
             //Required objects for all scenes
             _camera = FindObjectOfType<CinemachineVirtualCamera>();
             NotificationManager = FindObjectOfType<NotificationManager>(true);
@@ -199,6 +201,7 @@ namespace Runtime.Managers
             HUD = FindObjectOfType<HUD>(true);
             DeathScreen = FindObjectOfType<DeathScreen>(true);
             EndScreen = FindObjectOfType<EndScreen>(true);
+            
             
             if(testMode)
             {
@@ -291,6 +294,7 @@ namespace Runtime.Managers
         
         public void EndGame()
         {
+            Time.timeScale = 0f;
             inputReader.SetUI();
             EndScreen.Show();
         }
