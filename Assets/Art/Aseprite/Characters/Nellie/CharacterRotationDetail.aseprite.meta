@@ -1,0 +1,360 @@
+fileFormatVersion: 2
+guid: 35d23d9a5edb64e4487d3bbfbd73579e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: CharacterRotationDetail_Frame_0
+    originalName: 
+    pivot: {x: 0.47826087, y: -0.09803922}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 23
+      height: 51
+    spriteID: 39e4ad647e5739d4dbfb82b91f4db42c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: CharacterRotationDetail_Frame_1
+    originalName: 
+    pivot: {x: 0.47368422, y: -0.0754717}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 63
+      width: 19
+      height: 53
+    spriteID: 16638521fc2480240900d27a7129f81c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 63}
+  - name: CharacterRotationDetail_Frame_2
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.056603774}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 4
+      width: 17
+      height: 53
+    spriteID: cfd7dd73671db31499c66e991d5b2797
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 4}
+  - name: CharacterRotationDetail_Frame_3
+    originalName: 
+    pivot: {x: 0.4117647, y: -0.078431375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 126
+      width: 17
+      height: 51
+    spriteID: 453ac22109d23a24286d0ca32a89c40d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 126}
+  - name: CharacterRotationDetail_Frame_4
+    originalName: 
+    pivot: {x: 0.45000002, y: -0.12244898}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 185
+      width: 20
+      height: 49
+    spriteID: 4293f90b3dab36542aa633d67ef8c96a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 185}
+  - name: CharacterRotationDetail_Frame_5
+    originalName: 
+    pivot: {x: 0.47058824, y: -0.078431375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 185
+      width: 17
+      height: 51
+    spriteID: 69ba3ec81b80ec14a8ec9d5555a7f748
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 185}
+  - name: CharacterRotationDetail_Frame_6
+    originalName: 
+    pivot: {x: 0.3529412, y: -0.056603774}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 65
+      width: 17
+      height: 53
+    spriteID: f3a41e9eb01f9b84d8ede4a443b7f642
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 65}
+  - name: CharacterRotationDetail_Frame_7
+    originalName: 
+    pivot: {x: 0.42105263, y: -0.0754717}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 124
+      width: 19
+      height: 53
+    spriteID: f32e4b038e9393e41843cad7292287d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 124}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1566213718
+    name: CharacterRotationDetail
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: CharacterRotationDetail_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 21
+        y: 5
+        width: 23
+        height: 51
+      spriteId: 39e4ad647e5739d4dbfb82b91f4db42c
+    - name: CharacterRotationDetail_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 23
+        y: 4
+        width: 19
+        height: 53
+      spriteId: 16638521fc2480240900d27a7129f81c
+    - name: CharacterRotationDetail_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 23
+        y: 3
+        width: 17
+        height: 53
+      spriteId: cfd7dd73671db31499c66e991d5b2797
+    - name: CharacterRotationDetail_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 25
+        y: 4
+        width: 17
+        height: 51
+      spriteId: 453ac22109d23a24286d0ca32a89c40d
+    - name: CharacterRotationDetail_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 23
+        y: 6
+        width: 20
+        height: 49
+      spriteId: 4293f90b3dab36542aa633d67ef8c96a
+    - name: CharacterRotationDetail_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 24
+        y: 4
+        width: 17
+        height: 51
+      spriteId: 69ba3ec81b80ec14a8ec9d5555a7f748
+    - name: CharacterRotationDetail_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 26
+        y: 3
+        width: 17
+        height: 53
+      spriteId: f3a41e9eb01f9b84d8ede4a443b7f642
+    - name: CharacterRotationDetail_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 24
+        y: 4
+        width: 19
+        height: 53
+      spriteId: f32e4b038e9393e41843cad7292287d9
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}

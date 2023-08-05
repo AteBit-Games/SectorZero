@@ -50,6 +50,9 @@ TagManager:
   - name: Doorway
     uniqueID: 892543347
     locked: 0
+  - name: Interact
+    uniqueID: 589808837
+    locked: 0
   - name: Monsters
     uniqueID: 3486726291
     locked: 0

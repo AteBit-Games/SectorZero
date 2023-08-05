@@ -1,0 +1,696 @@
+fileFormatVersion: 2
+guid: d7d81424f9d9f504f97bf90bff1db4d8
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: CorruptedScientistAttackShort_E_Frame_0
+    originalName: 
+    pivot: {x: 0.17777777, y: -0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 199
+      width: 45
+      height: 58
+    spriteID: d6a27a2da3ef0d845aea30462d8bf2bc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 199}
+  - name: CorruptedScientistAttackShort_E_Frame_1
+    originalName: 
+    pivot: {x: 0.11627907, y: -0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 265
+      width: 43
+      height: 58
+    spriteID: d1f544fac0a1b5f459ec52bc1c9a0d65
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 265}
+  - name: CorruptedScientistAttackShort_E_Frame_2
+    originalName: 
+    pivot: {x: 0.09302328, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 331
+      width: 43
+      height: 56
+    spriteID: 18e5406ff1fdd354aa7c72ac06754f5a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 331}
+  - name: CorruptedScientistAttackShort_E_Frame_3
+    originalName: 
+    pivot: {x: 0.108108126, y: -0.18965518}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 395
+      width: 37
+      height: 58
+    spriteID: 9e61333927cbca1468bd7784955c1d23
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 395}
+  - name: CorruptedScientistAttackShort_E_Frame_4
+    originalName: 
+    pivot: {x: 0.12500003, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 70
+      width: 32
+      height: 60
+    spriteID: d5567c25bb6c9324497ffcf893c7f62b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 70}
+  - name: CorruptedScientistAttackShort_E_Frame_5
+    originalName: 
+    pivot: {x: 0.12500003, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 138
+      width: 32
+      height: 60
+    spriteID: 2f563ad255311d5469f9253b6c38efdb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 138}
+  - name: CorruptedScientistAttackShort_E_Frame_6
+    originalName: 
+    pivot: {x: 0.12500003, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 206
+      width: 32
+      height: 60
+    spriteID: c6f6cd42453014a418351758119d68fa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 206}
+  - name: CorruptedScientistAttackShort_E_Frame_7
+    originalName: 
+    pivot: {x: 0.12500003, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 274
+      width: 32
+      height: 60
+    spriteID: 2f189bc14fe029b44b177d51247d986f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 274}
+  - name: CorruptedScientistAttackShort_E_Frame_8
+    originalName: 
+    pivot: {x: 0.12500003, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 342
+      width: 32
+      height: 60
+    spriteID: d6ab8bed7433aea48802c3eecddc7617
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 342}
+  - name: CorruptedScientistAttackShort_E_Frame_9
+    originalName: 
+    pivot: {x: 0.12500003, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 410
+      width: 32
+      height: 60
+    spriteID: 5b937eb4e110a47409c9944fa8487a09
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 410}
+  - name: CorruptedScientistAttackShort_E_Frame_10
+    originalName: 
+    pivot: {x: 0.12500003, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 4
+      width: 32
+      height: 60
+    spriteID: 07b636032f2906849ba32b2dd9b3f775
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 4}
+  - name: CorruptedScientistAttackShort_E_Frame_11
+    originalName: 
+    pivot: {x: 0.12500003, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 72
+      width: 32
+      height: 60
+    spriteID: 8e89ad835c9c3104e8dfe6996a9eaa89
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 72}
+  - name: CorruptedScientistAttackShort_E_Frame_12
+    originalName: 
+    pivot: {x: 0.12500003, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 140
+      width: 32
+      height: 60
+    spriteID: 12cace810fbfd4646becda956a9742e0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 140}
+  - name: CorruptedScientistAttackShort_E_Frame_13
+    originalName: 
+    pivot: {x: 0.12903228, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 208
+      width: 31
+      height: 60
+    spriteID: 273528dc720a6af4e9814a0b57602afc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 208}
+  - name: CorruptedScientistAttackShort_E_Frame_14
+    originalName: 
+    pivot: {x: 0.12903228, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 276
+      width: 31
+      height: 60
+    spriteID: 5fa411171a07a9243b75638a0ec02954
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 276}
+  - name: CorruptedScientistAttackShort_E_Frame_15
+    originalName: 
+    pivot: {x: 0.12903228, y: -0.18333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 344
+      width: 31
+      height: 60
+    spriteID: 77558e10b3ed629439970dacc994de23
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 344}
+  - name: CorruptedScientistAttackShort_E_Frame_16
+    originalName: 
+    pivot: {x: 0.13513513, y: -0.1724138}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 4
+      width: 37
+      height: 58
+    spriteID: bc142940de30157488f061548c96be0b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 4}
+  - name: CorruptedScientistAttackShort_E_Frame_17
+    originalName: 
+    pivot: {x: 0.17391303, y: -0.15789473}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 134
+      width: 46
+      height: 57
+    spriteID: 79c3e05c85a83cd46a05fc2b2fd8035d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 134}
+  - name: CorruptedScientistAttackShort_E_Frame_18
+    originalName: 
+    pivot: {x: 0.16666666, y: -0.15789473}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 48
+      height: 57
+    spriteID: 48eba0820ed198a4dbc5e63695caef5a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: CorruptedScientistAttackShort_E_Frame_19
+    originalName: 
+    pivot: {x: 0.16666666, y: -0.15789473}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 69
+      width: 48
+      height: 57
+    spriteID: 379e45b0cd27b014292915b829043a9f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 69}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -81774994
+    name: CorruptedScientistAttackShort_E
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: CorruptedScientistAttackShort_E_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 32
+        y: 8
+        width: 45
+        height: 58
+      spriteId: d6a27a2da3ef0d845aea30462d8bf2bc
+    - name: CorruptedScientistAttackShort_E_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 35
+        y: 8
+        width: 43
+        height: 58
+      spriteId: d1f544fac0a1b5f459ec52bc1c9a0d65
+    - name: CorruptedScientistAttackShort_E_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 36
+        y: 8
+        width: 43
+        height: 56
+      spriteId: 18e5406ff1fdd354aa7c72ac06754f5a
+    - name: CorruptedScientistAttackShort_E_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 36
+        y: 11
+        width: 37
+        height: 58
+      spriteId: 9e61333927cbca1468bd7784955c1d23
+    - name: CorruptedScientistAttackShort_E_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: d5567c25bb6c9324497ffcf893c7f62b
+    - name: CorruptedScientistAttackShort_E_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: 2f563ad255311d5469f9253b6c38efdb
+    - name: CorruptedScientistAttackShort_E_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: c6f6cd42453014a418351758119d68fa
+    - name: CorruptedScientistAttackShort_E_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: 2f189bc14fe029b44b177d51247d986f
+    - name: CorruptedScientistAttackShort_E_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: d6ab8bed7433aea48802c3eecddc7617
+    - name: CorruptedScientistAttackShort_E_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: 5b937eb4e110a47409c9944fa8487a09
+    - name: CorruptedScientistAttackShort_E_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: 07b636032f2906849ba32b2dd9b3f775
+    - name: CorruptedScientistAttackShort_E_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: 8e89ad835c9c3104e8dfe6996a9eaa89
+    - name: CorruptedScientistAttackShort_E_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: 12cace810fbfd4646becda956a9742e0
+    - name: CorruptedScientistAttackShort_E_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 36
+        y: 12
+        width: 31
+        height: 60
+      spriteId: 273528dc720a6af4e9814a0b57602afc
+    - name: CorruptedScientistAttackShort_E_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 36
+        y: 12
+        width: 31
+        height: 60
+      spriteId: 5fa411171a07a9243b75638a0ec02954
+    - name: CorruptedScientistAttackShort_E_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 36
+        y: 11
+        width: 31
+        height: 60
+      spriteId: 77558e10b3ed629439970dacc994de23
+    - name: CorruptedScientistAttackShort_E_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 35
+        y: 10
+        width: 37
+        height: 58
+      spriteId: bc142940de30157488f061548c96be0b
+    - name: CorruptedScientistAttackShort_E_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 32
+        y: 9
+        width: 46
+        height: 57
+      spriteId: 79c3e05c85a83cd46a05fc2b2fd8035d
+    - name: CorruptedScientistAttackShort_E_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 32
+        y: 9
+        width: 48
+        height: 57
+      spriteId: 48eba0820ed198a4dbc5e63695caef5a
+    - name: CorruptedScientistAttackShort_E_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 32
+        y: 9
+        width: 48
+        height: 57
+      spriteId: 379e45b0cd27b014292915b829043a9f
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 80, y: 80}

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1288620181424130991}
   - component: {fileID: 3426687566672616451}
   - component: {fileID: 754211185299575299}
+  - component: {fileID: 3109625605362919895}
   m_Layer: 6
   m_Name: VerticalBottom
   m_TagString: Untagged
@@ -182,6 +183,36 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &3109625605362919895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57506138857328740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 9338d3cf
+  m_ShapePath:
+  - {x: -0.50706863, y: 0.20541525, z: 0}
+  - {x: -0.5090332, y: 1.0414853, z: 0}
+  - {x: 0.50988007, y: 1.0471053, z: 0}
+  - {x: 0.5107384, y: 0.20541573, z: 0}
+  m_ShapePathHash: 1647384437
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -116930
+  m_LocalBounds:
+    m_Center: {x: 0.00085258484, y: 0.6262603, z: 0}
+    m_Extent: {x: 0.5098858, y: 0.42084503, z: 0}
 --- !u!1 &1513579254062398314
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +230,7 @@ GameObject:
   - component: {fileID: 5453075131689179816}
   - component: {fileID: 4359765970848489990}
   - component: {fileID: 5416056927046984591}
+  - component: {fileID: 7204556482228598147}
   m_Layer: 6
   m_Name: StripedDoorVertical
   m_TagString: Untagged
@@ -510,6 +542,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7204556482228598147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513579254062398314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 9338d3cf
+  m_ShapePath:
+  - {x: -0.5033264, y: 0.12757707, z: 0}
+  - {x: -0.5091667, y: 6.4491644, z: 0}
+  - {x: 0.5128212, y: 6.4547586, z: 0}
+  - {x: 0.504097, y: 0.1280303, z: 0}
+  - {x: 0.37271118, y: 0.0034046173, z: 0}
+  - {x: -0.37152863, y: -0.00032615662, z: 0}
+  m_ShapePathHash: -554485843
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -106350
+  m_LocalBounds:
+    m_Center: {x: 0.00182724, y: 3.2272162, z: 0}
+    m_Extent: {x: 0.51099396, y: 3.2275424, z: 0}
 --- !u!1 &8870739233594927491
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +687,7 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 1
-  m_ApplyToSortingLayers: 0000000073213335
+  m_ApplyToSortingLayers: 9338d3cf
   m_ShapePath:
   - {x: 0.09470749, y: 0.05731964, z: 0}
   - {x: 0.09470749, y: 5.9426804, z: 0}
@@ -631,7 +695,7 @@ MonoBehaviour:
   - {x: -0.9003639, y: 0.05731964, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -810692
+  m_InstanceId: -2856
   m_LocalBounds:
     m_Center: {x: -0.40282822, y: 3, z: 0}
     m_Extent: {x: 0.4975357, y: 2.9426804, z: 0}

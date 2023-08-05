@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2606819313788815302}
   - component: {fileID: -9017505336897091934}
   - component: {fileID: 6785996855040020519}
+  - component: {fileID: 6839323495088377492}
   m_Layer: 6
   m_Name: PaintedWallGreen
   m_TagString: Untagged
@@ -188,3 +189,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 6}
   m_EdgeRadius: 0
+--- !u!114 &6839323495088377492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511367953749329060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 9338d3cf
+  m_ShapePath:
+  - {x: -1.016079, y: 5.4396944, z: 0}
+  - {x: -1, y: 6, z: 0}
+  - {x: 1, y: 6, z: 0}
+  - {x: 1.0179825, y: 5.4576206, z: 0}
+  m_ShapePathHash: -1581962835
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -22272
+  m_LocalBounds:
+    m_Center: {x: 0.00095176697, y: 5.719847, z: 0}
+    m_Extent: {x: 1.0170307, y: 0.2801528, z: 0}
