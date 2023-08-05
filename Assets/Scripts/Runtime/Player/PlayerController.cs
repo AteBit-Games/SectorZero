@@ -75,6 +75,7 @@ namespace Runtime.Player
         private bool _sneaking;
         private bool _isDead;
         private bool _inputDisabled;
+        private bool _cameraDisabled;
 
         // ============ Hiding System ============
        [HideInInspector] public bool isHiding;
@@ -132,13 +133,6 @@ namespace Runtime.Player
                 TutorialManager.StartListening("TutorialStage3", Init);
                 gameObject.SetActive(false);
             }
-
-            if (debug)
-            {
-                var nellient = FindObjectOfType<Nellient>();
-                if (nellient != null) nellient.gameObject.SetActive(false);
-                Init();
-            }
         }
 
         private void HandleMove(Vector2 direction)
@@ -150,7 +144,7 @@ namespace Runtime.Player
         private bool _sneakCooldownActive;
         private void HandleSneak()
         {
-            if(!_sneakCooldownActive)
+            if(!_sneakCooldownActive && !_inputDisabled)
             {
                 _sneakCooldownActive = true;
                 _sneaking = !_sneaking;
@@ -172,7 +166,7 @@ namespace Runtime.Player
             
             var newPosition = _rb.position + _movementInput * ((_sneaking ? sneakSpeed : moveSpeed) * Time.fixedDeltaTime);
             _rb.MovePosition(newPosition);
-            UpdateMouseLook();
+            if(!_cameraDisabled) UpdateMouseLook();
             if(_isAiming) UpdateThrowIndicator();
 
             if (_movementInput != Vector2.zero)
@@ -191,6 +185,13 @@ namespace Runtime.Player
 
         public void LoadData(SaveData data)
         {
+            if (debug)
+            {
+                var nellient = FindObjectOfType<Nellient>();
+                if (nellient != null) nellient.gameObject.SetActive(false);
+                Init();
+            }
+
             FindObjectOfType<CinemachineTargetGroup>().transform.position = data.playerData.position;
             transform.position = data.playerData.position;
             lookPointer.position = gameObject.transform.position;
@@ -360,6 +361,11 @@ namespace Runtime.Player
         public void EnableInput()
         {
             _inputDisabled = false;
+        }
+        
+        public void SetCamera(bool disabled)
+        {
+            _cameraDisabled = disabled;
         }
 
         public void LookAt(Vector2 direction)

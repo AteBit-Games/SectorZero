@@ -85,7 +85,11 @@ namespace Runtime.BehaviourTree
             _navMeshAgent.updateRotation = false;
             _navMeshAgent.updateUpAxis = false;
             _animator = GetComponent<Animator>();
-            
+        }
+        
+        public void SetActiveState(int state)
+        {
+            _stateReference.value = state;
         }
 
         private void Update() 

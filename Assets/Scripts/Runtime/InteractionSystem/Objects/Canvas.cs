@@ -46,6 +46,7 @@ namespace Runtime.InteractionSystem.Objects
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _playerController = FindObjectOfType<PlayerController>(true);
         }
 
         public bool OnInteract(GameObject player)
@@ -53,12 +54,9 @@ namespace Runtime.InteractionSystem.Objects
             onTriggerEvents.Invoke();
             GameManager.Instance.SoundSystem.Play(interactSound, transform);
 
-            player = player.transform.parent.gameObject;
-            _playerController = player.GetComponent<PlayerController>();
-
             //Setup player and trigger animation
             _animator.SetTrigger(Paint);
-            player.transform.position = playerStandPosition.position;
+            player.transform.parent.position = playerStandPosition.position;
             _playerController.DisableInput();
             _playerController.LookAt(new Vector2(0f, 1f));
             
@@ -71,18 +69,12 @@ namespace Runtime.InteractionSystem.Objects
 
         public void FinishInteraction()
         {
+            Debug.Log(_playerController);
             _playerController.EnableInput();
             _hasInteracted = true;
             StartCoroutine(TriggerStage5());
-            StartCoroutine(TriggerSave());
-        }
-
-        private IEnumerator TriggerSave()
-        {
-            yield return new WaitForSeconds(1f);
             GameManager.Instance.SaveSystem.SaveGame();
         }
-
 
         private IEnumerator TriggerStage5()
         {
