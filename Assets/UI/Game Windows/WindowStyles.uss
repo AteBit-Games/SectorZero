@@ -207,15 +207,6 @@
     --unity-cursor-color: rgb(255, 255, 255);
 }
 
-.unity-base-text-field:focus .unity-base-text-field__input {
-    background-color: rgb(41, 41, 41);
-    border-left-color: rgb(41, 41, 41);
-    border-right-color: rgb(41, 41, 41);
-    border-top-color: rgb(41, 41, 41);
-    border-bottom-color: rgb(41, 41, 41);
-    --unity-cursor-color: rgb(255, 255, 255);
-}
-
 .unity-base-dropdown__container-inner {
     background-color: rgb(46, 46, 46);
     border-left-color: rgba(0, 0, 0, 0);
@@ -344,6 +335,25 @@
     top: 0;
     right: 0;
     bottom: 0;
+}
+
+#EndScreen-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.unity-base-text-field:focus .unity-base-text-field__input {
+    background-color: rgb(41, 41, 41);
+    border-left-color: rgb(41, 41, 41);
+    border-right-color: rgb(41, 41, 41);
+    border-top-color: rgb(41, 41, 41);
+    border-bottom-color: rgb(41, 41, 41);
+    --unity-cursor-color: rgb(255, 255, 255);
 }
 
 #SettingsMenu {

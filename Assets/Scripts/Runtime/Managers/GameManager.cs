@@ -48,6 +48,7 @@ namespace Runtime.Managers
         private DeathScreen DeathScreen { get; set; }
         private PauseMenu PauseMenu { get; set; }
         private LoadingScreen LoadingScreen { get; set; }
+        private EndScreen EndScreen { get; set; }
         
         private CinemachineVirtualCamera _camera;
         private bool _isReady;
@@ -197,6 +198,7 @@ namespace Runtime.Managers
             PauseMenu = FindObjectOfType<PauseMenu>(true);
             HUD = FindObjectOfType<HUD>(true);
             DeathScreen = FindObjectOfType<DeathScreen>(true);
+            EndScreen = FindObjectOfType<EndScreen>(true);
             
             if(testMode)
             {
@@ -285,6 +287,12 @@ namespace Runtime.Managers
                 ResetInput();
                 LoadingScreen.HideLoading();
             }
+        }
+        
+        public void EndGame()
+        {
+            inputReader.SetUI();
+            EndScreen.Show();
         }
     }
 }
