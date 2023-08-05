@@ -19,5 +19,10 @@ namespace Runtime.Misc.Triggers
             if (id < 0 || id >= sounds.Count) Debug.LogError("Sound ID does not exist!");
             GameManager.Instance.SoundSystem.Play(sounds[id]);
         }
+        
+        private void TriggerRandomSound()
+        {
+            GameManager.Instance.SoundSystem.Play(sounds[Random.Range(0, sounds.Count)]);
+        }
     }
 }
