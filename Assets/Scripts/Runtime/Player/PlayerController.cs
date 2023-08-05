@@ -232,12 +232,11 @@ namespace Runtime.Player
             Invoke(nameof(EnableLowPassFilter), 1f);
         }
         
-        public void Die(DeathType deathType)
+        public void Die()
         {
             DisableInput();
             _spriteRenderer.enabled = false;
             _playerShadow.enabled = false;
-            GameManager.Instance.GameOver(deathType);
             lookPointer.position = gameObject.transform.position;
             _isDead = true;
         }
