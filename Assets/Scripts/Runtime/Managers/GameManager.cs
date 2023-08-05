@@ -9,6 +9,7 @@ using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
 using Runtime.InputSystem;
 using Discord;
+using ElRaccoone.Tweens;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
 using Runtime.SoundSystem.ScriptableObjects;
@@ -243,10 +244,14 @@ namespace Runtime.Managers
 
         public void GameOver(DeathType deathType)
         {
-            var transposer = _camera.GetCinemachineComponent<CinemachineTransposer>();
-            transposer.m_FollowOffset = new Vector3(-4f, 0f, -10f);
             inputReader.SetUI();
             DeathScreen.Show(EnumUtils.GetDeathMessage(deathType));
+            
+            var transposer = _camera.GetCinemachineComponent<CinemachineTransposer>();
+            transposer.TweenValueFloat(4f, 0.35f, value =>
+            {
+                transposer.m_FollowOffset = new Vector3(-value, 0f, -10f);
+            }).SetFrom(0f).SetEaseSineInOut();
         }
         
         public void LoadScene(int sceneIndex)

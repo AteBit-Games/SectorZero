@@ -6,6 +6,7 @@
             <uie:PropertyField binding-path="interactSound" name="property" />
             <uie:PropertyField binding-path="inspectPosition" name="property" />
             <uie:PropertyField binding-path="onTriggerEvents" name="property" />
+            <uie:PropertyField binding-path="canTrigger" name="property" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="VisualElement" class="property-group">

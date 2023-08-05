@@ -69,7 +69,6 @@ namespace Runtime.InteractionSystem.Objects
 
         public void FinishInteraction()
         {
-            Debug.Log(_playerController);
             _playerController.EnableInput();
             _hasInteracted = true;
             StartCoroutine(TriggerStage5());

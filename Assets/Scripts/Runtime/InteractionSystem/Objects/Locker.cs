@@ -32,12 +32,14 @@ namespace Runtime.InteractionSystem.Objects
 
         public bool ContainsPlayer { get; set; }
         
+        
         [SerializeField, Tooltip("The location to move the player when they enter the locker")] private Transform hidePosition;
         [SerializeField, Tooltip("The location to move the player when the exit the locker")] private Transform revealPosition;
         [SerializeField] private ExitDirection exitDirection;
         
         [SerializeField] private Sprite emptyLockerSprite;
         [SerializeField] private Sprite hideLockerSprite;
+        [SerializeField] private bool canTrigger;
         
         private SpriteRenderer _spriteRenderer;
 
@@ -69,6 +71,7 @@ namespace Runtime.InteractionSystem.Objects
             {
                 playerController.HidePlayer(gameObject, hidePosition.position);
                 ContainsPlayer = true;
+                if(canTrigger) OnInteractEvents?.Invoke();
                 _spriteRenderer.sprite = hideLockerSprite;
             }
             else
@@ -78,6 +81,11 @@ namespace Runtime.InteractionSystem.Objects
             
             GameManager.Instance.SoundSystem.Play(interactSound, transform);
             return true;
+        }
+        
+        public void SetCanTrigger(bool value)
+        {
+            canTrigger = value;
         }
         
         public bool CanInteract()

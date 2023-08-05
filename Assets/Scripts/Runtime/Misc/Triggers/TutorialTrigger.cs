@@ -11,6 +11,7 @@ namespace Runtime.Misc.Triggers
     public class TutorialTrigger : CollisionTrigger
     {
         [SerializeField] private string stageTrigger;
+        [SerializeField] private Transform playerMovePoint;
 
         private void OnTriggerStay2D(Collider2D other)
         {
@@ -22,6 +23,7 @@ namespace Runtime.Misc.Triggers
                 if (player.IsSneaking)
                 {
                     triggerEvent.Invoke();
+                    player.transform.position = playerMovePoint.position;
                     gameObject.SetActive(false);
                 }
             }

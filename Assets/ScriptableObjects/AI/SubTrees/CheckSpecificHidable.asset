@@ -24,8 +24,6 @@ MonoBehaviour:
   - rid: 484473896144994338
   - rid: 484473896144994339
   - rid: 484473896144994340
-  - rid: 484473896144994343
-  - rid: 2098102505811476531
   - rid: 2098102505811476532
   treeState: 1
   blackboard:
@@ -34,7 +32,7 @@ MonoBehaviour:
     - rid: 484473896144994330
     - rid: 484473896144994341
     - rid: 484473896144994304
-  viewPosition: {x: 598, y: 32, z: 0}
+  viewPosition: {x: 502, y: 102, z: 0}
   viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
@@ -80,7 +78,6 @@ MonoBehaviour:
         - rid: 484473896144994333
         - rid: 484473896144994335
         - rid: 484473896144994336
-        - rid: 484473896144994343
     - rid: 484473896144994329
       type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -204,35 +201,6 @@ MonoBehaviour:
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
-    - rid: 484473896144994343
-      type: {class: KillPlayer, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: ecb045a2ce226e94e9a9e90eb79dbd6a
-        position: {x: 280, y: 240}
-        blackboard:
-          keys: []
-        comment: If player was in the hideable kill them
-        drawGizmos: 0
-        player:
-          reference:
-            rid: 484473896144994341
-          defaultValue: {fileID: 0}
-        deathType: 0
-    - rid: 2098102505811476531
-      type: {class: PlayAnimation, ns: Runtime.BehaviourTree.Actions.Animation, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: b45cc00cf3814ab4fad6d6f240334296
-        position: {x: 460, y: 240}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        animationClip: {fileID: 0}
-        waitUntilFinish: 1
     - rid: 2098102505811476532
       type: {class: GetPlayerHideable, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
       data:

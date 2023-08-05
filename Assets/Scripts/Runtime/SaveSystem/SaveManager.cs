@@ -76,12 +76,12 @@ namespace Runtime.SaveSystem
             
             var sceneIndex = playerConfig.FindIndex(config => config.sceneIndex == scene);
             _saveData.playerData.position = playerConfig[sceneIndex].startPosition;
+            
+            if(!testMode) _saveData.playerData.enabled = false;
         }
 
         public void SaveGame()
         {
-            Debug.Log("Saving game...");
-            
             if (_saveData == null) 
             {
                 Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");

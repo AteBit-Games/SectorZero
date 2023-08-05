@@ -10,17 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45592774a6613004c9d7daa230919261, type: 3}
-  m_Name: D_TutorialStage5
+  m_Name: D_TutorialStage6
   m_EditorClassIdentifier: 
   date: 
   dialogueLines:
   - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
-    line: Interesting...
+    line: 'Don''t try and reason with him, '
   - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
-    line: Alright miss, we are almost done here. Please head to the...
-  - actor: {fileID: 11400000, guid: 86d0f507d42d760418417ba7595a3e31, type: 2}
-    line: Shit... The other patient is unstable. Find somewhere to hide. Quickly
-      now!
+    line: Just try and make your way back to the containment room
   canSkip: 0
   autoSkipDelay: 2
   trigger: 1
