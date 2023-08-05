@@ -12,6 +12,7 @@ namespace Runtime.BehaviourTree.Actions.GameObject
     {
         public NodeProperty<UnityEngine.GameObject> player;
         
+
         protected override void OnStart()
         {
             if(player.Value.TryGetComponent(out PlayerController playerController))
