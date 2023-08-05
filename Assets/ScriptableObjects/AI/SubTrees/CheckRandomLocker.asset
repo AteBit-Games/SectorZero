@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
-  m_Name: CheckLocker
+  m_Name: CheckRandomLocker
   m_EditorClassIdentifier: 
   rootNode:
     rid: 484473883717533740
@@ -30,7 +30,6 @@ MonoBehaviour:
   - rid: 484473896144994340
   - rid: 484473896144994343
   - rid: 484473896144994344
-  - rid: 484473896144994345
   treeState: 1
   blackboard:
     keys:
@@ -40,8 +39,8 @@ MonoBehaviour:
     - rid: 484473896144994329
     - rid: 484473896144994330
     - rid: 484473896144994341
-  viewPosition: {x: 553, y: 209, z: 0}
-  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  viewPosition: {x: 681, y: 75, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -133,7 +132,6 @@ MonoBehaviour:
         - rid: 484473896144994336
         - rid: 484473896144994343
         - rid: 484473896144994344
-        - rid: 484473896144994345
     - rid: 484473896144994325
       type: {class: Inverter, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
@@ -323,6 +321,7 @@ MonoBehaviour:
           reference:
             rid: 484473896144994341
           defaultValue: {fileID: 0}
+        deathType: 0
     - rid: 484473896144994344
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
@@ -338,18 +337,3 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 0.5
-    - rid: 484473896144994345
-      type: {class: LoadSceneIndex, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 8c068abf189d9184284b1bc43467ebbf
-        position: {x: 700, y: 240}
-        blackboard:
-          keys: []
-        comment: PLACEHOLDER TAKE TO MENU
-        drawGizmos: 0
-        sceneIndex:
-          reference:
-            rid: -2
-          defaultValue: 0

@@ -67,7 +67,7 @@ namespace Runtime.BehaviourTree
         private Animator _animator;
         
         private BlackboardKey<int> _stateReference;
-        private BlackboardKey<Vector2> _investigateLocationReference;
+        private BlackboardKey<Vector2> _lastKnownLocationReference;
         private static readonly int MoveX = Animator.StringToHash("moveX");
         private static readonly int MoveY = Animator.StringToHash("moveY");
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
@@ -96,7 +96,7 @@ namespace Runtime.BehaviourTree
             _material.color = idleColour;
             
             _stateReference = FindBlackboardKey<int>("ActiveState");
-            //_investigateLocationReference = FindBlackboardKey<Vector2>("InvestigateLocation");
+            _lastKnownLocationReference = FindBlackboardKey<Vector2>("LastKnown");
 
             _navMeshAgent = _context.agent;
             _navMeshAgent.updateRotation = false;
@@ -137,11 +137,11 @@ namespace Runtime.BehaviourTree
         
         public void OnHearing(NoiseEmitter sender)
         {
-            if(treeStates.Find(x => x.state == TreeState.State.Inspect) == null) Debug.LogError("No Inspect state found");
-            else
-            {
-                SetActiveState(treeStates.Find(x => x.state == TreeState.State.Inspect).stateIndex);
-            }
+            // if(treeStates.Find(x => x.state == TreeState.State.Inspect) == null) Debug.LogError("No Inspect state found");
+            // else
+            // {
+            //     SetActiveState(treeStates.Find(x => x.state == TreeState.State.Inspect).stateIndex);
+            // }
         }
         
         public void OnSightEnter()
@@ -171,7 +171,7 @@ namespace Runtime.BehaviourTree
         {
             if (_canSeePlayer)
             {
-                //_investigateLocationReference.value = lastKnownPosition;
+                _lastKnownLocationReference.value = lastKnownPosition;
                 FindObjectOfType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
                 _material.color = idleColour;
                 
@@ -184,7 +184,7 @@ namespace Runtime.BehaviourTree
                     if (vignette != null) vignette.intensity.value = value;
                 }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
                 
-                if(treeStates.Find(x => x.state == TreeState.State.LastKnown) == null) Debug.LogError("No last known state state specified");
+                if(treeStates.Find(x => x.state == TreeState.State.LastKnown) == null) Debug.LogError("No last known state specified");
                 else
                 {
                     _material.color = idleColour;

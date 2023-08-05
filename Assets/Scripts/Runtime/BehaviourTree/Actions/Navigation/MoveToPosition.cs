@@ -27,6 +27,10 @@ namespace Runtime.BehaviourTree.Actions.Navigation
         {
             if (context.agent.pathPending) return State.Running;
             if (context.agent.remainingDistance < context.agent.stoppingDistance) return State.Success;
+            
+            var directionNormalized = targetPosition.Value - (Vector2)context.agent.transform.position;
+            context.owner.SetLookDirection(directionNormalized);
+            
             return context.agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathInvalid ? State.Failure : State.Running;
         }
 

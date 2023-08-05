@@ -20,7 +20,6 @@ MonoBehaviour:
   - rid: 6236232439545200664
   - rid: 6236232439545200665
   - rid: 6236232439545200679
-  - rid: 6236232440973885441
   - rid: 6236232440973885442
   - rid: 6236232445669146624
   - rid: 1526963689735847949
@@ -90,8 +89,8 @@ MonoBehaviour:
     - rid: 484473835900633088
     - rid: 6236232439545200658
     - rid: 484473896144994402
-  viewPosition: {x: -474, y: 56, z: 0}
-  viewScale: {x: 0.375937, y: 0.375937, z: 1}
+  viewPosition: {x: 355, y: 180, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
     RefIds:
@@ -1211,34 +1210,6 @@ MonoBehaviour:
           reference:
             rid: 6236232445669146636
           defaultValue: 0
-    - rid: 6236232440973885441
-      type: {class: Patrol, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: ff86fc615cf7bc1468bc9b200918115e
-        position: {x: -1300, y: 600}
-        blackboard:
-          keys: []
-        comment: Move to a random room and update the active room index
-        drawGizmos: 0
-        patrolMode: 1
-        targetList:
-          reference:
-            rid: 6236232439545200671
-          defaultValue: []
-        speed:
-          reference:
-            rid: 6236232445669146642
-          defaultValue: 7
-        keepDistance:
-          reference:
-            rid: -2
-          defaultValue: 0.1
-        outRoom:
-          reference:
-            rid: 6236232439545200675
-          defaultValue: {fileID: 0}
     - rid: 6236232440973885442
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -1251,7 +1222,6 @@ MonoBehaviour:
         comment: 
         drawGizmos: 0
         children:
-        - rid: 6236232440973885441
         - rid: 484473872862412804
         - rid: 6236232445669146624
         - rid: 6236232439545200679

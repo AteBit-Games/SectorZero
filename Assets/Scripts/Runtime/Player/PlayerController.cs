@@ -123,7 +123,7 @@ namespace Runtime.Player
 
             if (_monster != null)
             {
-                //_seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
+                _seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
             }
             
             _indicatorSpriteRenderer = throwIndicator.GetComponent<SpriteRenderer>();
@@ -252,7 +252,7 @@ namespace Runtime.Player
             globalLight.intensity = 0.3f;
             transform.position = position;
             _audioLowPassFilter.enabled = false;
-            //_seenEnter.value = false;
+            _seenEnter.value = false;
             
             if (facingDirection != Vector2.zero)
             {

@@ -36,6 +36,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
             if(_lastRequest == null || Vector3.Distance(_lastRequest.Value, target.Value.transform.position) > 0.1f)
             {
                 _lastRequest = target.Value.transform.position;
+                
                 var directionNormalized = target.Value.transform.position - context.agent.transform.position;
                 context.owner.SetLookDirection(directionNormalized);
                 

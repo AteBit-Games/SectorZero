@@ -5,21 +5,20 @@ using UnityEngine;
 namespace Runtime.BehaviourTree.Actions.Navigation 
 {
     [Serializable]
-    [Name("Patrol")]
+    [Name("Patrol Points")]
     [Category("Navigation")]
-    public class Patrol : ActionNode
+    public class Patrol1 : ActionNode
     {
-        public enum PatrolMode
+           public enum PatrolMode
         {
             Progressive,
             Random
         }
         
         public PatrolMode patrolMode = PatrolMode.Random;
-        public NodeProperty<List<Collider2D>> targetList;
+        public NodeProperty<List<UnityEngine.GameObject>> targetList;
         public NodeProperty<float> speed = new(){Value = 4f};
         public NodeProperty<float> keepDistance = new(){Value = 0.1f};
-        public NodeProperty<Collider2D> outRoom;
 
         private int _index = -1;
         private Vector3? _lastRequest;
@@ -52,7 +51,6 @@ namespace Runtime.BehaviourTree.Actions.Navigation
                 }
             }
             
-            outRoom.Value = targetList.Value[_index];
             context.agent.speed = speed.Value;
             context.agent.isStopped = false;
         }
@@ -75,6 +73,10 @@ namespace Runtime.BehaviourTree.Actions.Navigation
             }
             
             _lastRequest = target;
+            
+            var directionNormalized = target - context.agent.transform.position;
+            context.owner.SetLookDirection(directionNormalized);
+            
             return (context.agent.transform.position - target).magnitude < context.agent.stoppingDistance + keepDistance.Value ? State.Success : State.Running;
         }
         

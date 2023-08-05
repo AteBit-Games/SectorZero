@@ -1,0 +1,258 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: CheckSpecificHidable
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 484473883717533740
+  nodes:
+  - rid: 484473883717533740
+  - rid: 484473896144994323
+  - rid: 484473896144994333
+  - rid: 484473896144994335
+  - rid: 484473896144994336
+  - rid: 484473896144994337
+  - rid: 484473896144994338
+  - rid: 484473896144994339
+  - rid: 484473896144994340
+  - rid: 484473896144994343
+  - rid: 2098102505811476531
+  - rid: 2098102505811476532
+  treeState: 1
+  blackboard:
+    keys:
+    - rid: 484473896144994329
+    - rid: 484473896144994330
+    - rid: 484473896144994341
+    - rid: 484473896144994304
+  viewPosition: {x: 598, y: 32, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 484473883717533740
+      type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 743f58bb-ec1e-4457-adfb-74fad29c451c
+        position: {x: 0, y: 20}
+        blackboard:
+          keys: []
+        comment: 'To Use SubTree Override:
+
+          - Speed
+
+          - Player'
+        drawGizmos: 0
+        child:
+          rid: 484473896144994323
+    - rid: 484473896144994304
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Speed
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 484473896144994323
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c2ce1e8892476cf4a8a8fd6b65e727ab
+        position: {x: 0, y: 100}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 2098102505811476532
+        - rid: 484473896144994333
+        - rid: 484473896144994335
+        - rid: 484473896144994336
+        - rid: 484473896144994343
+    - rid: 484473896144994329
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SelectedHideable
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 484473896144994330
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: InspectPosition
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}
+    - rid: 484473896144994333
+      type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 56ee2d75f8e1e314991b7a6790c803c6
+        position: {x: -260, y: 240}
+        blackboard:
+          keys: []
+        comment: Go to the hideable
+        drawGizmos: 0
+        targetPosition:
+          reference:
+            rid: 484473896144994330
+          defaultValue: {x: 0, y: 0}
+        speed:
+          reference:
+            rid: 484473896144994304
+          defaultValue: 4
+    - rid: 484473896144994335
+      type: {class: PlayAudio, ns: Runtime.BehaviourTree.Actions.Sound, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 4663470b2d2bf514596c870220f3a5e2
+        position: {x: -80, y: 240}
+        blackboard:
+          keys: []
+        comment: PLACEHOLDER FOR LOCKERS
+        drawGizmos: 0
+        sound: {fileID: 11400000, guid: 5ececcaf60583d54e82ce681f1f82403, type: 2}
+        waitActionFinish: 0
+    - rid: 484473896144994336
+      type: {class: Inverter, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d50c93be985f9d4409ebd832e13f723b
+        position: {x: 100, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 484473896144994337
+    - rid: 484473896144994337
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 0c491b708017bae49a13e9515739e4b9
+        position: {x: 100, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 484473896144994339
+        - rid: 484473896144994340
+    - rid: 484473896144994338
+      type: {class: CheckHideable, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: bd5c02cb0a3824549bc8412f5ae23e2c
+        position: {x: -20, y: 620}
+        blackboard:
+          keys: []
+        comment: Check if player is within the locker
+        drawGizmos: 0
+        hideable:
+          reference:
+            rid: 484473896144994329
+          defaultValue: {fileID: 0}
+    - rid: 484473896144994339
+      type: {class: Inverter, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 236af91973cbfd94fbc3b63ec139acf3
+        position: {x: -20, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 484473896144994338
+    - rid: 484473896144994340
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 7287f71200a66ff479b2488ff6c67a7d
+        position: {x: 200, y: 500}
+        blackboard:
+          keys: []
+        comment: If player was not in locker wait a few seconds
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 3
+    - rid: 484473896144994341
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 484473896144994343
+      type: {class: KillPlayer, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ecb045a2ce226e94e9a9e90eb79dbd6a
+        position: {x: 280, y: 240}
+        blackboard:
+          keys: []
+        comment: If player was in the hideable kill them
+        drawGizmos: 0
+        player:
+          reference:
+            rid: 484473896144994341
+          defaultValue: {fileID: 0}
+        deathType: 0
+    - rid: 2098102505811476531
+      type: {class: PlayAnimation, ns: Runtime.BehaviourTree.Actions.Animation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b45cc00cf3814ab4fad6d6f240334296
+        position: {x: 460, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        animationClip: {fileID: 0}
+        waitUntilFinish: 1
+    - rid: 2098102505811476532
+      type: {class: GetPlayerHideable, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 204ff11b7af71b248bf85477d4d61675
+        position: {x: -480, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        player:
+          reference:
+            rid: 484473896144994341
+          defaultValue: {fileID: 0}
+        outHideableObject:
+          reference:
+            rid: 484473896144994329
+          defaultValue: {fileID: 0}
+        outHideablePosition:
+          reference:
+            rid: 484473896144994330
+          defaultValue: {x: 0, y: 0}
