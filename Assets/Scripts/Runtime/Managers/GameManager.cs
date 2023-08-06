@@ -257,7 +257,7 @@ namespace Runtime.Managers
         {
             inputReader.SetUI();
             DeathScreen.Show(EnumUtils.GetDeathMessage(deathType));
-            
+
             var transposer = _camera.GetCinemachineComponent<CinemachineTransposer>();
             transposer.TweenValueFloat(4f, 0.35f, value =>
             {
@@ -269,6 +269,7 @@ namespace Runtime.Managers
         {
             _isReady = false;
             inputReader.SetUI();
+            Instance.AmbienceManager.SilenceAmbience();
             StartCoroutine(LoadSceneAsync(sceneIndex));
         }
         

@@ -44,6 +44,7 @@ namespace Runtime.Managers
         {
             audioSources[1 - _currentAmbIndex].clip = nextAmb.clip;
             audioSources[1 - _currentAmbIndex].volume = nextAmb.volume;
+            audioSources[1 - _currentAmbIndex].loop = nextAmb.loop;
             audioSources[1 - _currentAmbIndex].Play();
             StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
             StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[1 - (_currentAmbIndex)], fadeTime, 1.0f));
