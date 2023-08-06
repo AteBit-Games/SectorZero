@@ -166,13 +166,13 @@ namespace Runtime.Player
         {
             if (!sneaking)
             {
-                viewBounds.offset = new Vector2(-0.02924603f, 1.228924f);
-                viewBounds.size = new Vector2(0.787723303f,2.72889376f);
+                viewBounds.offset = new Vector2(-0.02924603f, 0.8556569f);
+                viewBounds.size = new Vector2(0.787723303f,1.982361f);
             }
             else
             {
-                viewBounds.offset = new Vector2(-0.1f, 0.8f);
-                viewBounds.size = new Vector2(1.5f, 1.9f);
+                viewBounds.offset = new Vector2(-0.1f, 0.531635f);
+                viewBounds.size = new Vector2(1.5f, 1.36327f);
             }
         }
         

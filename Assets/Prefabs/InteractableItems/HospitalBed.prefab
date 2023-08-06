@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 3122333685402098175}
   - component: {fileID: 3122333685402098160}
   - component: {fileID: 6835311870422625243}
-  - component: {fileID: 900849214816822887}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: HospitalBed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fb0b6602100feb0479f5bc7459f80425, type: 2}
+  - {fileID: 2100000, guid: 9de0fdd37e4a63c459326cb9bfc943d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -248,7 +247,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3122333685402098163}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -318,29 +317,16 @@ MonoBehaviour:
   m_SelfShadows: 1
   m_ApplyToSortingLayers: 0000000073213335
   m_ShapePath:
-  - {x: -0.91006947, y: -0.0162673, z: 0}
-  - {x: -0.91816473, y: 4.54443, z: 0}
+  - {x: -1.008523, y: -0.046560764, z: 0}
+  - {x: -1.0014715, y: 4.56715, z: 0}
   - {x: 0.9424499, y: 4.58479, z: 0}
   - {x: 0.99954116, y: -0.032535076, z: 0}
-  m_ShapePathHash: -1393716595
+  m_ShapePathHash: -154768907
   m_Mesh: {fileID: 0}
-  m_InstanceId: -3376
+  m_InstanceId: -870166
   m_LocalBounds:
-    m_Center: {x: 0.040688217, y: 2.2761276, z: 0}
-    m_Extent: {x: 0.95885295, y: 2.3086627, z: 0}
---- !u!114 &900849214816822887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3122333685402098163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eebeed1c460abe49b749a186910445f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactSound: {fileID: 11400000, guid: 5a39894a6f585634ba59d21359d1cead, type: 2}
+    m_Center: {x: -0.0044908524, y: 2.2691147, z: 0}
+    m_Extent: {x: 1.0040321, y: 2.3156755, z: 0}
 --- !u!1 &3122333685605434229
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ using Runtime.AI;
 using Runtime.AI.Interfaces;
 using Runtime.Managers;
 using Runtime.Player;
+using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
@@ -54,6 +55,7 @@ namespace Runtime.BehaviourTree
         [Header("SOUNDS")]
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private List<AudioClip> footstepSounds;
+        [SerializeField] private Sound detectedSound;
         
         public bool debug;
         public GameObject sightVisualPrefab;
@@ -165,6 +167,8 @@ namespace Runtime.BehaviourTree
                 {
                     if (vignette != null) vignette.intensity.value = value;
                 }).SetFrom(0f).SetEaseSineInOut();
+                
+                GameManager.Instance.AmbienceManager.PlaySting(detectedSound);
                 
                 if(treeStates.Find(x => x.state == TreeState.State.Aggro) == null) Debug.LogError("No aggro state found");
                 else
