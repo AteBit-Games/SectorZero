@@ -150,6 +150,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
+  - time: 2.75
+    functionName: TriggerAmbience
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 3
+    intParameter: 0
+    messageOptions: 0
   - time: 5.25
     functionName: TriggerSound
     data: 

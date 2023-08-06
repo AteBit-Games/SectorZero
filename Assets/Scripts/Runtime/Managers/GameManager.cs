@@ -43,6 +43,7 @@ namespace Runtime.Managers
         public DialogueManager DialogueSystem { get; private set;  }
         public InventoryManager InventorySystem { get; private set; }
         public SoundManager SoundSystem { get; private set; }
+        public AmbienceManager AmbienceManager { get; private set; }
         public SaveManager SaveSystem { get; private set; }
         public NotificationManager NotificationManager { get; private set; }
         public HUD HUD { get; private set; }
@@ -78,6 +79,7 @@ namespace Runtime.Managers
             
             Instance.LoadingScreen = GetComponentInChildren<LoadingScreen>();
             Instance.SoundSystem = GetComponent<SoundManager>();
+            Instance.AmbienceManager = GetComponentInChildren<AmbienceManager>();
             Instance.SaveSystem = GetComponent<SaveManager>();
             
             if(testMode)
@@ -210,9 +212,9 @@ namespace Runtime.Managers
             }
             else
             {
-                SoundSystem.PauseAll();
                 Time.timeScale = 0f;
             }
+            SoundSystem.PauseAll();
         }
         
         public Sound ClickSound()

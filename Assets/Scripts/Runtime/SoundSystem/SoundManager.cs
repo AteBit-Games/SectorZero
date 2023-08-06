@@ -9,16 +9,19 @@ using System.Linq;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 namespace Runtime.SoundSystem
 {
+    [DefaultExecutionOrder(1)]
 	public class SoundManager : MonoBehaviour
 	{
         [Header("MIX GROUPS")]
         [SerializeField] private SoundMixGroup masterMixGroup;
         [SerializeField] private SoundMixGroup musicMixGroup;
         [SerializeField] private SoundMixGroup sfxMixGroup;
+        [SerializeField] public AudioMixer mainMixer;
 
         private Sound _activeMusic;
         
@@ -146,11 +149,17 @@ namespace Runtime.SoundSystem
         public void SetMasterVolume(float volume)
         {
             masterMixGroup.SetVolume(volume);
+            Debug.Log("Setting master volume: " + volume);
+            Debug.Log("Modified to: " + Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
+            mainMixer.SetFloat("masterVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f))* 20);
         }
 
         public void SetMusicVolume(float volume)
         {
             musicMixGroup.SetVolume(volume);
+            Debug.Log("Setting music volume: " + volume);
+            Debug.Log("Modified to: " + Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
+            mainMixer.SetFloat("ambienceVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
             foreach (var musicSource in _activeMusicSources.Where(musicSource => musicSource.Key != null))
             {
                 musicSource.Key.volume = volume * musicSource.Value.volumeScale;
@@ -160,6 +169,9 @@ namespace Runtime.SoundSystem
         public void SetSfxVolume(float volume)
         {
             sfxMixGroup.SetVolume(volume);
+            Debug.Log("Setting sfx volume: " + volume);
+            Debug.Log("Modified to: " + Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f))* 20);
+            mainMixer.SetFloat("sfxVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
             foreach (var soundSource in _activeSoundInstanceSources)
             {
                 soundSource.Key.volume = volume * soundSource.Value.volumeScale;
@@ -171,6 +183,7 @@ namespace Runtime.SoundSystem
                 soundSource.Volume = volume * soundSource.VolumeScale;
                 soundSource.AudioSource.volume = soundSource.Volume;
             }
+            
         }
 
         private IEnumerator DestroySoundSource(AudioSource audioSource, float delay)

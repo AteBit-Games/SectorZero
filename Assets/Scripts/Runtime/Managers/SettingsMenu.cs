@@ -5,11 +5,12 @@
 using System;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Runtime.Managers
 {
-    [DefaultExecutionOrder(1)]
+    [DefaultExecutionOrder(99)]
     public class SettingsMenu : MonoBehaviour
     {
         private Label _settingDescription;
@@ -65,10 +66,14 @@ namespace Runtime.Managers
             _activeVsync = QualitySettings.vSyncCount;
             RegisterVsyncSetting();
             
+        }
+
+        private void Start()
+        {
             RegisterPlayerPrefs();
             RegisterVolumeSettings();
         }
-        
+
         private void RegisterDisplayModeSetting()
         {
             var rootVisualElement = _uiDocument.rootVisualElement;

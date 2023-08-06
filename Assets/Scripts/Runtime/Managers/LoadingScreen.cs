@@ -44,6 +44,7 @@ namespace Runtime.Managers
             if(_loadingIconCoroutine != null) StopCoroutine(_loadingIconCoroutine);
             UI_Utils.HideUIElement(_loadContainer);
             isOpen = false;
+            GameManager.Instance.SoundSystem.ResumeAll();
         }
 
         public void ShowContinue()

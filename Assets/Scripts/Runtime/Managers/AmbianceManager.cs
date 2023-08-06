@@ -1,131 +1,99 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class MusicManager : MonoBehaviour
+namespace Runtime.Managers
 {
-    [SerializeField] public AudioMixer _audioMixer;
-    [SerializeField] public AudioSource _currentAmbiance;
-    [SerializeField] public AudioSource _nextAmbiance;
-
-    [SerializeField] public List<AudioClip> _audioClips;
-
-    private int _currentAmbianceIndex;
-    private bool _isCurrentAmbiance = true;
-
-    private void Start()
+    public class AmbienceManager : MonoBehaviour
     {
-        _currentAmbiance.loop = true;
-        _nextAmbiance.loop = true;
+        [SerializeField] public List<AudioSource> audioSources;
 
-        if (_audioClips.Count > 0)
+        private int _currentAmbIndex;
+        private readonly string[] _ambMixerNames = {"mainAmbA", "mainAmbB"};
+        private bool _isBusy;
+
+        private void Awake()
         {
-            _currentAmbiance.clip = _audioClips[0];
-            _currentAmbianceIndex = 0;
-            _currentAmbiance.Play();
-        }
-
-        if (_audioClips.Count > 1)
-        {
-            _nextAmbiance.clip = _audioClips[1];
-            _currentAmbianceIndex = 1;
-            _nextAmbiance.Play();
-        }
-
-        Invoke(nameof(FadeToNext), 5f);
-        
-        Invoke(nameof(FadeToNext), 10f);
-        
-        Invoke(nameof(FadeToNext), 15f);
-    }
-    
-    public void Play()
-    {
-        _currentAmbiance.Play();
-    }
-    
-    public void Stop()
-    {
-        _currentAmbiance.Stop();
-    }
-    
-    public void Mute()
-    {
-        _currentAmbiance.mute = true;
-    }
-    
-    public void Unmute()
-    {
-        _currentAmbiance.mute = false;
-    }
-
-    public void FadeOut()
-    {
-        StartCoroutine(FadeMixerGroup.StartFade(_audioMixer, "currentAmbiance", 1.0f, -80.0f));
-    }
-    
-    public void FadeIn(float fadeTime = 1.0f)
-    {
-        StartCoroutine(FadeMixerGroup.StartFade(_audioMixer, "currentAmbiance", 1.0f, 0.0f));
-    }
-    
-    public void FadeToNext()
-    {
-        
-        _currentAmbiance.outputAudioMixerGroup = _audioMixer.FindMatchingGroups("CurrentAmbiance")[0];
-        _nextAmbiance.outputAudioMixerGroup = _audioMixer.FindMatchingGroups("NextAmbiance")[0];
-        
-        if(_isCurrentAmbiance)
-        {
-            StartCoroutine(FadeMixerGroup.StartFade(_audioMixer, "currentAmbiance", 1.0f, -80.0f));
-            StartCoroutine(FadeMixerGroup.StartFade(_audioMixer, "nextAmbiance", 1.0f, 1.0f));
-        }
-        else
-        {
-            StartCoroutine(FadeMixerGroup.StartFade(_audioMixer, "currentAmbiance", 1.0f, 1.0f));
-            StartCoroutine(FadeMixerGroup.StartFade(_audioMixer, "nextAmbiance", 1.0f, -80.0f));
+            _currentAmbIndex = 0;
+            _isBusy = false;
         }
         
-        _isCurrentAmbiance = !_isCurrentAmbiance;
-        
-        Invoke(nameof(readyNext), 1f);
-    }
-    
-    public void FastSwap()
-    {
-        _audioMixer.SetFloat("currentAmbiance", 0.0f);
-        _audioMixer.SetFloat("nextAmbiance", -80.0f);
-    }
-    
-    public void setAmbiance(AudioSource ambiance)
-    {
-        _currentAmbiance = ambiance;
-    }
-    
-    public void setNextAmbiance(AudioSource ambiance)
-    {
-        _nextAmbiance = ambiance;
-    }
-    
-    public void readyNext()
-    {
-        
-        _currentAmbianceIndex = (_currentAmbianceIndex + 1) % _audioClips.Count;
-        if (_isCurrentAmbiance)
+        private void Start()
         {
-            _nextAmbiance.clip = _audioClips[_currentAmbianceIndex];
-            Debug.Log(_nextAmbiance.clip);
-            _nextAmbiance.Play();
+            audioSources[0].Play();
+            audioSources[1].Play();
         }
-        else
+        
+        public void FadeIn(float fadeTime = 1.0f)
         {
-            _currentAmbiance.clip = _audioClips[_currentAmbianceIndex];
-            Debug.Log(_currentAmbiance.clip);
-            _currentAmbiance.Play();
+            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, 0.0f));
         }
-    }
-    
+        
+        public void FadeOut(float fadeTime = 1.0f)
+        {
+            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
+        }
 
+        public void FadeToNext(AudioClip nextAmb, float fadeTime = 1.0f)
+        {
+            Debug.Log("FadeToNext");
+            Debug.Log("currentAmbIndex: " + _currentAmbIndex);
+            audioSources[1 - _currentAmbIndex].clip = nextAmb;
+            audioSources[1 - _currentAmbIndex].Play();
+            Debug.Log(nextAmb.name);
+            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
+            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[1 - (_currentAmbIndex)], fadeTime, 1.0f));
+            _currentAmbIndex = 1 - _currentAmbIndex;
+        }
+
+        public void FastSwap()
+        {
+            _currentAmbIndex = 1 - _currentAmbIndex;
+            audioSources[_currentAmbIndex].Play();
+            audioSources[1 - _currentAmbIndex].Stop();
+        }
+
+        public void SetClip(AudioClip clip)
+        {
+            audioSources[_currentAmbIndex].clip = clip;
+        }
+        
+        public void SetNextClip(AudioClip clip)
+        {
+            audioSources[1 - _currentAmbIndex].clip = clip;
+        }
+        
+        public void PlaySting(AudioClip clip)
+        {
+            if(_isBusy) return;
+            _isBusy = true;
+            audioSources[_currentAmbIndex].PlayOneShot(clip);
+            Invoke(nameof(StingReady), clip.length);
+        }
+        
+        public void StingReady()
+        {
+            _isBusy = false;
+        }
+
+        public void Play()
+        {
+            audioSources[_currentAmbIndex].Play();
+        }
+
+        public void Stop()
+        {
+            audioSources[_currentAmbIndex].Stop();
+        }
+
+        public void Mute()
+        {
+            audioSources[_currentAmbIndex].mute = true;
+        }
+
+        public void Unmute()
+        {
+            audioSources[_currentAmbIndex].mute = false;
+        }
+    }
 }

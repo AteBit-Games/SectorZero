@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine;
 
-public static class FadeMixerGroup {
+public static class SoundUtils {
     public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
     {
         float currentTime = 0;

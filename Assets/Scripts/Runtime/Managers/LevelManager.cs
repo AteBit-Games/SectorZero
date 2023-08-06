@@ -40,7 +40,7 @@ namespace Runtime.Managers
             GameManager.Instance.details = levelDescription;
             
             if (ambiance == null) return;
-            GameManager.Instance.SoundSystem.Play(ambiance, transform, true);
+            // GameManager.Instance.SoundSystem.Play(ambiance, transform, true);
         }
     }
 }
