@@ -250,7 +250,7 @@ namespace Runtime.Player
             _movementAnimator.SetBool(id: _isSneaking, _sneaking);
             globalLight.intensity = 0.3f;
             transform.position = position;
-            _audioLowPassFilter.enabled = false;
+            //_audioLowPassFilter.enabled = false;
             _seenEnter.value = false;
             
             if (facingDirection != Vector2.zero)
@@ -414,7 +414,7 @@ namespace Runtime.Player
 
         private void EnableLowPassFilter()
         {
-            _audioLowPassFilter.enabled = true;
+            //_audioLowPassFilter.enabled = true;
         }
 
         private void Init()

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 441907416}
   - component: {fileID: 441907415}
   - component: {fileID: 441907417}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ThrowIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,8 +639,9 @@ MonoBehaviour:
     m_Bits: 2048
   sneakSpeed: 3
   globalLight: {fileID: 0}
+  viewBounds: {fileID: 1240836113951534866}
   persistentID: 
-  debug: 1
+  debug: 0
   hideable: {fileID: 0}
   isHiding: 0
   isSeen: 0
@@ -759,10 +760,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Events:
     m_Signals:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 1dc6386d02268bc4f9727e6661deabb6, type: 2}
+    - {fileID: 11400000, guid: 3259f622d676afb4c8651247d506e409, type: 2}
+    - {fileID: 11400000, guid: ae6be10f112a6434c82010c8594197a7, type: 2}
     m_Events:
     - m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 5110957043021775148}
+          m_TargetAssemblyTypeName: Runtime.Player.PlayerController, Assembly-CSharp
+          m_MethodName: EnableInput
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5110957043021775148}
+          m_TargetAssemblyTypeName: Runtime.Player.PlayerController, Assembly-CSharp
+          m_MethodName: SetCamera
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5110957043021775148}
+          m_TargetAssemblyTypeName: Runtime.Player.PlayerController, Assembly-CSharp
+          m_MethodName: LookDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5110957043021775148}
+          m_TargetAssemblyTypeName: Runtime.Player.PlayerController, Assembly-CSharp
+          m_MethodName: DisableInput
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 5110957043021775148}
+          m_TargetAssemblyTypeName: Runtime.Player.PlayerController, Assembly-CSharp
+          m_MethodName: SetCamera
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &4412620557757542691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1072,7 @@ GameObject:
   - component: {fileID: 4751994449237530838}
   m_Layer: 8
   m_Name: ViewBounds
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1090,7 +1157,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000073213335
+  m_ApplyToSortingLayers: 73213335c5c427239338d3cf
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1104,8 +1171,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.69369984, y: 0.96379995, z: 0}
-    m_Extent: {x: 17.5037, y: 12.503201, z: 0}
+    m_Center: {x: 0.69345, y: 0.96290016, z: 0}
+    m_Extent: {x: 17.495049, y: 12.5056, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

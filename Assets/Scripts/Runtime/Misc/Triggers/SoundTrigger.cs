@@ -15,7 +15,7 @@ namespace Runtime.Misc.Triggers
         [SerializeField] private List<Sound> sounds;
         [SerializeField] private List<Sound> randomSounds;
 
-        private void TriggerSound(int id)
+        public void TriggerSound(int id)
         {
             if (id < 0 || id >= sounds.Count) Debug.LogError("Sound ID does not exist!");
             GameManager.Instance.SoundSystem.Play(sounds[id]);

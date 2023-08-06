@@ -31,8 +31,8 @@ namespace Runtime.InteractionSystem.Objects
         public Transform InspectPosition => inspectPosition;
 
         public bool ContainsPlayer { get; set; }
-        
-        
+        private bool _canExit = true;
+
         [SerializeField, Tooltip("The location to move the player when they enter the locker")] private Transform hidePosition;
         [SerializeField, Tooltip("The location to move the player when the exit the locker")] private Transform revealPosition;
         [SerializeField] private ExitDirection exitDirection;
@@ -51,8 +51,7 @@ namespace Runtime.InteractionSystem.Objects
         public bool OnInteract(GameObject player)
         {
             var playerController = player.GetComponentInParent<PlayerController>();
-            if(playerController.MovementDisabled) return false;
-            
+
             if (playerController.isHiding && ContainsPlayer)
             {
                 var facingDirection = exitDirection switch
@@ -64,6 +63,7 @@ namespace Runtime.InteractionSystem.Objects
                     _ => Vector2.zero
                 };
 
+                if(!_canExit) return false;
                 playerController.RevealPlayer(revealPosition.position, facingDirection);
                 ContainsPlayer = false;
                 _spriteRenderer.sprite = emptyLockerSprite;
@@ -88,6 +88,11 @@ namespace Runtime.InteractionSystem.Objects
         {
             canTrigger = value;
         }
+
+        public void CanExit(bool value)
+        {
+            _canExit = value;
+        }        
         
         public bool CanInteract()
         {

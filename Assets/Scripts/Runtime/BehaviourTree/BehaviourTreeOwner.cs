@@ -4,6 +4,7 @@
 ****************************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using ElRaccoone.Tweens;
 using ElRaccoone.Tweens.Core;
@@ -62,6 +63,7 @@ namespace Runtime.BehaviourTree
         // ====================== Private Variables ======================
         private Material _material;
         private bool _canSeePlayer;
+        private bool _sightCoroutineRunning;
         private Context _context;
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
@@ -72,6 +74,7 @@ namespace Runtime.BehaviourTree
         private static readonly int MoveY = Animator.StringToHash("moveY");
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
 
+        private Coroutine _loseSightCoroutine;
         private Tween<float> _activeTween;
 
         // ====================== Unity Events ======================
@@ -146,6 +149,12 @@ namespace Runtime.BehaviourTree
         
         public void OnSightEnter()
         {
+            if (_sightCoroutineRunning && _loseSightCoroutine != null)
+            {
+                StopCoroutine(_loseSightCoroutine);
+                _sightCoroutineRunning = false;
+            }
+            
             if (!_canSeePlayer)
             {
                 var volume = FindObjectOfType<Volume>();
@@ -164,36 +173,55 @@ namespace Runtime.BehaviourTree
                     _material.color = aggroColour;
                     SetActiveState(treeStates.Find(x => x.state == TreeState.State.Aggro).stateIndex);
                 }
+                
+                _sightCoroutineRunning = false;
             }
         }
 
         public void OnSightExit(Vector2 lastKnownPosition)
         {
-            if (_canSeePlayer)
+            if(_canSeePlayer)
             {
                 _lastKnownLocationReference.value = lastKnownPosition;
-                FindObjectOfType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
-                _material.color = idleColour;
-                
-                var volume = FindObjectOfType<Volume>();
-                var vignette = volume.sharedProfile.components[0] as Vignette;
-                
-                if(_activeTween != null) _activeTween.Cancel();
-                _activeTween = volume.TweenValueFloat(0f, 1f, value =>
+
+                if (!_sightCoroutineRunning)
                 {
-                    if (vignette != null) vignette.intensity.value = value;
-                }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
-                
-                if(treeStates.Find(x => x.state == TreeState.State.LastKnown) == null) Debug.LogError("No last known state specified");
-                else
-                {
-                    _material.color = idleColour;
-                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.LastKnown).stateIndex);
+                    _loseSightCoroutine = StartCoroutine(LoseSight());
+                    _sightCoroutineRunning = true;
                 }
             }
-            _canSeePlayer = false;
         }
         
+        private IEnumerator LoseSight()
+        {
+            Debug.Log("Losing sight");
+            yield return new WaitForSeconds(1f);
+            
+            FindObjectOfType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
+            _material.color = idleColour;
+            
+            var volume = FindObjectOfType<Volume>();
+            var vignette = volume.sharedProfile.components[0] as Vignette;
+            
+            if(_activeTween != null) _activeTween.Cancel();
+            _activeTween = volume.TweenValueFloat(0f, 1f, value =>
+            {
+                if (vignette != null) vignette.intensity.value = value;
+            }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
+            
+            if(treeStates.Find(x => x.state == TreeState.State.LastKnown) == null) Debug.LogError("No last known state specified");
+            else
+            {
+                _material.color = idleColour;
+                SetActiveState(treeStates.Find(x => x.state == TreeState.State.LastKnown).stateIndex);
+            }
+            
+            Debug.Log("Lost sight");
+            _loseSightCoroutine = null;
+            _sightCoroutineRunning = false;
+            _canSeePlayer = false;
+        }
+
         // ====================== Public Methods ======================
         
         public BlackboardKey<T> FindBlackboardKey<T>(string keyName)
