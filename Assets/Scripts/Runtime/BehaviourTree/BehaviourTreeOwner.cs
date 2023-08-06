@@ -152,7 +152,7 @@ namespace Runtime.BehaviourTree
                 var vignette = volume.sharedProfile.components[0] as Vignette;
 
                 if(_activeTween != null) _activeTween.Cancel();
-                _activeTween = volume.TweenValueFloat(0.25f, 2f, value =>
+                _activeTween = volume.TweenValueFloat(0.3f, 1.4f, value =>
                 {
                     if (vignette != null) vignette.intensity.value = value;
                 }).SetFrom(0f).SetEaseSineInOut();

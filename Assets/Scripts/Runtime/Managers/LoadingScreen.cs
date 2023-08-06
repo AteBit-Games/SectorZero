@@ -9,6 +9,7 @@ namespace Runtime.Managers
     {
         [SerializeField] private Sprite[] iconStates;
         [SerializeField] private float iconSpeed = 0.5f;
+        [HideInInspector] public bool isOpen;
 
         private UIDocument _uiDocument;
 
@@ -35,12 +36,14 @@ namespace Runtime.Managers
             _loadingIconCoroutine = StartCoroutine(LoadingIcon());
             UI_Utils.ShowUIElement(_loadContainer);
             _continueText.visible = false;
+            isOpen = true;
         }
         
         public void HideLoading()
         {
             if(_loadingIconCoroutine != null) StopCoroutine(_loadingIconCoroutine);
             UI_Utils.HideUIElement(_loadContainer);
+            isOpen = false;
         }
 
         public void ShowContinue()

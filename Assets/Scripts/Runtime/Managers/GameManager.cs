@@ -284,7 +284,7 @@ namespace Runtime.Managers
 
         private void FinishLoad()
         {
-            if (_isReady)
+            if (_isReady && LoadingScreen.isOpen)
             {
                 Time.timeScale = 1f;
                 ResetInput();

@@ -116,7 +116,6 @@ namespace Runtime.Managers
         
         public void Resume()
         {
-            
             Time.timeScale = 1;
             GameManager.Instance.ResetInput();
             GameManager.Instance.SoundSystem.ResumeAll();

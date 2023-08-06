@@ -3,17 +3,19 @@
 * All rights reserved.
 ****************************************************************/
 
+using System.Collections;
 using Runtime.ReporterSystem;
 using Runtime.SoundSystem.ScriptableObjects;
 using Runtime.Utils;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Runtime.Managers
 {
     public class MainMenu : MonoBehaviour
     {
+        [SerializeField] private Sprite[] iconStates;
+        [SerializeField] private float iconSpeed = 0.08f;
         [HideInInspector] public bool isSettingsOpen;
 
         // Main Pause Items
@@ -38,6 +40,9 @@ namespace Runtime.Managers
         private Button _confirmDesktopQuit;
         private Button _cancelDesktopQuit;
         
+        private VisualElement _microwaveIcon;
+        private int _microwaveIndex;
+        private Coroutine _microwaveIconCoroutine;
 
         private void Start()
         {
@@ -106,7 +111,17 @@ namespace Runtime.Managers
                 _buttonDescription.text = "Quit the game";
             });
             
+            _microwaveIcon = rootVisualElement.Q<VisualElement>("microwaveVisual");
+            _microwaveIconCoroutine = StartCoroutine(Microwave());
             SetupPopups();
+        }
+        
+        private IEnumerator Microwave()
+        {
+            _microwaveIcon.style.backgroundImage = new StyleBackground(iconStates[_microwaveIndex]);
+            _microwaveIndex = (_microwaveIndex + 1) % iconStates.Length;
+            yield return new WaitForSecondsRealtime(iconSpeed);
+            _microwaveIconCoroutine = StartCoroutine(Microwave());
         }
         
         private void SetupPopups()
