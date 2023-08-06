@@ -149,16 +149,12 @@ namespace Runtime.SoundSystem
         public void SetMasterVolume(float volume)
         {
             masterMixGroup.SetVolume(volume);
-            Debug.Log("Setting master volume: " + volume);
-            Debug.Log("Modified to: " + Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
             mainMixer.SetFloat("masterVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f))* 20);
         }
 
         public void SetMusicVolume(float volume)
         {
             musicMixGroup.SetVolume(volume);
-            Debug.Log("Setting music volume: " + volume);
-            Debug.Log("Modified to: " + Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
             mainMixer.SetFloat("ambienceVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
             foreach (var musicSource in _activeMusicSources.Where(musicSource => musicSource.Key != null))
             {
@@ -169,8 +165,6 @@ namespace Runtime.SoundSystem
         public void SetSfxVolume(float volume)
         {
             sfxMixGroup.SetVolume(volume);
-            Debug.Log("Setting sfx volume: " + volume);
-            Debug.Log("Modified to: " + Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f))* 20);
             mainMixer.SetFloat("sfxVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
             foreach (var soundSource in _activeSoundInstanceSources)
             {

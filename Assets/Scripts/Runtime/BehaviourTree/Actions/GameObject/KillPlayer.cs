@@ -36,13 +36,14 @@ namespace Runtime.BehaviourTree.Actions.GameObject
             //     _ => throw new ArgumentOutOfRangeException()
             // };
             
-            Vector3 perp = Vector3.Cross(context.transform.forward, direction);
-            float dir = Vector3.Dot(perp, player.Value.transform.up);
+            var perp = Vector3.Cross(context.transform.forward, direction);
+            var dir = Vector3.Dot(perp, player.Value.transform.up);
 
             animationClip = dir switch
             {
                 <= 0f => eastKill,
                 > 0f => westKill,
+                _ => eastKill
             };
             
             context.animator.Play(animationClip.name);

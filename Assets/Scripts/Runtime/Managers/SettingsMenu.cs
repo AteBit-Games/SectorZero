@@ -38,6 +38,10 @@ namespace Runtime.Managers
         
         private const string SfxVolumeKey = "sfx-volume";
         private float _activeSfxVolume;
+        
+        private const string ResolutionKey = "resolution";
+        private const string VsyncKey = "vsync";
+        private const string DisplayModeKey = "display-mode";
 
         private void Awake()
         {
@@ -56,21 +60,15 @@ namespace Runtime.Managers
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             });
             
-            _activeDisplayMode = Screen.fullScreenMode;
-            RegisterDisplayModeSetting();
-
             SetupResolutions();
-            _activeResolution = Screen.currentResolution;
-            RegisterResolutionSetting();
-            
-            _activeVsync = QualitySettings.vSyncCount;
-            RegisterVsyncSetting();
-            
         }
 
         private void Start()
         {
             RegisterPlayerPrefs();
+            RegisterDisplayModeSetting();
+            RegisterVsyncSetting();
+            RegisterResolutionSetting();
             RegisterVolumeSettings();
         }
 
@@ -103,6 +101,7 @@ namespace Runtime.Managers
                 SetButtonState(leftButton, newIndex != 0);
                 SetButtonState(rightButton, newIndex != _displayModes.Length - 1);
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                PlayerPrefs.SetInt(DisplayModeKey, newIndex);
             });
             
             rightButton.RegisterCallback<ClickEvent>(_ =>
@@ -115,6 +114,7 @@ namespace Runtime.Managers
                 SetButtonState(leftButton, newIndex != 0);
                 SetButtonState(rightButton, newIndex != _displayModes.Length - 1);
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                PlayerPrefs.SetInt(DisplayModeKey, newIndex);
             });
         }
 
@@ -128,7 +128,7 @@ namespace Runtime.Managers
             });
 
             var activeResolutionText = resolutionSetting.Q<Label>("setting-value");
-            activeResolutionText.text = _resolutionNames[GetResolutionIndex()];
+            activeResolutionText.text = _resolutionNames[Array.IndexOf(_resolutions, _activeResolution)];
             
             // register buttons for changing display mode
             var leftButton = resolutionSetting.Q<Button>("left-button");
@@ -147,6 +147,7 @@ namespace Runtime.Managers
                 SetButtonState(leftButton, newIndex != 0);
                 SetButtonState(rightButton, newIndex != _resolutions.Length - 1);
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                PlayerPrefs.SetInt(ResolutionKey, newIndex);
             });
             
             rightButton.RegisterCallback<ClickEvent>(_ =>
@@ -159,6 +160,7 @@ namespace Runtime.Managers
                 SetButtonState(leftButton, newIndex != 0);
                 SetButtonState(rightButton, newIndex != _resolutions.Length - 1);
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                PlayerPrefs.SetInt(ResolutionKey, newIndex);
             });
         }
 
@@ -191,6 +193,7 @@ namespace Runtime.Managers
                 SetButtonState(leftButton, newIndex != 0);
                 SetButtonState(rightButton, newIndex != _vsync.Length - 1);
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                PlayerPrefs.SetInt(VsyncKey, newIndex);
             });
             
             rightButton.RegisterCallback<ClickEvent>(_ =>
@@ -203,6 +206,7 @@ namespace Runtime.Managers
                 SetButtonState(leftButton, newIndex != 0);
                 SetButtonState(rightButton, newIndex != _vsync.Length - 1);
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                PlayerPrefs.SetInt(VsyncKey, newIndex);
             });
         }
 
@@ -264,6 +268,10 @@ namespace Runtime.Managers
             GameManager.Instance.SoundSystem.SetMasterVolume(_activeMasterVolume);
             GameManager.Instance.SoundSystem.SetSfxVolume(_activeSfxVolume);
             GameManager.Instance.SoundSystem.SetMusicVolume(_activeMusicVolume);
+            
+            _activeResolution = _resolutions[LoadPlayerPref(ResolutionKey, 2)];
+            _activeVsync = _vsync[LoadPlayerPref(VsyncKey, 1)];
+            _activeDisplayMode = _displayModes[LoadPlayerPref(DisplayModeKey, 2)];
         }
         
         private static void SetPlayerPref(string key, float value)
@@ -275,6 +283,13 @@ namespace Runtime.Managers
         private static float LoadPlayerPref(string key, float defaultValue)
         {
             if (PlayerPrefs.HasKey(key)) return PlayerPrefs.GetFloat(key);
+            PlayerPrefs.SetFloat(key, defaultValue);
+            return defaultValue;
+        }
+        
+        private static int LoadPlayerPref(string key, int defaultValue)
+        {
+            if (PlayerPrefs.HasKey(key)) return PlayerPrefs.GetInt(key);
             PlayerPrefs.SetFloat(key, defaultValue);
             return defaultValue;
         }

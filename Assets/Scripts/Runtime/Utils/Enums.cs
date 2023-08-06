@@ -9,17 +9,22 @@ namespace Runtime.Utils
 
     public static class EnumUtils
     {
-        private static string[] _openDeathMessages = {
-            "",
-            ""
+        private static readonly string[] OpenDeathMessages = {
+            "The creatures are difficult to outrun, time your movements carefully.",
+            "Running isn't always the best option, sometimes it's better to hide.",
+            "Use the environment when sneaking to avoid the creature's line of sight.",
+        };
+        
+        private static readonly string[] LockerDeathMessages = {
+            "If the creature sees you entering a locker your chances of survival are slim.",
         };
         
         public static string GetDeathMessage(DeathType deathType)
         {
             return deathType switch
             {
-                DeathType.Locker => "If the monster sees you entering a locker your chances of survival are very low.",
-                DeathType.Open => _openDeathMessages[UnityEngine.Random.Range(0, _openDeathMessages.Length)],
+                DeathType.Locker => LockerDeathMessages[UnityEngine.Random.Range(0, LockerDeathMessages.Length)],
+                DeathType.Open => OpenDeathMessages[UnityEngine.Random.Range(0, OpenDeathMessages.Length)],
                 _ => "You died",
             };
         }
