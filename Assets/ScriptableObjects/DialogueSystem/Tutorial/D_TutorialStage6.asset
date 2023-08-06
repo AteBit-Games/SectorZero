@@ -20,5 +20,5 @@ MonoBehaviour:
     line: If you can make it back to the containment room we can seal the door behind
       you.
   canSkip: 0
-  autoSkipDelay: 2
+  autoSkipDelay: 1.4
   trigger: 1

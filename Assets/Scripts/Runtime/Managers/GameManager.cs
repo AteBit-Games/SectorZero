@@ -185,6 +185,7 @@ namespace Runtime.Managers
             var vignette = volume.sharedProfile.components[0] as Vignette;
             if (vignette != null) vignette.intensity.value = 0f;
 
+            Instance.AmbienceManager.SilenceAmbience();
             //Required objects for all scenes
             _camera = FindObjectOfType<CinemachineVirtualCamera>();
             NotificationManager = FindObjectOfType<NotificationManager>(true);
@@ -269,7 +270,6 @@ namespace Runtime.Managers
         {
             _isReady = false;
             inputReader.SetUI();
-            Instance.AmbienceManager.SilenceAmbience();
             StartCoroutine(LoadSceneAsync(sceneIndex));
         }
         

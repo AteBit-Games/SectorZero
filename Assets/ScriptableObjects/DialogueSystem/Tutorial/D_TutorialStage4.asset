@@ -22,5 +22,5 @@ MonoBehaviour:
   - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
     line: This may seem arbitrary, but just paint the first thing that comes to mind.
   canSkip: 0
-  autoSkipDelay: 2
+  autoSkipDelay: 1.4
   trigger: 1

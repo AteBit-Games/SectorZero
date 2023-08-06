@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections;
+using System.Linq;
 using Runtime.InputSystem;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -17,6 +18,7 @@ namespace Runtime.DialogueSystem
     {
         [SerializeField] private InputReader inputReader;
         [SerializeField, Tooltip("Speed the text is 'typed' onto the screen")] private float textSpeed = 0.05f;
+        [SerializeField] private float sentencePauseTime;
         
         //============== Settings ================
         public event Action OnDialogueFinish;
@@ -39,6 +41,7 @@ namespace Runtime.DialogueSystem
         private Coroutine displayLineCoroutine;
         private Coroutine endDialogueCoroutine;
 
+        private char[] sentenceBreakCharacters = { '.', '!', '?' };
         private void Awake()
         {
             //Bind UI Elements
@@ -122,7 +125,8 @@ namespace Runtime.DialogueSystem
             var currentLetterIndex = 0;
             _actorNameTextElement.text = dialogue.dialogueLines[_currentLineIndex].actor.Name;
             _actorImage.style.backgroundImage = new StyleBackground(dialogue.dialogueLines[_currentLineIndex].actor.Sprite);
-            
+
+            var previousLetter = new char();
             foreach(var character in dialogue.dialogueLines[lineIndex].line)
             {
                 // finish up displaying the line right away if left click is pressed
@@ -135,7 +139,10 @@ namespace Runtime.DialogueSystem
                 //Play a sound
                 PlayDialogueSound(dialogue.dialogueLines[lineIndex].actor, currentLetterIndex, character);
                 currentLetterIndex++;
-                yield return new WaitForSeconds(textSpeed);
+
+                if (sentenceBreakCharacters.Contains(previousLetter) && character == ' ') yield return new WaitForSeconds(sentencePauseTime);
+                else yield return new WaitForSeconds(textSpeed);
+                previousLetter = character;
             }
             
             _dialogueTextElement.text = dialogue.dialogueLines[lineIndex].line;
