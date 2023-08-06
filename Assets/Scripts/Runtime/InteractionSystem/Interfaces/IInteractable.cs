@@ -16,5 +16,7 @@ namespace Runtime.InteractionSystem.Interfaces
         public bool OnInteract(GameObject player);
         public bool CanInteract();
         public UnityEvent OnInteractEvents { get; }
+        public UnityEvent OnInteractFailedEvents { get; }
+        public bool failedToInteract { get; set; }
     }
 }

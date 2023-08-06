@@ -626,7 +626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a24561ac4d2664a8554b0e27a2934f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  sounds: []
+  randomSounds:
   - {fileID: 11400000, guid: 804deabe8651c8841a41865e8decb8f4, type: 2}
   - {fileID: 11400000, guid: 9b7ebabbdca75b14fb790fdb683ff53f, type: 2}
   - {fileID: 11400000, guid: 6c7b322d3ccf2a748aa7993cc077e4e3, type: 2}

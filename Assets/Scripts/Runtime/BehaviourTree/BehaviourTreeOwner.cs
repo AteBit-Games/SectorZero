@@ -180,15 +180,11 @@ namespace Runtime.BehaviourTree
 
         public void OnSightExit(Vector2 lastKnownPosition)
         {
-            if(_canSeePlayer)
+            if(_canSeePlayer && !_sightCoroutineRunning)
             {
                 _lastKnownLocationReference.value = lastKnownPosition;
-
-                if (!_sightCoroutineRunning)
-                {
-                    _loseSightCoroutine = StartCoroutine(LoseSight());
-                    _sightCoroutineRunning = true;
-                }
+                _loseSightCoroutine = StartCoroutine(LoseSight());
+                _sightCoroutineRunning = true;
             }
         }
         

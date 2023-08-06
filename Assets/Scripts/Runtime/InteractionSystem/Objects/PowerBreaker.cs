@@ -70,6 +70,7 @@ namespace Runtime.InteractionSystem.Objects
         }
 
         public UnityEvent OnInteractEvents { get; }
+        public UnityEvent OnInteractFailedEvents { get; }
         public bool IsPowered { get; set; }
         
         public void PowerOn()

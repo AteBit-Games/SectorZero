@@ -75,5 +75,6 @@ namespace Runtime.InteractionSystem.Objects
         }
 
         public UnityEvent OnInteractEvents { get; }
+        public UnityEvent OnInteractFailedEvents { get; }
     }
 }

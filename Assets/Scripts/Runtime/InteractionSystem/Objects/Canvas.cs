@@ -34,6 +34,11 @@ namespace Runtime.InteractionSystem.Objects
             get => persistentID;
             set => persistentID = value;
         }
+        
+        [SerializeField] private UnityEvent onInteractFailedEvents;
+        public UnityEvent OnInteractFailedEvents => onInteractFailedEvents;
+        public bool failedToInteract { get; set; }
+
 
         private Animator _animator;
         private SpriteRenderer _spriteRenderer;
@@ -89,7 +94,7 @@ namespace Runtime.InteractionSystem.Objects
         }
 
         public UnityEvent OnInteractEvents { get; }
-        
+
         public void LoadData(SaveData data)
         {
             if (data.tutorialData.canvas.ContainsKey(persistentID))
@@ -102,11 +107,10 @@ namespace Runtime.InteractionSystem.Objects
                 }
             }
         }
-
+        
         public void SaveData(SaveData data)
         {
-            if(!data.tutorialData.canvas.ContainsKey(persistentID)) data.tutorialData.canvas.Add(persistentID, _hasInteracted);
-            else data.tutorialData.canvas[persistentID] = _hasInteracted;
+            data.tutorialData.canvas[persistentID] = _hasInteracted;
         }
     }
 }
