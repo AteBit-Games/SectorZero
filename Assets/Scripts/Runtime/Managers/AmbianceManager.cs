@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -34,13 +35,18 @@ namespace Runtime.Managers
             StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
         }
 
-        public void FadeToNext(AudioClip nextAmb, float fadeTime = 1.0f)
+        public void SilenceAmbience()
+        {
+            GameManager.Instance.SoundSystem.mainMixer.SetFloat(_ambMixerNames[_currentAmbIndex], -80.0f);
+        }
+
+        public void FadeToNext(Sound nextAmb, float fadeTime = 1.0f)
         {
             Debug.Log("FadeToNext");
             Debug.Log("currentAmbIndex: " + _currentAmbIndex);
-            audioSources[1 - _currentAmbIndex].clip = nextAmb;
+            audioSources[1 - _currentAmbIndex].clip = nextAmb.clip;
+            audioSources[1 - _currentAmbIndex].volume = nextAmb.volume;
             audioSources[1 - _currentAmbIndex].Play();
-            Debug.Log(nextAmb.name);
             StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
             StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[1 - (_currentAmbIndex)], fadeTime, 1.0f));
             _currentAmbIndex = 1 - _currentAmbIndex;
@@ -53,22 +59,24 @@ namespace Runtime.Managers
             audioSources[1 - _currentAmbIndex].Stop();
         }
 
-        public void SetClip(AudioClip clip)
+        public void SetClip(Sound sound)
         {
-            audioSources[_currentAmbIndex].clip = clip;
+            audioSources[_currentAmbIndex].clip = sound.clip;
         }
         
-        public void SetNextClip(AudioClip clip)
+        public void SetNextClip(Sound sound)
         {
-            audioSources[1 - _currentAmbIndex].clip = clip;
+            audioSources[1 - _currentAmbIndex].clip = sound.clip;
         }
         
-        public void PlaySting(AudioClip clip)
+        
+        
+        public void PlaySting(Sound sound)
         {
             if(_isBusy) return;
             _isBusy = true;
-            audioSources[_currentAmbIndex].PlayOneShot(clip);
-            Invoke(nameof(StingReady), clip.length);
+            audioSources[_currentAmbIndex].PlayOneShot(sound.clip);
+            Invoke(nameof(StingReady), sound.clip.length);
         }
         
         public void StingReady()
@@ -76,24 +84,24 @@ namespace Runtime.Managers
             _isBusy = false;
         }
 
-        public void Play()
-        {
-            audioSources[_currentAmbIndex].Play();
-        }
-
-        public void Stop()
-        {
-            audioSources[_currentAmbIndex].Stop();
-        }
-
-        public void Mute()
-        {
-            audioSources[_currentAmbIndex].mute = true;
-        }
-
-        public void Unmute()
-        {
-            audioSources[_currentAmbIndex].mute = false;
-        }
+        // public void Play()
+        // {
+        //     audioSources[_currentAmbIndex].Play();
+        // }
+        //
+        // public void Stop()
+        // {
+        //     audioSources[_currentAmbIndex].Stop();
+        // }
+        //
+        // public void Mute()
+        // {
+        //     audioSources[_currentAmbIndex].mute = true;
+        // }
+        //
+        // public void Unmute()
+        // {
+        //     audioSources[_currentAmbIndex].mute = false;
+        // }
     }
 }

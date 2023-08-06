@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   date: 
   dialogueLines:
-  - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
-    line: 'Don''t try and reason with him, '
-  - actor: {fileID: 11400000, guid: 21f89f06a7c99cb4ba963b3a360f6aa1, type: 2}
-    line: Just try and make your way back to the containment room
+  - actor: {fileID: 11400000, guid: 86d0f507d42d760418417ba7595a3e31, type: 2}
+    line: Do not approach that man. He's in a very unstable state.
+  - actor: {fileID: 11400000, guid: 86d0f507d42d760418417ba7595a3e31, type: 2}
+    line: If you can make it back to the containment room we can seal the door behind
+      you.
   canSkip: 0
   autoSkipDelay: 2
   trigger: 1

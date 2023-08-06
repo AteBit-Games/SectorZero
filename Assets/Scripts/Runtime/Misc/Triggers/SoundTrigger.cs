@@ -13,6 +13,7 @@ namespace Runtime.Misc.Triggers
     public class Trigger : MonoBehaviour
     {
         [SerializeField] private List<Sound> sounds;
+        [SerializeField] private List<Sound> randomSounds;
 
         private void TriggerSound(int id)
         {
@@ -22,7 +23,7 @@ namespace Runtime.Misc.Triggers
         
         private void TriggerRandomSound()
         {
-            GameManager.Instance.SoundSystem.Play(sounds[Random.Range(0, sounds.Count)]);
+            GameManager.Instance.SoundSystem.Play(randomSounds[Random.Range(0, randomSounds.Count)]);
         }
     }
 }

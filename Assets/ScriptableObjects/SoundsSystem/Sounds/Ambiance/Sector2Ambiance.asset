@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixGroup: {fileID: 11400000, guid: a9671a3e7439c9047ada01fe7d7b2426, type: 2}
   clip: {fileID: 8300000, guid: 407387c3364cc6549b01917d86e38dd8, type: 3}
-  volumeScale: 0.3
+  volumeScale: 0.35
+  volume: 0.3
   loop: 1
