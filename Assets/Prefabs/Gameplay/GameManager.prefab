@@ -554,6 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuClickSound: {fileID: 11400000, guid: ee71ebac7b9200b4c84687a87519b73a, type: 2}
+  menuHoverSound: {fileID: 11400000, guid: aece9e2401d15fd42a90b3a2a8222edf, type: 2}
   inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
   isMainMenu: 1
   testMode: 1

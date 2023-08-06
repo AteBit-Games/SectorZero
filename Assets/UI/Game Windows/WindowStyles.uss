@@ -418,3 +418,11 @@
     bottom: 160px;
     -unity-background-image-tint-color: rgb(255, 255, 255);
 }
+
+.loading-active {
+    background-color: rgb(29, 29, 29);
+}
+
+.loading-complete {
+    background-color: rgba(29, 29, 29, 0.69);
+}

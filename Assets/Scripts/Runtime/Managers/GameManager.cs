@@ -31,6 +31,7 @@ namespace Runtime.Managers
         [Header("ASSET REFERENCES")]
         #endregion
         [SerializeField] private Sound menuClickSound;
+        [SerializeField] private Sound menuHoverSound;
         [SerializeField] private InputReader inputReader;
         [SerializeField] public bool isMainMenu;
 
@@ -221,6 +222,11 @@ namespace Runtime.Managers
         public Sound ClickSound()
         {
             return menuClickSound;
+        }
+        
+        public Sound HoverSound()
+        {
+            return menuHoverSound;
         }
         
         private void UpdateStatus()

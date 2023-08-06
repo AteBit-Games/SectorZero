@@ -71,6 +71,7 @@ namespace Runtime.Managers
             });
             _resumeButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Resume playing the game";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
 
             _loadButton = rootVisualElement.Q<Button>("load");
@@ -81,6 +82,7 @@ namespace Runtime.Managers
             });
             _loadButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Load from the last checkpoint";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             _settingsButton = rootVisualElement.Q<Button>("settings");
@@ -91,6 +93,7 @@ namespace Runtime.Managers
             });
             _settingsButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Change the game settings";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             _quitButton = rootVisualElement.Q<Button>("quit");
@@ -100,6 +103,7 @@ namespace Runtime.Managers
             });
             _quitButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Quit to main menu";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             SetupPopups();
@@ -124,6 +128,8 @@ namespace Runtime.Managers
             
             UI_Utils.HideUIElement(_pauseWindow);
             UI_Utils.HideUIElement(_overlay);
+            UI_Utils.HideUIElement(_settingsContainer);
+            UI_Utils.HideUIElement(_confirmMenuPopup);
         }
 
         private void LoadGame()

@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections.Generic;
 using Runtime.AI;
 using Runtime.Managers;
@@ -22,8 +22,7 @@ namespace Runtime.SoundSystem
     
         [Header("DEBUG")]
         [SerializeField] private bool debug;
-        [SerializeField] private ParticleSystem noiseEffect;
-        
+
         private NoiseEmitter _noiseEmitter;
 
         private void Awake()
@@ -37,8 +36,6 @@ namespace Runtime.SoundSystem
             audioSource.PlayOneShot(DetermineSound());
             _noiseEmitter.Radius = joggingRange;
             _noiseEmitter.EmitLocal();
-            
-            if(debug) ShowDebugSound(joggingRange);
         }
 
         public void PlaySneakSound()
@@ -48,7 +45,6 @@ namespace Runtime.SoundSystem
             _noiseEmitter.Radius = sneakingRange;
             _noiseEmitter.EmitLocal();
             
-            if(debug) ShowDebugSound(sneakingRange);
         }
 
         private AudioClip DetermineSound()
@@ -70,14 +66,14 @@ namespace Runtime.SoundSystem
             return concreteFootsteps[0];
         }
 
-        private void ShowDebugSound(float range)
+        private void OnDrawGizmos()
         {
-            if (noiseEffect != null)
+            if (debug)
             {
-                var newParticleSystem = Instantiate(noiseEffect, audioSource.transform.position, Quaternion.Euler(90, 0,0 ));
-                newParticleSystem.transform.localScale = new Vector3(range, range, range);
-                newParticleSystem.Play();
-                Destroy(newParticleSystem.gameObject, 2f);
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(transform.position, joggingRange);
+                Gizmos.color = Color.blue;
+                Gizmos.DrawWireSphere(transform.position, sneakingRange);
             }
         }
     }

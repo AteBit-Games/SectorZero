@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using Runtime.InputSystem;
+using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -195,7 +196,16 @@ namespace Runtime.DialogueSystem
         
         private void ShowDialogue(bool show)
         {
-            _dialogueContainer.style.display = show ? DisplayStyle.Flex : DisplayStyle.None;
+            if(show) UI_Utils.ShowUIElement(_dialogueContainer);
+            else UI_Utils.HideUIElement(_dialogueContainer);
+        }
+        
+        public void CancelDialogue()
+        {
+            if (displayLineCoroutine != null) StopCoroutine(displayLineCoroutine);
+            if (endDialogueCoroutine != null) StopCoroutine(endDialogueCoroutine);
+            ShowDialogue(false);
+            _currentDialogue = null;
         }
     }
 }

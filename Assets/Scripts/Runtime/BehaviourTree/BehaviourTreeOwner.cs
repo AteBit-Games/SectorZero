@@ -142,11 +142,15 @@ namespace Runtime.BehaviourTree
         
         public void OnHearing(NoiseEmitter sender)
         {
-            // if(treeStates.Find(x => x.state == TreeState.State.Inspect) == null) Debug.LogError("No Inspect state found");
-            // else
-            // {
-            //     SetActiveState(treeStates.Find(x => x.state == TreeState.State.Inspect).stateIndex);
-            // }
+            if (!_canSeePlayer)
+            {
+                if(treeStates.Find(x => x.state == TreeState.State.Inspect) == null) Debug.LogError("No Inspect state found");
+                else
+                {
+                    _lastKnownLocationReference.value = sender.transform.position;
+                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.Inspect).stateIndex);
+                }
+            }
         }
         
         public void OnSightEnter()

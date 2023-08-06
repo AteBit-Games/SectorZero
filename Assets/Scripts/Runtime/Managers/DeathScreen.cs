@@ -78,6 +78,7 @@ namespace Runtime.Managers
             });
             _loadButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Load from the last checkpoint";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             SetupPopups();
@@ -105,6 +106,7 @@ namespace Runtime.Managers
             });
             _quitMenuButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Quit to main menu";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             _confirmMenuQuit.RegisterCallback<ClickEvent>(_ => {
@@ -123,7 +125,8 @@ namespace Runtime.Managers
                 OpenConfirmPopup(_confirmDesktopPopup);
             });
             _quitDesktopButton.RegisterCallback<MouseEnterEvent>(_ => {
-                _buttonDescription.text = "Quit to desktop";
+                _buttonDescription.text = "Quit the game";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             _confirmDesktopQuit.RegisterCallback<ClickEvent>(_ => {

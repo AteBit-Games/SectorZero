@@ -71,15 +71,20 @@ namespace Runtime.Managers
             });
             _continueButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Continue from the last checkpoint";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             _reportBugButton = rootVisualElement.Q<Button>("report-problem");
             _reportBugButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 _feedbackForm.ShowForm();
+                
+                UI_Utils.HideUIElement(_confirmQuitPopup);
+                UI_Utils.HideUIElement(_confirmTutorialPopup);
             });
             _reportBugButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Report a problem";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
 
             _newGameButton = rootVisualElement.Q<Button>("new-game");
@@ -90,6 +95,7 @@ namespace Runtime.Managers
             });
             _newGameButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Start a new game";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             _settingsButton = rootVisualElement.Q<Button>("settings");
@@ -100,6 +106,7 @@ namespace Runtime.Managers
             });
             _settingsButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Change the game settings";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             _quitButton = rootVisualElement.Q<Button>("quit");
@@ -109,6 +116,7 @@ namespace Runtime.Managers
             });
             _quitButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Quit the game";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             _microwaveIcon = rootVisualElement.Q<VisualElement>("microwaveVisual");
@@ -157,6 +165,9 @@ namespace Runtime.Managers
             _mainMenuWindow.style.display = DisplayStyle.None;
             _settingsWindow.style.display = DisplayStyle.Flex;
             isSettingsOpen = true;
+            
+            UI_Utils.HideUIElement(_confirmQuitPopup);
+            UI_Utils.HideUIElement(_confirmTutorialPopup);
         }
         
         public void CloseSettings()

@@ -21,5 +21,5 @@ MonoBehaviour:
   - actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
     line: Hey, if you can hear me. Come up to the glass when you're ready.
   canSkip: 0
-  autoSkipDelay: 1.4
+  autoSkipDelay: 2.2
   trigger: 0

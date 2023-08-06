@@ -68,6 +68,7 @@ namespace Runtime.Managers
             });
             _quitMenuButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Quit to main menu";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             _confirmMenuQuit.RegisterCallback<ClickEvent>(_ => {
@@ -87,6 +88,7 @@ namespace Runtime.Managers
             });
             _quitDesktopButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Quit to desktop";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             _confirmDesktopQuit.RegisterCallback<ClickEvent>(_ => {

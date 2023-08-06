@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: testMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8917896545657216772, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
+      propertyPath: menuHoverSound
+      value: 
+      objectReference: {fileID: 11400000, guid: aece9e2401d15fd42a90b3a2a8222edf, type: 2}
     - target: {fileID: 8917896545657216773, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -317,9 +321,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReportWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 283726547, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1674165242, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
       propertyPath: m_Name
       value: Notifications
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674165245, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8357116546760309997, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
       propertyPath: m_Name
@@ -371,7 +383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8357116548118797781, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
       propertyPath: iconSpeed

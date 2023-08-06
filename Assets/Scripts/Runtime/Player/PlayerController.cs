@@ -235,6 +235,7 @@ namespace Runtime.Player
         public void Die()
         {
             DisableInput();
+            GameManager.Instance.DialogueSystem.CancelDialogue();
             _spriteRenderer.enabled = false;
             _playerShadow.enabled = false;
             lookPointer.position = gameObject.transform.position;

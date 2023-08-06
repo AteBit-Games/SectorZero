@@ -34,6 +34,8 @@ namespace Runtime.Managers
         {
             if(_loadingIconCoroutine != null) StopCoroutine(_loadingIconCoroutine);
             _loadingIconCoroutine = StartCoroutine(LoadingIcon());
+            _loadingIcon.style.visibility = Visibility.Visible;
+
             UI_Utils.ShowUIElement(_loadContainer);
             _continueText.visible = false;
             isOpen = true;
@@ -44,12 +46,15 @@ namespace Runtime.Managers
             if(_loadingIconCoroutine != null) StopCoroutine(_loadingIconCoroutine);
             UI_Utils.HideUIElement(_loadContainer);
             isOpen = false;
+            
             GameManager.Instance.SoundSystem.ResumeAll();
+            _loadContainer.RemoveFromClassList("loading-complete");
         }
 
         public void ShowContinue()
         {
             _continueText.visible = true;
+            _loadingIcon.style.visibility = Visibility.Hidden;
         }
 
         private IEnumerator LoadingIcon()

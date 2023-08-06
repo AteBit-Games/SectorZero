@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using Runtime.Managers;
+using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -86,12 +87,12 @@ namespace Runtime.ReporterSystem
         
         public void ShowForm()
         {
-            _feedbackWindow.style.display = DisplayStyle.Flex;
+           UI_Utils.ShowUIElement(_feedbackWindow);
         }
         
         public void HideForm()
         {
-            _feedbackWindow.style.display = DisplayStyle.None;
+            UI_Utils.HideUIElement(_feedbackWindow);
         }
 
         public void SendForm()
