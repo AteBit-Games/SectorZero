@@ -42,8 +42,6 @@ namespace Runtime.Managers
 
         public void FadeToNext(Sound nextAmb, float fadeTime = 1.0f)
         {
-            Debug.Log("FadeToNext");
-            Debug.Log("currentAmbIndex: " + _currentAmbIndex);
             audioSources[1 - _currentAmbIndex].clip = nextAmb.clip;
             audioSources[1 - _currentAmbIndex].volume = nextAmb.volume;
             audioSources[1 - _currentAmbIndex].Play();
