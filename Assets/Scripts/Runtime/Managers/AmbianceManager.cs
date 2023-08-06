@@ -67,14 +67,12 @@ namespace Runtime.Managers
         {
             audioSources[1 - _currentAmbIndex].clip = sound.clip;
         }
-        
-        
-        
+
         public void PlaySting(Sound sound)
         {
             if(_isBusy) return;
             _isBusy = true;
-            audioSources[_currentAmbIndex].PlayOneShot(sound.clip);
+            audioSources[2].PlayOneShot(sound.clip);
             Invoke(nameof(StingReady), sound.clip.length);
         }
         
