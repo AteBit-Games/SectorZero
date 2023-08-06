@@ -90,7 +90,7 @@ namespace Runtime.InteractionSystem
             var closest = GetClosestInteractable(_interactables.ToArray())?.GetComponent<IInteractable>();
             
             if(closest != null && closest.CanInteract()) closest.OnInteract(gameObject);
-            else if (closest != null && closest.CanInteract() && !closest.failedToInteract)
+            else if (closest != null && !closest.CanInteract() && !closest.failedToInteract)
             {
                 closest.failedToInteract = true;
                 closest.OnInteractFailedEvents?.Invoke();

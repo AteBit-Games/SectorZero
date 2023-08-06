@@ -66,5 +66,6 @@ namespace Runtime.InteractionSystem.Items
 
         public UnityEvent OnInteractEvents { get; }
         public UnityEvent OnInteractFailedEvents { get; }
+        public bool failedToInteract { get; set; }
     }
 }

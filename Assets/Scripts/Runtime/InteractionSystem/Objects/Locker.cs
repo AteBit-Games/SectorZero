@@ -27,6 +27,7 @@ namespace Runtime.InteractionSystem.Objects
         [SerializeField] private UnityEvent onTriggerEvents;
         public UnityEvent OnInteractEvents => onTriggerEvents;
         public UnityEvent OnInteractFailedEvents { get; }
+        public bool failedToInteract { get; set; }
 
         [SerializeField] private Transform inspectPosition;
         public Transform InspectPosition => inspectPosition;
