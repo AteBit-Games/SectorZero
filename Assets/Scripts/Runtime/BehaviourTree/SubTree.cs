@@ -11,7 +11,7 @@ namespace Runtime.BehaviourTree
     {
         [Tooltip("Behaviour tree asset to run as a subtree")] public BehaviourTree treeAsset;
         [HideInInspector] public BehaviourTree treeInstance;
-        public List<BlackboardKeyPair> blackboardOverrides = new();
+        public List<BlackboardSubKey> blackboardOverrides = new();
         
         protected override void OnStart()
         {

@@ -10,59 +10,54 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
-  m_Name: TestTree
+  m_Name: DebugSubTree
   m_EditorClassIdentifier: 
   rootNode:
-    rid: 2098102503561494533
+    rid: 61114352745054223
   nodes:
-  - rid: 2098102503561494533
-  - rid: 2098102503561494535
+  - rid: 61114352745054223
+  - rid: 61114352745054226
   treeState: 1
   blackboard:
     keys:
-    - rid: 2098102503561494534
+    - rid: 61114352745054225
   viewPosition: {x: 600, y: 300, z: 0}
   viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 2098102503561494533
+    - rid: 61114352745054223
       type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: 1d8eefba-bed6-46fc-9762-d7b7c373c0ac
+        guid: 1bcacc42-9b51-4db6-b361-12e579877e81
         position: {x: 0, y: 0}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
         child:
-          rid: 2098102503561494535
-    - rid: 2098102503561494534
-      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+          rid: 61114352745054226
+    - rid: 61114352745054225
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
-        name: ActiveState
-        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 0
-    - rid: 2098102503561494535
-      type: {class: LookAt, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
+        name: Position
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}
+    - rid: 61114352745054226
+      type: {class: LogKey, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: a02617e41191d3c4a8c5e79da577d32d
-        position: {x: 0, y: 120}
+        guid: f5750c7ae895e9447a6e9411b9efece3
+        position: {x: 0, y: 100}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
-        target:
+        logType: 0
+        messageKey:
           reference:
-            rid: -2
-          defaultValue: {x: 39.5, y: -0.75}
-        lookTime:
-          reference:
-            rid: -2
-          defaultValue: 20
+            rid: 61114352745054225

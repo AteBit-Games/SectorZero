@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: DebugTree
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 61114331898839041
+  nodes:
+  - rid: 61114331898839041
+  - rid: 61114331898839043
+  - rid: 61114345309863936
+  - rid: 61114345309863937
+  - rid: 61114345309863946
+  - rid: 61114352745054210
+  treeState: 1
+  blackboard:
+    keys:
+    - rid: 61114352745054222
+  viewPosition: {x: 476, y: 220, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 61114331898839041
+      type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 73ba969d-9cdb-4829-a882-d2fdfe38162d
+        position: {x: 0, y: 0}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 61114331898839043
+    - rid: 61114331898839043
+      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a8d1e57cf37cb5c4d9e4c5cd7854301d
+        position: {x: 0, y: 80}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        treeAsset: {fileID: 11400000, guid: d45330b3e77f96a46a0d9b6f1066c9cd, type: 2}
+        treeInstance: {fileID: 0}
+        blackboardOverrides:
+        - source:
+            rid: -2
+          target:
+            rid: 61114352745054227
+    - rid: 61114345309863936
+      type: {class: LoadSceneIndex, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f5ca1a1473cc72e42997da43b350dda6
+        position: {x: -320, y: 160}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 1
+        sceneIndex:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 61114345309863937
+      type: {class: LookAt, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 34f34bdfb96601b40b8c71c1e82b5495
+        position: {x: -400, y: 300}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        target:
+          reference:
+            rid: -2
+          defaultValue: {x: 0, y: 0}
+        lookTime:
+          reference:
+            rid: -2
+          defaultValue: 2
+    - rid: 61114345309863946
+      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 7ce15bb9697ac5d4494522ccdb4393f9
+        position: {x: 300, y: 140}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        treeAsset: {fileID: 0}
+        treeInstance: {fileID: 0}
+        blackboardOverrides:
+        - source:
+            rid: -2
+          target:
+            rid: -2
+    - rid: 61114352745054210
+      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a91478a2e4c56fc489cbda1d854053e5
+        position: {x: -367.00793, y: 31.709774}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        treeAsset: {fileID: 0}
+        treeInstance: {fileID: 0}
+        blackboardOverrides: []
+    - rid: 61114352745054222
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Yeet
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 231, y: 2131}
+    - rid: 61114352745054227
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Position
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}

@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 using Runtime.BehaviourTree;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -7,8 +10,8 @@ using UnityEngine.UIElements;
 
 namespace Editor.BehaviourTree.PropertyDrawers
 {
-    [CustomPropertyDrawer(typeof(BlackboardKeyPair))]
-    public class BlackboardKeyPairPropertyDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(BlackboardSubKey))]
+    public class BlackboardKeyPairProperty : PropertyDrawer
     {
         private VisualElement _pairContainer;
 
@@ -43,96 +46,219 @@ namespace Editor.BehaviourTree.PropertyDrawers
             return treeAsset.objectReferenceValue as Runtime.BehaviourTree.BehaviourTree;
         }
 
-        public override VisualElement CreatePropertyGUI(SerializedProperty property) 
+        public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
-            SerializedProperty source = property.FindPropertyRelative(nameof(BlackboardKeyPair.source));
-            SerializedProperty target = property.FindPropertyRelative(nameof(BlackboardKeyPair.target));
+            _pairContainer = new VisualElement();
             
-            Runtime.BehaviourTree.BehaviourTree baseTree = GetBehaviourTree(property);
-            Runtime.BehaviourTree.BehaviourTree subtree = GetSubtree(property);
+            var source = property.FindPropertyRelative(nameof(BlackboardSubKey.source));
+            var target = property.FindPropertyRelative(nameof(BlackboardSubKey.target));
+            
+            var baseTree = GetBehaviourTree(property);
+            var subtree = GetSubtree(property);
             
             if(baseTree == null || subtree == null) return _pairContainer;
 
-            var sourceDropdown = new PopupField<BlackboardKey>
-            {
-                label = source.displayName,
-                formatListItemCallback = FormatItem,
-                formatSelectedValueCallback = FormatItem,
-                value = source.managedReferenceValue as BlackboardKey
-            };
-            
             var targetDropdown = new PopupField<BlackboardKey>
             {
-                label = target.displayName,
+                label = "",
                 formatListItemCallback = FormatItem,
-                formatSelectedValueCallback = FormatItem,
-                value = target.managedReferenceValue as BlackboardKey
+                formatSelectedValueCallback = FormatSelectedTargetItem,
+                value = target.managedReferenceValue as BlackboardKey,
             };
-            
-            sourceDropdown.RegisterCallback<MouseEnterEvent>(_ => {
-                sourceDropdown.choices.Clear();
-                foreach (var key in baseTree.blackboard.keys) {
-                    sourceDropdown.choices.Add(key);
+                
+            targetDropdown.RegisterCallback<MouseEnterEvent>(_ => {
+                targetDropdown.choices.Clear();
+                foreach (var key in subtree.blackboard.keys)
+                {
+                    targetDropdown.choices.Add(key);
                 }
-            });
-            
-            sourceDropdown.RegisterCallback<ChangeEvent<BlackboardKey>>((evt) => {
-                BlackboardKey newKey = evt.newValue;
-                source.managedReferenceValue = newKey;
-                property.serializedObject.ApplyModifiedProperties();
+                targetDropdown.choices.Add(null);
                 
-                if (_pairContainer.childCount > 1) _pairContainer.Insert(1, targetDropdown);
-                else _pairContainer.Add(targetDropdown);
-                
-                targetDropdown.RegisterCallback<MouseEnterEvent>(_ =>
-                {
-                    targetDropdown.choices.Clear();
-                    //loop through all keys in the subtree and only add the ones that match the type of the source key
-                    foreach (var key in subtree.blackboard.keys.Where(key => key.GetType() == sourceDropdown.value.GetType()))
-                    {
-                        targetDropdown.choices.Add(key);
+                targetDropdown.choices.Sort((left, right) => {
+                    if (left == null) {
+                        return -1;
                     }
-                });
-                
-                targetDropdown.RegisterCallback<ChangeEvent<BlackboardKey>>((evt) =>
-                {
-                    BlackboardKey newKey = evt.newValue;
-                    target.managedReferenceValue = newKey;
-                    property.serializedObject.ApplyModifiedProperties();
+                    return right == null ? 1 : string.Compare(left.name, right.name, StringComparison.Ordinal);
                 });
             });
+                
+            targetDropdown.RegisterCallback<ChangeEvent<BlackboardKey>>(evt => {
+                BlackboardKey newKey = evt.newValue;
+                target.managedReferenceValue = newKey;
+                BehaviourTreeEditorWindow.instance.serializer.ApplyChanges();
+            });
             
-            _pairContainer = new VisualElement();
-            _pairContainer.Add(sourceDropdown);
-            //
-            // if (sourceDropdown.value != null) 
-            // {
-            //     targetDropdown.RegisterCallback<MouseEnterEvent>(_ =>
-            //     {
-            //         targetDropdown.choices.Clear();
-            //         //loop through all keys in the subtree and only add the ones that match the type of the source key
-            //         foreach (var key in subtree.blackboard.keys.Where(key => key.GetType() == sourceDropdown.value.GetType()))
-            //         {
-            //             targetDropdown.choices.Add(key);
-            //         }
-            //     });
-            //     
-            //     targetDropdown.RegisterCallback<ChangeEvent<BlackboardKey>>((evt) =>
-            //     {
-            //         BlackboardKey newKey = evt.newValue;
-            //         target.managedReferenceValue = newKey;
-            //         property.serializedObject.ApplyModifiedProperties();
-            //     });
-            // }
+            VisualElement sourceValueContainer = new();
+            if(target.managedReferenceValue != null)
+            {
+                Label label = new Label();
+                label.AddToClassList("unity-base-field__label");
+                label.AddToClassList("unity-property-field__label");
+                label.AddToClassList("unity-property-field");
+                label.text = "Source Value";
+
+                PropertyField sourceValueField = new PropertyField();
+                sourceValueField.label = "";
+                sourceValueField.style.flexGrow = 1.0f;
+                Debug.Log(target.managedReferenceValue.GetType());
+                sourceValueField.bindingPath = source.managedReferenceFullTypename.GetType();
+
+                var sourceDropdown = new PopupField<BlackboardKey>
+                {
+                    label = "",
+                    formatListItemCallback = FormatItem,
+                    formatSelectedValueCallback = FormatSelectedSourceItem,
+                    value = source.managedReferenceValue as BlackboardKey,
+                    tooltip = "Bind value to a BlackboardKey",
+                    style =
+                    {
+                        flexGrow = 1.0f
+                    }
+                };
+                
+                sourceDropdown.RegisterCallback<MouseEnterEvent>(_ => {
+                    sourceDropdown.choices.Clear();
+                    foreach (var key in baseTree.blackboard.keys.Where(key => key.GetType() == target.managedReferenceValue.GetType()))
+                    {
+                        sourceDropdown.choices.Add(key);
+                    }
+                    sourceDropdown.choices.Add(null);
+
+                    sourceDropdown.choices.Sort((left, right) => {
+                        if (left == null) {
+                            return -1;
+                        }
+                        return right == null ? 1 : string.Compare(left.name, right.name, StringComparison.Ordinal);
+                    });
+                });
+
+                sourceDropdown.RegisterCallback<ChangeEvent<BlackboardKey>>(evt => {
+                    BlackboardKey newKey = evt.newValue;
+                    source.managedReferenceValue = newKey;
+                    BehaviourTreeEditorWindow.instance.serializer.ApplyChanges();
+                });
+                
+                
+                if (sourceDropdown.value == null) sourceValueContainer.Add(label);
+                sourceDropdown.style.flexGrow = sourceDropdown.value == null ? 0.0f : 1.0f;
+                
+                sourceValueField.style.display = sourceDropdown.value == null ? DisplayStyle.Flex : DisplayStyle.None;
+                sourceValueContainer.AddToClassList("unity-base-field");
+                sourceValueContainer.AddToClassList("node-property-field");
+                sourceValueContainer.style.flexDirection = FlexDirection.Row;
+                
+                sourceValueContainer.Add(sourceValueField);
+                sourceValueContainer.Add(sourceDropdown);
+            }
             
             _pairContainer.Add(targetDropdown);
-            property.serializedObject.ApplyModifiedProperties();
+            _pairContainer.Add(sourceValueContainer);
+
             return _pairContainer;
         }
-
+        
+        private static string FormatSelectedTargetItem(BlackboardKey item)
+        {
+            return item == null ? "[No Key Selected]" : item.name;
+        }
+        
+        private static string FormatSelectedSourceItem(BlackboardKey item)
+        {
+            return item == null ? "" : item.name;
+        }
+        
         private static string FormatItem(BlackboardKey item)
         {
             return item == null ? "(null)" : item.name;
         }
+        
+        
+        
+        // public override VisualElement CreatePropertyGUI(SerializedProperty property) 
+        // {
+        //     SerializedProperty source = property.FindPropertyRelative(nameof(BlackboardKeyPair.source));
+        //     SerializedProperty target = property.FindPropertyRelative(nameof(BlackboardKeyPair.target));
+        //     
+        //     Runtime.BehaviourTree.BehaviourTree baseTree = GetBehaviourTree(property);
+        //     Runtime.BehaviourTree.BehaviourTree subtree = GetSubtree(property);
+        //     
+        //     if(baseTree == null || subtree == null) return _pairContainer;
+        //
+        //     var sourceDropdown = new PopupField<BlackboardKey>
+        //     {
+        //         label = source.displayName,
+        //         formatListItemCallback = FormatItem,
+        //         formatSelectedValueCallback = FormatItem,
+        //         value = source.managedReferenceValue as BlackboardKey
+        //     };
+        //     
+        //     var targetDropdown = new PopupField<BlackboardKey>
+        //     {
+        //         label = target.displayName,
+        //         formatListItemCallback = FormatItem,
+        //         formatSelectedValueCallback = FormatItem,
+        //         value = target.managedReferenceValue as BlackboardKey
+        //     };
+        //     
+        //     sourceDropdown.RegisterCallback<MouseEnterEvent>(_ => {
+        //         sourceDropdown.choices.Clear();
+        //         foreach (var key in baseTree.blackboard.keys) {
+        //             sourceDropdown.choices.Add(key);
+        //         }
+        //     });
+        //     
+        //     sourceDropdown.RegisterCallback<ChangeEvent<BlackboardKey>>((evt) => {
+        //         BlackboardKey newKey = evt.newValue;
+        //         source.managedReferenceValue = newKey;
+        //         property.serializedObject.ApplyModifiedProperties();
+        //         
+        //         if (_pairContainer.childCount > 1) _pairContainer.Insert(1, targetDropdown);
+        //         else _pairContainer.Add(targetDropdown);
+        //         
+        //         targetDropdown.RegisterCallback<MouseEnterEvent>(_ =>
+        //         {
+        //             targetDropdown.choices.Clear();
+        //             //loop through all keys in the subtree and only add the ones that match the type of the source key
+        //             foreach (var key in subtree.blackboard.keys.Where(key => key.GetType() == sourceDropdown.value.GetType()))
+        //             {
+        //                 targetDropdown.choices.Add(key);
+        //             }
+        //         });
+        //         
+        //         targetDropdown.RegisterCallback<ChangeEvent<BlackboardKey>>((evt) =>
+        //         {
+        //             BlackboardKey newKey = evt.newValue;
+        //             target.managedReferenceValue = newKey;
+        //             property.serializedObject.ApplyModifiedProperties();
+        //         });
+        //     });
+        //     
+        //     _pairContainer = new VisualElement();
+        //     _pairContainer.Add(sourceDropdown);
+        //     //
+        //     // if (sourceDropdown.value != null) 
+        //     // {
+        //     //     targetDropdown.RegisterCallback<MouseEnterEvent>(_ =>
+        //     //     {
+        //     //         targetDropdown.choices.Clear();
+        //     //         //loop through all keys in the subtree and only add the ones that match the type of the source key
+        //     //         foreach (var key in subtree.blackboard.keys.Where(key => key.GetType() == sourceDropdown.value.GetType()))
+        //     //         {
+        //     //             targetDropdown.choices.Add(key);
+        //     //         }
+        //     //     });
+        //     //     
+        //     //     targetDropdown.RegisterCallback<ChangeEvent<BlackboardKey>>((evt) =>
+        //     //     {
+        //     //         BlackboardKey newKey = evt.newValue;
+        //     //         target.managedReferenceValue = newKey;
+        //     //         property.serializedObject.ApplyModifiedProperties();
+        //     //     });
+        //     // }
+        //     
+        //     _pairContainer.Add(targetDropdown);
+        //     property.serializedObject.ApplyModifiedProperties();
+        //     return _pairContainer;
+        // }
     }
 }

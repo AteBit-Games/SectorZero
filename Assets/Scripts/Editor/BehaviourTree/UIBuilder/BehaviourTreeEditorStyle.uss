@@ -47,3 +47,6 @@ Label {
     top: 10px;
     position: absolute;
 }
+
+.no-tree-error {
+}
