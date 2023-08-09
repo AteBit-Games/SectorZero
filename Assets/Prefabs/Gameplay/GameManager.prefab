@@ -515,6 +515,7 @@ GameObject:
   - component: {fileID: 8917896545657216772}
   - component: {fileID: 381558948670293325}
   - component: {fileID: 3517014781070517759}
+  - component: {fileID: 8564143802284992274}
   - component: {fileID: 864986145695122940}
   - component: {fileID: 169285951609795143}
   m_Layer: 0
@@ -556,7 +557,7 @@ MonoBehaviour:
   menuClickSound: {fileID: 11400000, guid: ee71ebac7b9200b4c84687a87519b73a, type: 2}
   menuHoverSound: {fileID: 11400000, guid: aece9e2401d15fd42a90b3a2a8222edf, type: 2}
   inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
-  isMainMenu: 1
+  isMainMenu: 0
   testMode: 1
   details: 
 --- !u!114 &381558948670293325
@@ -595,6 +596,21 @@ MonoBehaviour:
   - sceneIndex: 2
     startPosition: {x: 0, y: 0, z: 0}
   saveExists: 0
+--- !u!114 &8564143802284992274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8917896545657216827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72c8e03eda53cd498be945729335758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menaceGauge: 0
+  menaceGaugeMax: 100
+  menaceGaugeMin: 0
 --- !u!114 &864986145695122940
 MonoBehaviour:
   m_ObjectHideFlags: 0

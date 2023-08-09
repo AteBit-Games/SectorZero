@@ -1,5 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
+
 using Runtime.BehaviourTree;
 using UnityEngine;
 

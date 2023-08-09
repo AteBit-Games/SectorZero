@@ -50,3 +50,7 @@ Label {
 
 .no-tree-error {
 }
+
+.target-input .unity-base-field__label {
+    display: none;
+}

@@ -35,8 +35,16 @@ namespace Runtime.BehaviourTree
             foreach(var pair in blackboardOverrides)
             {
                 var target = treeInstance.blackboard.Find(pair.target.name);
-                var source = blackboard.Find(pair.source.name);
-                if (target != null && source != null) target.CopyFrom(source);
+
+                if (pair.source == null)
+                {
+                    target.CopyFrom(pair.target);
+                }
+                else
+                {
+                    var source = blackboard.Find(pair.source.name);
+                    if (target != null && source != null) target.CopyFrom(source);
+                }
             }
         }
     }
