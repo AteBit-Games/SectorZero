@@ -82,7 +82,7 @@ namespace Runtime.InteractionSystem.Objects
                 return false;
             }
             
-            GameManager.Instance.SoundSystem.Play(interactSound, transform);
+            GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             return true;
         }
         

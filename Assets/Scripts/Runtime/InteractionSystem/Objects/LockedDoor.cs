@@ -38,13 +38,13 @@ namespace Runtime.InteractionSystem.Objects
         {
             if (GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(key) || !requiresKey)
             {
-                GameManager.Instance.SoundSystem.Play(interactSound, transform);
+                GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
                 _animator.SetTrigger("OpenDoor");
                 return true;
             }
             else
             {
-                GameManager.Instance.SoundSystem.Play(lockedSound, transform);
+                GameManager.Instance.SoundSystem.Play(lockedSound, transform.GetComponent<AudioSource>());
                 return false;
             }
         }

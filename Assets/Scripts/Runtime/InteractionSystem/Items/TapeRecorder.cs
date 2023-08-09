@@ -36,7 +36,7 @@ namespace Runtime.InteractionSystem.Items
             GameManager.Instance.DialogueSystem.StartDialogue(dialogue);
             gameObject.SetActive(false);
             
-            GameManager.Instance.SoundSystem.Play(interactSound, transform);
+            GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             
             var inventory = player.GetComponentInParent<PlayerInventory>();
             var tapeInstance = ScriptableObject.CreateInstance<Tape>();

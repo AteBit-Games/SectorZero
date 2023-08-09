@@ -38,7 +38,7 @@ namespace Runtime.InteractionSystem.Objects
         public bool OnInteract(GameObject player)
         {
             var nellient = player.GetComponentInParent<Nellient>();
-            GameManager.Instance.SoundSystem.Play(interactSound, transform);
+            GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             nellient.StartGame();
             Finish();
             return true;

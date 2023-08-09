@@ -33,7 +33,7 @@ namespace Runtime.InteractionSystem.Items
         public bool OnInteract(GameObject player)
         {
             gameObject.SetActive(false);
-            GameManager.Instance.SoundSystem.Play(interactSound, transform);
+            GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             var inventory = player.GetComponentInParent<PlayerInventory>();
             GameManager.Instance.NotificationManager.ShowPickupNotification(item);
             return inventory.AddItemToInventory(item);

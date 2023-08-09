@@ -39,7 +39,7 @@ namespace Runtime.InteractionSystem.Objects
 
         public bool OnInteract(GameObject player)
         {
-            GameManager.Instance.SoundSystem.Play(interactSound, transform);
+            GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             IsPowered = !IsPowered;
             SetPowered(IsPowered);
             _noiseEmitter.EmitGlobal();

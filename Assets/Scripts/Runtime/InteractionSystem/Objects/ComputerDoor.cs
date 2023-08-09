@@ -32,7 +32,7 @@ namespace Runtime.InteractionSystem.Objects
         {
             if(_isActivated) return;
             
-            GameManager.Instance.SoundSystem.Play(openSound, transform);
+            GameManager.Instance.SoundSystem.Play(openSound, transform.GetComponent<AudioSource>());
             _animator.SetTrigger("OpenDoor");
             _isActivated = true;
             _noiseEmitter.EmitGlobal();

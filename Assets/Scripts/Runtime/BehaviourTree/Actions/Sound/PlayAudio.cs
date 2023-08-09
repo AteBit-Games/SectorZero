@@ -17,7 +17,7 @@ namespace Runtime.BehaviourTree.Actions.Sound
 
         protected override void OnStart()
         {
-            GameManager.Instance.SoundSystem.Play(sound, context.transform);
+            // GameManager.Instance.SoundSystem.Play(sound, context.transform);
             _startTime = Time.time;
         }
     

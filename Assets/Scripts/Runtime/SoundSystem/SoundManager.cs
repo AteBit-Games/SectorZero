@@ -55,42 +55,25 @@ namespace Runtime.SoundSystem
             _audioListener = FindObjectOfType(typeof(AudioListener)) as AudioListener;
         }
 
-        public void Play(Sound sound, Transform origin = null, bool music = false)
+        public void Play(Sound sound, AudioSource audioSource = null)
         {
             if (sound == null) return;
-
-            if (!music)
+            
+            var destroy = false;
+            if (audioSource == null)
             {
-                var audioSource = new GameObject(sound.name + " source").AddComponent<AudioSource>();
-                audioSource.transform.position = origin == null ? _audioListener.transform.position : origin.position;
+                audioSource = new GameObject(sound.name + " source").AddComponent<AudioSource>();
                 DontDestroyOnLoad(audioSource);
                 _activeSoundInstanceSources.Add(audioSource, sound);
-                
-                audioSource.clip = sound.clip;
-                audioSource.volume = sound.volume;
-                audioSource.loop = sound.loop;
-                audioSource.spatialBlend = origin == null ? 0 : 1;
-                audioSource.Play();
-                
-                if (!sound.loop) StartCoroutine(DestroySoundSource(audioSource, audioSource.clip.length+0.5f));
+                destroy = true;
             }
-            else
-            {
-                if (_activeMusic != null && _activeMusicSources.Any())
-                {
-                    _activeMusicSources.First().Key.Stop();
-                }
-                _activeMusic = sound;
-                _activeMusicSources.Clear();
-                
-                var audioSource = FindObjectOfType<LevelManager>().gameObject.GetComponent<AudioSource>();
-                audioSource.clip = sound.clip;
-                audioSource.volume = sound.volume;
-                audioSource.loop = sound.loop;
-                audioSource.spatialBlend = 0;
-                audioSource.Play();
-                _activeMusicSources.Add(audioSource, sound.CreateInstance());
-            }
+            
+            audioSource.clip = sound.clip;
+            audioSource.volume = sound.volume;
+            audioSource.loop = sound.loop;
+            audioSource.Play();
+            
+            if (destroy && !sound.loop )StartCoroutine(DestroySoundSource(audioSource, audioSource.clip.length+0.5f));
         }
         
         public void StopAll()

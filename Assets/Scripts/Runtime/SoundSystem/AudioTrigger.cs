@@ -20,8 +20,7 @@ namespace Runtime.SoundSystem
         {
             if (other.CompareTag(TriggerTag))
             {
-                var soundOrigin = origin == null ? transform : origin;
-                GameManager.Instance.SoundSystem.Play(sound, soundOrigin);
+                GameManager.Instance.SoundSystem.Play(sound, transform.GetComponent<AudioSource>());
                 Destroy(gameObject);
             }
         }

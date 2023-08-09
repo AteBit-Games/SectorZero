@@ -54,7 +54,7 @@ namespace Runtime.InteractionSystem.Items
             {
                 if (_throwCoroutine != null) StopCoroutine(_throwCoroutine);
                 _sortingGroup.sortingOrder = 9;
-                GameManager.Instance.SoundSystem.Play(dropSound, transform);
+                GameManager.Instance.SoundSystem.Play(dropSound, transform.GetComponent<AudioSource>());
             }
         }
         
@@ -63,7 +63,7 @@ namespace Runtime.InteractionSystem.Items
             gameObject.SetActive(false);
 
             var gameManager = GameManager.Instance;
-            gameManager.SoundSystem.Play(interactSound, transform);
+            gameManager.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             gameManager.HUD.SetThrowableIcon(icon);
             gameManager.HUD.ShowThrowableIcon(true);
 
@@ -94,7 +94,7 @@ namespace Runtime.InteractionSystem.Items
 
         public void OnDrop(Transform dropPosition)
         {
-            GameManager.Instance.SoundSystem.Play(DropSound, transform);
+            GameManager.Instance.SoundSystem.Play(DropSound, transform.GetComponent<AudioSource>());
             GetComponent<NoiseEmitter>().EmitLocal();
         }
         
@@ -156,7 +156,7 @@ namespace Runtime.InteractionSystem.Items
             }
             else
             {
-                GameManager.Instance.SoundSystem.Play(DropSound, transform);
+                GameManager.Instance.SoundSystem.Play(DropSound, transform.GetComponent<AudioSource>());
 
                 if (bounces > 0)
                 {

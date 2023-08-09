@@ -32,13 +32,13 @@ namespace Runtime.InteractionSystem.Objects
         {
             if (CanInteract())
             {
-                GameManager.Instance.SoundSystem.Play(interactSound, transform);
+                GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
                 linkedDoor.Open();
                 _used = true;
                 return true;
             }
             
-            GameManager.Instance.SoundSystem.Play(poweredOffSound, transform);
+            GameManager.Instance.SoundSystem.Play(poweredOffSound, transform.GetComponent<AudioSource>());
             return false;
         }
 

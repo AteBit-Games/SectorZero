@@ -57,7 +57,7 @@ namespace Runtime.InteractionSystem.Objects
         public bool OnInteract(GameObject player)
         {
             onTriggerEvents.Invoke();
-            GameManager.Instance.SoundSystem.Play(interactSound, transform);
+            GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
 
             //Setup player and trigger animation
             _animator.SetTrigger(Paint);
