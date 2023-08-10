@@ -121,14 +121,14 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Voidmask_Rotation_Frame_0
     originalName: 
-    pivot: {x: 0.47857144, y: 0.13953489}
+    pivot: {x: 0.40425536, y: 0.13953489}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 201
-      width: 140
+      x: 143
+      y: 4
+      width: 47
       height: 86
     spriteID: b5b010c36af93fb4fbd83a7702d8704e
     spriteBone: []
@@ -138,17 +138,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 201}
+    uvTransform: {x: 143, y: 4}
   - name: Voidmask_Rotation_Frame_1
     originalName: 
-    pivot: {x: 0.47857144, y: 0.13333334}
+    pivot: {x: 0.48854962, y: 0.13333334}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 103
-      width: 140
+      y: 4
+      width: 131
       height: 90
     spriteID: d748ca7417bd4154a952944ab8d3ee6e
     spriteBone: []
@@ -158,18 +158,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 103}
+    uvTransform: {x: 4, y: 4}
   - name: Voidmask_Rotation_Frame_2
     originalName: 
-    pivot: {x: 0.47857144, y: 0.13953489}
+    pivot: {x: 0.33333334, y: 0.13333334}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 295
-      width: 140
-      height: 86
+      x: 54
+      y: 102
+      width: 42
+      height: 90
     spriteID: aca25e316630deb45bca9c781c3dc9d1
     spriteBone: []
     spriteOutline: []
@@ -178,18 +178,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 295}
+    uvTransform: {x: 54, y: 102}
   - name: Voidmask_Rotation_Frame_3
     originalName: 
-    pivot: {x: 0.47857144, y: 0.13186814}
+    pivot: {x: 0.37777773, y: 0.13953489}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 198
       y: 4
-      width: 140
-      height: 91
+      width: 45
+      height: 86
     spriteID: 36f50b1216406a846af4a13129cdded6
     spriteBone: []
     spriteOutline: []
@@ -198,7 +198,27 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 198, y: 4}
+  - name: Voidmask_Rotation_Frame_4
+    originalName: 
+    pivot: {x: 0.33333334, y: 0.13186814}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 102
+      width: 42
+      height: 91
+    spriteID: bee69797566317c46870b9871870eb05
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 102}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -211,38 +231,46 @@ ScriptedImporter:
     - name: Voidmask_Rotation_Frame_0
       frameIndex: 0
       cellRect:
-        x: -27
+        x: 61
         y: -12
-        width: 140
+        width: 47
         height: 86
       spriteId: b5b010c36af93fb4fbd83a7702d8704e
     - name: Voidmask_Rotation_Frame_1
       frameIndex: 1
       cellRect:
-        x: -27
+        x: 16
         y: -12
-        width: 140
+        width: 131
         height: 90
       spriteId: d748ca7417bd4154a952944ab8d3ee6e
     - name: Voidmask_Rotation_Frame_2
       frameIndex: 2
       cellRect:
-        x: -27
+        x: 66
         y: -12
-        width: 140
-        height: 86
+        width: 42
+        height: 90
       spriteId: aca25e316630deb45bca9c781c3dc9d1
     - name: Voidmask_Rotation_Frame_3
       frameIndex: 3
       cellRect:
-        x: -27
+        x: 63
         y: -12
-        width: 140
-        height: 91
+        width: 45
+        height: 86
       spriteId: 36f50b1216406a846af4a13129cdded6
+    - name: Voidmask_Rotation_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 66
+        y: -12
+        width: 42
+        height: 91
+      spriteId: bee69797566317c46870b9871870eb05
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 80, y: 80}
+  canvasSize: {x: 160, y: 80}
