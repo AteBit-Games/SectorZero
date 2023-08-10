@@ -90,8 +90,7 @@ namespace Runtime.Managers
             _newGameButton = rootVisualElement.Q<Button>("new-game");
             _newGameButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                //OpenConfirmPopup(_confirmTutorialPopup);
-                StartNewGame(1);
+                OpenConfirmPopup(_confirmTutorialPopup);
             });
             _newGameButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Start a new game";

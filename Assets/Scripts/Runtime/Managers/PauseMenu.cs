@@ -23,12 +23,12 @@ namespace Runtime.Managers
         private Button _settingsButton;
         private Button _quitButton;
         private VisualElement _pauseWindow;
-        private VisualElement _pauseMenuContainer;
         private UIDocument _uiDocument;
         private Button _reportBugButton;
         
         // Settings Items
         private VisualElement _settingsContainer;
+        private VisualElement _settingsWindow;
         private VisualElement _overlay;
         private FeedbackForm _feedbackForm;
         
@@ -44,8 +44,8 @@ namespace Runtime.Managers
             
             // Main Pause Items
             _buttonDescription = rootVisualElement.Q<Label>("button-description");
-            _pauseMenuContainer = rootVisualElement.Q<VisualElement>("pause-container");
             _pauseWindow = rootVisualElement.Q<VisualElement>("pause-window");
+            _settingsWindow = rootVisualElement.Q<VisualElement>("SettingsMenu");
             _settingsContainer = rootVisualElement.Q<VisualElement>("settings-window");
             _overlay = rootVisualElement.Q<VisualElement>("overlay");
             
@@ -129,6 +129,7 @@ namespace Runtime.Managers
             UI_Utils.HideUIElement(_pauseWindow);
             UI_Utils.HideUIElement(_overlay);
             UI_Utils.HideUIElement(_settingsContainer);
+            UI_Utils.HideUIElement(_settingsWindow);
             UI_Utils.HideUIElement(_confirmMenuPopup);
         }
 
@@ -141,6 +142,7 @@ namespace Runtime.Managers
         private void OpenSettings()
         {
             UI_Utils.HideUIElement(_pauseWindow);
+            UI_Utils.ShowUIElement(_settingsWindow);
             UI_Utils.ShowUIElement(_settingsContainer);
             isSettingsOpen = true;
             
@@ -151,6 +153,7 @@ namespace Runtime.Managers
         
         public void CloseSettings()
         {
+            UI_Utils.HideUIElement(_settingsWindow);
             UI_Utils.HideUIElement(_settingsContainer);
             UI_Utils.ShowUIElement(_pauseWindow);
             isSettingsOpen = false;

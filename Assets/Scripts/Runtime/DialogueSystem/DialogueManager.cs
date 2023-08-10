@@ -83,7 +83,7 @@ namespace Runtime.DialogueSystem
             _currentDialogue = dialogue;
             _currentLineIndex = 0;
             _skipDialogue = false;
-            
+
             _actorNameTextElement.text = dialogue.dialogueLines[_currentLineIndex].actor.Name;
             _dateTextElement.text = dialogue.date;
             _actorImage.style.backgroundImage = new StyleBackground(dialogue.dialogueLines[_currentLineIndex].actor.Sprite);

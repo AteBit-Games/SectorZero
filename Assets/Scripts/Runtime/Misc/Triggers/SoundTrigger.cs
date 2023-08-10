@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Runtime.Misc.Triggers
 {
-    public class Trigger : MonoBehaviour
+    public class SoundTrigger : MonoBehaviour
     {
         [SerializeField] private List<Sound> sounds;
         [SerializeField] private List<Sound> randomSounds;

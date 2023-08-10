@@ -15,7 +15,7 @@ using UnityEngine.Rendering;
 
 namespace Runtime.InteractionSystem.Objects
 {
-    public class HospitalBed : MonoBehaviour, IInteractable
+    public class TutorialHospitalBed : MonoBehaviour, IInteractable
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
@@ -28,6 +28,7 @@ namespace Runtime.InteractionSystem.Objects
 
         private void Awake()
         {
+            TutorialManager.StartListening("TutorialStage2", Init);
             _interactionCollider = GetComponent<Collider2D>();
             
             // Disable interaction
@@ -37,8 +38,9 @@ namespace Runtime.InteractionSystem.Objects
 
         public bool OnInteract(GameObject player)
         {
-            var nellient = player.GetComponentInParent<Nellient>();
+            var nellient = player.GetComponentInParent<TutorialNellient>();
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
+            nellient.StartGame();
             Finish();
             return true;
         }

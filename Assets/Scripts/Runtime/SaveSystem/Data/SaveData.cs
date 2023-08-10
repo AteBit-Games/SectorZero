@@ -75,6 +75,8 @@ namespace Runtime.SaveSystem.Data
     [Serializable]
     public class WorldData
     {
+        public bool nellientState = true;
+        
         public SerializableDictionary<string, bool> pickups = new();
         public SerializableDictionary<string, bool> tapeRecorders = new();
         public SerializableDictionary<string, bool> triggers = new();

@@ -2,7 +2,7 @@
     <ui:Template name="SettingsMenu" src="project://database/Assets/UI/Game%20Windows/SettingsMenu.uxml?fileID=9197481963319205126&amp;guid=013bfde6f25a18849b895653dad64b67&amp;type=3#SettingsMenu" />
     <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
     <ui:VisualElement name="overlay" picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(15, 17, 22, 0.77); visibility: visible; width: 1920px; height: 1080px; position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: none;" />
-    <ui:Instance template="SettingsMenu" name="SettingsMenu" style="display: flex;" />
+    <ui:Instance template="SettingsMenu" name="SettingsMenu" picking-mode="Ignore" style="display: none;" />
     <ui:VisualElement name="pause-window" picking-mode="Ignore" style="display: none; align-items: stretch; flex-grow: 1; width: 100%; height: 100%;">
         <ui:VisualElement name="pause-container" style="flex-grow: 1; align-items: stretch; justify-content: flex-end;">
             <ui:VisualElement name="confirm-menu-popup" picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; left: 0; top: 0; right: 0; bottom: 0; justify-content: center; align-items: center; display: none;">

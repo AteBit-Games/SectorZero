@@ -76,8 +76,16 @@ namespace Runtime.SaveSystem
             
             var sceneIndex = playerConfig.FindIndex(config => config.sceneIndex == scene);
             _saveData.playerData.position = playerConfig[sceneIndex].startPosition;
-            
-            if(!testMode) _saveData.playerData.enabled = false;
+
+            if (!testMode)
+            {
+                _saveData.playerData.enabled = false;
+            }
+            else
+            {
+                _saveData.playerData.enabled = true;
+                _saveData.worldData.nellientState = false;
+            }
         }
 
         public void SaveGame()

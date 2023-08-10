@@ -3,12 +3,12 @@
 * All rights reserved.
 ****************************************************************/
 
-using Runtime.DialogueSystem;
+using System.Collections.Generic;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
-using TMPro;
+using Runtime.Utils;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 namespace Runtime.InventorySystem
 {
@@ -21,135 +21,208 @@ namespace Runtime.InventorySystem
     public class InventoryManager : MonoBehaviour
     {
         [Header("Items Inventory")]
-        [SerializeField] private GameObject itemsInventoryContainer;
-        [SerializeField] private GameObject itemsInventoryList;
-        
-        [Header("Tapes Inventory")]
-        [SerializeField] private GameObject tapesInventoryContainer;
-        [SerializeField] private GameObject tapesInventoryList;
-
-        [Header("Item Info")] 
-        [SerializeField] private GameObject itemName;
-        [SerializeField] private GameObject itemViewImage;
-        [SerializeField] private GameObject itemViewText;
-        [SerializeField] private GameObject listenButton;
-
-        [Header("Other")]
-        [SerializeField] private GameObject inventoryItemPrefab;
+        [SerializeField] public bool isInventoryEnabled;
         [SerializeField] private PlayerInventory playerInventory;
         
-        private GameObject _selectedItem;
-        
         public PlayerInventory PlayerInventory => playerInventory;
-        
-        private void Start()
-        {
-            itemsInventoryContainer.SetActive(true);
-            tapesInventoryContainer.SetActive(false);
-        }
+        [HideInInspector] public bool isInventoryOpen;
 
-        public void SwitchToItemsInventory()
-        {
-            SwitchInventory(ActiveInventory.Items);
-        }
+        // Main Pause Items
+        private UIDocument _uiDocument;
+        private VisualElement _inventoryWindow;
         
-        public void SwitchToTapesInventory()
-        {
-            SwitchInventory(ActiveInventory.Tapes);
-        }
+        private Button _itemsButton;
+        private Button _tapesButton;
         
-        private void SwitchInventory(ActiveInventory activeInventory)
-        {
-            switch (activeInventory)
-            {
-                case ActiveInventory.Items:
-                    itemsInventoryContainer.SetActive(true);
-                    tapesInventoryContainer.SetActive(false);
-                    if (playerInventory.itemInventory.Count > 0) SelectItem(playerInventory.itemInventory[0]);
-                    break;
-                case ActiveInventory.Tapes:
-                    itemsInventoryContainer.SetActive(false);
-                    tapesInventoryContainer.SetActive(true);
-                    if (playerInventory.tapeInventory.Count > 0) SelectItem(playerInventory.tapeInventory[0]);
-                    break;
-                default:
-                    throw new System.ArgumentOutOfRangeException();
-            }
-        }
-
-        private void MapFromPlayerInventoryToUI()
-        {
-            //Mapping tapes
-            var tapeCount = playerInventory.tapeInventory.Count;
-            foreach (Transform child in tapesInventoryList.transform)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach (var tape in playerInventory.tapeInventory)
-            {
-                var inventoryTape = Instantiate(inventoryItemPrefab, tapesInventoryList.transform);
-                inventoryTape.GetComponent<InventoryUISlot>().InitializeItem(tape);
-                inventoryTape.GetComponent<Button>().onClick.AddListener(delegate() { SelectItem(tape); });
-            }
-            for (var i = tapeCount; i < 16; i++) Instantiate(inventoryItemPrefab, tapesInventoryList.transform);
-
-            //Mapping items
-            var itemCount = playerInventory.itemInventory.Count;
-            foreach (Transform child in itemsInventoryList.transform)
-            {
-                Destroy(child.gameObject);
-            }
-            foreach (var item in playerInventory.itemInventory)
-            {
-                var inventoryItem = Instantiate(inventoryItemPrefab, itemsInventoryList.transform);
-                inventoryItem.GetComponent<InventoryUISlot>().InitializeItem(item);
-                inventoryItem.GetComponent<Button>().onClick.AddListener(delegate() { SelectItem(item); });
-            }
-            for (var i = itemCount; i < 16; i++) Instantiate(inventoryItemPrefab, itemsInventoryList.transform);
-
-            // call the button click on the first item
-            if (playerInventory.itemInventory.Count > 0) SelectItem(playerInventory.itemInventory[0]);
-            else if (playerInventory.tapeInventory.Count > 0) SelectItem(playerInventory.tapeInventory[0]);
-        }
+        //Items Inventory
+        private VisualElement _itemsInventoryContainer;
         
-        public void SelectItem(BaseItem item)
-        {
-            itemViewImage.SetActive(true);
-            itemViewText.SetActive(true);
-            itemViewImage.GetComponent<Image>().sprite = item.itemSprite;
-            itemViewText.GetComponent<TMP_Text>().text = item.itemDescription;
-            itemName.GetComponent<TMP_Text>().text = item.itemName;
+        private VisualElement _itemsInventoryListContainer;
+        private readonly List<InventoryUIItem> _itemsInventoryList = new();
 
-            if (item.itemType == ItemType.TapeRecording)
-            {
-                listenButton.SetActive(true);
-                listenButton.GetComponent<Button>().onClick.RemoveAllListeners();
-                listenButton.GetComponent<Button>().onClick.AddListener(delegate() { ListenToTape((Tape) item); });
-            }
-            else
-            {
-                listenButton.SetActive(false);
-            }
-        }
+        private VisualElement _itemsInventoryInformation;
+        private VisualElement _itemsInventoryInformationImage;
+        private Label _itemsInventoryInformationTitle;
+        private Label _itemsInventoryInformationDescription;
         
-        public void ListenToTape(Tape tape)
+        //Tapes Inventory
+        private VisualElement _tapesInventoryContainer;
+        
+        private VisualElement _tapesInventoryListContainer;
+        private readonly List<InventoryUITape> _tapesInventoryList = new();
+        
+        private VisualElement _tapesInventoryInformation;
+        private VisualElement _tapesInventoryInformationImage;
+        private Label _tapesInventoryInformationTitle;
+        private Label _tapesInventoryInformationDescription;
+        private Button _tapesInventoryPlayButton;
+        
+        private ActiveInventory _activeInventory = ActiveInventory.Tapes;
+        private Tape _activeTape;
+
+        private void Awake()
         {
-            CloseInventory();
-            GameManager.Instance.DialogueSystem.StartDialogue(tape.dialogue);
+            _uiDocument = GetComponent<UIDocument>();
+            var rootVisualElement = _uiDocument.rootVisualElement;
+            
+            _inventoryWindow = rootVisualElement.Q<VisualElement>("inventory-window");
+
+            //Buttons
+            _itemsButton = _inventoryWindow.Q<Button>("items-toggle");
+            _itemsButton.RegisterCallback<ClickEvent>(_ => SwitchToItemsInventory());
+    
+            _tapesButton = _inventoryWindow.Q<Button>("tapes-toggle");
+            _tapesButton.RegisterCallback<ClickEvent>(_ => SwitchToTapesInventory());
+
+            //Items
+            _itemsInventoryContainer = _inventoryWindow.Q<VisualElement>("items-inventory");
+            _itemsInventoryListContainer = _itemsInventoryContainer.Q<VisualElement>("item-list");
+
+            _itemsInventoryInformation = _itemsInventoryContainer.Q<VisualElement>("item-information");
+            _itemsInventoryInformationTitle = _itemsInventoryInformation.Q<Label>("item-title");
+            _itemsInventoryInformationImage = _itemsInventoryInformation.Q<VisualElement>("item-image");
+            _itemsInventoryInformationDescription = _itemsInventoryInformation.Q<Label>("item-description");
+
+            //Tapes
+            _tapesInventoryContainer = _inventoryWindow.Q<VisualElement>("tapes-inventory");
+            _tapesInventoryListContainer = _tapesInventoryContainer.Q<VisualElement>("tape-list");
+            
+            _tapesInventoryInformation = _tapesInventoryContainer.Q<VisualElement>("tape-information");
+            _tapesInventoryInformationTitle = _tapesInventoryInformation.Q<Label>("tape-title");
+            _tapesInventoryInformationImage = _tapesInventoryInformation.Q<VisualElement>("tape-image");
+            _tapesInventoryInformationDescription = _tapesInventoryInformation.Q<Label>("tape-description");
+            _tapesInventoryPlayButton = _tapesInventoryInformation.Q<Button>("tape-listen");
+            _tapesInventoryPlayButton.RegisterCallback<ClickEvent>(_ => ListenToTape(_activeTape));
         }
 
         public void OpenInventory()
         {
             Time.timeScale = 0;
-            gameObject.SetActive(true);
-            MapFromPlayerInventoryToUI();
+            UI_Utils.ShowUIElement(_inventoryWindow);
+            isInventoryOpen = true;
+            
+            RegisterInventoryTapes();
+            RegisterInventoryItems();
+            SwitchToItemsInventory();
         }
         
         public void CloseInventory()
         {
             Time.timeScale = 1;
+            isInventoryOpen = false;
             GameManager.Instance.ResetInput();
-            gameObject.SetActive(false);
+            GameManager.Instance.SoundSystem.ResumeAll();
+            
+            UI_Utils.HideUIElement(_inventoryWindow);
+        }
+
+        private void SwitchToItemsInventory()
+        {
+            if(_activeInventory == ActiveInventory.Items) return;
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+            
+            SelectItem(_itemsInventoryList[0].OnClick());
+            _activeInventory = ActiveInventory.Items;
+            UI_Utils.ShowUIElement(_itemsInventoryContainer);
+            UI_Utils.HideUIElement(_tapesInventoryContainer);
+            
+            _itemsButton.BringToFront();
+            _itemsButton.AddToClassList("inventory-toggle-active");
+            _tapesButton.SendToBack();
+            _tapesButton.RemoveFromClassList("inventory-toggle-active");
+        }
+        
+        private void SwitchToTapesInventory()
+        {
+            if(_activeInventory == ActiveInventory.Tapes) return;
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+
+            SelectTape(_tapesInventoryList[0].OnClick());
+            _activeInventory = ActiveInventory.Tapes;
+            UI_Utils.HideUIElement(_itemsInventoryContainer);
+            UI_Utils.ShowUIElement(_tapesInventoryContainer);
+            
+            _tapesButton.BringToFront();
+            _tapesButton.AddToClassList("inventory-toggle-active");
+            _itemsButton.SendToBack();
+            _itemsButton.RemoveFromClassList("inventory-toggle-active");
+        }
+
+        private void SelectItem(BaseItem item)
+        {
+            if (item == null)
+            {
+                _itemsInventoryInformationImage.style.backgroundImage = null;
+                _itemsInventoryInformationTitle.text = "No Item Selected";
+                _itemsInventoryInformationDescription.text = "";
+            }
+            else
+            {
+                _itemsInventoryInformationImage.style.backgroundImage = item.itemSprite.texture;
+                _itemsInventoryInformationTitle.text = item.itemName;
+                _itemsInventoryInformationDescription.text = item.itemDescription;
+            }
+        }
+        
+        private void SelectTape(BaseItem tape)
+        {
+            if (tape == null)
+            {
+                _tapesInventoryInformationImage.style.backgroundImage = null;
+                _tapesInventoryInformationTitle.text = "No Item Selected";
+                _tapesInventoryInformationDescription.text = "";
+                _tapesInventoryPlayButton.style.display = DisplayStyle.None;
+            }
+            else
+            {
+                _tapesInventoryInformationImage.style.backgroundImage = tape.itemSprite.texture;
+                _tapesInventoryInformationTitle.text = tape.itemName;
+                _tapesInventoryInformationDescription.text = tape.itemDescription;
+                _tapesInventoryPlayButton.style.display = DisplayStyle.Flex;
+                
+                _activeTape = (Tape)tape;
+            }
+        }
+        
+        private void RegisterInventoryItems()
+        {
+            var itemsList = _itemsInventoryListContainer.Query<VisualElement>("inventory-item").ToList();
+            var index = 0;
+            foreach (var item in itemsList)
+            {
+                _itemsInventoryList.Add(index < playerInventory.itemInventory.Count
+                ? new InventoryUIItem(playerInventory.itemInventory[index], item)
+                : new InventoryUIItem(null, item));
+                
+                var currentIndex = index;
+                if(index < playerInventory.itemInventory.Count) item.RegisterCallback<ClickEvent>(_ => SelectItem(_itemsInventoryList[currentIndex].OnClick()));
+
+                index++;
+            }
+        }
+
+        private void RegisterInventoryTapes()
+        {
+            var tapesList = _tapesInventoryListContainer.Query<VisualElement>("inventory-tape").ToList();
+            var index = 0;
+            foreach (var tape in tapesList)
+            {
+                _tapesInventoryList.Add(index < playerInventory.tapeInventory.Count
+                ? new InventoryUITape(playerInventory.tapeInventory[index], tape, playerInventory.tapeInventory[index].dialogue)
+                : new InventoryUITape(null, tape, null));
+            
+                var currentIndex = index;
+                if(index < playerInventory.tapeInventory.Count) tape.RegisterCallback<ClickEvent>(_ => SelectTape(_tapesInventoryList[currentIndex].OnClick()));
+                
+                index++;
+            }
+        }
+        
+        private void ListenToTape(Tape tape)
+        {
+            if(tape == null) return;
+            CloseInventory();
+            GameManager.Instance.DialogueSystem.StartDialogue(tape.dialogue);
         }
     }
 }

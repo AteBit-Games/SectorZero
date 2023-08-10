@@ -10,6 +10,7 @@ using Runtime.BehaviourTree;
 using Runtime.InputSystem;
 using Runtime.InventorySystem;
 using Runtime.Managers;
+using Runtime.Player.Nellient;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.Utils;
@@ -203,7 +204,7 @@ namespace Runtime.Player
         {
             if (debug)
             {
-                var nellient = FindObjectOfType<Nellient>();
+                var nellient = FindObjectOfType<TutorialNellient>();
                 if (nellient != null) nellient.gameObject.SetActive(false);
                 Init();
             }

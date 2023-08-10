@@ -116,7 +116,6 @@ namespace Runtime.Managers
             SceneManager.sceneLoaded += OnSceneLoaded;
             inputReader.PauseEvent += HandlePause;
             inputReader.OpenInventoryEvent += OpenInventoryWindow;
-            inputReader.CloseUIEvent += CloseInventoryWindow;
             inputReader.CloseUIEvent += HandleEscape;
             inputReader.ContinueAction += FinishLoad;
         }
@@ -126,26 +125,19 @@ namespace Runtime.Managers
             SceneManager.sceneLoaded -= OnSceneLoaded;
             inputReader.PauseEvent -= HandlePause;
             inputReader.OpenInventoryEvent -= OpenInventoryWindow;
-            inputReader.CloseUIEvent -= CloseInventoryWindow;
             inputReader.CloseUIEvent -= HandleEscape;
             inputReader.ContinueAction -= FinishLoad;
-        }
-
-        private void CloseInventoryWindow()
-        {
-            if(isMainMenu) return;
-           //InventorySystem.CloseInventory();
         }
 
         private void OpenInventoryWindow()
         {
             if(isMainMenu) return;
-            //InventorySystem.OpenInventory();
+            if(!InventorySystem.isInventoryOpen && InventorySystem.isInventoryEnabled) InventorySystem.OpenInventory();
         }
 
         private void HandlePause()
         {
-            if(isMainMenu || DeathScreen.isOpen) return;
+            if(isMainMenu || DeathScreen.isOpen || InventorySystem.isInventoryOpen) return;
             PauseMenu.Pause();
         }
         
@@ -159,6 +151,10 @@ namespace Runtime.Managers
                     mainMenu.CloseSettings();
                     inputReader.SetUI();
                 }
+            }
+            else if(InventorySystem.isInventoryOpen)
+            {
+                InventorySystem.CloseInventory();
             }
             else if(PauseMenu.isPaused)
             {

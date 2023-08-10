@@ -11,18 +11,19 @@ GameObject:
   - component: {fileID: 1976050650754180513}
   - component: {fileID: 188148890311146141}
   - component: {fileID: 2867399463357378519}
-  - component: {fileID: 253169116963546881}
   - component: {fileID: 3754679611136714876}
-  - component: {fileID: 3029959153133923991}
-  - component: {fileID: 4224493302202213851}
+  - component: {fileID: 587805592}
+  - component: {fileID: 6139003135499580894}
   - component: {fileID: 8970273811368405127}
+  - component: {fileID: 3029959153133923991}
+  - component: {fileID: 1009194450702652177}
   m_Layer: 8
-  m_Name: Nellien't
+  m_Name: TutorialNellien't
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1976050650754180513
 Transform:
   m_ObjectHideFlags: 0
@@ -112,19 +113,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &253169116963546881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976050650754180519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8872ec3889274ca1ab5307719d51ff73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  persistentID: 35fcedd1-e5bd-4673-b94d-ad4e830e02c2
 --- !u!210 &3754679611136714876
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -136,16 +124,8 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_SortAtRoot: 0
---- !u!81 &3029959153133923991
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976050650754180519}
-  m_Enabled: 1
---- !u!114 &4224493302202213851
+  m_SortAtRoot: 1
+--- !u!114 &587805592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,10 +134,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1976050650754180519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f22468804bc8574bb81220222be3907, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c81b48642c21b94ea624fd492c84cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ambClip: {fileID: 11400000, guid: f6c38579c1935744cb4b1f39165c42f9, type: 2}
+  persistentID: 2eb8b6e8-c14b-4d59-99bf-cd69b232f44d
+--- !u!114 &6139003135499580894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976050650754180519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: ba724e1765ab04e4eb7541b0a9f53fd2, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 587805592}
+          m_TargetAssemblyTypeName: Runtime.Player.PlayerTutorial, Assembly-CSharp
+          m_MethodName: SitUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &8970273811368405127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +184,44 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 286622b3bcceb134e9ab2df07ba2afae, type: 2}
   - {fileID: 11400000, guid: e36ba401ce56eb34e878dc90705a66ad, type: 2}
   - {fileID: 11400000, guid: b2b32e38e2872e4459c06692dfbc2c72, type: 2}
-  randomSounds: []
+--- !u!81 &3029959153133923991
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976050650754180519}
+  m_Enabled: 1
+--- !u!114 &1009194450702652177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976050650754180519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: ba724e1765ab04e4eb7541b0a9f53fd2, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 587805592}
+          m_TargetAssemblyTypeName: Runtime.Player.PlayerTutorial, Assembly-CSharp
+          m_MethodName: SitUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5380432051258971571
 GameObject:
   m_ObjectHideFlags: 0

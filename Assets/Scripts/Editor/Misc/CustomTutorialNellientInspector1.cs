@@ -12,8 +12,8 @@ using UnityEngine.UIElements;
 
 namespace Editor.Misc 
 {
-    [CustomEditor(typeof(Nellient))]
-    public class CustomNellientInspector : UnityEditor.Editor
+    [CustomEditor(typeof(TutorialNellient))]
+    public class CustomTutorialNellientInspector : UnityEditor.Editor
     {
         public VisualTreeAsset mVisualTreeAsset;
         
@@ -25,7 +25,7 @@ namespace Editor.Misc
             var generateGUIDButton = root.Q<Button>("generate-button");
             generateGUIDButton.RegisterCallback<ClickEvent>(_ =>
             {
-                var nellient = target as Nellient;
+                var nellient = target as TutorialNellient;
                 if (nellient != null && nellient.ID == "")
                 {
                     nellient.ID = System.Guid.NewGuid().ToString();

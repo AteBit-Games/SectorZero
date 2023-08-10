@@ -2,21 +2,22 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
+using Runtime.DialogueSystem;
 using Runtime.InventorySystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 namespace Runtime.InventorySystem
 {
-    public class InventoryUISlot : MonoBehaviour
+    public class InventoryUITape : InventoryUIItem
     {
-        [HideInInspector] public BaseItem item;
-        [SerializeField] private Image itemImage;
+        [HideInInspector] public Dialogue dialogue;
         
-        public void InitializeItem(BaseItem inventoryItem)
+        public InventoryUITape(BaseItem inventoryItem, VisualElement uiRef, Dialogue dialogue) : base(inventoryItem, uiRef)
         {
-            item = inventoryItem;
-            itemImage.sprite = inventoryItem.itemSprite;
+            this.dialogue = dialogue;
         }
     }
 }

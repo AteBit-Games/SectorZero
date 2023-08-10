@@ -3,15 +3,14 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
 using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
 
-namespace Runtime.Player
+namespace Runtime.Player.Nellient
 {
-    public class Nellient : MonoBehaviour, IPersistant
+    public class TutorialNellient : MonoBehaviour, IPersistant
     {
         [SerializeField] private string persistentID;
         public string ID

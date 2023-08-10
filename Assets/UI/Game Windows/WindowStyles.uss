@@ -426,3 +426,34 @@
 .loading-complete {
     background-color: rgba(29, 29, 29, 0.69);
 }
+
+.inventory-toggle {
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 0.135s, 0.2s;
+    transition-timing-function: ease-in, ease-in;
+    transition-property: -unity-background-image-tint-color, color;
+}
+
+.inventory-toggle #toggle-text {
+    color: rgb(209, 209, 209);
+    font-size: 350%;
+    -unity-font: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&guid=82d8c1eece689f944b496ec29994bc4e&type=2#PixelOperator SDF 1');
+    -unity-font-style: normal;
+    width: 80%;
+    height: 80%;
+    padding-bottom: 10%;
+}
+
+.inventory-toggle:hover {
+    -unity-background-image-tint-color: rgb(224, 224, 224);
+}
+
+.inventory-toggle-active {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+}
+
+.inventory-toggle-active:hover {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
