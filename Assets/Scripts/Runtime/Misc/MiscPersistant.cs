@@ -20,16 +20,15 @@ namespace Runtime.Misc
     
         public void LoadData(SaveData data)
         {
-            if (data.worldData.miscItems.ContainsKey(persistentID))
+            if (data.worldData.miscItems.TryGetValue(persistentID, out var item))
             {
-                gameObject.SetActive(data.worldData.miscItems[persistentID]);
+                gameObject.SetActive(item);
             }
         }
 
         public void SaveData(SaveData data)
         {
-            if(!data.worldData.miscItems.ContainsKey(persistentID)) data.worldData.miscItems.Add(persistentID, gameObject.activeSelf);
-            else data.worldData.miscItems[persistentID] = gameObject.activeSelf;
+            data.worldData.miscItems[persistentID] = gameObject.activeSelf;
         }
     }
 }

@@ -88,7 +88,7 @@ namespace Runtime.Managers
         {
             _deathDescription.text = deathDescription;
             isOpen = true;
-            UI_Utils.ShowUIElement(_deathWindow);
+            UIUtils.ShowUIElement(_deathWindow);
         }
         
         private void LoadGame()
@@ -116,7 +116,7 @@ namespace Runtime.Managers
             
             _cancelMenuQuit.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UI_Utils.HideUIElement(_confirmMenuPopup);
+                UIUtils.HideUIElement(_confirmMenuPopup);
             });
             
             //Bind Desktop Popup Buttons
@@ -136,13 +136,13 @@ namespace Runtime.Managers
             
             _cancelDesktopQuit.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UI_Utils.HideUIElement(_confirmDesktopPopup);
+                UIUtils.HideUIElement(_confirmDesktopPopup);
             });
         }
         
         private static void OpenConfirmPopup(VisualElement popup)
         {
-            UI_Utils.ShowUIElement(popup);
+            UIUtils.ShowUIElement(popup);
         }
 
         public void GoToMainMenu()

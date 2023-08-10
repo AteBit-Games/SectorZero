@@ -79,8 +79,8 @@ namespace Runtime.Managers
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 _feedbackForm.ShowForm();
                 
-                UI_Utils.HideUIElement(_confirmQuitPopup);
-                UI_Utils.HideUIElement(_confirmTutorialPopup);
+                UIUtils.HideUIElement(_confirmQuitPopup);
+                UIUtils.HideUIElement(_confirmTutorialPopup);
             });
             _reportBugButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Report a problem";
@@ -150,13 +150,13 @@ namespace Runtime.Managers
             
             _cancelDesktopQuit.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UI_Utils.HideUIElement(_confirmQuitPopup);
+                UIUtils.HideUIElement(_confirmQuitPopup);
             });
         }
         
         private static void OpenConfirmPopup(VisualElement popup)
         {
-            UI_Utils.ShowUIElement(popup);
+            UIUtils.ShowUIElement(popup);
         }
         
         public void OpenSettings()
@@ -165,8 +165,8 @@ namespace Runtime.Managers
             _settingsWindow.style.display = DisplayStyle.Flex;
             isSettingsOpen = true;
             
-            UI_Utils.HideUIElement(_confirmQuitPopup);
-            UI_Utils.HideUIElement(_confirmTutorialPopup);
+            UIUtils.HideUIElement(_confirmQuitPopup);
+            UIUtils.HideUIElement(_confirmTutorialPopup);
         }
         
         public void CloseSettings()

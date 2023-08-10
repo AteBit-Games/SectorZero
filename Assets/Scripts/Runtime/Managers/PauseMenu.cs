@@ -66,7 +66,7 @@ namespace Runtime.Managers
             _resumeButton = rootVisualElement.Q<Button>("resume");
             _resumeButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UI_Utils.HideUIElement(_confirmMenuPopup);
+                UIUtils.HideUIElement(_confirmMenuPopup);
                 Resume();
             });
             _resumeButton.RegisterCallback<MouseEnterEvent>(_ => {
@@ -77,7 +77,7 @@ namespace Runtime.Managers
             _loadButton = rootVisualElement.Q<Button>("load");
             _loadButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UI_Utils.HideUIElement(_confirmMenuPopup);
+                UIUtils.HideUIElement(_confirmMenuPopup);
                 LoadGame();
             });
             _loadButton.RegisterCallback<MouseEnterEvent>(_ => {
@@ -114,8 +114,8 @@ namespace Runtime.Managers
             Time.timeScale = 0;
             isPaused = true;
             
-            UI_Utils.ShowUIElement(_pauseWindow);
-            UI_Utils.ShowUIElement(_overlay);
+            UIUtils.ShowUIElement(_pauseWindow);
+            UIUtils.ShowUIElement(_overlay);
         }
         
         public void Resume()
@@ -126,11 +126,11 @@ namespace Runtime.Managers
             isPaused = false;
             _feedbackForm.HideForm();
             
-            UI_Utils.HideUIElement(_pauseWindow);
-            UI_Utils.HideUIElement(_overlay);
-            UI_Utils.HideUIElement(_settingsContainer);
-            UI_Utils.HideUIElement(_settingsWindow);
-            UI_Utils.HideUIElement(_confirmMenuPopup);
+            UIUtils.HideUIElement(_pauseWindow);
+            UIUtils.HideUIElement(_overlay);
+            UIUtils.HideUIElement(_settingsContainer);
+            UIUtils.HideUIElement(_settingsWindow);
+            UIUtils.HideUIElement(_confirmMenuPopup);
         }
 
         private void LoadGame()
@@ -141,21 +141,21 @@ namespace Runtime.Managers
 
         private void OpenSettings()
         {
-            UI_Utils.HideUIElement(_pauseWindow);
-            UI_Utils.ShowUIElement(_settingsWindow);
-            UI_Utils.ShowUIElement(_settingsContainer);
+            UIUtils.HideUIElement(_pauseWindow);
+            UIUtils.ShowUIElement(_settingsWindow);
+            UIUtils.ShowUIElement(_settingsContainer);
             isSettingsOpen = true;
             
             // Hide Elements
             _feedbackForm.HideForm();
-            UI_Utils.HideUIElement(_confirmMenuPopup);
+            UIUtils.HideUIElement(_confirmMenuPopup);
         }
         
         public void CloseSettings()
         {
-            UI_Utils.HideUIElement(_settingsWindow);
-            UI_Utils.HideUIElement(_settingsContainer);
-            UI_Utils.ShowUIElement(_pauseWindow);
+            UIUtils.HideUIElement(_settingsWindow);
+            UIUtils.HideUIElement(_settingsContainer);
+            UIUtils.ShowUIElement(_pauseWindow);
             isSettingsOpen = false;
         }
         
@@ -170,7 +170,7 @@ namespace Runtime.Managers
         
         private static void OpenConfirmPopup(VisualElement popup)
         {
-            UI_Utils.ShowUIElement(popup);
+            UIUtils.ShowUIElement(popup);
         }
         
         private void SetupPopups()
@@ -183,7 +183,7 @@ namespace Runtime.Managers
             
             _cancelMenuQuit.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UI_Utils.HideUIElement(_confirmMenuPopup);
+                UIUtils.HideUIElement(_confirmMenuPopup);
             });
         }
     }

@@ -3,7 +3,6 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
@@ -34,16 +33,15 @@ namespace Runtime.Misc.Triggers
         
         public void LoadData(SaveData data)
         {
-            if (data.worldData.triggers.ContainsKey(persistentID))
+            if (data.worldData.triggers.TryGetValue(persistentID, out var trigger))
             {
-                gameObject.SetActive(data.worldData.triggers[persistentID]);
+                gameObject.SetActive(value: trigger);
             }
         }
 
         public void SaveData(SaveData data)
         {
-            if(!data.worldData.triggers.ContainsKey(persistentID)) data.worldData.triggers.Add(persistentID, gameObject.activeSelf);
-            else data.worldData.triggers[persistentID] = gameObject.activeSelf;
+            data.worldData.triggers[persistentID] = gameObject.activeSelf;
         }
     }
 }

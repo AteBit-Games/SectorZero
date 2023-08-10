@@ -98,7 +98,7 @@ namespace Runtime.InventorySystem
         public void OpenInventory()
         {
             Time.timeScale = 0;
-            UI_Utils.ShowUIElement(_inventoryWindow);
+            UIUtils.ShowUIElement(_inventoryWindow);
             isInventoryOpen = true;
             
             RegisterInventoryTapes();
@@ -113,7 +113,7 @@ namespace Runtime.InventorySystem
             GameManager.Instance.ResetInput();
             GameManager.Instance.SoundSystem.ResumeAll();
             
-            UI_Utils.HideUIElement(_inventoryWindow);
+            UIUtils.HideUIElement(_inventoryWindow);
         }
 
         private void SwitchToItemsInventory()
@@ -123,8 +123,8 @@ namespace Runtime.InventorySystem
             
             SelectItem(_itemsInventoryList[0].OnClick());
             _activeInventory = ActiveInventory.Items;
-            UI_Utils.ShowUIElement(_itemsInventoryContainer);
-            UI_Utils.HideUIElement(_tapesInventoryContainer);
+            UIUtils.ShowUIElement(_itemsInventoryContainer);
+            UIUtils.HideUIElement(_tapesInventoryContainer);
             
             _itemsButton.BringToFront();
             _itemsButton.AddToClassList("inventory-toggle-active");
@@ -139,8 +139,8 @@ namespace Runtime.InventorySystem
 
             SelectTape(_tapesInventoryList[0].OnClick());
             _activeInventory = ActiveInventory.Tapes;
-            UI_Utils.HideUIElement(_itemsInventoryContainer);
-            UI_Utils.ShowUIElement(_tapesInventoryContainer);
+            UIUtils.HideUIElement(_itemsInventoryContainer);
+            UIUtils.ShowUIElement(_tapesInventoryContainer);
             
             _tapesButton.BringToFront();
             _tapesButton.AddToClassList("inventory-toggle-active");

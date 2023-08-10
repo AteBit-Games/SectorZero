@@ -1,4 +1,8 @@
-﻿
+﻿/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
+
 namespace Runtime.Utils
 {
     public enum DeathType

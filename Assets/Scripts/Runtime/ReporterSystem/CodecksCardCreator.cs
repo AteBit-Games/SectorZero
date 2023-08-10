@@ -16,7 +16,7 @@ namespace Runtime.ReporterSystem
 
 
     [Serializable]
-    struct CardCreateResponseData
+    internal struct CardCreateResponseData
     {
         [SerializeField] public bool ok;
         [SerializeField] public string cardId;

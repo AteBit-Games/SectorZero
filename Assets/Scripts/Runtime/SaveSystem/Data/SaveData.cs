@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using Runtime.InteractionSystem.Items;
 using Runtime.InventorySystem.ScriptableObjects;
-using Runtime.Managers;
 using UnityEngine;
 
 namespace Runtime.SaveSystem.Data

@@ -10,7 +10,6 @@ namespace Runtime.Misc.Triggers
 {
     public class TutorialTrigger : CollisionTrigger
     {
-        [SerializeField] private string stageTrigger;
         [SerializeField] private Transform playerMovePoint;
 
         private void OnTriggerStay2D(Collider2D other)

@@ -87,12 +87,12 @@ namespace Runtime.ReporterSystem
         
         public void ShowForm()
         {
-           UI_Utils.ShowUIElement(_feedbackWindow);
+           UIUtils.ShowUIElement(_feedbackWindow);
         }
         
         public void HideForm()
         {
-            UI_Utils.HideUIElement(_feedbackWindow);
+            UIUtils.HideUIElement(_feedbackWindow);
         }
 
         public void SendForm()

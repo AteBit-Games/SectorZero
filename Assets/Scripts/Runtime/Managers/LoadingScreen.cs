@@ -36,7 +36,7 @@ namespace Runtime.Managers
             _loadingIconCoroutine = StartCoroutine(LoadingIcon());
             _loadingIcon.style.visibility = Visibility.Visible;
 
-            UI_Utils.ShowUIElement(_loadContainer);
+            UIUtils.ShowUIElement(_loadContainer);
             _continueText.visible = false;
             isOpen = true;
         }
@@ -44,7 +44,7 @@ namespace Runtime.Managers
         public void HideLoading()
         {
             if(_loadingIconCoroutine != null) StopCoroutine(_loadingIconCoroutine);
-            UI_Utils.HideUIElement(_loadContainer);
+            UIUtils.HideUIElement(_loadContainer);
             isOpen = false;
             
             GameManager.Instance.SoundSystem.ResumeAll();

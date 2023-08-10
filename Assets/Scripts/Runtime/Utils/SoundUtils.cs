@@ -1,22 +1,31 @@
-using System.Collections;
-using UnityEngine.Audio;
-using UnityEngine;
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
 
-public static class SoundUtils {
-    public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Audio;
+
+namespace Runtime.Utils
+{
+    public static class SoundUtils 
     {
-        float currentTime = 0;
-        float currentVol;
-        audioMixer.GetFloat(exposedParam, out currentVol);
-        currentVol = Mathf.Pow(10, currentVol / 20);
-        float targetValue = Mathf.Clamp(targetVolume, 0.0001f, 1);
-        while (currentTime < duration)
+        public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
         {
-            currentTime += Time.deltaTime;
-            float newVol = Mathf.Lerp(currentVol, targetValue, currentTime / duration);
-            audioMixer.SetFloat(exposedParam, Mathf.Log10(newVol) * 20);
-            yield return null;
+            float currentTime = 0;
+
+            audioMixer.GetFloat(exposedParam, out var currentVol);
+            currentVol = Mathf.Pow(10, currentVol / 20);
+            var targetValue = Mathf.Clamp(targetVolume, 0.0001f, 1);
+            
+            while (currentTime < duration)
+            {
+                currentTime += Time.deltaTime;
+                var newVol = Mathf.Lerp(currentVol, targetValue, currentTime / duration);
+                audioMixer.SetFloat(exposedParam, Mathf.Log10(newVol) * 20);
+                yield return null;
+            }
         }
-        yield break;
     }
 }

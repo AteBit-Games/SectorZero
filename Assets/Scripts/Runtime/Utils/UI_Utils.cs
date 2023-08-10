@@ -1,11 +1,13 @@
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
+
 using UnityEngine.UIElements;
 
 namespace Runtime.Utils
 {
-    public static class UI_Utils
+    public static class UIUtils
     {
         public static void ShowUIElement(VisualElement element)
         {

@@ -1,4 +1,9 @@
-﻿using Runtime.BehaviourTree;
+﻿/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
+
+using Runtime.BehaviourTree;
 using UnityEngine;
 
 namespace Runtime.Utils

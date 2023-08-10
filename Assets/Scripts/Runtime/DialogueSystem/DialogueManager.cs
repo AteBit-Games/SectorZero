@@ -42,7 +42,7 @@ namespace Runtime.DialogueSystem
         private Coroutine displayLineCoroutine;
         private Coroutine endDialogueCoroutine;
 
-        private char[] sentenceBreakCharacters = { '.', '!', '?' };
+        private readonly char[] sentenceBreakCharacters = { '.', '!', '?' };
         private void Awake()
         {
             //Bind UI Elements
@@ -196,8 +196,8 @@ namespace Runtime.DialogueSystem
         
         private void ShowDialogue(bool show)
         {
-            if(show) UI_Utils.ShowUIElement(_dialogueContainer);
-            else UI_Utils.HideUIElement(_dialogueContainer);
+            if(show) UIUtils.ShowUIElement(_dialogueContainer);
+            else UIUtils.HideUIElement(_dialogueContainer);
         }
         
         public void CancelDialogue()

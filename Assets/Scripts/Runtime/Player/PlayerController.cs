@@ -13,14 +13,12 @@ using Runtime.Managers;
 using Runtime.Player.Nellient;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
-using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 namespace Runtime.Player
 {
-    
     public class PlayerController : MonoBehaviour, IPersistant, ISightEntity
     {
         [Space(10)]
