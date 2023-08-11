@@ -19,7 +19,7 @@ namespace Runtime.Misc.Triggers
                 var player = other.GetComponent<PlayerController>();
                 if(player == null) player = other.GetComponentInParent<PlayerController>();
                 
-                if (player.IsSneaking)
+                if (player.isSneaking)
                 {
                     triggerEvent.Invoke();
                     player.transform.position = playerMovePoint.position;

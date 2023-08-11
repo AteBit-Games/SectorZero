@@ -10,7 +10,6 @@ using Runtime.BehaviourTree;
 using Runtime.InputSystem;
 using Runtime.InventorySystem;
 using Runtime.Managers;
-using Runtime.Player.Nellient;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
@@ -30,31 +29,23 @@ namespace Runtime.Player
         [SerializeField] private float moveSpeed = 1f;
 
         [Space(10)] 
-        [Header("Look Details")] 
+        [Header("CAMERA DETAILS")] 
         [SerializeField] private Transform lookPointer;
         [SerializeField] private Collider2D lookDeadZone;
         [SerializeField] private Collider2D lookOuterBounds;
         
         [Space(10)] 
-        [Header("Throwing System")]
+        [Header("THROWING DETAILS")]
         [SerializeField] private GameObject throwIndicator;
         [SerializeField] private LayerMask throwBoundsMask;
 
         [Space(10)]
         [Header("STEALTH DETAILS")]
         [SerializeField] private float sneakSpeed = 1f;
+        [SerializeField] private float sneakCooldown = 1f;
         [SerializeField] private Light2D globalLight;
         [SerializeField] private BoxCollider2D viewBounds;
         
-        [Space(10)]
-        [Header("SAVING SYSTEM")]
-        [SerializeField] private string persistentID;
-        public string ID
-        {
-            get => persistentID;
-            set => persistentID = value;
-        }
-
         [Space(10)]
         [Header("DEBUG")]
         [SerializeField] private bool debug;
@@ -64,22 +55,28 @@ namespace Runtime.Player
         private Animator _movementAnimator;
         private SpriteRenderer _playerShadow;
         private SpriteRenderer _spriteRenderer;
-        private AudioLowPassFilter _audioLowPassFilter;
-
+        
+        // ============ Miscellaneous ============
         private BehaviourTreeOwner _monster;
         private BlackboardKey<bool> _seenEnter;
         [HideInInspector] public Collider2D hideable;
+        private AudioLowPassFilter _audioLowPassFilter;
 
+        // ============ Variables Tracking ============
         private Vector2 _movementInput;
-        private Vector2 _lastPosition;
-        private bool _sneaking;
+        private Vector2 _lastSeenPosition;
         private bool _isDead;
+        private bool _movementDisabled;
         private bool _inputDisabled;
         private bool _cameraDisabled;
+        [HideInInspector] public bool isSneaking;
 
         // ============ Hiding System ============
-       [HideInInspector] public bool isHiding;
-       [HideInInspector] public bool isSeen;
+        public bool IsSeen { get; set; }
+        [HideInInspector] public bool isHiding;
+        private Coroutine hideCoroutine;
+        private bool _sneakCooldownActive;
+
 
        // ============ Animator Hashes ============
         private readonly int _moveX = Animator.StringToHash("moveX");
@@ -92,6 +89,9 @@ namespace Runtime.Player
         private bool _canThrow;
         private SpriteRenderer _indicatorSpriteRenderer;
         private Rigidbody2D _indicatorRb;
+        
+        
+        // =========================== Unity Events ===========================
 
         private void OnEnable()
         {
@@ -118,8 +118,9 @@ namespace Runtime.Player
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _playerShadow = GameObject.FindGameObjectWithTag("Shadow").GetComponent<SpriteRenderer>();
             _audioLowPassFilter = GetComponent<AudioLowPassFilter>();
-            _monster = FindObjectOfType<BehaviourTreeOwner>(true);
 
+            //Setup Monster
+            _monster = FindObjectOfType<BehaviourTreeOwner>(true);
             if (_monster != null)
             {
                 _seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
@@ -128,50 +129,10 @@ namespace Runtime.Player
             _indicatorSpriteRenderer = throwIndicator.GetComponent<SpriteRenderer>();
             _indicatorRb = throwIndicator.GetComponent<Rigidbody2D>();
 
-            if (SceneManager.GetActiveScene().name == "Tutorial")
+            if (SceneManager.GetActiveScene().name == "Tutorial") 
             {
                 TutorialManager.StartListening("TutorialStage3", Init);
                 gameObject.SetActive(false);
-            }
-        }
-
-        private void HandleMove(Vector2 direction)
-        {
-            if(!_inputDisabled) _movementInput = direction;
-        }
-
-
-        private bool _sneakCooldownActive;
-        private void HandleSneak()
-        {
-            if(!_sneakCooldownActive && !_inputDisabled)
-            {
-                _sneakCooldownActive = true;
-                _sneaking = !_sneaking;
-                _movementAnimator.SetBool(id: _isSneaking, _sneaking);
-                if(_monster != null) _monster.isPlayerCrouching = _sneaking;
-                SetViewBounds(_sneaking);
-                StartCoroutine(SneakCooldown());
-            }
-        }
-
-        private IEnumerator SneakCooldown()
-        {
-            yield return new WaitForSeconds(0.1f);
-            _sneakCooldownActive = false;
-        }
-
-        private void SetViewBounds(bool sneaking)
-        {
-            if (!sneaking)
-            {
-                viewBounds.offset = new Vector2(-0.02924603f, 0.8556569f);
-                viewBounds.size = new Vector2(0.787723303f,1.982361f);
-            }
-            else
-            {
-                viewBounds.offset = new Vector2(-0.1f, 0.531635f);
-                viewBounds.size = new Vector2(1.5f, 1.36327f);
             }
         }
         
@@ -179,8 +140,10 @@ namespace Runtime.Player
         {
             if(_isDead) return;
             
-            var newPosition = _rb.position + _movementInput * ((_sneaking ? sneakSpeed : moveSpeed) * Time.fixedDeltaTime);
+            //Move the player
+            var newPosition = _rb.position + _movementInput * ((isSneaking ? sneakSpeed : moveSpeed) * Time.fixedDeltaTime);
             _rb.MovePosition(newPosition);
+            
             if(!_cameraDisabled) UpdateMouseLook();
             if(_isAiming) UpdateThrowIndicator();
 
@@ -188,78 +151,71 @@ namespace Runtime.Player
             {
                 _movementAnimator.SetFloat(id: _moveX, _movementInput.x);
                 _movementAnimator.SetFloat(id: _moveY, _movementInput.y);
-                _movementAnimator.SetBool(id: _isMoving, Vector2.Distance(_lastPosition, _rb.position) > 0.01f);
+                _movementAnimator.SetBool(id: _isMoving, Vector2.Distance(_lastSeenPosition, _rb.position) > 0.01f);
             }
             else
             {
                 _movementAnimator.SetBool(id: _isMoving, false);
             }
             
-            _lastPosition = _rb.position;
-        }
-
-        public void LoadData(SaveData data)
-        {
-            if (debug)
-            {
-                var nellient = FindObjectOfType<TutorialNellient>();
-                if (nellient != null) nellient.gameObject.SetActive(false);
-                Init();
-            }
-
-            FindObjectOfType<CinemachineTargetGroup>().transform.position = data.playerData.position;
-            transform.position = data.playerData.position;
-            lookPointer.position = new Vector2(transform.position.x, transform.position.y + 2.5f);
-            gameObject.SetActive(data.playerData.enabled);
+            _lastSeenPosition = _rb.position;
         }
         
-        public void SaveData(SaveData data)
+         //================================== Public Methods ==================================
+        
+        public void DisableInput()
         {
-            data.playerData.position = transform.position;
-            data.playerData.enabled = gameObject.activeSelf;
+            _inputDisabled = true;
+            _movementInput = Vector2.zero;
         }
         
-        public void HidePlayer(GameObject hideable, Vector2 position)
+        public void EnableInput()
+        {
+            _inputDisabled = false;
+        }
+        
+        public void SetCamera(bool disabled)
+        {
+            _cameraDisabled = disabled;
+        }
+        
+        public void HidePlayer(GameObject hidableObject, Vector2 position)
         {
             if(IsSeen) _seenEnter.value = true;
-            SetData(false);
-            DisableInput();
+            
+            //Hide the player
+            SetVisible(false);
+            DisableMovement();
+            
+            //Set the player to the hiding position
             _movementAnimator.SetBool(id: _isMoving, false);
             globalLight.intensity = 0.2f;
             transform.position = position;
-            this.hideable = hideable.GetComponent<Collider2D>();
-            Invoke(nameof(EnableLowPassFilter), 1f);
+            this.hideable = hidableObject.GetComponent<Collider2D>();
+            
+            //Start the hiding coroutine
+            hideCoroutine = StartCoroutine(EnableLowPass());
         }
         
-        public void Die()
-        {
-            DisableInput();
-            GameManager.Instance.DialogueSystem.CancelDialogue();
-            _spriteRenderer.enabled = false;
-            _playerShadow.enabled = false;
-            lookPointer.position = gameObject.transform.position;
-            _isDead = true;
-        }
-
-        public bool IsSeen { get; set; }
-
         public void RevealPlayer(Vector2 position, Vector2 facingDirection)
         {
-            SetData(true);
-            EnableInput();
-            _movementAnimator.SetBool(id: _isSneaking, _sneaking);
+            _seenEnter.value = false;
+
+            //Show the player
+            SetVisible(true);
+            EnableMovement();
+            
+            //Set the player to the hiding position
+            _movementAnimator.SetBool(id: _isSneaking, isSneaking);
             globalLight.intensity = 0.3f;
             transform.position = position;
-            //_audioLowPassFilter.enabled = false;
-            _seenEnter.value = false;
             
-            if (facingDirection != Vector2.zero)
-            {
-                SetFacingDirection(facingDirection);
-            }
+            _audioLowPassFilter.enabled = false;
+            if (facingDirection != Vector2.zero) SetFacingDirection(facingDirection);
+            if(hideCoroutine != null) StopCoroutine(hideCoroutine);
         }
-        
-        private void SetFacingDirection(Vector2 direction)
+
+        public void SetFacingDirection(Vector2 direction)
         {
             _movementAnimator.SetFloat(id: _moveX, direction.x);
             _movementAnimator.SetFloat(id: _moveY, direction.y);
@@ -269,7 +225,126 @@ namespace Runtime.Player
         {
             SetFacingDirection(Vector2.down);
         }
+        
+        public void Die()
+        {
+            _isDead = true;
 
+            //Disable the player
+            DisableInput();
+            _spriteRenderer.enabled = false;
+            _playerShadow.enabled = false;
+            
+            //Reset Systems
+            GameManager.Instance.DialogueSystem.CancelDialogue();
+            lookPointer.position = gameObject.transform.position;
+        }
+        
+        // =========================== Input System Methods ===========================
+
+        private void HandleMove(Vector2 direction)
+        {
+            if(!_movementDisabled || !_inputDisabled) _movementInput = direction;
+        }
+        
+        private void HandleSneak()
+        {
+            if(!_sneakCooldownActive && !_inputDisabled)
+            {
+                _sneakCooldownActive = true;
+                isSneaking = !isSneaking;
+                _movementAnimator.SetBool(id: _isSneaking, isSneaking);
+                
+                //Let monster know the player is crouching
+                if(_monster != null) _monster.isPlayerCrouching = isSneaking;
+                
+                SetViewBounds(isSneaking);
+                StartCoroutine(SneakCooldown());
+            }
+        }
+        
+        private void HandleAim()
+        {
+            if(gameObject.GetComponent<PlayerInventory>().HasThrowableItem && !_inputDisabled)
+            {
+                _isAiming = true;
+                _indicatorSpriteRenderer.enabled = true;
+                
+                UpdateThrowIndicator();
+                DisableMovement();
+            }
+        }
+
+        private void HandleThrow()
+        {
+            if (_isAiming && _canThrow && !_inputDisabled)
+            {
+                var inventory = gameObject.GetComponent<PlayerInventory>();
+                inventory.GetThrowable().Throw(new Vector2(transform.position.x, transform.position.y + 1f), throwIndicator);
+                inventory.DropThrowable();
+                
+                GameManager.Instance.HUD.ShowThrowableIcon(false);
+                HandleAimCancel();
+            }
+        }
+
+        private void HandleAimCancel()
+        {
+            _indicatorSpriteRenderer.enabled = false;
+            _isAiming = false;
+            
+            EnableMovement();
+        }
+
+        //================================== Save System ==================================
+
+        public void LoadData(SaveData data)
+        {
+            FindObjectOfType<CinemachineTargetGroup>().transform.position = data.playerData.position;
+            transform.position = data.playerData.position;
+            lookPointer.position = new Vector2(transform.position.x, transform.position.y + 2.5f);
+            gameObject.SetActive(data.playerData.enabled);
+
+            if (debug)
+            {
+                Init();
+            }
+        }
+
+        public void SaveData(SaveData data)
+        {
+            data.playerData.position = transform.position;
+            data.playerData.enabled = gameObject.activeSelf;
+        }
+
+        // ==================== Helper Methods ====================
+        
+        private void Init()
+        {
+            gameObject.SetActive(true);
+            _movementAnimator.SetFloat(id: _moveX, 1);
+        }
+        
+        private void SetVisible(bool state)
+        {
+            isHiding = !state;
+            _movementAnimator.enabled = state;
+            _spriteRenderer.enabled = state;
+            _playerShadow.enabled = state;
+        }
+
+        private void DisableMovement()
+        {
+            _movementDisabled = true;
+            _movementInput = Vector2.zero;
+        }
+
+        private void EnableMovement()
+        {
+            _movementDisabled = false;
+            _movementInput = Vector2.zero;
+        }
+        
         private void UpdateMouseLook()
         {
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -303,37 +378,6 @@ namespace Runtime.Player
             }
         }
         
-        private void HandleAim()
-        {
-            if(gameObject.GetComponent<PlayerInventory>().HasThrowableItem)
-            {
-                _isAiming = true;
-                DisableMovement();
-                _indicatorSpriteRenderer.enabled = true;
-                UpdateThrowIndicator();
-            }
-        }
-
-        private void HandleThrow()
-        {
-            if (_isAiming && _canThrow)
-            {
-                var inventory = gameObject.GetComponent<PlayerInventory>();
-
-                inventory.GetThrowable().Throw(new Vector2(transform.position.x, transform.position.y + 1f), throwIndicator);
-                inventory.DropThrowable();
-                HandleAimCancel();
-                GameManager.Instance.HUD.ShowThrowableIcon(false);
-            }
-        }
-
-        private void HandleAimCancel()
-        {
-            _isAiming = false;
-            EnableMovement();
-            _indicatorSpriteRenderer.enabled = false;
-        }
-        
         private void UpdateThrowIndicator()
         {
             //move the game object to the mouse position based on rigidbody physics
@@ -364,66 +408,35 @@ namespace Runtime.Player
             {
                 _canThrow = false;
                 _indicatorSpriteRenderer.color = Color.red;
-            };
+            }
         }
 
-        // ==================== Helper Methods ====================
-        
-        private void SetData(bool state)
+        private void SetViewBounds(bool sneaking)
         {
-            isHiding = !state;
-            _movementAnimator.enabled = state;
-            _spriteRenderer.enabled = state;
-            _playerShadow.enabled = state;
-        }
-
-        public void DisableInput()
-        {
-            _inputDisabled = true;
-            _movementInput = Vector2.zero;
-        }
-
-        public void EnableInput()
-        {
-            _inputDisabled = false;
+            if (!sneaking)
+            {
+                viewBounds.offset = new Vector2(-0.02924603f, 0.8556569f);
+                viewBounds.size = new Vector2(0.787723303f,1.982361f);
+            }
+            else
+            {
+                viewBounds.offset = new Vector2(-0.1f, 0.531635f);
+                viewBounds.size = new Vector2(1.5f, 1.36327f);
+            }
         }
         
-        public void SetCamera(bool disabled)
+        // ==================== Coroutines ====================
+        
+        private IEnumerator SneakCooldown()
         {
-            _cameraDisabled = disabled;
+            yield return new WaitForSeconds(sneakCooldown);
+            _sneakCooldownActive = false;
         }
-
-        public void LookAt(Vector2 direction)
+        
+        private IEnumerator EnableLowPass()
         {
-            _movementAnimator.SetFloat(id: _moveX, direction.x);
-            _movementAnimator.SetFloat(id: _moveY, direction.y);
+            yield return new WaitForSeconds(0.8f);
+            _audioLowPassFilter.enabled = true;
         }
-
-        private void DisableMovement()
-        {
-            _inputDisabled = true;
-            inputReader.MoveEvent -= HandleMove;
-            _movementInput = Vector2.zero;
-        }
-
-        private void EnableMovement()
-        {
-            _inputDisabled = false;
-            inputReader.MoveEvent += HandleMove;
-        }
-
-        private void EnableLowPassFilter()
-        {
-            //_audioLowPassFilter.enabled = true;
-        }
-
-        private void Init()
-        {
-            gameObject.SetActive(true);
-            _movementAnimator.SetFloat(id: _moveX, 1);
-        }
-
-        public bool IsSneaking => _sneaking;
-        public bool MovementDisabled => _inputDisabled;
     }
 }

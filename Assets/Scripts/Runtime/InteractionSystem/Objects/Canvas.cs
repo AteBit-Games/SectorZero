@@ -63,7 +63,7 @@ namespace Runtime.InteractionSystem.Objects
             _animator.SetTrigger(Paint);
             player.transform.parent.position = playerStandPosition.position;
             _playerController.DisableInput();
-            _playerController.LookAt(new Vector2(0f, 1f));
+            _playerController.SetFacingDirection(new Vector2(0f, 1f));
             
             //Disable collider and remove item from inventory
             GetComponent<Collider2D>().enabled = false;
