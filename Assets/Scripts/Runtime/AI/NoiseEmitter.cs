@@ -11,23 +11,20 @@ namespace Runtime.AI
 {
     public class NoiseEmitter : MonoBehaviour
     {
-        // ====================== Variables ======================
-        
         [Header("EMITTER SETTINGS")]
         [SerializeField, Min(0), Tooltip("Noise max radius")] private float radius = 50f;
 
         [Header("LAYER MASK SETTINGS")]
         [SerializeField, Tooltip("Objects capable of hearing noise")] private LayerMask targetMask;
-
-        // ====================== Properties ======================
         
+        //----- Interface -----//
         public float Radius
         {
             get => radius;
             set => radius = value;
         }
         
-        // ====================== Methods ======================
+        // ================================ Public Methods ================================
         
         protected void FindTargets()
         {
@@ -46,6 +43,7 @@ namespace Runtime.AI
             }
         }
         
+        
         public void EmitLocal()
         {
             FindTargets();
@@ -59,6 +57,8 @@ namespace Runtime.AI
                 t.OnHearing(this);
             }
         }
+        
+        // ================================== Unity Gizmos =====================================
         
         private void OnDrawGizmosSelected()
         {

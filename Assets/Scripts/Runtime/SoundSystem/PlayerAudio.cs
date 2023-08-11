@@ -9,26 +9,23 @@ namespace Runtime.SoundSystem
 {
     public class PlayerAudio : MonoBehaviour
     {
-        [Header("REFERENCES")]
         [SerializeField] private AudioSource audioSource;
-    
-        [Header("SOUNDS")]
         [SerializeField] private List<AudioClip> concreteFootsteps;
         [SerializeField] private List<AudioClip> waterFootsteps;
-
-        [Header("SOUND PROPERTIES")] 
         [SerializeField] private float joggingRange = 18f;
         [SerializeField] private float sneakingRange = 6f;
-    
-        [Header("DEBUG")]
         [SerializeField] private bool debug;
 
         private NoiseEmitter _noiseEmitter;
 
+        //========================= Unity Events =========================//
+        
         private void Awake()
         {
             _noiseEmitter = audioSource.GetComponent<NoiseEmitter>();
         }
+        
+        //========================= Public Methods =========================//
 
         public void PlayFootstepSound()
         {
@@ -44,8 +41,9 @@ namespace Runtime.SoundSystem
             audioSource.PlayOneShot(DetermineSound());
             _noiseEmitter.Radius = sneakingRange;
             _noiseEmitter.EmitLocal();
-            
         }
+        
+        //========================= Private Methods =========================//
 
         private AudioClip DetermineSound()
         {
@@ -65,6 +63,8 @@ namespace Runtime.SoundSystem
 
             return concreteFootsteps[0];
         }
+        
+        //========================= Unity Gizmos =========================//
 
         private void OnDrawGizmos()
         {

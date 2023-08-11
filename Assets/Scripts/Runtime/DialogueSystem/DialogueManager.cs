@@ -41,8 +41,10 @@ namespace Runtime.DialogueSystem
         private int _currentLineIndex;
         private Coroutine displayLineCoroutine;
         private Coroutine endDialogueCoroutine;
-
         private readonly char[] sentenceBreakCharacters = { '.', '!', '?' };
+        
+        //============================== Unity Events ==============================//
+        
         private void Awake()
         {
             //Bind UI Elements
@@ -67,6 +69,8 @@ namespace Runtime.DialogueSystem
         {
             inputReader.LeftClickEvent -= SkipDialogue;
         }
+        
+        //============================== Dialogue Functions ==============================//
 
         private void SkipDialogue()
         {
@@ -120,36 +124,6 @@ namespace Runtime.DialogueSystem
                 _currentDialogue = null;
             }
         }
-
-        private IEnumerator DisplayLine(Dialogue dialogue, int lineIndex)
-        {
-            var currentLetterIndex = 0;
-            _actorNameTextElement.text = dialogue.dialogueLines[_currentLineIndex].actor.Name;
-            _actorImage.style.backgroundImage = new StyleBackground(dialogue.dialogueLines[_currentLineIndex].actor.Sprite);
-
-            var previousLetter = new char();
-            foreach(var character in dialogue.dialogueLines[lineIndex].line)
-            {
-                // finish up displaying the line right away if left click is pressed
-                if(_skipDialogue) break;
-
-                //Add a letter to the dialogue text
-                var text = dialogue.dialogueLines[lineIndex].line[..currentLetterIndex];
-                _dialogueTextElement.text = text;
-                
-                //Play a sound
-                PlayDialogueSound(dialogue.dialogueLines[lineIndex].actor, currentLetterIndex, character);
-                currentLetterIndex++;
-
-                if (sentenceBreakCharacters.Contains(previousLetter) && character == ' ') yield return new WaitForSeconds(sentencePauseTime);
-                else yield return new WaitForSeconds(textSpeed);
-                previousLetter = character;
-            }
-            
-            _dialogueTextElement.text = dialogue.dialogueLines[lineIndex].line;
-            yield return new WaitForSeconds(_currentDialogue.autoSkipDelay);
-            ContinueDialogue();
-        }
         
         private void PlayDialogueSound(Actor actor, int currentLetterIndex, char character)
         {
@@ -188,11 +162,7 @@ namespace Runtime.DialogueSystem
             }
         }
         
-        private IEnumerator ExitDialogue() 
-        {
-            yield return new WaitForSeconds(2f);
-            ShowDialogue(false);
-        }
+        //============================== UI Functions ==============================//
         
         private void ShowDialogue(bool show)
         {
@@ -206,6 +176,45 @@ namespace Runtime.DialogueSystem
             if (endDialogueCoroutine != null) StopCoroutine(endDialogueCoroutine);
             ShowDialogue(false);
             _currentDialogue = null;
+        }
+        
+        //============================== Coroutines ==============================//
+        
+        private IEnumerator DisplayLine(Dialogue dialogue, int lineIndex)
+        {
+            var currentLetterIndex = 0;
+            _actorNameTextElement.text = dialogue.dialogueLines[_currentLineIndex].actor.Name;
+            _actorImage.style.backgroundImage = new StyleBackground(dialogue.dialogueLines[_currentLineIndex].actor.Sprite);
+
+            var previousLetter = new char();
+            foreach(var character in dialogue.dialogueLines[lineIndex].line)
+            {
+                // finish up displaying the line right away if left click is pressed
+                if(_skipDialogue) break;
+
+                //Add a letter to the dialogue text
+                var text = dialogue.dialogueLines[lineIndex].line[..currentLetterIndex];
+                _dialogueTextElement.text = text;
+                
+                //Play a sound
+                PlayDialogueSound(dialogue.dialogueLines[lineIndex].actor, currentLetterIndex, character);
+                currentLetterIndex++;
+
+                if (sentenceBreakCharacters.Contains(previousLetter) && character == ' ') yield return new WaitForSeconds(sentencePauseTime);
+                else yield return new WaitForSeconds(textSpeed);
+                previousLetter = character;
+            }
+            
+            _dialogueTextElement.text = dialogue.dialogueLines[lineIndex].line;
+            yield return new WaitForSeconds(_currentDialogue.autoSkipDelay);
+            ContinueDialogue();
+        }
+
+        
+        private IEnumerator ExitDialogue() 
+        {
+            yield return new WaitForSeconds(2f);
+            ShowDialogue(false);
         }
     }
 }

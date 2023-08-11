@@ -1,26 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
+
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 
-public class AmbienceTrigger : MonoBehaviour
+namespace Runtime.SoundSystem
 {
-    public Sound ambClip;
-    
-    
-    public void TriggerAmbience(float fadeTime)
+    public class AmbienceTrigger : MonoBehaviour
     {
-        GameManager.Instance.AmbienceManager.FadeToNext(ambClip, fadeTime);
-    } 
+        public Sound ambClip;
     
-    public void TriggerFadeOut(float fadeTime)
-    {
-        GameManager.Instance.AmbienceManager.FadeOut(fadeTime);
-    }
     
-    public void TriggerSilence()
-    {
-        GameManager.Instance.AmbienceManager.SilenceAmbience();
+        public void TriggerAmbience(float fadeTime)
+        {
+            GameManager.Instance.SoundSystem.FadeToNextAmbience(ambClip, fadeTime);
+        } 
+    
+        public void TriggerFadeOut(float fadeTime)
+        {
+            GameManager.Instance.SoundSystem.FadeOutAmbience(fadeTime);
+        }
+    
+        public void TriggerSilence()
+        {
+            GameManager.Instance.SoundSystem.SilenceAmbience();
+        }
     }
 }

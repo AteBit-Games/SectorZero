@@ -20,10 +20,12 @@ namespace Runtime.ReporterSystem
         private Button _closeButton;
 
         private CodecksCardCreator _cardCreator;
-        const string placeHolderClass = "unity-text-input__placeholder";
-        const string valueClass = "unity-text-input__value";
-        const string placeholderText = "Please include the following if applicable: \n1) Description of the issue \n2) Steps to reproduce";
+        private const string PlaceHolderClass = "unity-text-input__placeholder";
+        private const string ValueClass = "unity-text-input__value";
+        private const string PlaceholderText = "Please include the following if applicable: \n1) Description of the issue \n2) Steps to reproduce";
 
+        //================================ Unity Events =================================//
+        
         private void Start()
         {
             _cardCreator = GetComponent<CodecksCardCreator>();
@@ -49,24 +51,24 @@ namespace Runtime.ReporterSystem
             
             descriptionField = rootVisualElement.Q<TextField>("description-field");
 
-            descriptionField.value = placeholderText;
+            descriptionField.value = PlaceholderText;
             descriptionField.RegisterCallback<FocusInEvent>(_ =>
             {
-                if (descriptionField.ClassListContains(placeHolderClass))
+                if (descriptionField.ClassListContains(PlaceHolderClass))
                 {
-                    descriptionField.RemoveFromClassList(placeHolderClass);
+                    descriptionField.RemoveFromClassList(PlaceHolderClass);
                     descriptionField.value = "";
                 }
                 
-                descriptionField.AddToClassList(valueClass);
+                descriptionField.AddToClassList(ValueClass);
             });
             descriptionField.RegisterCallback<FocusOutEvent>(_ =>
             {
                 if((string.IsNullOrEmpty(descriptionField.value)))
                 {
-                    descriptionField.AddToClassList(placeHolderClass);
-                    descriptionField.RemoveFromClassList(valueClass);
-                    descriptionField.value = placeholderText;
+                    descriptionField.AddToClassList(PlaceHolderClass);
+                    descriptionField.RemoveFromClassList(ValueClass);
+                    descriptionField.value = PlaceholderText;
                 }
             });
             
@@ -85,6 +87,8 @@ namespace Runtime.ReporterSystem
             });
         }
         
+        //================================ Public Methods =================================//
+        
         public void ShowForm()
         {
            UIUtils.ShowUIElement(_feedbackWindow);
@@ -97,7 +101,7 @@ namespace Runtime.ReporterSystem
 
         public void SendForm()
         {
-            if(string.IsNullOrEmpty(descriptionField.value) || descriptionField.value == placeholderText || descriptionField.value.Length < 10)
+            if(string.IsNullOrEmpty(descriptionField.value) || descriptionField.value == PlaceholderText || descriptionField.value.Length < 10)
             {
                 GameManager.Instance.NotificationManager.ShowResultNotification("Description Too Short", errorIcon);
                 return;
@@ -111,7 +115,7 @@ namespace Runtime.ReporterSystem
             _cardCreator.CreateNewCard(
                 text: reportText,
                 severity: (CodecksCardCreator.CodecksSeverity)categoryDropdown.index,
-                resultDelegate: (success, result) =>
+                resultDelegate: (success, _) =>
                 {
                     if (success)
                     {
@@ -128,6 +132,8 @@ namespace Runtime.ReporterSystem
                 }
             );
         }
+        
+        //================================ Private Methods =================================//
 
         private static string GetMetaText()
         {
@@ -141,9 +147,9 @@ namespace Runtime.ReporterSystem
         
         private void ResetForm()
         {
-            descriptionField.value = placeholderText;
-            if(!descriptionField.ClassListContains(placeHolderClass)) descriptionField.AddToClassList(placeHolderClass);
-            if(descriptionField.ClassListContains(valueClass)) descriptionField.RemoveFromClassList(valueClass);
+            descriptionField.value = PlaceholderText;
+            if(!descriptionField.ClassListContains(PlaceHolderClass)) descriptionField.AddToClassList(PlaceHolderClass);
+            if(descriptionField.ClassListContains(ValueClass)) descriptionField.RemoveFromClassList(ValueClass);
             categoryDropdown.index = 0;
             HideForm();
         }

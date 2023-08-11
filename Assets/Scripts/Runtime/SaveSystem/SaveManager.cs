@@ -27,7 +27,6 @@ namespace Runtime.SaveSystem
         [SerializeField] private string saveFileName;
         [SerializeField] private bool useEncryption;
         [SerializeField] private List<PlayerConfig> playerConfig;
-        
         [HideInInspector] public bool saveExists;
 
         private List<IPersistant> _persistantObjects;

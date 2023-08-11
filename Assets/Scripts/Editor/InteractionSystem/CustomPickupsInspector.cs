@@ -4,7 +4,6 @@
 ****************************************************************/
 
 using Runtime.InteractionSystem.Items;
-using Runtime.InteractionSystem.Objects;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -21,8 +20,8 @@ namespace Editor.InteractionSystem
             VisualElement root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
             
-            var generateGUIDButton = root.Q<Button>("generate-button");
-            generateGUIDButton.RegisterCallback<ClickEvent>(_ =>
+            var generateGuidButton = root.Q<Button>("generate-button");
+            generateGuidButton.RegisterCallback<ClickEvent>(_ =>
             {
                 var pickup = target as Pickup;
                 if (pickup != null && pickup.persistentID == "")

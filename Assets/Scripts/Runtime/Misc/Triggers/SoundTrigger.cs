@@ -10,12 +10,12 @@ using UnityEngine;
 
 namespace Runtime.Misc.Triggers
 {
-    public class SoundTrigger : MonoBehaviour
+    public class AnimatorSoundTrigger : MonoBehaviour
     {
         [SerializeField] private List<Sound> sounds;
         [SerializeField] private List<Sound> randomSounds;
 
-        public void TriggerSound(int id)
+        public void TriggerIndexedSound(int id)
         {
             if (id < 0 || id >= sounds.Count) Debug.LogError("Sound ID does not exist!");
             GameManager.Instance.SoundSystem.Play(sounds[id], transform.GetComponent<AudioSource>());

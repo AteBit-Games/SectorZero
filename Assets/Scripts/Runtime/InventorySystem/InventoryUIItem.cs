@@ -11,7 +11,7 @@ namespace Runtime.InventorySystem
 {
     public class InventoryUIItem 
     {
-        [HideInInspector] public BaseItem item;
+        [HideInInspector] public readonly BaseItem item;
         [HideInInspector] public VisualElement itemUI;
         
         public InventoryUIItem(BaseItem inventoryItem, VisualElement uiRef)

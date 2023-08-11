@@ -22,6 +22,8 @@ namespace Runtime.Managers
         private Dictionary <string, UnityEvent[]> eventDictionary;
         private static TutorialManager _tutorialManager;
 
+        //============================== Unity Events ==============================//
+        
         private void Start()
         {
             if (!debug)
@@ -36,16 +38,12 @@ namespace Runtime.Managers
             StartCoroutine(Delay());
         }
 
-        private IEnumerator Delay()
-        {
-            yield return new WaitForSecondsRealtime(0.1f);
-            GameManager.Instance.DialogueSystem.OnDialogueFinish += TriggerStage4;
-        }
-        
         private void OnDisable()
         {
             GameManager.Instance.DialogueSystem.OnDialogueFinish -= TriggerStage4;
         }
+        
+        //============================== Public Methods ==============================//
 
         private static TutorialManager Instance
         {
@@ -67,11 +65,6 @@ namespace Runtime.Managers
 
                 return _tutorialManager;
             }
-        }
-
-        private void Init ()
-        {
-            eventDictionary ??= new Dictionary<string, UnityEvent[]>();
         }
 
         public static void StartListening(string eventName, UnityAction listener)
@@ -122,6 +115,15 @@ namespace Runtime.Managers
             }
         }
         
+        //============================== Private Methods ==============================//
+        
+        private void Init ()
+        {
+            eventDictionary ??= new Dictionary<string, UnityEvent[]>();
+        }
+        
+        //============================== Stage Triggers ==============================//
+        
         public void TriggerStage2()
         {
             TriggerEvent("TutorialStage2");
@@ -145,6 +147,14 @@ namespace Runtime.Managers
         public void TriggerTutorialEnd()
         {
             GameManager.Instance.EndGame();
+        }
+        
+        //============================== Coroutines ==============================//
+        
+        private IEnumerator Delay()
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+            GameManager.Instance.DialogueSystem.OnDialogueFinish += TriggerStage4;
         }
     }
 }

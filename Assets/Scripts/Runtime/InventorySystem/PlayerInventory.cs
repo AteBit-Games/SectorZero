@@ -19,13 +19,12 @@ namespace Runtime.InventorySystem
     
     public class PlayerInventory : MonoBehaviour, IPersistant
     {
-        // ReSharper disable once CollectionNeverQueried.Global
         public List<Tape> tapeInventory = new();
         public List<Item> itemInventory = new();
         public Throwable throwableItem;
         
         public bool HasThrowableItem => throwableItem != null;
-
+        
         public bool AddTapeToInventory(Tape item)
         {
             tapeInventory.Add(item);
@@ -62,8 +61,9 @@ namespace Runtime.InventorySystem
         {
             return throwableItem;
         }
-
-        public string ID { get; set; }
+        
+        //=============================== Save System ===============================//
+        
         public void LoadData(SaveData data)
         {
             itemInventory = data.playerData.itemInventory;

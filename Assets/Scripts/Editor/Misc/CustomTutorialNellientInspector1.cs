@@ -3,8 +3,6 @@
 * All rights reserved.
 ****************************************************************/
 
-using Runtime.Misc.Triggers;
-using Runtime.Player;
 using Runtime.Player.Nellient;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -22,13 +20,13 @@ namespace Editor.Misc
             VisualElement root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
             
-            var generateGUIDButton = root.Q<Button>("generate-button");
-            generateGUIDButton.RegisterCallback<ClickEvent>(_ =>
+            var generateGuidButton = root.Q<Button>("generate-button");
+            generateGuidButton.RegisterCallback<ClickEvent>(_ =>
             {
                 var nellient = target as TutorialNellient;
-                if (nellient != null && nellient.ID == "")
+                if (nellient != null && nellient.persistentID == "")
                 {
-                    nellient.ID = System.Guid.NewGuid().ToString();
+                    nellient.persistentID = System.Guid.NewGuid().ToString();
                     EditorUtility.SetDirty(nellient);
                 }
             });

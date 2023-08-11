@@ -4,7 +4,6 @@
 ****************************************************************/
 
 using Runtime.Misc;
-using Runtime.Player;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
@@ -21,14 +20,14 @@ namespace Editor.Misc
             VisualElement root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
             
-            var generateGUIDButton = root.Q<Button>("generate-button");
-            generateGUIDButton.RegisterCallback<ClickEvent>(_ =>
+            var generateGuidButton = root.Q<Button>("generate-button");
+            generateGuidButton.RegisterCallback<ClickEvent>(_ =>
             {
-                var nellient = target as MiscPersistant;
-                if (nellient != null && nellient.ID == "")
+                var misc = target as MiscPersistant;
+                if (misc != null && misc.persistentID == "")
                 {
-                    nellient.ID = System.Guid.NewGuid().ToString();
-                    EditorUtility.SetDirty(nellient);
+                    misc.persistentID = System.Guid.NewGuid().ToString();
+                    EditorUtility.SetDirty(misc);
                 }
             });
             

@@ -3,17 +3,15 @@
 * All rights reserved.
 ****************************************************************/
 
-using Runtime.InteractionSystem.Items;
-using Runtime.InteractionSystem.Objects;
-using Runtime.InteractionSystem.Objects.TutorialObjects;
+using Runtime.SoundSystem;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace Editor.InteractionSystem 
+namespace Editor.SoundSystem 
 {
-    [CustomEditor(typeof(TutorialDoor))]
-    public class CustomTriggerDoorInspector : UnityEditor.Editor
+    [CustomEditor(typeof(PlayerAudio))]
+    public class PlayerAudioInspector : UnityEditor.Editor
     {
         public VisualTreeAsset mVisualTreeAsset;
         
@@ -21,18 +19,6 @@ namespace Editor.InteractionSystem
         {
             VisualElement root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
-            
-            var generateGUIDButton = root.Q<Button>("generate-button");
-            generateGUIDButton.RegisterCallback<ClickEvent>(_ =>
-            {
-                var pickup = target as TutorialDoor;
-                if (pickup != null && pickup.persistentID == "")
-                {
-                    pickup.persistentID = System.Guid.NewGuid().ToString();
-                    EditorUtility.SetDirty(pickup);
-                }
-            });
-            
             
             var openScriptButton = root.Q<Button>("open-button");
             openScriptButton.RegisterCallback<ClickEvent>(_ => CustomInspectorUtils.OpenScriptForEditor(target));

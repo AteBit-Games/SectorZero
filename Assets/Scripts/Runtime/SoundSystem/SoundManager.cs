@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -22,13 +23,18 @@ namespace Runtime.SoundSystem
         [SerializeField] private SoundMixGroup musicMixGroup;
         [SerializeField] private SoundMixGroup sfxMixGroup;
         [SerializeField] public AudioMixer mainMixer;
-
-        private Sound _activeMusic;
         
-        private AudioListener _audioListener;
+        [Header("AMBIENCE SETTINGS")]
+        [SerializeField] public List<AudioSource> ambienceSources;
+        
         private readonly Dictionary<AudioSource, Sound> _activeSoundInstanceSources = new();
         private readonly List<ISoundEntity> _activeSoundEntitySources = new();
-        private readonly Dictionary<AudioSource, Sound> _activeMusicSources = new();
+
+        private int _currentAmbIndex;
+        private readonly string[] _ambMixerNames = {"mainAmbA", "mainAmbB"};
+        private bool _isBusy;
+        
+        //========================= Unity Events =========================//
 
         private void Awake()
         {
@@ -38,22 +44,29 @@ namespace Runtime.SoundSystem
             }
             
             SceneManager.sceneLoaded += OnSceneLoaded;
+            _currentAmbIndex = 0;
+            _isBusy = false;
+        }
+
+        private void Start()
+        {
+            ambienceSources[0].Play();
+            ambienceSources[1].Play();
         }
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
             _activeSoundEntitySources.Clear();
-            _activeMusicSources.Clear();
-            
+
             var soundSources = SceneManager.GetActiveScene().GetRootGameObjects().SelectMany(x => x.GetComponentsInChildren<ISoundEntity>()).ToList();
             foreach (var soundSource in soundSources)
             {
                 _activeSoundEntitySources.Add(soundSource);
             }
             SetSfxVolume(sfxMixGroup.volume);
-
-            _audioListener = FindObjectOfType(typeof(AudioListener)) as AudioListener;
         }
+        
+        //========================= Public Methods =========================//
 
         public void Play(Sound sound, AudioSource audioSource = null)
         {
@@ -84,13 +97,6 @@ namespace Runtime.SoundSystem
                 Destroy(audioSource.Key.gameObject);
             }
             _activeSoundInstanceSources.Clear();
-            
-            foreach (var audioSource in _activeMusicSources)
-            {
-                audioSource.Key.Stop();
-                Destroy(audioSource.Key.gameObject);
-            }
-            _activeMusicSources.Clear();
         }
 
         public void PauseAll()
@@ -99,12 +105,7 @@ namespace Runtime.SoundSystem
             {
                 audioSource.Key.Pause();
             }
-            
-            foreach (var audioSource in _activeMusicSources)
-            {
-                audioSource.Key.Pause();
-            }
-            
+
             foreach (var audioSource in _activeSoundEntitySources)
             {
                 audioSource.AudioSource.Pause();
@@ -117,18 +118,86 @@ namespace Runtime.SoundSystem
             {
                 audioSource.Key.UnPause();
             }
-            
-            foreach (var audioSource in _activeMusicSources)
-            {
-                audioSource.Key.UnPause();
-            }
-            
+
             foreach (var audioSource in _activeSoundEntitySources)
             {
                 audioSource.AudioSource.UnPause();
             }
         }
+        
+        public void ResetSystem()
+        {
+            StopAll();
+            _activeSoundInstanceSources.Clear();
+            _activeSoundEntitySources.Clear();
+        }
+        
+        public void FadeInAmbience(float fadeTime = 1.0f)
+        {
+            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, 0.0f));
+        }
+        
+        public void FadeOutAmbience(float fadeTime = 1.0f)
+        {
+            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
+        }
 
+        public void SilenceAmbience()
+        {
+            GameManager.Instance.SoundSystem.mainMixer.SetFloat(_ambMixerNames[_currentAmbIndex], -80.0f);
+        }
+        
+        public void FadeToNextAmbience(Sound nextAmb, float fadeTime = 1.0f)
+        {
+            ambienceSources[1 - _currentAmbIndex].clip = nextAmb.clip;
+            ambienceSources[1 - _currentAmbIndex].volume = nextAmb.volume;
+            ambienceSources[1 - _currentAmbIndex].loop = nextAmb.loop;
+            ambienceSources[1 - _currentAmbIndex].Play();
+            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
+            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[1 - (_currentAmbIndex)], fadeTime, 1.0f));
+            _currentAmbIndex = 1 - _currentAmbIndex;
+        }
+
+        public void FastSwap()
+        {
+            _currentAmbIndex = 1 - _currentAmbIndex;
+            ambienceSources[_currentAmbIndex].Play();
+            ambienceSources[1 - _currentAmbIndex].Stop();
+        }
+
+        public void PlaySting(Sound sound)
+        {
+            if(_isBusy) return;
+            _isBusy = true;
+            ambienceSources[2].PlayOneShot(sound.clip);
+            Invoke(nameof(StingReady), sound.clip.length);
+        }
+        
+        public float SfxVolume()
+        {
+            return sfxMixGroup.volume;
+        }
+        
+        //========================= Private Methods =========================//
+        
+        
+        private void StingReady()
+        {
+            _isBusy = false;
+        }
+        
+        //========================= Setters =========================//
+
+        public void SetAmbienceClip(Sound sound)
+        {
+            ambienceSources[_currentAmbIndex].clip = sound.clip;
+        }
+        
+        public void SetNextAmbience(Sound sound)
+        {
+            ambienceSources[1 - _currentAmbIndex].clip = sound.clip;
+        }
+        
         public void SetMasterVolume(float volume)
         {
             masterMixGroup.SetVolume(volume);
@@ -139,10 +208,6 @@ namespace Runtime.SoundSystem
         {
             musicMixGroup.SetVolume(volume);
             mainMixer.SetFloat("ambienceVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
-            foreach (var musicSource in _activeMusicSources.Where(musicSource => musicSource.Key != null))
-            {
-                musicSource.Key.volume = volume * musicSource.Value.volumeScale;
-            }
         }
 
         public void SetSfxVolume(float volume)
@@ -160,28 +225,16 @@ namespace Runtime.SoundSystem
                 soundSource.Volume = volume * soundSource.VolumeScale;
                 soundSource.AudioSource.volume = soundSource.Volume;
             }
-            
         }
-
+        
+        //========================= Coroutines =========================//
+        
         private IEnumerator DestroySoundSource(AudioSource audioSource, float delay)
         {
             yield return new WaitForSecondsRealtime(delay);
             if(audioSource == null) yield break;
             _activeSoundInstanceSources.Remove(audioSource);
             Destroy(audioSource.gameObject);
-        }
-
-        public void ResetSystem()
-        {
-            StopAll();
-            _activeSoundInstanceSources.Clear();
-            _activeMusicSources.Clear();
-            _activeSoundEntitySources.Clear();
-        }
-        
-        public float SfxVolume()
-        {
-            return sfxMixGroup.volume;
         }
     }
 }

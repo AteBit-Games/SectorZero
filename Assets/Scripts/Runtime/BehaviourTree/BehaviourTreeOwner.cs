@@ -172,7 +172,7 @@ namespace Runtime.BehaviourTree
                     if (vignette != null) vignette.intensity.value = value;
                 }).SetFrom(0f).SetEaseSineInOut();
                 
-                GameManager.Instance.AmbienceManager.PlaySting(detectedSound);
+                GameManager.Instance.SoundSystem.PlaySting(detectedSound);
                 
                 if(treeStates.Find(x => x.state == TreeState.State.Aggro) == null) Debug.LogError("No aggro state found");
                 else

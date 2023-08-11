@@ -2,7 +2,7 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
-using Runtime.InteractionSystem.Objects;
+
 using Runtime.InteractionSystem.Objects.TutorialObjects;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -10,8 +10,8 @@ using UnityEngine.UIElements;
 
 namespace Editor.InteractionSystem 
 {
-    [CustomEditor(typeof(TutorialCanvas))]
-    public class CustomCanvasInspector : UnityEditor.Editor
+    [CustomEditor(typeof(TutorialDoor))]
+    public class CustomTutorialDoorInspector : UnityEditor.Editor
     {
         public VisualTreeAsset mVisualTreeAsset;
         
@@ -23,14 +23,14 @@ namespace Editor.InteractionSystem
             var generateGuidButton = root.Q<Button>("generate-button");
             generateGuidButton.RegisterCallback<ClickEvent>(_ =>
             {
-                var canvas = target as TutorialCanvas;
-                if (canvas != null && canvas.persistentID == "")
+                var trigger = target as TutorialDoor;
+                if (trigger != null && trigger.persistentID == "")
                 {
-                    canvas.persistentID = System.Guid.NewGuid().ToString();
-                    EditorUtility.SetDirty(canvas);
+                    trigger.persistentID = System.Guid.NewGuid().ToString();
+                    EditorUtility.SetDirty(trigger);
                 }
             });
-            
+
             var openScriptButton = root.Q<Button>("open-button");
             openScriptButton.RegisterCallback<ClickEvent>(_ => CustomInspectorUtils.OpenScriptForEditor(target));
             

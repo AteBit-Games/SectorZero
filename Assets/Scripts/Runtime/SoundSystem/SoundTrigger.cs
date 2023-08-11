@@ -9,11 +9,12 @@ using UnityEngine;
 
 namespace Runtime.SoundSystem
 {
-    public class AudioTrigger : MonoBehaviour
+    /// <summary>
+    /// Used to play a sound when the player enters a trigger
+    /// </summary>
+    public class SoundTrigger : MonoBehaviour
     {
         [SerializeField] private Sound sound;
-        [SerializeField] private Transform origin;
-
         private const string TriggerTag = "Player";
 
         private void OnTriggerEnter2D(Collider2D other)

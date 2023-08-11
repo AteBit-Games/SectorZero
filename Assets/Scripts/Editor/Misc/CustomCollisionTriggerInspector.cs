@@ -6,7 +6,6 @@
 using Runtime.Misc.Triggers;
 using UnityEditor;
 using UnityEditor.UIElements;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Editor.Misc 
@@ -21,13 +20,13 @@ namespace Editor.Misc
             VisualElement root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
             
-            var generateGUIDButton = root.Q<Button>("generate-button");
-            generateGUIDButton.RegisterCallback<ClickEvent>(_ =>
+            var generateGuidButton = root.Q<Button>("generate-button");
+            generateGuidButton.RegisterCallback<ClickEvent>(_ =>
             {
                 var trigger = target as CollisionTrigger;
-                if (trigger != null && trigger.ID == "")
+                if (trigger != null && trigger.persistentID == "")
                 {
-                    trigger.ID = System.Guid.NewGuid().ToString();
+                    trigger.persistentID = System.Guid.NewGuid().ToString();
                     EditorUtility.SetDirty(trigger);
                 }
             });

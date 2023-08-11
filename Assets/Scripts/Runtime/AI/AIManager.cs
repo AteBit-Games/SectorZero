@@ -11,14 +11,16 @@ namespace Runtime.AI
 {
     public class AIManager : MonoBehaviour
     {
-        [SerializeField] float menaceGaugeValue;
-        [SerializeField] float menaceGaugeMax = 100f;
-        [SerializeField] float menaceGaugeMin;
+        [SerializeField] private float menaceGaugeValue;
+        [SerializeField] private float menaceGaugeMax = 100f;
+        [SerializeField] private float menaceGaugeMin;
         
-        [SerializeField] float menaceGaugeIncreaseMultiplier = 1f;
+        [SerializeField] private float menaceGaugeIncreaseMultiplier = 1f;
         
         private BehaviourTreeOwner _monster;
         private PlayerController _player;
+        
+        // ============================ Unity Events ============================
         
         private void Awake()
         {
@@ -26,7 +28,6 @@ namespace Runtime.AI
             _player = FindObjectOfType<PlayerController>();
         }
         
-        //alien isolation director
         private void FixedUpdate()
         {
             /*
@@ -57,6 +58,8 @@ namespace Runtime.AI
             //     _monster.GetComponent<BehaviourTreeOwner>().SetVariableValue("IsPlayerInSight", false);
             // }
         }
+        
+        // ============================ Public Methods ============================
         
         public void SetMonsterState()
         {

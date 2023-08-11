@@ -20,14 +20,14 @@ namespace Editor.Managers
             VisualElement root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
             
-            var generateGUIDButton = root.Q<Button>("generate-button");
-            generateGUIDButton.RegisterCallback<ClickEvent>(_ =>
+            var generateGuidButton = root.Q<Button>("generate-button");
+            generateGuidButton.RegisterCallback<ClickEvent>(_ =>
             {
-                var pickup = target as CinematicManager;
-                if (pickup != null && pickup.ID == "")
+                var cinematicManager = target as CinematicManager;
+                if (cinematicManager != null && cinematicManager.ID == "")
                 {
-                    pickup.ID = System.Guid.NewGuid().ToString();
-                    EditorUtility.SetDirty(pickup);
+                    cinematicManager.ID = System.Guid.NewGuid().ToString();
+                    EditorUtility.SetDirty(cinematicManager);
                 }
             });
             

@@ -15,7 +15,7 @@ namespace Runtime.BehaviourTree.Actions.Sound
         
         protected override void OnStart()
         {
-            GameManager.Instance.AmbienceManager.FadeToNext(sound, fadeTime.Value);
+            GameManager.Instance.SoundSystem.FadeToNextAmbience(sound, fadeTime.Value);
         }
     
         protected override void OnStop() { }

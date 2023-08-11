@@ -1,6 +1,10 @@
-﻿using UnityEditor;
+﻿/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
+
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Editor
 {

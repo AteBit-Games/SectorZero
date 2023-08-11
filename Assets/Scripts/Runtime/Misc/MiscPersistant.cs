@@ -9,15 +9,15 @@ using UnityEngine;
 
 namespace Runtime.Misc
 {
+    /// <summary>
+    /// Used on items that need to save their enabled state
+    /// </summary>
     public class MiscPersistant : MonoBehaviour, IPersistant
     {
-        [SerializeField] private string persistentID;
-        public string ID
-        {
-            get => persistentID;
-            set => persistentID = value;
-        }
-    
+        [SerializeField] public string persistentID;
+
+        //============================== Save System ==============================
+        
         public void LoadData(SaveData data)
         {
             if (data.worldData.miscItems.TryGetValue(persistentID, out var item))

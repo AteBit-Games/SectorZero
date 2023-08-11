@@ -13,7 +13,7 @@ namespace Runtime.InventorySystem
 {
     public class InventoryUITape : InventoryUIItem
     {
-        [HideInInspector] public Dialogue dialogue;
+        public Dialogue dialogue;
         
         public InventoryUITape(BaseItem inventoryItem, VisualElement uiRef, Dialogue dialogue) : base(inventoryItem, uiRef)
         {

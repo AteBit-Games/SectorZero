@@ -12,9 +12,12 @@ namespace Runtime.Misc.Triggers
 {
     public class CollisionTrigger : MonoBehaviour, IPersistant
     {
+        [SerializeField] public string persistentID;
         [SerializeField] protected UnityEvent triggerEvent;
         [SerializeField] protected bool triggerOnce = true;
 
+        //============================== Unity Events ==============================
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player") && triggerOnce)
@@ -24,13 +27,8 @@ namespace Runtime.Misc.Triggers
             }
         }
         
-        [SerializeField] private string persistentID;
-        public string ID
-        {
-            get => persistentID;
-            set => persistentID = value;
-        }
-        
+        //============================== Save System ==============================
+
         public void LoadData(SaveData data)
         {
             if (data.worldData.triggers.TryGetValue(persistentID, out var trigger))

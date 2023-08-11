@@ -3,10 +3,12 @@
     <ui:VisualElement name="VisualElement" class="property-group">
         <ui:Label tabindex="-1" text="Dialogue Settings" display-tooltip-when-elided="true" name="header" />
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-            <uie:PropertyField binding-path="inputReader" name="property" />
+            <uie:PropertyField binding-path="date" name="property" />
+            <uie:PropertyField binding-path="canSkip" name="property" />
+            <uie:PropertyField binding-path="autoSkipDelay" name="property" />
+            <uie:PropertyField binding-path="trigger" name="property" />
             <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
-            <uie:PropertyField binding-path="textSpeed" name="property" />
+            <uie:PropertyField binding-path="dialogueLines" name="property" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:Button text="Edit Script" display-tooltip-when-elided="true" name="open-button" class="button" style="padding-top: 3px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; margin-top: 10px; margin-bottom: 5px;" />
 </ui:UXML>

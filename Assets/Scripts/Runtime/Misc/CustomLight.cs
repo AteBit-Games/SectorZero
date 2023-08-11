@@ -14,7 +14,7 @@ namespace Runtime.Misc
 {
     public class CustomLight : MonoBehaviour, IPowered, ISoundEntity
     {
-        [SerializeField] private Light2D light;
+        [SerializeField] private new Light2D light;
         [SerializeField] private bool startPowered;
 
         [SerializeField] private bool flicker;
@@ -33,14 +33,20 @@ namespace Runtime.Misc
         private Animator _animator;
         private static readonly int On = Animator.StringToHash("On");
         
+        //----- Interface Variables -----//
+        public bool IsPowered { get; set; }
+
         public AudioSource AudioSource { get; set; }
         public Sound Sound => loopSound;
+
         public float Volume { get; set; }
         public float VolumeScale
         {
             get => volumeScale;
             set => volumeScale = value;
         }
+        
+        //============================== Unity Events ==============================
 
         private void Awake()
         {
@@ -55,9 +61,9 @@ namespace Runtime.Misc
             if (startPowered) PowerOn();
             else PowerOff();
         }
-
-        public bool IsPowered { get; set; }
-
+        
+        //============================== Interface ==============================
+        
         public void PowerOn()
         {
             light.enabled = true;
@@ -73,6 +79,8 @@ namespace Runtime.Misc
             AudioSource.mute = true;
             if (_coroutine != null) StopCoroutine(_coroutine);
         }
+        
+        //============================== Coroutines ==============================
         
         private IEnumerator FlickerOff()
         {
