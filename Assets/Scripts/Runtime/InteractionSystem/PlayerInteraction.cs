@@ -20,8 +20,8 @@ namespace Runtime.InteractionSystem
         private readonly List<GameObject> _interactables = new();
 
         //----- Hash Variables -----//
-        private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
-        private static readonly int OutlineColor = Shader.PropertyToID("_OutlineColor");
+        private static readonly int OutlineThickness = Shader.PropertyToID("_Radius");
+        private static readonly int OutlineColor = Shader.PropertyToID("_Color");
         
         //========================= Unity Events =========================//
         

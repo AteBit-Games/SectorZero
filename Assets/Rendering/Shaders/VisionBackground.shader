@@ -1,4 +1,4 @@
-﻿Shader "Test/2D/Sprite-Lit-Default"
+﻿Shader "Vision/Vision-Background"
 {
     Properties
     {
