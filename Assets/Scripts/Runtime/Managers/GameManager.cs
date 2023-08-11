@@ -211,7 +211,7 @@ namespace Runtime.Managers
 
         private void HandlePause()
         {
-            if(isMainMenu || DeathScreen.isOpen || InventorySystem.isInventoryOpen) return;
+            if(isMainMenu || DeathScreen.isOpen || InventorySystem == null || InventorySystem.isInventoryOpen) return;
             PauseMenu.Pause();
         }
 

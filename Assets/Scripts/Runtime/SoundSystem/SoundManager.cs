@@ -158,7 +158,7 @@ namespace Runtime.SoundSystem
             _currentAmbIndex = 1 - _currentAmbIndex;
         }
 
-        public void FastSwap()
+        public void FastSwapAmbience()
         {
             _currentAmbIndex = 1 - _currentAmbIndex;
             ambienceSources[_currentAmbIndex].Play();
@@ -179,7 +179,6 @@ namespace Runtime.SoundSystem
         }
         
         //========================= Private Methods =========================//
-        
         
         private void StingReady()
         {
