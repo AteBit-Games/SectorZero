@@ -73,6 +73,8 @@ namespace Runtime.Player
 
         // ============ Hiding System ============
         public bool IsSeen { get; set; }
+        public bool InputDisabled => _inputDisabled;
+        
         [HideInInspector] public bool isHiding;
         private Coroutine hideCoroutine;
         private bool _sneakCooldownActive;
@@ -244,7 +246,7 @@ namespace Runtime.Player
 
         private void HandleMove(Vector2 direction)
         {
-            if(!_movementDisabled || !_inputDisabled) _movementInput = direction;
+            if(!_movementDisabled && !_inputDisabled) _movementInput = direction;
         }
         
         private void HandleSneak()

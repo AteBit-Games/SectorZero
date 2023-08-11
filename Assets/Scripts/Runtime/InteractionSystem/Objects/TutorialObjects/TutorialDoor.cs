@@ -14,7 +14,6 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
 {
     public class TutorialDoor : MonoBehaviour, IPersistant
     {
-        [SerializeField] private string tutorialStage;
         [SerializeField] private Sound openSound;
         [SerializeField] private Sound closeSound;
         [SerializeField] private NavMeshSurface navMeshSurface;
@@ -45,8 +44,6 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
                 _mainAnimator.SetBool(_isOpen, true);
                 open = true;
             }
-            
-            TutorialManager.StartListening(tutorialStage, OpenDoor);
         }
         
         //=========================== Public Methods =============================//
@@ -91,6 +88,8 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
         {
             navMeshSurface.UpdateNavMesh(navMeshSurface.navMeshData);
         }
+        
+        //=========================== Save System =============================//
         
         public void LoadData(SaveData data)
         {

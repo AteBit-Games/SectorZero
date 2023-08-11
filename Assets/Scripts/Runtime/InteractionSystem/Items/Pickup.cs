@@ -35,7 +35,6 @@ namespace Runtime.InteractionSystem.Items
             GameManager.Instance.NotificationManager.ShowPickupNotification(item);
             return inventory.AddItemToInventory(item);
         }
-        
 
         public void OnInteractFailed(GameObject player)
         {

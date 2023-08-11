@@ -42,7 +42,6 @@ namespace Runtime.InteractionSystem.Objects
         public bool ContainsPlayer { get; set; }
 
         //----- Private Variables -----//
-        private bool _canExit = true;
         private SpriteRenderer _spriteRenderer;
 
         //========================= Unity events =========================//
@@ -60,6 +59,8 @@ namespace Runtime.InteractionSystem.Objects
 
             if (playerController.isHiding && ContainsPlayer)
             {
+                if(playerController.InputDisabled) return false;
+                
                 var facingDirection = exitDirection switch
                 {
                     ExitDirection.Left => Vector2.left,
@@ -69,7 +70,6 @@ namespace Runtime.InteractionSystem.Objects
                     _ => Vector2.zero
                 };
 
-                if(!_canExit) return false;
                 playerController.RevealPlayer(revealPosition.position, facingDirection);
                 ContainsPlayer = false;
                 _spriteRenderer.sprite = emptyLockerSprite;
@@ -105,11 +105,6 @@ namespace Runtime.InteractionSystem.Objects
         public void SetCanTrigger(bool value)
         {
             canTrigger = value;
-        }
-
-        public void CanExit(bool value)
-        {
-            _canExit = value;
         }
     }
 }

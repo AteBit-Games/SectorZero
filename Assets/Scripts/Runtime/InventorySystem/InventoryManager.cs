@@ -8,6 +8,7 @@ using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.Utils;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 namespace Runtime.InventorySystem
@@ -20,8 +21,9 @@ namespace Runtime.InventorySystem
     
     public class InventoryManager : MonoBehaviour
     {
+        [FormerlySerializedAs("isInventoryEnabled")]
         [Header("Items Inventory")]
-        [SerializeField] public bool isInventoryEnabled;
+        [SerializeField] public bool isInventoryScreenEnabled;
         [SerializeField] private PlayerInventory playerInventory;
         
         public PlayerInventory PlayerInventory => playerInventory;

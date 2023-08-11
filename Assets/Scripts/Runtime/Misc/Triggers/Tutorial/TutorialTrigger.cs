@@ -6,7 +6,7 @@
 using Runtime.Player;
 using UnityEngine;
 
-namespace Runtime.Misc.Triggers
+namespace Runtime.Misc.Triggers.Tutorial
 {
     public class TutorialTrigger : CollisionTrigger
     {

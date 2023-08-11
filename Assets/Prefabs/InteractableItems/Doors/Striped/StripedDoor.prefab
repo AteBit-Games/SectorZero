@@ -109,7 +109,6 @@ GameObject:
   - component: {fileID: 6691542696565207430}
   - component: {fileID: 3577572199967213132}
   - component: {fileID: 2219692982887217446}
-  - component: {fileID: 6561022139389843516}
   - component: {fileID: 4866007689501206034}
   - component: {fileID: 3447145057234609483}
   m_Layer: 10
@@ -299,6 +298,7 @@ MonoBehaviour:
   navigationBlocker: {fileID: 1558445421142627366}
   bottomAnimator: {fileID: 0}
   startOpen: 0
+  persistentID: 
 --- !u!95 &2219692982887217446
 Animator:
   serializedVersion: 5
@@ -320,19 +320,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6561022139389843516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4719013934168544764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7d4b8f4e96a0c4695482184c37c0a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorialStage: TutorialStage4
 --- !u!82 &4866007689501206034
 AudioSource:
   m_ObjectHideFlags: 0
@@ -482,7 +469,7 @@ MonoBehaviour:
   - {x: 2.0227337, y: 5.485857, z: 0}
   m_ShapePathHash: -786473107
   m_Mesh: {fileID: 0}
-  m_InstanceId: -80278
+  m_InstanceId: 55806
   m_LocalBounds:
     m_Center: {x: -0.0018796921, y: 5.741049, z: 0}
     m_Extent: {x: 2.0246134, y: 0.2589512, z: 0}

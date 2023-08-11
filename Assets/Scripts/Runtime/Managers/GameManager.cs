@@ -208,7 +208,7 @@ namespace Runtime.Managers
         private void OpenInventoryWindow()
         {
             if(isMainMenu) return;
-            if(!InventorySystem.isInventoryOpen && InventorySystem.isInventoryEnabled) InventorySystem.OpenInventory();
+            if(!InventorySystem.isInventoryOpen && InventorySystem.isInventoryScreenEnabled) InventorySystem.OpenInventory();
         }
 
         private void HandlePause()
@@ -242,8 +242,7 @@ namespace Runtime.Managers
             HUD = FindObjectOfType<HUD>(true);
             DeathScreen = FindObjectOfType<DeathScreen>(true);
             EndScreen = FindObjectOfType<EndScreen>(true);
-            
-            
+
             if(testMode)
             {
                 ResetInput();
