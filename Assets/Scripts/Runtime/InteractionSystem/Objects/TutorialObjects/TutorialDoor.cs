@@ -3,40 +3,39 @@
 * All rights reserved.
 ****************************************************************/
 
-using Runtime.SoundSystem.ScriptableObjects;
 using NavMeshPlus.Components;
+using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
+using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 
-namespace Runtime.InteractionSystem.Objects
+namespace Runtime.InteractionSystem.Objects.TutorialObjects
 {
-    public class TriggerDoor : MonoBehaviour, IPersistant
+    public class TutorialDoor : MonoBehaviour, IPersistant
     {
+        [SerializeField] private string tutorialStage;
         [SerializeField] private Sound openSound;
         [SerializeField] private Sound closeSound;
         [SerializeField] private NavMeshSurface navMeshSurface;
         [SerializeField] private Collider2D navigationBlocker;
         [SerializeField] private Animator bottomAnimator;
         [SerializeField] private bool startOpen;
-        
-        [SerializeField] private string persistentID;
-        public string ID
-        {
-            get => persistentID;
-            set => persistentID = value;
-        }
+        [SerializeField] public string persistentID;
 
+        //----- Private Variables -----//
         private Animator _mainAnimator;
         private AudioSource _audioSource;
         private bool open;
         
-        // ============ Animator Hashes ============
+        //---- Animator Hashes -----//
         private readonly int _isOpen = Animator.StringToHash("isOpen");
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int Property = Animator.StringToHash("break");
         private static readonly int Open = Animator.StringToHash("open");
 
+        //=========================== Unity Events =============================//
+        
         private void Awake()
         {
             _mainAnimator = GetComponent<Animator>();
@@ -46,7 +45,11 @@ namespace Runtime.InteractionSystem.Objects
                 _mainAnimator.SetBool(_isOpen, true);
                 open = true;
             }
+            
+            TutorialManager.StartListening(tutorialStage, OpenDoor);
         }
+        
+        //=========================== Public Methods =============================//
         
         public void OpenDoor()
         {

@@ -1,8 +1,12 @@
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
+
 using System.Collections.Generic;
 using Runtime.SoundSystem.ScriptableObjects;
 using Runtime.Utils;
 using UnityEngine;
-using UnityEngine.Audio;
 
 namespace Runtime.Managers
 {

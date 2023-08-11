@@ -16,11 +16,11 @@ namespace Runtime.InteractionSystem.Objects
     public class LinkedDoor : MonoBehaviour
     {
         [SerializeField] private Sound openSound;
-        public Sound InteractSound => openSound;
-        
+
         private bool _isActivated;
         private Animator _animator;
         private NoiseEmitter _noiseEmitter;
+        private static readonly int OpenDoor = Animator.StringToHash("OpenDoor");
 
         private void Awake()
         {
@@ -33,7 +33,7 @@ namespace Runtime.InteractionSystem.Objects
             if(_isActivated) return;
             
             GameManager.Instance.SoundSystem.Play(openSound, transform.GetComponent<AudioSource>());
-            _animator.SetTrigger("OpenDoor");
+            _animator.SetTrigger(OpenDoor);
             _isActivated = true;
             _noiseEmitter.EmitGlobal();
         }

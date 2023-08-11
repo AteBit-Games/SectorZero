@@ -9,7 +9,6 @@ using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -21,10 +20,16 @@ namespace Runtime.InteractionSystem.Objects
         [SerializeField] private List<GameObject> connectedObjects = new();
         [SerializeField] private bool startPowered;
         
+        //----- Interface Properties -----//
+        public bool IsPowered { get; set; }
+
+        //----- Private Variables -----//
         private Animator _animator;
         private static readonly int IsEnabled = Animator.StringToHash("IsEnabled");
         private NoiseEmitter _noiseEmitter;
 
+        //========================= Unity events =========================//
+        
         private void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -37,6 +42,8 @@ namespace Runtime.InteractionSystem.Objects
             SetPowered(startPowered);
         }
 
+        //========================= Interface events =========================//
+        
         public bool OnInteract(GameObject player)
         {
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
@@ -46,6 +53,28 @@ namespace Runtime.InteractionSystem.Objects
             return true;
         }
 
+        public void OnInteractFailed(GameObject player)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool CanInteract()
+        {
+            return true;
+        }
+
+        public void PowerOn()
+        {
+            IsPowered = true;
+        }
+
+        public void PowerOff()
+        {
+            IsPowered = false;
+        }
+        
+        //========================= Public methods =========================//
+        
         public void SetPowered(bool state)
         {
             foreach (var powerObject in connectedObjects.Select(poweredObject => poweredObject.GetComponent<IPowered>()).Where(poweredState => poweredState != null))
@@ -64,24 +93,5 @@ namespace Runtime.InteractionSystem.Objects
             _animator.SetBool(IsEnabled, state);
         }
 
-        public bool CanInteract()
-        {
-            return true;
-        }
-
-        public UnityEvent OnInteractEvents { get; }
-        public UnityEvent OnInteractFailedEvents { get; }
-        public bool failedToInteract { get; set; }
-        public bool IsPowered { get; set; }
-        
-        public void PowerOn()
-        {
-            IsPowered = true;
-        }
-
-        public void PowerOff()
-        {
-            IsPowered = false;
-        }
     }
 }

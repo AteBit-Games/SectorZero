@@ -25,9 +25,9 @@ namespace Editor.InteractionSystem
             generateGUIDButton.RegisterCallback<ClickEvent>(_ =>
             {
                 var pickup = target as Pickup;
-                if (pickup != null && pickup.ID == "")
+                if (pickup != null && pickup.persistentID == "")
                 {
-                    pickup.ID = System.Guid.NewGuid().ToString();
+                    pickup.persistentID = System.Guid.NewGuid().ToString();
                     EditorUtility.SetDirty(pickup);
                 }
             });

@@ -6,7 +6,6 @@ using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -16,41 +15,46 @@ namespace Runtime.InteractionSystem.Objects
         public Sound InteractSound => interactSound;
         
         [SerializeField] private Sound poweredOffSound;
-        
         [SerializeField] private LinkedDoor linkedDoor;
+
+        //------- Interface Properties -------//
+        public bool IsPowered { get; set; }
+        
+        
+        //----- Private Variables -----//
         private Animator _animator;
         private static readonly int Powered = Animator.StringToHash("IsPowered");
-
         private bool _used;
 
+        //========================= Unity Events =========================//
+        
         private void Awake()
         {
             _animator = GetComponent<Animator>();
         }
+        
+        //========================= Interface events =========================//
 
         public bool OnInteract(GameObject player)
         {
-            if (CanInteract())
-            {
-                GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
-                linkedDoor.Open();
-                _used = true;
-                return true;
-            }
-            
+            GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
+            linkedDoor.Open();
+            _used = true;
+            return true;
+        }
+
+        public void OnInteractFailed(GameObject player)
+        {
             GameManager.Instance.SoundSystem.Play(poweredOffSound, transform.GetComponent<AudioSource>());
-            return false;
         }
 
         public bool CanInteract()
         {
             return IsPowered && !_used;
         }
-
-        public UnityEvent OnInteractEvents { get; }
-        public UnityEvent OnInteractFailedEvents { get; }
-        public bool failedToInteract { get; set; }
-
+        
+        //========================= Public Methods =========================//
+        
         public void PowerOn()
         {
             _animator.SetBool(Powered, true);
@@ -62,7 +66,5 @@ namespace Runtime.InteractionSystem.Objects
             _animator.SetBool(Powered, false);
             IsPowered = false;
         }
-
-        public bool IsPowered { get; set; }
     }
 }

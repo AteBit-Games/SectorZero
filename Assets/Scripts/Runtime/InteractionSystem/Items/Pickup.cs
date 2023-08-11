@@ -21,23 +21,33 @@ namespace Runtime.InteractionSystem.Items
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         
-        [SerializeField] private string persistentID;
-        public string ID
-        {
-            get => persistentID;
-            set => persistentID = value;
-        }
-
+        [SerializeField] public string persistentID;
         [SerializeField] private Item item;
 
+        //========================= Interface events =========================//
+        
         public bool OnInteract(GameObject player)
         {
             gameObject.SetActive(false);
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             var inventory = player.GetComponentInParent<PlayerInventory>();
+            
             GameManager.Instance.NotificationManager.ShowPickupNotification(item);
             return inventory.AddItemToInventory(item);
         }
+        
+
+        public void OnInteractFailed(GameObject player)
+        {
+            throw new System.NotImplementedException();
+        }
+        
+        public bool CanInteract()
+        {
+            return true;
+        }
+        
+        //========================= Save System =========================//
 
         public void LoadData(SaveData data)
         {
@@ -52,14 +62,5 @@ namespace Runtime.InteractionSystem.Items
             if(!data.worldData.pickups.ContainsKey(persistentID)) data.worldData.pickups.Add(persistentID, gameObject.activeSelf);
             else data.worldData.pickups[persistentID] = gameObject.activeSelf;
         }
-        
-        public bool CanInteract()
-        {
-            return true;
-        }
-
-        public UnityEvent OnInteractEvents { get; }
-        public UnityEvent OnInteractFailedEvents { get; }
-        public bool failedToInteract { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace Runtime.Managers
 
         private void Awake()
         {
-            director = GetComponentsInChildren<PlayableDirector>().ToDictionary(director => director, _ => false);
+            director = GetComponentsInChildren<PlayableDirector>().ToDictionary(playableDirector => playableDirector, _ => false);
         }
         
         public void TriggerCinematic(int index)
@@ -69,9 +69,9 @@ namespace Runtime.Managers
                     cinematicStates = new List<bool>()
                 };
 
-                foreach (var director in director)
+                foreach (var playableDirector in director)
                 {
-                    cinematicData.cinematicStates.Add(Math.Abs(director.Key.time - director.Key.duration) < 0.01f);
+                    cinematicData.cinematicStates.Add(Math.Abs(playableDirector.Key.time - playableDirector.Key.duration) < 0.01f);
                 }
                 
                 data.worldData.cinematics.Add(cinematicData);

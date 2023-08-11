@@ -5,13 +5,14 @@
 
 using Runtime.InteractionSystem.Items;
 using Runtime.InteractionSystem.Objects;
+using Runtime.InteractionSystem.Objects.TutorialObjects;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace Editor.InteractionSystem 
 {
-    [CustomEditor(typeof(TriggerDoor))]
+    [CustomEditor(typeof(TutorialDoor))]
     public class CustomTriggerDoorInspector : UnityEditor.Editor
     {
         public VisualTreeAsset mVisualTreeAsset;
@@ -24,10 +25,10 @@ namespace Editor.InteractionSystem
             var generateGUIDButton = root.Q<Button>("generate-button");
             generateGUIDButton.RegisterCallback<ClickEvent>(_ =>
             {
-                var pickup = target as TriggerDoor;
-                if (pickup != null && pickup.ID == "")
+                var pickup = target as TutorialDoor;
+                if (pickup != null && pickup.persistentID == "")
                 {
-                    pickup.ID = System.Guid.NewGuid().ToString();
+                    pickup.persistentID = System.Guid.NewGuid().ToString();
                     EditorUtility.SetDirty(pickup);
                 }
             });

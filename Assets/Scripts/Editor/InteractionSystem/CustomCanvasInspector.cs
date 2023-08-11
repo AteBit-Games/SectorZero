@@ -3,13 +3,14 @@
 * All rights reserved.
 ****************************************************************/
 using Runtime.InteractionSystem.Objects;
+using Runtime.InteractionSystem.Objects.TutorialObjects;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace Editor.InteractionSystem 
 {
-    [CustomEditor(typeof(Canvas))]
+    [CustomEditor(typeof(TutorialCanvas))]
     public class CustomCanvasInspector : UnityEditor.Editor
     {
         public VisualTreeAsset mVisualTreeAsset;
@@ -22,10 +23,10 @@ namespace Editor.InteractionSystem
             var generateGUIDButton = root.Q<Button>("generate-button");
             generateGUIDButton.RegisterCallback<ClickEvent>(_ =>
             {
-                var pickup = target as Canvas;
-                if (pickup != null && pickup.ID == "")
+                var pickup = target as TutorialCanvas;
+                if (pickup != null && pickup.persistentID == "")
                 {
-                    pickup.ID = System.Guid.NewGuid().ToString();
+                    pickup.persistentID = System.Guid.NewGuid().ToString();
                     EditorUtility.SetDirty(pickup);
                 }
             });

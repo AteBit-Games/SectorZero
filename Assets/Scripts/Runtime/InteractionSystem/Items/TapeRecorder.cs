@@ -22,50 +22,41 @@ namespace Runtime.InteractionSystem.Items
         public Sound InteractSound => interactSound;
         
         [SerializeField] private string persistentID;
-        public string ID
-        {
-            get => persistentID;
-            set => persistentID = value;
-        }
+        [SerializeField] private Tape tape;
 
-        [SerializeField] private Dialogue dialogue;
-        [SerializeField] private string dialogueDescription;
-
+        //========================= Interface events =========================//
+        
         public bool OnInteract(GameObject player)
         {
-            GameManager.Instance.DialogueSystem.StartDialogue(dialogue);
+            GameManager.Instance.DialogueSystem.StartDialogue(tape.dialogue);
             gameObject.SetActive(false);
             
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             
             var inventory = player.GetComponentInParent<PlayerInventory>();
-            var tapeInstance = ScriptableObject.CreateInstance<Tape>();
-            // tapeInstance.itemName = dialogue.actor.Name;
-            // tapeInstance.itemSprite = dialogue.actor.Sprite;
-            // tapeInstance.itemType = ItemType.TapeRecording;
-            // tapeInstance.itemDescription = dialogueDescription;
-            // tapeInstance.dialogue = dialogue;
-
-            return inventory.AddTapeToInventory(tapeInstance);
+            return inventory.AddTapeToInventory(tape);
         }
 
-        public void LoadData(SaveData data)
+        public void OnInteractFailed(GameObject player)
         {
-            data.worldData.tapeRecorders.Add(persistentID, gameObject.activeSelf);
+            throw new System.NotImplementedException();
         }
-
-        public void SaveData(SaveData data)
-        {
-            data.worldData.tapeRecorders[persistentID] = gameObject.activeSelf;
-        }
-
+        
         public bool CanInteract()
         {
             return true;
         }
 
-        public UnityEvent OnInteractEvents { get; }
-        public UnityEvent OnInteractFailedEvents { get; }
-        public bool failedToInteract { get; set; }
+        //========================= Save System =========================//
+        
+        public void LoadData(SaveData data)
+        {
+            data.worldData.tapeRecorders.Add(persistentID, gameObject.activeSelf);
+        }
+        
+        public void SaveData(SaveData data)
+        {
+            data.worldData.tapeRecorders[persistentID] = gameObject.activeSelf;
+        }
     }
 }

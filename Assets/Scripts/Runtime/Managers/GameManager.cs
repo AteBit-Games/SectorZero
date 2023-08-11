@@ -41,6 +41,8 @@ namespace Runtime.Managers
         #endregion 
         [SerializeField] public bool testMode;
 
+        //========================= Interface =========================
+        
         public DialogueManager DialogueSystem { get; private set;  }
         public InventoryManager InventorySystem { get; private set; }
         public SoundManager SoundSystem { get; private set; }
@@ -65,6 +67,8 @@ namespace Runtime.Managers
         private long time;
         private Discord.Discord discord;
         
+        //========================= Unity Events =========================
+        
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -83,12 +87,9 @@ namespace Runtime.Managers
             Instance.AmbienceManager = GetComponentInChildren<AmbienceManager>();
             Instance.SaveSystem = GetComponent<SaveManager>();
             
-            if(testMode)
-            {
-                SaveSystem.NewGame(true, SceneManager.GetActiveScene().buildIndex);
-            }
+            if(testMode) SaveSystem.NewGame(true, SceneManager.GetActiveScene().buildIndex);
         }
-        
+
         private void Update()
         {
             try
@@ -128,17 +129,17 @@ namespace Runtime.Managers
             inputReader.CloseUIEvent -= HandleEscape;
             inputReader.ContinueAction -= FinishLoad;
         }
+        
+        //========================= Public Methods =========================
 
-        private void OpenInventoryWindow()
+        public Sound ClickSound()
         {
-            if(isMainMenu) return;
-            if(!InventorySystem.isInventoryOpen && InventorySystem.isInventoryEnabled) InventorySystem.OpenInventory();
+            return menuClickSound;
         }
-
-        private void HandlePause()
+        
+        public Sound HoverSound()
         {
-            if(isMainMenu || DeathScreen.isOpen || InventorySystem.isInventoryOpen) return;
-            PauseMenu.Pause();
+            return menuHoverSound;
         }
         
         public void HandleEscape()
@@ -174,6 +175,46 @@ namespace Runtime.Managers
         public void ResetInput()
         {
             inputReader.SetGameplay();
+        }
+        
+        public void LoadScene(int sceneIndex)
+        {
+            _isReady = false;
+            inputReader.SetUI();
+            StartCoroutine(LoadSceneAsync(sceneIndex));
+        }
+
+        public void GameOver(DeathType deathType)
+        {
+            inputReader.SetUI();
+            DeathScreen.Show(EnumUtils.GetDeathMessage(deathType));
+
+            var transposer = _camera.GetCinemachineComponent<CinemachineTransposer>();
+            transposer.TweenValueFloat(4f, 0.35f, value =>
+            {
+                transposer.m_FollowOffset = new Vector3(-value, 0f, -10f);
+            }).SetFrom(0f).SetEaseSineInOut();
+        }
+        
+        public void EndGame()
+        {
+            Time.timeScale = 0f;
+            inputReader.SetUI();
+            EndScreen.Show();
+        }
+        
+        //========================= Private Methods =========================
+        
+        private void OpenInventoryWindow()
+        {
+            if(isMainMenu) return;
+            if(!InventorySystem.isInventoryOpen && InventorySystem.isInventoryEnabled) InventorySystem.OpenInventory();
+        }
+
+        private void HandlePause()
+        {
+            if(isMainMenu || DeathScreen.isOpen || InventorySystem.isInventoryOpen) return;
+            PauseMenu.Pause();
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -214,17 +255,7 @@ namespace Runtime.Managers
             }
             SoundSystem.PauseAll();
         }
-        
-        public Sound ClickSound()
-        {
-            return menuClickSound;
-        }
-        
-        public Sound HoverSound()
-        {
-            return menuHoverSound;
-        }
-        
+
         private void UpdateStatus()
         {
             try
@@ -256,37 +287,6 @@ namespace Runtime.Managers
             }
         }
 
-        public void GameOver(DeathType deathType)
-        {
-            inputReader.SetUI();
-            DeathScreen.Show(EnumUtils.GetDeathMessage(deathType));
-
-            var transposer = _camera.GetCinemachineComponent<CinemachineTransposer>();
-            transposer.TweenValueFloat(4f, 0.35f, value =>
-            {
-                transposer.m_FollowOffset = new Vector3(-value, 0f, -10f);
-            }).SetFrom(0f).SetEaseSineInOut();
-        }
-        
-        public void LoadScene(int sceneIndex)
-        {
-            _isReady = false;
-            inputReader.SetUI();
-            StartCoroutine(LoadSceneAsync(sceneIndex));
-        }
-        
-        private IEnumerator LoadSceneAsync(int sceneIndex)
-        {
-            var asyncOperation = SceneManager.LoadSceneAsync(sceneIndex);
-            LoadingScreen.ShowLoading();
-            while (!asyncOperation.isDone)
-            {
-                yield return null;
-            }
-            LoadingScreen.ShowContinue();
-            _isReady = true;
-        }
-
         private void FinishLoad()
         {
             if (_isReady && LoadingScreen.isOpen)
@@ -295,13 +295,20 @@ namespace Runtime.Managers
                 ResetInput();
                 LoadingScreen.HideLoading();
             }
-        }
+        }       
         
-        public void EndGame()
-        {
-            Time.timeScale = 0f;
-            inputReader.SetUI();
-            EndScreen.Show();
-        }
+        //========================= Coroutines =========================
+        
+        private IEnumerator LoadSceneAsync(int sceneIndex)
+         {
+             var asyncOperation = SceneManager.LoadSceneAsync(sceneIndex);
+             LoadingScreen.ShowLoading();
+             while (!asyncOperation.isDone)
+             {
+                 yield return null;
+             }
+             LoadingScreen.ShowContinue();
+             _isReady = true;
+         }
     }
 }

@@ -12,7 +12,6 @@ namespace Runtime.InteractionSystem.Interfaces
     public interface IThrowable
     {
         public Sound DropSound { get; }
-
         public void OnDrop(Transform dropPosition);
     }
 }

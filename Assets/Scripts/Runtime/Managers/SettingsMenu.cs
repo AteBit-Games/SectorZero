@@ -3,7 +3,6 @@
 * All rights reserved.
 ****************************************************************/
 using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 using UnityEngine.UIElements;
@@ -314,7 +313,7 @@ namespace Runtime.Managers
             }
         }
         
-        private static void SetButtonState([NotNull] Button button, bool state)
+        private static void SetButtonState(Button button, bool state)
         {
             if (button == null) throw new ArgumentNullException(nameof(button));
             button.SetEnabled(state);

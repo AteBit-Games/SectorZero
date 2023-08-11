@@ -14,9 +14,7 @@ namespace Runtime.InteractionSystem.Interfaces
     {
         [Tooltip("Sound to play when the player interacts with the object")] public Sound InteractSound { get; }
         public bool OnInteract(GameObject player);
+        public void OnInteractFailed(GameObject player);
         public bool CanInteract();
-        public UnityEvent OnInteractEvents { get; }
-        public UnityEvent OnInteractFailedEvents { get; }
-        public bool failedToInteract { get; set; }
     }
 }

@@ -3,14 +3,12 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using System.Linq;
 using Runtime.DialogueSystem;
-using UnityEngine.Timeline;
 
 namespace Runtime.Managers
 {
@@ -49,7 +47,7 @@ namespace Runtime.Managers
             GameManager.Instance.DialogueSystem.OnDialogueFinish -= TriggerStage4;
         }
 
-        private static TutorialManager instance
+        private static TutorialManager Instance
         {
             get
             {
@@ -78,7 +76,7 @@ namespace Runtime.Managers
 
         public static void StartListening(string eventName, UnityAction listener)
         {
-            if (instance.eventDictionary.TryGetValue(eventName, out var thisEvent))
+            if (Instance.eventDictionary.TryGetValue(eventName, out var thisEvent))
             {
                 var oldLength = thisEvent.Length;
                 var newLength = oldLength + 1;
@@ -90,21 +88,21 @@ namespace Runtime.Managers
 
                 newEvent[newLength - 1] = new UnityEvent();
                 newEvent[newLength - 1].AddListener(listener);
-                instance.eventDictionary[eventName] = newEvent;
+                Instance.eventDictionary[eventName] = newEvent;
             } 
             else
             {
                 var newEvent = new UnityEvent[1];
                 newEvent[0] = new UnityEvent();
                 newEvent[0].AddListener(listener);
-                instance.eventDictionary.Add(eventName, newEvent);
+                Instance.eventDictionary.Add(eventName, newEvent);
             }
         }
 
         public static void StopListening(string eventName, UnityAction listener)
         {
             if(_tutorialManager == null) return;
-            if (instance.eventDictionary.TryGetValue (eventName, out var thisEvent))
+            if (Instance.eventDictionary.TryGetValue (eventName, out var thisEvent))
             {
                 foreach (var t in thisEvent)
                 {
@@ -115,7 +113,7 @@ namespace Runtime.Managers
 
         public static void TriggerEvent(string eventName)
         {
-            if (instance.eventDictionary.TryGetValue (eventName, out var thisEvent))
+            if (Instance.eventDictionary.TryGetValue (eventName, out var thisEvent))
             {
                 foreach (var t in thisEvent)
                 {

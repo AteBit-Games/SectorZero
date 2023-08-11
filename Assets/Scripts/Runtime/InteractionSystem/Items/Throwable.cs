@@ -3,7 +3,6 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
 using System.Collections;
 using Runtime.AI;
 using Runtime.InteractionSystem.Interfaces;
@@ -13,7 +12,6 @@ using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
 
@@ -23,26 +21,22 @@ namespace Runtime.InteractionSystem.Items
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
-        
-        [SerializeField] private string persistentID;
-        public string ID
-        {
-            get => persistentID;
-            set => persistentID = value;
-        }
-
-        [SerializeField] private Sound dropSound;
         public Sound DropSound => dropSound;
-        [SerializeField] private Sprite icon;
+        [SerializeField] private Sound dropSound;
         
+        [SerializeField] private Sprite icon;
+        [SerializeField] private string persistentID;
+
         [Range(1, 5), SerializeField] private int maxBounces;
         [SerializeField] private float bounceDistanceDivider = 8f;
         [SerializeField] private float bounceHeightDivider = 6f;
-
         [SerializeField] private bool randomizeLand = true;
+        
         private Coroutine _throwCoroutine;
         private SortingGroup _sortingGroup;
 
+        //========================= Unity Events =========================//
+        
         private void Awake()
         {
             _sortingGroup = GetComponent<SortingGroup>();
@@ -57,6 +51,8 @@ namespace Runtime.InteractionSystem.Items
                 GameManager.Instance.SoundSystem.Play(dropSound, transform.GetComponent<AudioSource>());
             }
         }
+        
+        //========================= Interface events =========================//
         
         public bool OnInteract(GameObject player)
         {
@@ -73,6 +69,18 @@ namespace Runtime.InteractionSystem.Items
             return true;
         }
 
+        public void OnInteractFailed(GameObject player)
+        {
+            throw new System.NotImplementedException();
+        }
+        
+        public bool CanInteract()
+        {
+            return true;
+        }
+        
+        //========================= Save System =========================//
+
         public void LoadData(SaveData data)
         {
             //data.tapeRecorders.Add(this, gameObject.activeSelf);
@@ -82,15 +90,6 @@ namespace Runtime.InteractionSystem.Items
         {
             //data.tapeRecorders[this] = gameObject.activeSelf;
         }
-
-        public bool CanInteract()
-        {
-            return true;
-        }
-
-        public UnityEvent OnInteractEvents { get; }
-        public UnityEvent OnInteractFailedEvents { get; }
-        public bool failedToInteract { get; set; }
 
         public void OnDrop(Transform dropPosition)
         {

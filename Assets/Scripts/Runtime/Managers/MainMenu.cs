@@ -42,7 +42,6 @@ namespace Runtime.Managers
         
         private VisualElement _microwaveIcon;
         private int _microwaveIndex;
-        private Coroutine _microwaveIconCoroutine;
 
         private void Start()
         {
@@ -119,7 +118,7 @@ namespace Runtime.Managers
             });
             
             _microwaveIcon = rootVisualElement.Q<VisualElement>("microwaveVisual");
-            _microwaveIconCoroutine = StartCoroutine(Microwave());
+            StartCoroutine(Microwave());
             SetupPopups();
         }
         
@@ -128,7 +127,7 @@ namespace Runtime.Managers
             _microwaveIcon.style.backgroundImage = new StyleBackground(iconStates[_microwaveIndex]);
             _microwaveIndex = (_microwaveIndex + 1) % iconStates.Length;
             yield return new WaitForSecondsRealtime(iconSpeed);
-            _microwaveIconCoroutine = StartCoroutine(Microwave());
+            StartCoroutine(Microwave());
         }
         
         private void SetupPopups()

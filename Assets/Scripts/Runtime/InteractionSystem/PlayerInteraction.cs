@@ -12,25 +12,24 @@ namespace Runtime.InteractionSystem
 {
     public class PlayerInteraction : MonoBehaviour
     {
-        #region Header MOVEMENT DETAILS
-        [Space(10)]
-        [Header("INTERACTION DETAILS")]
-        #endregion
         [SerializeField] private LayerMask interactionMask;
         [SerializeField] private InputReader inputReader;
         
+        //----- Private Variables -----//
         private CircleCollider2D _interactionRadius;
         private readonly List<GameObject> _interactables = new();
 
+        //----- Hash Variables -----//
         private static readonly int OutlineThickness = Shader.PropertyToID("_OutlineThickness");
         private static readonly int OutlineColor = Shader.PropertyToID("_OutlineColor");
+        
+        //========================= Unity Events =========================//
         
         private void OnEnable()
         {
             inputReader.InteractEvent += Interact;   
         }
-        
-        
+
         private void OnDisable()
         {
             inputReader.InteractEvent -= Interact;
@@ -84,17 +83,15 @@ namespace Runtime.InteractionSystem
             }
         }
 
+        //========================= Private Methods =========================//
+        
         private void Interact()
         {
             if(_interactables.Count == 0) return;
             var closest = GetClosestInteractable(_interactables.ToArray())?.GetComponent<IInteractable>();
             
             if(closest != null && closest.CanInteract()) closest.OnInteract(gameObject);
-            else if (closest != null && !closest.CanInteract() && !closest.failedToInteract)
-            {
-                closest.failedToInteract = true;
-                closest.OnInteractFailedEvents?.Invoke();
-            }
+            else if (closest != null && !closest.CanInteract()) closest.OnInteractFailed(gameObject);
         }
 
         private GameObject GetClosestInteractable(IEnumerable<GameObject> interactables)

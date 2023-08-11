@@ -15,9 +15,9 @@ using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Runtime.InteractionSystem.Objects
+namespace Runtime.InteractionSystem.Objects.TutorialObjects
 {
-    public class Canvas : MonoBehaviour, IInteractable, IPersistant
+    public class TutorialCanvas : MonoBehaviour, IInteractable, IPersistant
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
@@ -25,34 +25,31 @@ namespace Runtime.InteractionSystem.Objects
         [SerializeField] private UnityEvent onTriggerEvents;
         [SerializeField] private Transform playerStandPosition;
         [SerializeField] private Item paintingSupplies;
-        [SerializeField] private List<UnityEvent> finishTriggerEvents;
         [SerializeField] private float delayBeforeTriggeringStage5 = 1f;
-                
-        [SerializeField] private string persistentID;
-        public string ID
-        {
-            get => persistentID;
-            set => persistentID = value;
-        }
         
+        [SerializeField] private List<UnityEvent> finishInteractEvents;
         [SerializeField] private UnityEvent onInteractFailedEvents;
-        public UnityEvent OnInteractFailedEvents => onInteractFailedEvents;
-        public bool failedToInteract { get; set; }
+        [SerializeField] public string persistentID;
 
-
+        //----- Private Variables -----//
         private Animator _animator;
         private SpriteRenderer _spriteRenderer;
         private bool _hasInteracted;
         private PlayerController _playerController;
+        private bool _failedToInteract;
 
         private static readonly int Paint = Animator.StringToHash("paint");
         private static readonly int Finish = Animator.StringToHash("finished");
 
+        //========================= Unity Events =========================//
+        
         private void Awake()
         {
             _animator = GetComponent<Animator>();
             _playerController = FindObjectOfType<PlayerController>(true);
         }
+        
+        //========================= Interface events =========================//
 
         public bool OnInteract(GameObject player)
         {
@@ -71,6 +68,22 @@ namespace Runtime.InteractionSystem.Objects
 
             return true;
         }
+        
+        public void OnInteractFailed(GameObject player)
+        {
+            if (!_failedToInteract)
+            {
+                _failedToInteract = true;
+                onInteractFailedEvents.Invoke();
+            }
+        }
+        
+        public bool CanInteract()
+        {
+            return GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(paintingSupplies) && !_hasInteracted;
+        }
+        
+        //========================= Public Methods =========================//
 
         public void FinishInteraction()
         {
@@ -79,21 +92,8 @@ namespace Runtime.InteractionSystem.Objects
             StartCoroutine(TriggerStage5());
             GameManager.Instance.SaveSystem.SaveGame();
         }
-
-        private IEnumerator TriggerStage5()
-        {
-            yield return new WaitForSeconds(1f);
-            finishTriggerEvents[0].Invoke();
-            yield return new WaitForSeconds(delayBeforeTriggeringStage5);
-            finishTriggerEvents[1].Invoke();
-        }
         
-        public bool CanInteract()
-        {
-            return GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(paintingSupplies) && !_hasInteracted;
-        }
-
-        public UnityEvent OnInteractEvents { get; }
+        //========================= Save System =========================//
 
         public void LoadData(SaveData data)
         {
@@ -111,6 +111,16 @@ namespace Runtime.InteractionSystem.Objects
         public void SaveData(SaveData data)
         {
             data.tutorialData.canvas[persistentID] = _hasInteracted;
+        }
+        
+        //========================= Coroutines =========================//
+        
+        private IEnumerator TriggerStage5()
+        {
+            yield return new WaitForSeconds(1f);
+            finishInteractEvents[0].Invoke();
+            yield return new WaitForSeconds(delayBeforeTriggeringStage5);
+            finishInteractEvents[1].Invoke();
         }
     }
 }

@@ -6,26 +6,26 @@
 using System;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
-using Runtime.Player;
 using Runtime.Player.Nellient;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Rendering;
 
-namespace Runtime.InteractionSystem.Objects
+namespace Runtime.InteractionSystem.Objects.TutorialObjects
 {
     public class TutorialHospitalBed : MonoBehaviour, IInteractable
     {
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
-
-        [SerializeField] private Animator _towelAnimator;
+        [SerializeField] private Animator towelAnimator;
         
+        //----- Private Variables -----//
         private Collider2D _interactionCollider;
-
         private bool active;
+        private static readonly int Start = Animator.StringToHash("Start");
 
+        //========================= Unity Events =========================//
+        
         private void Awake()
         {
             TutorialManager.StartListening("TutorialStage2", Init);
@@ -35,6 +35,8 @@ namespace Runtime.InteractionSystem.Objects
             gameObject.layer = 0;
             _interactionCollider.enabled = false;
         }
+        
+        //========================= Interface Methods =========================//
 
         public bool OnInteract(GameObject player)
         {
@@ -45,6 +47,32 @@ namespace Runtime.InteractionSystem.Objects
             return true;
         }
 
+        public void OnInteractFailed(GameObject player)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CanInteract()
+        {
+            return active;
+        }
+        
+        //========================= Public Methods =========================//
+        
+        public void DropTowel()
+        {
+            towelAnimator.SetTrigger(Start);
+        }
+        
+        public void TowelEnd()
+        {
+            var towel = towelAnimator.gameObject.GetComponent<SortingGroup>();
+            towel.sortingOrder = 9;
+            towel.sortAtRoot = true;
+        }
+        
+        //========================= Private Methods =========================//
+        
         private void Init()
         {
             active = true;
@@ -57,26 +85,5 @@ namespace Runtime.InteractionSystem.Objects
             active = false;
             gameObject.layer = 0;
         }
-        
-        public bool CanInteract()
-        {
-            return active;
-        }
-        
-        public void DropTowel()
-        {
-            _towelAnimator.SetTrigger("Start");
-        }
-        
-        public void TowelEnd()
-        {
-            var towel = _towelAnimator.gameObject.GetComponent<SortingGroup>();
-            towel.sortingOrder = 9;
-            towel.sortAtRoot = true;
-        }
-
-        public UnityEvent OnInteractEvents { get; }
-        public UnityEvent OnInteractFailedEvents { get; }
-        public bool failedToInteract { get; set; }
     }
 }
