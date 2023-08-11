@@ -46,7 +46,7 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
         private void Awake()
         {
             _animator = GetComponent<Animator>();
-            _playerController = FindObjectOfType<PlayerController>(true);
+            _playerController = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
         }
         
         //========================= Interface events =========================//

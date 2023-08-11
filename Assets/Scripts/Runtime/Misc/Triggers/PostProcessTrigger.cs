@@ -14,7 +14,7 @@ namespace Runtime.Misc.Triggers
     {
         public void TriggerVignette(float delay)
         {
-            var volume = FindObjectOfType<Volume>();
+            var volume = FindFirstObjectByType<Volume>(FindObjectsInactive.Include);
             var vignette = volume.sharedProfile.components[0] as Vignette;
 
             volume.TweenValueFloat(0.25f, 2f, value =>

@@ -67,9 +67,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -199,7 +196,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2439039019655868043, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -394,67 +392,67 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[0]
+      propertyPath: 'iconStates.Array.data[0]'
       value: 
       objectReference: {fileID: 3651376782514268341, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[1]
+      propertyPath: 'iconStates.Array.data[1]'
       value: 
       objectReference: {fileID: 8400630917016067397, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[2]
+      propertyPath: 'iconStates.Array.data[2]'
       value: 
       objectReference: {fileID: 4489529191004961205, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[3]
+      propertyPath: 'iconStates.Array.data[3]'
       value: 
       objectReference: {fileID: -7299367091888926828, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[4]
+      propertyPath: 'iconStates.Array.data[4]'
       value: 
       objectReference: {fileID: -4098459646233017465, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[5]
+      propertyPath: 'iconStates.Array.data[5]'
       value: 
       objectReference: {fileID: -3533333562837018555, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[6]
+      propertyPath: 'iconStates.Array.data[6]'
       value: 
       objectReference: {fileID: -922782470186302681, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[7]
+      propertyPath: 'iconStates.Array.data[7]'
       value: 
       objectReference: {fileID: 8288634931544167700, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[8]
+      propertyPath: 'iconStates.Array.data[8]'
       value: 
       objectReference: {fileID: -8029137784058764689, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[9]
+      propertyPath: 'iconStates.Array.data[9]'
       value: 
       objectReference: {fileID: 3045529911543781220, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[10]
+      propertyPath: 'iconStates.Array.data[10]'
       value: 
       objectReference: {fileID: -5784756279073987917, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[11]
+      propertyPath: 'iconStates.Array.data[11]'
       value: 
       objectReference: {fileID: -5744918963410400959, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[12]
+      propertyPath: 'iconStates.Array.data[12]'
       value: 
       objectReference: {fileID: -6559205493037187943, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[13]
+      propertyPath: 'iconStates.Array.data[13]'
       value: 
       objectReference: {fileID: -7684976335469945510, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[14]
+      propertyPath: 'iconStates.Array.data[14]'
       value: 
       objectReference: {fileID: 1834785894681771879, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
-      propertyPath: iconStates.Array.data[15]
+      propertyPath: 'iconStates.Array.data[15]'
       value: 
       objectReference: {fileID: 2468408884840321388, guid: 8662ddc2c7d6ff346981028abe5ccd93, type: 3}
     m_RemovedComponents: []

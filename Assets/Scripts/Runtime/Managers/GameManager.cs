@@ -144,7 +144,7 @@ namespace Runtime.Managers
         {
             if (isMainMenu)
             {
-                var mainMenu = FindObjectOfType<MainMenu>(true);
+                var mainMenu = FindFirstObjectByType<MainMenu>(FindObjectsInactive.Include);
                 if (mainMenu.isSettingsOpen)
                 {
                     mainMenu.CloseSettings();
@@ -217,13 +217,13 @@ namespace Runtime.Managers
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            var volume = FindObjectOfType<Volume>();
+            var volume = FindFirstObjectByType<Volume>();
             var vignette = volume.sharedProfile.components[0] as Vignette;
             if (vignette != null) vignette.intensity.value = 0f;
 
             //Required objects for all scenes
-            _camera = FindObjectOfType<CinemachineVirtualCamera>();
-            NotificationManager = FindObjectOfType<NotificationManager>(true);
+            _camera = FindFirstObjectByType<CinemachineVirtualCamera>();
+            NotificationManager = FindFirstObjectByType<NotificationManager>(FindObjectsInactive.Include);
             SoundSystem.SilenceAmbience();
             SoundSystem.ResetSystem();
             SoundSystem.PauseAll();
@@ -235,12 +235,12 @@ namespace Runtime.Managers
             }
 
             //Required objects for gameplay scenes
-            DialogueSystem = FindObjectOfType<DialogueManager>(true);
-            InventorySystem = FindObjectOfType<InventoryManager>(true);
-            PauseMenu = FindObjectOfType<PauseMenu>(true);
-            HUD = FindObjectOfType<HUD>(true);
-            DeathScreen = FindObjectOfType<DeathScreen>(true);
-            EndScreen = FindObjectOfType<EndScreen>(true);
+            DialogueSystem = FindFirstObjectByType<DialogueManager>(FindObjectsInactive.Include);
+            InventorySystem = FindFirstObjectByType<InventoryManager>(FindObjectsInactive.Include);
+            PauseMenu = FindFirstObjectByType<PauseMenu>(FindObjectsInactive.Include);
+            HUD = FindFirstObjectByType<HUD>(FindObjectsInactive.Include);
+            DeathScreen = FindFirstObjectByType<DeathScreen>(FindObjectsInactive.Include);
+            EndScreen = FindFirstObjectByType<EndScreen>(FindObjectsInactive.Include);
 
             if(testMode)
             {

@@ -45,7 +45,7 @@ namespace Runtime.Utils
 
         public static IEnumerable<GameObject> FindGameObjectsWithinLayerMask(LayerMask mask, GameObject exclude = null) 
         {
-            return Object.FindObjectsOfType<GameObject>().Where(x => x != exclude && x.IsInLayerMask(mask));
+            return Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None).Where(x => x != exclude && x.IsInLayerMask(mask));
         }
         
         public static bool IsInLayerMask(this GameObject gameObject, LayerMask mask) 

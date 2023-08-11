@@ -122,7 +122,7 @@ namespace Runtime.Player
             _audioLowPassFilter = GetComponent<AudioLowPassFilter>();
 
             //Setup Monster
-            _monster = FindObjectOfType<BehaviourTreeOwner>(true);
+            _monster = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
             if (_monster != null)
             {
                 _seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
@@ -302,7 +302,8 @@ namespace Runtime.Player
 
         public void LoadData(SaveData data)
         {
-            FindObjectOfType<CinemachineTargetGroup>().transform.position = data.playerData.position;
+            
+            FindFirstObjectByType<CinemachineTargetGroup>().transform.position = data.playerData.position;
             transform.position = data.playerData.position;
             lookPointer.position = new Vector2(transform.position.x, transform.position.y + 2.5f);
             gameObject.SetActive(data.playerData.enabled);

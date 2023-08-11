@@ -51,7 +51,7 @@ namespace Runtime.Managers
             {
                 if (!_tutorialManager)
                 {
-                    _tutorialManager = FindObjectOfType(typeof(TutorialManager)) as TutorialManager;
+                    _tutorialManager = FindFirstObjectByType(typeof(TutorialManager)) as TutorialManager;
 
                     if (!_tutorialManager)
                     {

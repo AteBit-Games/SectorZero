@@ -163,7 +163,8 @@ namespace Runtime.BehaviourTree
             
             if (!_canSeePlayer)
             {
-                var volume = FindObjectOfType<Volume>();
+                
+                var volume = FindFirstObjectByType<Volume>();
                 var vignette = volume.sharedProfile.components[0] as Vignette;
 
                 if(_activeTween != null) _activeTween.Cancel();
@@ -201,10 +202,10 @@ namespace Runtime.BehaviourTree
             Debug.Log("Losing sight");
             yield return new WaitForSeconds(1f);
             
-            FindObjectOfType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
+            FindFirstObjectByType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
             _material.color = idleColour;
             
-            var volume = FindObjectOfType<Volume>();
+            var volume = FindFirstObjectByType<Volume>();
             var vignette = volume.sharedProfile.components[0] as Vignette;
             
             if(_activeTween != null) _activeTween.Cancel();

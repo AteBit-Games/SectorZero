@@ -137,9 +137,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6383289512641022648}
-  - component: {fileID: 2439039019655868043}
   m_Layer: 0
-  m_Name: AmbianceManager
+  m_Name: AmbienceSources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,22 +162,6 @@ Transform:
   - {fileID: 5899738263260123743}
   m_Father: {fileID: 8917896545657216773}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2439039019655868043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1467534439339265415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbb4cc90553602044a568ee70ece3cf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSources:
-  - {fileID: 5247824244157681017}
-  - {fileID: 4921403753399154218}
-  - {fileID: 5090701616367372721}
 --- !u!1 &4439287639992215942
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,6 +559,9 @@ MonoBehaviour:
   musicMixGroup: {fileID: 11400000, guid: a9671a3e7439c9047ada01fe7d7b2426, type: 2}
   sfxMixGroup: {fileID: 11400000, guid: 52c044bba344d064dbaf311ca3cdd4de, type: 2}
   mainMixer: {fileID: 24100000, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
+  ambienceSources:
+  - {fileID: 5247824244157681017}
+  - {fileID: 4921403753399154218}
 --- !u!114 &3517014781070517759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,9 +594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72c8e03eda53cd498be945729335758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menaceGauge: 0
+  menaceGaugeValue: 0
   menaceGaugeMax: 100
   menaceGaugeMin: 0
+  menaceGaugeIncreaseMultiplier: 1
 --- !u!114 &864986145695122940
 MonoBehaviour:
   m_ObjectHideFlags: 0

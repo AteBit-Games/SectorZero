@@ -24,8 +24,8 @@ namespace Runtime.AI
         
         private void Awake()
         {
-            _monster = FindObjectOfType<BehaviourTreeOwner>(true);
-            _player = FindObjectOfType<PlayerController>();
+            _monster = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
+            _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
         }
         
         private void FixedUpdate()

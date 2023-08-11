@@ -51,7 +51,7 @@ namespace Runtime.AI
         
         public void EmitGlobal()
         {
-            var targets = FindObjectsOfType<MonoBehaviour>().OfType<IHearingHandler>();
+            var targets = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IHearingHandler>();
             foreach (var t in targets)
             {
                 t.OnHearing(this);

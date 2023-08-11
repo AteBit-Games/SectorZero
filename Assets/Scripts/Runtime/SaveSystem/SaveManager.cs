@@ -119,7 +119,7 @@ namespace Runtime.SaveSystem
 
         private static List<IPersistant> FindAllPersistenceObjects()
         {
-            var dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IPersistant>();
+            var dataPersistenceObjects = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<IPersistant>();
             return new List<IPersistant>(dataPersistenceObjects);
         }
 

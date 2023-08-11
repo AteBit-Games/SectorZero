@@ -40,7 +40,7 @@ namespace Runtime.Managers
         {
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;
-            _feedbackForm = FindObjectOfType<FeedbackForm>();
+            _feedbackForm = FindFirstObjectByType<FeedbackForm>();
             
             // Main Pause Items
             _buttonDescription = rootVisualElement.Q<Label>("button-description");

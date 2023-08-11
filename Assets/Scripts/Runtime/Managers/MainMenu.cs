@@ -47,7 +47,7 @@ namespace Runtime.Managers
         {
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;
-            _feedbackForm = FindObjectOfType<FeedbackForm>();
+            _feedbackForm = FindFirstObjectByType<FeedbackForm>();
             
             _buttonDescription = rootVisualElement.Q<Label>("button-description");
             _mainMenuWindow = rootVisualElement.Q<VisualElement>("main-menu-window");
