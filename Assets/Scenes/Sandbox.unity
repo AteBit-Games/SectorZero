@@ -25809,63 +25809,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: 'managedReferences[-2]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: blackboardOverrides.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: 'managedReferences[61114352745054250]'
-      value: Assembly-CSharp Runtime.BehaviourTree.GameObjectKey
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: 'managedReferences[61114352745054251]'
-      value: Assembly-CSharp Runtime.BehaviourTree.GameObjectKey
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: blackboardOverrides.Array.data[0].key
-      value: 61114352745054250
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: blackboardOverrides.Array.data[1].key
-      value: 61114352745054250
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: blackboardOverrides.Array.data[0].value
-      value: 61114352745054251
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: blackboardOverrides.Array.data[1].value
-      value: 61114352745054251
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: managedReferences[61114352745054250].name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: managedReferences[61114352745054251].name
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: managedReferences[61114352745054250].value
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
       propertyPath: managedReferences[61114352745054251].value
       value: 
       objectReference: {fileID: 1266478799}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: managedReferences[61114352745054250].typeName
-      value: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 920597039, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
-      propertyPath: managedReferences[61114352745054251].typeName
-      value: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      objectReference: {fileID: 0}
     - target: {fileID: 2672757191909828581, guid: 64fef9ca9f5065b4cb901127a4c82338, type: 3}
       propertyPath: m_Name
       value: Voidmask

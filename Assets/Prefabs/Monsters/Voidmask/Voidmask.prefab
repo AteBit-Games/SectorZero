@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1595203270892655072}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.0625, y: 16.3125, z: 0}
+  m_LocalPosition: {x: -26.0625, y: 18.19204, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -192,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: 21300000, guid: a61b1e8e27c3c1841b625ebcc678d1af, type: 3}
+  m_Sprite: {fileID: -693437864, guid: 6ea97e6da2915cb428f516c71d268beb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -205,7 +205,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &6891588429958543162
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -219,6 +219,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -237,7 +238,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: dbd38dd6330e4b34c8751a5bcdd67251, type: 2}
-  blackboardOverrides: []
+  blackboardOverrides:
+  - key:
+      rid: 61114352745054250
+    value:
+      rid: 61114352745054251
   treeStates: []
   obstacleMask:
     serializedVersion: 2
@@ -264,7 +269,21 @@ MonoBehaviour:
   isPlayerCrouching: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 61114352745054250
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 61114352745054251
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: 
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
 --- !u!210 &4632917483772189738
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -285,6 +304,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3369446493431426671}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -308,18 +328,18 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.12294006, y: -0.2595396}
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.12294006, y: 1.62}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.1}
     oldSize: {x: 5, y: 5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 2.8911743, y: 4.5850086}
   m_EdgeRadius: 0
 --- !u!82 &920597040
