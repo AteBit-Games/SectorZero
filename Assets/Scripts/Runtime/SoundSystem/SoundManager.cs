@@ -26,6 +26,7 @@ namespace Runtime.SoundSystem
         
         [Header("AMBIENCE SETTINGS")]
         [SerializeField] public List<AudioSource> ambienceSources;
+        [SerializeField] public AudioSource stingSource;
         
         private readonly Dictionary<AudioSource, Sound> _activeSoundInstanceSources = new();
         private readonly List<ISoundEntity> _activeSoundEntitySources = new();
@@ -169,7 +170,11 @@ namespace Runtime.SoundSystem
         {
             if(_isBusy) return;
             _isBusy = true;
-            ambienceSources[2].PlayOneShot(sound.clip);
+            
+            stingSource.volume = sound.volume;
+            stingSource.loop = false;
+            stingSource.PlayOneShot(sound.clip);
+            
             Invoke(nameof(StingReady), sound.clip.length);
         }
         

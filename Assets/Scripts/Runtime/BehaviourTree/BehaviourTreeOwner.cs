@@ -199,7 +199,6 @@ namespace Runtime.BehaviourTree
         
         private IEnumerator LoseSight()
         {
-            Debug.Log("Losing sight");
             yield return new WaitForSeconds(1f);
             
             FindFirstObjectByType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
@@ -221,7 +220,6 @@ namespace Runtime.BehaviourTree
                 SetActiveState(treeStates.Find(x => x.state == TreeState.State.LastKnown).stateIndex);
             }
             
-            Debug.Log("Lost sight");
             _loseSightCoroutine = null;
             _sightCoroutineRunning = false;
             _canSeePlayer = false;

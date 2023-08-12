@@ -9,6 +9,7 @@ using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Runtime.InteractionSystem.Objects.TutorialObjects
 {
@@ -72,6 +73,11 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
         public void BreakDoor()
         {
             _mainAnimator.SetTrigger(Property);
+        }
+
+        public void RemoveShadowCaster()
+        {
+            GetComponent<ShadowCaster2D>().enabled = false;
         }
 
         public void TriggerBottom()
