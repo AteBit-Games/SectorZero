@@ -135,6 +135,7 @@ namespace Runtime.Managers
 
         private void LoadGame()
         {
+            GameManager.Instance.loaded = true;
             GameManager.Instance.SaveSystem.LoadGame();
             _feedbackForm.HideForm();
         }

@@ -4,7 +4,6 @@
 ****************************************************************/
 
 using NavMeshPlus.Components;
-using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem.ScriptableObjects;
@@ -20,7 +19,6 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
         [SerializeField] private NavMeshSurface navMeshSurface;
         [SerializeField] private Collider2D navigationBlocker;
         [SerializeField] private Animator bottomAnimator;
-        [SerializeField] private bool startOpen;
         [SerializeField] public string persistentID;
 
         //----- Private Variables -----//
@@ -40,11 +38,6 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
         {
             _mainAnimator = GetComponent<Animator>();
             _audioSource = GetComponent<AudioSource>();
-            if (startOpen)
-            {
-                _mainAnimator.SetBool(_isOpen, true);
-                open = true;
-            }
         }
         
         //=========================== Public Methods =============================//

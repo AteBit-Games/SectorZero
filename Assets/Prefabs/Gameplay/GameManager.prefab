@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6383289512641022648}
   m_Layer: 0
-  m_Name: AmbienceSources
+  m_Name: SoundSources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,6 +562,7 @@ MonoBehaviour:
   ambienceSources:
   - {fileID: 5247824244157681017}
   - {fileID: 4921403753399154218}
+  stingSource: {fileID: 5090701616367372721}
 --- !u!114 &3517014781070517759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveFileName: save.sctr
-  useEncryption: 0
+  useEncryption: 1
   playerConfig:
   - sceneIndex: 1
     startPosition: {x: -0.8211489, y: 5.643502, z: 0}

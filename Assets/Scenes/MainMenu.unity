@@ -128,18 +128,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 381558948670293325, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: stingSource
-      value: 
-      objectReference: {fileID: 1049716660}
-    - target: {fileID: 1467534439339265415, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: m_Name
-      value: SoundSources
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: useEncryption
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
       propertyPath: playerConfig.Array.size
       value: 2
@@ -156,10 +144,6 @@ PrefabInstance:
       propertyPath: testMode
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8917896545657216772, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: menuHoverSound
-      value: 
-      objectReference: {fileID: 11400000, guid: aece9e2401d15fd42a90b3a2a8222edf, type: 2}
     - target: {fileID: 8917896545657216773, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -302,11 +286,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1245468515}
   m_SourcePrefab: {fileID: 100100000, guid: 46166193004221542992457f30eb08ec, type: 3}
---- !u!82 &1049716660 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5090701616367372721, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-  m_PrefabInstance: {fileID: 214433057}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1245468514 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 526548778988429172, guid: 46166193004221542992457f30eb08ec, type: 3}

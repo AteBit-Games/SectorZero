@@ -104,7 +104,7 @@ namespace Runtime.Managers
         {
             yield return new WaitForSecondsRealtime(3.1f);
             _savingIcon.RemoveFromClassList("saving-show");
-            StopCoroutine(_savingLoopCoroutine);
+            if(_savingLoopCoroutine != null) StopCoroutine(_savingLoopCoroutine);
         }
         
         private IEnumerator SavingIcon()

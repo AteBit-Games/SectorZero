@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 1253724928}
   - component: {fileID: 6610655758530805637}
   - component: {fileID: 7183558221093178581}
+  - component: {fileID: 5117588599163062958}
   m_Layer: 3
   m_Name: LockerBigFront
   m_TagString: Untagged
@@ -92,7 +93,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fb0b6602100feb0479f5bc7459f80425, type: 2}
+  - {fileID: 2100000, guid: 045a0fc57c65924498dbe2aaf2f1dd30, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,27 +138,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactSound: {fileID: 11400000, guid: 5ececcaf60583d54e82ce681f1f82403, type: 2}
-  onTriggerEvents:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   inspectPosition: {fileID: 1757201452837377678}
   hidePosition: {fileID: 461143468751046659}
   revealPosition: {fileID: 461143469602724628}
   exitDirection: 3
   emptyLockerSprite: {fileID: 958507350, guid: f2965bfdbecae3449b2585451965d8fa, type: 3}
   hideLockerSprite: {fileID: -1202767408, guid: f2965bfdbecae3449b2585451965d8fa, type: 3}
+  onTriggerEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  canTrigger: 0
 --- !u!82 &461143468751046658
 AudioSource:
   m_ObjectHideFlags: 0
@@ -301,6 +291,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461143468751046662}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -324,7 +315,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.016189575, y: 2.678081}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,7 +327,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1.2049103, y: 2.0950994}
   m_EdgeRadius: 0
 --- !u!114 &7183558221093178581
@@ -351,23 +342,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShadowGroup: 0
-  m_ComponentVersion: 1
+  m_Priority: 11
+  m_ComponentVersion: 3
   m_HasRenderer: 1
   m_UseRendererSilhouette: 0
   m_CastsShadows: 1
   m_SelfShadows: 1
-  m_ApplyToSortingLayers: 0000000073213335
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000
   m_ShapePath:
   - {x: -1.5022812, y: 0.043132782, z: 0}
   - {x: -1.4936523, y: 4.2241545, z: 0}
   - {x: 1.5022812, y: 4.2155323, z: 0}
   - {x: 1.4939804, y: 0.042319298, z: 0}
   m_ShapePathHash: 1712738125
-  m_Mesh: {fileID: 0}
-  m_InstanceId: -324562
-  m_LocalBounds:
-    m_Center: {x: 0, y: 2.133237, z: 0}
-    m_Extent: {x: 1.5022812, y: 2.0909176, z: 0}
+  m_InstanceId: -34566
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0, y: 2.133237, z: 0}
+      m_Extent: {x: 1.5022812, y: 2.0909176, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &5117588599163062958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461143468751046662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 2f55724ea3ecdde48850d072591525c6, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 461143468751046661}
+          m_TargetAssemblyTypeName: Runtime.InteractionSystem.Objects.Locker, Assembly-CSharp
+          m_MethodName: CanExit
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &461143469602724629
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +495,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8634924879323228611}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -479,7 +519,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: -0.008674622, y: 0.56000006}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -490,6 +531,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 2.9550934, y: 1.0035045}
   m_EdgeRadius: 0

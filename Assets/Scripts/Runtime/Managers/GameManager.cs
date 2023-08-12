@@ -40,7 +40,7 @@ namespace Runtime.Managers
         [Header("DEBUG")]
         #endregion 
         [SerializeField] public bool testMode;
-
+        [HideInInspector] public bool loaded;
         //========================= Interface =========================
         
         public DialogueManager DialogueSystem { get; private set;  }
@@ -242,16 +242,16 @@ namespace Runtime.Managers
             DeathScreen = FindFirstObjectByType<DeathScreen>(FindObjectsInactive.Include);
             EndScreen = FindFirstObjectByType<EndScreen>(FindObjectsInactive.Include);
 
-            if(testMode)
+            if(testMode && !loaded)
             {
                 ResetInput();
                 Time.timeScale = 1f;
             }
             else
             {
+                loaded = false;
                 Time.timeScale = 0f;
             }
-            SoundSystem.PauseAll();
         }
 
         private void UpdateStatus()
@@ -292,6 +292,7 @@ namespace Runtime.Managers
                 Time.timeScale = 1f;
                 ResetInput();
                 LoadingScreen.HideLoading();
+                SoundSystem.PauseAll();
             }
         }       
         
