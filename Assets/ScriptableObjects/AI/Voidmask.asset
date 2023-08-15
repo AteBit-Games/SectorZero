@@ -27,7 +27,7 @@ MonoBehaviour:
     - rid: 61114352745054246
     - rid: 61114352745054248
     - rid: 61114352745054249
-  viewPosition: {x: 524, y: -8, z: 0}
+  viewPosition: {x: 503, y: 25, z: 0}
   viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
@@ -85,15 +85,15 @@ MonoBehaviour:
         comment: 
         drawGizmos: 0
         children:
-        - rid: 61114352745054255
         - rid: 61114352745054253
+        - rid: 61114352745054255
     - rid: 61114352745054253
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 6b6c4f6a6cc64cd4186e283684c10047
-        position: {x: 100, y: 380}
+        position: {x: -120, y: 380}
         blackboard:
           keys: []
         comment: 
@@ -101,7 +101,7 @@ MonoBehaviour:
         duration:
           reference:
             rid: -2
-          defaultValue: 10
+          defaultValue: 1200
     - rid: 61114352745054254
       type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
@@ -127,7 +127,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9a36aa5dfb28cae4da5c40c7c2936fc8
-        position: {x: -120, y: 380}
+        position: {x: 120, y: 380}
         blackboard:
           keys: []
         comment: 

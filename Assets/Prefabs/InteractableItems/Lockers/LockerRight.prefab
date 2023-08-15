@@ -57,6 +57,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102670791}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -80,7 +81,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.033323288, y: -0.056001067}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -91,7 +93,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1.1253014, y: 1.2637322}
   m_EdgeRadius: 0
 --- !u!1 &461143468751046662
@@ -155,7 +156,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fb0b6602100feb0479f5bc7459f80425, type: 2}
+  - {fileID: 2100000, guid: 045a0fc57c65924498dbe2aaf2f1dd30, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -206,6 +207,10 @@ MonoBehaviour:
   exitDirection: 0
   emptyLockerSprite: {fileID: -431796540, guid: 3f36152b85c4eb942b9294c6e54b2c89, type: 3}
   hideLockerSprite: {fileID: -431796540, guid: 3f36152b85c4eb942b9294c6e54b2c89, type: 3}
+  onTriggerEvents:
+    m_PersistentCalls:
+      m_Calls: []
+  canTrigger: 0
 --- !u!82 &461143468751046658
 AudioSource:
   m_ObjectHideFlags: 0
@@ -349,6 +354,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461143468751046662}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -372,7 +378,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.049211264, y: 0.770723}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -383,7 +390,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1.1279575, y: 1.4327083}
   m_EdgeRadius: 0
 --- !u!114 &2007956864012374994
@@ -399,11 +405,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShadowGroup: 0
-  m_ComponentVersion: 1
+  m_Priority: 10
+  m_ComponentVersion: 3
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 1
+  m_AlphaCutoff: 0.1
   m_ApplyToSortingLayers: 0000000073213335
   m_ShapePath:
   - {x: -0.65625, y: 0, z: 0}
@@ -411,11 +419,27 @@ MonoBehaviour:
   - {x: 0.65625, y: 4.25, z: 0}
   - {x: 0.65625, y: 0, z: 0}
   m_ShapePathHash: 0
-  m_Mesh: {fileID: 0}
-  m_InstanceId: -552728
-  m_LocalBounds:
-    m_Center: {x: 0, y: 2.125, z: 0}
-    m_Extent: {x: 0.65625, y: 2.125, z: 0}
+  m_InstanceId: -1752
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0, y: 2.125, z: 0}
+      m_Extent: {x: 0.65625, y: 2.125, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &461143469602724629
 GameObject:
   m_ObjectHideFlags: 0

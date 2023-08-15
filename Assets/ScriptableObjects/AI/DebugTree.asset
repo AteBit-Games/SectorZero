@@ -22,7 +22,7 @@ MonoBehaviour:
     keys:
     - rid: 61114352745054222
     - rid: 61114352745054238
-  viewPosition: {x: 397, y: 125, z: 0}
+  viewPosition: {x: 523, y: 118, z: 0}
   viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
@@ -59,11 +59,11 @@ MonoBehaviour:
         - source:
             rid: -2
           target:
-            rid: 61114352745054240
+            rid: 2098102670374469632
         - source:
             rid: -2
           target:
-            rid: 61114352745054241
+            rid: 2098102670374469633
     - rid: 61114352745054222
       type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -77,16 +77,16 @@ MonoBehaviour:
         name: Index
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 7
-    - rid: 61114352745054240
+    - rid: 2098102670374469632
       type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
         name: Position
         typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
         value: {x: 0, y: 0}
-    - rid: 61114352745054241
-      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+    - rid: 2098102670374469633
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
-        name: Velocity
-        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 4
+        name: Yeet
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0

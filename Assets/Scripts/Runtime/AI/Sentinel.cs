@@ -2,48 +2,40 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
 using System.Collections;
 using Runtime.AI.Interfaces;
+using Runtime.BehaviourTree;
 using UnityEngine;
+using ElRaccoone.Tweens;
+using UnityEngine.Rendering.Universal;
 
 namespace Runtime.AI
 {
     public class Sentinel : MonoBehaviour, ISightHandler
     {
-        [SerializeField] private float cooldown = 3f;
-        [SerializeField] private float activeTime = 8f;
-        
         [Tooltip("Masks that block field of view"), SerializeField] private LayerMask obstacleMask;
+        [Tooltip("Wall Mask"), SerializeField] private LayerMask wallMask;
         [Tooltip("Masks that contains the player character"), SerializeField] private LayerMask playerMask;
         [Tooltip("Maximum view distance"), SerializeField] private float viewRadius = 5.0f;
         [Tooltip("Maximum angle that the monster can see"), SerializeField, Range(0f, 360f)] private float viewAngle = 135.0f;
         [Tooltip("The direction to look in."), Range(0f, 360f)] public float lookAngle;
+        [Tooltip("The direction to look in.")] public Color defaultColor;
+        [Tooltip("The direction to look in.")] public Color alertColor;
         
         public bool debug;
         public GameObject sightVisualPrefab;
-        [Tooltip("Colour of the view cone when the monster is idle"), SerializeField] private Color idleColour = new(0.0f, 0.0f, 0.0f, 150.0f);
-        [Tooltip("Colour of the view cone when the monster spots the player"), SerializeField] private Color aggroColour = new(255.0f, 0.0f, 0.0f, 150.0f);
 
-        // ====================== Private Variables ======================
+        //---- Private Variables ----//
+        private BehaviourTreeOwner _voidmask;
+        private Animator _animator;
+        private Light2D _light;
+        private float _initialIntensity;
+
         private bool _isActivated;
-        private Material _material;
-        private bool _canSeePlayer;
-
-        private float _cooldownTimeLeft;
         private float _activeTimeLeft;
+        private static readonly int Activated = Animator.StringToHash("activated");
 
-        private void Awake()
-        {
-            GameObject sightVisual = Instantiate(sightVisualPrefab, transform);
-            _material = sightVisual.GetComponent<MeshRenderer>().material;
-            _material.color = idleColour;
-        }
-
-        private void Start()
-        {
-            StartCoroutine(TimeOutActivate());
-        }
-        
         // ====================== Interface ======================
 
         public bool IsActivated => _isActivated;
@@ -51,75 +43,114 @@ namespace Runtime.AI
         public float ViewRadius => viewRadius;
         public LayerMask ObstacleMask => obstacleMask;
         public LayerMask PlayerMask => playerMask;
+        public LayerMask WallMask => wallMask;
         
-        public void OnSightEnter()
+        //=============================== Unity Events =================================//
+
+        private void Awake()
         {
-            DeactivateSentinel();
-            _canSeePlayer = true;
-            _material.color = aggroColour;
+            _voidmask = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
+            _animator = GetComponent<Animator>();
+            
+            _light = GetComponentInChildren<Light2D>();
+            _initialIntensity = _light.intensity;
+
+            Instantiate(sightVisualPrefab, transform);
         }
 
-        public void OnSightExit(Vector2 lastSeenPosition)
+        private void Start()
         {
-            if (_canSeePlayer)
-            {
-                //event
-                _material.color = idleColour;
-            }
-            _canSeePlayer = false;
-        }
+            ActivateSentinel(200f);
 
-        private IEnumerator TimeOutActivate()
-        {
-            yield return new WaitForSeconds(4f);
-            ActivateSentinel();
+            _light.pointLightOuterRadius = viewRadius;
+            _light.pointLightInnerAngle = viewAngle;
+            _light.transform.rotation = Quaternion.Euler(0f, 0f, -lookAngle-90);
+            _light.color = defaultColor;
         }
         
         private void Update()
         {
-            if (_isActivated)
+            if (_isActivated && _activeTimeLeft > 0f)
             {
-                if (_activeTimeLeft > 0f)
+                _activeTimeLeft -= Time.deltaTime;
+                if (_activeTimeLeft <= 0f)
                 {
-                    _activeTimeLeft -= Time.deltaTime;
-                    if (_activeTimeLeft <= 0f)
-                    {
-                        _isActivated = false;
-                        _cooldownTimeLeft = cooldown;
-                    }
-                }
-            }
-            else
-            {
-                if (_cooldownTimeLeft > 0f)
-                {
-                    _cooldownTimeLeft -= Time.deltaTime;
-                    if (_cooldownTimeLeft <= 0f)
-                    {
-                        _cooldownTimeLeft = 0f;
-                    }
+                    _isActivated = false;
+                    DeactivateSentinel();
                 }
             }
         }
         
-        public void ActivateSentinel()
+        //========================== Public Methods ==============================//
+        
+        public void OnSightEnter()
         {
-            if(_cooldownTimeLeft > 0f) return;
+            TriggerSentinel();
+        }
+        
+        public void OnSightExit(Vector2 lastSeenPosition)
+        {
+            //Not Used
+        }
+        
+        public void ActivateSentinel(float duration)
+        {
+            Debug.Log("Activating Sentinel: " + gameObject.name);
             _isActivated = true;
-            _activeTimeLeft = activeTime;
+            _activeTimeLeft = duration;
+
+            _light.color = defaultColor;
+            _light.intensity = _initialIntensity;
+            
+            _animator.SetBool(Activated, true);
+        }
+        
+        public void TriggerSentinel()
+        {
+            if (_isActivated)
+            {
+                Debug.Log("Triggering Sentinel: " + gameObject.name);
+                _isActivated = false;
+                _light.color = alertColor;
+                
+                StartCoroutine(TriggerDeactivate());
+            }
         }
         
         public void DeactivateSentinel()
         {
-            _activeTimeLeft = 0f;
-            _cooldownTimeLeft = cooldown;
+            Debug.Log("Deactivating Sentinel: " + gameObject.name);
             _isActivated = false;
+            _activeTimeLeft = 0f;
+            
+            _animator.SetBool(Activated, false);
         }
+        
+        //================================= Helpers ===================================//
         
         public Vector2 DirFromAngle(float angleDeg)
         {
             angleDeg += lookAngle;
             return new Vector2(Mathf.Sin(angleDeg * Mathf.Deg2Rad), Mathf.Cos(angleDeg * Mathf.Deg2Rad));
+        }
+        
+        //================================= Coroutine ===================================//
+
+        private IEnumerator TriggerDeactivate()
+        {
+            for(var i = 0; i < 1; i++)
+            {
+                _light.enabled = true;
+                yield return new WaitForSeconds(Random.Range(0.2f, 0.3f));
+                _light.enabled = false;
+                yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
+            }
+            
+            _light.enabled = true;
+            _light.TweenValueFloat(0f, 1.4f, value =>
+            {
+                _light.intensity = value;
+            }).SetFrom(_light.intensity).SetEaseBackOut().SetOnComplete(DeactivateSentinel);
         }
     }
 }

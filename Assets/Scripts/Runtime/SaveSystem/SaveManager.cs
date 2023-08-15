@@ -75,7 +75,7 @@ namespace Runtime.SaveSystem
             _saveData = new SaveData();
             
             var sceneIndex = playerConfig.FindIndex(config => config.sceneIndex == scene);
-            _saveData.playerData.position = playerConfig[sceneIndex].startPosition;
+            _saveData.playerData.position = sceneIndex == -1 ? new Vector3(0, 0, 0) : playerConfig[sceneIndex].startPosition; 
 
             if (!testMode)
             {

@@ -89,7 +89,7 @@ MonoBehaviour:
     - rid: 484473835900633088
     - rid: 6236232439545200658
     - rid: 484473896144994402
-  viewPosition: {x: 355, y: 180, z: 0}
+  viewPosition: {x: 481, y: 174, z: 0}
   viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
@@ -954,7 +954,11 @@ MonoBehaviour:
           reference:
             rid: 6236232439545200641
           defaultValue: {fileID: 0}
-        deathType: 0
+        northKill: {fileID: 0}
+        eastKill: {fileID: 0}
+        westKill: {fileID: 0}
+        southKill: {fileID: 0}
+        waitUntilFinish: 1
     - rid: 484473896144994411
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:

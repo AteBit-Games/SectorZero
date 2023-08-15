@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
+using Runtime.Player;
 using UnityEngine;
 
 namespace Runtime.AI
@@ -16,16 +17,18 @@ namespace Runtime.AI
         private int[] _triangles;
         private int _stepCount;
         private int _activated;
+        private PlayerController _player;
 
         private void Awake()
         {
+            _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
             _sight = transform.parent.GetComponent<Sentinel>();
             _mesh = GetComponent<MeshFilter>().mesh;
         }
     
         private void LateUpdate()
         {
-            if(_sight.IsActivated && _sight.debug) UpdateMesh();
+            if(_sight.IsActivated) UpdateMesh();
             else _mesh.Clear();
         }
     
@@ -50,16 +53,32 @@ namespace Runtime.AI
                 Vector3 dir = _sight.DirFromAngle(angle) * Mathf.Sign(transform.parent.transform.localScale.x);
                 _hit = Physics2D.Raycast(_sight.transform.position, dir, _sight.ViewRadius, _sight.ObstacleMask | _sight.PlayerMask);
                 
+                //if the player is crouching take into account the obstacle mask
+                if (_player.isSneaking)
+                {
+                    _hit = Physics2D.Raycast(_sight.transform.position, dir, _sight.ViewRadius, _sight.WallMask | _sight.ObstacleMask | _sight.PlayerMask);
+                }
+                else
+                {
+                    _hit = Physics2D.Raycast(_sight.transform.position, dir, _sight.ViewRadius, _sight.PlayerMask | _sight.WallMask);
+                }
+                
                 if (_hit.collider != null)
                 {
-                    bool playerHit = (_sight.PlayerMask.value & 1 << _hit.transform.gameObject.layer) > 0;
+                    bool playerHit = (_sight.PlayerMask.value & 1 << _hit.transform.gameObject.layer) > 0 && _hit.collider.CompareTag("Player");
                     if (playerHit)
                     {
+                        var player = _hit.collider.GetComponent<PlayerController>();
+                        if(player == null) player = _hit.collider.GetComponentInParent<PlayerController>();
+                        if(player.isHiding) continue;
+                        
+                        //if the player is not hiding, call the OnSightEnter method
+                        player.GetComponent<ISightEntity>().IsSeen = true;
                         _sight.gameObject.GetComponent<ISightHandler>().OnSightEnter();
                         spottedPlayer = _hit.transform.gameObject;
                     }
-                    else
-                    {
+                    else if(_sight.debug) 
+                    { 
                         _viewVertex.Add(transform.position + dir.normalized * (_hit.distance));
                     }
                 }
