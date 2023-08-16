@@ -542,6 +542,7 @@ MonoBehaviour:
   inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
   isMainMenu: 0
   testMode: 1
+  loaded: 0
   details: 
 --- !u!114 &381558948670293325
 MonoBehaviour:
@@ -555,9 +556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea89d7f18911a44ca247eba52283255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterMixGroup: {fileID: 11400000, guid: 0807f2e9fafb2e44388f63d14f764492, type: 2}
-  musicMixGroup: {fileID: 11400000, guid: a9671a3e7439c9047ada01fe7d7b2426, type: 2}
-  sfxMixGroup: {fileID: 11400000, guid: 52c044bba344d064dbaf311ca3cdd4de, type: 2}
+  masterMixGroup: {fileID: 11400000, guid: e5432f18fee79b6438057d1007746d6c, type: 2}
+  musicMixGroup: {fileID: 11400000, guid: 8dd99f57cca7eb043975152dbd04bdec, type: 2}
+  sfxMixGroup: {fileID: 11400000, guid: b348364a418e1fe4d88ea7142fcae115, type: 2}
   mainMixer: {fileID: 24100000, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
   ambienceSources:
   - {fileID: 5247824244157681017}
