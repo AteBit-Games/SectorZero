@@ -10,7 +10,7 @@ using Runtime.InventorySystem;
 using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
-using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Random = UnityEngine.Random;

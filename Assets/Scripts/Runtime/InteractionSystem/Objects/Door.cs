@@ -6,7 +6,7 @@
 using NavMeshPlus.Components;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
-using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 

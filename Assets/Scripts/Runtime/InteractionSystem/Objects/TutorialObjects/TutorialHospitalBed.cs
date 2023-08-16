@@ -7,7 +7,7 @@ using System;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.Player.Nellient;
-using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering;
 

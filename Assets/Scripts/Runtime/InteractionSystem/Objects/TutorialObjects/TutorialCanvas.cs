@@ -11,7 +11,7 @@ using Runtime.Managers;
 using Runtime.Player;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
-using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Events;
 

@@ -45,14 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 1
+  m_ComponentVersion: 2
   m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
   m_Color: {r: 0.9607843, g: 0.83197916, b: 0.64372545, a: 1}
   m_Intensity: 1.2
   m_LightVolumeIntensity: 0.09
-  m_LightVolumeIntensityEnabled: 0
+  m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
@@ -62,13 +62,15 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
+  m_ShadowsEnabled: 0
   m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0
+  m_ShadowSoftnessFalloffIntensity: 0.5
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.19759989, y: -1.9089999, z: 0}
-    m_Extent: {x: 13.791201, y: 11.1751, z: 0}
+    m_Center: {x: 0.20864964, y: -1.9131999, z: 0}
+    m_Extent: {x: 13.79395, y: 11.178101, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -159,9 +161,9 @@ MonoBehaviour:
   maxOn: 6
   minOff: 0.1
   maxOff: 0.3
-  onSound: {fileID: 11400000, guid: 24477554bcf8bc2439185617f7b147a8, type: 2}
+  onSound: {fileID: 11400000, guid: f1570eb6bf234b941b075dc0a8fc2bbd, type: 2}
   loopSound: {fileID: 11400000, guid: 642ecbeaba520d0469082481e91a9bca, type: 2}
-  offSound: {fileID: 11400000, guid: 2d9b75a258c4beb4aa7778758de6f4d9, type: 2}
+  offSound: {fileID: 11400000, guid: 6bb4058175d4a024fa9399e0296ef00b, type: 2}
   volumeScale: 0.2
 --- !u!82 &9096767923366475823
 AudioSource:
@@ -279,7 +281,7 @@ AudioSource:
     m_RotationOrder: 4
 --- !u!95 &8729141024524710777
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -293,6 +295,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

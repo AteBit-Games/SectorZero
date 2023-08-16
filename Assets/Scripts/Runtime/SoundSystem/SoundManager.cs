@@ -7,7 +7,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Runtime.Managers;
-using Runtime.SoundSystem.ScriptableObjects;
 using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -19,9 +18,6 @@ namespace Runtime.SoundSystem
 	public class SoundManager : MonoBehaviour
 	{
         [Header("MIX GROUPS")]
-        [SerializeField] private SoundMixGroup masterMixGroup;
-        [SerializeField] private SoundMixGroup musicMixGroup;
-        [SerializeField] private SoundMixGroup sfxMixGroup;
         [SerializeField] public AudioMixer mainMixer;
         
         [Header("AMBIENCE SETTINGS")]
@@ -39,11 +35,6 @@ namespace Runtime.SoundSystem
 
         private void Awake()
         {
-            if (masterMixGroup == null)
-            {
-                Debug.LogError("Master Mix Group is null");
-            }
-            
             SceneManager.sceneLoaded += OnSceneLoaded;
             _currentAmbIndex = 0;
             _isBusy = false;
@@ -64,7 +55,6 @@ namespace Runtime.SoundSystem
             {
                 _activeSoundEntitySources.Add(soundSource);
             }
-            SetSfxVolume(sfxMixGroup.volume);
         }
         
         //========================= Public Methods =========================//
@@ -77,13 +67,14 @@ namespace Runtime.SoundSystem
             if (audioSource == null)
             {
                 audioSource = new GameObject(sound.name + " source").AddComponent<AudioSource>();
+                audioSource.outputAudioMixerGroup = sound.mixerGroup;
                 DontDestroyOnLoad(audioSource);
                 _activeSoundInstanceSources.Add(audioSource, sound);
                 destroy = true;
             }
             
             audioSource.clip = sound.clip;
-            audioSource.volume = sound.volume;
+            audioSource.volume = sound.volumeScale;
             audioSource.loop = sound.loop;
             audioSource.Play();
             
@@ -151,7 +142,7 @@ namespace Runtime.SoundSystem
         public void FadeToNextAmbience(Sound nextAmb, float fadeTime = 1.0f)
         {
             ambienceSources[1 - _currentAmbIndex].clip = nextAmb.clip;
-            ambienceSources[1 - _currentAmbIndex].volume = nextAmb.volume;
+            ambienceSources[1 - _currentAmbIndex].volume = nextAmb.volumeScale;
             ambienceSources[1 - _currentAmbIndex].loop = nextAmb.loop;
             ambienceSources[1 - _currentAmbIndex].Play();
             StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
@@ -171,18 +162,13 @@ namespace Runtime.SoundSystem
             if(_isBusy) return;
             _isBusy = true;
             
-            stingSource.volume = sound.volume;
+            stingSource.volume = sound.volumeScale;
             stingSource.loop = false;
             stingSource.PlayOneShot(sound.clip);
             
             Invoke(nameof(StingReady), sound.clip.length);
         }
-        
-        public float SfxVolume()
-        {
-            return sfxMixGroup.volume;
-        }
-        
+
         //========================= Private Methods =========================//
         
         private void StingReady()
@@ -204,19 +190,16 @@ namespace Runtime.SoundSystem
         
         public void SetMasterVolume(float volume)
         {
-            masterMixGroup.SetVolume(volume);
             mainMixer.SetFloat("masterVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f))* 20);
         }
 
         public void SetMusicVolume(float volume)
         {
-            musicMixGroup.SetVolume(volume);
             mainMixer.SetFloat("ambienceVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
         }
 
         public void SetSfxVolume(float volume)
         {
-            sfxMixGroup.SetVolume(volume);
             mainMixer.SetFloat("sfxVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
             foreach (var soundSource in _activeSoundInstanceSources)
             {

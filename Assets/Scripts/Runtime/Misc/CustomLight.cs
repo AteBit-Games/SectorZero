@@ -4,7 +4,6 @@
 ****************************************************************/
 using System.Collections;
 using Runtime.InteractionSystem.Interfaces;
-using Runtime.SoundSystem.ScriptableObjects;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;

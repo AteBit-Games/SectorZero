@@ -10,7 +10,7 @@ namespace Runtime.BehaviourTree.Actions.Sound
     [Description("Play ambience")]
     public class PlayAmbience : ActionNode
     {
-        public SoundSystem.ScriptableObjects.Sound sound;
+        public SoundSystem.Sound sound;
         public NodeProperty<float> fadeTime = new(){Value = 1f};
         
         protected override void OnStart()

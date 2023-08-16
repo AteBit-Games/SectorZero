@@ -5,7 +5,7 @@
 
 using System.Collections.Generic;
 using Runtime.Managers;
-using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using UnityEngine;
 
 namespace Runtime.Misc.Triggers

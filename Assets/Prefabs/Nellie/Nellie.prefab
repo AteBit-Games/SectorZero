@@ -621,20 +621,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 7872224198224877278}
-  concreteFootsteps:
-  - {fileID: 8300000, guid: b4db1dae0361e434da9409adf62aa162, type: 3}
-  - {fileID: 8300000, guid: ce851c48710f7b74ba36f77c2a720f81, type: 3}
-  - {fileID: 8300000, guid: fb1dcdd7141d4ef4ba1c517145e765fe, type: 3}
-  - {fileID: 8300000, guid: 8097e4f6a962b254190ff51af7ed3e80, type: 3}
-  - {fileID: 8300000, guid: fdb3384dd76aabd48a5bcb4a4c63b455, type: 3}
-  - {fileID: 8300000, guid: a188ce32235fd084b9a0f41bd6d04634, type: 3}
-  - {fileID: 8300000, guid: d33c7037fdf071a4ba9d0012a2cd2169, type: 3}
-  - {fileID: 8300000, guid: 7c829626e1b33ed4eb2ec766eb478c0b, type: 3}
-  - {fileID: 8300000, guid: 7a2b0c17a16a19a4cb9dd79f9775a684, type: 3}
-  - {fileID: 8300000, guid: cd5241d0c31c0ae4b8873dfee35105d4, type: 3}
-  waterFootsteps: []
-  joggingRange: 18
-  sneakingRange: 6
+  footstepSounds:
+  - tag: Concrete
+    footstepSounds:
+    - {fileID: 11400000, guid: 1172367d5ff1a4948a1646a3d2a4b261, type: 2}
+    - {fileID: 11400000, guid: 65135a9e4f712884ea08d2d246d7cb7f, type: 2}
+    - {fileID: 11400000, guid: 70eed04008a495c4bb39f6ffe3966bab, type: 2}
+    - {fileID: 11400000, guid: 94ea456fa1a15de4a90f27eaadaadc66, type: 2}
+    - {fileID: 11400000, guid: 067a27d74b03ff447be1f496da44b9a5, type: 2}
+    - {fileID: 11400000, guid: d912e5f706ab61242a9185c49a492d5f, type: 2}
+    - {fileID: 11400000, guid: 50607445acbb9444d8b705a47cdb545b, type: 2}
+    - {fileID: 11400000, guid: 0a1904fb766a1d44f998f128d0146bd8, type: 2}
+    - {fileID: 11400000, guid: 47ad5389a02ca4f45aa75c366eb66caf, type: 2}
+    - {fileID: 11400000, guid: 5e30ff543e21b5442955f9bc67b0f547, type: 2}
+  joggingRange: 7
+  sneakingRange: 3
   debug: 0
 --- !u!210 &3754679611136714876
 SortingGroup:

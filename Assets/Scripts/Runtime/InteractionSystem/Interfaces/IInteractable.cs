@@ -4,7 +4,7 @@
 ****************************************************************/
 
 using System;
-using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Events;
 

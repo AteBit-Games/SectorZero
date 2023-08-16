@@ -6,7 +6,7 @@
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
-using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using Unity.AI.Navigation;
 using UnityEngine;
 

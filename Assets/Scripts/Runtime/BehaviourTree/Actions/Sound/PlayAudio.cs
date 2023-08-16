@@ -10,7 +10,7 @@ namespace Runtime.BehaviourTree.Actions.Sound
     [Description("Play audio clip")]
     public class PlayAudio : ActionNode
     {
-        public SoundSystem.ScriptableObjects.Sound sound;
+        public SoundSystem.Sound sound;
         public bool waitActionFinish;
         
         private float _startTime;

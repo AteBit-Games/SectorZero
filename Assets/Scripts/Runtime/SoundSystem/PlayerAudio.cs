@@ -1,67 +1,93 @@
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Runtime.AI;
-using Runtime.Managers;
+using Runtime.Misc;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
 namespace Runtime.SoundSystem
 {
+    [Serializable]
+    internal class FootstepSoundSet
+    {
+        public string tag;
+        public List<Sound> footstepSounds;
+    }
+    
     public class PlayerAudio : MonoBehaviour
     {
         [SerializeField] private AudioSource audioSource;
-        [SerializeField] private List<AudioClip> concreteFootsteps;
-        [SerializeField] private List<AudioClip> waterFootsteps;
+        [SerializeField] private List<FootstepSoundSet> footstepSounds;
         [SerializeField] private float joggingRange = 18f;
         [SerializeField] private float sneakingRange = 6f;
         [SerializeField] private bool debug;
 
         private NoiseEmitter _noiseEmitter;
+        private Tilemap _tilemap;
 
         //========================= Unity Events =========================//
         
         private void Awake()
         {
             _noiseEmitter = audioSource.GetComponent<NoiseEmitter>();
+            _tilemap = FindFirstObjectByType<Tilemap>(FindObjectsInactive.Include);
         }
         
         //========================= Public Methods =========================//
 
         public void PlayFootstepSound()
         {
-            audioSource.volume = 0.12f * GameManager.Instance.SoundSystem.SfxVolume();
-            audioSource.PlayOneShot(DetermineSound());
+            var sound = DetermineSound();
+            if(sound == null)
+            {
+                Debug.LogWarning("No sound found for footstep sound");
+                return;
+            }
+            
+            audioSource.volume = sound.volumeScale;
+            audioSource.PlayOneShot(sound.clip);
             _noiseEmitter.Radius = joggingRange;
             _noiseEmitter.EmitLocal();
         }
 
         public void PlaySneakSound()
         {
-            audioSource.volume = 0.06f * GameManager.Instance.SoundSystem.SfxVolume();
-            audioSource.PlayOneShot(DetermineSound());
+            var sound = DetermineSound();
+            
+            
+            if (sound == null)
+            {
+                Debug.LogWarning("No sound found for sneak sound");
+                return;
+            }
+            
+            audioSource.volume = sound.volumeScale / 2f;
+            audioSource.PlayOneShot(sound.clip);
             _noiseEmitter.Radius = sneakingRange;
             _noiseEmitter.EmitLocal();
         }
         
         //========================= Private Methods =========================//
 
-        private AudioClip DetermineSound()
+        private Sound DetermineSound()
         {
-            var raycastHit2D = Physics2D.Raycast(transform.position, new Vector3(0f, 0f, -1f), 1f);
-            if (raycastHit2D.collider != null)
+            var tile = _tilemap.GetTile(_tilemap.WorldToCell(transform.position)) as SoundTile;
+            if (tile != null)
             {
-                if (raycastHit2D.collider.CompareTag("Water"))
+                foreach(var footstepsList in from footstepSound in footstepSounds where footstepSound.tag == tile.tag select footstepSound.footstepSounds)
                 {
-                    return waterFootsteps[Random.Range(0, waterFootsteps.Count)];
-                }
-                
-                if (raycastHit2D.collider.CompareTag("Concrete"))
-                {
-                    return concreteFootsteps[Random.Range(0, concreteFootsteps.Count)];
+                    return footstepsList[Random.Range(0, footstepsList.Count)];
                 }
             }
-
-            return concreteFootsteps[0];
+            
+            return null;
         }
         
         //========================= Unity Gizmos =========================//

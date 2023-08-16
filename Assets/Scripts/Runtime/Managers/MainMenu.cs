@@ -5,7 +5,7 @@
 
 using System.Collections;
 using Runtime.ReporterSystem;
-using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.UIElements;

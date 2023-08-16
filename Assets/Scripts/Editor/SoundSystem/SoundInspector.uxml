@@ -3,7 +3,7 @@
     <ui:VisualElement name="VisualElement" class="property-group">
         <ui:Label tabindex="-1" text="Sound Settings" display-tooltip-when-elided="true" name="header" />
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-            <uie:PropertyField binding-path="mixGroup" name="property" />
+            <uie:PropertyField binding-path="mixerGroup" name="property" />
             <uie:PropertyField binding-path="clip" name="property" />
             <uie:PropertyField binding-path="volumeScale" name="property" />
             <uie:PropertyField binding-path="loop" name="property" />

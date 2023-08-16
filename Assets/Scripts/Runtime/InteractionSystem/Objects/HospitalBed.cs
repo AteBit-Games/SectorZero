@@ -6,7 +6,7 @@
 using System;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
-using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using UnityEngine;
 
 namespace Runtime.InteractionSystem.Objects

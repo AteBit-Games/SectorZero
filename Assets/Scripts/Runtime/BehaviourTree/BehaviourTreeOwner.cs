@@ -12,7 +12,7 @@ using Runtime.AI;
 using Runtime.AI.Interfaces;
 using Runtime.Managers;
 using Runtime.Player;
-using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
@@ -54,7 +54,7 @@ namespace Runtime.BehaviourTree
         
         [Header("SOUNDS")]
         [SerializeField] private AudioSource audioSource;
-        [SerializeField] private List<AudioClip> footstepSounds;
+        [SerializeField] private List<Sound> footstepSounds;
         [SerializeField] private Sound detectedSound;
         
         public bool debug;
@@ -250,9 +250,9 @@ namespace Runtime.BehaviourTree
         
         public void PlayFootstepSound()
         {
-            audioSource.volume = 0.8f * GameManager.Instance.SoundSystem.SfxVolume();
             var sound = footstepSounds[Random.Range(0, footstepSounds.Count)];
-            audioSource.PlayOneShot(sound);
+            audioSource.volume = sound.volumeScale;
+            audioSource.PlayOneShot(sound.clip);
         }
 
         // ====================== Private Methods ======================

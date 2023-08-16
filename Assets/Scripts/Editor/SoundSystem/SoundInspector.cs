@@ -3,7 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
-using Runtime.SoundSystem.ScriptableObjects;
+using Runtime.SoundSystem;
 using UnityEditor;
 using UnityEngine.UIElements;
 

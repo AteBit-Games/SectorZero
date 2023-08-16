@@ -4,9 +4,9 @@
 ****************************************************************/
 
 using UnityEngine.SceneManagement;
-using Runtime.SoundSystem.ScriptableObjects;
 using UnityEngine;
 using NavMeshPlus.Components;
+using Runtime.SoundSystem;
 
 namespace Runtime.Managers
 {
