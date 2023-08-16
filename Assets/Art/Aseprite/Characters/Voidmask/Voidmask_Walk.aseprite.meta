@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a7b9b6159d2eabc428b73d99040030b3
+guid: c2d1f74c99305084890396982e0d8b92
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Voidmask_Rotation_Frame_1
+  - name: Voidmask_Walk_Frame_1
     originalName: 
-    pivot: {x: 0.30000004, y: -0.027027026}
+    pivot: {x: 0.32258064, y: -0.027027026}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 53
-      y: 80
-      width: 30
+      y: 4
+      width: 31
       height: 74
-    spriteID: ef25710f2ef1ad0448c4a6bd13e9a99e
+    spriteID: 5bd19df69d2c32542b2f56ec13b51583
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -138,8 +138,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 53, y: 80}
-  - name: Voidmask_Rotation_Frame_2
+    uvTransform: {x: 53, y: 4}
+  - name: Voidmask_Walk_Frame_2
     originalName: 
     pivot: {x: 0.35483867, y: 0}
     alignment: 9
@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 81
       width: 31
       height: 77
-    spriteID: 25ca04870629d084791e5dd8a3741c23
+    spriteID: 2796e43faff19b748b992cd9869686b5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,38 +159,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 81}
-  - name: Voidmask_Rotation_Frame_3
+  - name: Voidmask_Walk_Frame_3
     originalName: 
-    pivot: {x: 0.33333334, y: -0.08695652}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 94
-      y: 85
-      width: 27
-      height: 69
-    spriteID: b32307dba7c948345a5b8351be043191
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 94, y: 85}
-  - name: Voidmask_Rotation_Frame_4
-    originalName: 
-    pivot: {x: 0.45454547, y: -0.088235304}
+    pivot: {x: 0.2903226, y: -0.08695652}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 53
-      y: 4
-      width: 33
-      height: 68
-    spriteID: a75f1cd924520284d974d9798f5ccf77
+      y: 173
+      width: 31
+      height: 69
+    spriteID: dba9f1b32c8120348ab405dc6fda69b7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -198,39 +178,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 53, y: 4}
-  - name: Voidmask_Rotation_Frame_5
+    uvTransform: {x: 53, y: 173}
+  - name: Voidmask_Walk_Frame_4
     originalName: 
-    pivot: {x: 0.4615385, y: -0.05479452}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 94
-      y: 4
-      width: 26
-      height: 73
-    spriteID: d8c3e04bde078c64da13bc1a9f6d0bb3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 94, y: 4}
-  - name: Voidmask_Rotation_Frame_6
-    originalName: 
-    pivot: {x: 0.48275867, y: 0}
+    pivot: {x: 0.48571432, y: -0.088235304}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 166
-      width: 29
-      height: 79
-    spriteID: 9c6f8525bdd684a4d8866fe09d1e8835
+      width: 35
+      height: 68
+    spriteID: 45bf5317655df884d9e1a026d68f42ae
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -239,18 +199,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 166}
-  - name: Voidmask_Rotation_Frame_7
+  - name: Voidmask_Walk_Frame_5
     originalName: 
-    pivot: {x: 0.3793103, y: -0.04109589}
+    pivot: {x: 0.48148146, y: -0.05479452}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 53
-      y: 162
-      width: 29
+      x: 92
+      y: 85
+      width: 27
       height: 73
-    spriteID: 44b6ccdf0720e024e972a2fd1c76ffb0
+    spriteID: 7c3bd5f074085c04ea301c065b340461
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -258,8 +218,48 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 53, y: 162}
-  - name: Voidmask_Rotation_Frame_0
+    uvTransform: {x: 92, y: 85}
+  - name: Voidmask_Walk_Frame_6
+    originalName: 
+    pivot: {x: 0.48275867, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 86
+      width: 29
+      height: 79
+    spriteID: c1c4e89b1ec44a840944182a9b9312c2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 86}
+  - name: Voidmask_Walk_Frame_7
+    originalName: 
+    pivot: {x: 0.3793103, y: -0.04109589}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 92
+      y: 4
+      width: 29
+      height: 73
+    spriteID: 14e9a238c431c664884605f1ede59d89
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 92, y: 4}
+  - name: Voidmask_Walk_Frame_0
     originalName: 
     pivot: {x: 0.46341467, y: -0.072463766}
     alignment: 9
@@ -270,7 +270,7 @@ ScriptedImporter:
       y: 4
       width: 41
       height: 69
-    spriteID: 6b60ed84bd9a79f438734cfd4d9a02e5
+    spriteID: 32b91e00adacbfe42840d56afc85e424
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -282,76 +282,76 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1258567811
-    name: Voidmask_Rotation
+    guid: -454698436
+    name: Voidmask_Walk
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Voidmask_Rotation_Frame_1
+    - name: Voidmask_Walk_Frame_1
       frameIndex: 1
       cellRect:
-        x: 31
+        x: 30
         y: 2
-        width: 30
+        width: 31
         height: 74
-      spriteId: ef25710f2ef1ad0448c4a6bd13e9a99e
-    - name: Voidmask_Rotation_Frame_2
+      spriteId: 5bd19df69d2c32542b2f56ec13b51583
+    - name: Voidmask_Walk_Frame_2
       frameIndex: 2
       cellRect:
         x: 29
         y: 0
         width: 31
         height: 77
-      spriteId: 25ca04870629d084791e5dd8a3741c23
-    - name: Voidmask_Rotation_Frame_3
+      spriteId: 2796e43faff19b748b992cd9869686b5
+    - name: Voidmask_Walk_Frame_3
       frameIndex: 3
       cellRect:
         x: 31
         y: 6
-        width: 27
+        width: 31
         height: 69
-      spriteId: b32307dba7c948345a5b8351be043191
-    - name: Voidmask_Rotation_Frame_4
+      spriteId: dba9f1b32c8120348ab405dc6fda69b7
+    - name: Voidmask_Walk_Frame_4
       frameIndex: 4
       cellRect:
-        x: 25
+        x: 23
         y: 6
-        width: 33
+        width: 35
         height: 68
-      spriteId: a75f1cd924520284d974d9798f5ccf77
-    - name: Voidmask_Rotation_Frame_5
+      spriteId: 45bf5317655df884d9e1a026d68f42ae
+    - name: Voidmask_Walk_Frame_5
       frameIndex: 5
       cellRect:
-        x: 28
+        x: 27
         y: 4
-        width: 26
+        width: 27
         height: 73
-      spriteId: d8c3e04bde078c64da13bc1a9f6d0bb3
-    - name: Voidmask_Rotation_Frame_6
+      spriteId: 7c3bd5f074085c04ea301c065b340461
+    - name: Voidmask_Walk_Frame_6
       frameIndex: 6
       cellRect:
         x: 26
         y: 0
         width: 29
         height: 79
-      spriteId: 9c6f8525bdd684a4d8866fe09d1e8835
-    - name: Voidmask_Rotation_Frame_7
+      spriteId: c1c4e89b1ec44a840944182a9b9312c2
+    - name: Voidmask_Walk_Frame_7
       frameIndex: 7
       cellRect:
         x: 29
         y: 3
         width: 29
         height: 73
-      spriteId: 44b6ccdf0720e024e972a2fd1c76ffb0
-    - name: Voidmask_Rotation_Frame_0
+      spriteId: 14e9a238c431c664884605f1ede59d89
+    - name: Voidmask_Walk_Frame_0
       frameIndex: 0
       cellRect:
         x: 21
         y: 5
         width: 41
         height: 69
-      spriteId: 6b60ed84bd9a79f438734cfd4d9a02e5
+      spriteId: 32b91e00adacbfe42840d56afc85e424
     linkedCells: []
     parentIndex: -1
   platformSettings: []
