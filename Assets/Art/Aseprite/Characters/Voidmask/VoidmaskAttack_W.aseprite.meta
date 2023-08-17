@@ -1,0 +1,696 @@
+fileFormatVersion: 2
+guid: e67b09eeb09ca3643bbab354053710f4
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: VoidmaskAttack_W_Frame_0
+    originalName: 
+    pivot: {x: 0.63043475, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 138
+      y: 249
+      width: 46
+      height: 80
+    spriteID: a2df843bb6083424697daf9c10581307
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 138, y: 249}
+  - name: VoidmaskAttack_W_Frame_1
+    originalName: 
+    pivot: {x: 0.5882353, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 91
+      width: 51
+      height: 80
+    spriteID: c3aff581bd6d4bc4a99355e5f9894bb7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 91}
+  - name: VoidmaskAttack_W_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 352
+      width: 62
+      height: 73
+    spriteID: bee00d724a2cf9a42b7a8ffac0312090
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 352}
+  - name: VoidmaskAttack_W_Frame_3
+    originalName: 
+    pivot: {x: 0.6851852, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 4
+      width: 54
+      height: 79
+    spriteID: ea02c48d2fa48bb41a36bfc25bdeb6c2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 4}
+  - name: VoidmaskAttack_W_Frame_4
+    originalName: 
+    pivot: {x: 0.74603176, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 91
+      width: 63
+      height: 79
+    spriteID: bacb0f4b71d737145b856f0e29456b91
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 91}
+  - name: VoidmaskAttack_W_Frame_5
+    originalName: 
+    pivot: {x: 0.74603176, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 178
+      width: 63
+      height: 79
+    spriteID: 8b7861a85f2432544bfb5801292c45db
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 178}
+  - name: VoidmaskAttack_W_Frame_6
+    originalName: 
+    pivot: {x: 0.734375, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 64
+      height: 79
+    spriteID: 2917b8f3b1090cf48bb1976947be8965
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: VoidmaskAttack_W_Frame_7
+    originalName: 
+    pivot: {x: 0.6458334, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 267
+      width: 48
+      height: 79
+    spriteID: ca9e53e0b49f7db4e9317c2bd12e6ddd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 267}
+  - name: VoidmaskAttack_W_Frame_8
+    originalName: 
+    pivot: {x: 0.55813956, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 202
+      y: 257
+      width: 43
+      height: 79
+    spriteID: f074fd92f41437046ba0cfa4051746bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 202, y: 257}
+  - name: VoidmaskAttack_W_Frame_9
+    originalName: 
+    pivot: {x: 0.5652173, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 138
+      y: 337
+      width: 46
+      height: 79
+    spriteID: 46951a664c943ae4bbbd5c82fc0f45b4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 138, y: 337}
+  - name: VoidmaskAttack_W_Frame_10
+    originalName: 
+    pivot: {x: 0.5531914, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 354
+      width: 47
+      height: 79
+    spriteID: 3e19e1695559aac4cb9da21f689da2a1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 354}
+  - name: VoidmaskAttack_W_Frame_11
+    originalName: 
+    pivot: {x: 0.5531914, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 138
+      y: 162
+      width: 47
+      height: 79
+    spriteID: c78af0273995c714c8893199e39f4d89
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 138, y: 162}
+  - name: VoidmaskAttack_W_Frame_12
+    originalName: 
+    pivot: {x: 0.5652173, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 138
+      y: 424
+      width: 46
+      height: 79
+    spriteID: bb13ab74eb06f2d44b9f47730e431318
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 138, y: 424}
+  - name: VoidmaskAttack_W_Frame_13
+    originalName: 
+    pivot: {x: 0.5652173, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 202
+      y: 83
+      width: 46
+      height: 79
+    spriteID: 9edcdc1c3b7eeac4dafcffd94cf31466
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 202, y: 83}
+  - name: VoidmaskAttack_W_Frame_14
+    originalName: 
+    pivot: {x: 0.5652173, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 202
+      y: 170
+      width: 46
+      height: 79
+    spriteID: fef654f03bfc417439a3d6601fb10b5f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 202, y: 170}
+  - name: VoidmaskAttack_W_Frame_15
+    originalName: 
+    pivot: {x: 0.43859652, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 138
+      y: 4
+      width: 57
+      height: 71
+    spriteID: 23669c2a95026574ba763dbbaa7c4ae6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 138, y: 4}
+  - name: VoidmaskAttack_W_Frame_16
+    originalName: 
+    pivot: {x: 0.4666667, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 433
+      width: 60
+      height: 71
+    spriteID: aeeadcd27193d2145ad859157d4092e0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 433}
+  - name: VoidmaskAttack_W_Frame_17
+    originalName: 
+    pivot: {x: 0.53571427, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 138
+      y: 83
+      width: 56
+      height: 71
+    spriteID: 3b8a863a079c17d4c9a331cd67895acc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 138, y: 83}
+  - name: VoidmaskAttack_W_Frame_18
+    originalName: 
+    pivot: {x: 0.5423728, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 265
+      width: 59
+      height: 79
+    spriteID: e0a60cbba30c31d4da3b7b5a2cb89900
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 265}
+  - name: VoidmaskAttack_W_Frame_19
+    originalName: 
+    pivot: {x: 0.6399999, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 179
+      width: 50
+      height: 80
+    spriteID: ad0e6c630d348db45a328520a310a718
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 179}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -470894570
+    name: VoidmaskAttack_W
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: VoidmaskAttack_W_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 19
+        y: 0
+        width: 46
+        height: 80
+      spriteId: a2df843bb6083424697daf9c10581307
+    - name: VoidmaskAttack_W_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 18
+        y: 0
+        width: 51
+        height: 80
+      spriteId: c3aff581bd6d4bc4a99355e5f9894bb7
+    - name: VoidmaskAttack_W_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 17
+        y: 0
+        width: 62
+        height: 73
+      spriteId: bee00d724a2cf9a42b7a8ffac0312090
+    - name: VoidmaskAttack_W_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 11
+        y: 0
+        width: 54
+        height: 79
+      spriteId: ea02c48d2fa48bb41a36bfc25bdeb6c2
+    - name: VoidmaskAttack_W_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 1
+        y: 0
+        width: 63
+        height: 79
+      spriteId: bacb0f4b71d737145b856f0e29456b91
+    - name: VoidmaskAttack_W_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 1
+        y: 0
+        width: 63
+        height: 79
+      spriteId: 8b7861a85f2432544bfb5801292c45db
+    - name: VoidmaskAttack_W_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 1
+        y: 0
+        width: 64
+        height: 79
+      spriteId: 2917b8f3b1090cf48bb1976947be8965
+    - name: VoidmaskAttack_W_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 17
+        y: 0
+        width: 48
+        height: 79
+      spriteId: ca9e53e0b49f7db4e9317c2bd12e6ddd
+    - name: VoidmaskAttack_W_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 24
+        y: 0
+        width: 43
+        height: 79
+      spriteId: f074fd92f41437046ba0cfa4051746bb
+    - name: VoidmaskAttack_W_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 22
+        y: 0
+        width: 46
+        height: 79
+      spriteId: 46951a664c943ae4bbbd5c82fc0f45b4
+    - name: VoidmaskAttack_W_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 22
+        y: 0
+        width: 47
+        height: 79
+      spriteId: 3e19e1695559aac4cb9da21f689da2a1
+    - name: VoidmaskAttack_W_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 22
+        y: 0
+        width: 47
+        height: 79
+      spriteId: c78af0273995c714c8893199e39f4d89
+    - name: VoidmaskAttack_W_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 22
+        y: 0
+        width: 46
+        height: 79
+      spriteId: bb13ab74eb06f2d44b9f47730e431318
+    - name: VoidmaskAttack_W_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 22
+        y: 0
+        width: 46
+        height: 79
+      spriteId: 9edcdc1c3b7eeac4dafcffd94cf31466
+    - name: VoidmaskAttack_W_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 22
+        y: 0
+        width: 46
+        height: 79
+      spriteId: fef654f03bfc417439a3d6601fb10b5f
+    - name: VoidmaskAttack_W_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 23
+        y: 0
+        width: 57
+        height: 71
+      spriteId: 23669c2a95026574ba763dbbaa7c4ae6
+    - name: VoidmaskAttack_W_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 20
+        y: 0
+        width: 60
+        height: 71
+      spriteId: aeeadcd27193d2145ad859157d4092e0
+    - name: VoidmaskAttack_W_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 18
+        y: 0
+        width: 56
+        height: 71
+      spriteId: 3b8a863a079c17d4c9a331cd67895acc
+    - name: VoidmaskAttack_W_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 16
+        y: 0
+        width: 59
+        height: 79
+      spriteId: e0a60cbba30c31d4da3b7b5a2cb89900
+    - name: VoidmaskAttack_W_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 16
+        y: 0
+        width: 50
+        height: 80
+      spriteId: ad0e6c630d348db45a328520a310a718
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 96, y: 80}
