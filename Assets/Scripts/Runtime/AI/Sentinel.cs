@@ -60,8 +60,6 @@ namespace Runtime.AI
 
         private void Start()
         {
-            ActivateSentinel(200f);
-
             _light.pointLightOuterRadius = viewRadius;
             _light.pointLightInnerAngle = viewAngle;
             _light.transform.rotation = Quaternion.Euler(0f, 0f, -lookAngle-90);
@@ -95,33 +93,35 @@ namespace Runtime.AI
         
         public void ActivateSentinel(float duration)
         {
-            Debug.Log("Activating Sentinel: " + gameObject.name);
             _isActivated = true;
             _activeTimeLeft = duration;
 
+            _light.enabled = true;
             _light.color = defaultColor;
             _light.intensity = _initialIntensity;
             
             _animator.SetBool(Activated, true);
         }
-        
-        public void TriggerSentinel()
+
+        private void TriggerSentinel()
         {
             if (_isActivated)
             {
-                Debug.Log("Triggering Sentinel: " + gameObject.name);
                 _isActivated = false;
                 _light.color = alertColor;
+                
+                if(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert) == null) Debug.LogError("No Sentinel state found");
+                else _voidmask.SetActiveState(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert).stateIndex);
                 
                 StartCoroutine(TriggerDeactivate());
             }
         }
-        
-        public void DeactivateSentinel()
+
+        private void DeactivateSentinel()
         {
-            Debug.Log("Deactivating Sentinel: " + gameObject.name);
             _isActivated = false;
             _activeTimeLeft = 0f;
+            _light.enabled = false;
             
             _animator.SetBool(Activated, false);
         }

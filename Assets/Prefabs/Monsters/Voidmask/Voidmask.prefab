@@ -243,7 +243,25 @@ MonoBehaviour:
       rid: 61114352745054250
     value:
       rid: 61114352745054251
-  treeStates: []
+  treeStates:
+  - state: 0
+    stateIndex: 0
+  - state: 1
+    stateIndex: 1
+  - state: 2
+    stateIndex: 2
+  - state: 3
+    stateIndex: 3
+  - state: 4
+    stateIndex: 4
+  - state: 5
+    stateIndex: 5
+  - state: 6
+    stateIndex: 6
+  - state: 7
+    stateIndex: 7
+  - state: 8
+    stateIndex: 8
   obstacleMask:
     serializedVersion: 2
     m_Bits: 128
@@ -257,10 +275,10 @@ MonoBehaviour:
   viewAngle: 100
   audioSource: {fileID: 920597040}
   footstepSounds:
-  - {fileID: 8300000, guid: 6d40f43e463f83249856931534b01e54, type: 3}
-  - {fileID: 8300000, guid: b7554ac8ed199054ab6829647aa3fbbc, type: 3}
-  - {fileID: 8300000, guid: 7c280ce81997e7a459b5dd7875438944, type: 3}
-  - {fileID: 8300000, guid: 481109d79ba98b5488e9f0a8fbab650e, type: 3}
+  - {fileID: 11400000, guid: 1be22e3b21d59134a92e6c331b0e5697, type: 2}
+  - {fileID: 11400000, guid: bda294c36115e4e46afb53ea2f475146, type: 2}
+  - {fileID: 11400000, guid: c9ba80b5115d9804ebe442e3082d1808, type: 2}
+  - {fileID: 11400000, guid: 6366ac5a42c71404f9b4505e8843cfb2, type: 2}
   detectedSound: {fileID: 0}
   debug: 1
   sightVisualPrefab: {fileID: 4193361830035308745, guid: 7fbb647d3619d9b4898983be60e448e2, type: 3}

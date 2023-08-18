@@ -21,15 +21,20 @@ using Random = UnityEngine.Random;
 
 namespace Runtime.BehaviourTree 
 {
-    
     [Serializable]
     public class TreeState
     {
         public enum State
         {
-            Inspect,
+            Idle,
+            PatrolNear,
+            PatrolFar,
+            InspectSound,
             LastKnown,
-            Aggro,
+            SentinelAlert,
+            AggroChase,
+            AggroInspect,
+            Kill
         }
         
         public State state;
@@ -144,11 +149,11 @@ namespace Runtime.BehaviourTree
         {
             if (!_canSeePlayer)
             {
-                if(treeStates.Find(x => x.state == TreeState.State.Inspect) == null) Debug.LogError("No Inspect state found");
+                if(treeStates.Find(x => x.state == TreeState.State.InspectSound) == null) Debug.LogError("No Inspect state found");
                 else
                 {
                     _lastKnownLocationReference.value = sender.transform.position;
-                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.Inspect).stateIndex);
+                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.InspectSound).stateIndex);
                 }
             }
         }
@@ -175,12 +180,12 @@ namespace Runtime.BehaviourTree
                 
                 GameManager.Instance.SoundSystem.PlaySting(detectedSound);
                 
-                if(treeStates.Find(x => x.state == TreeState.State.Aggro) == null) Debug.LogError("No aggro state found");
+                if(treeStates.Find(x => x.state == TreeState.State.AggroChase) == null) Debug.LogError("No aggro state found");
                 else
                 {
                     _canSeePlayer = true;
                     _material.color = aggroColour;
-                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.Aggro).stateIndex);
+                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.AggroChase).stateIndex);
                 }
                 
                 _sightCoroutineRunning = false;
@@ -287,6 +292,6 @@ namespace Runtime.BehaviourTree
         {
             _animator.SetFloat(MoveX, direction.x);
             _animator.SetFloat(MoveY, direction.y);
-        }
+        } 
     }
 }

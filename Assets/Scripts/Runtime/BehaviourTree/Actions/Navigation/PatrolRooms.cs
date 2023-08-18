@@ -1,3 +1,8 @@
+/****************************************************************
+* Copyright (c) 2023 AteBit Games
+* All rights reserved.
+****************************************************************/
+
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +12,8 @@ namespace Runtime.BehaviourTree.Actions.Navigation
     [Serializable]
     [Name("Patrol Rooms")]
     [Category("Navigation")]
-    public class Patrol2 : ActionNode
+    [Description("Patrols a list of rooms")]
+    public class PatrolRooms : ActionNode
     {
         public enum PatrolMode
         {
@@ -73,6 +79,10 @@ namespace Runtime.BehaviourTree.Actions.Navigation
                     return State.Failure;
                 }
             }
+            
+            //get direction to next point on path
+            var direction = context.agent.steeringTarget - context.agent.transform.position;
+            context.owner.SetLookDirection(direction.normalized);
             
             _lastRequest = target;
             return (context.agent.transform.position - target).magnitude < context.agent.stoppingDistance + keepDistance.Value ? State.Success : State.Running;
