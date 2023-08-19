@@ -56,3 +56,9 @@ TagManager:
   - name: Monsters
     uniqueID: 3486726291
     locked: 0
+  - name: VoidFloor
+    uniqueID: 455589859
+    locked: 0
+  - name: BottomWall
+    uniqueID: 2708378301
+    locked: 0
