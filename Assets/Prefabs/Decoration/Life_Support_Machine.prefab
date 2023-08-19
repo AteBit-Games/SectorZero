@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1524625174177712636}
   - component: {fileID: 8884056303713091740}
   - component: {fileID: 2481057721950971266}
-  - component: {fileID: 8598619905339450921}
   m_Layer: 7
   m_Name: Life_Support_Machine
   m_TagString: Untagged
@@ -298,54 +297,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_SortAtRoot: 0
---- !u!114 &8598619905339450921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3034812484775142791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_Priority: 10
-  m_ComponentVersion: 3
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 0
-  m_CastsShadows: 1
-  m_SelfShadows: 1
-  m_AlphaCutoff: 0.1
-  m_ApplyToSortingLayers: 0000000073213335
-  m_ShapePath:
-  - {x: -1.008523, y: -0.046560764, z: 0}
-  - {x: -1.0014715, y: 4.56715, z: 0}
-  - {x: 0.9424499, y: 4.58479, z: 0}
-  - {x: 0.99954116, y: -0.032535076, z: 0}
-  m_ShapePathHash: -154768907
-  m_InstanceId: -78596
-  m_ShadowShape2DComponent: {fileID: 0}
-  m_ShadowShape2DProvider:
-    rid: -2
-  m_ShadowCastingSource: 1
-  m_ShadowMesh:
-    m_Mesh: {fileID: 0}
-    m_LocalBounds:
-      m_Center: {x: -0.0044908524, y: 2.2691147, z: 0}
-      m_Extent: {x: 1.0040321, y: 2.3156755, z: 0}
-    m_EdgeProcessing: 1
-    m_TrimEdge: 0
-    m_FlipX: 0
-    m_FlipY: 0
-    m_InitialTrim: 0
-  m_CastingOption: 2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!1 &5297712366053814611
 GameObject:
   m_ObjectHideFlags: 0
