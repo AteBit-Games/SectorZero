@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: StripedDoorwayDoor_Frame_0
     originalName: 
-    pivot: {x: 0.33333334, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 148
-      y: 316
-      width: 96
-      height: 96
+      x: 4
+      y: 4
+      width: 48
+      height: 70
     spriteID: cdfc3ef9fc4423342b3a288118f478b2
     spriteBone: []
     spriteOutline: []
@@ -138,18 +138,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 148, y: 316}
+    uvTransform: {x: 4, y: 4}
   - name: StripedDoorwayDoor_Frame_1
     originalName: 
-    pivot: {x: 0.33333334, y: 0}
+    pivot: {x: 0.5833334, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 148
-      y: 420
-      width: 96
-      height: 96
+      x: 4
+      y: 82
+      width: 48
+      height: 70
     spriteID: a5376f0172ebbe2438dae221640b78b2
     spriteBone: []
     spriteOutline: []
@@ -158,18 +158,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 148, y: 420}
+    uvTransform: {x: 4, y: 82}
   - name: StripedDoorwayDoor_Frame_2
     originalName: 
-    pivot: {x: 0.33333334, y: 0}
+    pivot: {x: 0.5625, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 148
-      y: 524
-      width: 96
-      height: 96
+      x: 4
+      y: 160
+      width: 48
+      height: 70
     spriteID: aa7bed5dc78a0ba459922cd0b0720508
     spriteBone: []
     spriteOutline: []
@@ -178,18 +178,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 148, y: 524}
+    uvTransform: {x: 4, y: 160}
   - name: StripedDoorwayDoor_Frame_3
     originalName: 
-    pivot: {x: 0.33333334, y: 0}
+    pivot: {x: 0.6458334, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 148
-      y: 628
-      width: 96
-      height: 96
+      x: 4
+      y: 238
+      width: 48
+      height: 70
     spriteID: ede82e1a92c628b43adc9d00c6d9445b
     spriteBone: []
     spriteOutline: []
@@ -198,18 +198,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 148, y: 628}
+    uvTransform: {x: 4, y: 238}
   - name: StripedDoorwayDoor_Frame_4
     originalName: 
-    pivot: {x: 0.35353535, y: 0}
+    pivot: {x: 0.7291667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 148
-      y: 212
-      width: 99
-      height: 96
+      x: 4
+      y: 316
+      width: 48
+      height: 70
     spriteID: 3779a5b3b0d8b3a47a8258ff819f5d57
     spriteBone: []
     spriteOutline: []
@@ -218,18 +218,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 148, y: 212}
+    uvTransform: {x: 4, y: 316}
   - name: StripedDoorwayDoor_Frame_5
     originalName: 
-    pivot: {x: 0.37864077, y: 0}
+    pivot: {x: 0.8125, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 148
-      y: 108
-      width: 103
-      height: 96
+      x: 4
+      y: 394
+      width: 48
+      height: 70
     spriteID: 0456413c3a3185a4693d9f55e0f67d2b
     spriteBone: []
     spriteOutline: []
@@ -238,18 +238,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 148, y: 108}
+    uvTransform: {x: 4, y: 394}
   - name: StripedDoorwayDoor_Frame_6
     originalName: 
-    pivot: {x: 0.3962264, y: 0}
+    pivot: {x: 0.875, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 148
+      x: 60
       y: 4
-      width: 106
-      height: 96
+      width: 48
+      height: 70
     spriteID: d74587972be561949868eab4700ef40f
     spriteBone: []
     spriteOutline: []
@@ -258,18 +258,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 148, y: 4}
+    uvTransform: {x: 60, y: 4}
   - name: StripedDoorwayDoor_Frame_7
     originalName: 
-    pivot: {x: 0.42342344, y: 0}
+    pivot: {x: 0.9791667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 836
-      width: 111
-      height: 96
+      x: 60
+      y: 82
+      width: 48
+      height: 70
     spriteID: 7868ec7984937974e875dbfc5c562a22
     spriteBone: []
     spriteOutline: []
@@ -278,18 +278,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 836}
+    uvTransform: {x: 60, y: 82}
   - name: StripedDoorwayDoor_Frame_8
     originalName: 
-    pivot: {x: 0.44347823, y: 0}
+    pivot: {x: 1.0625, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 732
-      width: 115
-      height: 96
+      x: 60
+      y: 160
+      width: 48
+      height: 70
     spriteID: cb0971c4efb399a41b4e5fecc0342773
     spriteBone: []
     spriteOutline: []
@@ -298,18 +298,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 732}
+    uvTransform: {x: 60, y: 160}
   - name: StripedDoorwayDoor_Frame_9
     originalName: 
-    pivot: {x: 0.4621849, y: 0}
+    pivot: {x: 1.1458334, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 628
-      width: 119
-      height: 96
+      x: 60
+      y: 238
+      width: 48
+      height: 70
     spriteID: 2ab00635a80b0874388cb1bdb9834a9f
     spriteBone: []
     spriteOutline: []
@@ -318,18 +318,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 628}
+    uvTransform: {x: 60, y: 238}
   - name: StripedDoorwayDoor_Frame_10
     originalName: 
-    pivot: {x: 0.4796748, y: 0}
+    pivot: {x: 1.2291667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 524
-      width: 123
-      height: 96
+      x: 60
+      y: 316
+      width: 48
+      height: 70
     spriteID: c81a360ece1aa394fb37839b733b871a
     spriteBone: []
     spriteOutline: []
@@ -338,18 +338,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 524}
+    uvTransform: {x: 60, y: 316}
   - name: StripedDoorwayDoor_Frame_11
     originalName: 
-    pivot: {x: 0.496063, y: 0}
+    pivot: {x: 1.3125, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 420
-      width: 127
-      height: 96
+      x: 60
+      y: 394
+      width: 48
+      height: 70
     spriteID: 7636119131228824e9d3414f4cf41833
     spriteBone: []
     spriteOutline: []
@@ -358,18 +358,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 420}
+    uvTransform: {x: 60, y: 394}
   - name: StripedDoorwayDoor_Frame_12
     originalName: 
-    pivot: {x: 0.5114504, y: 0}
+    pivot: {x: 1.3958334, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 316
-      width: 131
-      height: 96
+      x: 116
+      y: 4
+      width: 48
+      height: 70
     spriteID: 81fdd68a37ad4ba4e9fd2d388aa71082
     spriteBone: []
     spriteOutline: []
@@ -378,18 +378,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 316}
+    uvTransform: {x: 116, y: 4}
   - name: StripedDoorwayDoor_Frame_13
     originalName: 
-    pivot: {x: 0.52592593, y: 0}
+    pivot: {x: 1.4791667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 108
-      width: 135
-      height: 96
+      x: 116
+      y: 82
+      width: 48
+      height: 70
     spriteID: ee1f4a94909716c4dae4dbb76fd5ba9a
     spriteBone: []
     spriteOutline: []
@@ -398,18 +398,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 108}
+    uvTransform: {x: 116, y: 82}
   - name: StripedDoorwayDoor_Frame_14
     originalName: 
-    pivot: {x: 0.5151515, y: 0}
+    pivot: {x: 1.4166667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 212
-      width: 132
-      height: 96
+      x: 116
+      y: 160
+      width: 48
+      height: 70
     spriteID: 3ce19ef1fcbf9bd45a4fead88fb49a9a
     spriteBone: []
     spriteOutline: []
@@ -418,18 +418,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 212}
+    uvTransform: {x: 116, y: 160}
   - name: StripedDoorwayDoor_Frame_15
     originalName: 
-    pivot: {x: 0.5294118, y: 0}
+    pivot: {x: 1.5, y: -0.014285715}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
-      width: 136
-      height: 96
+      x: 116
+      y: 238
+      width: 48
+      height: 70
     spriteID: 88919872cc7e90c4d94fab177090a1b5
     spriteBone: []
     spriteOutline: []
@@ -438,7 +438,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 116, y: 238}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -451,130 +451,130 @@ ScriptedImporter:
     - name: StripedDoorwayDoor_Frame_0
       frameIndex: 0
       cellRect:
-        x: 0
+        x: 8
         y: 0
-        width: 96
-        height: 96
+        width: 48
+        height: 70
       spriteId: cdfc3ef9fc4423342b3a288118f478b2
     - name: StripedDoorwayDoor_Frame_1
       frameIndex: 1
       cellRect:
-        x: 0
+        x: 4
         y: 0
-        width: 96
-        height: 96
+        width: 48
+        height: 70
       spriteId: a5376f0172ebbe2438dae221640b78b2
     - name: StripedDoorwayDoor_Frame_2
       frameIndex: 2
       cellRect:
-        x: 0
+        x: 5
         y: 0
-        width: 96
-        height: 96
+        width: 48
+        height: 70
       spriteId: aa7bed5dc78a0ba459922cd0b0720508
     - name: StripedDoorwayDoor_Frame_3
       frameIndex: 3
       cellRect:
-        x: 0
+        x: 1
         y: 0
-        width: 96
-        height: 96
+        width: 48
+        height: 70
       spriteId: ede82e1a92c628b43adc9d00c6d9445b
     - name: StripedDoorwayDoor_Frame_4
       frameIndex: 4
       cellRect:
         x: -3
         y: 0
-        width: 99
-        height: 96
+        width: 48
+        height: 70
       spriteId: 3779a5b3b0d8b3a47a8258ff819f5d57
     - name: StripedDoorwayDoor_Frame_5
       frameIndex: 5
       cellRect:
         x: -7
         y: 0
-        width: 103
-        height: 96
+        width: 48
+        height: 70
       spriteId: 0456413c3a3185a4693d9f55e0f67d2b
     - name: StripedDoorwayDoor_Frame_6
       frameIndex: 6
       cellRect:
         x: -10
         y: 0
-        width: 106
-        height: 96
+        width: 48
+        height: 70
       spriteId: d74587972be561949868eab4700ef40f
     - name: StripedDoorwayDoor_Frame_7
       frameIndex: 7
       cellRect:
         x: -15
         y: 0
-        width: 111
-        height: 96
+        width: 48
+        height: 70
       spriteId: 7868ec7984937974e875dbfc5c562a22
     - name: StripedDoorwayDoor_Frame_8
       frameIndex: 8
       cellRect:
         x: -19
         y: 0
-        width: 115
-        height: 96
+        width: 48
+        height: 70
       spriteId: cb0971c4efb399a41b4e5fecc0342773
     - name: StripedDoorwayDoor_Frame_9
       frameIndex: 9
       cellRect:
         x: -23
         y: 0
-        width: 119
-        height: 96
+        width: 48
+        height: 70
       spriteId: 2ab00635a80b0874388cb1bdb9834a9f
     - name: StripedDoorwayDoor_Frame_10
       frameIndex: 10
       cellRect:
         x: -27
         y: 0
-        width: 123
-        height: 96
+        width: 48
+        height: 70
       spriteId: c81a360ece1aa394fb37839b733b871a
     - name: StripedDoorwayDoor_Frame_11
       frameIndex: 11
       cellRect:
         x: -31
         y: 0
-        width: 127
-        height: 96
+        width: 48
+        height: 70
       spriteId: 7636119131228824e9d3414f4cf41833
     - name: StripedDoorwayDoor_Frame_12
       frameIndex: 12
       cellRect:
         x: -35
         y: 0
-        width: 131
-        height: 96
+        width: 48
+        height: 70
       spriteId: 81fdd68a37ad4ba4e9fd2d388aa71082
     - name: StripedDoorwayDoor_Frame_13
       frameIndex: 13
       cellRect:
         x: -39
         y: 0
-        width: 135
-        height: 96
+        width: 48
+        height: 70
       spriteId: ee1f4a94909716c4dae4dbb76fd5ba9a
     - name: StripedDoorwayDoor_Frame_14
       frameIndex: 14
       cellRect:
         x: -36
         y: 0
-        width: 132
-        height: 96
+        width: 48
+        height: 70
       spriteId: 3ce19ef1fcbf9bd45a4fead88fb49a9a
     - name: StripedDoorwayDoor_Frame_15
       frameIndex: 15
       cellRect:
         x: -40
-        y: 0
-        width: 136
-        height: 96
+        y: 1
+        width: 48
+        height: 70
       spriteId: 88919872cc7e90c4d94fab177090a1b5
     linkedCells: []
     parentIndex: -1

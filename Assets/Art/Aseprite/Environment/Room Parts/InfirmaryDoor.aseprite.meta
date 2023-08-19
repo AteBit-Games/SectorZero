@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7fc035780b3788f4b8ecace02dee032d
+guid: 6e57399c350806e4b9b3540206f6adc2
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,7 +119,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: OfficeDoorwayDoor_Frame_0
+  - name: InfirmaryDoor_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 48
       height: 70
-    spriteID: 4b51f039d6945a04598b00fa3c2acc5d
+    spriteID: efeaedc5f09611d48aa05544924ab3bf
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,7 +139,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: OfficeDoorwayDoor_Frame_1
+  - name: InfirmaryDoor_Frame_1
     originalName: 
     pivot: {x: 0.5833334, y: 0}
     alignment: 9
@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 82
       width: 48
       height: 70
-    spriteID: ba87833a34e79284894e1ced1f63469f
+    spriteID: 9c69b8ea2452da940a89bee95ea7c18f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,7 +159,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 82}
-  - name: OfficeDoorwayDoor_Frame_2
+  - name: InfirmaryDoor_Frame_2
     originalName: 
     pivot: {x: 0.5625, y: 0}
     alignment: 9
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 160
       width: 48
       height: 70
-    spriteID: 2b1fe88b2306c714182eec92c03c182e
+    spriteID: c8122a05bdde91f429784467c7beeb48
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -179,7 +179,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 160}
-  - name: OfficeDoorwayDoor_Frame_3
+  - name: InfirmaryDoor_Frame_3
     originalName: 
     pivot: {x: 0.6458334, y: 0}
     alignment: 9
@@ -190,7 +190,7 @@ ScriptedImporter:
       y: 238
       width: 48
       height: 70
-    spriteID: ad093c6ed8c55594eb5d143e5e5855e4
+    spriteID: f7a2a0e0018c1d24d908611228eb7658
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -199,7 +199,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 238}
-  - name: OfficeDoorwayDoor_Frame_4
+  - name: InfirmaryDoor_Frame_4
     originalName: 
     pivot: {x: 0.7291667, y: 0}
     alignment: 9
@@ -210,7 +210,7 @@ ScriptedImporter:
       y: 316
       width: 48
       height: 70
-    spriteID: c29e35d55afb8ea4390f201291e729ea
+    spriteID: e4a45923cd4936f4eb0848f8c7102d6d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -219,7 +219,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 316}
-  - name: OfficeDoorwayDoor_Frame_5
+  - name: InfirmaryDoor_Frame_5
     originalName: 
     pivot: {x: 0.8125, y: 0}
     alignment: 9
@@ -230,7 +230,7 @@ ScriptedImporter:
       y: 394
       width: 48
       height: 70
-    spriteID: 6c8534d29cb85c24c8aca7a5027597f2
+    spriteID: bd6d20a50da575245a24d848094350a0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -239,7 +239,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 394}
-  - name: OfficeDoorwayDoor_Frame_6
+  - name: InfirmaryDoor_Frame_6
     originalName: 
     pivot: {x: 0.8958334, y: 0}
     alignment: 9
@@ -250,7 +250,7 @@ ScriptedImporter:
       y: 4
       width: 48
       height: 70
-    spriteID: 2a11301e831f08a4590e9e25f6cb12f5
+    spriteID: 8a94c78dc9997604392e5c006abc6208
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -259,7 +259,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 60, y: 4}
-  - name: OfficeDoorwayDoor_Frame_7
+  - name: InfirmaryDoor_Frame_7
     originalName: 
     pivot: {x: 0.9791667, y: 0}
     alignment: 9
@@ -270,7 +270,7 @@ ScriptedImporter:
       y: 82
       width: 48
       height: 70
-    spriteID: 2811ea2fb05df564888f3f78d89d620f
+    spriteID: a735289bf3f87da42af3de91f17e7927
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -279,7 +279,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 60, y: 82}
-  - name: OfficeDoorwayDoor_Frame_8
+  - name: InfirmaryDoor_Frame_8
     originalName: 
     pivot: {x: 1.0625, y: 0}
     alignment: 9
@@ -290,7 +290,7 @@ ScriptedImporter:
       y: 160
       width: 48
       height: 70
-    spriteID: d640e66169acd424499dd2037c91f8ef
+    spriteID: c87da249e1874214c880c075213d77e5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -299,7 +299,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 60, y: 160}
-  - name: OfficeDoorwayDoor_Frame_9
+  - name: InfirmaryDoor_Frame_9
     originalName: 
     pivot: {x: 1.1458334, y: 0}
     alignment: 9
@@ -310,7 +310,7 @@ ScriptedImporter:
       y: 238
       width: 48
       height: 70
-    spriteID: cdff39caf410c86448c3fb7de32e8a89
+    spriteID: 7138ffe3b85fa3c4aa7832ec44ee2508
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -319,7 +319,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 60, y: 238}
-  - name: OfficeDoorwayDoor_Frame_10
+  - name: InfirmaryDoor_Frame_10
     originalName: 
     pivot: {x: 1.2291667, y: 0}
     alignment: 9
@@ -330,7 +330,7 @@ ScriptedImporter:
       y: 316
       width: 48
       height: 70
-    spriteID: 624086d9737df274a83917f96ee65330
+    spriteID: cda831a4c7cd5d549b9da0d79814e9ff
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -339,7 +339,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 60, y: 316}
-  - name: OfficeDoorwayDoor_Frame_11
+  - name: InfirmaryDoor_Frame_11
     originalName: 
     pivot: {x: 1.3125, y: 0}
     alignment: 9
@@ -350,7 +350,7 @@ ScriptedImporter:
       y: 394
       width: 48
       height: 70
-    spriteID: f6b3eefa299873742a623b91dd564603
+    spriteID: 90157df188d9e0c44b0a35f590e5be86
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -359,7 +359,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 60, y: 394}
-  - name: OfficeDoorwayDoor_Frame_12
+  - name: InfirmaryDoor_Frame_12
     originalName: 
     pivot: {x: 1.3958334, y: 0}
     alignment: 9
@@ -370,7 +370,7 @@ ScriptedImporter:
       y: 4
       width: 48
       height: 70
-    spriteID: b4da347646f582c42a4282789c7c900d
+    spriteID: 3919244e7fb6e1b4a917c85f6d49b600
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -379,7 +379,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 116, y: 4}
-  - name: OfficeDoorwayDoor_Frame_13
+  - name: InfirmaryDoor_Frame_13
     originalName: 
     pivot: {x: 1.4791667, y: 0}
     alignment: 9
@@ -390,7 +390,7 @@ ScriptedImporter:
       y: 82
       width: 48
       height: 70
-    spriteID: fd66e3987ce09864287769abaf87e399
+    spriteID: 5c22b6e5c72853542842193969ddbec0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -399,7 +399,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 116, y: 82}
-  - name: OfficeDoorwayDoor_Frame_14
+  - name: InfirmaryDoor_Frame_14
     originalName: 
     pivot: {x: 1.4375, y: 0}
     alignment: 9
@@ -410,7 +410,7 @@ ScriptedImporter:
       y: 160
       width: 48
       height: 70
-    spriteID: 7f55a68993a8023459c92f5fb32e3595
+    spriteID: 9af34299ccd591044a5a1821ab1a8db4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -419,7 +419,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 116, y: 160}
-  - name: OfficeDoorwayDoor_Frame_15
+  - name: InfirmaryDoor_Frame_15
     originalName: 
     pivot: {x: 1.5, y: -0.014285715}
     alignment: 9
@@ -430,7 +430,7 @@ ScriptedImporter:
       y: 238
       width: 48
       height: 70
-    spriteID: 781c9b95fa42e7f44b4b4da3c790cbaf
+    spriteID: 10deae14b4780ad43a29ee5468451731
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -442,140 +442,140 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -373252925
-    name: OfficeDoorwayDoor
+    guid: 511244975
+    name: InfirmaryDoor
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: OfficeDoorwayDoor_Frame_0
+    - name: InfirmaryDoor_Frame_0
       frameIndex: 0
       cellRect:
         x: 8
         y: 0
         width: 48
         height: 70
-      spriteId: 4b51f039d6945a04598b00fa3c2acc5d
-    - name: OfficeDoorwayDoor_Frame_1
+      spriteId: efeaedc5f09611d48aa05544924ab3bf
+    - name: InfirmaryDoor_Frame_1
       frameIndex: 1
       cellRect:
         x: 4
         y: 0
         width: 48
         height: 70
-      spriteId: ba87833a34e79284894e1ced1f63469f
-    - name: OfficeDoorwayDoor_Frame_2
+      spriteId: 9c69b8ea2452da940a89bee95ea7c18f
+    - name: InfirmaryDoor_Frame_2
       frameIndex: 2
       cellRect:
         x: 5
         y: 0
         width: 48
         height: 70
-      spriteId: 2b1fe88b2306c714182eec92c03c182e
-    - name: OfficeDoorwayDoor_Frame_3
+      spriteId: c8122a05bdde91f429784467c7beeb48
+    - name: InfirmaryDoor_Frame_3
       frameIndex: 3
       cellRect:
         x: 1
         y: 0
         width: 48
         height: 70
-      spriteId: ad093c6ed8c55594eb5d143e5e5855e4
-    - name: OfficeDoorwayDoor_Frame_4
+      spriteId: f7a2a0e0018c1d24d908611228eb7658
+    - name: InfirmaryDoor_Frame_4
       frameIndex: 4
       cellRect:
         x: -3
         y: 0
         width: 48
         height: 70
-      spriteId: c29e35d55afb8ea4390f201291e729ea
-    - name: OfficeDoorwayDoor_Frame_5
+      spriteId: e4a45923cd4936f4eb0848f8c7102d6d
+    - name: InfirmaryDoor_Frame_5
       frameIndex: 5
       cellRect:
         x: -7
         y: 0
         width: 48
         height: 70
-      spriteId: 6c8534d29cb85c24c8aca7a5027597f2
-    - name: OfficeDoorwayDoor_Frame_6
+      spriteId: bd6d20a50da575245a24d848094350a0
+    - name: InfirmaryDoor_Frame_6
       frameIndex: 6
       cellRect:
         x: -11
         y: 0
         width: 48
         height: 70
-      spriteId: 2a11301e831f08a4590e9e25f6cb12f5
-    - name: OfficeDoorwayDoor_Frame_7
+      spriteId: 8a94c78dc9997604392e5c006abc6208
+    - name: InfirmaryDoor_Frame_7
       frameIndex: 7
       cellRect:
         x: -15
         y: 0
         width: 48
         height: 70
-      spriteId: 2811ea2fb05df564888f3f78d89d620f
-    - name: OfficeDoorwayDoor_Frame_8
+      spriteId: a735289bf3f87da42af3de91f17e7927
+    - name: InfirmaryDoor_Frame_8
       frameIndex: 8
       cellRect:
         x: -19
         y: 0
         width: 48
         height: 70
-      spriteId: d640e66169acd424499dd2037c91f8ef
-    - name: OfficeDoorwayDoor_Frame_9
+      spriteId: c87da249e1874214c880c075213d77e5
+    - name: InfirmaryDoor_Frame_9
       frameIndex: 9
       cellRect:
         x: -23
         y: 0
         width: 48
         height: 70
-      spriteId: cdff39caf410c86448c3fb7de32e8a89
-    - name: OfficeDoorwayDoor_Frame_10
+      spriteId: 7138ffe3b85fa3c4aa7832ec44ee2508
+    - name: InfirmaryDoor_Frame_10
       frameIndex: 10
       cellRect:
         x: -27
         y: 0
         width: 48
         height: 70
-      spriteId: 624086d9737df274a83917f96ee65330
-    - name: OfficeDoorwayDoor_Frame_11
+      spriteId: cda831a4c7cd5d549b9da0d79814e9ff
+    - name: InfirmaryDoor_Frame_11
       frameIndex: 11
       cellRect:
         x: -31
         y: 0
         width: 48
         height: 70
-      spriteId: f6b3eefa299873742a623b91dd564603
-    - name: OfficeDoorwayDoor_Frame_12
+      spriteId: 90157df188d9e0c44b0a35f590e5be86
+    - name: InfirmaryDoor_Frame_12
       frameIndex: 12
       cellRect:
         x: -35
         y: 0
         width: 48
         height: 70
-      spriteId: b4da347646f582c42a4282789c7c900d
-    - name: OfficeDoorwayDoor_Frame_13
+      spriteId: 3919244e7fb6e1b4a917c85f6d49b600
+    - name: InfirmaryDoor_Frame_13
       frameIndex: 13
       cellRect:
         x: -39
         y: 0
         width: 48
         height: 70
-      spriteId: fd66e3987ce09864287769abaf87e399
-    - name: OfficeDoorwayDoor_Frame_14
+      spriteId: 5c22b6e5c72853542842193969ddbec0
+    - name: InfirmaryDoor_Frame_14
       frameIndex: 14
       cellRect:
         x: -37
         y: 0
         width: 48
         height: 70
-      spriteId: 7f55a68993a8023459c92f5fb32e3595
-    - name: OfficeDoorwayDoor_Frame_15
+      spriteId: 9af34299ccd591044a5a1821ab1a8db4
+    - name: InfirmaryDoor_Frame_15
       frameIndex: 15
       cellRect:
         x: -40
         y: 1
         width: 48
         height: 70
-      spriteId: 781c9b95fa42e7f44b4b4da3c790cbaf
+      spriteId: 10deae14b4780ad43a29ee5468451731
     linkedCells: []
     parentIndex: -1
   platformSettings: []
