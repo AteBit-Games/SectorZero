@@ -56,9 +56,9 @@ MonoBehaviour:
   maxOn: 6
   minOff: 0.1
   maxOff: 0.3
-  onSound: {fileID: 11400000, guid: 24477554bcf8bc2439185617f7b147a8, type: 2}
+  onSound: {fileID: 11400000, guid: f1570eb6bf234b941b075dc0a8fc2bbd, type: 2}
   loopSound: {fileID: 11400000, guid: 642ecbeaba520d0469082481e91a9bca, type: 2}
-  offSound: {fileID: 11400000, guid: 2d9b75a258c4beb4aa7778758de6f4d9, type: 2}
+  offSound: {fileID: 11400000, guid: 6bb4058175d4a024fa9399e0296ef00b, type: 2}
   volumeScale: 0.2
 --- !u!82 &5842894688934183266
 AudioSource:
@@ -329,8 +329,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.025949955, y: -1.2891998, z: 0}
-    m_Extent: {x: 12.06485, y: 12.7537, z: 0}
+    m_Center: {x: -0.032649994, y: -1.2837996, z: 0}
+    m_Extent: {x: 12.06795, y: 12.760099, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
