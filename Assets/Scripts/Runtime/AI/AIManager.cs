@@ -5,27 +5,63 @@
 
 using Runtime.BehaviourTree;
 using Runtime.Player;
+using Runtime.SaveSystem;
+using Runtime.SaveSystem.Data;
 using UnityEngine;
 
 namespace Runtime.AI
 {
-    public class AIManager : MonoBehaviour
+    public class AIManager : MonoBehaviour, IPersistant
     {
+        [SerializeField] public string persistentID;
         [SerializeField] private float menaceGaugeValue;
         [SerializeField] private float menaceGaugeMax = 100f;
         [SerializeField] private float menaceGaugeMin;
         
         [SerializeField] private float menaceGaugeIncreaseMultiplier = 1f;
-        
+
         private BehaviourTreeOwner _monster;
         private PlayerController _player;
+        ///Patrol state (False | Close State --- True | Far State)
+        private BlackboardKey<bool> _patrolState;
         
+        private bool _debugCloseState;
+        public bool DebugCloseState
+        {
+            get => _debugCloseState;
+            set {
+                if (_debugCloseState == value) return;
+                _debugCloseState = value;
+                OnCloseStateChange?.Invoke(_debugCloseState);
+            }
+        }
+        public delegate void OnVariableChangeDelegate(bool newVal);
+        public event OnVariableChangeDelegate OnCloseStateChange;
+
+        private void Start()
+        {
+            OnCloseStateChange += VariableChangeHandler;
+        }
+
+        private void VariableChangeHandler(bool newVal)
+        {
+            _patrolState.value = newVal;
+        }
+                
         // ============================ Unity Events ============================
         
         private void Awake()
         {
             _monster = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
             _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
+
+            if (_monster == null || _player == null)
+            {
+                Debug.LogError("AIManager: Monster or Player not found!");
+                return;
+            }
+            
+            _patrolState = _monster.FindBlackboardKey<bool>("PatrolState");
         }
         
         private void FixedUpdate()
@@ -64,6 +100,18 @@ namespace Runtime.AI
         public void SetMonsterState()
         {
             
+        }
+        
+        // ============================ Save System ============================
+
+        public void LoadData(SaveData data)
+        {
+            //TODO: Load data
+        }
+
+        public void SaveData(SaveData data)
+        {
+            //TODO: Save data
         }
     }
 }

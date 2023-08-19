@@ -15,12 +15,7 @@ namespace Runtime.Managers
 {
     public class CinematicManager : MonoBehaviour, IPersistant
     {
-        [SerializeField] private string persistentID;
-        public string ID
-        {
-            get => persistentID;
-            set => persistentID = value;
-        }
+        [SerializeField] public string persistentID;
         
         public Dictionary<PlayableDirector, bool> director;
 

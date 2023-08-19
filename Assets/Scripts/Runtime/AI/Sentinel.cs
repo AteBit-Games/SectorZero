@@ -1,14 +1,16 @@
 /****************************************************************
-* Copyright (c) 2023 AteBit Games
-* All rights reserved.
-****************************************************************/
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
 
+using System;
 using System.Collections;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
 using UnityEngine;
 using ElRaccoone.Tweens;
 using UnityEngine.Rendering.Universal;
+using Random = UnityEngine.Random;
 
 namespace Runtime.AI
 {
@@ -134,6 +136,11 @@ namespace Runtime.AI
             return new Vector2(Mathf.Sin(angleDeg * Mathf.Deg2Rad), Mathf.Cos(angleDeg * Mathf.Deg2Rad));
         }
         
+        private Vector2 GetAngleFromLook()
+        {
+            return new Vector2(Mathf.Sin((lookAngle+90) * Mathf.Deg2Rad), Mathf.Cos((lookAngle+90) * Mathf.Deg2Rad));
+        }
+        
         //================================= Coroutine ===================================//
 
         private IEnumerator TriggerDeactivate()
@@ -151,6 +158,29 @@ namespace Runtime.AI
             {
                 _light.intensity = value;
             }).SetFrom(_light.intensity).SetEaseBackOut().SetOnComplete(DeactivateSentinel);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            if (!debug) return;
+            
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, viewRadius);
+            
+            //Debug.DrawRay(transform.position, GetAngleFromLook()*viewRadius, Color.red);
+
+            //from th middle line get the left and right line
+            var leftLine = GetAngleFromLook() * viewRadius;
+            var rightLine = GetAngleFromLook() * viewRadius;
+            
+            //rotate the left and right line by the view angle
+            leftLine = Quaternion.AngleAxis(-viewAngle / 2, Vector3.forward) * leftLine;
+            rightLine = Quaternion.AngleAxis(viewAngle / 2, Vector3.forward) * rightLine;
+            
+            //draw the left and right line
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(transform.position, leftLine);
+            Gizmos.DrawRay(transform.position, rightLine);
         }
     }
 }

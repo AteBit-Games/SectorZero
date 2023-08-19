@@ -24,9 +24,9 @@ namespace Editor.Managers
             generateGuidButton.RegisterCallback<ClickEvent>(_ =>
             {
                 var cinematicManager = target as CinematicManager;
-                if (cinematicManager != null && cinematicManager.ID == "")
+                if (cinematicManager != null && cinematicManager.persistentID == "")
                 {
-                    cinematicManager.ID = System.Guid.NewGuid().ToString();
+                    cinematicManager.persistentID = System.Guid.NewGuid().ToString();
                     EditorUtility.SetDirty(cinematicManager);
                 }
             });

@@ -19,14 +19,12 @@ MonoBehaviour:
   - rid: 61114553026215937
   - rid: 61114553026215938
   - rid: 61114553026215939
-  - rid: 61114553026215940
   - rid: 61114553026215941
   - rid: 61114553026215942
   - rid: 61114553026215943
   - rid: 61114553026215944
   - rid: 61114553026215945
   - rid: 61114553026215946
-  - rid: 61114553026215951
   - rid: 61114553026215952
   - rid: 61114553026215953
   - rid: 61114553026215956
@@ -35,6 +33,7 @@ MonoBehaviour:
   - rid: 61114553026215964
   - rid: 61114553026215969
   - rid: 61114553026215971
+  - rid: 130803839992070150
   treeState: 1
   blackboard:
     keys:
@@ -42,13 +41,15 @@ MonoBehaviour:
     - rid: 61114352745054246
     - rid: 61114352745054248
     - rid: 61114352745054249
+    - rid: 130803839992070149
     - rid: 61114553026215947
+    - rid: 130803839992070148
     - rid: 61114553026215959
     - rid: 61114553026215966
     - rid: 61114553026215965
     - rid: 61114553026215970
-  viewPosition: {x: 598, y: 335, z: 0}
-  viewScale: {x: 0.25, y: 0.25, z: 1}
+  viewPosition: {x: 1336, y: -413, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -107,7 +108,6 @@ MonoBehaviour:
         children:
         - rid: 61114553026215938
         - rid: 61114553026215957
-        - rid: 61114553026215940
         - rid: 61114553026215942
         - rid: 61114553026215943
         - rid: 61114553026215971
@@ -144,36 +144,15 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 53f135003a7edb245aae4659cd1b362f
-        position: {x: -2040, y: 380}
+        position: {x: -1680, y: 380}
         blackboard:
           keys: []
-        comment: 
+        comment: Sentinel Behaviour
         drawGizmos: 0
         child:
           rid: 61114553026215956
         restartOnSuccess: 1
         restartOnFailure: 1
-        maxRepeats:
-          reference:
-            rid: -2
-          defaultValue: 0
-    - rid: 61114553026215940
-      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: c17fcbb427a0ccd438bdce1094424080
-        position: {x: -1000, y: 240}
-        blackboard:
-          keys: []
-        comment: '<b>Patrol </b>
-
-          Far From Player'
-        drawGizmos: 0
-        child:
-          rid: -2
-        restartOnSuccess: 1
-        restartOnFailure: 0
         maxRepeats:
           reference:
             rid: -2
@@ -310,41 +289,13 @@ MonoBehaviour:
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
           Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: []
-    - rid: 61114553026215951
-      type: {class: PatrolRooms, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: ac74b36b75a9425499e318e865b74bf7
-        position: {x: -1480, y: 640}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        patrolMode: 0
-        targetList:
-          reference:
-            rid: 61114553026215947
-          defaultValue: []
-        speed:
-          reference:
-            rid: -2
-          defaultValue: 4
-        keepDistance:
-          reference:
-            rid: -2
-          defaultValue: 0.1
-        outRoom:
-          reference:
-            rid: -2
-          defaultValue: {fileID: 0}
     - rid: 61114553026215952
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: ad68e86a956b60449a38745e8a7ecd75
-        position: {x: -1260, y: 640}
+        position: {x: -1140, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -359,21 +310,21 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a9914f29a5e4d074db4c2ac5fd9d4087
-        position: {x: -1360, y: 500}
+        position: {x: -1000, y: 500}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
         children:
-        - rid: 61114553026215951
         - rid: 61114553026215952
+        - rid: 130803839992070150
     - rid: 61114553026215956
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 4feda5b432f8b5845a1c0899f095035b
-        position: {x: -2040, y: 500}
+        position: {x: -1680, y: 520}
         blackboard:
           keys: []
         comment: 
@@ -387,12 +338,10 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 31827a30ac3387248836482b34728860
-        position: {x: -1720, y: 240}
+        position: {x: -1360, y: 240}
         blackboard:
           keys: []
-        comment: '<b>Patrol </b>
-
-          Near Player'
+        comment: <b>Patrol </b>
         drawGizmos: 0
         children:
         - rid: 61114553026215939
@@ -403,7 +352,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: e97e053265bebb042973dbdead46428c
-        position: {x: -1360, y: 380}
+        position: {x: -1000, y: 380}
         blackboard:
           keys: []
         comment: 
@@ -430,7 +379,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 813108add51a3fd40bf34303a2842211
-        position: {x: -1900, y: 640}
+        position: {x: -1580, y: 660}
         blackboard:
           keys: []
         comment: 
@@ -444,20 +393,20 @@ MonoBehaviour:
       data:
         name: SentinelCooldown
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 10
+        value: 40
     - rid: 61114553026215966
       type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
         name: ActiveSentinels
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 2
+        value: 1
     - rid: 61114553026215969
       type: {class: ActivateSentinels, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 001ac0f32775c504fbeedeb1c4df1590
-        position: {x: -2200, y: 640}
+        position: {x: -1800, y: 660}
         blackboard:
           keys: []
         comment: 
@@ -479,7 +428,7 @@ MonoBehaviour:
       data:
         name: SentinelActivationTime
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 5
+        value: 8
     - rid: 61114553026215971
       type: {class: LogMessage, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
       data:
@@ -496,3 +445,48 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: Player Spotted
+    - rid: 130803839992070148
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SelectedRooms
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 130803839992070149
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: PatrolState
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130803839992070150
+      type: {class: SelectPatrolRooms, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: bb6dd75ca40a3394895d50189fb94cb1
+        position: {x: -940, y: 640}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        target:
+          reference:
+            rid: 61114352745054247
+          defaultValue: {fileID: 0}
+        rooms:
+          reference:
+            rid: 61114553026215947
+          defaultValue: []
+        numberOfRooms:
+          reference:
+            rid: -2
+          defaultValue: 5
+        patrolState:
+          reference:
+            rid: 130803839992070149
+          defaultValue: 0
+        resultingRooms:
+          reference:
+            rid: 130803839992070148
+          defaultValue: []

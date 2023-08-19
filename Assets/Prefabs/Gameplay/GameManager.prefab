@@ -556,9 +556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea89d7f18911a44ca247eba52283255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterMixGroup: {fileID: 11400000, guid: e5432f18fee79b6438057d1007746d6c, type: 2}
-  musicMixGroup: {fileID: 11400000, guid: 8dd99f57cca7eb043975152dbd04bdec, type: 2}
-  sfxMixGroup: {fileID: 11400000, guid: b348364a418e1fe4d88ea7142fcae115, type: 2}
   mainMixer: {fileID: 24100000, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
   ambienceSources:
   - {fileID: 5247824244157681017}
@@ -576,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c436bc4c814f62ad7075889f8956c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveFileName: save.sctr
+  saveFileExtension: .sctr
   useEncryption: 1
   playerConfig:
   - sceneIndex: 1
@@ -596,6 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72c8e03eda53cd498be945729335758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  persistentID: c2dbcb78-6ae0-43c9-a532-954be5448db0
   menaceGaugeValue: 0
   menaceGaugeMax: 100
   menaceGaugeMin: 0
