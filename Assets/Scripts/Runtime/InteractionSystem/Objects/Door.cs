@@ -74,11 +74,11 @@ namespace Runtime.InteractionSystem.Objects
         
         //=========================== Save System =============================//
         
-        public void LoadData(SaveData data)
+        public void LoadData(SaveGame game)
         {
-            if (data.worldData.doors.ContainsKey(persistentID))
+            if (game.worldData.doors.ContainsKey(persistentID))
             {
-                if(data.worldData.doors[persistentID])
+                if(game.worldData.doors[persistentID])
                 {
                     _mainAnimator.SetTrigger(Open);
                     _mainAnimator.SetBool(_isOpen, true);
@@ -96,10 +96,10 @@ namespace Runtime.InteractionSystem.Objects
             }
         }
 
-        public void SaveData(SaveData data)
+        public void SaveData(SaveGame game)
         {
-            if(!data.worldData.doors.ContainsKey(persistentID)) data.worldData.doors.Add(persistentID, open);
-            else data.worldData.doors[persistentID] = open;
+            if(!game.worldData.doors.ContainsKey(persistentID)) game.worldData.doors.Add(persistentID, open);
+            else game.worldData.doors[persistentID] = open;
         }
     }
 }

@@ -29,17 +29,17 @@ namespace Runtime.Misc.Triggers
         
         //============================== Save System ==============================
 
-        public void LoadData(SaveData data)
+        public void LoadData(SaveGame game)
         {
-            if (data.worldData.triggers.TryGetValue(persistentID, out var trigger))
+            if (game.worldData.triggers.TryGetValue(persistentID, out var trigger))
             {
                 gameObject.SetActive(value: trigger);
             }
         }
 
-        public void SaveData(SaveData data)
+        public void SaveData(SaveGame game)
         {
-            data.worldData.triggers[persistentID] = gameObject.activeSelf;
+            game.worldData.triggers[persistentID] = gameObject.activeSelf;
         }
     }
 }

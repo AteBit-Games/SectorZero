@@ -37,6 +37,7 @@ namespace Runtime.InteractionSystem.Objects
         
         [SerializeField] private UnityEvent onTriggerEvents;
         [SerializeField] private bool canTrigger;
+        [SerializeField] private bool canExit = true;
         
         //----- Interface Properties -----//
         public bool ContainsPlayer { get; set; }
@@ -55,6 +56,8 @@ namespace Runtime.InteractionSystem.Objects
         
         public bool OnInteract(GameObject player)
         {
+            if(!canExit) return false;
+            
             var playerController = player.GetComponentInParent<PlayerController>();
 
             if (playerController.isHiding && ContainsPlayer)
@@ -105,6 +108,11 @@ namespace Runtime.InteractionSystem.Objects
         public void SetCanTrigger(bool value)
         {
             canTrigger = value;
+        }
+        
+        public void SetCanExit(bool value)
+        {
+            canExit = value;
         }
     }
 }

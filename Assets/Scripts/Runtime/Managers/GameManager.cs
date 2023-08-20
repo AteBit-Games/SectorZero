@@ -39,6 +39,12 @@ namespace Runtime.Managers
         [Header("DEBUG")]
         #endregion 
         [SerializeField] public bool testMode;
+        public bool TestMode
+        {
+            get => testMode;
+            set => testMode = value;
+        }
+
         [HideInInspector] public bool loaded;
         //========================= Interface =========================
         
@@ -62,8 +68,8 @@ namespace Runtime.Managers
         private const string LargeImage = "sectorzerologo";
         private const string LargeText = "Sector Zero";
         [HideInInspector] public string details = "";
-        private long time;
-        private Discord.Discord discord;
+        private long _time;
+        private Discord.Discord _discord;
         
         //========================= Unity Events =========================
         
@@ -77,21 +83,19 @@ namespace Runtime.Managers
             Instance = this;
             
             DontDestroyOnLoad(gameObject);
-            discord = new Discord.Discord(ApplicationId, (ulong)CreateFlags.NoRequireDiscord);
-            time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            _discord = new Discord.Discord(ApplicationId, (ulong)CreateFlags.NoRequireDiscord);
+            _time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             
             Instance.LoadingScreen = GetComponentInChildren<LoadingScreen>();
             Instance.SoundSystem = GetComponent<SoundManager>();
             Instance.SaveSystem = GetComponent<SaveManager>();
-            
-            if(testMode) SaveSystem.NewGame(true, SceneManager.GetActiveScene().buildIndex);
         }
 
         private void Update()
         {
             try
             {
-                discord.RunCallbacks();
+                _discord.RunCallbacks();
             }
             catch (Exception)
             {
@@ -106,7 +110,7 @@ namespace Runtime.Managers
 
         private void OnApplicationQuit()
         {
-            discord.Dispose();
+            _discord.Dispose();
         }
 
         private void OnEnable()
@@ -149,22 +153,43 @@ namespace Runtime.Managers
                     mainMenu.CloseSettings();
                     inputReader.SetUI();
                 }
-            }
-            else if(InventorySystem.isInventoryOpen)
-            {
-                InventorySystem.CloseInventory();
-            }
-            else if(PauseMenu.isPaused)
-            {
-                if(PauseMenu.isSettingsOpen)
+                else if(mainMenu.isSavesWindowOpen)
                 {
-                    PauseMenu.CloseSettings();
+                    mainMenu.CloseSavesMenu();
                     inputReader.SetUI();
-                    Time.timeScale = 0f;
                 }
-                else
+            }
+            else
+            {
+                if(InventorySystem.isInventoryOpen)
                 {
-                    PauseMenu.Resume();
+                    InventorySystem.CloseInventory();
+                }
+            
+                if(PauseMenu.isPaused)
+                {
+                    if(PauseMenu.isSettingsOpen)
+                    {
+                        PauseMenu.CloseSettings();
+                        inputReader.SetUI();
+                        Time.timeScale = 0f;
+                    }
+                    else if(PauseMenu.isSavesWindowOpen)
+                    {
+                        PauseMenu.CloseSavesMenu();
+                        inputReader.SetUI();
+                        Time.timeScale = 0f;
+                    }
+                    else
+                    {
+                        PauseMenu.Resume();
+                    }
+                }
+                
+                if(DeathScreen.isOpen && DeathScreen.isSavesWindowOpen)
+                {
+                    DeathScreen.CloseSavesMenu();
+                    inputReader.SetUI();
                 }
             }
         }
@@ -225,7 +250,6 @@ namespace Runtime.Managers
             NotificationManager = FindFirstObjectByType<NotificationManager>(FindObjectsInactive.Include);
             SoundSystem.SilenceAmbience();
             SoundSystem.ResetSystem();
-            SoundSystem.PauseAll();
 
             if (isMainMenu)
             {
@@ -257,7 +281,7 @@ namespace Runtime.Managers
         {
             try
             {
-                var activityManager = discord.GetActivityManager();
+                var activityManager = _discord.GetActivityManager();
                 var activity = new Activity
                 {
                     State = "",
@@ -269,7 +293,7 @@ namespace Runtime.Managers
                     },
                     Timestamps =
                     {
-                        Start = time
+                        Start = _time
                     }
                 };
 

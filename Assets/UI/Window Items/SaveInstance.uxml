@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
+    <ui:VisualElement name="save" style="flex-grow: 1; width: 100%; height: 125px; flex-direction: row; align-items: center; padding-top: 8px; padding-right: 8px; padding-bottom: 8px; padding-left: 8px; background-color: rgba(255, 255, 255, 0); background-image: url(&apos;project://database/Assets/Art/UI/UI%20Background.png?fileID=21300000&amp;guid=684bb29d28eb25f479f24f22f3c8cd6c&amp;type=3#UI Background&apos;); margin-top: 6px; margin-bottom: 6px;">
+        <ui:VisualElement name="active-save" picking-mode="Ignore" style="flex-grow: 1; display: flex; flex-direction: row;">
+            <ui:VisualElement name="save-image" style="flex-grow: 0; background-image: url(&apos;project://database/Assets/Art/Sketches/SaveExample.png?fileID=2800000&amp;guid=076ff0638802ae04dae9fb7322320fd4&amp;type=3#SaveExample&apos;); height: 104px; width: 179px;" />
+            <ui:VisualElement name="save-content" style="flex-grow: 1; justify-content: space-between; align-items: flex-start; height: 100%; padding-left: 10px;">
+                <ui:VisualElement name="save-top" style="flex-grow: 0; height: auto; width: 100%;">
+                    <ui:VisualElement name="save-header" style="flex-grow: 0; width: 100%; flex-direction: row; justify-content: space-between; padding-bottom: 8px; align-items: center;">
+                        <ui:Label tabindex="-1" text="SECTOR TWO" display-tooltip-when-elided="true" name="save-title" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); color: rgb(255, 255, 255); font-size: 30px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; height: 26px;" />
+                        <ui:VisualElement name="delete-save" style="flex-grow: 0; background-image: url(&apos;project://database/Assets/Art/UI/DeleteSave.png?fileID=2800000&amp;guid=85fb4b13f6c055142891f455bfb37118&amp;type=3#DeleteSave&apos;); width: 25px; height: 28px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="divider" style="flex-grow: 0; width: 100%; height: 2px; background-color: rgb(255, 255, 255);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="save-information" style="flex-grow: 0; width: 100%; flex-direction: column; justify-content: space-between; align-items: flex-start;">
+                    <ui:Label tabindex="-1" text="Latest Save" display-tooltip-when-elided="true" name="is-latest-save" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); color: rgb(74, 157, 213); font-size: 20px; margin-top: 0; margin-right: 0; margin-bottom: -10px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; display: none;" />
+                    <ui:VisualElement name="bottom-information" style="flex-grow: 0; flex-direction: row; align-items: center; justify-content: space-between; width: 100%;">
+                        <ui:Label tabindex="-1" text="6/19/2023 5:35:50 PM" display-tooltip-when-elided="true" name="save-time" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 22px; color: rgb(255, 255, 255); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                        <ui:Button text="Load Save" display-tooltip-when-elided="true" name="load-save-button" class="form-button" style="height: 35px; width: 100px; font-size: 20px; margin-top: 0; margin-right: 5px; margin-bottom: 5px; margin-left: 5px;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="empty-save" picking-mode="Ignore" style="flex-grow: 1; width: 100%; height: 100%; align-items: center; justify-content: center; display: none;">
+            <ui:Label tabindex="-1" text="No Save Found" display-tooltip-when-elided="true" name="label" style="background-color: rgba(85, 85, 85, 0); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); color: rgb(255, 255, 255); font-size: 40px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

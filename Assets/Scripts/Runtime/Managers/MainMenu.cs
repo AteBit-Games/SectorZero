@@ -5,6 +5,7 @@
 
 using System.Collections;
 using Runtime.ReporterSystem;
+using Runtime.SaveSystem;
 using Runtime.SoundSystem;
 using Runtime.Utils;
 using UnityEngine;
@@ -12,11 +13,13 @@ using UnityEngine.UIElements;
 
 namespace Runtime.Managers
 {
+    [DefaultExecutionOrder(10)]
     public class MainMenu : MonoBehaviour
     {
         [SerializeField] private Sprite[] iconStates;
         [SerializeField] private float iconSpeed = 0.08f;
         [HideInInspector] public bool isSettingsOpen;
+        [HideInInspector] public bool isSavesWindowOpen;
 
         // Main Pause Items
         private Label _buttonDescription;
@@ -28,9 +31,15 @@ namespace Runtime.Managers
         private UIDocument _uiDocument;
         private Button _reportBugButton;
         
-        // Settings Items
+        // Misc Items
         private VisualElement _settingsWindow;
+        private VisualElement _savesWindow;
         private FeedbackForm _feedbackForm;
+        
+        // Popups
+        private VisualElement _confirmNewGamePopup;
+        private Button _confirmNewGame;
+        private Button _cancelNewGame;
         
         private VisualElement _confirmTutorialPopup;
         private Button _yesTutorial;
@@ -40,8 +49,11 @@ namespace Runtime.Managers
         private Button _confirmDesktopQuit;
         private Button _cancelDesktopQuit;
         
+        // Microwave
         private VisualElement _microwaveIcon;
         private int _microwaveIndex;
+
+        private SaveMenu _saveMenu;
 
         private void Start()
         {
@@ -52,6 +64,13 @@ namespace Runtime.Managers
             _buttonDescription = rootVisualElement.Q<Label>("button-description");
             _mainMenuWindow = rootVisualElement.Q<VisualElement>("main-menu-window");
             _settingsWindow = rootVisualElement.Q<VisualElement>("settings-window");
+            
+            _savesWindow = rootVisualElement.Q<VisualElement>("saves-window");
+            _saveMenu = GetComponent<SaveMenu>();
+            
+            _confirmNewGamePopup = rootVisualElement.Q<VisualElement>("confirm-new-game-popup");
+            _confirmNewGame = rootVisualElement.Q<Button>("confirm-new-game-option");  
+            _cancelNewGame = rootVisualElement.Q<Button>("cancel-new-game-option");
 
             _confirmTutorialPopup = rootVisualElement.Q<VisualElement>("confirm-tutorial-popup");
             _yesTutorial = rootVisualElement.Q<Button>("confirm-tutorial-option");
@@ -61,16 +80,35 @@ namespace Runtime.Managers
             _confirmDesktopQuit = rootVisualElement.Q<Button>("confirm-desktop-option");
             _cancelDesktopQuit = rootVisualElement.Q<Button>("cancel-desktop-option");
             
+            var saveExists = GameManager.Instance.SaveSystem.saveExists;
+            
             // Main Menu Items
             _continueButton = rootVisualElement.Q<Button>("continue");
-            SetButtonState(_continueButton, GameManager.Instance.SaveSystem.saveExists);
+            SetButtonState(_continueButton, saveExists);
             _continueButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                LoadGame();
+                ContinueGame();
             });
             _continueButton.RegisterCallback<MouseEnterEvent>(_ => {
-                _buttonDescription.text = "Continue from the last checkpoint";
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+                if (saveExists)
+                {
+                    _buttonDescription.text = "Continue from the last save point";
+                    GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+                }
+            });
+            
+            _continueButton = rootVisualElement.Q<Button>("load-game");
+            SetButtonState(_continueButton, saveExists);
+            _continueButton.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound()); 
+                OpenSavesMenu();
+            });
+            _continueButton.RegisterCallback<MouseEnterEvent>(_ => {
+                if (saveExists)
+                {
+                    _buttonDescription.text = "Continue from a previous save point";
+                    GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+                }
             });
             
             _reportBugButton = rootVisualElement.Q<Button>("report-problem");
@@ -87,9 +125,10 @@ namespace Runtime.Managers
             });
 
             _newGameButton = rootVisualElement.Q<Button>("new-game");
-            _newGameButton.RegisterCallback<ClickEvent>(_ => {
+            _newGameButton.RegisterCallback<ClickEvent>(_ =>
+            {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                OpenConfirmPopup(_confirmTutorialPopup);
+                OpenConfirmPopup(saveExists ? _confirmNewGamePopup : _confirmTutorialPopup);
             });
             _newGameButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Start a new game";
@@ -132,24 +171,53 @@ namespace Runtime.Managers
         
         private void SetupPopups()
         {
+            _confirmNewGame.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                OpenConfirmPopup(_confirmTutorialPopup);
+                UIUtils.HideUIElement(_confirmNewGamePopup);
+            });
+            _confirmNewGame.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+            });
+            
+            _cancelNewGame.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                UIUtils.HideUIElement(_confirmNewGamePopup);
+            });
+            _cancelNewGame.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+            });
+            
             _yesTutorial.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 StartNewGame(1);
+            });
+            _yesTutorial.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             _noTutorial.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 StartNewGame(2);
             });
+            _noTutorial.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+            });
 
             _confirmDesktopQuit.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 Application.Quit();
             });
+            _confirmDesktopQuit.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+            });
             
             _cancelDesktopQuit.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 UIUtils.HideUIElement(_confirmQuitPopup);
+            });
+            _cancelDesktopQuit.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
         }
         
@@ -157,45 +225,53 @@ namespace Runtime.Managers
         {
             UIUtils.ShowUIElement(popup);
         }
-        
-        public void OpenSettings()
+
+        private void OpenSettings()
         {
-            _mainMenuWindow.style.display = DisplayStyle.None;
-            _settingsWindow.style.display = DisplayStyle.Flex;
-            isSettingsOpen = true;
+            UIUtils.HideUIElement(_mainMenuWindow);
+            UIUtils.ShowUIElement(_settingsWindow);
             
             UIUtils.HideUIElement(_confirmQuitPopup);
             UIUtils.HideUIElement(_confirmTutorialPopup);
+            
+            isSettingsOpen = true;
         }
         
         public void CloseSettings()
         {
-            _mainMenuWindow.style.display = DisplayStyle.Flex;
-            _settingsWindow.style.display = DisplayStyle.None;
+            UIUtils.HideUIElement(_settingsWindow);
+            UIUtils.ShowUIElement(_mainMenuWindow);
             isSettingsOpen = false;
         }
 
         private static void StartNewGame(int level)
         {
-            GameManager.Instance.SaveSystem.NewGame(false, level);
+            GameManager.Instance.SaveSystem.NewGame(level);
             GameManager.Instance.isMainMenu = false;
             GameManager.Instance.LoadScene(level);
         }
         
-        public static void LoadGame()
+        private void OpenSavesMenu()
+        {
+            UIUtils.HideUIElement(_mainMenuWindow);
+            UIUtils.ShowUIElement(_savesWindow);
+            
+            GameManager.Instance.SaveSystem.GetSaveGames();
+            _saveMenu.ShowSaves();
+            isSavesWindowOpen = true;
+        }
+        
+        public void CloseSavesMenu()
+        {
+            UIUtils.HideUIElement(_savesWindow);
+            UIUtils.ShowUIElement(_mainMenuWindow);
+            isSavesWindowOpen = false;
+        }
+        
+        public static void ContinueGame()
         {
             GameManager.Instance.isMainMenu = false;
-            GameManager.Instance.SaveSystem.LoadGame();
-        }
-        
-        public void PlaySound(Sound sound)
-        {
-            GameManager.Instance.SoundSystem.Play(sound);
-        }
-        
-        public static void QuitGame()
-        {
-            Application.Quit();
+            GameManager.Instance.SaveSystem.ContinueGame();
         }
         
         private static void SetButtonState(VisualElement button, bool state)

@@ -123,6 +123,7 @@ namespace Editor.BehaviourTree
                 Timeout => "timeoutNode",
                 Cooldown => "cooldownNode",
                 Remapper => "remapperNode",
+                BoolWatch => "booleanWatchNode",
                 _ => "decoratorNode"
             };
         }

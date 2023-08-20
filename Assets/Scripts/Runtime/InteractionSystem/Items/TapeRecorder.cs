@@ -49,14 +49,14 @@ namespace Runtime.InteractionSystem.Items
 
         //========================= Save System =========================//
         
-        public void LoadData(SaveData data)
+        public void LoadData(SaveGame game)
         {
-            data.worldData.tapeRecorders.Add(persistentID, gameObject.activeSelf);
+            game.worldData.tapeRecorders.Add(persistentID, gameObject.activeSelf);
         }
         
-        public void SaveData(SaveData data)
+        public void SaveData(SaveGame game)
         {
-            data.worldData.tapeRecorders[persistentID] = gameObject.activeSelf;
+            game.worldData.tapeRecorders[persistentID] = gameObject.activeSelf;
         }
     }
 }

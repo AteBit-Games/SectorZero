@@ -95,11 +95,11 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
         
         //========================= Save System =========================//
 
-        public void LoadData(SaveData data)
+        public void LoadData(SaveGame game)
         {
-            if (data.tutorialData.canvas.ContainsKey(persistentID))
+            if (game.tutorialData.canvas.ContainsKey(persistentID))
             {
-                if (data.tutorialData.canvas[persistentID])
+                if (game.tutorialData.canvas[persistentID])
                 {
                     StartCoroutine(TriggerStage5());
                     _animator.SetTrigger(Finish);
@@ -108,9 +108,9 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
             }
         }
         
-        public void SaveData(SaveData data)
+        public void SaveData(SaveGame game)
         {
-            data.tutorialData.canvas[persistentID] = _hasInteracted;
+            game.tutorialData.canvas[persistentID] = _hasInteracted;
         }
         
         //========================= Coroutines =========================//

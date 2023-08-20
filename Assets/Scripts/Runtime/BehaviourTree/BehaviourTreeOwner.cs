@@ -41,11 +41,18 @@ namespace Runtime.BehaviourTree
         public int stateIndex;
     }
     
+    public enum Monster
+    {
+        VoidMask,
+        MouthPouch,
+    }
+    
     [AddComponentMenu("BehaviourTree/BehaviourTreeOwner")]
     public class BehaviourTreeOwner : MonoBehaviour, IHearingHandler, ISightHandler
     {
         [Tooltip("BehaviourTree asset to instantiate during Awake")] 
         public BehaviourTree behaviourTree;
+        public Monster monster;
 
         [Tooltip("Override blackboard values from the behaviour tree asset")]
         public List<BlackboardKeyValuePair> blackboardOverrides = new();
@@ -66,6 +73,9 @@ namespace Runtime.BehaviourTree
         public GameObject sightVisualPrefab;
         [Tooltip("Colour of the view cone when the monster is idle"), SerializeField] private Color idleColour = new(0.0f, 0.0f, 0.0f, 150.0f);
         [Tooltip("Colour of the view cone when the monster spots the player"), SerializeField] private Color aggroColour = new(255.0f, 0.0f, 0.0f, 150.0f);
+        
+        //----- Interfaces -----//
+        public Action OnSightEnterAction { get; set; }
         
         // ====================== Private Variables ======================
         private Material _material;
@@ -168,7 +178,6 @@ namespace Runtime.BehaviourTree
             
             if (!_canSeePlayer)
             {
-                
                 var volume = FindFirstObjectByType<Volume>();
                 var vignette = volume.sharedProfile.components[0] as Vignette;
 
@@ -188,6 +197,7 @@ namespace Runtime.BehaviourTree
                     SetActiveState(treeStates.Find(x => x.state == TreeState.State.AggroChase).stateIndex);
                 }
                 
+                OnSightEnterAction?.Invoke();
                 _sightCoroutineRunning = false;
             }
         }

@@ -47,6 +47,8 @@ namespace Runtime.AI
         public LayerMask PlayerMask => playerMask;
         public LayerMask WallMask => wallMask;
         
+        public Action OnSightEnterAction { get; set; }
+        
         //=============================== Unity Events =================================//
 
         private void Awake()
@@ -111,6 +113,7 @@ namespace Runtime.AI
             {
                 _isActivated = false;
                 _light.color = alertColor;
+                OnSightEnterAction?.Invoke();
                 
                 if(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert) == null) Debug.LogError("No Sentinel state found");
                 else _voidmask.SetActiveState(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert).stateIndex);

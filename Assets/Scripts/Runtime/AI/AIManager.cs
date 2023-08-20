@@ -1,115 +1,225 @@
 /****************************************************************
-* Copyright (c) 2023 AteBit Games
-* All rights reserved.
-****************************************************************/
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
 
+using System;
+using System.Collections.Generic;
 using Runtime.BehaviourTree;
+using Runtime.Managers;
 using Runtime.Player;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 namespace Runtime.AI
 {
     public class AIManager : MonoBehaviour, IPersistant
     {
         [SerializeField] public string persistentID;
-        [SerializeField] private float menaceGaugeValue;
         [SerializeField] private float menaceGaugeMax = 100f;
         [SerializeField] private float menaceGaugeMin;
         
-        [SerializeField] private float menaceGaugeIncreaseMultiplier = 1f;
+        [SerializeField] private float directSightMultiplier = 0.4f;
+        [SerializeField] private float closeDistanceMultiplier = 0.3f;
 
         private BehaviourTreeOwner _monster;
         private PlayerController _player;
-        ///Patrol state (False | Close State --- True | Far State)
-        private BlackboardKey<bool> _patrolState;
         
-        private bool _debugCloseState;
-        public bool DebugCloseState
-        {
-            get => _debugCloseState;
-            set {
-                if (_debugCloseState == value) return;
-                _debugCloseState = value;
-                OnCloseStateChange?.Invoke(_debugCloseState);
-            }
-        }
-        public delegate void OnVariableChangeDelegate(bool newVal);
-        public event OnVariableChangeDelegate OnCloseStateChange;
+        //------- Menace Gauge -------//
+        private float _menaceGaugeValue;
+        private bool _menaceState = true;
+        private NavMeshPath _path;
+
+        //Aggro level is a value between 0 and 10 that represents how impatient the monster is
+        private int _aggroLevel;
+        private float _lastSeenPlayerTime;
+        
+        //------- Blackboard Keys -------//
+        ///Patrol state (True | Close State --- True | Far State)
+        private BlackboardKey<bool> _patrolStateKey;
+        private BlackboardKey<int> _aggroLevelKey;
+        
+        //VoidMask variables
+        private List<Sentinel> _sentinels;
+        private BlackboardKey<int> _activeSentinelsKey;
+        private BlackboardKey<float> _sentinelDurationKey;
 
         private void Start()
         {
-            OnCloseStateChange += VariableChangeHandler;
+            _lastSeenPlayerTime = Time.time;
+            _path = new NavMeshPath();
         }
-
-        private void VariableChangeHandler(bool newVal)
-        {
-            _patrolState.value = newVal;
-        }
-                
+        
         // ============================ Unity Events ============================
         
-        private void Awake()
+        private void OnEnable()
         {
-            _monster = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
-            _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
 
+        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
+            
+            _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
+            _monster = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
+            
             if (_monster == null || _player == null)
             {
                 Debug.LogError("AIManager: Monster or Player not found!");
                 return;
             }
             
-            _patrolState = _monster.FindBlackboardKey<bool>("PatrolState");
+            _monster.OnSightEnterAction += ResetAggroLevel;
+            if (_monster.monster == Monster.VoidMask)
+            {
+                _sentinels = new List<Sentinel>(FindObjectsByType<Sentinel>(FindObjectsSortMode.None));
+                foreach (var sentinel in _sentinels) sentinel.OnSightEnterAction += ResetAggroLevel;
+                
+                _activeSentinelsKey = _monster.FindBlackboardKey<int>("ActiveSentinels");
+                _sentinelDurationKey = _monster.FindBlackboardKey<float>("SentinelActivationTime");
+            }
+            
+            _patrolStateKey = _monster.FindBlackboardKey<bool>("PatrolState");
+            _aggroLevelKey = _monster.FindBlackboardKey<int>("AggroLevel");
+            
+            //reset all values
+            _menaceGaugeValue = 0f;
+            _menaceState = true;
+            _aggroLevel = 0;
+            
+            _aggroLevelKey.value = 0;
+            _patrolStateKey.value = true;
         }
-        
+
         private void FixedUpdate()
         {
-            /*
-             Whether the creature is within a short walking distance of the player.
-            Whether the player has actual line of sight on the alien.
-             */
-            
             if (_monster == null || _player == null) return;
-            
-            var distance = Vector3.Distance(_monster.transform.position, _player.transform.position);
-            if (distance < 10f)
+
+            var monsterPosition = _monster.transform.position;
+            var playerPosition = _player.transform.position;
+
+            NavMesh.CalculatePath(monsterPosition, playerPosition, NavMesh.AllAreas, _path);
+            var totalDistance = 0f;
+            if (_path.status == NavMeshPathStatus.PathComplete)
             {
-                menaceGaugeValue += Time.fixedDeltaTime * menaceGaugeIncreaseMultiplier;
+                var previousCorner = monsterPosition;
+                foreach (var corner in _path.corners)
+                {
+                    totalDistance += Vector3.Distance(previousCorner, corner);
+                    previousCorner = corner;
+                }
             }
+            else totalDistance = 999f;
+            
+            var lineOfSight = false;
+            if(totalDistance < 30f)
+            {
+                var rayDistance = Vector3.Distance(monsterPosition, playerPosition);
+                var ray = Physics2D.Raycast(monsterPosition, playerPosition - monsterPosition, rayDistance,
+                    _monster.PlayerMask | _monster.WallMask);
+                if (ray.collider != null)
+                {
+                    lineOfSight = (_monster.PlayerMask.value & 1 << ray.transform.gameObject.layer) > 0 && ray.collider.CompareTag("Player");
+                }
+            }
+
+            //Patrol Close
+            if (_menaceState)
+            {
+                _menaceGaugeValue += Time.deltaTime * (lineOfSight ? directSightMultiplier : 0.15f);
+                _menaceGaugeValue += Time.deltaTime * (totalDistance < 30f ? closeDistanceMultiplier : 0.15f);
+            }
+            //Patrol Far
             else
             {
-                menaceGaugeValue -= Time.fixedDeltaTime * menaceGaugeIncreaseMultiplier;
+                _menaceGaugeValue -= Time.deltaTime * Math.Clamp(_aggroLevel / 8f, 0.3f, 0.8f);
             }
             
-            menaceGaugeValue = Mathf.Clamp(menaceGaugeValue, menaceGaugeMin, menaceGaugeMax);
+            _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue, menaceGaugeMin, menaceGaugeMax);
             
-            // if (menaceGaugeValue >= menaceGaugeMax)
-            // {
-            //     _monster.SetActiveState();
-            // }
-            // else
-            // {
-            //     _monster.GetComponent<BehaviourTreeOwner>().SetVariableValue("IsPlayerInSight", false);
-            // }
+            if (Time.time - _lastSeenPlayerTime > 60f)
+            {
+                _aggroLevel++;
+                _aggroLevelKey.value = _aggroLevel;
+                _lastSeenPlayerTime = Time.time;
+                
+                if(_monster.monster == Monster.VoidMask) UpdateSentinelAggro(_aggroLevel);
+            }
+            
+            //Flip flop between patrol states based on menace value
+            if (_menaceGaugeValue >= menaceGaugeMax)
+            {
+                SetPatrolState(false);
+                _menaceState = false;
+            }
+
+            if (_menaceGaugeValue <= menaceGaugeMin)
+            {
+                SetPatrolState(true);
+                _menaceState = true;
+            }
         }
         
-        // ============================ Public Methods ============================
-        
-        public void SetMonsterState()
+        // ============================ Private Methods ============================
+
+        private void UpdateSentinelAggro(int level)
         {
+            var activeSentinels = 0;
+            var sentinelDuration = 0f;
             
+            switch (level)
+            {
+                case <= 3:
+                    activeSentinels = 2;
+                    sentinelDuration = 15f;
+                    break;
+                case <= 6:
+                    activeSentinels = 4;
+                    sentinelDuration = 22f;
+                    break;
+                case <= 9:
+                    activeSentinels = 6;
+                    sentinelDuration = 28f;
+                    break;
+                case 10:
+                    activeSentinels = 8;
+                    sentinelDuration = 35f;
+                    break;
+            }
+            
+            _activeSentinelsKey.value = activeSentinels;
+            _sentinelDurationKey.value = sentinelDuration;
+        }
+
+        private void ResetAggroLevel()
+        {
+            _lastSeenPlayerTime = Time.time;
+            _aggroLevel = 0;
+            _aggroLevelKey.value = 0;
+        }
+        
+        private void SetPatrolState(bool state)
+        {
+            _patrolStateKey.value = state;
         }
         
         // ============================ Save System ============================
 
-        public void LoadData(SaveData data)
+        public void LoadData(SaveGame game)
         {
             //TODO: Load data
         }
 
-        public void SaveData(SaveData data)
+        public void SaveData(SaveGame game)
         {
             //TODO: Save data
         }

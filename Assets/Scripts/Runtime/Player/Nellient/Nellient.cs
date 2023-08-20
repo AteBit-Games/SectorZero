@@ -37,14 +37,14 @@ namespace Runtime.Player.Nellient
         
         //============================= Save System =============================//
         
-        public void LoadData(SaveData data)
+        public void LoadData(SaveGame game)
         {
-            gameObject.SetActive(data.worldData.nellientState);
+            gameObject.SetActive(game.worldData.nellientState);
         }
 
-        public void SaveData(SaveData data)
+        public void SaveData(SaveGame game)
         {
-            data.worldData.nellientState = gameObject.activeSelf;
+            game.worldData.nellientState = gameObject.activeSelf;
         }
     }
 }

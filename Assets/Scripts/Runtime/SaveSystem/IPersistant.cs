@@ -9,7 +9,7 @@ namespace Runtime.SaveSystem
 {
     public interface IPersistant 
     {
-        void LoadData(SaveData data);
-        void SaveData(SaveData data);
+        void LoadData(SaveGame game);
+        void SaveData(SaveGame game);
     }
 }

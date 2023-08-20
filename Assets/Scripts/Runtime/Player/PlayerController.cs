@@ -300,13 +300,13 @@ namespace Runtime.Player
 
         //================================== Save System ==================================
 
-        public void LoadData(SaveData data)
+        public void LoadData(SaveGame game)
         {
             
-            FindFirstObjectByType<CinemachineTargetGroup>().transform.position = data.playerData.position;
-            transform.position = data.playerData.position;
+            FindFirstObjectByType<CinemachineTargetGroup>().transform.position = game.playerData.position;
+            transform.position = game.playerData.position;
             lookPointer.position = new Vector2(transform.position.x, transform.position.y + 2.5f);
-            gameObject.SetActive(data.playerData.enabled);
+            gameObject.SetActive(game.playerData.enabled);
 
             if (debug)
             {
@@ -314,10 +314,10 @@ namespace Runtime.Player
             }
         }
 
-        public void SaveData(SaveData data)
+        public void SaveData(SaveGame game)
         {
-            data.playerData.position = transform.position;
-            data.playerData.enabled = gameObject.activeSelf;
+            game.playerData.position = transform.position;
+            game.playerData.enabled = gameObject.activeSelf;
         }
 
         // ==================== Helper Methods ====================

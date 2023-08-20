@@ -123,21 +123,23 @@
 #comment {
     font-size: 11px;
     white-space: normal;
-    max-width: 140px;
     -unity-font-style: normal;
     color: rgb(107, 107, 107);
 }
 
-.action #comment {
+.action > #comment {
     position: absolute;
     top: 110%;
     left: 5px;
+    width: 95%;
+    -unity-text-align: upper-left;
 }
 
 .condition #comment {
     position: absolute;
     top: 110%;
     left: 5px;
+    width: 100%;
 }
 
 .root #comment {
@@ -150,18 +152,21 @@
     position: absolute;
     top: auto;
     left: 105%;
+    width: 120%;
 }
 
 .composite #comment {
     position: absolute;
     top: auto;
     left: 105%;
+    width: 120%;
 }
 
 .subTree #comment {
     position: absolute;
     top: 110%;
     left: 5px;
+    width: 100%;
 }
 
 .node-port {
@@ -287,6 +292,14 @@
     height: 40px;
     -unity-background-scale-mode: scale-to-fit;
     background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Invert.png?fileID=2800000&guid=07a04c07af73ec446a960461951fbcbe&type=3#Invert');
+    width: 40px;
+    -unity-background-image-tint-color: rgb(255, 100, 203);
+}
+
+.booleanWatchNode #image {
+    height: 40px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/Art/Editor/BehaviourTree/Eye.png?fileID=2800000&guid=bf2b406f8a35bfb45bf43f767bd7159a&type=3#Eye');
     width: 40px;
     -unity-background-image-tint-color: rgb(255, 100, 203);
 }

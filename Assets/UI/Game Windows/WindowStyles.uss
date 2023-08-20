@@ -249,7 +249,7 @@
     color: rgb(255, 255, 255);
 }
 
-#feedback-option .form-button {
+.form-button {
     background-color: rgb(46, 46, 46);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
@@ -261,7 +261,7 @@
     font-size: 20px;
 }
 
-#feedback-option .form-button:hover {
+.form-button:hover {
     background-color: rgb(53, 53, 53);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
@@ -347,15 +347,6 @@
     bottom: 0;
 }
 
-.unity-base-text-field:focus .unity-base-text-field__input {
-    background-color: rgb(41, 41, 41);
-    border-left-color: rgb(41, 41, 41);
-    border-right-color: rgb(41, 41, 41);
-    border-top-color: rgb(41, 41, 41);
-    border-bottom-color: rgb(41, 41, 41);
-    --unity-cursor-color: rgb(255, 255, 255);
-}
-
 #SettingsMenu {
     height: 100%;
     width: 100%;
@@ -363,6 +354,25 @@
     left: 0;
     top: 0;
     right: 0;
+}
+
+#Saves {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.unity-base-text-field:focus .unity-base-text-field__input {
+    background-color: rgb(41, 41, 41);
+    border-left-color: rgb(41, 41, 41);
+    border-right-color: rgb(41, 41, 41);
+    border-top-color: rgb(41, 41, 41);
+    border-bottom-color: rgb(41, 41, 41);
+    --unity-cursor-color: rgb(255, 255, 255);
 }
 
 .result-hidden {
@@ -456,4 +466,15 @@
 
 .inventory-toggle-active:hover {
     -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.form-nutton {
+}
+
+#delete-save {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+#delete-save:hover {
+    -unity-background-image-tint-color: rgb(221, 221, 221);
 }

@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
-    <ui:VisualElement name="settings-window" picking-mode="Ignore" style="visibility: visible; display: flex; flex-grow: 1; align-items: stretch;">
+    <ui:VisualElement name="settings-window" picking-mode="Ignore" style="visibility: visible; display: none; flex-grow: 1; align-items: stretch;">
         <ui:VisualElement name="settings-container" style="flex-grow: 1; align-items: stretch; justify-content: flex-end;">
             <ui:VisualElement name="control-group" style="flex-grow: 1; position: absolute; bottom: 50px; left: 100px; align-items: flex-start; overflow: visible; opacity: 1; visibility: visible;">
                 <ui:VisualElement name="settingsGroup" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-bottom: 30px;">

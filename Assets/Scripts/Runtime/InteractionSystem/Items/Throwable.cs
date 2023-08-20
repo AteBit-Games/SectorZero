@@ -81,12 +81,12 @@ namespace Runtime.InteractionSystem.Items
         
         //========================= Save System =========================//
 
-        public void LoadData(SaveData data)
+        public void LoadData(SaveGame game)
         {
             //data.tapeRecorders.Add(this, gameObject.activeSelf);
         }
 
-        public void SaveData(SaveData data)
+        public void SaveData(SaveGame game)
         {
             //data.tapeRecorders[this] = gameObject.activeSelf;
         }

@@ -18,20 +18,23 @@ namespace Runtime.SaveSystem
     {
         public int sceneIndex;
         public Vector3 startPosition;
+        public bool nellieState;
     }
     
     [DefaultExecutionOrder(-1)]
     public class SaveManager : MonoBehaviour
     {
         [Header("SAVE SYSTEM CONFIG")]
-        [SerializeField] private string saveFileName;
+        [SerializeField] private string saveFileExtension;
         [SerializeField] private bool useEncryption;
         [SerializeField] private List<PlayerConfig> playerConfig;
         [HideInInspector] public bool saveExists;
 
         private List<IPersistant> _persistantObjects;
         private FileHandler _dataHandler;
-        private SaveData _saveData;
+        private Dictionary<Texture2D, SaveGame> _saveGames = new();
+        private PlayerData _playerData;
+        private SaveGame _activeSave;
 
         // ======================================= UNITY METHODS =======================================
         
@@ -39,8 +42,17 @@ namespace Runtime.SaveSystem
         {
             var saveGamePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).Replace("\\", "/");
             saveGamePath += "/My Games/Sector Zero/";
-            _dataHandler = new FileHandler(saveGamePath, saveFileName, useEncryption ? EncryptionType.AES : EncryptionType.None);
-            saveExists = _dataHandler.HasSaveFile();
+            _dataHandler = new FileHandler(saveGamePath, saveFileExtension, useEncryption ? EncryptionType.AES : EncryptionType.None);
+            _playerData = _dataHandler.LoadPlayerData();
+        }
+
+        private void Start()
+        {
+            if (GameManager.Instance.isMainMenu)
+            {
+                _saveGames = _dataHandler.LoadSaves();
+                saveExists = _saveGames.Count > 0;
+            }
         }
 
         private void OnEnable() 
@@ -57,63 +69,77 @@ namespace Runtime.SaveSystem
         {
             if(GameManager.Instance.isMainMenu) return;
             _persistantObjects = FindAllPersistenceObjects();
-            LoadData();
+
+            if (!GameManager.Instance.TestMode && _activeSave != null || GameManager.Instance.loaded)
+            {
+                LoadData(_activeSave);
+            }
         }
         
         // ======================================= PUBLIC METHODS =======================================
-
-        public void LoadGame()
+        
+        public void ContinueGame()
         {
-            _saveData = _dataHandler.Load();
-            GameManager.Instance.LoadScene(_saveData.currentScene);
+            _activeSave = _saveGames.Values.First();
+            GameManager.Instance.LoadScene(_activeSave.currentScene);
         }
-
-        public void NewGame(bool testMode, int scene)
+        
+        public void LoadGame(long saveTime)
         {
-            DeleteSaveData();
+            _activeSave = _saveGames.Values.First(s => s.saveTime == saveTime);
+            GameManager.Instance.LoadScene(_activeSave.currentScene);
+            GameManager.Instance.loaded = true;
+        }
+        
+        public void NewGame(int scene)
+        {
+            _dataHandler.ClearSaves();
+            _activeSave = new SaveGame();
             saveExists = false;
-            _saveData = new SaveData();
             
             var sceneIndex = playerConfig.FindIndex(config => config.sceneIndex == scene);
-            _saveData.playerData.position = sceneIndex == -1 ? new Vector3(0, 0, 0) : playerConfig[sceneIndex].startPosition; 
-
-            if (!testMode)
-            {
-                _saveData.playerData.enabled = false;
-            }
-            else
-            {
-                _saveData.playerData.enabled = true;
-                _saveData.worldData.nellientState = false;
-            }
+            _activeSave.playerData.position = sceneIndex == -1 ? new Vector3(0, 0, 0) : playerConfig[sceneIndex].startPosition;
+            _activeSave.playerData.enabled = sceneIndex == -1 || playerConfig[sceneIndex].nellieState;
         }
 
         public void SaveGame()
         {
-            if (_saveData == null) 
+            if (_saveGames.Count == 3) _dataHandler.DeleteSave(_saveGames.Values.Last().saveTime);
+ 
+            _activeSave ??= new SaveGame();
+            SaveGame saveGame = new()
             {
-                Debug.LogWarning("No data was found. A New Game needs to be started before data can be saved.");
-                return;
-            }
-            
+                saveTime = DateTime.Now.Ticks,
+                saveName = SceneManager.GetActiveScene().name,
+                currentScene = SceneManager.GetActiveScene().buildIndex
+            };
+                        
             foreach (var persistentObject in _persistantObjects)
             {
-                persistentObject.SaveData(_saveData);
+                persistentObject.SaveData(saveGame);
             }
-            
-            _saveData.currentScene = SceneManager.GetActiveScene().buildIndex;
-            _dataHandler.Save(_saveData);
-            saveExists = true;
-            GameManager.Instance.NotificationManager.ShowSaving();
+
+            _dataHandler.Save(saveGame);
+        }
+        
+        public Dictionary<Texture2D, SaveGame> GetSaveGames()
+        {
+            _saveGames = _dataHandler.LoadSaves();
+            return _saveGames;
+        }
+        
+        public void DeleteSave(long saveTime)
+        {
+            _dataHandler.DeleteSave(saveTime);
         }
         
         // ======================================= PRIVATE METHODS =======================================
         
-        private void LoadData()
+        private void LoadData(SaveGame saveGame)
         {
             foreach (var persistantObject in _persistantObjects)
             {
-                persistantObject.LoadData(_saveData);
+                persistantObject.LoadData(saveGame);
             }
         }
 
@@ -122,10 +148,42 @@ namespace Runtime.SaveSystem
             var dataPersistenceObjects = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<IPersistant>();
             return new List<IPersistant>(dataPersistenceObjects);
         }
-
-        private void DeleteSaveData()
+        
+        //======================================== Player Data ========================================
+        
+        public void UpdatePlayerVSync(bool active)
         {
-            _dataHandler.ClearSaves();
+            _playerData.vSync = active;
+            _dataHandler.SavePlayerData(_playerData);
+        }
+        
+        public void UpdatePlayerDisplayMode(int mode)
+        {
+            _playerData.displayMode = mode;
+            _dataHandler.SavePlayerData(_playerData);
+        }
+        
+        public void UpdatePlayerMasterVolume(float volume)
+        {
+            _playerData.masterVolume = volume;
+            _dataHandler.SavePlayerData(_playerData);
+        }
+        
+        public void UpdatePlayerSoundsVolume(float volume)
+        {
+            _playerData.sfxVolume = volume;
+            _dataHandler.SavePlayerData(_playerData);
+        }
+        
+        public void UpdatePlayerMusicVolume(float volume)
+        {
+            _playerData.musicVolume = volume;
+            _dataHandler.SavePlayerData(_playerData);
+        }
+        
+        public PlayerData GetPlayerData()
+        {
+            return _playerData;
         }
     }
 }

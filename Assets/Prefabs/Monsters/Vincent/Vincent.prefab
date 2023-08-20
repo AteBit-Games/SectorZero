@@ -434,14 +434,14 @@ MonoBehaviour:
   viewAngle: 50
   audioSource: {fileID: 920597040}
   footstepSounds:
-  - {fileID: 8300000, guid: a132b58f58fd7e64ba84b0dfbef45b3d, type: 3}
-  - {fileID: 8300000, guid: 0669ac0d212bfed4a8381b6fc11856f2, type: 3}
-  - {fileID: 8300000, guid: 978f34411ed80f04798bc39f0c3da39e, type: 3}
-  - {fileID: 8300000, guid: bb2d27747b4251646be5f83ac66a9cea, type: 3}
-  - {fileID: 8300000, guid: bd561b35bfa27194282ae5acfa72c775, type: 3}
-  - {fileID: 8300000, guid: bd6efa2bcc34315448fcac6934ed7ec9, type: 3}
-  - {fileID: 8300000, guid: a1807a878252f9549a77c49477d85783, type: 3}
-  - {fileID: 8300000, guid: 29d75ff215286464586b7b8cb7674114, type: 3}
+  - {fileID: 11400000, guid: 86cbc8059301c7949b90aec0c1d93019, type: 2}
+  - {fileID: 11400000, guid: 31c777e928c1d774ca974c3f596689ff, type: 2}
+  - {fileID: 11400000, guid: 695a43054c2e8dd4dae1a968730c527a, type: 2}
+  - {fileID: 11400000, guid: 4e6f1cd786942a343941f5c2d77e78f0, type: 2}
+  - {fileID: 11400000, guid: 7132f8ae5176c0a42a90ce8a3cadaa89, type: 2}
+  - {fileID: 11400000, guid: b8526e7f8aa28704a922269b6ddf17a1, type: 2}
+  - {fileID: 11400000, guid: 8d67bf934685b1b439a4c6e1f9bf5cd4, type: 2}
+  - {fileID: 11400000, guid: 0edcb2cdafea62048acc22ba7c26f619, type: 2}
   detectedSound: {fileID: 11400000, guid: 3e58a5000fec3bd4e882873694e3d6a8, type: 2}
   debug: 0
   sightVisualPrefab: {fileID: 4193361830035308745, guid: 7fbb647d3619d9b4898983be60e448e2, type: 3}

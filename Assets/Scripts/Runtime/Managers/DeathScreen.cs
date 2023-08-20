@@ -4,6 +4,7 @@
 ****************************************************************/
 
 using Runtime.ReporterSystem;
+using Runtime.SaveSystem;
 using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,10 +14,12 @@ namespace Runtime.Managers
 {
     public class DeathScreen : MonoBehaviour
     {
+        [HideInInspector] public bool isSavesWindowOpen;
         [HideInInspector] public bool isOpen;
 
         // Main Pause Items
         private VisualElement _deathWindow;
+        private VisualElement _deathContainer;
         private UIDocument _uiDocument;
         
         //Buttons
@@ -29,6 +32,7 @@ namespace Runtime.Managers
         
         // Other Items
         private FeedbackForm _feedbackForm;
+        private VisualElement _savesWindow;
         
         private VisualElement _confirmDesktopPopup;
         private Button _confirmDesktopQuit;
@@ -38,11 +42,17 @@ namespace Runtime.Managers
         private Button _confirmMenuQuit;
         private Button _cancelMenuQuit;
         
+        private SaveMenu _saveMenu;
+        
         private void Awake()
         {
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;
+            _deathContainer = rootVisualElement.Q<VisualElement>("death-container");
+            
             _feedbackForm = FindFirstObjectByType<FeedbackForm>();
+            _savesWindow = rootVisualElement.Q<VisualElement>("saves-window");
+            _saveMenu = GetComponent<SaveMenu>();
             
             // Main Items
             _buttonDescription = rootVisualElement.Q<Label>("button-description");
@@ -74,10 +84,10 @@ namespace Runtime.Managers
             _loadButton = rootVisualElement.Q<Button>("load");
             _loadButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                LoadGame();
+                OpenSavesMenu();
             });
             _loadButton.RegisterCallback<MouseEnterEvent>(_ => {
-                _buttonDescription.text = "Load from the last checkpoint";
+                _buttonDescription.text = "Continue from a previous save point";
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
@@ -91,10 +101,21 @@ namespace Runtime.Managers
             UIUtils.ShowUIElement(_deathWindow);
         }
         
-        private void LoadGame()
+        private void OpenSavesMenu()
         {
-            GameManager.Instance.SaveSystem.LoadGame();
-            _feedbackForm.HideForm();
+            UIUtils.HideUIElement(_deathContainer);
+            UIUtils.ShowUIElement(_savesWindow);
+            
+            GameManager.Instance.SaveSystem.GetSaveGames();
+            _saveMenu.ShowSaves();
+            isSavesWindowOpen = true;
+        }
+        
+        public void CloseSavesMenu()
+        {
+            UIUtils.HideUIElement(_savesWindow);
+            UIUtils.ShowUIElement(_deathContainer);
+            isSavesWindowOpen = false;
         }
         
         private void SetupPopups()
@@ -113,10 +134,16 @@ namespace Runtime.Managers
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 GoToMainMenu();
             });
+            _confirmMenuQuit.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+            });
             
             _cancelMenuQuit.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 UIUtils.HideUIElement(_confirmMenuPopup);
+            });
+            _cancelMenuQuit.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
             //Bind Desktop Popup Buttons
@@ -133,10 +160,16 @@ namespace Runtime.Managers
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 Application.Quit();
             });
+            _confirmDesktopQuit.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+            });
             
             _cancelDesktopQuit.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 UIUtils.HideUIElement(_confirmDesktopPopup);
+            });
+            _cancelDesktopQuit.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
         }
         

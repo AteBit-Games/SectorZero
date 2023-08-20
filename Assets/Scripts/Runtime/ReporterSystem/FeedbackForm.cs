@@ -78,12 +78,18 @@ namespace Runtime.ReporterSystem
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 SendForm();
             });
+            _submitButton.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+            });
 
             _closeButton = rootVisualElement.Q<Button>("cancel-button");
             _closeButton.RegisterCallback<ClickEvent>(_ =>
             {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 HideForm();
+            });
+            _closeButton.RegisterCallback<MouseEnterEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
         }
         

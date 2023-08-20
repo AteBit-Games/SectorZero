@@ -35,12 +35,12 @@ namespace Runtime.SaveSystem.Data
         // load dictionary from lists
         public void OnAfterDeserialize()
         {
-            this.Clear();
+            Clear();
 
             if(keys.Count != values.Count)
                 throw new Exception(string.Format("there are {0} keys and {1} values after deserialization. Make sure that both key and value types are serializable."));
 
-            for(int i = 0; i < keys.Count; i++) this.Add(keys[i], values[i]);
+            for(int i = 0; i < keys.Count; i++) Add(keys[i], values[i]);
         }
     }
     
@@ -93,21 +93,25 @@ namespace Runtime.SaveSystem.Data
     }
     
     [Serializable]
-    public class SaveData
+    public class SaveGame
     {
+        public string saveName;
+        public long saveTime;
         public int currentScene;
-        public PlayerSaveData playerData;
-        public MonsterSaveData monsterData;
-        public TutorialData tutorialData;
-        public WorldData worldData;
-
-        public SaveData() 
-        {
-            playerData = new PlayerSaveData();
-            monsterData = new MonsterSaveData();
-            tutorialData = new TutorialData();
-            worldData = new WorldData();
-        }
+        
+        public PlayerSaveData playerData = new();
+        public MonsterSaveData monsterData = new();
+        public TutorialData tutorialData = new();
+        public WorldData worldData = new();
     }
-    
+
+    [Serializable]
+    public class PlayerData
+    {
+        public int displayMode = 2;
+        public bool vSync = true;
+        public float masterVolume = 1f;
+        public float musicVolume = 1f;
+        public float sfxVolume = 1f;
+    }
 }

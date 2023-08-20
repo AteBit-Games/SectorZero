@@ -31,17 +31,6 @@ namespace Editor.Managers
                 }
             });
             
-            var debugButton = root.Q<Button>("debug-button");
-            debugButton.RegisterCallback<ClickEvent>(_ =>
-            {
-                var aiManager = target as AIManager;
-                if (aiManager != null)
-                {
-                    aiManager.DebugCloseState = !aiManager.DebugCloseState;
-                    EditorUtility.SetDirty(aiManager);
-                }
-            });
-            
             var openScriptButton = root.Q<Button>("open-button");
             openScriptButton.RegisterCallback<ClickEvent>(_ => CustomInspectorUtils.OpenScriptForEditor(target));
             
@@ -51,8 +40,8 @@ namespace Editor.Managers
                 text = "Default Inspector",
                 value = false
             };
-            InspectorElement.FillDefaultInspector(foldout, serializedObject, this);
-            root.Add(foldout);
+            InspectorElement.FillDefaultInspector(root, serializedObject, this);
+            //root.Add(foldout);
 
             return root;
         }

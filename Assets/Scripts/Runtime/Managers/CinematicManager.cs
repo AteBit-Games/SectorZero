@@ -33,11 +33,11 @@ namespace Runtime.Managers
             }
         }
         
-        public void LoadData(SaveData data)
+        public void LoadData(SaveGame game)
         {
-            if (!data.worldData.cinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
+            if (!game.worldData.cinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
             {
-                var cinematicData = data.worldData.cinematics.Find(cinematicData => cinematicData.managerID == persistentID);
+                var cinematicData = game.worldData.cinematics.Find(cinematicData => cinematicData.managerID == persistentID);
                 for (var i = 0; i < director.Count; i++)
                 {
                     director[director.ElementAt(i).Key] = cinematicData.cinematicStates[i];
@@ -46,11 +46,11 @@ namespace Runtime.Managers
             }
         }
 
-        public void SaveData(SaveData data)
+        public void SaveData(SaveGame game)
         {
-            if(!data.worldData.cinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
+            if(!game.worldData.cinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
             {
-                var cinematicData = data.worldData.cinematics.Find(cinematicData => cinematicData.managerID == persistentID);
+                var cinematicData = game.worldData.cinematics.Find(cinematicData => cinematicData.managerID == persistentID);
                 for (var i = 0; i < director.Count; i++)
                 {
                     cinematicData.cinematicStates[i] = Math.Abs(director.ElementAt(i).Key.time - director.ElementAt(i).Key.duration) < 0.01f;
@@ -69,7 +69,7 @@ namespace Runtime.Managers
                     cinematicData.cinematicStates.Add(Math.Abs(playableDirector.Key.time - playableDirector.Key.duration) < 0.01f);
                 }
                 
-                data.worldData.cinematics.Add(cinematicData);
+                game.worldData.cinematics.Add(cinematicData);
             }
         }
     }

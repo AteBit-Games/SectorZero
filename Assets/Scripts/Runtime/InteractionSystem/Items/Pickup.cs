@@ -48,18 +48,18 @@ namespace Runtime.InteractionSystem.Items
         
         //========================= Save System =========================//
 
-        public void LoadData(SaveData data)
+        public void LoadData(SaveGame game)
         {
-            if (data.worldData.pickups.ContainsKey(persistentID))
+            if (game.worldData.pickups.ContainsKey(persistentID))
             {
-                gameObject.SetActive(data.worldData.pickups[persistentID]);
+                gameObject.SetActive(game.worldData.pickups[persistentID]);
             }
         }
 
-        public void SaveData(SaveData data)
+        public void SaveData(SaveGame game)
         {
-            if(!data.worldData.pickups.ContainsKey(persistentID)) data.worldData.pickups.Add(persistentID, gameObject.activeSelf);
-            else data.worldData.pickups[persistentID] = gameObject.activeSelf;
+            if(!game.worldData.pickups.ContainsKey(persistentID)) game.worldData.pickups.Add(persistentID, gameObject.activeSelf);
+            else game.worldData.pickups[persistentID] = gameObject.activeSelf;
         }
     }
 }

@@ -9,18 +9,14 @@ using UnityEngine.UIElements;
 
 namespace Runtime.Managers
 {
-    [DefaultExecutionOrder(99)]
+    [DefaultExecutionOrder(10)]
     public class SettingsMenu : MonoBehaviour
     {
         private Label _settingDescription;
         private UIDocument _uiDocument;
         
         private Button _backButton;
-
-        // private readonly Resolution[] _resolutions = new Resolution[3];
-        // private Resolution _activeResolution;
-        // private readonly string[] _resolutionNames = { "1280x720", "1366x768", "1920x1080" };
-        //
+        
         private readonly int[] _vsync = { 0, 1 };
         private int _activeVsync;
         private readonly string[] _vsyncNames = { "Off", "On" };
@@ -29,18 +25,9 @@ namespace Runtime.Managers
         private FullScreenMode _activeDisplayMode;
         private readonly string[] _displayModeNames = { "Windowed", "Borderless", "Fullscreen" };
         
-        private const string MasterVolumeKey = "master-volume";
         private float _activeMasterVolume;
-        
-        private const string MusicVolumeKey = "music-volume";
         private float _activeMusicVolume;
-        
-        private const string SfxVolumeKey = "sfx-volume";
         private float _activeSfxVolume;
-        
-        //private const string ResolutionKey = "resolution";
-        private const string VsyncKey = "vsync";
-        private const string DisplayModeKey = "display-mode";
 
         private void Awake()
         {
@@ -58,8 +45,6 @@ namespace Runtime.Managers
                 GameManager.Instance.HandleEscape();
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             });
-            
-            //SetupResolutions();
         }
 
         private void Start()
@@ -67,8 +52,8 @@ namespace Runtime.Managers
             RegisterPlayerPrefs();
             RegisterDisplayModeSetting();
             RegisterVsyncSetting();
-            //RegisterResolutionSetting();
             RegisterVolumeSettings();
+            RegisterResolutionSetting();
         }
 
         private void RegisterDisplayModeSetting()
@@ -100,7 +85,7 @@ namespace Runtime.Managers
                 SetButtonState(leftButton, newIndex != 0);
                 SetButtonState(rightButton, newIndex != _displayModes.Length - 1);
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                PlayerPrefs.SetInt(DisplayModeKey, newIndex);
+                GameManager.Instance.SaveSystem.UpdatePlayerDisplayMode(newIndex);
             });
             
             rightButton.RegisterCallback<ClickEvent>(_ =>
@@ -113,55 +98,14 @@ namespace Runtime.Managers
                 SetButtonState(leftButton, newIndex != 0);
                 SetButtonState(rightButton, newIndex != _displayModes.Length - 1);
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                PlayerPrefs.SetInt(DisplayModeKey, newIndex);
+                GameManager.Instance.SaveSystem.UpdatePlayerDisplayMode(newIndex);
             });
         }
 
-        // private void RegisterResolutionSetting()
-        // {
-        //     var rootVisualElement = _uiDocument.rootVisualElement;
-        //     var resolutionSetting = rootVisualElement.Q<VisualElement>("screen-resolution");
-        //     resolutionSetting.RegisterCallback<MouseEnterEvent>(_ =>
-        //     {
-        //         _settingDescription.text = "Change the active screen resolution";
-        //     });
-        //
-        //     var activeResolutionText = resolutionSetting.Q<Label>("setting-value");
-        //     activeResolutionText.text = _resolutionNames[Array.IndexOf(_resolutions, _activeResolution)];
-        //     
-        //     // register buttons for changing display mode
-        //     var leftButton = resolutionSetting.Q<Button>("left-button");
-        //     SetButtonState(leftButton, GetResolutionIndex() != 0);
-        //     
-        //     var rightButton = resolutionSetting.Q<Button>("right-button");
-        //     SetButtonState(rightButton, GetResolutionIndex() != _resolutions.Length - 1);
-        //     
-        //     leftButton.RegisterCallback<ClickEvent>(_ =>
-        //     {
-        //         var newIndex = GetResolutionIndex() - 1;
-        //         Screen.SetResolution(_resolutions[newIndex].width, _resolutions[newIndex].height, Screen.fullScreenMode);
-        //         activeResolutionText.text = _resolutionNames[newIndex];
-        //         _activeResolution = _resolutions[newIndex];
-        //         
-        //         SetButtonState(leftButton, newIndex != 0);
-        //         SetButtonState(rightButton, newIndex != _resolutions.Length - 1);
-        //         GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-        //         PlayerPrefs.SetInt(ResolutionKey, newIndex);
-        //     });
-        //     
-        //     rightButton.RegisterCallback<ClickEvent>(_ =>
-        //     {
-        //         var newIndex = GetResolutionIndex() + 1;
-        //         Screen.SetResolution(_resolutions[newIndex].width, _resolutions[newIndex].height, Screen.fullScreenMode);
-        //         activeResolutionText.text = _resolutionNames[newIndex];
-        //         _activeResolution = _resolutions[newIndex];
-        //         
-        //         SetButtonState(leftButton, newIndex != 0);
-        //         SetButtonState(rightButton, newIndex != _resolutions.Length - 1);
-        //         GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-        //         PlayerPrefs.SetInt(ResolutionKey, newIndex);
-        //     });
-        // }
+        private void RegisterResolutionSetting()
+        {
+            Screen.SetResolution(1920, 1080, _activeDisplayMode);
+        }
 
         private void RegisterVsyncSetting()
         {
@@ -192,7 +136,7 @@ namespace Runtime.Managers
                 SetButtonState(leftButton, newIndex != 0);
                 SetButtonState(rightButton, newIndex != _vsync.Length - 1);
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                PlayerPrefs.SetInt(VsyncKey, newIndex);
+                GameManager.Instance.SaveSystem.UpdatePlayerVSync(newIndex > 0);
             });
             
             rightButton.RegisterCallback<ClickEvent>(_ =>
@@ -205,7 +149,7 @@ namespace Runtime.Managers
                 SetButtonState(leftButton, newIndex != 0);
                 SetButtonState(rightButton, newIndex != _vsync.Length - 1);
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                PlayerPrefs.SetInt(VsyncKey, newIndex);
+                GameManager.Instance.SaveSystem.UpdatePlayerVSync(newIndex > 0);
             });
         }
 
@@ -235,7 +179,7 @@ namespace Runtime.Managers
             masterVolume.RegisterValueChangedCallback(evt =>
             {
                 _activeMasterVolume = evt.newValue;
-                SetPlayerPref(MasterVolumeKey, _activeMasterVolume);
+                GameManager.Instance.SaveSystem.UpdatePlayerMasterVolume(_activeMasterVolume);
                 GameManager.Instance.SoundSystem.SetMasterVolume(_activeMasterVolume);
             });
             
@@ -244,7 +188,7 @@ namespace Runtime.Managers
             soundVolume.RegisterValueChangedCallback(evt =>
             {
                 _activeSfxVolume = evt.newValue;
-                SetPlayerPref(SfxVolumeKey, _activeSfxVolume);
+                GameManager.Instance.SaveSystem.UpdatePlayerSoundsVolume(_activeSfxVolume);
                 GameManager.Instance.SoundSystem.SetSfxVolume(_activeSfxVolume);
             });
             
@@ -253,83 +197,33 @@ namespace Runtime.Managers
             musicVolume.RegisterValueChangedCallback(evt =>
             {
                 _activeMusicVolume = evt.newValue;
-                SetPlayerPref(MusicVolumeKey, _activeMusicVolume);
+                GameManager.Instance.SaveSystem.UpdatePlayerMusicVolume(_activeMusicVolume);
                 GameManager.Instance.SoundSystem.SetMusicVolume(_activeMusicVolume);
             });
         }
         
         private void RegisterPlayerPrefs()
         {
-            _activeMasterVolume = LoadPlayerPref(MasterVolumeKey, 1f);
-            _activeSfxVolume = LoadPlayerPref(SfxVolumeKey, 1f);
-            _activeMusicVolume = LoadPlayerPref(MusicVolumeKey, 1f);
+            var playerData = GameManager.Instance.SaveSystem.GetPlayerData();
+            
+            _activeMasterVolume = playerData.masterVolume;
+            _activeSfxVolume = playerData.sfxVolume;
+            _activeMusicVolume = playerData.musicVolume;
             
             GameManager.Instance.SoundSystem.SetMasterVolume(_activeMasterVolume);
             GameManager.Instance.SoundSystem.SetSfxVolume(_activeSfxVolume);
             GameManager.Instance.SoundSystem.SetMusicVolume(_activeMusicVolume);
             
             //_activeResolution = _resolutions[LoadPlayerPref(ResolutionKey, 2)];
-            _activeVsync = _vsync[LoadPlayerPref(VsyncKey, 1)];
-            _activeDisplayMode = _displayModes[LoadPlayerPref(DisplayModeKey, 2)];
-        }
-        
-        private static void SetPlayerPref(string key, float value)
-        {
-            PlayerPrefs.SetFloat(key, value);
-            PlayerPrefs.Save();
-        }
-        
-        private static float LoadPlayerPref(string key, float defaultValue)
-        {
-            if (PlayerPrefs.HasKey(key)) return PlayerPrefs.GetFloat(key);
-            PlayerPrefs.SetFloat(key, defaultValue);
-            return defaultValue;
-        }
-        
-        private static int LoadPlayerPref(string key, int defaultValue)
-        {
-            if (PlayerPrefs.HasKey(key)) return PlayerPrefs.GetInt(key);
-            PlayerPrefs.SetFloat(key, defaultValue);
-            return defaultValue;
+            _activeVsync = _vsync[playerData.vSync ? 1 : 0];
+            _activeDisplayMode = _displayModes[playerData.displayMode];
         }
 
-        // private void SetupResolutions()
-        // {
-        //     var resolutions = Screen.resolutions;
-        //     foreach (var resolution in resolutions)
-        //     {
-        //         switch (resolution)
-        //         {
-        //             case { width: 1920, height: 1080 }:
-        //                 _resolutions[2] = resolution;
-        //                 break;
-        //             case { width: 1366, height: 768 }:
-        //                 _resolutions[1] = resolution;
-        //                 break;
-        //             case { width: 1280, height: 720 }:
-        //                 _resolutions[0] = resolution;
-        //                 break;
-        //         }
-        //     }
-        // }
-        
         private static void SetButtonState(Button button, bool state)
         {
             if (button == null) throw new ArgumentNullException(nameof(button));
             button.SetEnabled(state);
             button.style.opacity = state ? 1 : 0.5f;
         }
-        
-        // private int GetResolutionIndex()
-        // {
-        //     for (var i = 0; i < _resolutions.Length; i++)
-        //     {
-        //         if (_resolutions[i].width == _activeResolution.width && _resolutions[i].height == _activeResolution.height)
-        //         {
-        //             return i;
-        //         }
-        //     }
-        //     return 0;
-        // }
     }
 }
