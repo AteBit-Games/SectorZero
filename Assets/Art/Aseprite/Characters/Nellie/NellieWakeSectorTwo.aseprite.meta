@@ -1,0 +1,1284 @@
+fileFormatVersion: 2
+guid: 2d4c1bdd6b314b344946c258a2ba1132
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: NellieWakeSectorTwo_Frame_0
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 324
+      width: 30
+      height: 72
+    spriteID: 7e92f1d08a62b8a429463d845e06d32d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 324}
+  - name: NellieWakeSectorTwo_Frame_1
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 404
+      width: 30
+      height: 72
+    spriteID: 1f53d5051f933a843836d60f11ded4c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 403}
+  - name: NellieWakeSectorTwo_Frame_2
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 4
+      width: 30
+      height: 72
+    spriteID: 2c8b4386e22229b4c84f82d4ebb58937
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 3}
+  - name: NellieWakeSectorTwo_Frame_3
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 84
+      width: 30
+      height: 72
+    spriteID: 1103a5f0bc6994c4db6fcee47240081a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 83}
+  - name: NellieWakeSectorTwo_Frame_4
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 164
+      width: 30
+      height: 72
+    spriteID: c7c41654eddbd204c9a2f1066ebc43b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 163}
+  - name: NellieWakeSectorTwo_Frame_5
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 244
+      width: 30
+      height: 72
+    spriteID: 324d267f842034741a3d8582fb109c81
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 243}
+  - name: NellieWakeSectorTwo_Frame_6
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 324
+      width: 30
+      height: 72
+    spriteID: 065dc6ee36dd13a42849c94c756a39f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 323}
+  - name: NellieWakeSectorTwo_Frame_7
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 404
+      width: 30
+      height: 72
+    spriteID: 1eebac62f56e65a448eb025cdeb9aad8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 403}
+  - name: NellieWakeSectorTwo_Frame_8
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 4
+      width: 30
+      height: 72
+    spriteID: 7b956a333e056c141aa2df8c587fa3b1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 168, y: 3}
+  - name: NellieWakeSectorTwo_Frame_9
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 84
+      width: 30
+      height: 72
+    spriteID: 9bcd44a45e35a7f4d84aa227ee493dc2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 168, y: 83}
+  - name: NellieWakeSectorTwo_Frame_10
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 164
+      width: 30
+      height: 72
+    spriteID: 73ce672ccab71a748aae69e4891334b4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 168, y: 163}
+  - name: NellieWakeSectorTwo_Frame_11
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 244
+      width: 30
+      height: 72
+    spriteID: 4a2055a87383a3749af90a75de51c292
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 168, y: 243}
+  - name: NellieWakeSectorTwo_Frame_12
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 324
+      width: 30
+      height: 72
+    spriteID: b4360570d8ad4484b93873c01130f495
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 168, y: 323}
+  - name: NellieWakeSectorTwo_Frame_13
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 404
+      width: 30
+      height: 72
+    spriteID: 6b378e17abdb16c49a4870c401bf1b75
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 168, y: 403}
+  - name: NellieWakeSectorTwo_Frame_14
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 4
+      width: 30
+      height: 72
+    spriteID: 70aa17f62a7956d43acf4d5d6173aa67
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 208, y: 4}
+  - name: NellieWakeSectorTwo_Frame_15
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 84
+      width: 30
+      height: 72
+    spriteID: c09d46b2197ad0b4e9a28e6fdb6bad25
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 83}
+  - name: NellieWakeSectorTwo_Frame_16
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 164
+      width: 30
+      height: 72
+    spriteID: 3fe996a97295209419aa744e5ab9b937
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 208, y: 164}
+  - name: NellieWakeSectorTwo_Frame_17
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 244
+      width: 30
+      height: 72
+    spriteID: adf062267f10a4945b28a9ad849c30cb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 208, y: 244}
+  - name: NellieWakeSectorTwo_Frame_18
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 324
+      width: 30
+      height: 72
+    spriteID: 7ddd3da1b6feb6840a803920fdedfd42
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 208, y: 324}
+  - name: NellieWakeSectorTwo_Frame_19
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 404
+      width: 30
+      height: 72
+    spriteID: a390c08fe1305db41984659e04769b2a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 208, y: 404}
+  - name: NellieWakeSectorTwo_Frame_20
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 246
+      y: 4
+      width: 30
+      height: 72
+    spriteID: 442a8654ea54290438cf8b4d2d424bf0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 246, y: 4}
+  - name: NellieWakeSectorTwo_Frame_21
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 246
+      y: 84
+      width: 30
+      height: 72
+    spriteID: bdcc27cb843c79c42968253f6c0e5867
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 246, y: 84}
+  - name: NellieWakeSectorTwo_Frame_22
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 246
+      y: 164
+      width: 30
+      height: 72
+    spriteID: 8c9ee377f1bb23b459d76e6f655ef932
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 246, y: 164}
+  - name: NellieWakeSectorTwo_Frame_23
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 246
+      y: 244
+      width: 30
+      height: 72
+    spriteID: 7fb1c614f8e04f7498313a6f8e0322c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 246, y: 244}
+  - name: NellieWakeSectorTwo_Frame_24
+    originalName: 
+    pivot: {x: 1.45, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 246
+      y: 324
+      width: 30
+      height: 72
+    spriteID: 7aff6e5de877b9f48beb10616c47fe06
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 246, y: 324}
+  - name: NellieWakeSectorTwo_Frame_25
+    originalName: 
+    pivot: {x: 1.2794118, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 404
+      width: 34
+      height: 72
+    spriteID: 1425d6cf64ce735448e5d426879d9f51
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 404}
+  - name: NellieWakeSectorTwo_Frame_26
+    originalName: 
+    pivot: {x: 1.2794118, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 4
+      width: 34
+      height: 72
+    spriteID: 2df13e2805c2c114e87a24cd90bc1862
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 4}
+  - name: NellieWakeSectorTwo_Frame_27
+    originalName: 
+    pivot: {x: 1.2794118, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 84
+      width: 34
+      height: 72
+    spriteID: 58e271f62bdb0f646981ed386baba410
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 84}
+  - name: NellieWakeSectorTwo_Frame_28
+    originalName: 
+    pivot: {x: 1.2794118, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 164
+      width: 34
+      height: 72
+    spriteID: 3b3efa2f4165d5541b0b67a037c5d385
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 48, y: 164}
+  - name: NellieWakeSectorTwo_Frame_29
+    originalName: 
+    pivot: {x: 1.2794118, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 244
+      width: 34
+      height: 72
+    spriteID: ea20062a714d6c541a1552f339ba66d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 46, y: 243}
+  - name: NellieWakeSectorTwo_Frame_30
+    originalName: 
+    pivot: {x: 1.2794118, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 324
+      width: 34
+      height: 72
+    spriteID: 8702959e060d9cb49b28e84a9ca2ba67
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 46, y: 323}
+  - name: NellieWakeSectorTwo_Frame_31
+    originalName: 
+    pivot: {x: 1.2794118, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 48
+      y: 404
+      width: 34
+      height: 72
+    spriteID: 48befcf1a6a93424a8d276613477c191
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 46, y: 403}
+  - name: NellieWakeSectorTwo_Frame_32
+    originalName: 
+    pivot: {x: 1.2794118, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 4
+      width: 34
+      height: 72
+    spriteID: ad1f940c4598b6f4c8272cc0464eb252
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 3}
+  - name: NellieWakeSectorTwo_Frame_33
+    originalName: 
+    pivot: {x: 1.2794118, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 84
+      width: 34
+      height: 72
+    spriteID: 626f7cc6a79aaac40b9e7bb7990b6e4b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 83}
+  - name: NellieWakeSectorTwo_Frame_34
+    originalName: 
+    pivot: {x: 1.2083333, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 36
+      height: 72
+    spriteID: 1c80b2edbc73bec43bbef9c71fe1eb9c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2, y: 3}
+  - name: NellieWakeSectorTwo_Frame_35
+    originalName: 
+    pivot: {x: 1.2428571, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 164
+      width: 35
+      height: 72
+    spriteID: 36caf3da1ae6578498b737a7e110425e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2, y: 163}
+  - name: NellieWakeSectorTwo_Frame_36
+    originalName: 
+    pivot: {x: 1.2794118, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 164
+      width: 34
+      height: 72
+    spriteID: f0fa35b592d43cc40a77ec88e01ba1e9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 163}
+  - name: NellieWakeSectorTwo_Frame_37
+    originalName: 
+    pivot: {x: 1.2428571, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 244
+      width: 35
+      height: 72
+    spriteID: bdb9597f27ed113489d660520d601640
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2, y: 243}
+  - name: NellieWakeSectorTwo_Frame_38
+    originalName: 
+    pivot: {x: 1.2083333, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 84
+      width: 36
+      height: 72
+    spriteID: dc5c207f1306a1f4ba65d858ef7a4333
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2, y: 83}
+  - name: NellieWakeSectorTwo_Frame_39
+    originalName: 
+    pivot: {x: 1.2428571, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 324
+      width: 35
+      height: 72
+    spriteID: 771614a65ffc2854f95738db212ca92b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2, y: 323}
+  - name: NellieWakeSectorTwo_Frame_40
+    originalName: 
+    pivot: {x: 1.2794118, y: -0.01388889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 244
+      width: 34
+      height: 72
+    spriteID: 3a792bce210098e4890a6e58421c73ee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 243}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1094461513
+    name: NellieWakeSectorTwo
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: NellieWakeSectorTwo_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 2
+        y: 1
+        width: 30
+        height: 72
+      spriteId: 7e92f1d08a62b8a429463d845e06d32d
+    - name: NellieWakeSectorTwo_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 1f53d5051f933a843836d60f11ded4c4
+    - name: NellieWakeSectorTwo_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 2c8b4386e22229b4c84f82d4ebb58937
+    - name: NellieWakeSectorTwo_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 1103a5f0bc6994c4db6fcee47240081a
+    - name: NellieWakeSectorTwo_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: c7c41654eddbd204c9a2f1066ebc43b3
+    - name: NellieWakeSectorTwo_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 324d267f842034741a3d8582fb109c81
+    - name: NellieWakeSectorTwo_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 065dc6ee36dd13a42849c94c756a39f7
+    - name: NellieWakeSectorTwo_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 1eebac62f56e65a448eb025cdeb9aad8
+    - name: NellieWakeSectorTwo_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 7b956a333e056c141aa2df8c587fa3b1
+    - name: NellieWakeSectorTwo_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 9bcd44a45e35a7f4d84aa227ee493dc2
+    - name: NellieWakeSectorTwo_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 73ce672ccab71a748aae69e4891334b4
+    - name: NellieWakeSectorTwo_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 4a2055a87383a3749af90a75de51c292
+    - name: NellieWakeSectorTwo_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: b4360570d8ad4484b93873c01130f495
+    - name: NellieWakeSectorTwo_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 6b378e17abdb16c49a4870c401bf1b75
+    - name: NellieWakeSectorTwo_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 2
+        y: 1
+        width: 30
+        height: 72
+      spriteId: 70aa17f62a7956d43acf4d5d6173aa67
+    - name: NellieWakeSectorTwo_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: c09d46b2197ad0b4e9a28e6fdb6bad25
+    - name: NellieWakeSectorTwo_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 2
+        y: 1
+        width: 30
+        height: 72
+      spriteId: 3fe996a97295209419aa744e5ab9b937
+    - name: NellieWakeSectorTwo_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 2
+        y: 1
+        width: 30
+        height: 72
+      spriteId: adf062267f10a4945b28a9ad849c30cb
+    - name: NellieWakeSectorTwo_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 2
+        y: 1
+        width: 30
+        height: 72
+      spriteId: 7ddd3da1b6feb6840a803920fdedfd42
+    - name: NellieWakeSectorTwo_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 2
+        y: 1
+        width: 30
+        height: 72
+      spriteId: a390c08fe1305db41984659e04769b2a
+    - name: NellieWakeSectorTwo_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 2
+        y: 1
+        width: 30
+        height: 72
+      spriteId: 442a8654ea54290438cf8b4d2d424bf0
+    - name: NellieWakeSectorTwo_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 2
+        y: 1
+        width: 30
+        height: 72
+      spriteId: bdcc27cb843c79c42968253f6c0e5867
+    - name: NellieWakeSectorTwo_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 2
+        y: 1
+        width: 30
+        height: 72
+      spriteId: 8c9ee377f1bb23b459d76e6f655ef932
+    - name: NellieWakeSectorTwo_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 2
+        y: 1
+        width: 30
+        height: 72
+      spriteId: 7fb1c614f8e04f7498313a6f8e0322c3
+    - name: NellieWakeSectorTwo_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 2
+        y: 1
+        width: 30
+        height: 72
+      spriteId: 7aff6e5de877b9f48beb10616c47fe06
+    - name: NellieWakeSectorTwo_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 2
+        y: 1
+        width: 34
+        height: 72
+      spriteId: 1425d6cf64ce735448e5d426879d9f51
+    - name: NellieWakeSectorTwo_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 2
+        y: 1
+        width: 34
+        height: 72
+      spriteId: 2df13e2805c2c114e87a24cd90bc1862
+    - name: NellieWakeSectorTwo_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 2
+        y: 1
+        width: 34
+        height: 72
+      spriteId: 58e271f62bdb0f646981ed386baba410
+    - name: NellieWakeSectorTwo_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 2
+        y: 1
+        width: 34
+        height: 72
+      spriteId: 3b3efa2f4165d5541b0b67a037c5d385
+    - name: NellieWakeSectorTwo_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: ea20062a714d6c541a1552f339ba66d5
+    - name: NellieWakeSectorTwo_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 8702959e060d9cb49b28e84a9ca2ba67
+    - name: NellieWakeSectorTwo_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 48befcf1a6a93424a8d276613477c191
+    - name: NellieWakeSectorTwo_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: ad1f940c4598b6f4c8272cc0464eb252
+    - name: NellieWakeSectorTwo_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 626f7cc6a79aaac40b9e7bb7990b6e4b
+    - name: NellieWakeSectorTwo_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 1c80b2edbc73bec43bbef9c71fe1eb9c
+    - name: NellieWakeSectorTwo_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 36caf3da1ae6578498b737a7e110425e
+    - name: NellieWakeSectorTwo_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: f0fa35b592d43cc40a77ec88e01ba1e9
+    - name: NellieWakeSectorTwo_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: bdb9597f27ed113489d660520d601640
+    - name: NellieWakeSectorTwo_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: dc5c207f1306a1f4ba65d858ef7a4333
+    - name: NellieWakeSectorTwo_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 771614a65ffc2854f95738db212ca92b
+    - name: NellieWakeSectorTwo_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 80
+      spriteId: 3a792bce210098e4890a6e58421c73ee
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 91, y: 80}
