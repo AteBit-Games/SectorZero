@@ -1,0 +1,231 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: KillPlayer
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 130803871365464093
+  nodes:
+  - rid: 130803871365464093
+  - rid: 130803871365464094
+  - rid: 130803871365464097
+  - rid: 130803871365464098
+  - rid: 130803871365464099
+  - rid: 130803871365464102
+  - rid: 130803871365464103
+  - rid: 130803871365464104
+  - rid: 130803874015739906
+  treeState: 1
+  blackboard:
+    keys:
+    - rid: 130803871365464100
+    - rid: 130803871365464101
+    - rid: 130803871365464105
+    - rid: 130803871365464106
+    - rid: 130803871365464108
+    - rid: 130803871365464109
+  viewPosition: {x: 659, y: 169, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 130803871365464093
+      type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c39b2726-b5df-4ba5-b0af-7a66865b30c4
+        position: {x: 0, y: -20}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 130803871365464094
+    - rid: 130803871365464094
+      type: {class: Parallel, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 29a90dc9c9b431447b64fa68859ce5d7
+        position: {x: 0, y: 80}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130803871365464097
+        - rid: 130803871365464098
+    - rid: 130803871365464097
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 78a2b91456afeb64bac3d48706429f94
+        position: {x: -240, y: 220}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130803871365464099
+        - rid: 130803871365464102
+    - rid: 130803871365464098
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d2d86777c8282804bb621cf1062c7cc5
+        position: {x: 320, y: 220}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130803871365464103
+        - rid: 130803871365464104
+        - rid: 130803874015739906
+    - rid: 130803871365464099
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 2264c4458fdc68346ad4833afdda1dda
+        position: {x: -320, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: 130803871365464100
+          defaultValue: 0
+    - rid: 130803871365464100
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AmbienceDelay
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 2
+    - rid: 130803871365464101
+      type: {class: SoundKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: DeathAmbience
+        typeName: Runtime.SoundSystem.Sound, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {fileID: 11400000, guid: 18a57512c87b56d4f8ae38b327f81f62, type: 2}
+    - rid: 130803871365464102
+      type: {class: PlayAmbience, ns: Runtime.BehaviourTree.Actions.Sound, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 9d38d2371e0f1ba4cb4b561ae2878162
+        position: {x: -160, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        sound:
+          reference:
+            rid: 130803871365464101
+          defaultValue: {fileID: 0}
+        fadeTime:
+          reference:
+            rid: -2
+          defaultValue: 2
+    - rid: 130803871365464103
+      type: {class: KillPlayer, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 4bfe0220b3aa9614a9c98ffd5c14ef26
+        position: {x: 140, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        player:
+          reference:
+            rid: 130803871365464106
+          defaultValue: {fileID: 0}
+        northKill:
+          reference:
+            rid: 130803871365464108
+          defaultValue: {fileID: 0}
+        eastKill:
+          reference:
+            rid: 130803871365464108
+          defaultValue: {fileID: 0}
+        westKill:
+          reference:
+            rid: 130803871365464109
+          defaultValue: {fileID: 0}
+        southKill:
+          reference:
+            rid: 130803871365464109
+          defaultValue: {fileID: 0}
+        waitUntilFinish: 1
+    - rid: 130803871365464104
+      type: {class: ShowDeathScreen, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 18d2480a122e182478532e331524f328
+        position: {x: 300, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        deathType:
+          reference:
+            rid: 130803871365464105
+          defaultValue: 0
+    - rid: 130803871365464105
+      type: {class: DeathTypeKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: DeathType
+        typeName: Runtime.Utils.DeathType, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: 0
+    - rid: 130803871365464106
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803871365464108
+      type: {class: AnimationKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: EastKill
+        typeName: UnityEngine.AnimationClip, UnityEngine.AnimationModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 7400000, guid: 1121d169e3f817a4f8a4da0b0571ebf9, type: 2}
+    - rid: 130803871365464109
+      type: {class: AnimationKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: WestKill
+        typeName: UnityEngine.AnimationClip, UnityEngine.AnimationModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 7400000, guid: 89f2d105870efe24cb1621a0b327581b, type: 2}
+    - rid: 130803874015739906
+      type: {class: EndTreeExecution, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 8ed689802d399dc4aa29036b80944d19
+        position: {x: 500, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0

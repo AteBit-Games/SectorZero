@@ -64,7 +64,6 @@ MonoBehaviour:
   - rid: 484473896144994400
   - rid: 484473896144994401
   - rid: 484473896144994403
-  - rid: 484473896144994404
   - rid: 484473896144994405
   - rid: 484473896144994406
   - rid: 484473896144994407
@@ -89,8 +88,8 @@ MonoBehaviour:
     - rid: 484473835900633088
     - rid: 6236232439545200658
     - rid: 484473896144994402
-  viewPosition: {x: -379, y: 129, z: 0}
-  viewScale: {x: 0.25, y: 0.25, z: 1}
+  viewPosition: {x: 577, y: 256, z: 0}
+  viewScale: {x: 0.2842624, y: 0.2842624, z: 1}
   references:
     version: 2
     RefIds:
@@ -402,8 +401,9 @@ MonoBehaviour:
           keys: []
         comment: Search Location In Room
         drawGizmos: 0
-        treeAsset: {fileID: 11400000, guid: 2ead5ec45a161b848affba410fb4f03e, type: 2}
+        treeAsset: {fileID: 0}
         treeInstance: {fileID: 0}
+        cloneInstance: 1
         blackboardOverrides:
         - source:
             rid: 6236232445669146642
@@ -449,8 +449,9 @@ MonoBehaviour:
           keys: []
         comment: Potentially Check a Hideable If It Passed The Check
         drawGizmos: 0
-        treeAsset: {fileID: 11400000, guid: 8a09da72daa961644b7611d73a97d2dd, type: 2}
+        treeAsset: {fileID: 0}
         treeInstance: {fileID: 0}
+        cloneInstance: 1
         blackboardOverrides:
         - source:
             rid: 484473872862412802
@@ -507,8 +508,9 @@ MonoBehaviour:
           keys: []
         comment: Search Location In Space
         drawGizmos: 0
-        treeAsset: {fileID: 11400000, guid: 2ead5ec45a161b848affba410fb4f03e, type: 2}
+        treeAsset: {fileID: 0}
         treeInstance: {fileID: 0}
+        cloneInstance: 1
         blackboardOverrides:
         - source:
             rid: 484473872862412802
@@ -566,7 +568,10 @@ MonoBehaviour:
           keys: []
         comment: 
         drawGizmos: 0
-        chanceOfFailure: 0.6
+        chanceOfFailure:
+          reference:
+            rid: -2
+          defaultValue: 0.5
     - rid: 484473896144994374
       type: {class: RandomFailure, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
@@ -578,7 +583,10 @@ MonoBehaviour:
           keys: []
         comment: 
         drawGizmos: 0
-        chanceOfFailure: 0.8
+        chanceOfFailure:
+          reference:
+            rid: -2
+          defaultValue: 0.5
     - rid: 484473896144994375
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -604,8 +612,9 @@ MonoBehaviour:
           keys: []
         comment: Search Hidable In Room
         drawGizmos: 0
-        treeAsset: {fileID: 11400000, guid: 8a09da72daa961644b7611d73a97d2dd, type: 2}
+        treeAsset: {fileID: 0}
         treeInstance: {fileID: 0}
+        cloneInstance: 1
         blackboardOverrides:
         - source:
             rid: 6236232445669146642
@@ -873,10 +882,13 @@ MonoBehaviour:
           keys: []
         comment: 
         drawGizmos: 0
+        _description: 
+        _category: 
         hideable:
           reference:
             rid: 484473896144994402
           defaultValue: {fileID: 0}
+        _isHiding: 0
     - rid: 484473896144994405
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -954,10 +966,22 @@ MonoBehaviour:
           reference:
             rid: 6236232439545200641
           defaultValue: {fileID: 0}
-        northKill: {fileID: 0}
-        eastKill: {fileID: 0}
-        westKill: {fileID: 0}
-        southKill: {fileID: 0}
+        northKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 0}
+        eastKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 0}
+        westKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 0}
+        southKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 0}
         waitUntilFinish: 1
     - rid: 484473896144994411
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}

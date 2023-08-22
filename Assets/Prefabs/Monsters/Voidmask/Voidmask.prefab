@@ -45,12 +45,12 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 1.75
   m_Speed: 5
-  m_Acceleration: 8
+  m_Acceleration: 17.5
   avoidancePriority: 50
   m_AngularSpeed: 350
-  m_StoppingDistance: 3
+  m_StoppingDistance: 1.25
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2.05
   m_BaseOffset: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7f4db162bab4443818dd13bed4b1dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angularSpeed: 300
+  angularSpeed: 250
 --- !u!114 &850807045012960273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: dbd38dd6330e4b34c8751a5bcdd67251, type: 2}
+  monster: 0
   blackboardOverrides:
   - key:
       rid: 61114352745054250

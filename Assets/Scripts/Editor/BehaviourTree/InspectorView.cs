@@ -27,13 +27,25 @@ namespace Editor.BehaviourTree
             
             nodeProperty.isExpanded = true;
 
+            //list element
+            var list = new ScrollView
+            {
+                style =
+                {
+                    maxHeight = 400,
+                    overflow = Overflow.Hidden
+                }
+            };
+            
             foreach (var child in GetChildren(nodeProperty))
             {
                 if (child.name == "m_Script") continue;
                 var propertyField = new PropertyField(child);
                 propertyField.Bind(child.serializedObject);
-                Add(propertyField);
+                list.Add(propertyField);
             }
+            
+            Add(list);
         }
 
         private static IEnumerable<SerializedProperty> GetChildren(SerializedProperty property)

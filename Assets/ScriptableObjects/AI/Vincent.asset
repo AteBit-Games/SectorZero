@@ -23,10 +23,7 @@ MonoBehaviour:
   - rid: 2098102494435999808
   - rid: 2098102494435999809
   - rid: 2098102494435999810
-  - rid: 2098102503561494531
-  - rid: 2098102503561494536
   - rid: 2098102505195438080
-  - rid: 2098102505195438081
   - rid: 2098102505195438082
   - rid: 2098102505195438084
   - rid: 2098102505195438086
@@ -73,6 +70,9 @@ MonoBehaviour:
   - rid: 61114306436005897
   - rid: 61114306436005898
   - rid: 61114306436005899
+  - rid: 130803864545001529
+  - rid: 130803864545001530
+  - rid: 130803864545001531
   treeState: 1
   blackboard:
     keys:
@@ -86,8 +86,8 @@ MonoBehaviour:
     - rid: 2098102505811476487
     - rid: 2098102505811476507
     - rid: 2098102505811476534
-  viewPosition: {x: -389, y: 268, z: 0}
-  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  viewPosition: {x: 475, y: 387, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
     RefIds:
@@ -99,12 +99,15 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6fa62143195b2c84593911c22f718c3b
-        position: {x: 4240, y: 540}
+        position: {x: 4220, y: 540}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
-        sound: {fileID: 11400000, guid: 18a57512c87b56d4f8ae38b327f81f62, type: 2}
+        sound:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 11400000, guid: 18a57512c87b56d4f8ae38b327f81f62, type: 2}
         fadeTime:
           reference:
             rid: -2
@@ -167,10 +170,22 @@ MonoBehaviour:
           reference:
             rid: 2098102494435999786
           defaultValue: {fileID: 0}
-        northKill: {fileID: 7400000, guid: 8b204ebf3de89ce429f8c6c39827535c, type: 2}
-        eastKill: {fileID: 7400000, guid: 8b204ebf3de89ce429f8c6c39827535c, type: 2}
-        westKill: {fileID: 7400000, guid: 2e50ff645e9435e47a3f30a4f1a944bc, type: 2}
-        southKill: {fileID: 7400000, guid: 2e50ff645e9435e47a3f30a4f1a944bc, type: 2}
+        northKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 7400000, guid: 8b204ebf3de89ce429f8c6c39827535c, type: 2}
+        eastKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 7400000, guid: 8b204ebf3de89ce429f8c6c39827535c, type: 2}
+        westKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 7400000, guid: 2e50ff645e9435e47a3f30a4f1a944bc, type: 2}
+        southKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 7400000, guid: 2e50ff645e9435e47a3f30a4f1a944bc, type: 2}
         waitUntilFinish: 1
     - rid: 61114306436005894
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
@@ -197,7 +212,10 @@ MonoBehaviour:
           keys: []
         comment: 
         drawGizmos: 0
-        deathType: 0
+        deathType:
+          reference:
+            rid: -2
+          defaultValue: 1
     - rid: 61114306436005896
       type: {class: PlayAmbience, ns: Runtime.BehaviourTree.Actions.Sound, asm: Assembly-CSharp}
       data:
@@ -209,7 +227,10 @@ MonoBehaviour:
           keys: []
         comment: 
         drawGizmos: 0
-        sound: {fileID: 11400000, guid: 18a57512c87b56d4f8ae38b327f81f62, type: 2}
+        sound:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 11400000, guid: 18a57512c87b56d4f8ae38b327f81f62, type: 2}
         fadeTime:
           reference:
             rid: -2
@@ -257,6 +278,63 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 2
+    - rid: 130803864545001529
+      type: {class: LookAt, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 51ae18b4c55a4d249997ef1453bb64a2
+        position: {x: -560, y: 400}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        target:
+          reference:
+            rid: -2
+          defaultValue: {x: 25.6875, y: 0.6875}
+        lookTime:
+          reference:
+            rid: -2
+          defaultValue: 3
+    - rid: 130803864545001530
+      type: {class: LookAt, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d71828d3ec1e5814a897a9ce9c829b23
+        position: {x: -40, y: 400}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        target:
+          reference:
+            rid: -2
+          defaultValue: {x: 25.375, y: -5.025}
+        lookTime:
+          reference:
+            rid: -2
+          defaultValue: 3
+    - rid: 130803864545001531
+      type: {class: LookAt, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 48c47486978ba3f4fa960e3b0f0654b2
+        position: {x: -1320, y: 400}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        target:
+          reference:
+            rid: -2
+          defaultValue: {x: 25.375, y: -5.025}
+        lookTime:
+          reference:
+            rid: -2
+          defaultValue: 5
     - rid: 2098102494435999783
       type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -333,7 +411,7 @@ MonoBehaviour:
         comment: Initial State
         drawGizmos: 0
         child:
-          rid: 2098102503561494536
+          rid: 130803864545001531
         restartOnSuccess: 1
         restartOnFailure: 1
         maxRepeats:
@@ -409,10 +487,10 @@ MonoBehaviour:
         - rid: 2098102494435999809
         - rid: 2098102494435999806
         - rid: 2098102494435999810
-        - rid: 2098102503561494531
+        - rid: 130803864545001529
         - rid: 2098102494435999807
         - rid: 2098102505195438080
-        - rid: 2098102505195438081
+        - rid: 130803864545001530
         - rid: 2098102505195438082
         - rid: 2098102505811476500
     - rid: 2098102494435999809
@@ -445,44 +523,6 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 2.25
-    - rid: 2098102503561494531
-      type: {class: LookAt, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: a539ccb6dc29c3b41a67aaf2dc6ad27f
-        position: {x: -560, y: 400}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        target:
-          reference:
-            rid: -2
-          defaultValue: {x: 25.6875, y: 0.6875}
-        lookTime:
-          reference:
-            rid: -2
-          defaultValue: 3
-    - rid: 2098102503561494536
-      type: {class: LookAt, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 28fb1fcfe1207d74aa84443ac05de1d4
-        position: {x: -1320, y: 400}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        target:
-          reference:
-            rid: -2
-          defaultValue: {x: 25.375, y: -5.0625}
-        lookTime:
-          reference:
-            rid: -2
-          defaultValue: 5
     - rid: 2098102505195438080
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
@@ -498,25 +538,6 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 1.75
-    - rid: 2098102505195438081
-      type: {class: LookAt, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 10c39f02881e04641a8df22e3f436f76
-        position: {x: -40, y: 400}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        target:
-          reference:
-            rid: -2
-          defaultValue: {x: 25.375, y: -5.0625}
-        lookTime:
-          reference:
-            rid: -2
-          defaultValue: 3
     - rid: 2098102505195438082
       type: {class: SetProperty, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
       data:
@@ -776,7 +797,10 @@ MonoBehaviour:
           keys: []
         comment: 
         drawGizmos: 0
-        chanceOfFailure: 1
+        chanceOfFailure:
+          reference:
+            rid: -2
+          defaultValue: 0.5
     - rid: 2098102505811476507
       type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -999,6 +1023,7 @@ MonoBehaviour:
         drawGizmos: 0
         treeAsset: {fileID: 11400000, guid: d6b7958e9ca135f4fad76f39b1c6f002, type: 2}
         treeInstance: {fileID: 0}
+        cloneInstance: 1
         blackboardOverrides:
         - source:
             rid: 2098102494435999786
@@ -1147,10 +1172,22 @@ MonoBehaviour:
           reference:
             rid: 2098102494435999786
           defaultValue: {fileID: 0}
-        northKill: {fileID: 7400000, guid: 8b204ebf3de89ce429f8c6c39827535c, type: 2}
-        eastKill: {fileID: 7400000, guid: 8b204ebf3de89ce429f8c6c39827535c, type: 2}
-        westKill: {fileID: 7400000, guid: 2e50ff645e9435e47a3f30a4f1a944bc, type: 2}
-        southKill: {fileID: 7400000, guid: 8b204ebf3de89ce429f8c6c39827535c, type: 2}
+        northKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 7400000, guid: 8b204ebf3de89ce429f8c6c39827535c, type: 2}
+        eastKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 7400000, guid: 8b204ebf3de89ce429f8c6c39827535c, type: 2}
+        westKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 7400000, guid: 2e50ff645e9435e47a3f30a4f1a944bc, type: 2}
+        southKill:
+          reference:
+            rid: -2
+          defaultValue: {fileID: 7400000, guid: 2e50ff645e9435e47a3f30a4f1a944bc, type: 2}
         waitUntilFinish: 1
     - rid: 2098102505811476550
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
@@ -1177,7 +1214,10 @@ MonoBehaviour:
           keys: []
         comment: 
         drawGizmos: 0
-        deathType: 1
+        deathType:
+          reference:
+            rid: -2
+          defaultValue: 0
     - rid: 2098102505811476556
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:

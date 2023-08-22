@@ -18,7 +18,6 @@ namespace Runtime.AI
 {
     public class AIManager : MonoBehaviour, IPersistant
     {
-        [SerializeField] public string persistentID;
         [SerializeField] private float menaceGaugeMax = 100f;
         [SerializeField] private float menaceGaugeMin;
         
@@ -77,12 +76,12 @@ namespace Runtime.AI
                 Debug.LogError("AIManager: Monster or Player not found!");
                 return;
             }
-            
+
             _monster.OnSightEnterAction += ResetAggroLevel;
             if (_monster.monster == Monster.VoidMask)
             {
                 _sentinels = new List<Sentinel>(FindObjectsByType<Sentinel>(FindObjectsSortMode.None));
-                foreach (var sentinel in _sentinels) sentinel.OnSightEnterAction += ResetAggroLevel;
+                foreach (var sentinel in _sentinels) sentinel.OnSightEnterAction += IncreaseAggroLevel;
                 
                 _activeSentinelsKey = _monster.FindBlackboardKey<int>("ActiveSentinels");
                 _sentinelDurationKey = _monster.FindBlackboardKey<float>("SentinelActivationTime");
@@ -207,6 +206,13 @@ namespace Runtime.AI
             _aggroLevelKey.value = 0;
         }
         
+        private void IncreaseAggroLevel()
+        {
+            _aggroLevel += 2;
+            _aggroLevelKey.value = _aggroLevel;
+            _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue + (_menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
+        }
+        
         private void SetPatrolState(bool state)
         {
             _patrolStateKey.value = state;
@@ -214,14 +220,20 @@ namespace Runtime.AI
         
         // ============================ Save System ============================
 
-        public void LoadData(SaveGame game)
+        public void LoadData(SaveGame save)
         {
-            //TODO: Load data
+            _menaceGaugeValue = save.monsterData.menaceGaugeValue;
+            _menaceState = save.monsterData.menaceState;
+            _aggroLevel = save.monsterData.aggroLevel;
+            _lastSeenPlayerTime = save.monsterData.lastSeenPlayerTime;
         }
 
-        public void SaveData(SaveGame game)
+        public void SaveData(SaveGame save)
         {
-            //TODO: Save data
+            save.monsterData.menaceGaugeValue = _menaceGaugeValue;
+            save.monsterData.menaceState = _menaceState;
+            save.monsterData.aggroLevel = _aggroLevel;
+            save.monsterData.lastSeenPlayerTime = _lastSeenPlayerTime;
         }
     }
 }

@@ -1,17 +1,15 @@
 /****************************************************************
-* Copyright (c) 2023 AteBit Games
-* All rights reserved.
-****************************************************************/
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
 
 using System;
-using System.Collections.Generic;
-using UnityEngine;
 
-namespace Runtime.BehaviourTree.Actions.Navigation 
+namespace Runtime.BehaviourTree.Actions.Patrol 
 {
     [Serializable]
     [Name("Determine Speed")]
-    [Category("Navigation")]
+    [Category("Patrol")]
     [Description("Determine the speed of the agent based on the aggro level")]
     public class DetermineSpeed : ActionNode
     {

@@ -10,11 +10,11 @@ namespace Runtime.BehaviourTree.Actions.Utility
     [Description("Show the death screen")]
     public class ShowDeathScreen : ActionNode
     {
-        public DeathType deathType;
+        public NodeProperty<DeathType> deathType;
         
         protected override void OnStart()
         {
-            GameManager.Instance.GameOver(deathType);
+            GameManager.Instance.GameOver(deathType.Value);
         }
     
         protected override void OnStop() { }

@@ -1,10 +1,14 @@
+/****************************************************************
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
+
 using System;
 using System.Collections.Generic;
-using Runtime.InteractionSystem;
 using Runtime.InteractionSystem.Interfaces;
 using UnityEngine;
 
-namespace Runtime.BehaviourTree.Actions 
+namespace Runtime.BehaviourTree.Actions.GameObject 
 {
     [Serializable]
     [Name("Get Hidables")]
@@ -13,36 +17,23 @@ namespace Runtime.BehaviourTree.Actions
     public class GetHideable : ActionNode
     {
         public NodeProperty<Collider2D> searchRadius;
-        public NodeProperty<LayerMask> objectsLayer;
         public NodeProperty<List<Collider2D>> outHideables;
         
         protected override void OnStart()
         {
+            var overlapResults = new List<Collider2D>(10);
+            Physics2D.OverlapCollider(searchRadius.Value, overlapResults);
+            
             var hideables = new List<Collider2D>();
-            if (searchRadius.Value is CircleCollider2D searchCollider)
+            foreach (var collider in overlapResults)
             {
-                var colliders = Physics2D.OverlapCircleAll(searchRadius.Value.transform.position, searchCollider.radius, objectsLayer.Value);
-                foreach (var c in colliders)
+                var hideable = collider.GetComponent<IHideable>();
+                if (hideable != null)
                 {
-                    var hideable = c.GetComponent<IHideable>();
-                    if (hideable != null)
-                    {
-                        hideables.Add(c);
-                    }
+                    hideables.Add(collider);
                 }
             }
-            if(searchRadius.Value is BoxCollider2D boxCollider)
-            {
-                var colliders = Physics2D.OverlapBoxAll(searchRadius.Value.transform.position, boxCollider.size, boxCollider.transform.rotation.eulerAngles.z, objectsLayer.Value);
-                foreach (var c in colliders)
-                {
-                    var hideable = c.GetComponent<IHideable>();
-                    if (hideable != null)
-                    {
-                        hideables.Add(c);
-                    }
-                }
-            }
+            
             outHideables.Value = hideables;
         }
     

@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: DoorwayVertical_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.52336454}
+    pivot: {x: 0.45378155, y: -0.41739133}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 16
-      height: 107
+      width: 119
+      height: 115
     spriteID: 152403d8ab918cf44970606e3d123cb9
     spriteBone: []
     spriteOutline: []
@@ -139,146 +139,6 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: DoorwayVertical_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: -0.52336454}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 119
-      width: 16
-      height: 107
-    spriteID: 6549c06035548f34e8b04215f6c3c487
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 119}
-  - name: DoorwayVertical_Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: -0.52336454}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 28
-      y: 4
-      width: 16
-      height: 107
-    spriteID: ad50b112245065547bca69dc0e3fc1bb
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 28, y: 4}
-  - name: DoorwayVertical_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: -0.52336454}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 28
-      y: 119
-      width: 16
-      height: 107
-    spriteID: 0644f8d204cc52045a9d97400258641f
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 28, y: 119}
-  - name: DoorwayVertical_Frame_4
-    originalName: 
-    pivot: {x: 0.5, y: -0.52336454}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 52
-      y: 4
-      width: 16
-      height: 107
-    spriteID: 1ea9f4f9584fdfb42bfa5eed404d8d2e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 52, y: 4}
-  - name: DoorwayVertical_Frame_5
-    originalName: 
-    pivot: {x: 0.5, y: -0.52336454}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 52
-      y: 119
-      width: 16
-      height: 107
-    spriteID: a6ab7c50e8405cf4e9db77e5e35f2ada
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 52, y: 119}
-  - name: DoorwayVertical_Frame_6
-    originalName: 
-    pivot: {x: 0.5, y: -0.52336454}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 76
-      y: 4
-      width: 16
-      height: 107
-    spriteID: 19fc9f59c1a7e414ab3c48636af7165c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 76, y: 4}
-  - name: DoorwayVertical_Frame_7
-    originalName: 
-    pivot: {x: 0.5, y: -0.52336454}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 76
-      y: 119
-      width: 16
-      height: 107
-    spriteID: 44efc11e7b04de8429e6030ff773ad13
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 76, y: 119}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -288,70 +148,14 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: DoorwayVertical_Frame_0
+    - name: DoorwayVertical
       frameIndex: 0
       cellRect:
-        x: 24
-        y: 56
-        width: 16
-        height: 107
+        x: -22
+        y: 48
+        width: 119
+        height: 115
       spriteId: 152403d8ab918cf44970606e3d123cb9
-    - name: DoorwayVertical_Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 24
-        y: 56
-        width: 16
-        height: 107
-      spriteId: 6549c06035548f34e8b04215f6c3c487
-    - name: DoorwayVertical_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 24
-        y: 56
-        width: 16
-        height: 107
-      spriteId: ad50b112245065547bca69dc0e3fc1bb
-    - name: DoorwayVertical_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 24
-        y: 56
-        width: 16
-        height: 107
-      spriteId: 0644f8d204cc52045a9d97400258641f
-    - name: DoorwayVertical_Frame_4
-      frameIndex: 4
-      cellRect:
-        x: 24
-        y: 56
-        width: 16
-        height: 107
-      spriteId: 1ea9f4f9584fdfb42bfa5eed404d8d2e
-    - name: DoorwayVertical_Frame_5
-      frameIndex: 5
-      cellRect:
-        x: 24
-        y: 56
-        width: 16
-        height: 107
-      spriteId: a6ab7c50e8405cf4e9db77e5e35f2ada
-    - name: DoorwayVertical_Frame_6
-      frameIndex: 6
-      cellRect:
-        x: 24
-        y: 56
-        width: 16
-        height: 107
-      spriteId: 19fc9f59c1a7e414ab3c48636af7165c
-    - name: DoorwayVertical_Frame_7
-      frameIndex: 7
-      cellRect:
-        x: 24
-        y: 56
-        width: 16
-        height: 107
-      spriteId: 44efc11e7b04de8429e6030ff773ad13
     linkedCells: []
     parentIndex: -1
   platformSettings: []

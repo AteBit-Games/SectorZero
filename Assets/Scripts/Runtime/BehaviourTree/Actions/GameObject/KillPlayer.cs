@@ -12,10 +12,10 @@ namespace Runtime.BehaviourTree.Actions.GameObject
     public class KillPlayer : ActionNode
     {
         public NodeProperty<UnityEngine.GameObject> player;
-        public AnimationClip northKill;
-        public AnimationClip eastKill;
-        public AnimationClip westKill;
-        public AnimationClip southKill;
+        public NodeProperty<AnimationClip> northKill;
+        public NodeProperty<AnimationClip> eastKill;
+        public NodeProperty<AnimationClip> westKill;
+        public NodeProperty<AnimationClip> southKill;
         public bool waitUntilFinish = true;
         
         private float _startTime;
@@ -23,6 +23,9 @@ namespace Runtime.BehaviourTree.Actions.GameObject
 
         protected override void OnStart()
         {
+            context.agent.isStopped = true;
+            context.agent.velocity = Vector3.zero;
+            
             var direction = context.agent.transform.position - player.Value.transform.position;
             // var angle = Vector3.SignedAngle(direction, Vector3.up, Vector3.forward);
             //
@@ -41,9 +44,9 @@ namespace Runtime.BehaviourTree.Actions.GameObject
 
             animationClip = dir switch
             {
-                <= 0f => eastKill,
-                > 0f => westKill,
-                _ => eastKill
+                <= 0f => eastKill.Value,
+                > 0f => westKill.Value,
+                _ => eastKill.Value
             };
             
             context.animator.Play(animationClip.name);

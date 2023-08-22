@@ -50,6 +50,10 @@ namespace Runtime.SaveSystem.Data
         public bool isActive;
         public Vector3 position;
         public int activeState;
+        public float menaceGaugeValue;
+        public bool menaceState;
+        public int aggroLevel;
+        public float lastSeenPlayerTime;
     }
     
     [Serializable]

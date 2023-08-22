@@ -3,10 +3,8 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
 using Runtime.SoundSystem;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Interfaces
 {

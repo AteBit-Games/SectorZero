@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: BloodPalette
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.61702126, y: -0.75757575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 0
-      height: 0
+      width: 47
+      height: 33
     spriteID: 3bbb642aa08806f40aa7a9f2e08aba45
     spriteBone: []
     spriteOutline: []
@@ -138,7 +138,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: -60, y: -60}
+    uvTransform: {x: 4, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -151,10 +151,10 @@ ScriptedImporter:
     - name: BloodPalette
       frameIndex: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 3
+        y: 25
+        width: 47
+        height: 33
       spriteId: 3bbb642aa08806f40aa7a9f2e08aba45
     linkedCells: []
     parentIndex: -1

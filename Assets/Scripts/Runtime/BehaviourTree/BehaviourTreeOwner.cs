@@ -12,6 +12,8 @@ using Runtime.AI;
 using Runtime.AI.Interfaces;
 using Runtime.Managers;
 using Runtime.Player;
+using Runtime.SaveSystem;
+using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.AI;
@@ -27,14 +29,11 @@ namespace Runtime.BehaviourTree
         public enum State
         {
             Idle,
-            PatrolNear,
-            PatrolFar,
-            InspectSound,
-            LastKnown,
-            SentinelAlert,
-            AggroChase,
+            Patrol,
+            InspectPoint,
             AggroInspect,
-            Kill
+            AggroChase,
+            SentinelAlert,
         }
         
         public State state;
@@ -48,7 +47,7 @@ namespace Runtime.BehaviourTree
     }
     
     [AddComponentMenu("BehaviourTree/BehaviourTreeOwner")]
-    public class BehaviourTreeOwner : MonoBehaviour, IHearingHandler, ISightHandler
+    public class BehaviourTreeOwner : MonoBehaviour, IHearingHandler, ISightHandler, IPersistant
     {
         [Tooltip("BehaviourTree asset to instantiate during Awake")] 
         public BehaviourTree behaviourTree;
@@ -86,7 +85,7 @@ namespace Runtime.BehaviourTree
         private Animator _animator;
         
         private BlackboardKey<int> _stateReference;
-        private BlackboardKey<Vector2> _lastKnownLocationReference;
+        private BlackboardKey<Vector2> _inspectLocationReference;
         private static readonly int MoveX = Animator.StringToHash("moveX");
         private static readonly int MoveY = Animator.StringToHash("moveY");
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
@@ -101,8 +100,9 @@ namespace Runtime.BehaviourTree
             bool isValid = ValidateTree();
             if (isValid) 
             {
-                _context = CreateBehaviourTreeContext();
                 behaviourTree = behaviourTree.Clone();
+                
+                _context = CreateBehaviourTreeContext(behaviourTree);
                 behaviourTree.Bind(_context);
                 ApplyKeyOverrides();
             }
@@ -116,7 +116,7 @@ namespace Runtime.BehaviourTree
             _material.color = idleColour;
             
             _stateReference = FindBlackboardKey<int>("ActiveState");
-            _lastKnownLocationReference = FindBlackboardKey<Vector2>("LastKnown");
+            _inspectLocationReference = FindBlackboardKey<Vector2>("InspectPoint");
 
             _navMeshAgent = _context.agent;
             _navMeshAgent.updateRotation = false;
@@ -128,7 +128,12 @@ namespace Runtime.BehaviourTree
         {
             _stateReference.value = state;
         }
-
+        
+        private void Start()
+        {
+            behaviourTree.treeState = Node.State.Running;
+        }
+        
         private void Update() 
         {
             if (behaviourTree) behaviourTree.Update();
@@ -159,11 +164,11 @@ namespace Runtime.BehaviourTree
         {
             if (!_canSeePlayer)
             {
-                if(treeStates.Find(x => x.state == TreeState.State.InspectSound) == null) Debug.LogError("No Inspect state found");
+                if(treeStates.Find(x => x.state == TreeState.State.InspectPoint) == null) Debug.LogError("No Inspect state found");
                 else
                 {
-                    _lastKnownLocationReference.value = sender.transform.position;
-                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.InspectSound).stateIndex);
+                    _inspectLocationReference.value = sender.transform.position;
+                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.InspectPoint).stateIndex);
                 }
             }
         }
@@ -204,9 +209,10 @@ namespace Runtime.BehaviourTree
 
         public void OnSightExit(Vector2 lastKnownPosition)
         {
-            if(_canSeePlayer && !_sightCoroutineRunning)
+            var didSeePlayerEnterHidable = _stateReference.value == treeStates.Find(x => x.state == TreeState.State.AggroInspect).stateIndex;
+            if(_canSeePlayer && !_sightCoroutineRunning && !didSeePlayerEnterHidable)
             {
-                _lastKnownLocationReference.value = lastKnownPosition;
+                _inspectLocationReference.value = lastKnownPosition;
                 _loseSightCoroutine = StartCoroutine(LoseSight());
                 _sightCoroutineRunning = true;
             }
@@ -228,11 +234,11 @@ namespace Runtime.BehaviourTree
                 if (vignette != null) vignette.intensity.value = value;
             }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
             
-            if(treeStates.Find(x => x.state == TreeState.State.LastKnown) == null) Debug.LogError("No last known state specified");
+            if(treeStates.Find(x => x.state == TreeState.State.InspectPoint) == null) Debug.LogError("No last known state specified");
             else
             {
                 _material.color = idleColour;
-                SetActiveState(treeStates.Find(x => x.state == TreeState.State.LastKnown).stateIndex);
+                SetActiveState(treeStates.Find(x => x.state == TreeState.State.InspectPoint).stateIndex);
             }
             
             _loseSightCoroutine = null;
@@ -282,9 +288,9 @@ namespace Runtime.BehaviourTree
             }
         }
         
-        private Context CreateBehaviourTreeContext() 
+        private Context CreateBehaviourTreeContext(BehaviourTree tree) 
         {
-            return Context.CreateFromGameObject(gameObject);
+            return Context.CreateFromGameObject(gameObject, tree);
         }
 
         private bool ValidateTree() 
@@ -303,5 +309,28 @@ namespace Runtime.BehaviourTree
             _animator.SetFloat(MoveX, direction.x);
             _animator.SetFloat(MoveY, direction.y);
         } 
+        
+        public Vector2 GetLookDirection()
+        {
+            return new Vector2(_animator.GetFloat(MoveX), _animator.GetFloat(MoveY));
+        }
+        
+        // ====================== Save System ======================
+        
+        public void LoadData(SaveGame save)
+        {
+            SetActiveState(save.monsterData.activeState);
+            gameObject.transform.parent.gameObject.SetActive(save.monsterData.isActive);
+            
+            transform.position = save.monsterData.position;
+            _navMeshAgent.Warp(save.monsterData.position);
+        }
+
+        public void SaveData(SaveGame save)
+        {
+            save.monsterData.isActive = gameObject.transform.parent.gameObject.activeSelf;
+            save.monsterData.position = transform.position;
+            save.monsterData.activeState = _stateReference.value;
+        }
     }
 }

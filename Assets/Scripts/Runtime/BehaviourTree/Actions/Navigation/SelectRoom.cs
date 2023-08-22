@@ -16,6 +16,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
     public class SelectRoom : ActionNode
     {
         public NodeProperty<List<Collider2D>> rooms;
+        public NodeProperty<Collider2D> prevRoom;
         public NodeProperty<Collider2D> outRoom;
 
         protected override void OnStart()
@@ -26,9 +27,14 @@ namespace Runtime.BehaviourTree.Actions.Navigation
                 return;
             }
             
-            //select a random room from the list
+            //select a random room from the list that is not the previous room
             var index = UnityEngine.Random.Range(0, rooms.Value.Count);
+            while (rooms.Value[index] == prevRoom.Value)
+            {
+                index = UnityEngine.Random.Range(0, rooms.Value.Count);
+            }
             outRoom.Value = rooms.Value[index];
+            prevRoom.Value = outRoom.Value;
         }
     
         protected override void OnStop() { }

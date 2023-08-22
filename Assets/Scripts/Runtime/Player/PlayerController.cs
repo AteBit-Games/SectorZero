@@ -59,6 +59,8 @@ namespace Runtime.Player
         // ============ Miscellaneous ============
         private BehaviourTreeOwner _monster;
         private BlackboardKey<bool> _seenEnter;
+        private BlackboardKey<int> _activeState;
+
         [HideInInspector] public Collider2D hideable;
         private AudioLowPassFilter _audioLowPassFilter;
 
@@ -183,8 +185,6 @@ namespace Runtime.Player
         
         public void HidePlayer(GameObject hidableObject, Vector2 position)
         {
-            if(IsSeen) _seenEnter.value = true;
-            
             //Hide the player
             SetVisible(false);
             DisableMovement();
@@ -193,7 +193,18 @@ namespace Runtime.Player
             _movementAnimator.SetBool(id: _isMoving, false);
             globalLight.intensity = 0.2f;
             transform.position = position;
-            this.hideable = hidableObject.GetComponent<Collider2D>();
+            hideable = hidableObject.GetComponent<Collider2D>();
+            
+            //Let monster know the player is hiding if they were seen
+            if (IsSeen)
+            {
+                if (_monster.treeStates.Find(x => x.state == TreeState.State.AggroInspect) == null) Debug.LogError("No hidable check found");
+                else
+                {
+                    _seenEnter.value = true;
+                    _monster.SetActiveState(_monster.treeStates.Find(x => x.state == TreeState.State.AggroInspect).stateIndex);
+                }
+            }
             
             //Start the hiding coroutine
             hideCoroutine = StartCoroutine(EnableLowPass());
@@ -201,7 +212,7 @@ namespace Runtime.Player
         
         public void RevealPlayer(Vector2 position, Vector2 facingDirection)
         {
-            _seenEnter.value = false;
+           
 
             //Show the player
             SetVisible(true);
@@ -211,6 +222,16 @@ namespace Runtime.Player
             _movementAnimator.SetBool(id: _isSneaking, isSneaking);
             globalLight.intensity = 0.3f;
             transform.position = position;
+
+            if (_seenEnter.value)
+            {
+                if (_monster.treeStates.Find(x => x.state == TreeState.State.AggroChase) == null)Debug.LogError("No aggro chase state found");
+                else
+                {
+                    _seenEnter.value = false;
+                    _monster.SetActiveState(_monster.treeStates.Find(x => x.state == TreeState.State.AggroChase).stateIndex);
+                }
+            }
             
             _audioLowPassFilter.enabled = false;
             if (facingDirection != Vector2.zero) SetFacingDirection(facingDirection);
@@ -234,12 +255,13 @@ namespace Runtime.Player
 
             //Disable the player
             DisableInput();
+            _movementInput = Vector2.zero;
             _spriteRenderer.enabled = false;
             _playerShadow.enabled = false;
             
             //Reset Systems
             GameManager.Instance.DialogueSystem.CancelDialogue();
-            lookPointer.position = gameObject.transform.position;
+            lookPointer.position = gameObject.transform.position + new Vector3(-2f, 2.5f, 0f);
         }
         
         // =========================== Input System Methods ===========================

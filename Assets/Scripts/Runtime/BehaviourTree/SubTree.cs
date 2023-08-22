@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Runtime.BehaviourTree.Actions;
 using UnityEngine;
 
 namespace Runtime.BehaviourTree 
@@ -11,11 +10,27 @@ namespace Runtime.BehaviourTree
     {
         [Tooltip("Behaviour tree asset to run as a subtree")] public BehaviourTree treeAsset;
         [HideInInspector] public BehaviourTree treeInstance;
+        public bool cloneInstance = true;
         public List<BlackboardSubKey> blackboardOverrides = new();
+        
+        private bool _instanced;
         
         protected override void OnStart()
         {
-            treeInstance = treeAsset.Clone();
+            //if clone instance is true, create a new instance of the tree asset every time this node is started else use the same instance use instanced
+            if (cloneInstance)
+            {
+                treeInstance = treeAsset.Clone();
+            }
+            else
+            {
+                if (!_instanced)
+                {
+                    treeInstance = treeAsset.Clone();
+                    _instanced = true;
+                }
+            }
+            
             treeInstance.Bind(context);
             treeInstance.treeState = State.Running;
             ApplyKeyOverrides();

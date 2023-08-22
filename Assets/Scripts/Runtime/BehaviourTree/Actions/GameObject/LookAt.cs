@@ -1,7 +1,9 @@
 using System;
+using ElRaccoone.Tweens;
+using ElRaccoone.Tweens.Core;
 using UnityEngine;
 
-namespace Runtime.BehaviourTree.Actions 
+namespace Runtime.BehaviourTree.Actions.GameObject 
 {
     [Serializable]
     [Name("Look At")]
@@ -18,10 +20,14 @@ namespace Runtime.BehaviourTree.Actions
         {
             _lookTime = Time.time;
             var direction = target.Value - (Vector2)context.agent.transform.position;
-            context.agent.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+            context.agent.transform.TweenRotation(Quaternion.LookRotation(Vector3.forward, direction).eulerAngles, lookTime.Value - 1).SetEaseSineOut();
             
             var directionNormalized = direction.normalized;
-            context.owner.SetLookDirection(directionNormalized);
+            context.owner.TweenValueVector2(directionNormalized, lookTime.Value - 1, value =>
+            {
+                context.owner.SetLookDirection(value);
+            }).SetFrom(context.owner.GetLookDirection()).SetEaseSineOut();
+            //context.owner.SetLookDirection(directionNormalized);
         }
 
         protected override void OnStop() { }

@@ -1,0 +1,260 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: InspectRoom
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 130803849973989378
+  nodes:
+  - rid: 130803849973989378
+  - rid: 130803864545001523
+  - rid: 130803864545001535
+  - rid: 130803864545001538
+  - rid: 130803868398780416
+  - rid: 130803868398780417
+  - rid: 130803868398780418
+  treeState: 1
+  blackboard:
+    keys:
+    - rid: 130803871365464068
+    - rid: 130803864545001484
+    - rid: 130803864545001491
+    - rid: 130803864545001475
+    - rid: 130803893468135442
+  viewPosition: {x: 954, y: 50, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 130803849973989378
+      type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d6b7abf0-6dec-4040-9b0e-f791e493c8ed
+        position: {x: 0, y: 0}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 130803868398780416
+    - rid: 130803864545001475
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AggroLevel
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130803864545001484
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SelectedRoom
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803864545001491
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SelectedPoint
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}
+    - rid: 130803864545001523
+      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ddf4f879cf415284997731c324caead9
+        position: {x: -180, y: 360}
+        blackboard:
+          keys: []
+        comment: '<b>Look Around Subtree</b>
+
+          AI looks at points in room,
+          amount of times is calculated based on the room size'
+        drawGizmos: 0
+        treeAsset: {fileID: 11400000, guid: 378aaad9899c1fb469be5ea4128308c1, type: 2}
+        treeInstance: {fileID: 0}
+        cloneInstance: 1
+        blackboardOverrides:
+        - source:
+            rid: 130803864545001484
+          target:
+            rid: 130803864545001526
+        - source:
+            rid: 130803864545001475
+          target:
+            rid: 130803864545001524
+    - rid: 130803864545001524
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AggroLevel
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130803864545001526
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Room
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803864545001535
+      type: {class: PatrolToPoint, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 30fac5aa93dd0744db6d1ae4a2b96ba9
+        position: {x: -360, y: 360}
+        blackboard:
+          keys: []
+        comment: 'Move to the selected point
+
+          If failure is set the AI
+          will have a chance to abort the current route to add a level of unpredictability'
+        drawGizmos: 0
+        targetPoint:
+          reference:
+            rid: 130803864545001491
+          defaultValue: {x: 0, y: 0}
+        speed:
+          reference:
+            rid: -2
+          defaultValue: 4.5
+        failureChance:
+          reference:
+            rid: -2
+          defaultValue: 0.1
+        failureDistanceRemaining:
+          reference:
+            rid: -2
+          defaultValue: 0.25
+    - rid: 130803864545001538
+      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f73fcf6656415044cb29f029efd9bda9
+        position: {x: -20, y: 360}
+        blackboard:
+          keys: []
+        comment: '<b>Search Room Subtree</b>
+
+          AI walks around room and
+          has the potential to search a hidable within the room, the amount of times
+          is calculated based on the size of the room'
+        drawGizmos: 0
+        treeAsset: {fileID: 11400000, guid: fbe0720cd1ed56c40be383c2db482716, type: 2}
+        treeInstance: {fileID: 0}
+        cloneInstance: 0
+        blackboardOverrides:
+        - source:
+            rid: 130803871365464068
+          target:
+            rid: 130803871365464074
+        - source:
+            rid: 130803864545001484
+          target:
+            rid: 130803864545001544
+        - source:
+            rid: 130803864545001475
+          target:
+            rid: 130803893468135451
+        - source:
+            rid: -2
+          target:
+            rid: 130803893468135452
+    - rid: 130803864545001544
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Room
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803868398780416
+      type: {class: Selector, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 5ff8f52ff13606848aaf81abdc085c5b
+        position: {x: 0, y: 80}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130803868398780418
+        - rid: 130803868398780417
+    - rid: 130803868398780417
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 38810633cbef44c4589f48b6970ee9de
+        position: {x: 160, y: 220}
+        blackboard:
+          keys: []
+        comment: If the AI decides to abort path, wait a few seconds before moving
+          on
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 3
+    - rid: 130803868398780418
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: dbf1d4559603b6a408e19a65640cac06
+        position: {x: -180, y: 220}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130803864545001535
+        - rid: 130803864545001523
+        - rid: 130803864545001538
+    - rid: 130803871365464068
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803871365464074
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803893468135442
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: LostPlayer
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 1
+    - rid: 130803893468135451
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AggroLevel
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130803893468135452
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: LostPlayer
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0

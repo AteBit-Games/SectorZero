@@ -18,13 +18,13 @@ MonoBehaviour:
   - rid: 484473883717533740
   - rid: 484473896144994323
   - rid: 484473896144994333
-  - rid: 484473896144994335
   - rid: 484473896144994336
   - rid: 484473896144994337
-  - rid: 484473896144994338
   - rid: 484473896144994339
   - rid: 484473896144994340
   - rid: 2098102505811476532
+  - rid: 130803873525530630
+  - rid: 130803909263360077
   treeState: 1
   blackboard:
     keys:
@@ -32,13 +32,108 @@ MonoBehaviour:
     - rid: 484473896144994330
     - rid: 484473896144994341
     - rid: 484473896144994304
-  viewPosition: {x: 523, y: 62, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: 492, y: 231, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 130803873525530630
+      type: {class: CheckHideable, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e5fcf4e1297c2ee4aa0cfaefdca47454
+        position: {x: 20, y: 620}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        hideable:
+          reference:
+            rid: 484473896144994329
+          defaultValue: {fileID: 0}
+    - rid: 130803909263360077
+      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: adf95292eb7e5b743983fc0e6b44af5e
+        position: {x: 300, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        treeAsset: {fileID: 11400000, guid: f043cd388347b754d895fcdba4e29f84, type: 2}
+        treeInstance: {fileID: 0}
+        cloneInstance: 1
+        blackboardOverrides:
+        - source:
+            rid: 484473896144994341
+          target:
+            rid: 130803909263360078
+        - source:
+            rid: -2
+          target:
+            rid: 130803909263360079
+        - source:
+            rid: -2
+          target:
+            rid: 130803909263360080
+        - source:
+            rid: -2
+          target:
+            rid: 130803909263360081
+        - source:
+            rid: -2
+          target:
+            rid: 130803909263360082
+        - source:
+            rid: -2
+          target:
+            rid: 130803909263360083
+    - rid: 130803909263360078
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803909263360079
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AmbienceDelay
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 2
+    - rid: 130803909263360080
+      type: {class: SoundKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: DeathAmbience
+        typeName: Runtime.SoundSystem.Sound, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {fileID: 11400000, guid: 18a57512c87b56d4f8ae38b327f81f62, type: 2}
+    - rid: 130803909263360081
+      type: {class: DeathTypeKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: DeathType
+        typeName: Runtime.Utils.DeathType, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: 0
+    - rid: 130803909263360082
+      type: {class: AnimationKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: EastKill
+        typeName: UnityEngine.AnimationClip, UnityEngine.AnimationModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 7400000, guid: 1121d169e3f817a4f8a4da0b0571ebf9, type: 2}
+    - rid: 130803909263360083
+      type: {class: AnimationKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: WestKill
+        typeName: UnityEngine.AnimationClip, UnityEngine.AnimationModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 7400000, guid: 89f2d105870efe24cb1621a0b327581b, type: 2}
     - rid: 484473883717533740
       type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -48,11 +143,7 @@ MonoBehaviour:
         position: {x: 0, y: 20}
         blackboard:
           keys: []
-        comment: 'To Use SubTree Override:
-
-          - Speed
-
-          - Player'
+        comment: 
         drawGizmos: 0
         child:
           rid: 484473896144994323
@@ -61,7 +152,7 @@ MonoBehaviour:
       data:
         name: Speed
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 0
+        value: 5
     - rid: 484473896144994323
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -76,8 +167,8 @@ MonoBehaviour:
         children:
         - rid: 2098102505811476532
         - rid: 484473896144994333
-        - rid: 484473896144994335
         - rid: 484473896144994336
+        - rid: 130803909263360077
     - rid: 484473896144994329
       type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -98,10 +189,12 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 56ee2d75f8e1e314991b7a6790c803c6
-        position: {x: -260, y: 240}
+        position: {x: -40, y: 240}
         blackboard:
           keys: []
-        comment: Go to the hideable
+        comment: 'Go to inspect the Hidable Object
+
+'
         drawGizmos: 0
         targetPosition:
           reference:
@@ -111,26 +204,13 @@ MonoBehaviour:
           reference:
             rid: 484473896144994304
           defaultValue: 4
-    - rid: 484473896144994335
-      type: {class: PlayAudio, ns: Runtime.BehaviourTree.Actions.Sound, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 4663470b2d2bf514596c870220f3a5e2
-        position: {x: -80, y: 240}
-        blackboard:
-          keys: []
-        comment: PLACEHOLDER FOR LOCKERS
-        drawGizmos: 0
-        sound: {fileID: 11400000, guid: 5ececcaf60583d54e82ce681f1f82403, type: 2}
-        waitActionFinish: 0
     - rid: 484473896144994336
       type: {class: Inverter, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: d50c93be985f9d4409ebd832e13f723b
-        position: {x: 100, y: 240}
+        position: {x: 140, y: 240}
         blackboard:
           keys: []
         comment: 
@@ -143,7 +223,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 0c491b708017bae49a13e9515739e4b9
-        position: {x: 100, y: 360}
+        position: {x: 140, y: 360}
         blackboard:
           keys: []
         comment: 
@@ -151,41 +231,26 @@ MonoBehaviour:
         children:
         - rid: 484473896144994339
         - rid: 484473896144994340
-    - rid: 484473896144994338
-      type: {class: CheckHideable, ns: Runtime.BehaviourTree.Actions, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: bd5c02cb0a3824549bc8412f5ae23e2c
-        position: {x: -20, y: 620}
-        blackboard:
-          keys: []
-        comment: Check if player is within the locker
-        drawGizmos: 0
-        hideable:
-          reference:
-            rid: 484473896144994329
-          defaultValue: {fileID: 0}
     - rid: 484473896144994339
       type: {class: Inverter, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 236af91973cbfd94fbc3b63ec139acf3
-        position: {x: -20, y: 500}
+        position: {x: 20, y: 500}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
         child:
-          rid: 484473896144994338
+          rid: 130803873525530630
     - rid: 484473896144994340
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 7287f71200a66ff479b2488ff6c67a7d
-        position: {x: 200, y: 500}
+        position: {x: 240, y: 500}
         blackboard:
           keys: []
         comment: If player was not in locker wait a few seconds
@@ -207,7 +272,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 204ff11b7af71b248bf85477d4d61675
-        position: {x: -480, y: 240}
+        position: {x: -260, y: 240}
         blackboard:
           keys: []
         comment: 

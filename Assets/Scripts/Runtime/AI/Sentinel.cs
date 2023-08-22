@@ -30,6 +30,8 @@ namespace Runtime.AI
 
         //---- Private Variables ----//
         private BehaviourTreeOwner _voidmask;
+        private BlackboardKey<Collider2D> _inspectRoomKey;
+        
         private Animator _animator;
         private Light2D _light;
         private float _initialIntensity;
@@ -54,8 +56,9 @@ namespace Runtime.AI
         private void Awake()
         {
             _voidmask = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
-            _animator = GetComponent<Animator>();
+            _inspectRoomKey = _voidmask.FindBlackboardKey<Collider2D>("InspectRoom");
             
+            _animator = GetComponentInChildren<Animator>();
             _light = GetComponentInChildren<Light2D>();
             _initialIntensity = _light.intensity;
 
@@ -68,6 +71,9 @@ namespace Runtime.AI
             _light.pointLightInnerAngle = viewAngle;
             _light.transform.rotation = Quaternion.Euler(0f, 0f, -lookAngle-90);
             _light.color = defaultColor;
+            _light.enabled = false;
+            
+            if(debug) ActivateSentinel(999f);
         }
         
         private void Update()
@@ -113,10 +119,17 @@ namespace Runtime.AI
             {
                 _isActivated = false;
                 _light.color = alertColor;
-                OnSightEnterAction?.Invoke();
                 
+                var hit = Physics2D.OverlapPoint(transform.position, 1 << LayerMask.NameToLayer("RoomBounds"));
+                if(hit == null) Debug.LogWarning("No RoomBounds found for " + gameObject.name);
+                OnSightEnterAction?.Invoke();
+
                 if(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert) == null) Debug.LogError("No Sentinel state found");
-                else _voidmask.SetActiveState(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert).stateIndex);
+                else
+                {
+                    _inspectRoomKey.value = hit;
+                    _voidmask.SetActiveState(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert).stateIndex);
+                }
                 
                 StartCoroutine(TriggerDeactivate());
             }

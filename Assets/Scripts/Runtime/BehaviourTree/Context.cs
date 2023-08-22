@@ -11,7 +11,7 @@ namespace Runtime.BehaviourTree
         public NavMeshAgent agent;
         public BehaviourTree tree;
 
-        public static Context CreateFromGameObject(GameObject gameObject) 
+        public static Context CreateFromGameObject(GameObject gameObject, BehaviourTree tree) 
         {
             Context context = new Context
             {
@@ -19,7 +19,7 @@ namespace Runtime.BehaviourTree
                 transform = gameObject.transform,
                 animator = gameObject.GetComponent<Animator>(),
                 agent = gameObject.transform.parent.gameObject.GetComponentInChildren<NavMeshAgent>(),
-                tree = gameObject.GetComponent<BehaviourTreeOwner>().behaviourTree
+                tree = tree
             };
 
             return context;

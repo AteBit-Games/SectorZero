@@ -9,7 +9,10 @@ namespace Runtime.BehaviourTree
     {
         [SerializeReference] [HideInInspector] public Node child;
 
-        protected override void OnStart() { }
+        protected override void OnStart()
+        {
+            state = State.Running;
+        }
 
         protected override void OnStop() { }
 

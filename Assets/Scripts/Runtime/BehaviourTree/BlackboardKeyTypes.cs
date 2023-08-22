@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Runtime.SoundSystem;
+using Runtime.Utils;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -52,5 +54,14 @@ namespace Runtime.BehaviourTree {
     
     [Serializable]
     public class ColliderList : BlackboardKey<List<Collider2D>> { }
+    
+    [Serializable]
+    public class SoundKey : BlackboardKey<Sound> { }
+    
+    [Serializable]
+    public class AnimationKey : BlackboardKey<AnimationClip> { }
+    
+    [Serializable]
+    public class DeathTypeKey : BlackboardKey<DeathType> { }
     
 }

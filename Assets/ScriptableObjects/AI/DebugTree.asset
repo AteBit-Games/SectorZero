@@ -16,7 +16,7 @@ MonoBehaviour:
     rid: 61114331898839041
   nodes:
   - rid: 61114331898839041
-  - rid: 61114331898839043
+  - rid: 130803874015739905
   treeState: 1
   blackboard:
     keys:
@@ -41,29 +41,7 @@ MonoBehaviour:
         comment: 
         drawGizmos: 0
         child:
-          rid: 61114331898839043
-    - rid: 61114331898839043
-      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: a8d1e57cf37cb5c4d9e4c5cd7854301d
-        position: {x: 0, y: 80}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        treeAsset: {fileID: 11400000, guid: d45330b3e77f96a46a0d9b6f1066c9cd, type: 2}
-        treeInstance: {fileID: 0}
-        blackboardOverrides:
-        - source:
-            rid: -2
-          target:
-            rid: 2098102670374469632
-        - source:
-            rid: -2
-          target:
-            rid: 2098102670374469633
+          rid: 130803874015739905
     - rid: 61114352745054222
       type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -77,16 +55,19 @@ MonoBehaviour:
         name: Index
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 7
-    - rid: 2098102670374469632
-      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+    - rid: 130803874015739905
+      type: {class: LogMessage, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
       data:
-        name: Position
-        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        value: {x: 0, y: 0}
-    - rid: 2098102670374469633
-      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
-      data:
-        name: Yeet
-        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 0
+        state: 0
+        started: 0
+        guid: 0fcc728bc05a9bb47933f7c3cceae0b2
+        position: {x: -20, y: 100}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        logType: 0
+        message:
+          reference:
+            rid: -2
+          defaultValue: dwadwadaw

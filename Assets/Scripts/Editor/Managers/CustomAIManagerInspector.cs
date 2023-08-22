@@ -20,17 +20,6 @@ namespace Editor.Managers
             VisualElement root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
             
-            var generateGuidButton = root.Q<Button>("generate-button");
-            generateGuidButton.RegisterCallback<ClickEvent>(_ =>
-            {
-                var aiManager = target as AIManager;
-                if (aiManager != null && aiManager.persistentID == "")
-                {
-                    aiManager.persistentID = System.Guid.NewGuid().ToString();
-                    EditorUtility.SetDirty(aiManager);
-                }
-            });
-            
             var openScriptButton = root.Q<Button>("open-button");
             openScriptButton.RegisterCallback<ClickEvent>(_ => CustomInspectorUtils.OpenScriptForEditor(target));
             
