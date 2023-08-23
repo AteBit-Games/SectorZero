@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1595203270892655072}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.0625, y: 18.19204, z: 0}
+  m_LocalPosition: {x: -51.6, y: 17.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 3369446493431426671}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.6875, y: 17.875, z: 0}
+  m_LocalPosition: {x: -51.8, y: 18.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -237,13 +237,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviourTree: {fileID: 11400000, guid: dbd38dd6330e4b34c8751a5bcdd67251, type: 2}
+  behaviourTree: {fileID: 11400000, guid: 1c87f95cd256652448a8bac810860ba8, type: 2}
   monster: 0
   blackboardOverrides:
   - key:
       rid: 61114352745054250
     value:
       rid: 61114352745054251
+  - key:
+      rid: 130803839992070144
+    value:
+      rid: 130803839992070145
+  - key:
+      rid: 130803839992070146
+    value:
+      rid: 130803839992070147
   treeStates:
   - state: 0
     stateIndex: 0
@@ -251,18 +259,12 @@ MonoBehaviour:
     stateIndex: 1
   - state: 2
     stateIndex: 2
-  - state: 3
+  - state: 5
     stateIndex: 3
   - state: 4
     stateIndex: 4
-  - state: 5
+  - state: 3
     stateIndex: 5
-  - state: 6
-    stateIndex: 6
-  - state: 7
-    stateIndex: 7
-  - state: 8
-    stateIndex: 8
   obstacleMask:
     serializedVersion: 2
     m_Bits: 128
@@ -280,8 +282,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bda294c36115e4e46afb53ea2f475146, type: 2}
   - {fileID: 11400000, guid: c9ba80b5115d9804ebe442e3082d1808, type: 2}
   - {fileID: 11400000, guid: 6366ac5a42c71404f9b4505e8843cfb2, type: 2}
-  detectedSound: {fileID: 0}
-  debug: 1
+  detectedSound: {fileID: 11400000, guid: 3e58a5000fec3bd4e882873694e3d6a8, type: 2}
+  debug: 0
   sightVisualPrefab: {fileID: 4193361830035308745, guid: 7fbb647d3619d9b4898983be60e448e2, type: 3}
   idleColour: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0.5058824}
   aggroColour: {r: 0.7075472, g: 0.12281949, b: 0.12281949, a: 0.5254902}
@@ -303,6 +305,76 @@ MonoBehaviour:
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
+    - rid: 130803839992070144
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Rooms
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 130803839992070145
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: 
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value:
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+    - rid: 130803839992070146
+      type: {class: GameObjectListKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Sentinels
+        typeName: System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 130803839992070147
+      type: {class: GameObjectListKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: 
+        typeName: System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value:
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
+        - {fileID: 0}
 --- !u!210 &4632917483772189738
 SortingGroup:
   m_ObjectHideFlags: 0

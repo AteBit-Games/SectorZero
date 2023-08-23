@@ -58,8 +58,8 @@ namespace Runtime.AI
             _voidmask = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
             _inspectRoomKey = _voidmask.FindBlackboardKey<Collider2D>("InspectRoom");
             
-            _animator = GetComponentInChildren<Animator>();
-            _light = GetComponentInChildren<Light2D>();
+            _animator = GetComponent<Animator>();
+            _light = transform.parent.GetComponentInChildren<Light2D>();
             _initialIntensity = _light.intensity;
 
             Instantiate(sightVisualPrefab, transform);
@@ -105,8 +105,7 @@ namespace Runtime.AI
         {
             _isActivated = true;
             _activeTimeLeft = duration;
-
-            _light.enabled = true;
+            
             _light.color = defaultColor;
             _light.intensity = _initialIntensity;
             
@@ -124,12 +123,12 @@ namespace Runtime.AI
                 if(hit == null) Debug.LogWarning("No RoomBounds found for " + gameObject.name);
                 OnSightEnterAction?.Invoke();
 
-                if(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert) == null) Debug.LogError("No Sentinel state found");
-                else
-                {
-                    _inspectRoomKey.value = hit;
-                    _voidmask.SetActiveState(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert).stateIndex);
-                }
+                // if(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert) == null) Debug.LogError("No Sentinel state found");
+                // else
+                // {
+                //     _inspectRoomKey.value = hit;
+                //     _voidmask.SetActiveState(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert).stateIndex);
+                // }
                 
                 StartCoroutine(TriggerDeactivate());
             }
@@ -139,7 +138,6 @@ namespace Runtime.AI
         {
             _isActivated = false;
             _activeTimeLeft = 0f;
-            _light.enabled = false;
             
             _animator.SetBool(Activated, false);
         }
@@ -155,6 +153,16 @@ namespace Runtime.AI
         private Vector2 GetAngleFromLook()
         {
             return new Vector2(Mathf.Sin((lookAngle+90) * Mathf.Deg2Rad), Mathf.Cos((lookAngle+90) * Mathf.Deg2Rad));
+        }
+
+        private void ActivateLight()
+        {
+            _light.enabled = true;
+        }
+        
+        private void DeactivateLight()
+        {
+            _light.enabled = false;
         }
         
         //================================= Coroutine ===================================//

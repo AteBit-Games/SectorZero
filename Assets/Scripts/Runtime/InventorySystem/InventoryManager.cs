@@ -126,7 +126,9 @@ namespace Runtime.InventorySystem
             SelectItem(_itemsInventoryList[0].OnClick());
             _activeInventory = ActiveInventory.Items;
             UIUtils.ShowUIElement(_itemsInventoryContainer);
+            _itemsInventoryContainer.pickingMode = PickingMode.Ignore;
             UIUtils.HideUIElement(_tapesInventoryContainer);
+            _tapesInventoryContainer.pickingMode = PickingMode.Ignore;
             
             _itemsButton.BringToFront();
             _itemsButton.AddToClassList("inventory-toggle-active");
@@ -142,7 +144,9 @@ namespace Runtime.InventorySystem
             SelectTape(_tapesInventoryList[0].OnClick());
             _activeInventory = ActiveInventory.Tapes;
             UIUtils.HideUIElement(_itemsInventoryContainer);
+            _itemsInventoryContainer.pickingMode = PickingMode.Ignore;
             UIUtils.ShowUIElement(_tapesInventoryContainer);
+            _tapesInventoryContainer.pickingMode = PickingMode.Ignore;
             
             _tapesButton.BringToFront();
             _tapesButton.AddToClassList("inventory-toggle-active");
