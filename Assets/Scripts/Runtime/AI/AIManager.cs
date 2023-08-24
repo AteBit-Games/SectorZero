@@ -222,18 +222,32 @@ namespace Runtime.AI
 
         public void LoadData(SaveGame save)
         {
-            _menaceGaugeValue = save.monsterData.menaceGaugeValue;
-            _menaceState = save.monsterData.menaceState;
-            _aggroLevel = save.monsterData.aggroLevel;
-            _lastSeenPlayerTime = save.monsterData.lastSeenPlayerTime;
+            if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
+            
+            if (!save.monsterData.ContainsKey(_monster.monster.ToString())) return;
+            
+            var monsterSave = save.monsterData[_monster.monster.ToString()];
+            _menaceGaugeValue = monsterSave.menaceGaugeValue;
+            _menaceState = monsterSave.menaceState;
+            _aggroLevel = monsterSave.aggroLevel;
+            _lastSeenPlayerTime = monsterSave.lastSeenPlayerTime;
         }
 
         public void SaveData(SaveGame save)
         {
-            save.monsterData.menaceGaugeValue = _menaceGaugeValue;
-            save.monsterData.menaceState = _menaceState;
-            save.monsterData.aggroLevel = _aggroLevel;
-            save.monsterData.lastSeenPlayerTime = _lastSeenPlayerTime;
+            if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
+            
+            var monsterSave = save.monsterData[_monster.monster.ToString()];
+            if (monsterSave == null)
+            {
+                Debug.LogError("AIManager: " + _monster.monster + " not found in save data!");
+                return;
+            }
+                
+            monsterSave.menaceGaugeValue = _menaceGaugeValue;
+            monsterSave.menaceState = _menaceState;
+            monsterSave.aggroLevel = _aggroLevel;
+            monsterSave.lastSeenPlayerTime = _lastSeenPlayerTime;
         }
     }
 }

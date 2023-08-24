@@ -4,13 +4,14 @@
 ****************************************************************/
 
 using Runtime.Managers;
+using Runtime.Managers.Tutorial;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace Editor.Managers 
 {
-    [CustomEditor(typeof(CinematicManager))]
+    [CustomEditor(typeof(TutorialCinematicManager))]
     public class CustomCinematicManagerInspector : UnityEditor.Editor
     {
         public VisualTreeAsset mVisualTreeAsset;
@@ -23,7 +24,7 @@ namespace Editor.Managers
             var generateGuidButton = root.Q<Button>("generate-button");
             generateGuidButton.RegisterCallback<ClickEvent>(_ =>
             {
-                var cinematicManager = target as CinematicManager;
+                var cinematicManager = target as TutorialCinematicManager;
                 if (cinematicManager != null && cinematicManager.persistentID == "")
                 {
                     cinematicManager.persistentID = System.Guid.NewGuid().ToString();

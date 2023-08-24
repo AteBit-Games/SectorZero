@@ -357,7 +357,6 @@ MonoBehaviour:
   - {fileID: -1957200121, guid: a07d92164218b4d45aa9e08746711f14, type: 3}
   - {fileID: 132823136, guid: a07d92164218b4d45aa9e08746711f14, type: 3}
   iconSpeed: 0.08
-  isOpen: 0
 --- !u!1 &6675847657258109723
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +541,6 @@ MonoBehaviour:
   inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
   isMainMenu: 0
   testMode: 1
-  loaded: 0
   details: 
 --- !u!114 &381558948670293325
 MonoBehaviour:
@@ -574,12 +572,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveFileExtension: .sctr
-  useEncryption: 1
+  useEncryption: 0
   playerConfig:
   - sceneIndex: 1
-    startPosition: {x: -0.8211489, y: 5.643502, z: 0}
+    startPosition: {x: 37, y: -4.625, z: 0}
+    nellieState: 0
   - sceneIndex: 2
-    startPosition: {x: 0, y: 0, z: 0}
+    startPosition: {x: -35.5625, y: -53.4375, z: 0}
+    nellieState: 0
   saveExists: 0
 --- !u!114 &8564143802284992274
 MonoBehaviour:
@@ -593,11 +593,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72c8e03eda53cd498be945729335758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persistentID: c2dbcb78-6ae0-43c9-a532-954be5448db0
-  menaceGaugeValue: 0
   menaceGaugeMax: 100
   menaceGaugeMin: 0
-  menaceGaugeIncreaseMultiplier: 1
+  directSightMultiplier: 0.4
+  closeDistanceMultiplier: 0.3
 --- !u!114 &864986145695122940
 MonoBehaviour:
   m_ObjectHideFlags: 0

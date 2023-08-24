@@ -28,17 +28,11 @@ MonoBehaviour:
   - rid: 2098102505195438084
   - rid: 2098102505195438086
   - rid: 2098102505811476481
-  - rid: 2098102505811476493
   - rid: 2098102505811476494
   - rid: 2098102505811476498
   - rid: 2098102505811476499
   - rid: 2098102505811476500
   - rid: 2098102505811476501
-  - rid: 2098102505811476502
-  - rid: 2098102505811476503
-  - rid: 2098102505811476505
-  - rid: 2098102505811476506
-  - rid: 2098102505811476508
   - rid: 2098102505811476510
   - rid: 2098102505811476511
   - rid: 2098102505811476512
@@ -84,10 +78,8 @@ MonoBehaviour:
     - rid: 2098102494435999788
     - rid: 2098102505811476488
     - rid: 2098102505811476487
-    - rid: 2098102505811476507
-    - rid: 2098102505811476534
-  viewPosition: {x: 475, y: 387, z: 0}
-  viewScale: {x: 0.25, y: 0.25, z: 1}
+  viewPosition: {x: 556, y: 75, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -146,7 +138,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 275e360ab96a2364b90c56423860dd6c
-        position: {x: 4080, y: 540}
+        position: {x: 4060, y: 540}
         blackboard:
           keys: []
         comment: 
@@ -284,7 +276,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 51ae18b4c55a4d249997ef1453bb64a2
-        position: {x: -560, y: 400}
+        position: {x: -340, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -292,7 +284,7 @@ MonoBehaviour:
         target:
           reference:
             rid: -2
-          defaultValue: {x: 25.6875, y: 0.6875}
+          defaultValue: {x: 26.0625, y: 2.0625}
         lookTime:
           reference:
             rid: -2
@@ -303,7 +295,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d71828d3ec1e5814a897a9ce9c829b23
-        position: {x: -40, y: 400}
+        position: {x: 180, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -311,7 +303,7 @@ MonoBehaviour:
         target:
           reference:
             rid: -2
-          defaultValue: {x: 25.375, y: -5.025}
+          defaultValue: {x: 25.8125, y: -6.75}
         lookTime:
           reference:
             rid: -2
@@ -424,7 +416,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 18f44814cb071a440a694054005c8979
-        position: {x: -920, y: 400}
+        position: {x: -700, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -437,21 +429,13 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 3
-        stoppingDistance:
-          reference:
-            rid: -2
-          defaultValue: 0.5
-        accelerationSpeed:
-          reference:
-            rid: -2
-          defaultValue: 12
     - rid: 2098102494435999807
       type: {class: MoveToGameObject, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 55f5ccc0581af614782c15be2414cace
-        position: {x: -400, y: 400}
+        position: {x: -180, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -464,21 +448,13 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 4
-        stoppingDistance:
-          reference:
-            rid: -2
-          defaultValue: 0.5
-        accelerationSpeed:
-          reference:
-            rid: -2
-          defaultValue: 12
     - rid: 2098102494435999808
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: c131efef103aae84ba02b21ceeded7b8
-        position: {x: -560, y: 260}
+        position: {x: -340, y: 260}
         blackboard:
           keys: []
         comment: Sequene State
@@ -499,7 +475,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 674b6f7c3028ef9449f37ad4fce47b0b
-        position: {x: -1080, y: 400}
+        position: {x: -860, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -514,7 +490,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9044f454a9ae72542aaf1bf2a74af62c
-        position: {x: -720, y: 400}
+        position: {x: -500, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -522,14 +498,14 @@ MonoBehaviour:
         duration:
           reference:
             rid: -2
-          defaultValue: 2.25
+          defaultValue: 1.4
     - rid: 2098102505195438080
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: edba917c34646c3449ff04c4ee20d65d
-        position: {x: -200, y: 400}
+        position: {x: 20, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -544,7 +520,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 75cad40c30497274584521ccffbfc48b
-        position: {x: 120, y: 400}
+        position: {x: 340, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -566,13 +542,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a806f4930ac0052438622a92906f1a13
-        position: {x: 780, y: 260}
+        position: {x: 960, y: 260}
         blackboard:
           keys: []
         comment: Patrol State
         drawGizmos: 0
         child:
-          rid: 2098102505811476502
+          rid: 2098102505811476501
         restartOnSuccess: 1
         restartOnFailure: 1
         maxRepeats:
@@ -623,7 +599,7 @@ MonoBehaviour:
         name: IntermediatePatrolPoint
         typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
-        value: {x: 25.67, y: -1.86}
+        value: {x: 25.5625, y: -1.875}
     - rid: 2098102505811476488
       type: {class: GameObjectListKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -632,29 +608,13 @@ MonoBehaviour:
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
           Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: []
-    - rid: 2098102505811476493
-      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: ee791f8d53cc92747b89e7a300f4d760
-        position: {x: 480, y: 560}
-        blackboard:
-          keys: []
-        comment: Special point chance to force player out of the bottom
-        drawGizmos: 0
-        children:
-        - rid: 2098102505811476506
-        - rid: 2098102505811476503
-        - rid: 2098102505811476508
-        - rid: 2098102505811476505
     - rid: 2098102505811476494
       type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 4f098c908f9e71249a906308b756dafa
-        position: {x: 960, y: 700}
+        position: {x: 780, y: 540}
         blackboard:
           keys: []
         comment: 
@@ -673,7 +633,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9623c8c68f2998b4e9b49bc92e807968
-        position: {x: 1140, y: 700}
+        position: {x: 960, y: 540}
         blackboard:
           keys: []
         comment: 
@@ -697,7 +657,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 5be15d3958382e544b6fd104d429b895
-        position: {x: 1300, y: 700}
+        position: {x: 1120, y: 540}
         blackboard:
           keys: []
         comment: 'Patrol between points
@@ -714,7 +674,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d8f61f8e3dcf4444f80bac566503fc9b
-        position: {x: 280, y: 400}
+        position: {x: 500, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -729,7 +689,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 41cf1e4eb1cf7bb418c1415bd7643b53
-        position: {x: 1140, y: 560}
+        position: {x: 960, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -738,99 +698,10 @@ MonoBehaviour:
         - rid: 2098102505811476494
         - rid: 2098102505811476498
         - rid: 2098102505811476499
-    - rid: 2098102505811476502
-      type: {class: Selector, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: a99ea172ffea42045b4f052ee9be48b1
-        position: {x: 780, y: 420}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        children:
-        - rid: 2098102505811476493
-        - rid: 2098102505811476501
-    - rid: 2098102505811476503
-      type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 2bbbc83b477d43d40892363792a39246
-        position: {x: 380, y: 700}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        targetPosition:
-          reference:
-            rid: 2098102505811476487
-          defaultValue: {x: 0, y: 0}
-        speed:
-          reference:
-            rid: -2
-          defaultValue: 3
-    - rid: 2098102505811476505
-      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: e80aaab81d7c9ba49a19b38c0dac06bf
-        position: {x: 740, y: 700}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        duration:
-          reference:
-            rid: -2
-          defaultValue: 4
-    - rid: 2098102505811476506
-      type: {class: RandomFailure, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 289f2aa8936a8104faa411323cbc0f5a
-        position: {x: 200, y: 700}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        chanceOfFailure:
-          reference:
-            rid: -2
-          defaultValue: 0.5
-    - rid: 2098102505811476507
-      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
-      data:
-        name: SpecialPoint
-        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        value: {x: 37.52, y: -1.86}
-    - rid: 2098102505811476508
-      type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 111455171c449734a890d0c5b72cc97b
-        position: {x: 560, y: 700}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        targetPosition:
-          reference:
-            rid: 2098102505811476507
-          defaultValue: {x: 0, y: 0}
-        speed:
-          reference:
-            rid: -2
-          defaultValue: 3
     - rid: 2098102505811476509
       type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
-        name: LastKnown
+        name: InspectPoint
         typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
         value: {x: 0, y: 0}
@@ -941,14 +812,6 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 5.35
-        stoppingDistance:
-          reference:
-            rid: -2
-          defaultValue: 0.1
-        accelerationSpeed:
-          reference:
-            rid: -2
-          defaultValue: 12
     - rid: 2098102505811476518
       type: {class: Selector, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -1040,12 +903,6 @@ MonoBehaviour:
         typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 0}
-    - rid: 2098102505811476534
-      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
-      data:
-        name: Speed
-        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 3.6
     - rid: 2098102505811476535
       type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:

@@ -6,6 +6,7 @@
 using System;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
+using Runtime.Managers.Tutorial;
 using Runtime.Player.Nellient;
 using Runtime.SoundSystem;
 using UnityEngine;

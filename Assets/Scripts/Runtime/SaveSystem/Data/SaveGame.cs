@@ -104,9 +104,18 @@ namespace Runtime.SaveSystem.Data
         public int currentScene;
         
         public PlayerSaveData playerData = new();
-        public MonsterSaveData monsterData = new();
+        public SerializableDictionary<string, MonsterSaveData> monsterData;
         public TutorialData tutorialData = new();
         public WorldData worldData = new();
+
+        public SaveGame()
+        {
+            monsterData = new SerializableDictionary<string, MonsterSaveData>();
+            monsterData.Add("Voidmask", new MonsterSaveData()
+            {
+                
+            });
+        }
     }
 
     [Serializable]

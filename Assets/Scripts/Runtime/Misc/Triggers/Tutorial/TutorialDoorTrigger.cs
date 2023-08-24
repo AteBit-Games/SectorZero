@@ -4,6 +4,7 @@
 ****************************************************************/
 
 using Runtime.Managers;
+using Runtime.Managers.Tutorial;
 using UnityEngine;
 
 namespace Runtime.Misc.Triggers.Tutorial

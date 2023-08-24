@@ -10,8 +10,10 @@ using Runtime.InventorySystem;
 using Runtime.InputSystem;
 using Discord;
 using ElRaccoone.Tweens;
+using NUnit.Framework.Internal;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
+using Runtime.UI;
 using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -44,8 +46,6 @@ namespace Runtime.Managers
             get => testMode;
             set => testMode = value;
         }
-
-        [HideInInspector] public bool loaded;
         //========================= Interface =========================
         
         public DialogueManager DialogueSystem { get; private set;  }
@@ -61,7 +61,7 @@ namespace Runtime.Managers
         private EndScreen EndScreen { get; set; }
         
         private CinemachineVirtualCamera _camera;
-        private bool _isReady;
+
         
         //====== Discord ========
         private const long ApplicationId = 1109955823121215509;
@@ -119,7 +119,6 @@ namespace Runtime.Managers
             inputReader.PauseEvent += HandlePause;
             inputReader.OpenInventoryEvent += OpenInventoryWindow;
             inputReader.CloseUIEvent += HandleEscape;
-            inputReader.ContinueAction += FinishLoad;
         }
 
         private void OnDisable()
@@ -128,7 +127,6 @@ namespace Runtime.Managers
             inputReader.PauseEvent -= HandlePause;
             inputReader.OpenInventoryEvent -= OpenInventoryWindow;
             inputReader.CloseUIEvent -= HandleEscape;
-            inputReader.ContinueAction -= FinishLoad;
         }
         
         //========================= Public Methods =========================
@@ -201,8 +199,7 @@ namespace Runtime.Managers
         
         public void LoadScene(int sceneIndex)
         {
-            _isReady = false;
-            inputReader.SetUI();
+            TestMode = false;
             StartCoroutine(LoadSceneAsync(sceneIndex));
         }
 
@@ -264,17 +261,6 @@ namespace Runtime.Managers
             HUD = FindFirstObjectByType<HUD>(FindObjectsInactive.Include);
             DeathScreen = FindFirstObjectByType<DeathScreen>(FindObjectsInactive.Include);
             EndScreen = FindFirstObjectByType<EndScreen>(FindObjectsInactive.Include);
-
-            if(testMode && !loaded)
-            {
-                ResetInput();
-                Time.timeScale = 1f;
-            }
-            else
-            {
-                loaded = false;
-                Time.timeScale = 0f;
-            }
         }
 
         private void UpdateStatus()
@@ -307,17 +293,6 @@ namespace Runtime.Managers
                 // ignored
             }
         }
-
-        private void FinishLoad()
-        {
-            if (_isReady && LoadingScreen.isOpen)
-            {
-                Time.timeScale = 1f;
-                ResetInput();
-                LoadingScreen.HideLoading();
-                SoundSystem.PauseAll();
-            }
-        }       
         
         //========================= Coroutines =========================
         
@@ -329,8 +304,10 @@ namespace Runtime.Managers
              {
                  yield return null;
              }
-             LoadingScreen.ShowContinue();
-             _isReady = true;
+             
+             ResetInput();
+             LoadingScreen.HideLoading();
+             Time.timeScale = 1f;
          }
     }
 }

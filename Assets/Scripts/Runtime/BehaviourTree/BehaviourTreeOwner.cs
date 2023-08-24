@@ -42,6 +42,7 @@ namespace Runtime.BehaviourTree
     
     public enum Monster
     {
+        Vincent,
         VoidMask,
         MouthPouch,
     }
@@ -319,18 +320,26 @@ namespace Runtime.BehaviourTree
         
         public void LoadData(SaveGame save)
         {
-            SetActiveState(save.monsterData.activeState);
-            gameObject.transform.parent.gameObject.SetActive(save.monsterData.isActive);
+            if (!save.monsterData.ContainsKey(monster.ToString())) return;
             
-            transform.position = save.monsterData.position;
-            _navMeshAgent.Warp(save.monsterData.position);
+            var monsterSave = save.monsterData[monster.ToString()];
+            gameObject.transform.parent.gameObject.SetActive(monsterSave.isActive);
+            transform.position = monsterSave.position;
+            _stateReference.value = monsterSave.activeState;
         }
 
         public void SaveData(SaveGame save)
         {
-            save.monsterData.isActive = gameObject.transform.parent.gameObject.activeSelf;
-            save.monsterData.position = transform.position;
-            save.monsterData.activeState = _stateReference.value;
+            if(!save.monsterData.ContainsKey(monster.ToString()))
+            {
+                Debug.LogError("AIManager: " + monster + " not found in save data!");
+                return;
+            }
+            
+            var monsterSave = save.monsterData[monster.ToString()];
+            monsterSave.isActive = gameObject.transform.parent.gameObject.activeSelf;
+            monsterSave.position = transform.position;
+            monsterSave.activeState = _stateReference.value;
         }
     }
 }

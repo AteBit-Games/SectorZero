@@ -18,7 +18,6 @@ namespace Runtime.SaveSystem
     {
         public int sceneIndex;
         public Vector3 startPosition;
-        public bool nellieState;
     }
     
     [DefaultExecutionOrder(-1)]
@@ -70,10 +69,7 @@ namespace Runtime.SaveSystem
             if(GameManager.Instance.isMainMenu) return;
             _persistantObjects = FindAllPersistenceObjects();
 
-            if (!GameManager.Instance.TestMode && _activeSave != null || GameManager.Instance.loaded)
-            {
-                LoadData(_activeSave);
-            }
+            if(!GameManager.Instance.TestMode && _activeSave != null) LoadData(_activeSave);
         }
         
         // ======================================= PUBLIC METHODS =======================================
@@ -88,7 +84,6 @@ namespace Runtime.SaveSystem
         {
             _activeSave = _saveGames.Values.First(s => s.saveTime == saveTime);
             GameManager.Instance.LoadScene(_activeSave.currentScene);
-            GameManager.Instance.loaded = true;
         }
         
         public void NewGame(int scene)
@@ -99,7 +94,7 @@ namespace Runtime.SaveSystem
             
             var sceneIndex = playerConfig.FindIndex(config => config.sceneIndex == scene);
             _activeSave.playerData.position = sceneIndex == -1 ? new Vector3(0, 0, 0) : playerConfig[sceneIndex].startPosition;
-            _activeSave.playerData.enabled = sceneIndex == -1 || playerConfig[sceneIndex].nellieState;
+            _activeSave.playerData.enabled = false;
         }
 
         public void SaveGame()

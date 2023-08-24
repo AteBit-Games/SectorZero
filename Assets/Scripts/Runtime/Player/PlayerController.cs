@@ -10,6 +10,7 @@ using Runtime.BehaviourTree;
 using Runtime.InputSystem;
 using Runtime.InventorySystem;
 using Runtime.Managers;
+using Runtime.Managers.Tutorial;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
@@ -45,10 +46,6 @@ namespace Runtime.Player
         [SerializeField] private float sneakCooldown = 1f;
         [SerializeField] private Light2D globalLight;
         [SerializeField] private BoxCollider2D viewBounds;
-        
-        [Space(10)]
-        [Header("DEBUG")]
-        [SerializeField] private bool debug;
 
         // ============ Movement System ============
         private Rigidbody2D _rb;
@@ -133,11 +130,7 @@ namespace Runtime.Player
             _indicatorSpriteRenderer = throwIndicator.GetComponent<SpriteRenderer>();
             _indicatorRb = throwIndicator.GetComponent<Rigidbody2D>();
 
-            if (SceneManager.GetActiveScene().name == "Tutorial") 
-            {
-                TutorialManager.StartListening("TutorialStage3", Init);
-                gameObject.SetActive(false);
-            }
+            if (SceneManager.GetActiveScene().name == "Tutorial") TutorialManager.StartListening("TutorialStage3", Init);
         }
         
         private void FixedUpdate()
@@ -324,16 +317,10 @@ namespace Runtime.Player
 
         public void LoadData(SaveGame game)
         {
-            
             FindFirstObjectByType<CinemachineTargetGroup>().transform.position = game.playerData.position;
             transform.position = game.playerData.position;
             lookPointer.position = new Vector2(transform.position.x, transform.position.y + 2.5f);
             gameObject.SetActive(game.playerData.enabled);
-
-            if (debug)
-            {
-                Init();
-            }
         }
 
         public void SaveData(SaveGame game)
