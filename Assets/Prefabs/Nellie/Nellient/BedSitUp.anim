@@ -48,7 +48,7 @@ AnimationClip:
       value: {fileID: 2101531604, guid: 607022d84927376419423795c9aac361, type: 3}
     - time: 4.3333335
       value: {fileID: 925719848, guid: 607022d84927376419423795c9aac361, type: 3}
-    - time: 4.5
+    - time: 4.5833335
       value: {fileID: 1299028225, guid: 607022d84927376419423795c9aac361, type: 3}
     - time: 4.8333335
       value: {fileID: -1961746325, guid: 607022d84927376419423795c9aac361, type: 3}
@@ -153,4 +153,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 8.166667
+    functionName: EnableInteraction
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

@@ -19,6 +19,11 @@ namespace Runtime.Managers
         
         public Dictionary<PlayableDirector, bool> director;
 
+        private void Start()
+        {
+            if(!GameManager.Instance.TestMode) TriggerCinematic(0);
+        }
+
         private void Awake()
         {
             director = GetComponentsInChildren<PlayableDirector>().ToDictionary(playableDirector => playableDirector, _ => false);

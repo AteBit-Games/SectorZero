@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
+using System;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using NavMeshPlus.Components;
@@ -12,14 +13,31 @@ namespace Runtime.Managers
 {
     public class LevelManager : MonoBehaviour
     {
-        
-        [SerializeField] private Sound ambiance;
+        [SerializeField] private Camera mainCamera;
         [SerializeField] private string levelDescription;
         [SerializeField] private NavMeshSurface navMeshSurface;
 
+        private  CullingGroup _cullingGroup;
+        private BoundingSphere[] _boundingSpheres;
+        private float _playerRadius = 1f;
+        
         private void Awake()
         {
-            SceneManager.sceneLoaded += PlayAmbiance;
+            SceneManager.sceneLoaded += SceneLoaded;
+            _cullingGroup = new CullingGroup();
+            _cullingGroup.targetCamera = mainCamera;
+            _boundingSpheres = new BoundingSphere[25];
+            _boundingSpheres[0] = new BoundingSphere(Vector3.zero, 10f);
+            _cullingGroup.SetBoundingSpheres(_boundingSpheres);
+            _cullingGroup.onStateChanged = StateChangedMethod;
+        }
+        
+        private void StateChangedMethod(CullingGroupEvent evt)
+        {
+            if(evt.hasBecomeVisible)
+                Debug.LogFormat("Sphere {0} has become visible!", evt.index);
+            if(evt.hasBecomeInvisible)
+                Debug.LogFormat("Sphere {0} has become invisible!", evt.index);
         }
 
         private void Start()
@@ -31,13 +49,23 @@ namespace Runtime.Managers
 
         private void OnDestroy()
         {
-            SceneManager.sceneLoaded -= PlayAmbiance;
+            _cullingGroup.Dispose();
         }
 
-        private void PlayAmbiance(Scene arg0, LoadSceneMode arg1)
+        private void Update()
+        {
+            
+        }
+
+        private void SceneLoaded(Scene scene, LoadSceneMode mode)
         {
             GameManager.Instance.details = levelDescription;
-            if (ambiance == null) return;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(Vector3.zero, 10f);
         }
     }
 }

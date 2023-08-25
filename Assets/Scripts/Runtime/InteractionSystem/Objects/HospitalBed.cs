@@ -34,9 +34,10 @@ namespace Runtime.InteractionSystem.Objects
         
         public bool OnInteract(GameObject player)
         {
-            var nellient = player.GetComponentInParent<Nellient>();
-            nellient.enabled = false;
             playerObject.SetActive(true);
+            var nellient = player.GetComponentInParent<Nellient>();
+            nellient.gameObject.SetActive(false);
+            
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             Finish();
             return true;
@@ -54,7 +55,7 @@ namespace Runtime.InteractionSystem.Objects
         
         //========================== Private Methods ========================//
         
-         private void Init()
+        public void Init()
         {
             active = true;
             gameObject.layer = 3;
@@ -65,6 +66,7 @@ namespace Runtime.InteractionSystem.Objects
         {
             active = false;
             gameObject.layer = 0;
+            _interactionCollider.enabled = false;
         }
     }
 }

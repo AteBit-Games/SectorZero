@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
+using Runtime.InteractionSystem.Objects;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Runtime.Player.Nellient
 {
     public class Nellient : MonoBehaviour, IPersistant
     {
+        [SerializeField] public HospitalBed bedCollider;
         [SerializeField] public string persistentID;
         
         private Animator animator;
@@ -30,9 +32,9 @@ namespace Runtime.Player.Nellient
             animator.SetTrigger(Up);
         }
         
-        public void StartGame()
+        public void EnableInteraction()
         {
-            gameObject.SetActive(false);
+            bedCollider.Init();
         }
         
         //============================= Save System =============================//

@@ -4,7 +4,6 @@
 ****************************************************************/
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -72,7 +71,7 @@ namespace Runtime.SaveSystem
             if(GameManager.Instance.isMainMenu) return;
             _persistantObjects = FindAllPersistenceObjects();
 
-            if(!GameManager.Instance.TestMode && _activeSave != null) LoadData(_activeSave);
+            if (!GameManager.Instance.TestMode && _activeSave != null) LoadData(_activeSave);
         }
         
         // ======================================= PUBLIC METHODS =======================================
