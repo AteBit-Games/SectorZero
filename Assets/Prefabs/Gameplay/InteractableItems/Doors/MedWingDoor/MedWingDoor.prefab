@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731410656581914200}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 26.5625, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1c02f4550852c2440b3992a3154f5887, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a9bcbed3095c0a4caad8579c9baf2e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 3655639427649642023}
   - component: {fileID: 5179446164504541743}
   - component: {fileID: 3015930150080779844}
-  - component: {fileID: 4750196533668561028}
+  - component: {fileID: 8348242636120892189}
   m_Layer: 10
   m_Name: InfirmaryDoor_Door
   m_TagString: Untagged
@@ -274,7 +274,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1352265598, guid: 5259023dd06507542b48bed507bc3363, type: 3}
+  m_Sprite: {fileID: 1858151208, guid: 95d8a5871523da14d97b6dac9ac3268c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -391,7 +391,7 @@ Animator:
   m_GameObject: {fileID: 2746756372537655781}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c18cc7a39423911499d6fc21a8cc21e2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5e25ee7153bc602459b1863e9f92ae15, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -574,7 +574,7 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
---- !u!114 &4750196533668561028
+--- !u!114 &8348242636120892189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -583,12 +583,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2746756372537655781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef7c950227ece9248b29cc91f729195e, type: 3}
+  m_Script: {fileID: 11500000, guid: e97d20150da546e6b65743b158ae4348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 11400000, guid: 1eef30045895d244db5ad50821af61fe, type: 2}
-  closeSound: {fileID: 11400000, guid: 733e4738d3f84dc41ad344145ad0ea42, type: 2}
+  interactSound: {fileID: 11400000, guid: 1eef30045895d244db5ad50821af61fe, type: 2}
+  lockedSound: {fileID: 11400000, guid: 6617773c6de026f4aa0933cbb406b7af, type: 2}
+  requiresKey: 1
+  key: {fileID: 11400000, guid: 3b6deee1f696a51408d5ee1a3e3231ac, type: 2}
   navMeshSurface: {fileID: 0}
-  navigationBlocker: {fileID: 2648182382742914322}
-  startOpen: 1
-  persistentID: 2ed2bfe7-b895-40ca-8be5-184701554a41

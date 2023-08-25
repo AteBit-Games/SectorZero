@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 8599348050080034387}
   - component: {fileID: 1158984765863994999}
   - component: {fileID: 9166190223511243815}
-  - component: {fileID: 5717712786139320468}
+  - component: {fileID: 6251299450480073967}
   - component: {fileID: 9200955834647950592}
   - component: {fileID: 8131724860434440048}
-  - component: {fileID: 7758775323958096541}
   - component: {fileID: 3421842758293566196}
   m_Layer: 6
   m_Name: MedwingDoorVertical_Door
@@ -60,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9de0fdd37e4a63c459326cb9bfc943d9, type: 2}
+  - {fileID: 2100000, guid: 045a0fc57c65924498dbe2aaf2f1dd30, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,15 +80,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2008726983, guid: 0570d9def803ee444a26e5e5502fe392, type: 3}
+  m_Sprite: {fileID: 2080025819, guid: 0570d9def803ee444a26e5e5502fe392, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8, y: 3.2}
+  m_Size: {x: 4, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &9166190223511243815
@@ -102,7 +101,7 @@ Animator:
   m_GameObject: {fileID: 2420895693948874213}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2a8cc5760d9f8864eb9a9c17e0ac78a3, type: 2}
+  m_Controller: {fileID: 9100000, guid: c18cc7a39423911499d6fc21a8cc21e2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -114,7 +113,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5717712786139320468
+--- !u!114 &6251299450480073967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,15 +122,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2420895693948874213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef7c950227ece9248b29cc91f729195e, type: 3}
+  m_Script: {fileID: 11500000, guid: e97d20150da546e6b65743b158ae4348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 11400000, guid: 7c76a67519bfe11409ba7affe3fe42f4, type: 2}
-  closeSound: {fileID: 11400000, guid: 94f8286b2041c774db147546c0a449ad, type: 2}
+  interactSound: {fileID: 11400000, guid: 7c76a67519bfe11409ba7affe3fe42f4, type: 2}
+  lockedSound: {fileID: 11400000, guid: 94f8286b2041c774db147546c0a449ad, type: 2}
+  requiresKey: 1
+  key: {fileID: 11400000, guid: 3b6deee1f696a51408d5ee1a3e3231ac, type: 2}
   navMeshSurface: {fileID: 0}
-  navigationBlocker: {fileID: 831407769017599524}
-  startOpen: 1
-  persistentID: af0953b2-70e3-43d8-b22d-45b80db309e5
 --- !u!82 &9200955834647950592
 AudioSource:
   m_ObjectHideFlags: 0
@@ -239,34 +237,7 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_SortAtRoot: 1
---- !u!50 &7758775323958096541
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2420895693948874213}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_SortAtRoot: 0
 --- !u!61 &3421842758293566196
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -297,21 +268,21 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 3.223378}
+  m_Offset: {x: 0, y: -1.06}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.3392857}
-    oldSize: {x: 4, y: 10.5}
-    newSize: {x: 0.8, y: 3.2}
+    pivot: {x: 0.5, y: 0.30625}
+    oldSize: {x: 4, y: 10}
+    newSize: {x: 4, y: 10}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0012169, y: 6.4470353}
+  m_Size: {x: 2, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &3771098409766520555
 GameObject:
@@ -629,6 +600,8 @@ GameObject:
   - component: {fileID: 7920780312703494155}
   - component: {fileID: 3750795843524338474}
   - component: {fileID: 8735241424126687703}
+  - component: {fileID: 8606403010566970704}
+  - component: {fileID: 5131121983696231922}
   m_Layer: 0
   m_Name: MedwingDoorVertical
   m_TagString: Untagged
@@ -716,3 +689,76 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &8606403010566970704
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6085000946438872548}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &5131121983696231922
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6085000946438872548}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 3.223378}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.30625}
+    oldSize: {x: 4, y: 10}
+    newSize: {x: 1, y: 2.5625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.0012169, y: 6.4470353}
+  m_EdgeRadius: 0
