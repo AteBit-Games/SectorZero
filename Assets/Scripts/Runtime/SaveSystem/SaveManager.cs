@@ -4,11 +4,13 @@
 ****************************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Runtime.Managers;
 using Runtime.SaveSystem.Data;
+using Runtime.Utils;
 using UnityEngine.SceneManagement;
 
 namespace Runtime.SaveSystem
@@ -34,6 +36,7 @@ namespace Runtime.SaveSystem
         private Dictionary<Texture2D, SaveGame> _saveGames = new();
         private PlayerData _playerData;
         private SaveGame _activeSave;
+        public SaveGame ActiveSave => _activeSave;
 
         // ======================================= UNITY METHODS =======================================
         
@@ -92,9 +95,7 @@ namespace Runtime.SaveSystem
             _activeSave = new SaveGame();
             saveExists = false;
             
-            var sceneIndex = playerConfig.FindIndex(config => config.sceneIndex == scene);
-            _activeSave.playerData.position = sceneIndex == -1 ? new Vector3(0, 0, 0) : playerConfig[sceneIndex].startPosition;
-            _activeSave.playerData.enabled = false;
+            SetNellieState(scene);
         }
 
         public void SaveGame()
@@ -116,6 +117,13 @@ namespace Runtime.SaveSystem
 
             _dataHandler.Save(saveGame);
         }
+
+        public void SetNellieState(int sceneIndex)
+        {
+            var index = playerConfig.FindIndex(config => config.sceneIndex == sceneIndex);
+            _activeSave.playerData.position = index == -1 ? new Vector3(0, 0, 0) : playerConfig[index].startPosition;
+            _activeSave.playerData.enabled = false;
+        }
         
         public Dictionary<Texture2D, SaveGame> GetSaveGames()
         {
@@ -136,8 +144,8 @@ namespace Runtime.SaveSystem
             {
                 persistantObject.LoadData(saveGame);
             }
-            
-            GameManager.Instance.FinishedLoading();
+
+            StartCoroutine(OperationUtils.Delay(0.3f, GameManager.Instance.FinishedLoading));
         }
 
         private static List<IPersistant> FindAllPersistenceObjects()

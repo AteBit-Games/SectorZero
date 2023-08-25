@@ -9,6 +9,7 @@ using System.Linq;
 using Runtime.AI;
 using Runtime.Misc;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
@@ -24,20 +25,19 @@ namespace Runtime.SoundSystem
     public class PlayerAudio : MonoBehaviour
     {
         [SerializeField] private AudioSource audioSource;
+        [FormerlySerializedAs("_tilemap")] [SerializeField] private Tilemap tilemap;
         [SerializeField] private List<FootstepSoundSet> footstepSounds;
         [SerializeField] private float joggingRange = 18f;
         [SerializeField] private float sneakingRange = 6f;
         [SerializeField] private bool debug;
 
         private NoiseEmitter _noiseEmitter;
-        private Tilemap _tilemap;
 
         //========================= Unity Events =========================//
         
         private void Awake()
         {
             _noiseEmitter = audioSource.GetComponent<NoiseEmitter>();
-            _tilemap = FindFirstObjectByType<Tilemap>(FindObjectsInactive.Include);
         }
         
         //========================= Public Methods =========================//
@@ -78,7 +78,7 @@ namespace Runtime.SoundSystem
 
         private Sound DetermineSound()
         {
-            var tile = _tilemap.GetTile(_tilemap.WorldToCell(transform.position)) as SoundTile;
+            var tile = tilemap.GetTile(tilemap.WorldToCell(transform.position)) as SoundTile;
             if (tile != null)
             {
                 foreach(var footstepsList in from footstepSound in footstepSounds where footstepSound.tag == tile.tag select footstepSound.footstepSounds)

@@ -192,6 +192,7 @@ namespace Runtime.Managers
         public void LoadScene(int sceneIndex)
         {
             TestMode = false;
+            SoundSystem.ResetSystem();
             StartCoroutine(LoadSceneAsync(sceneIndex));
         }
 

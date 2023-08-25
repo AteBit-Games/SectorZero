@@ -146,7 +146,9 @@ namespace Runtime.Managers.Tutorial
 
         public void TriggerTutorialEnd()
         {
-            GameManager.Instance.EndGame();
+            GameManager.Instance.SoundSystem.SilenceAmbience();
+            GameManager.Instance.SaveSystem.SetNellieState(2);
+            GameManager.Instance.LoadScene(2);
         }
         
         //============================== Coroutines ==============================//

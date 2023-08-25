@@ -4,6 +4,7 @@
  ****************************************************************/
 
 using System;
+using System.Collections;
 using System.Security.Cryptography;
 using System.Text;
 using Runtime.BehaviourTree;
@@ -36,8 +37,14 @@ namespace Runtime.Utils
                 _ => true
             };
         }
+        
+        public static IEnumerator Delay(float seconds, Action action)
+        {
+            yield return new WaitForSeconds(seconds);
+            action?.Invoke();
+        }
     }
-    
+
     public static class EncryptionUtils
     {
         private static readonly byte [] ivBytes = new byte [16];

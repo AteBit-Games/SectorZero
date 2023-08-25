@@ -48,8 +48,6 @@ namespace Runtime.SoundSystem
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
-            _activeSoundEntitySources.Clear();
-
             var soundSources = SceneManager.GetActiveScene().GetRootGameObjects().SelectMany(x => x.GetComponentsInChildren<ISoundEntity>()).ToList();
             foreach (var soundSource in soundSources)
             {

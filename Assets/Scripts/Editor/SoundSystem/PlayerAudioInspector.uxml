@@ -4,6 +4,7 @@
         <ui:Label tabindex="-1" text="Player Audio" display-tooltip-when-elided="true" name="header" />
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <uie:PropertyField binding-path="audioSource" name="property" />
+            <uie:PropertyField binding-path="tilemap" name="property" />
             <uie:PropertyField binding-path="footstepSounds" name="property" />
         </ui:VisualElement>
     </ui:VisualElement>

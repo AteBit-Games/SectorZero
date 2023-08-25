@@ -48,8 +48,6 @@ namespace Runtime.UI
         {
             if(_loadingIconCoroutine != null) StopCoroutine(_loadingIconCoroutine);
             UIUtils.HideUIElement(_loadContainer);
-            
-            GameManager.Instance.SoundSystem.ResumeAll();
             _loadContainer.RemoveFromClassList("loading-complete");
         }
         
