@@ -140,6 +140,10 @@ PrefabInstance:
       propertyPath: playerConfig.Array.data[0].startPosition.y
       value: 5.81
       objectReference: {fileID: 0}
+    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
+      propertyPath: playerConfig.Array.data[1].startPosition.y
+      value: 49.375
+      objectReference: {fileID: 0}
     - target: {fileID: 8917896545657216772, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
       propertyPath: testMode
       value: 0

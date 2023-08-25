@@ -45,6 +45,13 @@ namespace Runtime.SaveSystem.Data
     }
     
     [Serializable]
+    public class CinematicData
+    {
+        public string managerID;
+        public List<bool> cinematicStates = new();
+    }
+    
+    [Serializable]
     public class MonsterSaveData
     {
         public bool isActive;
@@ -60,7 +67,7 @@ namespace Runtime.SaveSystem.Data
     public class PlayerSaveData
     {
         public Vector3 position;
-        public bool enabled = true;
+        public bool enabled;
         
         //Inventory
         public List<Tape> tapeInventory = new();
@@ -73,6 +80,7 @@ namespace Runtime.SaveSystem.Data
     {
         public bool nellientState = true;
         public SerializableDictionary<string, bool> canvas = new();
+        public List<CinematicData> tutorialCinematics = new();
     }
 
     [Serializable]
@@ -84,18 +92,11 @@ namespace Runtime.SaveSystem.Data
         public SerializableDictionary<string, bool> tapeRecorders = new();
         public SerializableDictionary<string, bool> triggers = new();
         public SerializableDictionary<string, bool> doors = new();
+        public SerializableDictionary<string, bool> miscItems = new();
         
         public List<CinematicData> cinematics = new();
-        public SerializableDictionary<string, bool> miscItems = new();
     }
 
-    [Serializable]
-    public class CinematicData
-    {
-        public string managerID;
-        public List<bool> cinematicStates = new();
-    }
-    
     [Serializable]
     public class SaveGame
     {
@@ -110,11 +111,21 @@ namespace Runtime.SaveSystem.Data
 
         public SaveGame()
         {
-            monsterData = new SerializableDictionary<string, MonsterSaveData>();
-            monsterData.Add("Voidmask", new MonsterSaveData()
-            {
-                
-            });
+            monsterData = new SerializableDictionary<string, MonsterSaveData>
+            { 
+                { 
+                    "VoidMask", new MonsterSaveData()
+                    {
+                        
+                    }
+                },
+                {
+                    "MouthPouch", new MonsterSaveData()
+                    {
+                        
+                    } 
+                }
+            };
         }
     }
 

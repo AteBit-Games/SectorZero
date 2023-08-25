@@ -6,6 +6,7 @@
 using System;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
+using Runtime.Player.Nellient;
 using Runtime.SoundSystem;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace Runtime.InteractionSystem.Objects
 {
     public class HospitalBed : MonoBehaviour, IInteractable
     {
+        [SerializeField] private GameObject playerObject;
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         
@@ -32,7 +34,9 @@ namespace Runtime.InteractionSystem.Objects
         
         public bool OnInteract(GameObject player)
         {
-            //var nellient = player.GetComponentInParent<Nellient>();
+            var nellient = player.GetComponentInParent<Nellient>();
+            nellient.enabled = false;
+            playerObject.SetActive(true);
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             Finish();
             return true;

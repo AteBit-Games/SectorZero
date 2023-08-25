@@ -18,11 +18,14 @@ namespace Runtime.AI
 {
     public class AIManager : MonoBehaviour, IPersistant
     {
+        [SerializeField] public string persistentID;
         [SerializeField] private float menaceGaugeMax = 100f;
         [SerializeField] private float menaceGaugeMin;
         
         [SerializeField] private float directSightMultiplier = 0.4f;
+        [SerializeField, Tooltip("If no direct sight, what is the base value")] private float directSightBase = 0.15f;
         [SerializeField] private float closeDistanceMultiplier = 0.3f;
+        [SerializeField, Tooltip("If not close enough, what is the base value")] private float closeDistanceBase = 0.15f;
 
         private BehaviourTreeOwner _monster;
         private PlayerController _player;
@@ -134,8 +137,8 @@ namespace Runtime.AI
             //Patrol Close
             if (_menaceState)
             {
-                _menaceGaugeValue += Time.deltaTime * (lineOfSight ? directSightMultiplier : 0.15f);
-                _menaceGaugeValue += Time.deltaTime * (totalDistance < 30f ? closeDistanceMultiplier : 0.15f);
+                _menaceGaugeValue += Time.deltaTime * (lineOfSight ? directSightMultiplier : directSightBase);
+                _menaceGaugeValue += Time.deltaTime * (totalDistance < 30f ? closeDistanceMultiplier : closeDistanceBase);
             }
             //Patrol Far
             else
@@ -224,9 +227,9 @@ namespace Runtime.AI
         {
             if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
             
-            if (!save.monsterData.ContainsKey(_monster.monster.ToString())) return;
+            if (!save.monsterData.ContainsKey(persistentID)) return;
             
-            var monsterSave = save.monsterData[_monster.monster.ToString()];
+            var monsterSave = save.monsterData[persistentID];
             _menaceGaugeValue = monsterSave.menaceGaugeValue;
             _menaceState = monsterSave.menaceState;
             _aggroLevel = monsterSave.aggroLevel;
@@ -237,10 +240,10 @@ namespace Runtime.AI
         {
             if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
             
-            var monsterSave = save.monsterData[_monster.monster.ToString()];
+            var monsterSave = save.monsterData[persistentID];
             if (monsterSave == null)
             {
-                Debug.LogError("AIManager: " + _monster.monster + " not found in save data!");
+                Debug.LogError("AIManager: " + persistentID + " not found in save data!");
                 return;
             }
                 

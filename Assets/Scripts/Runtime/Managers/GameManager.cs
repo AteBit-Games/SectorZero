@@ -2,6 +2,7 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/   
+
 using System;
 using System.Collections;
 using Cinemachine;
@@ -10,7 +11,6 @@ using Runtime.InventorySystem;
 using Runtime.InputSystem;
 using Discord;
 using ElRaccoone.Tweens;
-using NUnit.Framework.Internal;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
 using Runtime.UI;
@@ -27,19 +27,11 @@ namespace Runtime.Managers
     {
         public static GameManager Instance { get; private set; }
         
-        #region Header ASSET REFERENCES
-        [Space(10)]
-        [Header("ASSET REFERENCES")]
-        #endregion
         [SerializeField] private Sound menuClickSound;
         [SerializeField] private Sound menuHoverSound;
         [SerializeField] private InputReader inputReader;
         [SerializeField] public bool isMainMenu;
-
-        #region Header DEBUG
-        [Space(10)]
-        [Header("DEBUG")]
-        #endregion 
+        
         [SerializeField] public bool testMode;
         public bool TestMode
         {
@@ -297,17 +289,21 @@ namespace Runtime.Managers
         //========================= Coroutines =========================
         
         private IEnumerator LoadSceneAsync(int sceneIndex)
-         {
-             var asyncOperation = SceneManager.LoadSceneAsync(sceneIndex);
-             LoadingScreen.ShowLoading();
-             while (!asyncOperation.isDone)
-             {
-                 yield return null;
-             }
-             
-             ResetInput();
-             LoadingScreen.HideLoading();
-             Time.timeScale = 1f;
-         }
+        {
+            var asyncOperation = SceneManager.LoadSceneAsync(sceneIndex);
+            LoadingScreen.ShowLoading();
+            while (!asyncOperation.isDone)
+            {
+                yield return null;
+            }
+        }
+
+        public void FinishedLoading()
+        {
+            ResetInput();
+            LoadingScreen.HideLoading();
+            Time.timeScale = 1f;
+        }
+        
     }
 }

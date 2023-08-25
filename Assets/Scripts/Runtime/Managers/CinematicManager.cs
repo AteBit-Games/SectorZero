@@ -63,7 +63,7 @@ namespace Runtime.Managers
                     managerID = persistentID,
                     cinematicStates = new List<bool>()
                 };
-
+            
                 foreach (var playableDirector in director)
                 {
                     cinematicData.cinematicStates.Add(Math.Abs(playableDirector.Key.time - playableDirector.Key.duration) < 0.01f);

@@ -23,14 +23,13 @@ namespace Editor.Managers
             var openScriptButton = root.Q<Button>("open-button");
             openScriptButton.RegisterCallback<ClickEvent>(_ => CustomInspectorUtils.OpenScriptForEditor(target));
             
-            // Default inspector within
             var foldout = new Foldout
             {
                 text = "Default Inspector",
                 value = false
             };
-            InspectorElement.FillDefaultInspector(root, serializedObject, this);
-            //root.Add(foldout);
+            InspectorElement.FillDefaultInspector(foldout, serializedObject, this);
+            root.Add(foldout);
 
             return root;
         }

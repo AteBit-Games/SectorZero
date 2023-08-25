@@ -136,6 +136,8 @@ namespace Runtime.SaveSystem
             {
                 persistantObject.LoadData(saveGame);
             }
+            
+            GameManager.Instance.FinishedLoading();
         }
 
         private static List<IPersistant> FindAllPersistenceObjects()

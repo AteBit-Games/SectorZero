@@ -35,9 +35,9 @@ namespace Runtime.Managers.Tutorial
         
         public void LoadData(SaveGame game)
         {
-            if (!game.worldData.cinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
+            if (!game.tutorialData.tutorialCinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
             {
-                var cinematicData = game.worldData.cinematics.Find(cinematicData => cinematicData.managerID == persistentID);
+                var cinematicData = game.tutorialData.tutorialCinematics.Find(cinematicData => cinematicData.managerID == persistentID);
                 for (var i = 0; i < director.Count; i++)
                 {
                     director[director.ElementAt(i).Key] = cinematicData.cinematicStates[i];
@@ -48,9 +48,9 @@ namespace Runtime.Managers.Tutorial
 
         public void SaveData(SaveGame game)
         {
-            if(!game.worldData.cinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
+            if(!game.tutorialData.tutorialCinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
             {
-                var cinematicData = game.worldData.cinematics.Find(cinematicData => cinematicData.managerID == persistentID);
+                var cinematicData = game.tutorialData.tutorialCinematics.Find(cinematicData => cinematicData.managerID == persistentID);
                 for (var i = 0; i < director.Count; i++)
                 {
                     cinematicData.cinematicStates[i] = Math.Abs(director.ElementAt(i).Key.time - director.ElementAt(i).Key.duration) < 0.01f;
@@ -69,7 +69,7 @@ namespace Runtime.Managers.Tutorial
                     cinematicData.cinematicStates.Add(Math.Abs(playableDirector.Key.time - playableDirector.Key.duration) < 0.01f);
                 }
                 
-                game.worldData.cinematics.Add(cinematicData);
+                game.tutorialData.tutorialCinematics.Add(cinematicData);
             }
         }
     }

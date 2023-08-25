@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
+using System;
 using System.Collections;
 using Cinemachine;
 using Runtime.AI.Interfaces;
@@ -132,6 +133,15 @@ namespace Runtime.Player
 
             if (SceneManager.GetActiveScene().name == "Tutorial") TutorialManager.StartListening("TutorialStage3", Init);
         }
+
+        //Update to allow smoother updating
+        private void LateUpdate()
+        {
+            if(_isDead) return;
+            
+            if(!_cameraDisabled) UpdateMouseLook();
+            if(_isAiming) UpdateThrowIndicator();
+        }
         
         private void FixedUpdate()
         {
@@ -140,9 +150,6 @@ namespace Runtime.Player
             //Move the player
             var newPosition = _rb.position + _movementInput * ((isSneaking ? sneakSpeed : moveSpeed) * Time.fixedDeltaTime);
             _rb.MovePosition(newPosition);
-            
-            if(!_cameraDisabled) UpdateMouseLook();
-            if(_isAiming) UpdateThrowIndicator();
 
             if (_movementInput != Vector2.zero)
             {
