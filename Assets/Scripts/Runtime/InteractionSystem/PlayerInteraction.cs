@@ -83,6 +83,17 @@ namespace Runtime.InteractionSystem
             }
         }
 
+        public void RemoveInteractable(GameObject interactable)
+        {
+            
+            if (interactable != null && _interactables.Contains(interactable))
+            {
+                var spriteRenderer = interactable.GetComponent<SpriteRenderer>();
+                spriteRenderer.material.SetFloat(OutlineThickness, 0f);
+                _interactables.Remove(interactable);
+            }
+        }
+
         //========================= Private Methods =========================//
         
         private void Interact()

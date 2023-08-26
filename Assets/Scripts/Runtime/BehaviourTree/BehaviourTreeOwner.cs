@@ -325,7 +325,7 @@ namespace Runtime.BehaviourTree
             var monsterSave = save.monsterData[monster.ToString()];
             gameObject.transform.parent.gameObject.SetActive(monsterSave.isActive);
             transform.position = monsterSave.position;
-            _stateReference.value = monsterSave.activeState;
+            //_stateReference.value = monsterSave.activeState;
         }
 
         public void SaveData(SaveGame save)

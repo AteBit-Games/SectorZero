@@ -3,7 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 
-using Runtime.InteractionSystem.Objects;
+using Runtime.InteractionSystem.Objects.Doors;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;

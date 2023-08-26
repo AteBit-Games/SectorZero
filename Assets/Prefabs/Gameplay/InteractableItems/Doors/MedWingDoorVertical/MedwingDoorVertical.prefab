@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9200955834647950592}
   - component: {fileID: 8131724860434440048}
   - component: {fileID: 3421842758293566196}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: MedwingDoorVertical_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,11 +125,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97d20150da546e6b65743b158ae4348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSound: {fileID: 11400000, guid: 7c76a67519bfe11409ba7affe3fe42f4, type: 2}
-  lockedSound: {fileID: 11400000, guid: 94f8286b2041c774db147546c0a449ad, type: 2}
-  requiresKey: 1
-  key: {fileID: 11400000, guid: 3b6deee1f696a51408d5ee1a3e3231ac, type: 2}
+  openSound: {fileID: 11400000, guid: 7c76a67519bfe11409ba7affe3fe42f4, type: 2}
+  closeSound: {fileID: 11400000, guid: 94f8286b2041c774db147546c0a449ad, type: 2}
   navMeshSurface: {fileID: 0}
+  navigationBlocker: {fileID: 831407769017599524}
+  startOpen: 0
+  persistentID: d0493527-9566-4beb-9c7f-017960e58564
+  key: {fileID: 11400000, guid: e73daebd8fc6c594693dd83a49727ff6, type: 2}
+  interactSound: {fileID: 11400000, guid: ee71ebac7b9200b4c84687a87519b73a, type: 2}
+  lockedSound: {fileID: 11400000, guid: 6617773c6de026f4aa0933cbb406b7af, type: 2}
 --- !u!82 &9200955834647950592
 AudioSource:
   m_ObjectHideFlags: 0
@@ -282,7 +286,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 4}
+  m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &3771098409766520555
 GameObject:
@@ -297,7 +301,7 @@ GameObject:
   - component: {fileID: 8837394885234331298}
   - component: {fileID: 2701023684859862304}
   - component: {fileID: 4534720835519906956}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: VerticalBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +461,7 @@ GameObject:
   - component: {fileID: 8989727848037700924}
   - component: {fileID: 831407769017599524}
   - component: {fileID: 5175239538479355854}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: NavigationBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,8 +10,10 @@ using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-namespace Runtime.InteractionSystem.Objects
+namespace Runtime.InteractionSystem.Objects.Doors
 {
+    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(AudioSource))]
     public class TriggerDoor : MonoBehaviour, IPersistant
     {
         [SerializeField] private Sound openSound;
@@ -71,6 +73,7 @@ namespace Runtime.InteractionSystem.Objects
         {
             navMeshSurface.UpdateNavMesh(navMeshSurface.navMeshData);
         }
+        
         
         //=========================== Save System =============================//
         
