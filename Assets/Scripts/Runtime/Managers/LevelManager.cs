@@ -190,11 +190,11 @@ namespace Runtime.Managers
             //     index++;
             //}
             
-            foreach (var section in wallTargets)
-            {
-                Gizmos.color = Color.white;
-                Gizmos.DrawWireSphere(section.targetCenter.position, section.radius);
-            }
+            // foreach (var section in wallTargets)
+            // {
+            //     Gizmos.color = Color.white;
+            //     Gizmos.DrawWireSphere(section.targetCenter.position, section.radius);
+            // }
         }
     }
 }
