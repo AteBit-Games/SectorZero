@@ -192,6 +192,7 @@ namespace Runtime.Managers
         public void LoadScene(int sceneIndex)
         {
             TestMode = false;
+            isMainMenu = sceneIndex == 0;
             SoundSystem.ResetSystem();
             StartCoroutine(LoadSceneAsync(sceneIndex));
         }
@@ -305,6 +306,5 @@ namespace Runtime.Managers
             LoadingScreen.HideLoading();
             Time.timeScale = 1f;
         }
-        
     }
 }

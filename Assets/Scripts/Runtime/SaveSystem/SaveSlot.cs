@@ -76,7 +76,6 @@ namespace Runtime.SaveSystem
             {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 GameManager.Instance.SaveSystem.LoadGame(saveGame.saveTime);
-                GameManager.Instance.isMainMenu = false;
             });
             loadButton.RegisterCallback<MouseEnterEvent>(_ =>
             {

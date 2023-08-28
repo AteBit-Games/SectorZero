@@ -37,12 +37,6 @@ namespace Runtime.Utils
                 _ => true
             };
         }
-        
-        public static IEnumerator Delay(float seconds, Action action)
-        {
-            yield return new WaitForSeconds(seconds);
-            action?.Invoke();
-        }
     }
 
     public static class EncryptionUtils

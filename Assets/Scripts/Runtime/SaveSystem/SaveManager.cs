@@ -4,6 +4,7 @@
 ****************************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -144,7 +145,8 @@ namespace Runtime.SaveSystem
                 persistantObject.LoadData(saveGame);
             }
 
-            StartCoroutine(OperationUtils.Delay(0.3f, GameManager.Instance.FinishedLoading));
+            Debug.Log("Finished Loading");
+            StartCoroutine(FinishedLoading());
         }
 
         private static List<IPersistant> FindAllPersistenceObjects()
@@ -188,6 +190,14 @@ namespace Runtime.SaveSystem
         public PlayerData GetPlayerData()
         {
             return _playerData;
+        }
+        
+        // ============================ COROUTINES ============================
+        
+        private IEnumerator FinishedLoading()
+        {
+            yield return new WaitForSecondsRealtime(0.5f);
+            GameManager.Instance.FinishedLoading();
         }
     }
 }

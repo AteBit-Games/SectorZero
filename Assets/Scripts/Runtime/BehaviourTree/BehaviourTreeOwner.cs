@@ -48,6 +48,7 @@ namespace Runtime.BehaviourTree
     }
     
     [AddComponentMenu("BehaviourTree/BehaviourTreeOwner")]
+    [DefaultExecutionOrder(99)]
     public class BehaviourTreeOwner : MonoBehaviour, IHearingHandler, ISightHandler, IPersistant
     {
         [Tooltip("BehaviourTree asset to instantiate during Awake")] 
@@ -112,13 +113,12 @@ namespace Runtime.BehaviourTree
                 behaviourTree = null;
             }
             
+            if(GameManager.Instance.TestMode) SetupReferences();
+            
             var sightVisual = Instantiate(sightVisualPrefab, transform);
             _material = sightVisual.GetComponent<MeshRenderer>().material;
             _material.color = idleColour;
             
-            _stateReference = FindBlackboardKey<int>("ActiveState");
-            _inspectLocationReference = FindBlackboardKey<Vector2>("InspectPoint");
-
             _navMeshAgent = _context.agent;
             _navMeshAgent.updateRotation = false;
             _navMeshAgent.updateUpAxis = false;
@@ -294,6 +294,12 @@ namespace Runtime.BehaviourTree
             return Context.CreateFromGameObject(gameObject, tree);
         }
 
+        private void SetupReferences()
+        {
+            _stateReference = FindBlackboardKey<int>("ActiveState");
+            _inspectLocationReference = FindBlackboardKey<Vector2>("InspectPoint");
+        }
+
         private bool ValidateTree() 
         {
             if (!behaviourTree) 
@@ -320,12 +326,14 @@ namespace Runtime.BehaviourTree
         
         public void LoadData(SaveGame save)
         {
+            if(!gameObject.activeSelf) return;
             if (!save.monsterData.ContainsKey(monster.ToString())) return;
             
+            SetupReferences();
             var monsterSave = save.monsterData[monster.ToString()];
             gameObject.transform.parent.gameObject.SetActive(monsterSave.isActive);
             transform.position = monsterSave.position;
-            //_stateReference.value = monsterSave.activeState;
+            _stateReference.value = monsterSave.activeState;
         }
 
         public void SaveData(SaveGame save)

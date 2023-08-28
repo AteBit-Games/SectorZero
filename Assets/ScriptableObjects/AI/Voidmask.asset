@@ -59,6 +59,9 @@ MonoBehaviour:
   - rid: 130803909263360063
   - rid: 130803909263360065
   - rid: 130803909263360073
+  - rid: 130804050179129344
+  - rid: 130804050179129345
+  - rid: 130804050179129346
   treeState: 0
   blackboard:
     keys:
@@ -76,8 +79,8 @@ MonoBehaviour:
     - rid: 130803893468135432
     - rid: 61114352745054249
     - rid: 130803895344037898
-  viewPosition: {x: 383, y: 256, z: 0}
-  viewScale: {x: 0.2842624, y: 0.2842624, z: 1}
+  viewPosition: {x: 1007, y: 121, z: 0}
+  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
   references:
     version: 2
     RefIds:
@@ -101,7 +104,7 @@ MonoBehaviour:
       data:
         name: ActiveState
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 1
+        value: 0
     - rid: 61114352745054247
       type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -185,7 +188,7 @@ MonoBehaviour:
       data:
         name: PatrolState
         typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 0
+        value: 1
     - rid: 130803849973989383
       type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -198,7 +201,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 812bbbde342022243a2c7e21d1738e2c
-        position: {x: -1480, y: 240}
+        position: {x: -1600, y: 240}
         blackboard:
           keys: []
         comment: <b>Patrol </b>
@@ -212,7 +215,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d4e3f06e629bc554e9bafa4b23ecd30a
-        position: {x: -1720, y: 380}
+        position: {x: -1840, y: 380}
         blackboard:
           keys: []
         comment: <b>Sentinel Behaviour</b>
@@ -231,7 +234,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: e67b1e4fd94c0954f9721c16432b4d03
-        position: {x: -1720, y: 500}
+        position: {x: -1840, y: 500}
         blackboard:
           keys: []
         comment: 
@@ -245,7 +248,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a3b7c0ead454e4e4abdfcfa2f5ba4d5d
-        position: {x: -1840, y: 640}
+        position: {x: -1960, y: 640}
         blackboard:
           keys: []
         comment: 'Activate Sentinels based on criteria
@@ -277,7 +280,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3319861b7beb79a408fa5e4a93d42e43
-        position: {x: -1620, y: 640}
+        position: {x: -1740, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -292,7 +295,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a4f0bad0efe01ad40b932ce7879cf678
-        position: {x: -1260, y: 380}
+        position: {x: -1380, y: 380}
         blackboard:
           keys: []
         comment: <b>Patrol Behaviour</b>
@@ -309,7 +312,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9e335afe39dbf5c4ba6ce37478eac415
-        position: {x: -1260, y: 500}
+        position: {x: -1380, y: 500}
         blackboard:
           keys: []
         comment: 
@@ -328,7 +331,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d4ec1235792439046ad6c6f7b357b31d
-        position: {x: -1260, y: 640}
+        position: {x: -1380, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -342,7 +345,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3febdb7b3f5d4b74ba369c2a6a00e3a5
-        position: {x: -1160, y: 780}
+        position: {x: -1280, y: 780}
         blackboard:
           keys: []
         comment: '<b>Patrol rooms subtree</b>
@@ -379,7 +382,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3f5e0d6d60fa70042a030ae08c20afb3
-        position: {x: -1400, y: 780}
+        position: {x: -1520, y: 780}
         blackboard:
           keys: []
         comment: Based on the active menace state select rooms either close to or
@@ -437,7 +440,7 @@ MonoBehaviour:
         comment: <b>Idle</b>
         drawGizmos: 0
         child:
-          rid: -2
+          rid: 130804050179129344
         restartOnSuccess: 1
         restartOnFailure: 1
         maxRepeats:
@@ -1154,14 +1157,6 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 7
-        stoppingDistance:
-          reference:
-            rid: -2
-          defaultValue: 1.25
-        accelerationSpeed:
-          reference:
-            rid: -2
-          defaultValue: 17.5
     - rid: 130803909263360063
       type: {class: CheckDistance, ns: Runtime.BehaviourTree.Conditions.GameObject, asm: Assembly-CSharp}
       data:
@@ -1303,3 +1298,47 @@ MonoBehaviour:
         name: Speed
         typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 5
+    - rid: 130804050179129344
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b8d99bfd369148142bc6026b32b13773
+        position: {x: -2460, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130804050179129345
+        - rid: 130804050179129346
+    - rid: 130804050179129345
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 5fcb1c6ae7d688a41b78ce611cff4ecb
+        position: {x: -2560, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 2000
+    - rid: 130804050179129346
+      type: {class: LogKey, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e89b39f0b043fc340b9b987986f78468
+        position: {x: -2380, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        logType: 0
+        messageKey:
+          reference:
+            rid: 61114352745054246

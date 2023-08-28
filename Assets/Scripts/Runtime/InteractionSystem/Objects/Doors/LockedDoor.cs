@@ -3,14 +3,13 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
 using Runtime.InteractionSystem.Interfaces;
+using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
-using Runtime.Utils;
 using UnityEngine;
 
 namespace Runtime.InteractionSystem.Objects.Doors
@@ -21,6 +20,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
     {
         [SerializeField] public string persistentID;
         [SerializeField] private Item key;
+        [SerializeField] private bool destroyKeyOnUse;
 
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
@@ -49,6 +49,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
         public bool OnInteract(GameObject player)
         {
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
+            if(destroyKeyOnUse) player.GetComponentInParent<PlayerInventory>().UseItemInInventory(key);
             OpenDoor();
             
             //Remove the collider from the player's interactable list
@@ -72,9 +73,9 @@ namespace Runtime.InteractionSystem.Objects.Doors
         
         public void LoadData(SaveGame game)
         {
-            if (game.worldData.doors.ContainsKey(persistentID))
+            if (game.worldData.doors.TryGetValue(persistentID, out var door))
             {
-                if(game.worldData.doors[persistentID])
+                if(door)
                 {
                     mainAnimator.SetTrigger(Open);
                     mainAnimator.SetBool(isOpen, true);
@@ -98,8 +99,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
 
         public void SaveData(SaveGame game)
         {
-            if(!game.worldData.doors.ContainsKey(persistentID)) game.worldData.doors.Add(persistentID, opened);
-            else game.worldData.doors[persistentID] = opened;
+            game.worldData.doors[persistentID] = opened;
         }
     }
 }
