@@ -79,8 +79,8 @@ MonoBehaviour:
     - rid: 130803893468135432
     - rid: 61114352745054249
     - rid: 130803895344037898
-  viewPosition: {x: 1007, y: 121, z: 0}
-  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
+  viewPosition: {x: 1330, y: 101, z: 0}
+  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
   references:
     version: 2
     RefIds:
@@ -194,7 +194,7 @@ MonoBehaviour:
       data:
         name: AggroLevel
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 0
+        value: 2
     - rid: 130803868398780423
       type: {class: Parallel, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:

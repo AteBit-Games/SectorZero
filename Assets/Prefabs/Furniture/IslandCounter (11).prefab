@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3975575291335242761}
   - component: {fileID: 880231800542195103}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: SightBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,6 +10,7 @@ using UnityEngine.Events;
 
 namespace Runtime.Misc.Triggers
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public class CollisionTrigger : MonoBehaviour, IPersistant
     {
         [SerializeField] public string persistentID;

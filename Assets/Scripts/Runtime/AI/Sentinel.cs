@@ -5,10 +5,15 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Runtime.AI.Interfaces;
-using Runtime.BehaviourTree;
 using UnityEngine;
 using ElRaccoone.Tweens;
+using Runtime.Managers;
+using Runtime.Misc.Triggers;
+using Runtime.SoundSystem;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
@@ -22,18 +27,20 @@ namespace Runtime.AI
         [Tooltip("Maximum view distance"), SerializeField] private float viewRadius = 5.0f;
         [Tooltip("Maximum angle that the monster can see"), SerializeField, Range(0f, 360f)] private float viewAngle = 135.0f;
         [Tooltip("The direction to look in."), Range(0f, 360f)] public float lookAngle;
-        [Tooltip("The direction to look in.")] public Color defaultColor;
-        [Tooltip("The direction to look in.")] public Color alertColor;
+        
+        public float deactivateDelay;
+        public bool startActive;
+
+        public Sound detectSound;
+        public float intensity;
+        public Color defaultColor;
+        public Color alertColor;
         
         public bool debug;
         public GameObject sightVisualPrefab;
-
-        //---- Private Variables ----//
-        private BehaviourTreeOwner _voidmask;
-        private BlackboardKey<Collider2D> _inspectRoomKey;
         
         private Animator _animator;
-        private Light2D _light;
+        private List<Light2D> _eyeLights;
         private float _initialIntensity;
 
         private bool _isActivated;
@@ -55,25 +62,30 @@ namespace Runtime.AI
 
         private void Awake()
         {
-            _voidmask = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
-            _inspectRoomKey = _voidmask.FindBlackboardKey<Collider2D>("InspectRoom");
+            var parent = transform.parent;
+            _animator = parent.GetComponentInChildren<Animator>();
+            parent.GetComponentInChildren<TriggerDelegate>().triggerEvent += ActivateLights;
             
-            _animator = GetComponent<Animator>();
-            _light = transform.parent.GetComponentInChildren<Light2D>();
-            _initialIntensity = _light.intensity;
-
+            _eyeLights = GetComponentsInChildren<Light2D>().ToList();
+            _eyeLights.ForEach(eye =>
+            {
+                eye.enabled = false;
+                eye.intensity = intensity;
+            });
+            
+            
             Instantiate(sightVisualPrefab, transform);
         }
 
         private void Start()
         {
-            _light.pointLightOuterRadius = viewRadius;
-            _light.pointLightInnerAngle = viewAngle;
-            _light.transform.rotation = Quaternion.Euler(0f, 0f, -lookAngle-90);
-            _light.color = defaultColor;
-            _light.enabled = false;
+            _eyeLights.ForEach(eye =>
+            {
+                eye.color = defaultColor;
+                eye.intensity = intensity;
+            });
             
-            if(debug) ActivateSentinel(999f);
+            if(startActive) ActivateSentinel(999f);
         }
         
         private void Update()
@@ -106,8 +118,11 @@ namespace Runtime.AI
             _isActivated = true;
             _activeTimeLeft = duration;
             
-            _light.color = defaultColor;
-            _light.intensity = _initialIntensity;
+            _eyeLights.ForEach(eye =>
+            {
+                eye.color = defaultColor;
+                eye.intensity = _initialIntensity;
+            });
             
             _animator.SetBool(Activated, true);
         }
@@ -117,20 +132,18 @@ namespace Runtime.AI
             if (_isActivated)
             {
                 _isActivated = false;
-                _light.color = alertColor;
+                _eyeLights.ForEach(eye =>
+                {
+                    eye.color = alertColor;
+                });
                 
                 var hit = Physics2D.OverlapPoint(transform.position, 1 << LayerMask.NameToLayer("RoomBounds"));
                 if(hit == null) Debug.LogWarning("No RoomBounds found for " + gameObject.name);
                 OnSightEnterAction?.Invoke();
-
-                // if(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert) == null) Debug.LogError("No Sentinel state found");
-                // else
-                // {
-                //     _inspectRoomKey.value = hit;
-                //     _voidmask.SetActiveState(_voidmask.treeStates.Find(x => x.state == TreeState.State.SentinelAlert).stateIndex);
-                // }
                 
+                StartCoroutine(TriggerEyes());
                 StartCoroutine(TriggerDeactivate());
+                StartCoroutine(TriggerDetection());
             }
         }
 
@@ -155,33 +168,61 @@ namespace Runtime.AI
             return new Vector2(Mathf.Sin((lookAngle+90) * Mathf.Deg2Rad), Mathf.Cos((lookAngle+90) * Mathf.Deg2Rad));
         }
 
-        private void ActivateLight()
+        private void ActivateLights()
         {
-            _light.enabled = true;
-        }
-        
-        private void DeactivateLight()
-        {
-            _light.enabled = false;
+            _eyeLights.ForEach(eye =>
+            {
+                eye.enabled = true;
+                eye.intensity = intensity;
+            });
         }
         
         //================================= Coroutine ===================================//
 
+        private IEnumerator TriggerDetection()
+        {
+            GameManager.Instance.SoundSystem.PlaySting(detectSound);
+            
+            var volume = FindFirstObjectByType<Volume>();
+            var vignette = volume.sharedProfile.components[0] as Vignette;
+            
+            volume.TweenValueFloat(0.2f, 1.4f, value =>
+            {
+                if (vignette != null) vignette.intensity.value = value;
+            }).SetFrom(0f).SetEaseSineInOut();
+            
+            yield return new WaitForSeconds(2f);
+            
+            volume.TweenValueFloat(0, 1f, value =>
+            {
+                if (vignette != null) vignette.intensity.value = value;
+            }).SetFrom(0.2f).SetEaseSineInOut();
+        }
+        
         private IEnumerator TriggerDeactivate()
         {
-            for(var i = 0; i < 1; i++)
-            {
-                _light.enabled = true;
-                yield return new WaitForSeconds(Random.Range(0.2f, 0.3f));
-                _light.enabled = false;
-                yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
-            }
+            yield return new WaitForSeconds(deactivateDelay);
+            DeactivateSentinel();
+        }
+
+        private IEnumerator TriggerEyes()
+        {
+            //_eyeLights.ForEach(eye => eye.enabled = true);
+            _eyeLights.ForEach(eye => eye.intensity = intensity);
+            yield return new WaitForSeconds(Random.Range(0.2f, 0.3f));
+                
+            // _eyeLights.ForEach(eye => eye.enabled = false);
+            _eyeLights.ForEach(eye => eye.intensity = intensity + 0.2f);
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
             
-            _light.enabled = true;
-            _light.TweenValueFloat(0f, 1.4f, value =>
+            _eyeLights.ForEach(eye =>
             {
-                _light.intensity = value;
-            }).SetFrom(_light.intensity).SetEaseBackOut().SetOnComplete(DeactivateSentinel);
+                //eye.enabled = true;
+                eye.TweenValueFloat(0f, 1.4f, value =>
+                {
+                    eye.intensity = value;
+                }).SetFrom(eye.intensity).SetEaseBackOut();
+            });
         }
 
         private void OnDrawGizmosSelected()

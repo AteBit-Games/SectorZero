@@ -9,6 +9,11 @@
             <uie:PropertyField binding-path="viewRadius" name="property" style="padding-top: 5px;" />
             <uie:PropertyField binding-path="viewAngle" name="property" style="padding-top: 5px;" />
             <uie:PropertyField binding-path="lookAngle" name="property" style="padding-top: 5px;" />
+            <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
+            <uie:PropertyField binding-path="startActive" name="property" style="padding-top: 5px;" />
+            <uie:PropertyField binding-path="deactivateDelay" name="property" style="padding-top: 5px;" />
+            <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
+            <uie:PropertyField binding-path="intensity" name="property" style="padding-top: 5px;" />
             <uie:PropertyField binding-path="defaultColor" name="property" style="padding-top: 5px;" />
             <uie:PropertyField binding-path="alertColor" name="property" style="padding-top: 5px;" />
         </ui:VisualElement>
