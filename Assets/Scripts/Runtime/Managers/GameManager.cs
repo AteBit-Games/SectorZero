@@ -11,6 +11,7 @@ using Runtime.InventorySystem;
 using Runtime.InputSystem;
 using Discord;
 using ElRaccoone.Tweens;
+using Runtime.AI;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
 using Runtime.UI;
@@ -45,8 +46,9 @@ namespace Runtime.Managers
         public SoundManager SoundSystem { get; private set; }
         public SaveManager SaveSystem { get; private set; }
         public NotificationManager NotificationManager { get; private set; }
-        public HUD HUD { get; private set; }
+        public AIManager AIManager { get; private set; }
         
+        public HUD HUD { get; private set; }
         private DeathScreen DeathScreen { get; set; }
         private PauseMenu PauseMenu { get; set; }
         private LoadingScreen LoadingScreen { get; set; }
@@ -81,6 +83,7 @@ namespace Runtime.Managers
             Instance.LoadingScreen = GetComponentInChildren<LoadingScreen>();
             Instance.SoundSystem = GetComponent<SoundManager>();
             Instance.SaveSystem = GetComponent<SaveManager>();
+            Instance.AIManager = GetComponent<AIManager>();
         }
 
         private void Update()

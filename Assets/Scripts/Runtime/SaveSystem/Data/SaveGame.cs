@@ -38,7 +38,8 @@ namespace Runtime.SaveSystem.Data
             Clear();
 
             if(keys.Count != values.Count)
-                throw new Exception(string.Format("there are {0} keys and {1} values after deserialization. Make sure that both key and value types are serializable."));
+                throw new Exception(
+                    $"there are {keys.Count} keys and {values.Count} values after deserialization. Make sure that both key and value types are serializable.");
 
             for(int i = 0; i < keys.Count; i++) Add(keys[i], values[i]);
         }
@@ -105,27 +106,23 @@ namespace Runtime.SaveSystem.Data
         public int currentScene;
         
         public PlayerSaveData playerData = new();
-        public SerializableDictionary<string, MonsterSaveData> monsterData;
+        public SerializableDictionary<string, MonsterSaveData> monsterData = new();
+        
         public TutorialData tutorialData = new();
         public WorldData worldData = new();
-
+        
         public SaveGame()
         {
-            monsterData = new SerializableDictionary<string, MonsterSaveData>
-            { 
-                { 
-                    "VoidMask", new MonsterSaveData()
-                    {
-                        
-                    }
-                },
-                {
-                    "MouthPouch", new MonsterSaveData()
-                    {
-                        
-                    } 
-                }
-            };
+            monsterData.Add("VoidMask", new MonsterSaveData
+            {
+                isActive = true,
+                position = new Vector3(-33f, -0.65f, 0),
+                activeState = 0,
+                menaceGaugeValue = 45f,
+                menaceState = false,
+                aggroLevel = 0,
+                lastSeenPlayerTime = 0
+            });
         }
     }
 

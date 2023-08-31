@@ -40,7 +40,7 @@ namespace Runtime.BehaviourTree.Actions.GameObject
         {
             foreach (var sentinel in _selectedSentinels)
             {
-                sentinel.GetComponent<Sentinel>().ActivateSentinel(sentinelDuration.Value);
+                sentinel.GetComponentInChildren<Sentinel>().ActivateSentinel(sentinelDuration.Value);
             }
             
             return State.Success;

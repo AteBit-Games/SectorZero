@@ -60,8 +60,13 @@ MonoBehaviour:
   - rid: 130803909263360065
   - rid: 130803909263360073
   - rid: 130804050179129344
-  - rid: 130804050179129345
-  - rid: 130804050179129346
+  - rid: 130804122505707521
+  - rid: 130804122505707524
+  - rid: 130804122505707525
+  - rid: 130804122505707526
+  - rid: 130804122505707527
+  - rid: 130804122505707528
+  - rid: 130804122505707531
   treeState: 0
   blackboard:
     keys:
@@ -79,8 +84,9 @@ MonoBehaviour:
     - rid: 130803893468135432
     - rid: 61114352745054249
     - rid: 130803895344037898
-  viewPosition: {x: 1330, y: 101, z: 0}
-  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
+    - rid: 130804122505707522
+  viewPosition: {x: 1829, y: -118, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -434,7 +440,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2adc6c8f71a07914c9edee4f08b02739
-        position: {x: -2460, y: 240}
+        position: {x: -2920, y: 240}
         blackboard:
           keys: []
         comment: <b>Idle</b>
@@ -1304,21 +1310,85 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b8d99bfd369148142bc6026b32b13773
-        position: {x: -2460, y: 360}
+        position: {x: -2920, y: 360}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
         children:
-        - rid: 130804050179129345
-        - rid: 130804050179129346
-    - rid: 130804050179129345
+        - rid: 130804122505707521
+        - rid: 130804122505707524
+    - rid: 130804122505707521
+      type: {class: CheckBoolean, ns: Runtime.BehaviourTree.Conditions.Blackboard, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 603cf7299b1c7c8418079f5e5a6dbd5f
+        position: {x: -3360, y: 500}
+        blackboard:
+          keys: []
+        comment: 'Checks if Voidmask has been initially triggered, if he has do intro
+          functionality.
+
+'
+        drawGizmos: 0
+        valueA:
+          reference:
+            rid: 130804122505707522
+          defaultValue: 0
+        valueB:
+          reference:
+            rid: -2
+          defaultValue: 1
+    - rid: 130804122505707522
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Active
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130804122505707524
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 7e3ab2c03fc9cf24bb7abd62f9ae06d4
+        position: {x: -2780, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130804122505707525
+        - rid: 130804122505707526
+        - rid: 130804122505707527
+        - rid: 130804122505707528
+        - rid: 130804122505707531
+    - rid: 130804122505707525
+      type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 677a6f98ca6bce648a078c4e22d2a62c
+        position: {x: -3120, y: 640}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        targetPosition:
+          reference:
+            rid: -2
+          defaultValue: {x: -38.9375, y: 23.3125}
+        speed:
+          reference:
+            rid: -2
+          defaultValue: 5
+    - rid: 130804122505707526
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: 5fcb1c6ae7d688a41b78ce611cff4ecb
-        position: {x: -2560, y: 500}
+        guid: 37128faa557ea814db25c9514aff53cd
+        position: {x: -2940, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -1326,19 +1396,60 @@ MonoBehaviour:
         duration:
           reference:
             rid: -2
-          defaultValue: 2000
-    - rid: 130804050179129346
-      type: {class: LogKey, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
+          defaultValue: 3.5
+    - rid: 130804122505707527
+      type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: e89b39f0b043fc340b9b987986f78468
-        position: {x: -2380, y: 500}
+        guid: 8289ea5376e46104fb9559450fd7f0c2
+        position: {x: -2780, y: 640}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
-        logType: 0
-        messageKey:
+        targetPosition:
           reference:
+            rid: -2
+          defaultValue: {x: -45.8125, y: 23.3125}
+        speed:
+          reference:
+            rid: -2
+          defaultValue: 4
+    - rid: 130804122505707528
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 875218b4b57ad8945898720fc9cf0bf0
+        position: {x: -2600, y: 640}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 2.5
+    - rid: 130804122505707531
+      type: {class: SetProperty, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e2444773a68997242a3ac584bbdf4a51
+        position: {x: -2440, y: 640}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        pair:
+          key:
             rid: 61114352745054246
+          value:
+            rid: 130804122505707533
+    - rid: 130804122505707533
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: 
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 1

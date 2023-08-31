@@ -34,6 +34,7 @@ namespace Runtime.Managers
             if(index >= director.Count) Debug.LogError("Index out of range");
             if (!director.ElementAt(index).Value)
             {
+                director.ElementAt(index).Key.time = 0;
                 director.ElementAt(index).Key.Play();
             }
         }

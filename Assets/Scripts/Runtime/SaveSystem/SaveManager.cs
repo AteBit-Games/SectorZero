@@ -50,11 +50,8 @@ namespace Runtime.SaveSystem
 
         private void Start()
         {
-            if (GameManager.Instance.isMainMenu)
-            {
-                _saveGames = _dataHandler.LoadSaves();
-                saveExists = _saveGames.Count > 0;
-            }
+            _saveGames = _dataHandler.LoadSaves();
+            saveExists = _saveGames.Count > 0;
         }
 
         private void OnEnable() 
@@ -144,8 +141,7 @@ namespace Runtime.SaveSystem
             {
                 persistantObject.LoadData(saveGame);
             }
-
-            Debug.Log("Finished Loading");
+            
             StartCoroutine(FinishedLoading());
         }
 

@@ -88,8 +88,8 @@ MonoBehaviour:
     - rid: 484473835900633088
     - rid: 6236232439545200658
     - rid: 484473896144994402
-  viewPosition: {x: 577, y: 256, z: 0}
-  viewScale: {x: 0.2842624, y: 0.2842624, z: 1}
+  viewPosition: {x: 226, y: 116, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
     RefIds:
@@ -283,14 +283,6 @@ MonoBehaviour:
         speed:
           reference:
             rid: 484473872862412801
-          defaultValue: 5
-        stoppingDistance:
-          reference:
-            rid: -2
-          defaultValue: 0.1
-        accelerationSpeed:
-          reference:
-            rid: -2
           defaultValue: 5
     - rid: 484473836275236952
       type: {class: Parallel, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
@@ -1063,7 +1055,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 52ea0752981ed074d866834270f3c2c3
-        position: {x: 360, y: 1000}
+        position: {x: 360, y: 1040}
         blackboard:
           keys: []
         comment: If point does not exist exit back to patrol state

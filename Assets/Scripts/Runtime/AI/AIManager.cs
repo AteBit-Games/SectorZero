@@ -18,7 +18,6 @@ namespace Runtime.AI
 {
     public class AIManager : MonoBehaviour, IPersistant
     {
-        [SerializeField] public string persistentID;
         [SerializeField] private float menaceGaugeMax = 100f;
         [SerializeField] private float menaceGaugeMin;
         
@@ -31,8 +30,8 @@ namespace Runtime.AI
         private PlayerController _player;
         
         //------- Menace Gauge -------//
-        private float _menaceGaugeValue;
-        private bool _menaceState = true;
+        private float _menaceGaugeValue = 45f;
+        private bool _menaceState;
         private NavMeshPath _path;
 
         //Aggro level is a value between 0 and 10 that represents how impatient the monster is
@@ -43,11 +42,14 @@ namespace Runtime.AI
         ///Patrol state (True | Close State --- True | Far State)
         private BlackboardKey<bool> _patrolStateKey;
         private BlackboardKey<int> _aggroLevelKey;
+        private BlackboardKey<bool> _isActiveKey;
         
         //VoidMask variables
         private List<Sentinel> _sentinels;
         private BlackboardKey<int> _activeSentinelsKey;
         private BlackboardKey<float> _sentinelDurationKey;
+
+        private bool _active;
 
         private void Start()
         {
@@ -66,13 +68,12 @@ namespace Runtime.AI
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
-
+        
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
             if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
             
-            _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
-            _monster = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
+            InitializeReferences();
             
             if (_monster == null || _player == null)
             {
@@ -92,11 +93,7 @@ namespace Runtime.AI
             
             _patrolStateKey = _monster.FindBlackboardKey<bool>("PatrolState");
             _aggroLevelKey = _monster.FindBlackboardKey<int>("AggroLevel");
-            
-            //reset all values
-            _menaceGaugeValue = 0f;
-            _menaceState = true;
-            _aggroLevel = 0;
+            _isActiveKey = _monster.FindBlackboardKey<bool>("Active");
             
             _aggroLevelKey.value = 0;
             _patrolStateKey.value = true;
@@ -104,6 +101,8 @@ namespace Runtime.AI
 
         private void FixedUpdate()
         {
+            if(!_active) return;
+            
             if (_monster == null || _player == null) return;
 
             var monsterPosition = _monster.transform.position;
@@ -202,6 +201,14 @@ namespace Runtime.AI
             _sentinelDurationKey.value = sentinelDuration;
         }
 
+        private void Activate()
+        {
+            _active = true;
+            _isActiveKey.value = true;
+            _menaceState = false;
+            _patrolStateKey.value = false;
+        }
+
         private void ResetAggroLevel()
         {
             _lastSeenPlayerTime = Time.time;
@@ -211,14 +218,24 @@ namespace Runtime.AI
         
         private void IncreaseAggroLevel()
         {
-            _aggroLevel += 2;
-            _aggroLevelKey.value = _aggroLevel;
-            _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue + (_menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
+            if(_active)
+            {
+                _aggroLevel += 2;
+                _aggroLevelKey.value = _aggroLevel;
+                _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue + (_menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
+            }
+            else Activate();
         }
         
         private void SetPatrolState(bool state)
         {
             _patrolStateKey.value = state;
+        }
+        
+        private void InitializeReferences()
+        {
+            _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
+            _monster = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
         }
         
         // ============================ Save System ============================
@@ -227,9 +244,10 @@ namespace Runtime.AI
         {
             if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
             
-            if (!save.monsterData.ContainsKey(persistentID)) return;
+            InitializeReferences();
+            if (!save.monsterData.ContainsKey(_monster.monster.ToString())) return;
             
-            var monsterSave = save.monsterData[persistentID];
+            var monsterSave = save.monsterData[_monster.monster.ToString()];
             _menaceGaugeValue = monsterSave.menaceGaugeValue;
             _menaceState = monsterSave.menaceState;
             _aggroLevel = monsterSave.aggroLevel;
@@ -240,10 +258,10 @@ namespace Runtime.AI
         {
             if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
             
-            var monsterSave = save.monsterData[persistentID];
+            var monsterSave = save.monsterData[_monster.monster.ToString()];
             if (monsterSave == null)
             {
-                Debug.LogError("AIManager: " + persistentID + " not found in save data!");
+                Debug.LogError("AIManager: " + _monster.monster + " not found in save data!");
                 return;
             }
                 
