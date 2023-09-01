@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: NellieJogColour_Frame_0
     originalName: 
-    pivot: {x: 0.5846154, y: -0.07692308}
+    pivot: {x: 0.47058824, y: -0.1632653}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 79
-      y: 126
-      width: 65
-      height: 52
+      x: 100
+      y: 4
+      width: 17
+      height: 49
     spriteID: 5fb0d66dd1efdfe49aaca192ba7b3fa8
     spriteBone: []
     spriteOutline: []
@@ -138,18 +138,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 79, y: 126}
+    uvTransform: {x: 100, y: 4}
   - name: NellieJogColour_Frame_1
     originalName: 
-    pivot: {x: 0.5757576, y: -0.074074075}
+    pivot: {x: 0.42105263, y: -0.15686275}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 254
-      width: 66
-      height: 54
+      x: 73
+      y: 4
+      width: 19
+      height: 51
     spriteID: 8819028021a113747a043829a8d1228b
     spriteBone: []
     spriteOutline: []
@@ -158,18 +158,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 254}
+    uvTransform: {x: 73, y: 4}
   - name: NellieJogColour_Frame_2
     originalName: 
-    pivot: {x: 0.5757576, y: -0.07272727}
+    pivot: {x: 0.42857143, y: -0.25}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 67
-      width: 66
-      height: 55
+      x: 38
+      y: 123
+      width: 21
+      height: 48
     spriteID: d8af9a4a299306742b58817a5932a0b6
     spriteBone: []
     spriteOutline: []
@@ -178,18 +178,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 63}
+    uvTransform: {x: 38, y: 123}
   - name: NellieJogColour_Frame_3
     originalName: 
-    pivot: {x: 0.5588236, y: -0.074074075}
+    pivot: {x: 0.39999998, y: -0.17999999}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 79
-      y: 4
-      width: 68
-      height: 54
+      x: 4
+      y: 64
+      width: 25
+      height: 50
     spriteID: 7aa10c11d3170cf4e9857865d6dc3f53
     spriteBone: []
     spriteOutline: []
@@ -198,17 +198,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 79, y: 0}
+    uvTransform: {x: 4, y: 64}
   - name: NellieJogColour_Frame_4
     originalName: 
-    pivot: {x: 0.5671642, y: -0.0754717}
+    pivot: {x: 0.47619048, y: -0.11320755}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 316
-      width: 67
+      y: 179
+      width: 21
       height: 53
     spriteID: 9c78c7ce1dc321f42adb2f04d873c025
     spriteBone: []
@@ -218,18 +218,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 312}
+    uvTransform: {x: 4, y: 179}
   - name: NellieJogColour_Frame_5
     originalName: 
-    pivot: {x: 0.5757576, y: -0.07692308}
+    pivot: {x: 0.44444445, y: -0.07272727}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 79
-      y: 66
-      width: 66
-      height: 52
+      x: 38
+      y: 179
+      width: 18
+      height: 55
     spriteID: 5825bdcf1275ab34bb0c7bab9404bdf7
     spriteBone: []
     spriteOutline: []
@@ -238,18 +238,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 79, y: 66}
+    uvTransform: {x: 38, y: 179}
   - name: NellieJogColour_Frame_6
     originalName: 
-    pivot: {x: 0.5757576, y: -0.078431375}
+    pivot: {x: 0.4375, y: -0.0754717}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 79
-      y: 246
-      width: 66
-      height: 51
+      x: 73
+      y: 182
+      width: 16
+      height: 53
     spriteID: 10403b28c6e80d84aa95f39b2b02f24e
     spriteBone: []
     spriteOutline: []
@@ -258,18 +258,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 79, y: 242}
+    uvTransform: {x: 73, y: 182}
   - name: NellieJogColour_Frame_7
     originalName: 
-    pivot: {x: 0.5671642, y: -0.07692308}
+    pivot: {x: 0.47058824, y: -0.074074075}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 438
-      width: 67
-      height: 52
+      x: 73
+      y: 120
+      width: 17
+      height: 54
     spriteID: 27af4e90a4758874d9178f425c2177b5
     spriteBone: []
     spriteOutline: []
@@ -278,18 +278,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 434}
+    uvTransform: {x: 73, y: 120}
   - name: NellieJogColour_Frame_8
     originalName: 
-    pivot: {x: 0.5671642, y: -0.074074075}
+    pivot: {x: 0.4, y: -0.07272727}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 130
-      width: 67
-      height: 54
+      x: 38
+      y: 60
+      width: 20
+      height: 55
     spriteID: 9e527cbc0e4612842aa6edad1a429802
     spriteBone: []
     spriteOutline: []
@@ -298,18 +298,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 130}
+    uvTransform: {x: 38, y: 60}
   - name: NellieJogColour_Frame_9
     originalName: 
-    pivot: {x: 0.5671642, y: -0.07272727}
+    pivot: {x: 0.4615385, y: -0.15384616}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 67
-      height: 55
+      width: 26
+      height: 52
     spriteID: f26587030b28d4f4b998c245be4e4e31
     spriteBone: []
     spriteOutline: []
@@ -318,18 +318,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 0}
+    uvTransform: {x: 4, y: 4}
   - name: NellieJogColour_Frame_10
     originalName: 
-    pivot: {x: 0.5671642, y: -0.074074075}
+    pivot: {x: 0.3703704, y: -0.22916667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 192
-      width: 67
-      height: 54
+      x: 38
+      y: 4
+      width: 27
+      height: 48
     spriteID: 85cb8fb654b962b40a90957e39af56ee
     spriteBone: []
     spriteOutline: []
@@ -338,18 +338,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 188}
+    uvTransform: {x: 38, y: 4}
   - name: NellieJogColour_Frame_11
     originalName: 
-    pivot: {x: 0.5757576, y: -0.0754717}
+    pivot: {x: 0.47826087, y: -0.20408162}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 377
-      width: 66
-      height: 53
+      y: 122
+      width: 23
+      height: 49
     spriteID: 3c2a83c475d7d964488857aee2bf74fd
     spriteBone: []
     spriteOutline: []
@@ -358,18 +358,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 373}
+    uvTransform: {x: 4, y: 122}
   - name: NellieJogColour_Frame_12
     originalName: 
-    pivot: {x: 0.5846154, y: -0.07692308}
+    pivot: {x: 0.5263158, y: -0.18367347}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 79
-      y: 186
-      width: 65
-      height: 52
+      x: 73
+      y: 63
+      width: 19
+      height: 49
     spriteID: 5f0c015e3f74d904799ab540a6ec6af0
     spriteBone: []
     spriteOutline: []
@@ -378,18 +378,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 79, y: 186}
+    uvTransform: {x: 73, y: 63}
   - name: NellieJogColour_Frame_13
     originalName: 
-    pivot: {x: 0.5846154, y: -0.078431375}
+    pivot: {x: 0.47058824, y: -0.1875}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 79
-      y: 305
-      width: 65
-      height: 51
+      x: 100
+      y: 61
+      width: 17
+      height: 48
     spriteID: 109209a411dfc9249bec169d8aa8eb02
     spriteBone: []
     spriteOutline: []
@@ -398,7 +398,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 79, y: 301}
+    uvTransform: {x: 100, y: 61}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -411,118 +411,118 @@ ScriptedImporter:
     - name: NellieJogColour_Frame_0
       frameIndex: 0
       cellRect:
-        x: 10
-        y: 4
-        width: 65
-        height: 52
+        x: 24
+        y: 8
+        width: 17
+        height: 49
       spriteId: 5fb0d66dd1efdfe49aaca192ba7b3fa8
     - name: NellieJogColour_Frame_1
       frameIndex: 1
       cellRect:
-        x: 10
-        y: 4
-        width: 66
-        height: 54
+        x: 24
+        y: 8
+        width: 19
+        height: 51
       spriteId: 8819028021a113747a043829a8d1228b
     - name: NellieJogColour_Frame_2
       frameIndex: 2
       cellRect:
-        x: 10
-        y: 0
-        width: 86
-        height: 64
+        x: 23
+        y: 12
+        width: 21
+        height: 48
       spriteId: d8af9a4a299306742b58817a5932a0b6
     - name: NellieJogColour_Frame_3
       frameIndex: 3
       cellRect:
-        x: 10
-        y: 0
-        width: 86
-        height: 64
+        x: 22
+        y: 9
+        width: 25
+        height: 50
       spriteId: 7aa10c11d3170cf4e9857865d6dc3f53
     - name: NellieJogColour_Frame_4
       frameIndex: 4
       cellRect:
-        x: 10
-        y: 0
-        width: 86
-        height: 64
+        x: 22
+        y: 6
+        width: 21
+        height: 53
       spriteId: 9c78c7ce1dc321f42adb2f04d873c025
     - name: NellieJogColour_Frame_5
       frameIndex: 5
       cellRect:
-        x: 10
+        x: 24
         y: 4
-        width: 66
-        height: 52
+        width: 18
+        height: 55
       spriteId: 5825bdcf1275ab34bb0c7bab9404bdf7
     - name: NellieJogColour_Frame_6
       frameIndex: 6
       cellRect:
-        x: 10
-        y: 0
-        width: 86
-        height: 64
+        x: 25
+        y: 4
+        width: 16
+        height: 53
       spriteId: 10403b28c6e80d84aa95f39b2b02f24e
     - name: NellieJogColour_Frame_7
       frameIndex: 7
       cellRect:
-        x: 10
-        y: 0
-        width: 86
-        height: 64
+        x: 24
+        y: 4
+        width: 17
+        height: 54
       spriteId: 27af4e90a4758874d9178f425c2177b5
     - name: NellieJogColour_Frame_8
       frameIndex: 8
       cellRect:
-        x: 10
+        x: 24
         y: 4
-        width: 67
-        height: 54
+        width: 20
+        height: 55
       spriteId: 9e527cbc0e4612842aa6edad1a429802
     - name: NellieJogColour_Frame_9
       frameIndex: 9
       cellRect:
-        x: 10
-        y: 0
-        width: 86
-        height: 64
+        x: 20
+        y: 8
+        width: 26
+        height: 52
       spriteId: f26587030b28d4f4b998c245be4e4e31
     - name: NellieJogColour_Frame_10
       frameIndex: 10
       cellRect:
-        x: 10
-        y: 0
-        width: 86
-        height: 64
+        x: 22
+        y: 11
+        width: 27
+        height: 48
       spriteId: 85cb8fb654b962b40a90957e39af56ee
     - name: NellieJogColour_Frame_11
       frameIndex: 11
       cellRect:
-        x: 10
-        y: 0
-        width: 86
-        height: 64
+        x: 21
+        y: 10
+        width: 23
+        height: 49
       spriteId: 3c2a83c475d7d964488857aee2bf74fd
     - name: NellieJogColour_Frame_12
       frameIndex: 12
       cellRect:
-        x: 10
-        y: 4
-        width: 65
-        height: 52
+        x: 22
+        y: 9
+        width: 19
+        height: 49
       spriteId: 5f0c015e3f74d904799ab540a6ec6af0
     - name: NellieJogColour_Frame_13
       frameIndex: 13
       cellRect:
-        x: 10
-        y: 0
-        width: 86
-        height: 64
+        x: 24
+        y: 9
+        width: 17
+        height: 48
       spriteId: 109209a411dfc9249bec169d8aa8eb02
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 96, y: 64}
+  canvasSize: {x: 64, y: 64}
