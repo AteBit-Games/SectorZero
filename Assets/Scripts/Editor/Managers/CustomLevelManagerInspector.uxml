@@ -1,0 +1,28 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/Editor/CustomInspectorStyles.uss?fileID=7433441132597879392&amp;guid=31f6efb7b9ca653478a36740be2f9e3c&amp;type=3#CustomInspectorStyles" />
+    <ui:VisualElement name="VisualElement" class="property-group">
+        <ui:Label tabindex="-1" text="Level Manager Settings" display-tooltip-when-elided="true" name="header" enable-rich-text="true" />
+        <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <uie:PropertyField binding-path="levelDescription" name="property" />
+            <uie:PropertyField binding-path="navMeshSurface" name="property" />
+            <uie:PropertyField binding-path="cullingReferencePoint" name="property" focusable="false" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="VisualElement" class="property-group">
+        <ui:Label tabindex="-1" text="Light Culling Settings" display-tooltip-when-elided="true" name="header" enable-rich-text="true" />
+        <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <uie:PropertyField binding-path="showLightTargets" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
+            <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
+            <uie:PropertyField binding-path="lightTargets" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="VisualElement" class="property-group">
+        <ui:Label tabindex="-1" text="Caster Culling Settings" display-tooltip-when-elided="true" name="header" enable-rich-text="true" />
+        <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <uie:PropertyField binding-path="showCasterTargets" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
+            <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
+            <uie:PropertyField binding-path="casterTargets" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Button text="Edit Script" display-tooltip-when-elided="true" name="open-button" class="button" style="padding-top: 3px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; margin-top: 10px; margin-bottom: 5px;" />
+</ui:UXML>

@@ -100,7 +100,7 @@ namespace Runtime.InputSystem
             if(context.phase == InputActionPhase.Performed)
             {
                 OpenInventoryEvent?.Invoke();
-                //SetUI();
+                SetUI();
             }
         }
 
@@ -123,9 +123,14 @@ namespace Runtime.InputSystem
 
         public void OnExit(InputAction.CallbackContext context)
         {
-            if(context.phase == InputActionPhase.Performed)
+            switch (context.control.name)
             {
-                CloseUIEvent?.Invoke();
+                case "tab":
+                    if(GameManager.Instance.InventorySystem.isInventoryOpen) OpenInventoryEvent?.Invoke();
+                    break;
+                case "escape":
+                    if(context.phase == InputActionPhase.Performed) CloseUIEvent?.Invoke();
+                    break;
             }
         }
 

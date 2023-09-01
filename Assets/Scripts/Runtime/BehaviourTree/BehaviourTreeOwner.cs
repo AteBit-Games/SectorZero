@@ -332,7 +332,7 @@ namespace Runtime.BehaviourTree
             SetupReferences();
             var monsterSave = save.monsterData[monster.ToString()];
             gameObject.transform.parent.gameObject.SetActive(monsterSave.isActive);
-            transform.position = monsterSave.position;
+            transform.position = _navMeshAgent.transform.position;
             _stateReference.value = monsterSave.activeState;
         }
 
@@ -346,7 +346,7 @@ namespace Runtime.BehaviourTree
             
             var monsterSave = save.monsterData[monster.ToString()];
             monsterSave.isActive = gameObject.transform.parent.gameObject.activeSelf;
-            monsterSave.position = transform.position;
+            monsterSave.position = _navMeshAgent.transform.position;
             monsterSave.activeState = _stateReference.value;
         }
     }

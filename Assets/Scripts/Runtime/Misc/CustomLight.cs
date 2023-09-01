@@ -68,7 +68,11 @@ namespace Runtime.Misc
             light.enabled = true;
             IsPowered = true;
             AudioSource.mute = false;
-            if (flicker) _coroutine = StartCoroutine(FlickerOff());
+            if (flicker)
+            {
+                if (_coroutine != null) StopCoroutine(_coroutine);
+                _coroutine = StartCoroutine(FlickerOff());
+            }
         }
 
         public void PowerOff()
@@ -76,7 +80,11 @@ namespace Runtime.Misc
             light.enabled = false;
             IsPowered = false;
             AudioSource.mute = true;
-            if (_coroutine != null) StopCoroutine(_coroutine);
+            if (_coroutine != null)
+            {
+                StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
         }
         
         //============================== Coroutines ==============================

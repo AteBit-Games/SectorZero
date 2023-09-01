@@ -90,13 +90,6 @@ namespace Runtime.AI
                 _activeSentinelsKey = _monster.FindBlackboardKey<int>("ActiveSentinels");
                 _sentinelDurationKey = _monster.FindBlackboardKey<float>("SentinelActivationTime");
             }
-            
-            _patrolStateKey = _monster.FindBlackboardKey<bool>("PatrolState");
-            _aggroLevelKey = _monster.FindBlackboardKey<int>("AggroLevel");
-            _isActiveKey = _monster.FindBlackboardKey<bool>("Active");
-            
-            _aggroLevelKey.value = 0;
-            _patrolStateKey.value = true;
         }
 
         private void FixedUpdate()
@@ -236,6 +229,10 @@ namespace Runtime.AI
         {
             _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
             _monster = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
+            
+            _patrolStateKey = _monster.FindBlackboardKey<bool>("PatrolState");
+            _aggroLevelKey = _monster.FindBlackboardKey<int>("AggroLevel");
+            _isActiveKey = _monster.FindBlackboardKey<bool>("Active");
         }
         
         // ============================ Save System ============================
@@ -250,6 +247,8 @@ namespace Runtime.AI
             var monsterSave = save.monsterData[_monster.monster.ToString()];
             _menaceGaugeValue = monsterSave.menaceGaugeValue;
             _menaceState = monsterSave.menaceState;
+            _patrolStateKey.value = _menaceState;
+
             _aggroLevel = monsterSave.aggroLevel;
             _lastSeenPlayerTime = monsterSave.lastSeenPlayerTime;
         }

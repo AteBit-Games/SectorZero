@@ -157,6 +157,7 @@ namespace Runtime.Managers
                 if(InventorySystem.isInventoryOpen)
                 {
                     InventorySystem.CloseInventory();
+                    return;
                 }
             
                 if(PauseMenu.isPaused)
@@ -177,6 +178,8 @@ namespace Runtime.Managers
                     {
                         PauseMenu.Resume();
                     }
+                    
+                    return;
                 }
                 
                 if(DeathScreen.isOpen && DeathScreen.isSavesWindowOpen)
@@ -224,7 +227,15 @@ namespace Runtime.Managers
         private void OpenInventoryWindow()
         {
             if(isMainMenu) return;
-            if(!InventorySystem.isInventoryOpen && InventorySystem.isInventoryScreenEnabled) InventorySystem.OpenInventory();
+            switch (InventorySystem.isInventoryOpen)
+            {
+                case false when InventorySystem.isInventoryScreenEnabled:
+                    InventorySystem.OpenInventory();
+                    break;
+                case true:
+                    InventorySystem.CloseInventory();
+                    break;
+            }
         }
 
         private void HandlePause()

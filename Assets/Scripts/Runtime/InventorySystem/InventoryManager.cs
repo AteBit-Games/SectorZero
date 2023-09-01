@@ -61,6 +61,8 @@ namespace Runtime.InventorySystem
         
         private ActiveInventory _activeInventory = ActiveInventory.Tapes;
         private Tape _activeTape;
+        
+        private InventoryUIItem _activeItem;
 
         private void Awake()
         {
@@ -123,7 +125,10 @@ namespace Runtime.InventorySystem
             if(_activeInventory == ActiveInventory.Items) return;
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             
+            _activeItem?.Deselect();
             SelectItem(_itemsInventoryList[0].OnClick());
+            _activeItem = _itemsInventoryList[0];
+            
             _activeInventory = ActiveInventory.Items;
             UIUtils.ShowUIElement(_itemsInventoryContainer);
             _itemsInventoryContainer.pickingMode = PickingMode.Ignore;
@@ -141,7 +146,10 @@ namespace Runtime.InventorySystem
             if(_activeInventory == ActiveInventory.Tapes) return;
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
 
+            _activeItem?.Deselect();
             SelectTape(_tapesInventoryList[0].OnClick());
+            _activeItem = _tapesInventoryList[0];
+            
             _activeInventory = ActiveInventory.Tapes;
             UIUtils.HideUIElement(_itemsInventoryContainer);
             _itemsInventoryContainer.pickingMode = PickingMode.Ignore;
@@ -201,7 +209,22 @@ namespace Runtime.InventorySystem
                 : new InventoryUIItem(null, item));
                 
                 var currentIndex = index;
-                if(index < playerInventory.itemInventory.Count) item.RegisterCallback<ClickEvent>(_ => SelectItem(_itemsInventoryList[currentIndex].OnClick()));
+                if (index < playerInventory.itemInventory.Count)
+                {
+                    item.RegisterCallback<ClickEvent>(_ =>
+                    {
+                        if(_activeItem != _itemsInventoryList[currentIndex])
+                        {
+                            _activeItem.Deselect();
+                            _activeItem = _itemsInventoryList[currentIndex];
+                            SelectItem(_itemsInventoryList[currentIndex].OnClick());
+                        }
+                    });
+                    item.RegisterCallback<MouseEnterEvent>(_ =>
+                    {
+                        if(_activeItem != _itemsInventoryList[currentIndex]) GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+                    });
+                }
 
                 index++;
             }
@@ -218,8 +241,19 @@ namespace Runtime.InventorySystem
                 : new InventoryUITape(null, tape, null));
             
                 var currentIndex = index;
-                if(index < playerInventory.tapeInventory.Count) tape.RegisterCallback<ClickEvent>(_ => SelectTape(_tapesInventoryList[currentIndex].OnClick()));
-                
+                if(index < playerInventory.tapeInventory.Count){
+                    tape.RegisterCallback<ClickEvent>(_ =>
+                    {
+                        if(_activeItem != _tapesInventoryList[currentIndex])
+                        {
+                            _activeItem.Deselect();
+                            _activeItem = _tapesInventoryList[currentIndex];
+                            SelectTape(_tapesInventoryList[currentIndex].OnClick());
+                        }
+                    });
+                    tape.RegisterCallback<MouseEnterEvent>(_ => GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound()));
+                }
+
                 index++;
             }
         }

@@ -10,6 +10,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using NavMeshPlus.Components;
 using Runtime.Misc;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 namespace Runtime.Managers
 {
@@ -24,14 +26,15 @@ namespace Runtime.Managers
     {
         public List<CullingLight> cullingLightTargets;
     }
-    
+
     [Serializable]
-    public class WallCullingSection : CullingSection
+    public class CasterCullingSection : CullingSection
     {
         public Transform targetCenter;
         public float radius;
-        public GameObject cullingWallContainer;
+        public GameObject cullingCasterContainer;
     }
+
 
     [Serializable]
     public class CullingLight
@@ -46,8 +49,12 @@ namespace Runtime.Managers
         [SerializeField] private string levelDescription;
         [SerializeField] private NavMeshSurface navMeshSurface;
         [SerializeField] private Transform cullingReferencePoint;
+        
+        [SerializeField] private bool showLightTargets;
         public List<LightCullingSection> lightTargets;
-        public List<WallCullingSection> wallTargets;
+        
+        [SerializeField] private bool showCasterTargets;
+        public List<CasterCullingSection> casterTargets;
 
         private CullingGroup cullingGroup;
         private BoundingSphere[] bounds;
@@ -62,7 +69,7 @@ namespace Runtime.Managers
             cullingGroup.SetBoundingDistances(new[] { 25.0f });
 
             int count = lightTargets.Sum(section => section.cullingLightTargets.Count);
-            count += wallTargets.Count;
+            count += casterTargets.Count;
             cullingTargets = new Dictionary<int, CullingSection>(count);
 
             int index = 0;
@@ -77,8 +84,8 @@ namespace Runtime.Managers
                 }
             }
             
-
-            foreach (var section in wallTargets)
+            
+            foreach (var section in casterTargets)
             {
                 bounds[index] = new BoundingSphere(section.targetCenter.position, section.radius);
                 cullingTargets.Add(index, section);
@@ -97,12 +104,12 @@ namespace Runtime.Managers
                         customLight.gameObject.SetActive(false);
                     }
                 }
-                else if(section is WallCullingSection wallSection)
+                else if(section is CasterCullingSection castSection)
                 {
-                    for (var i = 0; i < wallSection.cullingWallContainer.gameObject.transform.childCount; i++)
+                    var casters = castSection.cullingCasterContainer.gameObject.GetComponentsInChildren<ShadowCaster2D>();
+                    foreach (var caster in casters)
                     {
-                        var wall = wallSection.cullingWallContainer.gameObject.transform.GetChild(i);
-                        wall.gameObject.SetActive(false);
+                        caster.castingOption = (ShadowCaster2D.ShadowCastingOptions)ShadowCastingMode.Off;
                     }
                 }
             }
@@ -124,12 +131,12 @@ namespace Runtime.Managers
                         customLight.gameObject.SetActive(true);
                     }
                 }
-                else if(target is WallCullingSection wallSection)
+                else if(target is CasterCullingSection castSection)
                 {
-                    for (var i = 0; i < wallSection.cullingWallContainer.gameObject.transform.childCount; i++)
+                    var casters = castSection.cullingCasterContainer.gameObject.GetComponentsInChildren<ShadowCaster2D>();
+                    foreach (var caster in casters)
                     {
-                        var wall = wallSection.cullingWallContainer.gameObject.transform.GetChild(i);
-                        wall.gameObject.SetActive(true);
+                        caster.castingOption = (ShadowCaster2D.ShadowCastingOptions)ShadowCastingMode.TwoSided;
                     }
                 }
             }
@@ -143,12 +150,12 @@ namespace Runtime.Managers
                         customLight.gameObject.SetActive(false);
                     }
                 }
-                else if(target is WallCullingSection wallSection)
+                else if(target is CasterCullingSection castSection)
                 {
-                    for (var i = 0; i < wallSection.cullingWallContainer.gameObject.transform.childCount; i++)
+                    var casters = castSection.cullingCasterContainer.gameObject.GetComponentsInChildren<ShadowCaster2D>();
+                    foreach (var caster in casters)
                     {
-                        var wall = wallSection.cullingWallContainer.gameObject.transform.GetChild(i);
-                        wall.gameObject.SetActive(false);
+                        caster.castingOption = (ShadowCaster2D.ShadowCastingOptions)ShadowCastingMode.Off;
                     }
                 }
             }
@@ -176,25 +183,29 @@ namespace Runtime.Managers
         private readonly Color[] colors = {Color.red, Color.blue, Color.green, Color.yellow, Color.cyan, Color.magenta};
         private void OnDrawGizmos()
         {
-            
-            // if (lightTargets == null) return;
-            //
-            // var index = 0;
-            // foreach (var section in lightTargets)
-            // {
-            //     Gizmos.color = colors[index];
-            //     foreach (var target in section.cullingLightTargets)
-            //     {
-            //         Gizmos.DrawWireSphere(target.targetCenter.position, target.radius);
-            //     }
-            //     index++;
-            //}
-            
-            // foreach (var section in wallTargets)
-            // {
-            //     Gizmos.color = Color.white;
-            //     Gizmos.DrawWireSphere(section.targetCenter.position, section.radius);
-            // }
+            if (showLightTargets)
+            {
+                var index = 0;
+                foreach (var section in lightTargets)
+                {
+                    Gizmos.color = colors[index];
+                    foreach (var target in section.cullingLightTargets)
+                    {
+                        Gizmos.DrawWireSphere(target.targetCenter.position, target.radius);
+                    }
+
+                    index++;
+                }
+            }
+
+            if (showCasterTargets)
+            {
+                foreach (var section in casterTargets.Where(section => section.targetCenter != null))
+                {
+                    Gizmos.color = Color.cyan;
+                    Gizmos.DrawWireSphere(section.targetCenter.position, section.radius);
+                }
+            }
         }
     }
 }

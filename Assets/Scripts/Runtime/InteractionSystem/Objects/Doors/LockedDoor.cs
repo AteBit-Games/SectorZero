@@ -16,7 +16,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
 {
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(AudioSource))]
-    public class LockedDoor : Door, IInteractable, IPersistant
+    public class LockedDoor : Door, IInteractable, IPersistant, IPowered
     {
         [SerializeField] public string persistentID;
         [SerializeField] private Item key;
@@ -26,8 +26,11 @@ namespace Runtime.InteractionSystem.Objects.Doors
         public Sound InteractSound => interactSound;
         
         [SerializeField] private Sound lockedSound;
+        [SerializeField] private Sound poweredOffSound;
         
+        public bool IsPowered { get; set; }
         protected readonly int locked = Animator.StringToHash("locked");
+        protected readonly int poweredOff = Animator.StringToHash("poweredOff");
 
         //=========================== Unity Events =============================//
 
@@ -60,13 +63,31 @@ namespace Runtime.InteractionSystem.Objects.Doors
 
         public void OnInteractFailed(GameObject player)
         {
-            GameManager.Instance.SoundSystem.Play(lockedSound, transform.GetComponent<AudioSource>());
-            mainAnimator.SetTrigger(locked);
+            if (IsPowered)
+            {
+                GameManager.Instance.SoundSystem.Play(lockedSound, transform.GetComponent<AudioSource>());
+                mainAnimator.SetTrigger(locked);
+            }
+            else
+            {
+                GameManager.Instance.SoundSystem.Play(poweredOffSound, transform.GetComponent<AudioSource>());
+                mainAnimator.SetTrigger(poweredOff);
+            }
         }
 
         public bool CanInteract()
         {
-            return GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(key);
+            return GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(key) && IsPowered;
+        }
+        
+        public void PowerOn()
+        {
+            IsPowered = true;
+        }
+        
+        public void PowerOff()
+        {
+            IsPowered = false;
         }
 
         //=========================== Save System =============================//
@@ -78,7 +99,6 @@ namespace Runtime.InteractionSystem.Objects.Doors
                 if(door)
                 {
                     mainAnimator.SetTrigger(Open);
-                    mainAnimator.SetBool(isOpen, true);
                     DisableInteraction();
                     SetBlocker(0);
                     opened = true;
@@ -89,7 +109,6 @@ namespace Runtime.InteractionSystem.Objects.Doors
                 if(startOpen)
                 {
                     mainAnimator.SetTrigger(Open);
-                    mainAnimator.SetBool(isOpen, true);
                     DisableInteraction();
                     SetBlocker(0);
                     opened = true;

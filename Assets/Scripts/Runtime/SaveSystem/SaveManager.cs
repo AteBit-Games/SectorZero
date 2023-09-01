@@ -10,7 +10,6 @@ using UnityEngine;
 using System.Linq;
 using Runtime.Managers;
 using Runtime.SaveSystem.Data;
-using Runtime.Utils;
 using UnityEngine.SceneManagement;
 
 namespace Runtime.SaveSystem
@@ -36,7 +35,6 @@ namespace Runtime.SaveSystem
         private Dictionary<Texture2D, SaveGame> _saveGames = new();
         private PlayerData _playerData;
         private SaveGame _activeSave;
-        public SaveGame ActiveSave => _activeSave;
 
         // ======================================= UNITY METHODS =======================================
         
@@ -97,7 +95,7 @@ namespace Runtime.SaveSystem
 
         public void SaveGame()
         {
-            if (_saveGames.Count == 3) _dataHandler.DeleteSave(_saveGames.Values.Last().saveTime);
+            if (_saveGames.Count >= 3) _dataHandler.DeleteSave(_saveGames.Values.Last().saveTime);
  
             _activeSave ??= new SaveGame();
             SaveGame saveGame = new()

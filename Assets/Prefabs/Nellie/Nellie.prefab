@@ -454,8 +454,6 @@ GameObject:
   - component: {fileID: 1954427526}
   - component: {fileID: 4562999743767145021}
   - component: {fileID: 2089148865}
-  - component: {fileID: 5917809955718182057}
-  - component: {fileID: 5166940963607042472}
   m_Layer: 8
   m_Name: Nellie
   m_TagString: Player
@@ -751,30 +749,6 @@ AudioLowPassFilter:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5917809955718182057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976050650754180519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 120b5cc77742d3f48a45208d765c0d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5166940963607042472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976050650754180519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 120b5cc77742d3f48a45208d765c0d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4412620557757542691
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <uie:PropertyField binding-path="interactSound" name="property" />
             <uie:PropertyField binding-path="lockedSound" name="property" />
+            <uie:PropertyField binding-path="poweredOffSound" name="property" />
             <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
             <uie:PropertyField binding-path="openSound" name="property" />
             <uie:PropertyField binding-path="closeSound" name="property" />

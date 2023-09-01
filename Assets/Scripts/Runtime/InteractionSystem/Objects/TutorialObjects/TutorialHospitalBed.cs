@@ -10,12 +10,14 @@ using Runtime.Managers.Tutorial;
 using Runtime.Player.Nellient;
 using Runtime.SoundSystem;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 namespace Runtime.InteractionSystem.Objects.TutorialObjects
 {
     public class TutorialHospitalBed : MonoBehaviour, IInteractable
     {
+        [SerializeField] private UnityEvent onInteract;
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         [SerializeField] private Animator towelAnimator;
@@ -43,6 +45,8 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
         {
             var nellient = player.GetComponentInParent<TutorialNellient>();
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
+            onInteract.Invoke();
+            
             nellient.StartGame();
             Finish();
             return true;
