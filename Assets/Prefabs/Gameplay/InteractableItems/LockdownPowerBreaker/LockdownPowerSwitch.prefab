@@ -48,9 +48,9 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.45
+  m_FalloffIntensity: 0.732
   m_Color: {r: 1, g: 0.8228886, b: 0.6084906, a: 1}
-  m_Intensity: 1.4
+  m_Intensity: 1.1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000bd926ea1
@@ -71,10 +71,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 36.68
-  m_PointLightOuterAngle: 252.83
-  m_PointLightInnerRadius: 0.3170294
-  m_PointLightOuterRadius: 2.2625115
+  m_PointLightInnerAngle: 187.8611
+  m_PointLightOuterAngle: 357.63776
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.3792615
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -147,9 +147,9 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.45
+  m_FalloffIntensity: 0.732
   m_Color: {r: 1, g: 0.8228886, b: 0.6084906, a: 1}
-  m_Intensity: 1.4
+  m_Intensity: 1.1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000bd926ea1
@@ -170,10 +170,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 36.68
-  m_PointLightOuterAngle: 252.83
-  m_PointLightInnerRadius: 0.3170294
-  m_PointLightOuterRadius: 1.8834143
+  m_PointLightInnerAngle: 187.8611
+  m_PointLightOuterAngle: 357.63776
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.3792615
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -558,9 +558,9 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.45
+  m_FalloffIntensity: 0.732
   m_Color: {r: 1, g: 0.8228886, b: 0.6084906, a: 1}
-  m_Intensity: 1.4
+  m_Intensity: 1.1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000bd926ea1
@@ -581,10 +581,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 36.68
-  m_PointLightOuterAngle: 252.83
-  m_PointLightInnerRadius: 0.3170294
-  m_PointLightOuterRadius: 2.1799178
+  m_PointLightInnerAngle: 187.8611
+  m_PointLightOuterAngle: 357.63776
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.3792615
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -657,9 +657,9 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.45
+  m_FalloffIntensity: 0.732
   m_Color: {r: 1, g: 0.8228886, b: 0.6084906, a: 1}
-  m_Intensity: 1.4
+  m_Intensity: 1.1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000bd926ea1
@@ -680,10 +680,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 36.68
-  m_PointLightOuterAngle: 252.83
-  m_PointLightInnerRadius: 0.3170294
-  m_PointLightOuterRadius: 1.8834143
+  m_PointLightInnerAngle: 187.8611
+  m_PointLightOuterAngle: 357.63776
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.3792615
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -756,9 +756,9 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.45
+  m_FalloffIntensity: 0.732
   m_Color: {r: 1, g: 0.8228886, b: 0.6084906, a: 1}
-  m_Intensity: 1.4
+  m_Intensity: 1.1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000bd926ea1
@@ -779,10 +779,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 36.68
-  m_PointLightOuterAngle: 252.83
-  m_PointLightInnerRadius: 0.3170294
-  m_PointLightOuterRadius: 2.2625115
+  m_PointLightInnerAngle: 187.8611
+  m_PointLightOuterAngle: 357.63776
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.3792615
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
