@@ -14,11 +14,16 @@ namespace Runtime.Temporary
         
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.P) && !isTriggered)
+            if (Input.GetKeyDown(KeyCode.P) && !isTriggered && GameManager.Instance.TestMode)
             {
                 GameManager.Instance.SaveSystem.SaveGame();
                 isTriggered = true;
             }
+        }
+
+        public void EndGame()
+        {
+            GameManager.Instance.EndGame();
         }
     }
 }

@@ -10,6 +10,7 @@ using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.SoundSystem;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Runtime.InteractionSystem.Objects.Powered
 {
@@ -30,6 +31,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         //----- Private Variables -----//
         private Animator _animator;
+        private Light2D _light;
         private static readonly int Powered = Animator.StringToHash("powered");
 
         //========================= Unity events =========================//
@@ -37,6 +39,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            _light = transform.parent.gameObject.GetComponentInChildren<Light2D>();
             _isPowered = startPowered;
         }
 
@@ -77,6 +80,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
             
             PowerStateChanged?.Invoke(this, state);
             _animator.SetBool(Powered, state);
+            _light.enabled = state;
         }
 
     }
