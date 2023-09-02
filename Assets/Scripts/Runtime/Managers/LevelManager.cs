@@ -181,7 +181,7 @@ namespace Runtime.Managers
 
         
         private readonly Color[] colors = {Color.red, Color.blue, Color.green, Color.yellow, Color.cyan, Color.magenta};
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             if (showLightTargets)
             {
