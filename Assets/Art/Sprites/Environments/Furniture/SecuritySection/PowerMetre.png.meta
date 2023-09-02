@@ -253,6 +253,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PowerMetre_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9fd760a3fcdf9f448202a385a77a05c
+      internalID: 1627856509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -271,6 +292,7 @@ TextureImporter:
       PowerMetre_4: 912491469
       PowerMetre_5: 1543065420
       PowerMetre_6: -1370197710
+      PowerMetre_7: 1627856509
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
