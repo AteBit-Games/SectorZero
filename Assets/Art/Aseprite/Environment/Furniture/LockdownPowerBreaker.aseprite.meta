@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: LockdownPowerBreaker_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.025641024}
+    pivot: {x: 0.5, y: -0.021739129}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -129,7 +129,7 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 20
-      height: 39
+      height: 46
     spriteID: 74e11383a9f22f04ebbcfbf5cd679179
     spriteBone: []
     spriteOutline: []
@@ -141,15 +141,15 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: LockdownPowerBreaker_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: -0.025641024}
+    pivot: {x: 0.5, y: -0.033333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 51
+      y: 58
       width: 20
-      height: 39
+      height: 30
     spriteID: a3c8ebd16a633ad458cfb4ec01eada75
     spriteBone: []
     spriteOutline: []
@@ -158,10 +158,10 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 51}
+    uvTransform: {x: 4, y: 58}
   - name: LockdownPowerBreaker_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: -0.025641024}
+    pivot: {x: 0.5, y: -0.033333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -169,7 +169,7 @@ ScriptedImporter:
       x: 32
       y: 4
       width: 20
-      height: 39
+      height: 30
     spriteID: b1c23504ab54b3b40b704e8ce5636240
     spriteBone: []
     spriteOutline: []
@@ -181,15 +181,15 @@ ScriptedImporter:
     uvTransform: {x: 32, y: 4}
   - name: LockdownPowerBreaker_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: -0.025641024}
+    pivot: {x: 0.5, y: -0.033333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 32
-      y: 51
+      y: 42
       width: 20
-      height: 39
+      height: 30
     spriteID: 14bc73e64d5f36f4bbbdfba4a73fe491
     spriteBone: []
     spriteOutline: []
@@ -198,7 +198,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 32, y: 51}
+    uvTransform: {x: 32, y: 42}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -214,7 +214,7 @@ ScriptedImporter:
         x: 6
         y: 1
         width: 20
-        height: 39
+        height: 46
       spriteId: 74e11383a9f22f04ebbcfbf5cd679179
     - name: LockdownPowerBreaker_Frame_1
       frameIndex: 1
@@ -222,7 +222,7 @@ ScriptedImporter:
         x: 6
         y: 1
         width: 20
-        height: 39
+        height: 30
       spriteId: a3c8ebd16a633ad458cfb4ec01eada75
     - name: LockdownPowerBreaker_Frame_2
       frameIndex: 2
@@ -230,7 +230,7 @@ ScriptedImporter:
         x: 6
         y: 1
         width: 20
-        height: 39
+        height: 30
       spriteId: b1c23504ab54b3b40b704e8ce5636240
     - name: LockdownPowerBreaker_Frame_3
       frameIndex: 3
@@ -238,7 +238,7 @@ ScriptedImporter:
         x: 6
         y: 1
         width: 20
-        height: 39
+        height: 30
       spriteId: 14bc73e64d5f36f4bbbdfba4a73fe491
     linkedCells: []
     parentIndex: -1
