@@ -96,7 +96,8 @@ namespace Runtime.BehaviourTree
 
         private Coroutine _loseSightCoroutine;
         private Coroutine _gainSightCoroutine;
-        private Tween<float> _activeTween;
+        private Tween<float> _activeVignetteTween;
+        private Tween<float> _activeAberrationTween;
 
         // ====================== Unity Events ======================
         
@@ -116,7 +117,7 @@ namespace Runtime.BehaviourTree
                 behaviourTree = null;
             }
             
-            if(GameManager.Instance.TestMode) SetupReferences();
+            SetupReferences();
             
             var sightVisual = Instantiate(sightVisualPrefab, transform);
             _material = sightVisual.GetComponent<MeshRenderer>().material;
@@ -193,8 +194,8 @@ namespace Runtime.BehaviourTree
                 var volume = FindFirstObjectByType<Volume>();
                 var vignette = volume.sharedProfile.components[0] as Vignette;
 
-                if(_activeTween != null) _activeTween.Cancel();
-                _activeTween = volume.TweenValueFloat(0.3f, 1.4f, value =>
+                if(_activeVignetteTween != null) _activeVignetteTween.Cancel();
+                _activeVignetteTween = volume.TweenValueFloat(0.3f, 1.4f, value =>
                 {
                     if (vignette != null) vignette.intensity.value = value;
                 }).SetFrom(0f).SetEaseSineInOut();
@@ -211,8 +212,8 @@ namespace Runtime.BehaviourTree
                 var volume = FindFirstObjectByType<Volume>();
                 var vignette = volume.sharedProfile.components[0] as Vignette;
             
-                if(_activeTween != null) _activeTween.Cancel();
-                _activeTween = volume.TweenValueFloat(0f, 1f, value =>
+                if(_activeVignetteTween != null) _activeVignetteTween.Cancel();
+                _activeVignetteTween = volume.TweenValueFloat(0f, 1f, value =>
                 {
                     if (vignette != null) vignette.intensity.value = value;
                 }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
@@ -231,7 +232,7 @@ namespace Runtime.BehaviourTree
         
         private IEnumerator LoseSight()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             
             FindFirstObjectByType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
             _material.color = idleColour;
@@ -239,12 +240,19 @@ namespace Runtime.BehaviourTree
             var volume = FindFirstObjectByType<Volume>();
             var vignette = volume.sharedProfile.components[0] as Vignette;
             
-            if(_activeTween != null) _activeTween.Cancel();
-            _activeTween = volume.TweenValueFloat(0f, 1f, value =>
+            if(_activeVignetteTween != null) _activeVignetteTween.Cancel();
+            _activeVignetteTween = volume.TweenValueFloat(0f, 1f, value =>
             {
                 if (vignette != null) vignette.intensity.value = value;
             }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
             
+            var aberration = volume.sharedProfile.components[1] as ChromaticAberration;
+            if(_activeAberrationTween != null) _activeAberrationTween.Cancel();
+            _activeAberrationTween = volume.TweenValueFloat(0f, 1f, value =>
+            {
+                if (aberration != null) aberration.intensity.value = value;
+            }).SetFrom(aberration.intensity.value).SetEaseSineInOut();
+
             if(treeStates.Find(x => x.state == TreeState.State.InspectPoint) == null) Debug.LogError("No last known state specified");
             else
             {
@@ -262,13 +270,21 @@ namespace Runtime.BehaviourTree
             var volume = FindFirstObjectByType<Volume>();
             var vignette = volume.sharedProfile.components[0] as Vignette;
             
-            if(_activeTween != null) _activeTween.Cancel();
-            _activeTween = volume.TweenValueFloat(0.3f, 1.4f, value =>
+            if(_activeVignetteTween != null) _activeVignetteTween.Cancel();
+            _activeVignetteTween = volume.TweenValueFloat(0.3f, 1.4f, value =>
             {
                 if (vignette != null) vignette.intensity.value = value;
             }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
             
             yield return new WaitForSeconds(1.2f);
+            
+            var aberration = volume.sharedProfile.components[1] as ChromaticAberration;
+            if(_activeAberrationTween != null) _activeAberrationTween.Cancel();
+            _activeAberrationTween = volume.TweenValueFloat(0.8f, 1f, value =>
+            {
+                if (aberration != null) aberration.intensity.value = value;
+            }).SetFrom(0).SetEaseSineInOut();
+            
             GameManager.Instance.SoundSystem.PlaySting(detectedSound);
                 
             if(treeStates.Find(x => x.state == TreeState.State.AggroChase) == null) Debug.LogError("No aggro state found");

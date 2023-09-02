@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6636707959210414672}
   - component: {fileID: 2320729875722193346}
   - component: {fileID: 3836262854037264766}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: NavigationBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ MonoBehaviour:
   viewAngle: 37
   lookAngle: 98
   deactivateDelay: 0.5
-  startActive: 1
+  startActive: 0
   detectSound: {fileID: 11400000, guid: 3e58a5000fec3bd4e882873694e3d6a8, type: 2}
   intensity: 0.2
   defaultColor: {r: 0.96862745, g: 0.95686275, b: 1, a: 1}

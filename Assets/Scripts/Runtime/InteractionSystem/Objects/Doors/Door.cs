@@ -57,6 +57,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
         protected void SetBlocker(int enabled)
         {
             navigationBlocker.gameObject.SetActive(enabled > 0);
+            navMeshSurface.UpdateNavMesh(navMeshSurface.navMeshData);
         }
 
         //=========================== Private Events =============================//

@@ -125,7 +125,6 @@ namespace Runtime.Managers
                 var target = cullingTargets[group.index];
                 if(target is LightCullingSection lightSection)
                 {
-                    Debug.Log($"Target {target} is a light section");
                     foreach (var customLight in lightSection.cullingLightTargets.SelectMany(cullingLight => cullingLight.lights))
                     {
                         customLight.UnCull();

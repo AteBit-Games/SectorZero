@@ -81,7 +81,7 @@ namespace Runtime.Misc
         {
             light.enabled = false;
             IsPowered = false;
-            AudioSource.mute = true;
+            if(AudioSource != null) AudioSource.mute = true;
             if (_coroutine != null)
             {
                 StopCoroutine(_coroutine);

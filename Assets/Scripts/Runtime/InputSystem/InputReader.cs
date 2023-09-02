@@ -100,7 +100,6 @@ namespace Runtime.InputSystem
             if(context.phase == InputActionPhase.Performed)
             {
                 OpenInventoryEvent?.Invoke();
-                SetUI();
             }
         }
 

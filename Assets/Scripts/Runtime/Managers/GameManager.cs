@@ -156,7 +156,6 @@ namespace Runtime.Managers
                 }
                 else
                 {
-                    SoundSystem.Play(menuClickSound);
                     mainMenu.CloseAllPopups();
                 }
             }
@@ -203,6 +202,11 @@ namespace Runtime.Managers
             inputReader.SetGameplay();
         }
         
+        public void DisableInput()
+        {
+            inputReader.SetUI();    
+        }
+        
         public void LoadScene(int sceneIndex)
         {
             TestMode = false;
@@ -234,7 +238,7 @@ namespace Runtime.Managers
         
         private void OpenInventoryWindow()
         {
-            if(isMainMenu) return;
+            if(isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
             switch (InventorySystem.isInventoryOpen)
             {
                 case false when InventorySystem.isInventoryScreenEnabled:
@@ -257,6 +261,8 @@ namespace Runtime.Managers
             var volume = FindFirstObjectByType<Volume>();
             var vignette = volume.sharedProfile.components[0] as Vignette;
             if (vignette != null) vignette.intensity.value = 0f;
+            var aberration = volume.sharedProfile.components[1] as ChromaticAberration;
+            if (aberration != null) aberration.intensity.value = 0f;
 
             //Required objects for all scenes
             _camera = FindFirstObjectByType<CinemachineVirtualCamera>();

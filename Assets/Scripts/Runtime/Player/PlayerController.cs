@@ -99,18 +99,18 @@ namespace Runtime.Player
         {
             inputReader.MoveEvent += HandleMove;
             inputReader.SneakEvent += HandleSneak;
-            inputReader.AimEvent += HandleAim;
-            inputReader.AimCancelEvent += HandleAimCancel;
-            inputReader.LeftClickEvent += HandleThrow;
+            //inputReader.AimEvent += HandleAim;
+            //inputReader.AimCancelEvent += HandleAimCancel;
+            //inputReader.LeftClickEvent += HandleThrow;
         }
 
         private void OnDisable()
         {
             inputReader.MoveEvent -= HandleMove;
             inputReader.SneakEvent -= HandleSneak;
-            inputReader.AimEvent -= HandleAim;
-            inputReader.AimCancelEvent -= HandleAimCancel;
-            inputReader.LeftClickEvent -= HandleThrow;
+            //inputReader.AimEvent -= HandleAim;
+            //inputReader.AimCancelEvent -= HandleAimCancel;
+            //inputReader.LeftClickEvent -= HandleThrow;
         }
 
         private void Awake()
@@ -324,6 +324,7 @@ namespace Runtime.Player
 
         public void LoadData(SaveGame game)
         {
+            Debug.Log(game.playerData.position);
             FindFirstObjectByType<CinemachineTargetGroup>().transform.position = game.playerData.position;
             transform.position = game.playerData.position;
             lookPointer.position = new Vector2(transform.position.x, transform.position.y + 2.5f);

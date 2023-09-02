@@ -48,6 +48,11 @@ namespace Runtime.SaveSystem
 
         private void Start()
         {
+            RegisterSaves();
+        }
+
+        public void RegisterSaves()
+        {
             _saveGames = _dataHandler.LoadSaves();
             saveExists = _saveGames.Count > 0;
         }

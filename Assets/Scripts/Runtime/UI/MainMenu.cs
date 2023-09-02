@@ -57,6 +57,8 @@ namespace Runtime.UI
 
         private void Start()
         {
+            GameManager.Instance.SaveSystem.RegisterSaves();
+            
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;
             _feedbackForm = FindFirstObjectByType<FeedbackForm>();

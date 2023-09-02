@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 461143468751046783}
   - component: {fileID: 1253724928}
   - component: {fileID: 6610655758530805637}
-  - component: {fileID: 7183558221093178581}
   m_Layer: 3
   m_Name: LockerFront
   m_TagString: Untagged
@@ -147,6 +146,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   canTrigger: 0
+  canExit: 1
 --- !u!82 &461143468751046658
 AudioSource:
   m_ObjectHideFlags: 0
@@ -328,54 +328,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.4977815, y: 1.0201683}
   m_EdgeRadius: 0
---- !u!114 &7183558221093178581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461143468751046662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_Priority: 11
-  m_ComponentVersion: 3
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 0
-  m_CastsShadows: 1
-  m_SelfShadows: 1
-  m_AlphaCutoff: 0.1
-  m_ApplyToSortingLayers: 0000000073213335
-  m_ShapePath:
-  - {x: -0.8125, y: 0.038820982, z: 0}
-  - {x: -0.8125, y: 4.288821, z: 0}
-  - {x: 0.8125, y: 4.288821, z: 0}
-  - {x: 0.8125, y: 0.038820982, z: 0}
-  m_ShapePathHash: 1717755125
-  m_InstanceId: -1550
-  m_ShadowShape2DComponent: {fileID: 0}
-  m_ShadowShape2DProvider:
-    rid: -2
-  m_ShadowCastingSource: 1
-  m_ShadowMesh:
-    m_Mesh: {fileID: 0}
-    m_LocalBounds:
-      m_Center: {x: 0, y: 2.163821, z: 0}
-      m_Extent: {x: 0.8125, y: 2.125, z: 0}
-    m_EdgeProcessing: 1
-    m_TrimEdge: 0
-    m_FlipX: 0
-    m_FlipY: 0
-    m_InitialTrim: 0
-  m_CastingOption: 2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!1 &461143469602724629
 GameObject:
   m_ObjectHideFlags: 0

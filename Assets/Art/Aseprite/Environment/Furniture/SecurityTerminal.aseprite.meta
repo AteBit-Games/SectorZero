@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: SecurityTerminal_Frame_0
     originalName: 
-    pivot: {x: 0.50000006, y: -0.037037037}
+    pivot: {x: 0.5, y: -0.36585364}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 55
-      height: 54
+      width: 51
+      height: 41
     spriteID: e42113688f94785458fb3d46334537a1
     spriteBone: []
     spriteOutline: []
@@ -141,15 +141,15 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: SecurityTerminal_Frame_1
     originalName: 
-    pivot: {x: 0.50000006, y: -0.037037037}
+    pivot: {x: 0.5, y: -0.36585364}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 66
-      width: 55
-      height: 54
+      y: 53
+      width: 51
+      height: 41
     spriteID: 67038f5e94ec87b44b2cc1bf648438cf
     spriteBone: []
     spriteOutline: []
@@ -158,18 +158,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 66}
+    uvTransform: {x: 4, y: 53}
   - name: SecurityTerminal_Frame_2
     originalName: 
-    pivot: {x: 0.50000006, y: -0.037037037}
+    pivot: {x: 0.5, y: -0.36585364}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 128
-      width: 55
-      height: 54
+      y: 102
+      width: 51
+      height: 41
     spriteID: 758bf9a956009f0419c3f864c02446ce
     spriteBone: []
     spriteOutline: []
@@ -178,18 +178,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 128}
+    uvTransform: {x: 4, y: 102}
   - name: SecurityTerminal_Frame_3
     originalName: 
-    pivot: {x: 0.50000006, y: -0.037037037}
+    pivot: {x: 0.5, y: -0.36585364}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 190
-      width: 55
-      height: 54
+      y: 151
+      width: 51
+      height: 41
     spriteID: f46d536790e46894485f5db47e699f56
     spriteBone: []
     spriteOutline: []
@@ -198,18 +198,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 190}
+    uvTransform: {x: 4, y: 151}
   - name: SecurityTerminal_Frame_4
     originalName: 
-    pivot: {x: 0.50000006, y: -0.037037037}
+    pivot: {x: 0.5, y: -0.36585364}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 67
-      y: 4
-      width: 55
-      height: 54
+      x: 4
+      y: 200
+      width: 51
+      height: 41
     spriteID: f8e671b5b3bcb6a4c84c621c5dee93d3
     spriteBone: []
     spriteOutline: []
@@ -218,18 +218,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 67, y: 4}
+    uvTransform: {x: 4, y: 200}
   - name: SecurityTerminal_Frame_5
     originalName: 
-    pivot: {x: 0.50000006, y: -0.037037037}
+    pivot: {x: 0.5, y: -0.36585364}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 67
-      y: 66
-      width: 55
-      height: 54
+      x: 63
+      y: 4
+      width: 51
+      height: 41
     spriteID: 12b8281c4545a7f47a97f517962e1a39
     spriteBone: []
     spriteOutline: []
@@ -238,18 +238,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 67, y: 66}
+    uvTransform: {x: 63, y: 4}
   - name: SecurityTerminal_Frame_6
     originalName: 
-    pivot: {x: 0.50000006, y: -0.037037037}
+    pivot: {x: 0.5, y: -0.36585364}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 67
-      y: 128
-      width: 55
-      height: 54
+      x: 63
+      y: 53
+      width: 51
+      height: 41
     spriteID: f9f857ac0614a2e4bbeaf4f124f340ee
     spriteBone: []
     spriteOutline: []
@@ -258,7 +258,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 67, y: 128}
+    uvTransform: {x: 63, y: 53}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -271,58 +271,58 @@ ScriptedImporter:
     - name: SecurityTerminal_Frame_0
       frameIndex: 0
       cellRect:
-        x: 2
-        y: 2
-        width: 55
-        height: 54
+        x: 4
+        y: 15
+        width: 51
+        height: 41
       spriteId: e42113688f94785458fb3d46334537a1
     - name: SecurityTerminal_Frame_1
       frameIndex: 1
       cellRect:
-        x: 2
-        y: 2
-        width: 55
-        height: 54
+        x: 4
+        y: 15
+        width: 51
+        height: 41
       spriteId: 67038f5e94ec87b44b2cc1bf648438cf
     - name: SecurityTerminal_Frame_2
       frameIndex: 2
       cellRect:
-        x: 2
-        y: 2
-        width: 55
-        height: 54
+        x: 4
+        y: 15
+        width: 51
+        height: 41
       spriteId: 758bf9a956009f0419c3f864c02446ce
     - name: SecurityTerminal_Frame_3
       frameIndex: 3
       cellRect:
-        x: 2
-        y: 2
-        width: 55
-        height: 54
+        x: 4
+        y: 15
+        width: 51
+        height: 41
       spriteId: f46d536790e46894485f5db47e699f56
     - name: SecurityTerminal_Frame_4
       frameIndex: 4
       cellRect:
-        x: 2
-        y: 2
-        width: 55
-        height: 54
+        x: 4
+        y: 15
+        width: 51
+        height: 41
       spriteId: f8e671b5b3bcb6a4c84c621c5dee93d3
     - name: SecurityTerminal_Frame_5
       frameIndex: 5
       cellRect:
-        x: 2
-        y: 2
-        width: 55
-        height: 54
+        x: 4
+        y: 15
+        width: 51
+        height: 41
       spriteId: 12b8281c4545a7f47a97f517962e1a39
     - name: SecurityTerminal_Frame_6
       frameIndex: 6
       cellRect:
-        x: 2
-        y: 2
-        width: 55
-        height: 54
+        x: 4
+        y: 15
+        width: 51
+        height: 41
       spriteId: f9f857ac0614a2e4bbeaf4f124f340ee
     linkedCells: []
     parentIndex: -1

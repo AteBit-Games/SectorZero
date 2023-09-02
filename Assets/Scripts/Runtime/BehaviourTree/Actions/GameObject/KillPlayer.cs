@@ -2,6 +2,7 @@ using System;
 using Runtime.Player;
 using Runtime.Utils;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Runtime.BehaviourTree.Actions.GameObject 
 {
@@ -56,6 +57,8 @@ namespace Runtime.BehaviourTree.Actions.GameObject
             {
                 playerController.Die();
             }
+            
+            context.owner.gameObject.GetComponent<SortingGroup>().sortingOrder = 9999;
         }
     
         protected override void OnStop() { }

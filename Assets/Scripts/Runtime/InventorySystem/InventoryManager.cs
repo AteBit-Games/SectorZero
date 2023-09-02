@@ -101,6 +101,8 @@ namespace Runtime.InventorySystem
 
         public void OpenInventory()
         {
+            GameManager.Instance.SoundSystem.PauseAll();
+            GameManager.Instance.DisableInput();
             Time.timeScale = 0;
             UIUtils.ShowUIElement(_inventoryWindow);
             isInventoryOpen = true;
