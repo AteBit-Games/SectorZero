@@ -274,6 +274,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SecurityTerminalCardReader_8
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 0
+        width: 59
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7052f218bf25b6444827d083e9b705da
+      internalID: -383274934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -293,6 +314,7 @@ TextureImporter:
       SecurityTerminalCardReader_5: 918884468
       SecurityTerminalCardReader_6: 911906748
       SecurityTerminalCardReader_7: -632055620
+      SecurityTerminalCardReader_8: -383274934
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

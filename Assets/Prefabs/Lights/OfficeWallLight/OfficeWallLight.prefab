@@ -146,6 +146,7 @@ MonoBehaviour:
   loopSound: {fileID: 11400000, guid: 642ecbeaba520d0469082481e91a9bca, type: 2}
   offSound: {fileID: 11400000, guid: 2d9b75a258c4beb4aa7778758de6f4d9, type: 2}
   volumeScale: 0.2
+  isCulled: 0
 --- !u!82 &9071387947849427204
 AudioSource:
   m_ObjectHideFlags: 0
@@ -302,7 +303,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9de0fdd37e4a63c459326cb9bfc943d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
