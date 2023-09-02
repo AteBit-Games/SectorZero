@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e22af7103e0a17a4284dcfcf5bc10293
+guid: 3be04a65ca057264f8172714994f69d9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,7 +107,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SecurityTerminal_0
+      name: SecurityTerminalCardReader_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,14 +121,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 164a592e84504d84d82f05463425b4e4
-      internalID: -1839296065
+      spriteID: c4eb7b09229c125499aa65aa2f8a1481
+      internalID: -776494847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecurityTerminal_1
+      name: SecurityTerminalCardReader_1
       rect:
         serializedVersion: 2
         x: 59
@@ -142,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4990a78bdd67aac498c1901f395af19f
-      internalID: -1774203249
+      spriteID: 6f52ce97ea8e01d41ab97ba668ccdf31
+      internalID: 2041144955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecurityTerminal_2
+      name: SecurityTerminalCardReader_2
       rect:
         serializedVersion: 2
         x: 118
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d470d4ca60a488041954c1013a3b56b3
-      internalID: 1659269801
+      spriteID: 7c35e3b17d52647408f3c5bbfbffff6c
+      internalID: 1359392019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecurityTerminal_3
+      name: SecurityTerminalCardReader_3
       rect:
         serializedVersion: 2
         x: 177
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ae174c6e3864704fb4a0beab2a953f8
-      internalID: -1321878962
+      spriteID: 43159804fc2bdaa41bc0b5de6629cd27
+      internalID: 944727968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecurityTerminal_4
+      name: SecurityTerminalCardReader_4
       rect:
         serializedVersion: 2
         x: 236
@@ -205,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3067c77f1a5b6146b5f4b005b6de45c
-      internalID: 593550854
+      spriteID: 6e75145bb2bb6964f97fde196376a34d
+      internalID: 978304624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecurityTerminal_5
+      name: SecurityTerminalCardReader_5
       rect:
         serializedVersion: 2
         x: 295
@@ -226,14 +226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64cd9c41f97e1bf40a98cb13be2b896e
-      internalID: -1786868046
+      spriteID: fc42aeffa84a6324aa1b41937a9a1407
+      internalID: 918884468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecurityTerminal_6
+      name: SecurityTerminalCardReader_6
       rect:
         serializedVersion: 2
         x: 354
@@ -247,14 +247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cb09eeb75bd0d54791c88e1193e1af1
-      internalID: 1506285072
+      spriteID: aec5f2ba5f364fe43a8c7ddd4df2378a
+      internalID: 911906748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SecurityTerminal_7
+      name: SecurityTerminalCardReader_7
       rect:
         serializedVersion: 2
         x: 413
@@ -268,8 +268,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b126a38bf1cf1cb4485e02615a2b5f10
-      internalID: -244736815
+      spriteID: 98cb8222f0ddfdc49ba5e19333b600c0
+      internalID: -632055620
       vertices: []
       indices: 
       edges: []
@@ -285,14 +285,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SecurityTerminal_0: -1839296065
-      SecurityTerminal_1: -1774203249
-      SecurityTerminal_2: 1659269801
-      SecurityTerminal_3: -1321878962
-      SecurityTerminal_4: 593550854
-      SecurityTerminal_5: -1786868046
-      SecurityTerminal_6: 1506285072
-      SecurityTerminal_7: -244736815
+      SecurityTerminalCardReader_0: -776494847
+      SecurityTerminalCardReader_1: 2041144955
+      SecurityTerminalCardReader_2: 1359392019
+      SecurityTerminalCardReader_3: 944727968
+      SecurityTerminalCardReader_4: 978304624
+      SecurityTerminalCardReader_5: 918884468
+      SecurityTerminalCardReader_6: 911906748
+      SecurityTerminalCardReader_7: -632055620
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
