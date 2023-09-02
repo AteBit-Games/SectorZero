@@ -18,6 +18,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
 
+        [SerializeField] private SecurityTerminal securityTerminal;
         [SerializeField] private List<FuseBox> fuseBoxes;
         [SerializeField] private Animator meterAnimator;
 
@@ -63,6 +64,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _animator.SetBool(Powered, false);
                 _isPowered = false;
                 _mainLight.enabled = false;
+                securityTerminal.PowerOff();
             }
         }
         
@@ -85,15 +87,13 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _animator.SetBool(Powered, true);
                 _mainLight.enabled = true;
                 _isPowered = true;
+                securityTerminal.PowerOn();
             }
             else
             {
                 _animator.SetTrigger(Failure);
             }
             
-            // GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
-            // _isPowered = !_isPowered;
-            // SetPowered(_isPowered);
             return true;
         }
 

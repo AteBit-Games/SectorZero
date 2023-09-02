@@ -9,7 +9,6 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using NavMeshPlus.Components;
-using Runtime.Misc;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -21,11 +20,11 @@ namespace Runtime.Managers
         public string tag;
     }
 
-    [Serializable]
-    public class LightCullingSection : CullingSection
-    {
-        public List<CullingLight> cullingLightTargets;
-    }
+    // [Serializable]
+    // public class LightCullingSection : CullingSection
+    // {
+    //     public List<CullingLight> cullingLightTargets;
+    // }
 
     [Serializable]
     public class CasterCullingSection : CullingSection
@@ -35,14 +34,14 @@ namespace Runtime.Managers
         public GameObject cullingCasterContainer;
     }
 
-
-    [Serializable]
-    public class CullingLight
-    {
-        public Transform targetCenter;
-        public float radius;
-        public List<CustomLight> lights;
-    }
+    //
+    // [Serializable]
+    // public class CullingLight
+    // {
+    //     public Transform targetCenter;
+    //     public float radius;
+    //     public List<CustomLight> lights;
+    // }
     
     public class LevelManager : MonoBehaviour
     {
@@ -50,8 +49,8 @@ namespace Runtime.Managers
         [SerializeField] private NavMeshSurface navMeshSurface;
         [SerializeField] private Transform cullingReferencePoint;
         
-        [SerializeField] private bool showLightTargets;
-        public List<LightCullingSection> lightTargets;
+        // [SerializeField] private bool showLightTargets;
+        // public List<LightCullingSection> lightTargets;
         
         [SerializeField] private bool showCasterTargets;
         public List<CasterCullingSection> casterTargets;
@@ -68,21 +67,22 @@ namespace Runtime.Managers
             cullingGroup.SetDistanceReferencePoint(cullingReferencePoint);
             cullingGroup.SetBoundingDistances(new[] { 25.0f });
 
-            int count = lightTargets.Sum(section => section.cullingLightTargets.Count);
-            count += casterTargets.Count;
+            // int count = lightTargets.Sum(section => section.cullingLightTargets.Count);
+            // count += casterTargets.Count;
+            int count = casterTargets.Count;
             cullingTargets = new Dictionary<int, CullingSection>(count);
 
             int index = 0;
             bounds = new BoundingSphere[count];
-            foreach (var section in lightTargets)
-            {
-                foreach (var target in section.cullingLightTargets)
-                {
-                    bounds[index] = new BoundingSphere(target.targetCenter.position, target.radius);
-                    cullingTargets.Add(index, section);
-                    index++;
-                }
-            }
+            // foreach (var section in lightTargets)
+            // {
+            //     foreach (var target in section.cullingLightTargets)
+            //     {
+            //         bounds[index] = new BoundingSphere(target.targetCenter.position, target.radius);
+            //         cullingTargets.Add(index, section);
+            //         index++;
+            //     }
+            // }
             
             
             foreach (var section in casterTargets)
@@ -97,14 +97,15 @@ namespace Runtime.Managers
 
             foreach (var section in cullingTargets.Values)
             {
-                if(section is LightCullingSection lightSection)
-                {
-                    foreach (var customLight in lightSection.cullingLightTargets.SelectMany(target => target.lights))
-                    {
-                        customLight.Cull();
-                    }
-                }
-                else if(section is CasterCullingSection castSection)
+                // if(section is LightCullingSection lightSection)
+                // {
+                //     foreach (var customLight in lightSection.cullingLightTargets.SelectMany(target => target.lights))
+                //     {
+                //         customLight.Cull();
+                //     }
+                // }
+                // else
+                if(section is CasterCullingSection castSection)
                 {
                     var casters = castSection.cullingCasterContainer.gameObject.GetComponentsInChildren<ShadowCaster2D>();
                     foreach (var caster in casters)
@@ -123,14 +124,15 @@ namespace Runtime.Managers
             if(group.hasBecomeVisible)
             {
                 var target = cullingTargets[group.index];
-                if(target is LightCullingSection lightSection)
-                {
-                    foreach (var customLight in lightSection.cullingLightTargets.SelectMany(cullingLight => cullingLight.lights))
-                    {
-                        customLight.UnCull();
-                    }
-                }
-                else if(target is CasterCullingSection castSection)
+                // if(target is LightCullingSection lightSection)
+                // {
+                //     foreach (var customLight in lightSection.cullingLightTargets.SelectMany(cullingLight => cullingLight.lights))
+                //     {
+                //         customLight.UnCull();
+                //     }
+                // }
+                // else 
+                if(target is CasterCullingSection castSection)
                 {
                     var casters = castSection.cullingCasterContainer.gameObject.GetComponentsInChildren<ShadowCaster2D>();
                     foreach (var caster in casters)
@@ -142,14 +144,15 @@ namespace Runtime.Managers
             else if(group.hasBecomeInvisible)
             {
                 var target = cullingTargets[group.index];
-                if(target is LightCullingSection lightSection)
-                {
-                    foreach (var customLight in lightSection.cullingLightTargets.SelectMany(cullingLight => cullingLight.lights))
-                    {
-                        customLight.Cull();
-                    }
-                }
-                else if(target is CasterCullingSection castSection)
+                // if(target is LightCullingSection lightSection)
+                // {
+                //     foreach (var customLight in lightSection.cullingLightTargets.SelectMany(cullingLight => cullingLight.lights))
+                //     {
+                //         customLight.Cull();
+                //     }
+                // }
+                // else 
+                if(target is CasterCullingSection castSection)
                 {
                     var casters = castSection.cullingCasterContainer.gameObject.GetComponentsInChildren<ShadowCaster2D>();
                     foreach (var caster in casters)
@@ -182,20 +185,20 @@ namespace Runtime.Managers
         private readonly Color[] colors = {Color.red, Color.blue, Color.green, Color.yellow, Color.cyan, Color.magenta};
         private void OnDrawGizmosSelected()
         {
-            if (showLightTargets)
-            {
-                var index = 0;
-                foreach (var section in lightTargets)
-                {
-                    Gizmos.color = colors[index];
-                    foreach (var target in section.cullingLightTargets)
-                    {
-                        Gizmos.DrawWireSphere(target.targetCenter.position, target.radius);
-                    }
-
-                    index++;
-                }
-            }
+            // if (showLightTargets)
+            // {
+            //     var index = 0;
+            //     foreach (var section in lightTargets)
+            //     {
+            //         Gizmos.color = colors[index];
+            //         foreach (var target in section.cullingLightTargets)
+            //         {
+            //             Gizmos.DrawWireSphere(target.targetCenter.position, target.radius);
+            //         }
+            //
+            //         index++;
+            //     }
+            // }
 
             if (showCasterTargets)
             {
