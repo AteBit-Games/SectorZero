@@ -101,7 +101,7 @@ namespace Runtime.Managers
                 {
                     foreach (var customLight in lightSection.cullingLightTargets.SelectMany(target => target.lights))
                     {
-                        customLight.gameObject.SetActive(false);
+                        customLight.Cull();
                     }
                 }
                 else if(section is CasterCullingSection castSection)
@@ -128,7 +128,7 @@ namespace Runtime.Managers
                     Debug.Log($"Target {target} is a light section");
                     foreach (var customLight in lightSection.cullingLightTargets.SelectMany(cullingLight => cullingLight.lights))
                     {
-                        customLight.gameObject.SetActive(true);
+                        customLight.UnCull();
                     }
                 }
                 else if(target is CasterCullingSection castSection)
@@ -147,7 +147,7 @@ namespace Runtime.Managers
                 {
                     foreach (var customLight in lightSection.cullingLightTargets.SelectMany(cullingLight => cullingLight.lights))
                     {
-                        customLight.gameObject.SetActive(false);
+                        customLight.Cull();
                     }
                 }
                 else if(target is CasterCullingSection castSection)

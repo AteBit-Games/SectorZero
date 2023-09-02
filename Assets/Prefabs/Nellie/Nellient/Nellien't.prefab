@@ -16,13 +16,14 @@ GameObject:
   - component: {fileID: 3029959153133923991}
   - component: {fileID: 4224493302202213851}
   - component: {fileID: 8970273811368405127}
+  - component: {fileID: 7373531506574217347}
   m_Layer: 8
   m_Name: Nellien't
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1976050650754180513
 Transform:
   m_ObjectHideFlags: 0
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1505529439, guid: bc636eb6b2c5fa1409728a8dd894a08a, type: 3}
+  m_Sprite: {fileID: 1291259911, guid: 607022d84927376419423795c9aac361, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8872ec3889274ca1ab5307719d51ff73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persistentID: 35fcedd1-e5bd-4673-b94d-ad4e830e02c2
+  item: {fileID: 11400000, guid: bc20e57060224d34aa5340022bd023bf, type: 2}
+  bedCollider: {fileID: 0}
+  persistentID: 67d49b63-a021-4c0e-93dc-2eff2778a68f
 --- !u!210 &3754679611136714876
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -173,6 +176,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indexedSounds: []
   randomSounds: []
+--- !u!114 &7373531506574217347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976050650754180519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 5b5b86427659c8741a6af4dabea45c54, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 253169116963546881}
+          m_TargetAssemblyTypeName: Runtime.Player.Nellient.Nellient, Assembly-CSharp
+          m_MethodName: SitUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5380432051258971571
 GameObject:
   m_ObjectHideFlags: 0

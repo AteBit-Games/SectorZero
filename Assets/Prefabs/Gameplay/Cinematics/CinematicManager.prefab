@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4399082750431133345}
+  - component: {fileID: 7742867486161563674}
   m_Layer: 0
   m_Name: IntroCinematic
   m_TagString: Untagged
@@ -31,6 +32,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5632765444639367310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &7742867486161563674
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3551735857207918232}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 44de535830ad4b94fa84d718b9aaec2e, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 0
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 4.829999923706055
+  m_SceneBindings:
+  - key: {fileID: 2108017798523034064, guid: 44de535830ad4b94fa84d718b9aaec2e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6713150961992589429, guid: 44de535830ad4b94fa84d718b9aaec2e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6008508675001474459, guid: 44de535830ad4b94fa84d718b9aaec2e, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References:
+    - 47a7e685e09f6a5459f74ffb827e8f52: {fileID: 0}
 --- !u!1 &8501249014945478632
 GameObject:
   m_ObjectHideFlags: 0

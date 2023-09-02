@@ -28,6 +28,8 @@ namespace Runtime.Misc
         [Range(0.0f, 1.0f)]
         [SerializeField] private float volumeScale;
 
+        [HideInInspector] public bool isCulled;
+        
         private Coroutine _coroutine;
         private Animator _animator;
         private static readonly int On = Animator.StringToHash("On");
@@ -60,7 +62,7 @@ namespace Runtime.Misc
             if (startPowered) PowerOn();
             else PowerOff();
         }
-        
+
         //============================== Interface ==============================
         
         public void PowerOn()
@@ -85,6 +87,19 @@ namespace Runtime.Misc
                 StopCoroutine(_coroutine);
                 _coroutine = null;
             }
+        }
+        
+        public void UnCull()
+        {
+            isCulled = false;
+            if (IsPowered) PowerOn();
+            else PowerOff();
+        }
+        
+        public void Cull()
+        {
+            isCulled = true;
+            PowerOff();
         }
         
         //============================== Coroutines ==============================

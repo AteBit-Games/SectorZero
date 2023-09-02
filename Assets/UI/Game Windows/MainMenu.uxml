@@ -49,9 +49,15 @@
                     <ui:Button text="Load Save" display-tooltip-when-elided="true" name="load-game" class="button" style="width: 132px;">
                         <ui:VisualElement name="side-item" />
                     </ui:Button>
-                    <ui:Button text="New Game" display-tooltip-when-elided="true" name="new-game" class="button" style="width: 122px;" />
-                    <ui:Button text="Settings" display-tooltip-when-elided="true" name="settings" enable-rich-text="false" class="button" style="width: 112px;" />
-                    <ui:Button text="Quit " display-tooltip-when-elided="true" name="quit" class="button" style="width: 62px;" />
+                    <ui:Button text="New Game" display-tooltip-when-elided="true" name="new-game" class="button" style="width: 122px;">
+                        <ui:VisualElement name="side-item" />
+                    </ui:Button>
+                    <ui:Button text="Settings" display-tooltip-when-elided="true" name="settings" enable-rich-text="false" class="button" style="width: 112px;">
+                        <ui:VisualElement name="side-item" />
+                    </ui:Button>
+                    <ui:Button text="Quit " display-tooltip-when-elided="true" name="quit" class="button" style="width: 62px;">
+                        <ui:VisualElement name="side-item" />
+                    </ui:Button>
                 </ui:VisualElement>
                 <ui:VisualElement name="undeline" style="flex-grow: 1; background-color: rgb(255, 255, 255); width: 550px; height: 4px;" />
                 <ui:Label tabindex="-1" text="Start a new game" display-tooltip-when-elided="true" name="button-description" style="-unity-font: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 35px; color: rgb(255, 255, 255); padding-top: 0; margin-top: 2px; margin-left: 3px;" />

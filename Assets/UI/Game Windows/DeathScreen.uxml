@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="Saves" src="project://database/Assets/UI/SubWindows/Saves.uxml?fileID=9197481963319205126&amp;guid=769eaf304c8fbc646813f1bc414c61ea&amp;type=3#Saves" />
+    <ui:Template name="Saves" src="project://database/Assets/UI/Sub%20Windows/Saves.uxml?fileID=9197481963319205126&amp;guid=769eaf304c8fbc646813f1bc414c61ea&amp;type=3#Saves" />
     <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
     <ui:VisualElement name="death-window" picking-mode="Ignore" style="display: none; flex-grow: 1; align-items: stretch; visibility: visible; overflow: visible;">
         <ui:VisualElement name="background" style="flex-grow: 1; background-color: rgb(29, 29, 29); width: 39%; height: 100%; position: absolute; display: flex;" />
@@ -32,9 +32,15 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="control-group" style="flex-grow: 0; position: relative; align-items: flex-start; overflow: visible; opacity: 1; visibility: visible; margin-bottom: 50px;">
                     <ui:VisualElement name="button-group" style="background-color: rgba(0, 0, 0, 0); margin-bottom: 30px; flex-grow: 1; width: 259px;">
-                        <ui:Button text="Load Save" display-tooltip-when-elided="true" name="load" class="button" style="width: 128px;" />
-                        <ui:Button text="Main Menu" display-tooltip-when-elided="true" name="quit-menu" class="button" style="width: 132px;" />
-                        <ui:Button text="Quit" display-tooltip-when-elided="true" name="quit-desktop" class="button" style="width: 59px;" />
+                        <ui:Button text="Load Save" display-tooltip-when-elided="true" name="load" class="button" style="width: 128px;">
+                            <ui:VisualElement name="side-item" />
+                        </ui:Button>
+                        <ui:Button text="Main Menu" display-tooltip-when-elided="true" name="quit-menu" class="button" style="width: 132px;">
+                            <ui:VisualElement name="side-item" />
+                        </ui:Button>
+                        <ui:Button text="Quit" display-tooltip-when-elided="true" name="quit-desktop" class="button" style="width: 59px;">
+                            <ui:VisualElement name="side-item" />
+                        </ui:Button>
                     </ui:VisualElement>
                     <ui:VisualElement name="undeline" style="flex-grow: 1; background-color: rgb(255, 255, 255); width: 550px; height: 2px;" />
                     <ui:Label tabindex="-1" text="Switch between different screen modes" display-tooltip-when-elided="true" name="button-description" style="-unity-font: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 35px; color: rgb(255, 255, 255); padding-top: 0; margin-top: 2px; margin-left: 3px;" />

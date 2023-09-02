@@ -13,61 +13,210 @@ MonoBehaviour:
   m_Name: DebugTree
   m_EditorClassIdentifier: 
   rootNode:
-    rid: 61114331898839041
+    rid: 61114352745054245
   nodes:
-  - rid: 61114331898839041
-  - rid: 130803874015739905
-  treeState: 1
+  - rid: 61114352745054245
+  - rid: 6414687230186225667
+  - rid: 6414687230186225668
+  - rid: 6414687230186225671
+  - rid: 6414687230186225672
+  treeState: 0
   blackboard:
     keys:
-    - rid: 61114352745054222
-    - rid: 61114352745054238
-  viewPosition: {x: 523, y: 118, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+    - rid: 61114352745054247
+    - rid: 61114352745054246
+    - rid: 130803839992070149
+    - rid: 61114553026215947
+    - rid: 130803839992070148
+    - rid: 61114553026215959
+    - rid: 61114553026215966
+    - rid: 61114553026215965
+    - rid: 61114553026215970
+    - rid: 130803849973989383
+    - rid: 130803886202814472
+    - rid: 130803893468135432
+    - rid: 61114352745054249
+    - rid: 130803895344037898
+    - rid: 130804122505707522
+  viewPosition: {x: 430, y: 210, z: 0}
+  viewScale: {x: 0.375937, y: 0.375937, z: 1}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 61114331898839041
+    - rid: 61114352745054245
       type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: 73ba969d-9cdb-4829-a882-d2fdfe38162d
-        position: {x: 0, y: 0}
+        guid: dd6bd97b-e655-4a8f-8e35-1c6ad41fa517
+        position: {x: 0, y: -20}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
         child:
-          rid: 130803874015739905
-    - rid: 61114352745054222
-      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
-      data:
-        name: Fuck
-        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        value: {x: 231, y: 2131}
-    - rid: 61114352745054238
+          rid: 6414687230186225667
+    - rid: 61114352745054246
       type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
-        name: Index
+        name: ActiveState
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 7
-    - rid: 130803874015739905
-      type: {class: LogMessage, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
+        value: 0
+    - rid: 61114352745054247
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 61114352745054249
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: DidSeeEnter
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 61114553026215947
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Rooms
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 61114553026215959
+      type: {class: GameObjectListKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Sentinels
+        typeName: System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 61114553026215965
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SentinelCooldown
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 45
+    - rid: 61114553026215966
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: ActiveSentinels
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 1
+    - rid: 61114553026215970
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SentinelActivationTime
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 8.2
+    - rid: 130803839992070148
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SelectedRooms
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 130803839992070149
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: PatrolState
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 1
+    - rid: 130803849973989383
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AggroLevel
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 2
+    - rid: 130803886202814472
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: InspectRoom
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803893468135432
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: InspectPoint
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}
+    - rid: 130803895344037898
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: InspectType
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130804122505707522
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Active
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 6414687230186225667
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: 0fcc728bc05a9bb47933f7c3cceae0b2
-        position: {x: -20, y: 100}
+        guid: 1be93266f125f914fbcc344da889d27e
+        position: {x: 0, y: 80}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 1
+        child:
+          rid: 6414687230186225668
+        restartOnSuccess: 1
+        restartOnFailure: 0
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 6414687230186225668
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c9ee8f5dbb020204cae8d9bd0a38fc3a
+        position: {x: 0, y: 200}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 6414687230186225671
+        - rid: 6414687230186225672
+    - rid: 6414687230186225671
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 8f45a07f2ae51984797cf826bdae9243
+        position: {x: -100, y: 340}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 9999
+    - rid: 6414687230186225672
+      type: {class: LogKey, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 92fe7df3270509343a8defcf5058e68a
+        position: {x: 80, y: 340}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
         logType: 0
-        message:
+        messageKey:
           reference:
-            rid: -2
-          defaultValue: dwadwadaw
+            rid: 61114352745054246

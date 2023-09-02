@@ -80,12 +80,14 @@ namespace Runtime.BehaviourTree
         
         // ====================== Private Variables ======================
         private Material _material;
-        private bool _canSeePlayer;
-        private bool _sightCoroutineRunning;
         private Context _context;
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
         
+        private bool _canSeePlayer;
+        private bool _looseSightCoroutineRunning;
+        private bool _gainSightCoroutineRunning;
+
         private BlackboardKey<int> _stateReference;
         private BlackboardKey<Vector2> _inspectLocationReference;
         private static readonly int MoveX = Animator.StringToHash("moveX");
@@ -93,6 +95,7 @@ namespace Runtime.BehaviourTree
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
 
         private Coroutine _loseSightCoroutine;
+        private Coroutine _gainSightCoroutine;
         private Tween<float> _activeTween;
 
         // ====================== Unity Events ======================
@@ -176,14 +179,17 @@ namespace Runtime.BehaviourTree
         
         public void OnSightEnter()
         {
-            if (_sightCoroutineRunning && _loseSightCoroutine != null)
+            if (_looseSightCoroutineRunning && _loseSightCoroutine != null)
             {
                 StopCoroutine(_loseSightCoroutine);
-                _sightCoroutineRunning = false;
+                _looseSightCoroutineRunning = false;
             }
             
-            if (!_canSeePlayer)
+            if (!_canSeePlayer && !_gainSightCoroutineRunning)
             {
+                _gainSightCoroutine = StartCoroutine(GainSight());
+                _gainSightCoroutineRunning = true;
+                
                 var volume = FindFirstObjectByType<Volume>();
                 var vignette = volume.sharedProfile.components[0] as Vignette;
 
@@ -192,30 +198,34 @@ namespace Runtime.BehaviourTree
                 {
                     if (vignette != null) vignette.intensity.value = value;
                 }).SetFrom(0f).SetEaseSineInOut();
-                
-                GameManager.Instance.SoundSystem.PlaySting(detectedSound);
-                
-                if(treeStates.Find(x => x.state == TreeState.State.AggroChase) == null) Debug.LogError("No aggro state found");
-                else
-                {
-                    _canSeePlayer = true;
-                    _material.color = aggroColour;
-                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.AggroChase).stateIndex);
-                }
-                
-                OnSightEnterAction?.Invoke();
-                _sightCoroutineRunning = false;
             }
         }
 
         public void OnSightExit(Vector2 lastKnownPosition)
         {
+            if(_gainSightCoroutineRunning && _gainSightCoroutine != null)
+            {
+                StopCoroutine(_gainSightCoroutine);
+                _gainSightCoroutineRunning = false;
+                
+                var volume = FindFirstObjectByType<Volume>();
+                var vignette = volume.sharedProfile.components[0] as Vignette;
+            
+                if(_activeTween != null) _activeTween.Cancel();
+                _activeTween = volume.TweenValueFloat(0f, 1f, value =>
+                {
+                    if (vignette != null) vignette.intensity.value = value;
+                }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
+                
+                return;
+            }
+            
             var didSeePlayerEnterHidable = _stateReference.value == treeStates.Find(x => x.state == TreeState.State.AggroInspect).stateIndex;
-            if(_canSeePlayer && !_sightCoroutineRunning && !didSeePlayerEnterHidable)
+            if(_canSeePlayer && !_looseSightCoroutineRunning && !didSeePlayerEnterHidable)
             {
                 _inspectLocationReference.value = lastKnownPosition;
                 _loseSightCoroutine = StartCoroutine(LoseSight());
-                _sightCoroutineRunning = true;
+                _looseSightCoroutineRunning = true;
             }
         }
         
@@ -243,8 +253,35 @@ namespace Runtime.BehaviourTree
             }
             
             _loseSightCoroutine = null;
-            _sightCoroutineRunning = false;
+            _looseSightCoroutineRunning = false;
             _canSeePlayer = false;
+        }
+
+        private IEnumerator GainSight()
+        {
+            var volume = FindFirstObjectByType<Volume>();
+            var vignette = volume.sharedProfile.components[0] as Vignette;
+            
+            if(_activeTween != null) _activeTween.Cancel();
+            _activeTween = volume.TweenValueFloat(0.3f, 1.4f, value =>
+            {
+                if (vignette != null) vignette.intensity.value = value;
+            }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
+            
+            yield return new WaitForSeconds(1.2f);
+            GameManager.Instance.SoundSystem.PlaySting(detectedSound);
+                
+            if(treeStates.Find(x => x.state == TreeState.State.AggroChase) == null) Debug.LogError("No aggro state found");
+            else
+            {
+                _canSeePlayer = true;
+                _material.color = aggroColour;
+                SetActiveState(treeStates.Find(x => x.state == TreeState.State.AggroChase).stateIndex);
+            }
+                
+            OnSightEnterAction?.Invoke();
+            _gainSightCoroutine = null;
+            _gainSightCoroutineRunning = false;
         }
 
         // ====================== Public Methods ======================

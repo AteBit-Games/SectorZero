@@ -4,6 +4,9 @@
 ****************************************************************/
 
 using Runtime.InteractionSystem.Objects;
+using Runtime.InventorySystem;
+using Runtime.InventorySystem.ScriptableObjects;
+using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
@@ -12,6 +15,7 @@ namespace Runtime.Player.Nellient
 {
     public class Nellient : MonoBehaviour, IPersistant
     {
+        [SerializeField] private Item item;
         [SerializeField] public HospitalBed bedCollider;
         [SerializeField] public string persistentID;
         
@@ -25,6 +29,7 @@ namespace Runtime.Player.Nellient
             animator = GetComponent<Animator>();
         }
 
+        
         //============================= Public Methods =============================//
         
         public void SitUp()
@@ -47,6 +52,11 @@ namespace Runtime.Player.Nellient
         public void SaveData(SaveGame game)
         {
             game.worldData.nellientState = gameObject.activeSelf;
+        }
+        
+        public void TriggerPickup()
+        {
+            GameManager.Instance.NotificationManager.ShowPickupNotification(item);
         }
     }
 }

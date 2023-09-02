@@ -1,3 +1,5 @@
-@import url("unity-theme://default");
 
+@import url("/Assets/UnityDefaultRuntimeTheme.tss");
 @import url("/Assets/UI/Game Windows/WindowStyles.uss");
+
+

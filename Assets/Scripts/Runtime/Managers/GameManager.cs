@@ -141,15 +141,23 @@ namespace Runtime.Managers
             if (isMainMenu)
             {
                 var mainMenu = FindFirstObjectByType<MainMenu>(FindObjectsInactive.Include);
+
                 if (mainMenu.isSettingsOpen)
                 {
                     mainMenu.CloseSettings();
+                    SoundSystem.Play(menuClickSound);
                     inputReader.SetUI();
                 }
                 else if(mainMenu.isSavesWindowOpen)
                 {
                     mainMenu.CloseSavesMenu();
+                    SoundSystem.Play(menuClickSound);
                     inputReader.SetUI();
+                }
+                else
+                {
+                    SoundSystem.Play(menuClickSound);
+                    mainMenu.CloseAllPopups();
                 }
             }
             else

@@ -278,6 +278,21 @@ namespace Runtime.UI
         {
             button.SetEnabled(state);
             button.style.opacity = state ? 1 : 0.5f;
+            if(!state)
+            {
+                button.AddToClassList("button-disabled");
+            }
+            else
+            {
+                button.RemoveFromClassList("button-disabled");
+            }
+        }
+
+        public void CloseAllPopups()
+        {
+            UIUtils.HideUIElement(_confirmQuitPopup);
+            UIUtils.HideUIElement(_confirmTutorialPopup);
+            UIUtils.HideUIElement(_confirmNewGamePopup);
         }
     }
 }
