@@ -21,7 +21,7 @@ namespace Runtime.InteractionSystem.Items
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         
-        [SerializeField] private string persistentID;
+        [SerializeField] public string persistentID;
         [SerializeField] private Tape tape;
 
         //========================= Interface events =========================//
@@ -51,7 +51,10 @@ namespace Runtime.InteractionSystem.Items
         
         public void LoadData(SaveGame game)
         {
-            game.worldData.tapeRecorders.Add(persistentID, gameObject.activeSelf);
+            if (game.worldData.tapeRecorders.TryGetValue(persistentID, out var tape))
+            {
+                gameObject.SetActive(tape);
+            }
         }
         
         public void SaveData(SaveGame game)

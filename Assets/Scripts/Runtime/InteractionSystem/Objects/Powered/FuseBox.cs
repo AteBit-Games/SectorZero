@@ -9,16 +9,18 @@ using System.Linq;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
+using Runtime.SaveSystem;
+using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
 
 namespace Runtime.InteractionSystem.Objects.Powered
 {
     [DefaultExecutionOrder(20)]
-    public class FuseBox : MonoBehaviour, IInteractable
+    public class FuseBox : MonoBehaviour, IInteractable, IPersistant
     {
+        [SerializeField] public string persistentID;
         [SerializeField] private Item fuse;
         [SerializeField] private bool startWithFuse;
         
@@ -58,21 +60,23 @@ namespace Runtime.InteractionSystem.Objects.Powered
             
             _audioSource = GetComponent<AudioSource>();
             _audioSource.outputAudioMixerGroup = humSound.mixerGroup;
-            
-            _isPowered = startPowered;
         }
 
         private void Start()
         {
-            _hasFuse = startWithFuse;
-            if (_hasFuse)
+            if (GameManager.Instance.TestMode)
             {
-                SetPowered(startPowered);
-            }
-            else
-            {
-                SetPowered(false);
-                _animator.SetTrigger(NoFuse);
+                _hasFuse = startWithFuse;
+                if (_hasFuse)
+                {
+                    SetPowered(startPowered);
+                    _isPowered = startPowered;
+                }
+                else
+                {
+                    SetPowered(false);
+                    _animator.SetTrigger(NoFuse);
+                }
             }
         }
 
@@ -125,5 +129,48 @@ namespace Runtime.InteractionSystem.Objects.Powered
             else _audioSource.Stop();
         }
 
+        //=========================== Save System =============================//
+        
+        public void LoadData(SaveGame game)
+        {
+            if (game.worldData.fuseBoxes.TryGetValue(persistentID, out var fusebox))
+            {
+                if (fusebox == 2)
+                {
+                    _hasFuse = false;
+                    SetPowered(false);
+                    _isPowered = false;
+                    _animator.SetTrigger(NoFuse);
+                }
+                else
+                {
+                    Debug.Log($"Loaded fusebox {persistentID} with state {fusebox}");
+                    _hasFuse = true;
+                    _isPowered = fusebox == 1;
+                    SetPowered(fusebox == 1);
+                }
+            }
+            else
+            {
+                _hasFuse = startWithFuse;
+                if (_hasFuse)
+                {
+                    _isPowered = startPowered;
+                    SetPowered(startPowered);
+                }
+                else
+                {
+                    SetPowered(false);
+                    _isPowered = false;
+                    _animator.SetTrigger(NoFuse);
+                }
+            }
+        }
+
+        public void SaveData(SaveGame game)
+        {
+            if (_hasFuse) game.worldData.fuseBoxes[persistentID] = _isPowered ? 1 : 0;
+            else game.worldData.fuseBoxes[persistentID] = 2;
+        }
     }
 }

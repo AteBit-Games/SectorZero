@@ -6,6 +6,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Runtime.InteractionSystem.Interfaces;
+using Runtime.Managers;
+using Runtime.SaveSystem;
+using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -13,10 +16,13 @@ using UnityEngine.Rendering.Universal;
 namespace Runtime.InteractionSystem.Objects.Powered
 {
     [DefaultExecutionOrder(22)]
-    public class LockdownSwitch : MonoBehaviour, IInteractable
+    public class LockdownSwitch : MonoBehaviour, IInteractable, IPersistant
     {
-        [SerializeField] private Sound interactSound;
-        public Sound InteractSound => interactSound;
+        [SerializeField] public string persistentID;
+        [SerializeField] private Sound humSound;
+        [SerializeField] private Sound failSound;
+        [SerializeField] private Sound onSound;
+        public Sound InteractSound => onSound;
 
         [SerializeField] private SecurityTerminal securityTerminal;
         [SerializeField] private List<FuseBox> fuseBoxes;
@@ -32,6 +38,9 @@ namespace Runtime.InteractionSystem.Objects.Powered
         
         private Animator _animator;
         private Light2D _mainLight;
+        private AudioSource _audioSource;
+        
+        
         private static readonly int Failure = Animator.StringToHash("fail");
         private static readonly int Powered = Animator.StringToHash("powered");
         private static readonly int ActiveFuseBoxes = Animator.StringToHash("activeFuseBoxes");
@@ -42,8 +51,9 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             _animator = GetComponent<Animator>();
             _mainLight = GetComponentInChildren<Light2D>();
+            _audioSource = GetComponent<AudioSource>();
+            
             _stareLights.AddRange(meterAnimator.gameObject.GetComponentsInChildren<Light2D>());
-
             foreach (var fuseBox in fuseBoxes)
             {
                 fuseBox.PowerStateChanged += OnPowerStateChanged;
@@ -71,6 +81,8 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _animator.SetBool(Powered, false);
                 _isPowered = false;
                 _mainLight.enabled = false;
+                
+                _audioSource.PlayOneShot(failSound.clip);
                 securityTerminal.PowerOff();
             }
         }
@@ -94,10 +106,15 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _animator.SetBool(Powered, true);
                 _mainLight.enabled = true;
                 _isPowered = true;
+                
+                _audioSource.PlayOneShot(onSound.clip);
+                GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
                 securityTerminal.PowerOn();
             }
             else
             {
+                _audioSource.PlayOneShot(onSound.clip);
+                _audioSource.PlayOneShot(failSound.clip);
                 _animator.SetTrigger(Failure);
             }
             
@@ -112,6 +129,26 @@ namespace Runtime.InteractionSystem.Objects.Powered
         public bool CanInteract()
         {
             return true;
+        }
+        
+        //=========================== Save System =============================//
+
+        public void LoadData(SaveGame game)
+        {
+            if(game.worldData.mainFuseStatus)
+            {
+                _animator.SetBool(Powered, true);
+                _mainLight.enabled = true;
+                _isPowered = true;
+                GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
+                securityTerminal.PowerOn();
+            }
+        }
+
+        public void SaveData(SaveGame game)
+        {
+            
+            game.worldData.mainFuseStatus = _isPowered;
         }
     }
 }

@@ -19,6 +19,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f4a03f0013404226841ac46b59a6815d1a1c00/4e/992ad9e8/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f4a03f0013404226841ac46b59a6815d1a1c00/53/03781404/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/InteractionSystem/CustomLockInspector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/InteractionSystem/CustomTapeInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/AI/Sentinel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/MoveToPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InteractionSystem/Objects/Lock.cs" root0="FORCE_HIGHLIGHTING" />
@@ -144,7 +145,8 @@
       <workItem from="1693248004110" duration="4694000" />
       <workItem from="1693491166790" duration="1783000" />
       <workItem from="1693513851634" duration="4628000" />
-      <workItem from="1693743058057" duration="10004000" />
+      <workItem from="1693743058057" duration="10694000" />
+      <workItem from="1693764915521" duration="3742000" />
     </task>
     <servers />
   </component>

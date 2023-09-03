@@ -88,12 +88,14 @@ namespace Runtime.SaveSystem.Data
     public class WorldData
     {
         public bool nellientState = true;
+        public bool mainFuseStatus = true;
         
         public SerializableDictionary<string, bool> pickups = new();
         public SerializableDictionary<string, bool> tapeRecorders = new();
         public SerializableDictionary<string, bool> triggers = new();
         public SerializableDictionary<string, bool> doors = new();
         public SerializableDictionary<string, bool> miscItems = new();
+        public SerializableDictionary<string, int> fuseBoxes = new();
         
         public List<CinematicData> cinematics = new();
     }

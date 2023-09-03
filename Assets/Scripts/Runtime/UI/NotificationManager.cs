@@ -59,6 +59,7 @@ namespace Runtime.UI
         
         public void ShowPickupNotification(BaseItem item)
         {
+            Debug.Log("Showing pickup notification");
             _pickupIcon.style.backgroundImage = new StyleBackground(item.itemSprite);
             _pickupText.text = "Picked up "+item.itemName;
             _pickupContainer.AddToClassList("popup-show");

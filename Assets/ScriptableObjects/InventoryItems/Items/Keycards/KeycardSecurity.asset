@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: KeycardSecurity
   m_EditorClassIdentifier: 
   itemName: Security Override Keycard
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: b2bbee695827e09478d19d5bace3ba1e, type: 3}
   itemType: 1
   itemDescription: 
