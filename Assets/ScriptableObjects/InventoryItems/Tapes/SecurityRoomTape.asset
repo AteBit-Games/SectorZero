@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Tape #01 | Dr. Grant McAddams
   itemSprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
   itemType: 0
-  itemDescription: Tape found in the sec
+  itemDescription: A tape found near a scientist in the sector entry room.
   dialogue: {fileID: 11400000, guid: 4c3a81644632b5244867e32d8d3c1804, type: 2}

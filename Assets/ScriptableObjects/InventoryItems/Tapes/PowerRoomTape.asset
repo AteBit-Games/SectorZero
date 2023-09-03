@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17da84690e7e48e6907c12d8edd3ae57, type: 3}
   m_Name: PowerRoomTape
   m_EditorClassIdentifier: 
-  itemName: Henry Carver #04
+  itemName: Tape #01 | Cameron Robbins
   itemSprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
   itemType: 0
-  itemDescription: dwadwadaw awdaw dwadwadaw awdaw ddwadwadaw
+  itemDescription: 'A Tape found in the generator room. '
   dialogue: {fileID: 11400000, guid: 5c2aabded363c55418cc13c08635030b, type: 2}
