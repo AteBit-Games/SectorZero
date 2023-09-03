@@ -169,7 +169,10 @@ namespace Runtime.BehaviourTree
         
         public void OnHearing(NoiseEmitter sender)
         {
-            if (!_canSeePlayer)
+            var otherStates = _stateReference.value != treeStates.Find(x => x.state == TreeState.State.AggroInspect).stateIndex ||
+                                _stateReference.value != treeStates.Find(x => x.state == TreeState.State.AggroChase).stateIndex ||
+                                _stateReference.value != treeStates.Find(x => x.state == TreeState.State.Idle).stateIndex;
+            if (!_canSeePlayer && !otherStates)
             {
                 if(treeStates.Find(x => x.state == TreeState.State.InspectPoint) == null) Debug.LogError("No Inspect state found");
                 else

@@ -41,7 +41,6 @@ namespace Runtime.InventorySystem
         
         private VisualElement _itemsInventoryListContainer;
         private readonly List<InventoryUIItem> _itemsInventoryList = new();
-        private int _validItemsCount;
 
         private VisualElement _itemsInventoryInformation;
         private VisualElement _itemsInventoryInformationImage;
@@ -53,7 +52,6 @@ namespace Runtime.InventorySystem
         
         private VisualElement _tapesInventoryListContainer;
         private readonly List<InventoryUITape> _tapesInventoryList = new();
-        private int _validTapesCount;
         
         private VisualElement _tapesInventoryInformation;
         private VisualElement _tapesInventoryInformationImage;
@@ -111,6 +109,8 @@ namespace Runtime.InventorySystem
             
             RegisterInventoryTapes();
             RegisterInventoryItems();
+            
+            _activeInventory = ActiveInventory.Tapes;
             SwitchToItemsInventory();
         }
         
@@ -130,11 +130,8 @@ namespace Runtime.InventorySystem
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             
             _activeItem?.Deselect();
-            if (_validItemsCount > 0)
-            {
-                SelectItem(_itemsInventoryList[0].OnClick());
-                _activeItem = _itemsInventoryList[0];
-            }
+            SelectItem(_itemsInventoryList[0].OnClick());
+            _activeItem = _itemsInventoryList[0];
 
             _activeInventory = ActiveInventory.Items;
             UIUtils.ShowUIElement(_itemsInventoryContainer);
@@ -154,11 +151,8 @@ namespace Runtime.InventorySystem
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
 
             _activeItem?.Deselect();
-            if (_validTapesCount > 0)
-            {
-                SelectTape(_tapesInventoryList[0].OnClick());
-                _activeItem = _tapesInventoryList[0];
-            }
+            SelectTape(_tapesInventoryList[0].OnClick());
+            _activeItem = _tapesInventoryList[0];
             
             _activeInventory = ActiveInventory.Tapes;
             UIUtils.HideUIElement(_itemsInventoryContainer);
@@ -218,9 +212,7 @@ namespace Runtime.InventorySystem
                 _itemsInventoryList.Add(index < playerInventory.itemInventory.Count
                 ? new InventoryUIItem(playerInventory.itemInventory[index], item)
                 : new InventoryUIItem(null, item));
-                
-                if(index < playerInventory.itemInventory.Count) _validItemsCount++;
-                
+
                 var currentIndex = index;
                 if (index < playerInventory.itemInventory.Count)
                 {
@@ -253,8 +245,6 @@ namespace Runtime.InventorySystem
                 _tapesInventoryList.Add(index < playerInventory.tapeInventory.Count
                 ? new InventoryUITape(playerInventory.tapeInventory[index], tape, playerInventory.tapeInventory[index].dialogue)
                 : new InventoryUITape(null, tape, null));
-                
-                if(index < playerInventory.tapeInventory.Count) _validTapesCount++;
             
                 var currentIndex = index;
                 if(index < playerInventory.tapeInventory.Count){
