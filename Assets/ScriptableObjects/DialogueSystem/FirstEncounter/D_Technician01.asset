@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45592774a6613004c9d7daa230919261, type: 3}
+  m_Name: D_Technician01
+  m_EditorClassIdentifier: 
+  date: 1978.07.16
+  dialogueLines:
+  - actor: {fileID: 11400000, guid: 3432243751e5c3948b5d5528d0dedf33, type: 2}
+    line: I don't think managment understands how useless this backup generator actually
+      is.
+  - actor: {fileID: 11400000, guid: 3432243751e5c3948b5d5528d0dedf33, type: 2}
+    line: It would barley be able to keep a few lights on, let alone the whole sector.
+  - actor: {fileID: 11400000, guid: 3432243751e5c3948b5d5528d0dedf33, type: 2}
+    line: I hope we never need to use it.
+  canSkip: 1
+  autoSkipDelay: 3
+  trigger: 0
