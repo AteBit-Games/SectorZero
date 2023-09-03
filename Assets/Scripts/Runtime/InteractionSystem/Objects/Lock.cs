@@ -43,7 +43,7 @@ namespace Runtime.InteractionSystem.Objects
         
         public bool OnInteract(GameObject player)
         {
-            GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
+            GameManager.Instance.SoundSystem.Play(interactSound);
             player.GetComponentInParent<PlayerInventory>().UseItemInInventory(key);
             gameObject.SetActive(false);
             door.OpenDoor();
@@ -54,7 +54,7 @@ namespace Runtime.InteractionSystem.Objects
         {
             if(!_canInteract) return;
             
-            GameManager.Instance.SoundSystem.Play(lockedSound, transform.GetComponent<AudioSource>());
+            GameManager.Instance.SoundSystem.Play(lockedSound);
             _mainAnimator.SetTrigger(_locked);
             _canInteract = false;
         }

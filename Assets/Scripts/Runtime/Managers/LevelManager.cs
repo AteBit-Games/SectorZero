@@ -9,6 +9,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using NavMeshPlus.Components;
+using Runtime.SoundSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -45,6 +46,7 @@ namespace Runtime.Managers
     
     public class LevelManager : MonoBehaviour
     {
+        [SerializeField] private Sound startAmbience;
         [SerializeField] private string levelDescription;
         [SerializeField] private NavMeshSurface navMeshSurface;
         [SerializeField] private Transform cullingReferencePoint;
@@ -117,6 +119,7 @@ namespace Runtime.Managers
 
             cullingGroup.onStateChanged = OnChange;
             SceneManager.sceneLoaded += SceneLoaded;
+            
         }
         
         private void OnChange(CullingGroupEvent group)
@@ -179,6 +182,7 @@ namespace Runtime.Managers
         private void SceneLoaded(Scene scene, LoadSceneMode mode)
         {
             GameManager.Instance.details = levelDescription;
+            GameManager.Instance.SoundSystem.FadeToNextAmbience(startAmbience);
         }
 
         
