@@ -130,7 +130,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
       propertyPath: useEncryption
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
       propertyPath: playerConfig.Array.data[0].startPosition.x
