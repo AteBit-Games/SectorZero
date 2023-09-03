@@ -15,13 +15,12 @@ MonoBehaviour:
   date: 1978.07.5
   dialogueLines:
   - actor: {fileID: 11400000, guid: 864db4242d547024abb77b847f7fe900, type: 2}
-    line: Subject 38, local. No signs of aggression displayed before death, but became
-      unresponsive.
+    line: Subject 38, local. No signs of aggression displayed, but became unresponsive.
   - actor: {fileID: 11400000, guid: 864db4242d547024abb77b847f7fe900, type: 2}
     line: No visible damage to the body. Noticed stange luminescence beneath the
       skin, which has since faded.
   - actor: {fileID: 11400000, guid: 864db4242d547024abb77b847f7fe900, type: 2}
     line: Subject should be kept for further observation.
   canSkip: 1
-  autoSkipDelay: 3
+  autoSkipDelay: 2
   trigger: 0
