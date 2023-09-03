@@ -19,9 +19,9 @@ MonoBehaviour:
       be could be anywhere.
   - actor: {fileID: 11400000, guid: 7a2cc21d5445a56449ba56b396cf03f5, type: 2}
     line: Amanda went to look for him. I feel bad about about letting her go, but
-      I cannot run in this condition.
+      I can't run in this condition.
   - actor: {fileID: 11400000, guid: 7a2cc21d5445a56449ba56b396cf03f5, type: 2}
     line: It's getting worse... Goddamn it Carver.
   canSkip: 1
-  autoSkipDelay: 2
+  autoSkipDelay: 3
   trigger: 0
