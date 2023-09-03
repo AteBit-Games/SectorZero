@@ -16,4 +16,4 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
   itemType: 0
   itemDescription: dwadwadaw awdaw dwadwadaw awdaw ddwadwadaw
-  dialogue: {fileID: 11400000, guid: a8979148722879b4e91068a74d0327a8, type: 2}
+  dialogue: {fileID: 11400000, guid: 5c2aabded363c55418cc13c08635030b, type: 2}
