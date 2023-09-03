@@ -65,18 +65,18 @@ namespace Runtime.SoundSystem
             if (audioSource == null)
             {
                 audioSource = new GameObject(sound.name + " source").AddComponent<AudioSource>();
-                audioSource.outputAudioMixerGroup = sound.mixerGroup;
                 DontDestroyOnLoad(audioSource);
                 _activeSoundInstanceSources.Add(audioSource, sound);
                 destroy = true;
             }
             
+            audioSource.outputAudioMixerGroup = sound.mixerGroup;
             audioSource.clip = sound.clip;
             audioSource.volume = sound.volumeScale;
             audioSource.loop = sound.loop;
             audioSource.Play();
             
-            if (destroy && !sound.loop )StartCoroutine(DestroySoundSource(audioSource, audioSource.clip.length+0.5f));
+            if (destroy && !sound.loop) StartCoroutine(DestroySoundSource(audioSource, audioSource.clip.length+0.5f));
         }
         
         public void StopAll()

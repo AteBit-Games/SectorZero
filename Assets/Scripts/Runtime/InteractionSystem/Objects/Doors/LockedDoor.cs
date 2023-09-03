@@ -63,6 +63,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
 
         public void OnInteractFailed(GameObject player)
         {
+            Debug.Log("Failed to interact with " + gameObject.name + " that is powered: " + IsPowered);
             if (IsPowered)
             {
                 GameManager.Instance.SoundSystem.Play(lockedSound, transform.GetComponent<AudioSource>());

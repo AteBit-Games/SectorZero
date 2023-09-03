@@ -21,6 +21,8 @@ namespace Runtime.InteractionSystem.Objects.Powered
         [SerializeField] private SecurityTerminal securityTerminal;
         [SerializeField] private List<FuseBox> fuseBoxes;
         [SerializeField] private Animator meterAnimator;
+        
+        [SerializeField] private bool debug;
 
         //----- Private Variables -----//
         private readonly Dictionary<FuseBox, bool> _fuseBoxStates = new();
@@ -51,6 +53,11 @@ namespace Runtime.InteractionSystem.Objects.Powered
             SetActiveState(_fuseBoxStates.Count(isPowered => !isPowered.Value));
             _canBePowered = _fuseBoxStates.Values.All(powered => !powered);
             _mainLight.enabled = _canBePowered;
+            
+            if(debug)
+            {
+                securityTerminal.PowerOn();
+            }
         }
 
         private void OnPowerStateChanged(FuseBox fuseBox, bool state)

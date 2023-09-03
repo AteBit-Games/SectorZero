@@ -15,7 +15,9 @@ namespace Runtime.InteractionSystem.Objects.Powered
 {
     public class SecurityTerminal : MonoBehaviour, IInteractable, IPowered
     {
+        [SerializeField] private Sound offSound;
         [SerializeField] private Sound lockedSound;
+        [SerializeField] private Sound humSound;
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         
@@ -42,13 +44,14 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             _animator = GetComponent<Animator>();
             _audioSource = GetComponent<AudioSource>();
+            _audioSource.outputAudioMixerGroup = humSound.mixerGroup;
         }
 
         //========================= Interface events =========================//
         
         public bool OnInteract(GameObject player)
         {
-            GameManager.Instance.SoundSystem.Play(interactSound, _audioSource);
+            _audioSource.PlayOneShot(offSound.clip);
             _animator.SetTrigger(Unlock);
             return true;
         }
@@ -58,10 +61,10 @@ namespace Runtime.InteractionSystem.Objects.Powered
             switch (_isPowered)
             {
                 case false:
-                    GameManager.Instance.SoundSystem.Play(lockedSound, _audioSource);
+                    _audioSource.PlayOneShot(offSound.clip);
                     break;
                 case true when !GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(keyCard):
-                    GameManager.Instance.SoundSystem.Play(lockedSound, _audioSource);
+                    _audioSource.PlayOneShot(lockedSound.clip);
                     _animator.SetTrigger(Locked);
                     break;
             }
@@ -83,12 +86,14 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             _isPowered = true;
             _animator.SetBool(Powered, true);
+            GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
         }
 
         public void PowerOff()
         {
             _isPowered = false;
             _animator.SetBool(Powered, false);
+            _audioSource.Stop();
         }
     }
 }

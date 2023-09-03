@@ -12,6 +12,7 @@ using Runtime.Managers;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
 namespace Runtime.InteractionSystem.Objects.Powered
 {
@@ -23,8 +24,10 @@ namespace Runtime.InteractionSystem.Objects.Powered
         
         [SerializeField] private Sound noFuseSound;
         [SerializeField] private Sound addFuseSound;
-        [SerializeField] private Sound interactSound;
-        public Sound InteractSound => interactSound;
+        
+        [SerializeField] private Sound offSound;
+        [SerializeField] private Sound onSound;
+        public Sound InteractSound => onSound;
         
         [SerializeField] private List<GameObject> connectedObjects = new();
         [SerializeField] private bool startPowered;
@@ -66,7 +69,6 @@ namespace Runtime.InteractionSystem.Objects.Powered
             }
             else
             {
-                Debug.Log("FuseBox has no fuse");
                 SetPowered(false);
                 _animator.SetTrigger(NoFuse);
             }
@@ -85,8 +87,8 @@ namespace Runtime.InteractionSystem.Objects.Powered
             }
             else
             {
-                GameManager.Instance.SoundSystem.Play(interactSound, _audioSource);
                 _isPowered = !_isPowered;
+                GameManager.Instance.SoundSystem.Play(_isPowered ? onSound : offSound, _audioSource);
                 SetPowered(_isPowered);
             }
             
@@ -104,10 +106,10 @@ namespace Runtime.InteractionSystem.Objects.Powered
         }
 
         //========================= Public methods =========================//
-        
-        public void SetPowered(bool state)
+
+        private void SetPowered(bool state)
         {
-            foreach (var powerObject in connectedObjects.Select(poweredObject => poweredObject.GetComponent<IPowered>()).Where(poweredState => poweredState != null))
+            foreach (var powerObject in connectedObjects.Select(item => item.GetComponent<IPowered>() ?? item.GetComponentInChildren<IPowered>()))
             {
                 if(state) powerObject.PowerOn();
                 else powerObject.PowerOff();

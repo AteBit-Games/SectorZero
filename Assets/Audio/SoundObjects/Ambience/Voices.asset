@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da09ef4e6e9b5f74486f1c4010871c5d, type: 3}
   m_Name: Voices
   m_EditorClassIdentifier: 
-  mixGroup: {fileID: 11400000, guid: a9671a3e7439c9047ada01fe7d7b2426, type: 2}
+  mixerGroup: {fileID: -3669875027937045916, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
   clip: {fileID: 8300000, guid: 423f43af49e3e4641b6192cc37e63b30, type: 3}
   volumeScale: 1
-  volume: 1
   loop: 0

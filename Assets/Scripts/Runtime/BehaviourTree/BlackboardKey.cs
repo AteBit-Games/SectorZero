@@ -19,6 +19,7 @@ namespace Runtime.BehaviourTree
         public void OnBeforeSerialize() 
         {
             typeName = underlyingType.AssemblyQualifiedName;
+            
         }
 
         public void OnAfterDeserialize() 

@@ -225,7 +225,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d93f921c87b4c209d2e10b240903ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSound: {fileID: 11400000, guid: 1abfb423a8486ac45855d83902a9a1a0, type: 2}
+  fuse: {fileID: 0}
+  startWithFuse: 0
+  noFuseSound: {fileID: 0}
+  addFuseSound: {fileID: 0}
+  offSound: {fileID: 11400000, guid: 3054be9e93367d24586b2b5a8cac342d, type: 2}
+  onSound: {fileID: 11400000, guid: 3fbf79167f966484ea5db539231872fd, type: 2}
   connectedObjects:
   - {fileID: 0}
   - {fileID: 0}

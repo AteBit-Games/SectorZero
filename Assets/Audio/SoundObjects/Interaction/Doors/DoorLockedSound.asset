@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DoorLockedSound
   m_EditorClassIdentifier: 
   mixerGroup: {fileID: -2711704030924625141, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
-  clip: {fileID: 8300000, guid: 175fc01a47fdac54c889565e33f65ad3, type: 3}
+  clip: {fileID: 8300000, guid: f05c395ea3efaf6459831d63d447eccd, type: 3}
   volumeScale: 1
   loop: 0

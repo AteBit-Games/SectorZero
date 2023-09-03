@@ -3,7 +3,6 @@
 * All rights reserved.
 ****************************************************************/
 
-using Runtime.DialogueSystem;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
@@ -12,7 +11,6 @@ using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Runtime.InteractionSystem.Items
 {
@@ -23,13 +21,13 @@ namespace Runtime.InteractionSystem.Items
         
         [SerializeField] public string persistentID;
         [SerializeField] private Item item;
-
+        
         //========================= Interface events =========================//
         
         public bool OnInteract(GameObject player)
         {
             gameObject.SetActive(false);
-            GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
+            GameManager.Instance.SoundSystem.Play(interactSound);
             var inventory = player.GetComponentInParent<PlayerInventory>();
             
             GameManager.Instance.NotificationManager.ShowPickupNotification(item);
@@ -50,16 +48,15 @@ namespace Runtime.InteractionSystem.Items
 
         public void LoadData(SaveGame game)
         {
-            if (game.worldData.pickups.ContainsKey(persistentID))
+            if (game.worldData.pickups.TryGetValue(persistentID, out var pickup))
             {
-                gameObject.SetActive(game.worldData.pickups[persistentID]);
+                gameObject.SetActive(pickup);
             }
         }
 
         public void SaveData(SaveGame game)
         {
-            if(!game.worldData.pickups.ContainsKey(persistentID)) game.worldData.pickups.Add(persistentID, gameObject.activeSelf);
-            else game.worldData.pickups[persistentID] = gameObject.activeSelf;
+            game.worldData.pickups[persistentID] = gameObject.activeSelf;
         }
     }
 }

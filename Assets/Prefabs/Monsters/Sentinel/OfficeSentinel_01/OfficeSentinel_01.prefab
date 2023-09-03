@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6424125881574112538}
   - component: {fileID: 6202570344429654940}
   - component: {fileID: 8898840323868040376}
+  - component: {fileID: 3443900083803770274}
+  - component: {fileID: 8628604328519406892}
   m_Layer: 0
   m_Name: SentinelVisual
   m_TagString: Untagged
@@ -133,6 +135,138 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_SortAtRoot: 0
+--- !u!114 &3443900083803770274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334716929766029979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a24561ac4d2664a8554b0e27a2934f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexedSounds: []
+  randomSounds:
+  - {fileID: 11400000, guid: 5a39894a6f585634ba59d21359d1cead, type: 2}
+  - {fileID: 11400000, guid: b2b32e38e2872e4459c06692dfbc2c72, type: 2}
+  - {fileID: 11400000, guid: 286622b3bcceb134e9ab2df07ba2afae, type: 2}
+  - {fileID: 11400000, guid: e36ba401ce56eb34e878dc90705a66ad, type: 2}
+--- !u!82 &8628604328519406892
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334716929766029979}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f33ddad6d63e34e479530046426a5a3f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 4.884201
+  MaxDistance: 16
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.30492553
+      value: 1
+      inSlope: -3.2808006
+      outSlope: -3.2808006
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.58119506
+      value: 0.45018005
+      inSlope: -1.4554079
+      outSlope: -1.4554079
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.25476506
+    - serializedVersion: 3
+      time: 0.916687
+      value: 0
+      inSlope: -0.6262799
+      outSlope: -0.6262799
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.11458206
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.74218875
+      value: 1.0099652
+      inSlope: 0.0063522207
+      outSlope: 0.0063522207
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.38064554
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2348747730848845733
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,9 +442,9 @@ MonoBehaviour:
     m_Bits: 256
   viewRadius: 12
   viewAngle: 37
-  lookAngle: 98
+  lookAngle: 14
   deactivateDelay: 0.5
-  startActive: 0
+  startActive: 1
   detectSound: {fileID: 11400000, guid: 3e58a5000fec3bd4e882873694e3d6a8, type: 2}
   intensity: 0.2
   defaultColor: {r: 0.96862745, g: 0.95686275, b: 1, a: 1}

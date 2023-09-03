@@ -479,10 +479,11 @@ MonoBehaviour:
   navigationBlocker: {fileID: 2648182382742914322}
   startOpen: 0
   persistentID: 12b18866-a7a4-40cb-9b2e-746e6c22eee6
-  key: {fileID: 11400000, guid: 3b6deee1f696a51408d5ee1a3e3231ac, type: 2}
+  key: {fileID: 0}
   destroyKeyOnUse: 0
-  interactSound: {fileID: 11400000, guid: 5a39894a6f585634ba59d21359d1cead, type: 2}
-  lockedSound: {fileID: 11400000, guid: eec31a25228a183458f4523b295949b5, type: 2}
+  interactSound: {fileID: 11400000, guid: 3bb10801436d39e4f8b371525abc933d, type: 2}
+  lockedSound: {fileID: 11400000, guid: 6617773c6de026f4aa0933cbb406b7af, type: 2}
+  poweredOffSound: {fileID: 11400000, guid: 5b238b0c78925e64f98528e0af729784, type: 2}
 --- !u!95 &3655639427649642023
 Animator:
   serializedVersion: 7
