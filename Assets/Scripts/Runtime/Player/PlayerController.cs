@@ -322,12 +322,14 @@ namespace Runtime.Player
 
         //================================== Save System ==================================
 
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             FindFirstObjectByType<CinemachineTargetGroup>().transform.position = game.playerData.position;
             transform.position = game.playerData.position;
             lookPointer.position = new Vector2(transform.position.x, transform.position.y + 2.5f);
             gameObject.SetActive(game.playerData.enabled);
+            
+            return "Player";
         }
 
         public void SaveData(SaveGame game)

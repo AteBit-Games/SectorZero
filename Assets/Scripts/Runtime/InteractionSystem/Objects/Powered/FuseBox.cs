@@ -89,6 +89,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _audioSource.PlayOneShot(addFuseSound.clip);
                 _animator.SetTrigger(AddFuse);
                 GameManager.Instance.InventorySystem.PlayerInventory.UseItemInInventory(fuse);
+                GameManager.Instance.SaveSystem.SaveGame();
                 _hasFuse = true;
             }
             else
@@ -131,7 +132,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         //=========================== Save System =============================//
         
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             if (game.worldData.fuseBoxes.TryGetValue(persistentID, out var fusebox))
             {
@@ -144,7 +145,6 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 }
                 else
                 {
-                    Debug.Log($"Loaded fusebox {persistentID} with state {fusebox}");
                     _hasFuse = true;
                     _isPowered = fusebox == 1;
                     SetPowered(fusebox == 1);
@@ -165,6 +165,8 @@ namespace Runtime.InteractionSystem.Objects.Powered
                     _animator.SetTrigger(NoFuse);
                 }
             }
+            
+            return persistentID;
         }
 
         public void SaveData(SaveGame game)

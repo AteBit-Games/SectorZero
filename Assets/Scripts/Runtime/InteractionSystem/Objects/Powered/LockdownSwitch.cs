@@ -133,7 +133,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         
         //=========================== Save System =============================//
 
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             if(game.worldData.mainFuseStatus)
             {
@@ -143,6 +143,8 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
                 securityTerminal.PowerOn();
             }
+            
+            return persistentID;
         }
 
         public void SaveData(SaveGame game)

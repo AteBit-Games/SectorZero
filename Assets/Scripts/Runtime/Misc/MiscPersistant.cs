@@ -18,12 +18,14 @@ namespace Runtime.Misc
 
         //============================== Save System ==============================
         
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             if (game.worldData.miscItems.TryGetValue(persistentID, out var item))
             {
                 gameObject.SetActive(item);
             }
+            
+            return persistentID;
         }
 
         public void SaveData(SaveGame game)

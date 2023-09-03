@@ -64,10 +64,12 @@ namespace Runtime.InventorySystem
         
         //=============================== Save System ===============================//
         
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             itemInventory = game.playerData.itemInventory;
             tapeInventory = game.playerData.tapeInventory;
+            
+            return "Player Inventory";
         }
 
         public void SaveData(SaveGame game)

@@ -95,7 +95,7 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
         
         //========================= Save System =========================//
 
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             if (game.tutorialData.canvas.ContainsKey(persistentID))
             {
@@ -106,6 +106,8 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
                     GetComponent<Collider2D>().enabled = false;
                 }
             }
+            
+            return persistentID;
         }
         
         public void SaveData(SaveGame game)

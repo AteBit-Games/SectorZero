@@ -33,7 +33,7 @@ namespace Runtime.Managers.Tutorial
             }
         }
         
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             if (!game.tutorialData.tutorialCinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
             {
@@ -44,6 +44,8 @@ namespace Runtime.Managers.Tutorial
                     if(cinematicData.cinematicStates[i]) director.ElementAt(i).Key.time = director.ElementAt(i).Key.duration;
                 }
             }
+            
+            return persistentID;
         }
 
         public void SaveData(SaveGame game)

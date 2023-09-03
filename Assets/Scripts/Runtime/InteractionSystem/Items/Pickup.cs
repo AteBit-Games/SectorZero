@@ -16,6 +16,7 @@ namespace Runtime.InteractionSystem.Items
 {
     public class Pickup : MonoBehaviour, IInteractable, IPersistant
     {
+        [SerializeField] private bool saveOnPickup;
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         
@@ -26,6 +27,8 @@ namespace Runtime.InteractionSystem.Items
         
         public bool OnInteract(GameObject player)
         {
+            if(saveOnPickup) GameManager.Instance.SaveSystem.SaveGame();
+            
             gameObject.SetActive(false);
             GameManager.Instance.SoundSystem.Play(interactSound);
             var inventory = player.GetComponentInParent<PlayerInventory>();
@@ -46,12 +49,14 @@ namespace Runtime.InteractionSystem.Items
         
         //========================= Save System =========================//
 
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             if (game.worldData.pickups.TryGetValue(persistentID, out var pickup))
             {
                 gameObject.SetActive(pickup);
             }
+            
+            return persistentID;
         }
 
         public void SaveData(SaveGame game)

@@ -140,9 +140,15 @@ namespace Runtime.SaveSystem
         
         private void LoadData(SaveGame saveGame)
         {
+            var ids = new Dictionary<IPersistant, string>();
             foreach (var persistantObject in _persistantObjects)
             {
-                persistantObject.LoadData(saveGame);
+                var id = persistantObject.LoadData(saveGame);
+                if(id != "AIManager")
+                {
+                    if(ids.ContainsValue(id)) Debug.LogError($"Duplicate ID found: {id} in {ids.First(pair => pair.Value == id).Key} and {persistantObject}");
+                    ids.Add(persistantObject, id);
+                }
             }
             
             StartCoroutine(FinishedLoading());

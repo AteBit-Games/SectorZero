@@ -31,7 +31,7 @@ namespace Runtime.InteractionSystem.Items
             GameManager.Instance.DialogueSystem.StartDialogue(tape.dialogue);
             gameObject.SetActive(false);
             
-            GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
+            GameManager.Instance.SoundSystem.Play(interactSound);
             
             var inventory = player.GetComponentInParent<PlayerInventory>();
             return inventory.AddTapeToInventory(tape);
@@ -49,12 +49,14 @@ namespace Runtime.InteractionSystem.Items
 
         //========================= Save System =========================//
         
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             if (game.worldData.tapeRecorders.TryGetValue(persistentID, out var tape))
             {
                 gameObject.SetActive(tape);
             }
+            
+            return persistentID;
         }
         
         public void SaveData(SaveGame game)

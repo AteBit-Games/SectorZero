@@ -90,7 +90,7 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
         
         //=========================== Save System =============================//
         
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             if (game.worldData.doors.ContainsKey(persistentID))
             {
@@ -99,6 +99,8 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
                     _mainAnimator.SetTrigger(Open);
                 }
             }
+            
+            return persistentID;
         }
 
         public void SaveData(SaveGame game)

@@ -59,11 +59,10 @@ namespace Runtime.UI
         
         public void ShowPickupNotification(BaseItem item)
         {
-            Debug.Log("Showing pickup notification");
             _pickupIcon.style.backgroundImage = new StyleBackground(item.itemSprite);
             _pickupText.text = "Picked up "+item.itemName;
             _pickupContainer.AddToClassList("popup-show");
-            
+
             if (_pickupCoroutine != null)
             {
                 StopCoroutine(_pickupCoroutine);
@@ -76,6 +75,7 @@ namespace Runtime.UI
         { 
             yield return new WaitForSecondsRealtime(3.5f);
             _pickupContainer.RemoveFromClassList("popup-show");
+            _pickupCoroutine = null;
         }
         
         public void ShowResultNotification(string result, Sprite resultImage)

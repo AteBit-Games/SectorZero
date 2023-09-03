@@ -380,16 +380,18 @@ namespace Runtime.BehaviourTree
         
         // ====================== Save System ======================
         
-        public void LoadData(SaveGame save)
+        public string LoadData(SaveGame save)
         {
-            if(!gameObject.activeSelf) return;
-            if (!save.monsterData.ContainsKey(monster.ToString())) return;
+            if(!gameObject.activeSelf) return monster.ToString();
+            if (!save.monsterData.ContainsKey(monster.ToString())) return monster.ToString();
             
             SetupReferences();
             var monsterSave = save.monsterData[monster.ToString()];
             gameObject.transform.parent.gameObject.SetActive(monsterSave.isActive);
             transform.position = _navMeshAgent.transform.position;
             _stateReference.value = monsterSave.activeState;
+            
+            return monster.ToString();
         }
 
         public void SaveData(SaveGame save)

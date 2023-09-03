@@ -237,12 +237,12 @@ namespace Runtime.AI
         
         // ============================ Save System ============================
 
-        public void LoadData(SaveGame save)
+        public string LoadData(SaveGame save)
         {
-            if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
+            if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return "AIManager";
             
             InitializeReferences();
-            if (!save.monsterData.ContainsKey(_monster.monster.ToString())) return;
+            if (!save.monsterData.ContainsKey(_monster.monster.ToString())) return "AIManager";
             
             var monsterSave = save.monsterData[_monster.monster.ToString()];
             _menaceGaugeValue = monsterSave.menaceGaugeValue;
@@ -251,6 +251,8 @@ namespace Runtime.AI
 
             _aggroLevel = monsterSave.aggroLevel;
             _lastSeenPlayerTime = monsterSave.lastSeenPlayerTime;
+
+            return "AIManager";
         }
 
         public void SaveData(SaveGame save)

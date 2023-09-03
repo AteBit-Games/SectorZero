@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8867f8660bed496a936c9d5953af8a6a, type: 3}
   m_Name: KeycardSecurity
   m_EditorClassIdentifier: 
-  itemName: Security Override Keycard
+  itemName: Security Keycard
   itemSprite: {fileID: 21300000, guid: b2bbee695827e09478d19d5bace3ba1e, type: 3}
   itemType: 1
-  itemDescription: 
+  itemDescription: High level security keycard used to override security installation

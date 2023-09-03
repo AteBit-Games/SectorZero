@@ -73,9 +73,10 @@ namespace Runtime.InteractionSystem.Objects
 
         //=========================== Save System =============================//
         
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             if (game.worldData.miscItems.TryGetValue(persistentID, out var active)) gameObject.SetActive(active);
+            return persistentID;
         }
 
         public void SaveData(SaveGame game)

@@ -93,7 +93,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
 
         //=========================== Save System =============================//
         
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             if (game.worldData.doors.TryGetValue(persistentID, out var door))
             {
@@ -115,6 +115,8 @@ namespace Runtime.InteractionSystem.Objects.Doors
                     opened = true;
                 }
             }
+            
+            return persistentID;
         }
 
         public void SaveData(SaveGame game)

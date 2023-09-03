@@ -119,7 +119,6 @@ namespace Runtime.Managers
 
             cullingGroup.onStateChanged = OnChange;
             SceneManager.sceneLoaded += SceneLoaded;
-            
         }
         
         private void OnChange(CullingGroupEvent group)
@@ -182,7 +181,7 @@ namespace Runtime.Managers
         private void SceneLoaded(Scene scene, LoadSceneMode mode)
         {
             GameManager.Instance.details = levelDescription;
-            GameManager.Instance.SoundSystem.FadeToNextAmbience(startAmbience);
+            if(startAmbience != null) GameManager.Instance.SoundSystem.FadeToNextAmbience(startAmbience);
         }
 
         

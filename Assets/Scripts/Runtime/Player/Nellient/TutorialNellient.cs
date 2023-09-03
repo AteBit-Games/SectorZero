@@ -40,9 +40,10 @@ namespace Runtime.Player.Nellient
         
         //============================= Save System =============================//
         
-        public void LoadData(SaveGame game)
+        public string LoadData(SaveGame game)
         {
             gameObject.SetActive(game.tutorialData.nellientState);
+            return persistentID;
         }
 
         public void SaveData(SaveGame game)
