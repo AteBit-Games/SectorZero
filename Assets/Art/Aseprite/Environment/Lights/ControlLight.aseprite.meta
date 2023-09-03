@@ -1,0 +1,472 @@
+fileFormatVersion: 2
+guid: de5dcefb1dba8944bb45c15a3cf7979a
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: ControlLight_Frame_0
+    originalName: 
+    pivot: {x: 0.54545456, y: -0.7777778}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 84
+      width: 11
+      height: 9
+    spriteID: 9a60fcf3361649c4dac790043c581e65
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 84}
+  - name: ControlLight_Frame_1
+    originalName: 
+    pivot: {x: 0.54545456, y: -0.7777778}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 101
+      width: 11
+      height: 9
+    spriteID: 084d78729fc2ee84c81e2d3cacac56c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 101}
+  - name: ControlLight_Frame_2
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 17
+      height: 12
+    spriteID: 0fe945d32e83d314eaac851714c27c01
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: ControlLight_Frame_3
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 24
+      width: 17
+      height: 12
+    spriteID: 23e6dac331d0fca479d244b5cdafc560
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 24}
+  - name: ControlLight_Frame_4
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 44
+      width: 17
+      height: 12
+    spriteID: b9c66ba5b03fbd04eaff7427de84d6ae
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 44}
+  - name: ControlLight_Frame_5
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 64
+      width: 17
+      height: 12
+    spriteID: e35c7a744c6037c48be82af5fe484075
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 64}
+  - name: ControlLight_Frame_6
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 84
+      width: 17
+      height: 12
+    spriteID: 9650b21b6e07b384491ff59a9669fb33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 84}
+  - name: ControlLight_Frame_7
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 104
+      width: 17
+      height: 12
+    spriteID: c1264f407a04a4841b555b6d55fcc756
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 104}
+  - name: ControlLight_Frame_8
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 4
+      width: 17
+      height: 12
+    spriteID: fdaa44de8e019b44db5143e459aa3019
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 4}
+  - name: ControlLight_Frame_9
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 24
+      width: 17
+      height: 12
+    spriteID: 50ef737c33bb7cd48815a092f3282401
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 24}
+  - name: ControlLight_Frame_10
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 44
+      width: 17
+      height: 12
+    spriteID: de8c1f683ecd3524b89cca4efaac7159
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 44}
+  - name: ControlLight_Frame_11
+    originalName: 
+    pivot: {x: 0.5294118, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 64
+      width: 17
+      height: 12
+    spriteID: 89bfb4421dba63147a2eb044520b1844
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 64}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1219455961
+    name: ControlLight
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: ControlLight_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 6
+        y: 7
+        width: 11
+        height: 9
+      spriteId: 9a60fcf3361649c4dac790043c581e65
+    - name: ControlLight_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 6
+        y: 7
+        width: 11
+        height: 9
+      spriteId: 084d78729fc2ee84c81e2d3cacac56c4
+    - name: ControlLight_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 12
+      spriteId: 0fe945d32e83d314eaac851714c27c01
+    - name: ControlLight_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 12
+      spriteId: 23e6dac331d0fca479d244b5cdafc560
+    - name: ControlLight_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 12
+      spriteId: b9c66ba5b03fbd04eaff7427de84d6ae
+    - name: ControlLight_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 12
+      spriteId: e35c7a744c6037c48be82af5fe484075
+    - name: ControlLight_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 12
+      spriteId: 9650b21b6e07b384491ff59a9669fb33
+    - name: ControlLight_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 12
+      spriteId: c1264f407a04a4841b555b6d55fcc756
+    - name: ControlLight_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 12
+      spriteId: fdaa44de8e019b44db5143e459aa3019
+    - name: ControlLight_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 12
+      spriteId: 50ef737c33bb7cd48815a092f3282401
+    - name: ControlLight_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 12
+      spriteId: de8c1f683ecd3524b89cca4efaac7159
+    - name: ControlLight_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 3
+        y: 4
+        width: 17
+        height: 12
+      spriteId: 89bfb4421dba63147a2eb044520b1844
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 24, y: 24}
