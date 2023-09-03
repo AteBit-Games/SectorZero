@@ -174,7 +174,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a24561ac4d2664a8554b0e27a2934f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexedSounds: []
+  indexedSounds:
+  - {fileID: 11400000, guid: 286622b3bcceb134e9ab2df07ba2afae, type: 2}
+  - {fileID: 11400000, guid: e36ba401ce56eb34e878dc90705a66ad, type: 2}
+  - {fileID: 11400000, guid: b2b32e38e2872e4459c06692dfbc2c72, type: 2}
   randomSounds: []
 --- !u!114 &7373531506574217347
 MonoBehaviour:

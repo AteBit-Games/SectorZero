@@ -144,20 +144,20 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: dd6da92b2fce78e42959082c24701753, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  DopplerLevel: 0
+  MinDistance: 4.884201
+  MaxDistance: 8
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -165,19 +165,28 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.30492553
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -3.2808006
+      outSlope: -3.2808006
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
-      time: 1
+      time: 0.58119506
+      value: 0.45018005
+      inSlope: -1.4554079
+      outSlope: -1.4554079
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.25476506
+    - serializedVersion: 3
+      time: 0.916687
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.6262799
+      outSlope: -0.6262799
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
@@ -189,13 +198,22 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.11458206
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.74218875
+      value: 1.0099652
+      inSlope: 0.0063522207
+      outSlope: 0.0063522207
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.38064554
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
