@@ -164,7 +164,7 @@ namespace Runtime.SoundSystem
             stingSource.loop = false;
             stingSource.PlayOneShot(sound.clip);
             
-            Invoke(nameof(StingReady), sound.clip.length);
+            Invoke(nameof(StingReady), sound.clip.length/2);
         }
 
         //========================= Private Methods =========================//

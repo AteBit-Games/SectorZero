@@ -32,6 +32,7 @@ namespace Runtime.AI
         public bool startActive;
 
         public Sound detectSound;
+        
         public float intensity;
         public Color defaultColor;
         public Color alertColor;

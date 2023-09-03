@@ -68,7 +68,9 @@ namespace Runtime.BehaviourTree
         [Header("SOUNDS")]
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private List<Sound> footstepSounds;
+        
         [SerializeField] private Sound detectedSound;
+        [SerializeField] private Sound lostSound;
         
         public bool debug;
         public GameObject sightVisualPrefab;
@@ -234,6 +236,7 @@ namespace Runtime.BehaviourTree
         {
             yield return new WaitForSeconds(2f);
             
+            GameManager.Instance.SoundSystem.PlaySting(lostSound);
             FindFirstObjectByType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
             _material.color = idleColour;
             

@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da09ef4e6e9b5f74486f1c4010871c5d, type: 3}
   m_Name: Brush_01
   m_EditorClassIdentifier: 
-  mixGroup: {fileID: 11400000, guid: 52c044bba344d064dbaf311ca3cdd4de, type: 2}
+  mixerGroup: {fileID: -2711704030924625141, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
   clip: {fileID: 8300000, guid: 138857e9c4c72f64aaf4bc653974a36c, type: 3}
   volumeScale: 1
-  volume: 1
   loop: 0
