@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 4632917483772189738}
   - component: {fileID: 1875962746}
   - component: {fileID: 920597040}
+  - component: {fileID: 5776299449260605836}
   m_Layer: 9
   m_Name: Visual
   m_TagString: Untagged
@@ -283,6 +284,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c9ba80b5115d9804ebe442e3082d1808, type: 2}
   - {fileID: 11400000, guid: 6366ac5a42c71404f9b4505e8843cfb2, type: 2}
   detectedSound: {fileID: 11400000, guid: 3e58a5000fec3bd4e882873694e3d6a8, type: 2}
+  lostSound: {fileID: 0}
   debug: 0
   sightVisualPrefab: {fileID: 4193361830035308745, guid: 7fbb647d3619d9b4898983be60e448e2, type: 3}
   idleColour: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0.5058824}
@@ -547,3 +549,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5776299449260605836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369446493431426671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3fb05bcb16467093a49cce8e49722f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexedSounds:
+  - {fileID: 11400000, guid: 236f4a16dc5610e40aea4dfb3c677219, type: 2}
+  - {fileID: 11400000, guid: c96ea37f61ed9044ebbfe276961b125d, type: 2}
+  - {fileID: 11400000, guid: 1a40bdbadd73c0f4fb8a0d869ee45f3d, type: 2}
+  - {fileID: 11400000, guid: 422e50ac81a935148990edf064be70e8, type: 2}
+  randomSounds: []
