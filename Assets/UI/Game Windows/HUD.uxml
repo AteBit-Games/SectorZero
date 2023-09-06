@@ -195,7 +195,7 @@
                     </ui:Button>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="note-view" picking-mode="Ignore" style="visibility: visible; display: flex; flex-grow: 1; background-color: rgba(0, 0, 0, 0.41); opacity: 1; align-items: center; justify-content: center;">
+            <ui:VisualElement name="note-view" picking-mode="Ignore" style="visibility: visible; display: none; flex-grow: 1; background-color: rgba(0, 0, 0, 0.41); opacity: 1; align-items: center; justify-content: center;">
                 <ui:VisualElement name="research-note" style="flex-grow: 0; height: 80%; width: 650px; background-color: rgb(140, 140, 140); display: none;">
                     <ui:VisualElement name="padding" style="flex-grow: 0; height: 200px;" />
                     <ui:VisualElement name="note-content" style="flex-grow: 0; height: 100%; padding-left: 35px;">
