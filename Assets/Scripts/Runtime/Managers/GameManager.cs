@@ -12,6 +12,7 @@ using Runtime.InputSystem;
 using Discord;
 using ElRaccoone.Tweens;
 using Runtime.AI;
+using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
 using Runtime.UI;

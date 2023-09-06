@@ -1,0 +1,575 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: VoidmaskOld
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 61114352745054245
+  nodes:
+  - rid: 61114352745054245
+  - rid: 61114553026215937
+  - rid: 130803868398780423
+  - rid: 130803868398780424
+  - rid: 130803868398780425
+  - rid: 130803868398780426
+  - rid: 130803868398780427
+  - rid: 130803868398780428
+  - rid: 130803868398780429
+  - rid: 130803868398780430
+  - rid: 130803868398780431
+  - rid: 130803868398780432
+  - rid: 130803868398780436
+  - rid: 130803868398780437
+  - rid: 130803868398780438
+  - rid: 130803868398780440
+  - rid: 130803868398780441
+  - rid: 130803868398780442
+  - rid: 130803868398780443
+  - rid: 130803868398780444
+  treeState: 0
+  blackboard:
+    keys:
+    - rid: 61114352745054247
+    - rid: 61114352745054246
+    - rid: 61114352745054248
+    - rid: 61114352745054249
+    - rid: 130803839992070149
+    - rid: 61114553026215947
+    - rid: 130803839992070148
+    - rid: 61114553026215959
+    - rid: 61114553026215966
+    - rid: 61114553026215965
+    - rid: 61114553026215970
+    - rid: 130803849973989383
+  viewPosition: {x: 57, y: 162, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 61114352745054245
+      type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: dd6bd97b-e655-4a8f-8e35-1c6ad41fa517
+        position: {x: 0, y: -20}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 61114553026215937
+    - rid: 61114352745054246
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: ActiveState
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 1
+    - rid: 61114352745054247
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 61114352745054248
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: LastKnown
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}
+    - rid: 61114352745054249
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: DidSeeEnter
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 61114553026215937
+      type: {class: Switch, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 2e6e3be1f7c4d65488f4b079c2c694a2
+        position: {x: 0, y: 100}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130803868398780436
+        - rid: 130803868398780423
+        - rid: 130803868398780437
+        - rid: 130803868398780438
+        - rid: 130803868398780440
+        - rid: 130803868398780442
+        - rid: 130803868398780443
+        - rid: 130803868398780444
+        index:
+          reference:
+            rid: 61114352745054246
+          defaultValue: 0
+        interruptable: 1
+    - rid: 61114553026215947
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Rooms
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 61114553026215959
+      type: {class: GameObjectListKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Sentinels
+        typeName: System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 61114553026215965
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SentinelCooldown
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 45
+    - rid: 61114553026215966
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: ActiveSentinels
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 1
+    - rid: 61114553026215970
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SentinelActivationTime
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 8.2
+    - rid: 130803839992070148
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SelectedRooms
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 130803839992070149
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: PatrolState
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130803849973989383
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AggroLevel
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130803868398780423
+      type: {class: Parallel, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 812bbbde342022243a2c7e21d1738e2c
+        position: {x: -1360, y: 240}
+        blackboard:
+          keys: []
+        comment: <b>Patrol </b>
+        drawGizmos: 0
+        children:
+        - rid: 130803868398780424
+        - rid: 130803868398780428
+    - rid: 130803868398780424
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d4e3f06e629bc554e9bafa4b23ecd30a
+        position: {x: -1600, y: 380}
+        blackboard:
+          keys: []
+        comment: <b>Sentinel Behaviour</b>
+        drawGizmos: 0
+        child:
+          rid: 130803868398780425
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 130803868398780425
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e67b1e4fd94c0954f9721c16432b4d03
+        position: {x: -1600, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130803868398780426
+        - rid: 130803868398780427
+    - rid: 130803868398780426
+      type: {class: ActivateSentinels, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a3b7c0ead454e4e4abdfcfa2f5ba4d5d
+        position: {x: -1720, y: 640}
+        blackboard:
+          keys: []
+        comment: 'Activate Sentinels based on criteria
+
+          - How many sentinels
+          to activate
+
+          - How long each sentinel should be active
+
+
+          <b>Manager
+          AI Handles Updating These Values</b>'
+        drawGizmos: 0
+        sentinelList:
+          reference:
+            rid: 61114553026215959
+          defaultValue: []
+        sentinelDuration:
+          reference:
+            rid: 61114553026215970
+          defaultValue: 0
+        sentinelCount:
+          reference:
+            rid: 61114553026215966
+          defaultValue: 0
+    - rid: 130803868398780427
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 3319861b7beb79a408fa5e4a93d42e43
+        position: {x: -1500, y: 640}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: 61114553026215965
+          defaultValue: 0
+    - rid: 130803868398780428
+      type: {class: BoolWatch, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a4f0bad0efe01ad40b932ce7879cf678
+        position: {x: -1140, y: 380}
+        blackboard:
+          keys: []
+        comment: <b>Patrol Behaviour</b>
+        drawGizmos: 0
+        child:
+          rid: 130803868398780429
+        valueToWatch:
+          reference:
+            rid: 130803839992070149
+          defaultValue: 0
+    - rid: 130803868398780429
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 9e335afe39dbf5c4ba6ce37478eac415
+        position: {x: -1140, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 130803868398780430
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 130803868398780430
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d4ec1235792439046ad6c6f7b357b31d
+        position: {x: -1140, y: 640}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130803868398780432
+        - rid: 130803868398780431
+    - rid: 130803868398780431
+      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 3febdb7b3f5d4b74ba369c2a6a00e3a5
+        position: {x: -1040, y: 780}
+        blackboard:
+          keys: []
+        comment: <b>Patrol rooms subtree</b>
+        drawGizmos: 0
+        treeAsset: {fileID: 11400000, guid: 25d5521e5e310514a9668e6c7cb49c41, type: 2}
+        treeInstance: {fileID: 0}
+        cloneInstance: 0
+        blackboardOverrides:
+        - source:
+            rid: 61114352745054247
+          target:
+            rid: 130803871365464069
+        - source:
+            rid: 130803839992070148
+          target:
+            rid: 130803868398780433
+        - source:
+            rid: 130803849973989383
+          target:
+            rid: 130803868398780434
+        - source:
+            rid: 130803839992070149
+          target:
+            rid: 130803868398780435
+    - rid: 130803868398780432
+      type: {class: SelectPatrolRooms, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 3f5e0d6d60fa70042a030ae08c20afb3
+        position: {x: -1280, y: 780}
+        blackboard:
+          keys: []
+        comment: 'Patrol behaviour updates dynamically
+
+
+          <b>Manager AI
+          Handles Updating The State</b>'
+        drawGizmos: 0
+        target:
+          reference:
+            rid: 61114352745054247
+          defaultValue: {fileID: 0}
+        rooms:
+          reference:
+            rid: 61114553026215947
+          defaultValue: []
+        numberOfRooms:
+          reference:
+            rid: -2
+          defaultValue: 4
+        patrolState:
+          reference:
+            rid: 130803839992070149
+          defaultValue: 0
+        resultingRooms:
+          reference:
+            rid: 130803839992070148
+          defaultValue: []
+    - rid: 130803868398780433
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Rooms
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 130803868398780434
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AggroLevel
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130803868398780435
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: MenaceState
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130803868398780436
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 2adc6c8f71a07914c9edee4f08b02739
+        position: {x: -2300, y: 240}
+        blackboard:
+          keys: []
+        comment: <b>Idle</b>
+        drawGizmos: 0
+        child:
+          rid: -2
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 130803868398780437
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 4bb52b2c9a7783948aca7907e1d88bfd
+        position: {x: -340, y: 240}
+        blackboard:
+          keys: []
+        comment: '<b>Alert</b>
+
+          Sound'
+        drawGizmos: 0
+        child:
+          rid: -2
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 130803868398780438
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 5544b8e32f63e294f8a284d642467ac1
+        position: {x: 360, y: 240}
+        blackboard:
+          keys: []
+        comment: '<b>Alert</b>
+
+          Last Known'
+        drawGizmos: 0
+        child:
+          rid: -2
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 130803868398780440
+      type: {class: LogMessage, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: a8ce5ea0747edec40911ce36a44edffc
+        position: {x: 780, y: 240}
+        blackboard:
+          keys: []
+        comment: '<b>Alert</b>
+
+          Sentinel'
+        drawGizmos: 0
+        logType: 0
+        message:
+          reference:
+            rid: -2
+          defaultValue: Spotted Player
+    - rid: 130803868398780441
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 1265bd2da4dca5641bf492d23166a245
+        position: {x: 940, y: 240}
+        blackboard:
+          keys: []
+        comment: '<b>Alert</b>
+
+          Sentinel'
+        drawGizmos: 0
+        child:
+          rid: -2
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 130803868398780442
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 8daba09a2ab20a94d879c2e9c2052c45
+        position: {x: 1600, y: 240}
+        blackboard:
+          keys: []
+        comment: '<b>Aggro</b>
+
+          Chasing Player'
+        drawGizmos: 0
+        child:
+          rid: -2
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 130803868398780443
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: fd094c05cbcab3a4ba9a23dfcf8bc872
+        position: {x: 2400, y: 240}
+        blackboard:
+          keys: []
+        comment: '<b>Aggro</b>
+
+          Check Locker'
+        drawGizmos: 0
+        child:
+          rid: -2
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 130803868398780444
+      type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: fa7de5f12ae91b145ac6145de560b208
+        position: {x: 3220, y: 240}
+        blackboard:
+          keys: []
+        comment: <b>Kill</b>
+        drawGizmos: 0
+        child:
+          rid: -2
+        restartOnSuccess: 1
+        restartOnFailure: 1
+        maxRepeats:
+          reference:
+            rid: -2
+          defaultValue: 0
+    - rid: 130803871365464069
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}

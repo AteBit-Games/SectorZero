@@ -1,0 +1,251 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d285eb63c2cdd74180de7cfceaa96ad, type: 3}
+  m_Name: PatrolRooms
+  m_EditorClassIdentifier: 
+  rootNode:
+    rid: 130803849973989378
+  nodes:
+  - rid: 130803849973989378
+  - rid: 130803868398780419
+  - rid: 130803868398780420
+  - rid: 130803868398780421
+  - rid: 130803868398780422
+  - rid: 130803893468135437
+  treeState: 1
+  blackboard:
+    keys:
+    - rid: 130803864545001485
+    - rid: 130803871365464068
+    - rid: 130803864545001484
+    - rid: 130803864545001491
+    - rid: 130803864545001475
+    - rid: 130803864545001498
+    - rid: 130803864545001501
+  viewPosition: {x: 970, y: 121, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 130803849973989378
+      type: {class: RootNode, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d6b7abf0-6dec-4040-9b0e-f791e493c8ed
+        position: {x: 0, y: 0}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 130803868398780422
+    - rid: 130803864545001475
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AggroLevel
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130803864545001484
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SelectedRoom
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803864545001485
+      type: {class: ColliderList, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Rooms
+        typeName: System.Collections.Generic.List`1[[UnityEngine.Collider2D, UnityEngine.Physics2DModule,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+          Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: []
+    - rid: 130803864545001491
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SelectedPoint
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}
+    - rid: 130803864545001498
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: MenaceState
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130803864545001501
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: PreviousRoom
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803868398780419
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ebf38e74c4069944a8d2b876bbda86a4
+        position: {x: -240, y: 240}
+        blackboard:
+          keys: []
+        comment: '<b>Setup Nodes</b>
+
+          This sequence sets up the behaviour
+          of the monster based on states.
+
+          If any of these nodes fail then
+          the monste be able to patrol.'
+        drawGizmos: 0
+        children:
+        - rid: 130803868398780420
+        - rid: 130803868398780421
+    - rid: 130803868398780420
+      type: {class: SelectRoom, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 016b54e4cc4b73149bb5e5f8e4df7426
+        position: {x: -340, y: 380}
+        blackboard:
+          keys: []
+        comment: Select a room in the candidate passed down from the parent tree.
+          Saves the room selected to avoid the AI patrolling the same room twice.
+        drawGizmos: 0
+        rooms:
+          reference:
+            rid: 130803864545001485
+          defaultValue: []
+        prevRoom:
+          reference:
+            rid: 130803864545001501
+          defaultValue: {fileID: 0}
+        outRoom:
+          reference:
+            rid: 130803864545001484
+          defaultValue: {fileID: 0}
+    - rid: 130803868398780421
+      type: {class: SelectPoint, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 1743dc889417bdd4095c881f543d57df
+        position: {x: -140, y: 380}
+        blackboard:
+          keys: []
+        comment: Selects a random point in the room to move to, the Origin Chance
+          dictates the chance of stopping in the doorway.
+        drawGizmos: 0
+        room:
+          reference:
+            rid: 130803864545001484
+          defaultValue: {fileID: 0}
+        outTarget:
+          reference:
+            rid: 130803864545001491
+          defaultValue: {x: 0, y: 0}
+        originChance: 0.2
+    - rid: 130803868398780422
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 0b244060e1a99bf408f46067ed6248ba
+        position: {x: 0, y: 100}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130803868398780419
+        - rid: 130803893468135437
+    - rid: 130803871365464068
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803893468135437
+      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: cb23fe99e32405348a0ff12b7e0b3bc5
+        position: {x: 160, y: 240}
+        blackboard:
+          keys: []
+        comment: '<b>Inspect Room Subtree </b>
+
+          Monster will inspect a
+          room by looking around as well as searching the room hidables'
+        drawGizmos: 0
+        treeAsset: {fileID: 11400000, guid: 8b5ecad79c2252442bbe2cbd998fba85, type: 2}
+        treeInstance: {fileID: 0}
+        cloneInstance: 1
+        blackboardOverrides:
+        - source:
+            rid: 130803871365464068
+          target:
+            rid: 130803893468135438
+        - source:
+            rid: 130803864545001475
+          target:
+            rid: 130803893468135439
+        - source:
+            rid: 130803864545001484
+          target:
+            rid: 130803893468135441
+        - source:
+            rid: 130803864545001491
+          target:
+            rid: 130803893468135440
+        - source:
+            rid: -2
+          target:
+            rid: 130803893468135443
+    - rid: 130803893468135438
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803893468135439
+      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AggroLevel
+        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0
+    - rid: 130803893468135440
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SelectedPoint
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}
+    - rid: 130803893468135441
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: SelectedRoom
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 130803893468135443
+      type: {class: BooleanKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: LostPlayer
+        typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 0

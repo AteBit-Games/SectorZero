@@ -13,6 +13,7 @@ using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using Tape = Runtime.InventorySystem.ScriptableObjects.Tape;
 
 namespace Runtime.InteractionSystem.Items
 {

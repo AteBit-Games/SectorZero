@@ -73,7 +73,7 @@ namespace Runtime.SaveSystem.Data
         //Inventory
         public List<Tape> tapeInventory = new();
         public List<Item> itemInventory = new();
-        public Throwable throwableItem;
+        public List<Note> noteInventory = new();
     }
 
     [Serializable]

@@ -3,13 +3,11 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
 using System.Collections;
 using Cinemachine;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
 using Runtime.InputSystem;
-using Runtime.InventorySystem;
 using Runtime.Managers;
 using Runtime.Managers.Tutorial;
 using Runtime.SaveSystem;
@@ -36,10 +34,10 @@ namespace Runtime.Player
         [SerializeField] private Collider2D lookDeadZone;
         [SerializeField] private Collider2D lookOuterBounds;
         
-        [Space(10)] 
-        [Header("THROWING DETAILS")]
-        [SerializeField] private GameObject throwIndicator;
-        [SerializeField] private LayerMask throwBoundsMask;
+        // [Space(10)] 
+        // [Header("THROWING DETAILS")]
+        // [SerializeField] private GameObject throwIndicator;
+        // [SerializeField] private LayerMask throwBoundsMask;
 
         [Space(10)]
         [Header("STEALTH DETAILS")]
@@ -76,7 +74,7 @@ namespace Runtime.Player
         public bool InputDisabled => _inputDisabled;
         
         [HideInInspector] public bool isHiding;
-        private Coroutine hideCoroutine;
+        private Coroutine _hideCoroutine;
         private bool _sneakCooldownActive;
 
 
@@ -87,10 +85,10 @@ namespace Runtime.Player
         private readonly int _isSneaking = Animator.StringToHash("isSneaking");
         
         // ============ Throwing System ============
-        private bool _isAiming;
-        private bool _canThrow;
-        private SpriteRenderer _indicatorSpriteRenderer;
-        private Rigidbody2D _indicatorRb;
+        // private bool _isAiming;
+        // private bool _canThrow;
+        // private SpriteRenderer _indicatorSpriteRenderer;
+        // private Rigidbody2D _indicatorRb;
         
         
         // =========================== Unity Events ===========================
@@ -128,8 +126,8 @@ namespace Runtime.Player
                 _seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
             }
             
-            _indicatorSpriteRenderer = throwIndicator.GetComponent<SpriteRenderer>();
-            _indicatorRb = throwIndicator.GetComponent<Rigidbody2D>();
+            // _indicatorSpriteRenderer = throwIndicator.GetComponent<SpriteRenderer>();
+            // _indicatorRb = throwIndicator.GetComponent<Rigidbody2D>();
 
             if (SceneManager.GetActiveScene().name == "Tutorial") TutorialManager.StartListening("TutorialStage3", Init);
         }
@@ -140,7 +138,7 @@ namespace Runtime.Player
             if(_isDead) return;
             
             if(!_cameraDisabled) UpdateMouseLook();
-            if(_isAiming) UpdateThrowIndicator();
+            //if(_isAiming) UpdateThrowIndicator();
         }
         
         private void FixedUpdate()
@@ -207,7 +205,7 @@ namespace Runtime.Player
             }
             
             //Start the hiding coroutine
-            hideCoroutine = StartCoroutine(EnableLowPass());
+            _hideCoroutine = StartCoroutine(EnableLowPass());
         }
         
         public void RevealPlayer(Vector2 position, Vector2 facingDirection)
@@ -235,7 +233,7 @@ namespace Runtime.Player
             
             _audioLowPassFilter.enabled = false;
             if (facingDirection != Vector2.zero) SetFacingDirection(facingDirection);
-            if(hideCoroutine != null) StopCoroutine(hideCoroutine);
+            if(_hideCoroutine != null) StopCoroutine(_hideCoroutine);
         }
 
         public void SetFacingDirection(Vector2 direction)
@@ -287,38 +285,38 @@ namespace Runtime.Player
             }
         }
         
-        private void HandleAim()
-        {
-            if(gameObject.GetComponent<PlayerInventory>().HasThrowableItem && !_inputDisabled)
-            {
-                _isAiming = true;
-                _indicatorSpriteRenderer.enabled = true;
-                
-                UpdateThrowIndicator();
-                DisableMovement();
-            }
-        }
-
-        private void HandleThrow()
-        {
-            if (_isAiming && _canThrow && !_inputDisabled)
-            {
-                var inventory = gameObject.GetComponent<PlayerInventory>();
-                inventory.GetThrowable().Throw(new Vector2(transform.position.x, transform.position.y + 1f), throwIndicator);
-                inventory.DropThrowable();
-                
-                GameManager.Instance.HUD.ShowThrowableIcon(false);
-                HandleAimCancel();
-            }
-        }
-
-        private void HandleAimCancel()
-        {
-            _indicatorSpriteRenderer.enabled = false;
-            _isAiming = false;
-            
-            EnableMovement();
-        }
+        // private void HandleAim()
+        // {
+        //     if(gameObject.GetComponent<PlayerInventory>().HasThrowableItem && !_inputDisabled)
+        //     {
+        //         _isAiming = true;
+        //         _indicatorSpriteRenderer.enabled = true;
+        //         
+        //         UpdateThrowIndicator();
+        //         DisableMovement();
+        //     }
+        // }
+        //
+        // private void HandleThrow()
+        // {
+        //     if (_isAiming && _canThrow && !_inputDisabled)
+        //     {
+        //         var inventory = gameObject.GetComponent<PlayerInventory>();
+        //         inventory.GetThrowable().Throw(new Vector2(transform.position.x, transform.position.y + 1f), throwIndicator);
+        //         inventory.DropThrowable();
+        //         
+        //         GameManager.Instance.HUD.ShowThrowableIcon(false);
+        //         HandleAimCancel();
+        //     }
+        // }
+        //
+        // private void HandleAimCancel()
+        // {
+        //     _indicatorSpriteRenderer.enabled = false;
+        //     _isAiming = false;
+        //     
+        //     EnableMovement();
+        // }
 
         //================================== Save System ==================================
 
@@ -399,38 +397,38 @@ namespace Runtime.Player
             }
         }
         
-        private void UpdateThrowIndicator()
-        {
-            //move the game object to the mouse position based on rigidbody physics
-            _indicatorRb.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
-            //scale the indicator based on the distance from the player
-            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var distance = Vector2.Distance(transform.position, mousePos);
-            var scale = Mathf.Clamp(distance/25, 0.5f, 1f);
-            throwIndicator.transform.localScale = new Vector3(scale, scale, 1);
-
-            //calculate the angle between the player and the mouse and set the rotation of the player animation of vector 2
-            var direction = (mousePos - transform.position).normalized;
-            _movementAnimator.SetFloat(id: _moveX, direction.x);
-            _movementAnimator.SetFloat(id: _moveY, direction.y);
-            
-            //get list of all colliders that the indicator is overlapping
-            var roomBound = Physics2D.OverlapPoint(throwIndicator.transform.position, throwBoundsMask);
-            
-            //if overlapping with a object with tag "RoomBounds" then change the color to red
-
-            if (roomBound != null)
-            {
-                _canThrow = true;
-                _indicatorSpriteRenderer.color = Color.white;
-            }
-            else
-            {
-                _canThrow = false;
-                _indicatorSpriteRenderer.color = Color.red;
-            }
-        }
+        // private void UpdateThrowIndicator()
+        // {
+        //     //move the game object to the mouse position based on rigidbody physics
+        //     _indicatorRb.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        //
+        //     //scale the indicator based on the distance from the player
+        //     var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //     var distance = Vector2.Distance(transform.position, mousePos);
+        //     var scale = Mathf.Clamp(distance/25, 0.5f, 1f);
+        //     throwIndicator.transform.localScale = new Vector3(scale, scale, 1);
+        //
+        //     //calculate the angle between the player and the mouse and set the rotation of the player animation of vector 2
+        //     var direction = (mousePos - transform.position).normalized;
+        //     _movementAnimator.SetFloat(id: _moveX, direction.x);
+        //     _movementAnimator.SetFloat(id: _moveY, direction.y);
+        //     
+        //     //get list of all colliders that the indicator is overlapping
+        //     var roomBound = Physics2D.OverlapPoint(throwIndicator.transform.position, throwBoundsMask);
+        //     
+        //     //if overlapping with a object with tag "RoomBounds" then change the color to red
+        //
+        //     if (roomBound != null)
+        //     {
+        //         _canThrow = true;
+        //         _indicatorSpriteRenderer.color = Color.white;
+        //     }
+        //     else
+        //     {
+        //         _canThrow = false;
+        //         _indicatorSpriteRenderer.color = Color.red;
+        //     }
+        // }
 
         private void SetViewBounds(bool sneaking)
         {

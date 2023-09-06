@@ -16,7 +16,8 @@ namespace Runtime.InventorySystem
     public enum ActiveInventory
     {
         Items, 
-        Tapes
+        Tapes,
+        Notes
     }
     
     public class InventoryManager : MonoBehaviour
@@ -35,14 +36,14 @@ namespace Runtime.InventorySystem
         
         private Button _itemsButton;
         private Button _tapesButton;
+        private Button _notesButton;
         
         //Items Inventory
         private VisualElement _itemsInventoryContainer;
         
         private VisualElement _itemsInventoryListContainer;
-        private readonly List<InventoryUIItem> _itemsInventoryList = new();
-
-        private VisualElement _itemsInventoryInformation;
+        private readonly List<InventorySlot> _itemsInventoryList = new();
+        
         private VisualElement _itemsInventoryInformationImage;
         private Label _itemsInventoryInformationTitle;
         private Label _itemsInventoryInformationDescription;
@@ -51,18 +52,29 @@ namespace Runtime.InventorySystem
         private VisualElement _tapesInventoryContainer;
         
         private VisualElement _tapesInventoryListContainer;
-        private readonly List<InventoryUITape> _tapesInventoryList = new();
+        private readonly List<InventorySlot> _tapesInventoryList = new();
         
-        private VisualElement _tapesInventoryInformation;
         private VisualElement _tapesInventoryInformationImage;
         private Label _tapesInventoryInformationTitle;
         private Label _tapesInventoryInformationDescription;
         private Button _tapesInventoryPlayButton;
         
+        //Notes Inventory
+        private VisualElement _notesInventoryContainer;
+        
+        private VisualElement _notesInventoryListContainer;
+        private readonly List<InventorySlot> _notesInventoryList = new();
+        
+        private VisualElement _notesInventoryInformationImage;
+        private Label _notesInventoryInformationTitle;
+        private Label _notesInventoryInformationDescription;
+        
+        //Tracking
         private ActiveInventory _activeInventory = ActiveInventory.Tapes;
         private Tape _activeTape;
+        private Note _activeNote;
         
-        private InventoryUIItem _activeItem;
+        private InventorySlot _activeItemSlot;
 
         private void Awake()
         {
@@ -77,26 +89,21 @@ namespace Runtime.InventorySystem
     
             _tapesButton = _inventoryWindow.Q<Button>("tapes-toggle");
             _tapesButton.RegisterCallback<ClickEvent>(_ => SwitchToTapesInventory());
-
+            
+            _notesButton = _inventoryWindow.Q<Button>("notes-toggle");
+            _notesButton.RegisterCallback<ClickEvent>(_ => SwitchToNotesInventory());
+            
             //Items
             _itemsInventoryContainer = _inventoryWindow.Q<VisualElement>("items-inventory");
-            _itemsInventoryListContainer = _itemsInventoryContainer.Q<VisualElement>("item-list");
-
-            _itemsInventoryInformation = _itemsInventoryContainer.Q<VisualElement>("item-information");
-            _itemsInventoryInformationTitle = _itemsInventoryInformation.Q<Label>("item-title");
-            _itemsInventoryInformationImage = _itemsInventoryInformation.Q<VisualElement>("item-image");
-            _itemsInventoryInformationDescription = _itemsInventoryInformation.Q<Label>("item-description");
+            SetupItemsReferences(_itemsInventoryContainer);
 
             //Tapes
             _tapesInventoryContainer = _inventoryWindow.Q<VisualElement>("tapes-inventory");
-            _tapesInventoryListContainer = _tapesInventoryContainer.Q<VisualElement>("tape-list");
+            SetupTapesReferences(_tapesInventoryContainer);
             
-            _tapesInventoryInformation = _tapesInventoryContainer.Q<VisualElement>("tape-information");
-            _tapesInventoryInformationTitle = _tapesInventoryInformation.Q<Label>("tape-title");
-            _tapesInventoryInformationImage = _tapesInventoryInformation.Q<VisualElement>("tape-image");
-            _tapesInventoryInformationDescription = _tapesInventoryInformation.Q<Label>("tape-description");
-            _tapesInventoryPlayButton = _tapesInventoryInformation.Q<Button>("tape-listen");
-            _tapesInventoryPlayButton.RegisterCallback<ClickEvent>(_ => ListenToTape(_activeTape));
+            //Notes
+            _notesInventoryContainer = _inventoryWindow.Q<VisualElement>("notes-inventory");
+            SetupNotesReferences(_notesInventoryContainer);
         }
 
         public void OpenInventory()
@@ -109,6 +116,7 @@ namespace Runtime.InventorySystem
             
             RegisterInventoryTapes();
             RegisterInventoryItems();
+            RegisterInventoryNotes();
             
             _activeInventory = ActiveInventory.Tapes;
             SwitchToItemsInventory();
@@ -129,20 +137,24 @@ namespace Runtime.InventorySystem
             if(_activeInventory == ActiveInventory.Items) return;
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             
-            _activeItem?.Deselect();
+            _activeItemSlot?.Deselect();
             SelectItem(_itemsInventoryList[0].OnClick());
-            _activeItem = _itemsInventoryList[0];
+            _activeItemSlot = _itemsInventoryList[0];
 
             _activeInventory = ActiveInventory.Items;
             UIUtils.ShowUIElement(_itemsInventoryContainer);
             _itemsInventoryContainer.pickingMode = PickingMode.Ignore;
             UIUtils.HideUIElement(_tapesInventoryContainer);
             _tapesInventoryContainer.pickingMode = PickingMode.Ignore;
+            UIUtils.HideUIElement(_notesInventoryContainer);
+            _notesInventoryContainer.pickingMode = PickingMode.Ignore;
             
             _itemsButton.BringToFront();
             _itemsButton.AddToClassList("inventory-toggle-active");
             _tapesButton.SendToBack();
             _tapesButton.RemoveFromClassList("inventory-toggle-active");
+            _notesButton.SendToBack();
+            _notesButton.RemoveFromClassList("inventory-toggle-active");
         }
         
         private void SwitchToTapesInventory()
@@ -150,18 +162,43 @@ namespace Runtime.InventorySystem
             if(_activeInventory == ActiveInventory.Tapes) return;
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
 
-            _activeItem?.Deselect();
+            _activeItemSlot?.Deselect();
             SelectTape(_tapesInventoryList[0].OnClick());
-            _activeItem = _tapesInventoryList[0];
+            _activeItemSlot = _tapesInventoryList[0];
             
             _activeInventory = ActiveInventory.Tapes;
             UIUtils.HideUIElement(_itemsInventoryContainer);
             _itemsInventoryContainer.pickingMode = PickingMode.Ignore;
             UIUtils.ShowUIElement(_tapesInventoryContainer);
             _tapesInventoryContainer.pickingMode = PickingMode.Ignore;
+            UIUtils.HideUIElement(_notesInventoryContainer);
+            _notesInventoryContainer.pickingMode = PickingMode.Ignore;
             
             _tapesButton.BringToFront();
             _tapesButton.AddToClassList("inventory-toggle-active");
+            _itemsButton.SendToBack();
+            _itemsButton.RemoveFromClassList("inventory-toggle-active");
+            _notesButton.SendToBack();
+            _notesButton.RemoveFromClassList("inventory-toggle-active");
+        }
+        
+        private void SwitchToNotesInventory()
+        {
+            if(_activeInventory == ActiveInventory.Notes) return;
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+            
+            _activeInventory = ActiveInventory.Notes;
+            UIUtils.HideUIElement(_itemsInventoryContainer);
+            _itemsInventoryContainer.pickingMode = PickingMode.Ignore;
+            UIUtils.HideUIElement(_tapesInventoryContainer);
+            _tapesInventoryContainer.pickingMode = PickingMode.Ignore;
+            UIUtils.ShowUIElement(_notesInventoryContainer);
+            _notesInventoryContainer.pickingMode = PickingMode.Ignore;
+            
+            _notesButton.BringToFront();
+            _notesButton.AddToClassList("inventory-toggle-active");
+            _tapesButton.SendToBack();
+            _tapesButton.RemoveFromClassList("inventory-toggle-active");
             _itemsButton.SendToBack();
             _itemsButton.RemoveFromClassList("inventory-toggle-active");
         }
@@ -202,6 +239,24 @@ namespace Runtime.InventorySystem
             }
         }
         
+        private void SelectNote(BaseItem note)
+        {
+            if (note == null)
+            {
+                _notesInventoryInformationImage.style.backgroundImage = null;
+                _notesInventoryInformationTitle.text = "No Item Selected";
+                _notesInventoryInformationDescription.text = "";
+            }
+            else
+            {
+                _notesInventoryInformationImage.style.backgroundImage = note.itemSprite.texture;
+                _notesInventoryInformationTitle.text = note.itemName;
+                _notesInventoryInformationDescription.text = note.itemDescription;
+                
+                _activeNote = (Note)note;
+            }
+        }
+        
         private void RegisterInventoryItems()
         {
             _itemsInventoryList.Clear();
@@ -210,24 +265,24 @@ namespace Runtime.InventorySystem
             foreach (var item in itemsList)
             {
                 _itemsInventoryList.Add(index < playerInventory.itemInventory.Count
-                ? new InventoryUIItem(playerInventory.itemInventory[index], item)
-                : new InventoryUIItem(null, item));
+                ? new InventorySlot(playerInventory.itemInventory[index], item)
+                : new InventorySlot(null, item));
 
                 var currentIndex = index;
                 if (index < playerInventory.itemInventory.Count)
                 {
                     item.RegisterCallback<ClickEvent>(_ =>
                     {
-                        if(_activeItem != _itemsInventoryList[currentIndex])
+                        if(_activeItemSlot != _itemsInventoryList[currentIndex])
                         {
-                            _activeItem?.Deselect();
-                            _activeItem = _itemsInventoryList[currentIndex];
+                            _activeItemSlot?.Deselect();
+                            _activeItemSlot = _itemsInventoryList[currentIndex];
                             SelectItem(_itemsInventoryList[currentIndex].OnClick());
                         }
                     });
                     item.RegisterCallback<MouseEnterEvent>(_ =>
                     {
-                        if(_activeItem != _itemsInventoryList[currentIndex]) GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+                        if(_activeItemSlot != _itemsInventoryList[currentIndex]) GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
                     });
                 }
 
@@ -243,17 +298,17 @@ namespace Runtime.InventorySystem
             foreach (var tape in tapesList)
             {
                 _tapesInventoryList.Add(index < playerInventory.tapeInventory.Count
-                ? new InventoryUITape(playerInventory.tapeInventory[index], tape, playerInventory.tapeInventory[index].dialogue)
-                : new InventoryUITape(null, tape, null));
+                ? new InventorySlot(playerInventory.tapeInventory[index], tape)
+                : new InventorySlot(null, tape));
             
                 var currentIndex = index;
                 if(index < playerInventory.tapeInventory.Count){
                     tape.RegisterCallback<ClickEvent>(_ =>
                     {
-                        if(_activeItem != _tapesInventoryList[currentIndex])
+                        if(_activeItemSlot != _tapesInventoryList[currentIndex])
                         {
-                            _activeItem?.Deselect();
-                            _activeItem = _tapesInventoryList[currentIndex];
+                            _activeItemSlot?.Deselect();
+                            _activeItemSlot = _tapesInventoryList[currentIndex];
                             SelectTape(_tapesInventoryList[currentIndex].OnClick());
                         }
                     });
@@ -264,11 +319,84 @@ namespace Runtime.InventorySystem
             }
         }
         
+        private void RegisterInventoryNotes()
+        {
+            _notesInventoryList.Clear();
+            var notesList = _notesInventoryListContainer.Query<VisualElement>("inventory-note").ToList();
+            var index = 0;
+            foreach (var note in notesList)
+            {
+                _notesInventoryList.Add(index < playerInventory.noteInventory.Count
+                    ? new InventorySlot(playerInventory.noteInventory[index], note)
+                    : new InventorySlot(null, note));
+            
+                var currentIndex = index;
+                if(index < playerInventory.noteInventory.Count){
+                    note.RegisterCallback<ClickEvent>(_ =>
+                    {
+                        if(_activeItemSlot != _notesInventoryList[currentIndex])
+                        {
+                            _activeItemSlot?.Deselect();
+                            _activeItemSlot = _notesInventoryList[currentIndex];
+                            SelectNote(_notesInventoryList[currentIndex].OnClick());
+                        }
+                    });
+                    note.RegisterCallback<MouseEnterEvent>(_ => GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound()));
+                }
+
+                index++;
+            }
+        }
+        
+        //========================================== Helper Methods ==========================================//
+        
+          private void SetupNotesReferences(VisualElement notesInventoryContainer)
+        {
+            _notesInventoryListContainer = notesInventoryContainer.Q<VisualElement>("note-list");
+            _notesInventoryInformationTitle = notesInventoryContainer.Q<Label>("note-title");
+            _notesInventoryInformationImage = notesInventoryContainer.Q<VisualElement>("note-image");
+            _notesInventoryInformationDescription = notesInventoryContainer.Q<Label>("note-description");
+            
+            //Button to read note
+            var notesInventoryReadButton = notesInventoryContainer.Q<Button>("note-read");
+            notesInventoryReadButton.RegisterCallback<ClickEvent>(_ => ReadNote());
+        }
+
+        private void SetupTapesReferences(VisualElement tapesInventoryContainer)
+        {
+            _tapesInventoryListContainer = tapesInventoryContainer.Q<VisualElement>("tape-list");
+            _tapesInventoryInformationTitle = tapesInventoryContainer.Q<Label>("tape-title");
+            _tapesInventoryInformationImage = tapesInventoryContainer.Q<VisualElement>("tape-image");
+            _tapesInventoryInformationDescription = tapesInventoryContainer.Q<Label>("tape-description");
+            
+            //Button to play tape
+            _tapesInventoryPlayButton = tapesInventoryContainer.Q<Button>("tape-listen");
+            _tapesInventoryPlayButton.RegisterCallback<ClickEvent>(_ => ListenToTape(_activeTape));
+        }
+
+        private void SetupItemsReferences(VisualElement itemsInventoryContainer)
+        {
+            _itemsInventoryListContainer = itemsInventoryContainer.Q<VisualElement>("item-list");
+
+            _itemsInventoryInformationTitle = itemsInventoryContainer.Q<Label>("item-title");
+            _itemsInventoryInformationImage = itemsInventoryContainer.Q<VisualElement>("item-image");
+            _itemsInventoryInformationDescription = itemsInventoryContainer.Q<Label>("item-description");
+        }
+        
+        //========================================== Interaction Events ==========================================//
+        
         private void ListenToTape(Tape tape)
         {
             if(tape == null) return;
             CloseInventory();
             GameManager.Instance.DialogueSystem.StartDialogue(tape.dialogue);
+        }
+        
+        private void ReadNote()
+        {
+            if(_activeNote == null) return;
+            CloseInventory();
+            //GameManager.Instance.DialogueSystem.StartDialogue(_activeNote);
         }
     }
 }

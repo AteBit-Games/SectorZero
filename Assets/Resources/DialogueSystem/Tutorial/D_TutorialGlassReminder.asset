@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45592774a6613004c9d7daa230919261, type: 3}
+  m_Name: D_TutorialGlassReminder
+  m_EditorClassIdentifier: 
+  date: 
+  dialogueLines:
+  - actor: {fileID: 11400000, guid: 479be7e91b53b034ea86bb109cad8835, type: 2}
+    line: Sorry miss, I can't open the door until I've had a look at you.
+  canSkip: 0
+  autoSkipDelay: 2.2
+  trigger: 0

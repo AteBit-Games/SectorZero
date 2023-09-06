@@ -14,16 +14,16 @@ namespace Runtime.InventorySystem
     public enum ItemType
     {
         TapeRecording,
-        Item
+        Item,
+        Note
     }
     
     public class PlayerInventory : MonoBehaviour, IPersistant
     {
         public List<Tape> tapeInventory = new();
         public List<Item> itemInventory = new();
-        public Throwable throwableItem;
+        public List<Note> noteInventory = new();
         
-        public bool HasThrowableItem => throwableItem != null;
         
         public bool AddTapeToInventory(Tape item)
         {
@@ -31,9 +31,10 @@ namespace Runtime.InventorySystem
             return true;
         }
         
-        public bool ContainsKeyItem(Item item)
+        public bool AddNoteToInventory(Note item)
         {
-            return itemInventory.Contains(item);
+            noteInventory.Add(item);
+            return true;
         }
         
         public bool AddItemToInventory(Item item)
@@ -42,24 +43,14 @@ namespace Runtime.InventorySystem
             return true;
         }
         
+        public bool ContainsKeyItem(Item item)
+        {
+            return itemInventory.Contains(item);
+        }
+        
         public void UseItemInInventory(Item item)
         {
             itemInventory.Remove(item);
-        }
-        
-        public void PickUpThrowable(GameObject item)
-        {
-            throwableItem = item.GetComponent<Throwable>();
-        }
-        
-        public void DropThrowable()
-        {
-            throwableItem = null;
-        }
-        
-        public Throwable GetThrowable()
-        {
-            return throwableItem;
         }
         
         //=============================== Save System ===============================//
@@ -68,6 +59,7 @@ namespace Runtime.InventorySystem
         {
             itemInventory = game.playerData.itemInventory;
             tapeInventory = game.playerData.tapeInventory;
+            noteInventory = game.playerData.noteInventory;
             
             return "Player Inventory";
         }
@@ -76,6 +68,7 @@ namespace Runtime.InventorySystem
         {
             game.playerData.itemInventory = itemInventory;
             game.playerData.tapeInventory = tapeInventory;
+            game.playerData.noteInventory = noteInventory;
         }
     }
 }

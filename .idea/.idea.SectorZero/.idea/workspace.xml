@@ -19,10 +19,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f4a03f0013404226841ac46b59a6815d1a1c00/4e/992ad9e8/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f4a03f0013404226841ac46b59a6815d1a1c00/53/03781404/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/InteractionSystem/CustomLockInspector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/InteractionSystem/CustomTapeInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/AI/Sentinel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/MoveToPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InteractionSystem/Objects/Lock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InventorySystem/ScriptableObjects/Note.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Misc/Triggers/TriggerDelegate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/SaveSystem/SaveManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/SaveSystem/SaveMenu.cs" root0="FORCE_HIGHLIGHTING" />
@@ -147,7 +147,9 @@
       <workItem from="1693513851634" duration="4628000" />
       <workItem from="1693743058057" duration="10694000" />
       <workItem from="1693764915521" duration="5616000" />
-      <workItem from="1693770686021" duration="5327000" />
+      <workItem from="1693770686021" duration="5756000" />
+      <workItem from="1693940685078" duration="3651000" />
+      <workItem from="1693944392899" duration="3419000" />
     </task>
     <servers />
   </component>
@@ -156,23 +158,4 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/SaveSystem/FileHandler.cs</url>
-          <line>187</line>
-          <properties documentPath="C:\Users\Francois\Desktop\SectorZero\Assets\Scripts\Runtime\SaveSystem\FileHandler.cs" initialLine="216" containingFunctionPresentation="Method 'DeleteSave'">
-            <startOffsets>
-              <option value="6484" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6485" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
 </project>
