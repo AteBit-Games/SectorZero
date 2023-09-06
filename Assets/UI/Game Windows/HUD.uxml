@@ -195,7 +195,34 @@
                     </ui:Button>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="note-view" picking-mode="Ignore" style="visibility: visible; display: none; flex-grow: 1; background-color: rgba(0, 0, 0, 0.41); opacity: 1;" />
+            <ui:VisualElement name="note-view" picking-mode="Ignore" style="visibility: visible; display: flex; flex-grow: 1; background-color: rgba(0, 0, 0, 0.41); opacity: 1; align-items: center; justify-content: center;">
+                <ui:VisualElement name="research-note" style="flex-grow: 0; height: 80%; width: 650px; background-color: rgb(140, 140, 140); display: none;">
+                    <ui:VisualElement name="padding" style="flex-grow: 0; height: 200px;" />
+                    <ui:VisualElement name="note-content" style="flex-grow: 0; height: 100%; padding-left: 35px;">
+                        <ui:VisualElement name="note-header" style="flex-grow: 0;">
+                            <ui:VisualElement name="note-title" style="flex-grow: 0; padding-right: 35px; flex-direction: row; justify-content: space-between;">
+                                <ui:Label tabindex="-1" text="Research Notes" display-tooltip-when-elided="true" name="note-title" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 30px; color: rgb(14, 14, 14); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                                <ui:Label tabindex="-1" text="1978.07.16" display-tooltip-when-elided="true" name="note-date" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 30px; color: rgb(63, 63, 63); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                            </ui:VisualElement>
+                            <ui:Label tabindex="-1" text="Dr Henry Carver" display-tooltip-when-elided="true" name="note-author" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 24px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; color: rgb(58, 58, 58);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="note-content" style="flex-grow: 0; padding-right: 35px; flex-direction: row; justify-content: space-between; padding-top: 30px;">
+                            <ui:Label tabindex="-1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis tellus id interdum velit laoreet id donec. Augue neque gravida in fermentum et sollicitudin ac orci. Eget arcu dictum varius duis at consectetur lorem donec massa. Pharetra pharetra massa massa ultricies mi quis. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Aliquet porttitor lacus luctus accumsan tortor posuere ac. Senectus et netus et malesuada fames ac turpis egestas. Cras ornare arcu dui vivamus arcu felis bibendum ut. Aliquam sem fringilla ut morbi tincidunt. Facilisis leo vel fringilla est. Sed tempus urna et pharetra pharetra massa massa. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. Ac felis donec et odio pellentesque diam volutpat commodo. " display-tooltip-when-elided="true" name="note-content" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 25px; white-space: normal;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="handwritten-note" style="flex-grow: 0; height: 80%; width: 650px; background-color: rgb(140, 140, 140); -unity-font-style: normal; -unity-text-align: upper-left;">
+                    <ui:VisualElement name="padding" style="flex-grow: 0; height: 75px;" />
+                    <ui:VisualElement name="note-content" style="flex-grow: 0; height: 100%; padding-left: 35px;">
+                        <ui:VisualElement name="note-content" style="flex-grow: 0; padding-right: 35px; flex-direction: row; justify-content: space-between; padding-top: 30px;">
+                            <ui:Label tabindex="-1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis tellus id interdum velit laoreet id donec. Augue neque gravida in fermentum et sollicitudin ac orci. Eget arcu dictum varius duis at consectetur lorem donec massa. Pharetra pharetra massa massa ultricies mi quis. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Aliquet porttitor lacus luctus accumsan tortor posuere ac. Senectus et netus et malesuada fames ac turpis egestas. Cras ornare arcu dui vivamus arcu felis bibendum ut. " display-tooltip-when-elided="true" name="note-content" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/KimsBitHand%20SDF.asset?fileID=11400000&amp;guid=9810f12cb74ee9b4f9cd336763516ee9&amp;type=2#KimsBitHand SDF&apos;); font-size: 30px; white-space: normal;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="note-title" style="flex-grow: 0; padding-right: 35px; flex-direction: row; justify-content: flex-end; padding-top: 30px;">
+                            <ui:Label tabindex="-1" text="- Dani" display-tooltip-when-elided="true" name="note-author" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/KimsBitHand%20SDF.asset?fileID=11400000&amp;guid=9810f12cb74ee9b4f9cd336763516ee9&amp;type=2#KimsBitHand SDF&apos;); font-size: 30px; color: rgb(63, 63, 63); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
             <ui:VisualElement name="map-view" picking-mode="Ignore" style="visibility: visible; display: none; flex-grow: 1; background-color: rgba(0, 0, 0, 0.41); opacity: 1;" />
             <ui:VisualElement name="keaypad-view" picking-mode="Ignore" style="visibility: visible; display: none; flex-grow: 1; background-color: rgba(0, 0, 0, 0.41); opacity: 1;" />
         </ui:VisualElement>
