@@ -7,6 +7,7 @@ using Runtime.InteractionSystem.Objects.Doors;
 using Runtime.InteractionSystem.Objects.Powered;
 using UnityEditor;
 using UnityEditor.UIElements;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Editor.InteractionSystem.PoweredItems 
@@ -20,6 +21,30 @@ namespace Editor.InteractionSystem.PoweredItems
         {
             VisualElement root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
+            
+            var fuseBox = target as FuseBox;
+            if (fuseBox == null) return root;
+            
+            var fuseSound = root.Q<VisualElement>("fuse-sound");
+            var fuseObject = root.Q<PropertyField>("fuse-object");
+            
+            var hasFuseField = root.Q<PropertyField>("start-fuse");
+            hasFuseField.RegisterCallback<ChangeEvent<bool>>(evt =>
+            {
+                Debug.Log(evt.newValue);
+                fuseBox.startWithFuse = evt.newValue;
+                if(!evt.newValue)
+                {
+                    fuseSound.style.display = DisplayStyle.Flex;
+                    fuseObject.style.display = DisplayStyle.Flex;
+                }
+                else
+                {
+                    fuseSound.style.display = DisplayStyle.None;
+                    fuseObject.style.display = DisplayStyle.None;
+                }
+                serializedObject.ApplyModifiedProperties();
+            });
             
             var generateGuidButton = root.Q<Button>("generate-button");
             generateGuidButton.RegisterCallback<ClickEvent>(_ =>

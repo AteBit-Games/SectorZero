@@ -22,7 +22,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
     {
         [SerializeField] public string persistentID;
         [SerializeField] private Item fuse;
-        [SerializeField] private bool startWithFuse;
+        [SerializeField] public bool startWithFuse;
         
         [SerializeField] private Sound humSound;
         [SerializeField] private Sound noFuseSound;

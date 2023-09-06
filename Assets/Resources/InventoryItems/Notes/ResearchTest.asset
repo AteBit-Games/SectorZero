@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Research Notes
   itemSprite: {fileID: 21300000, guid: 633e43b0cca294c40b9b7ca29966762e, type: 3}
   itemDescription: Found in the medical archive of the facility
-  noteType: 1
+  noteType: 0
   title: 
   author: 
   date: 

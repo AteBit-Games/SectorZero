@@ -41,11 +41,6 @@ namespace Editor.InventorySystem
                 serializedObject.ApplyModifiedProperties();
             });
 
-            if (note.noteType == NoteType.Handwritten)
-            {
-                root.Q<VisualElement>("extra-settings").style.display = DisplayStyle.None;
-            }
-
             return root;
         }
     }

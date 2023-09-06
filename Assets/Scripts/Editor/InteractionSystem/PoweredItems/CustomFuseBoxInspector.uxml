@@ -6,8 +6,8 @@
             <uie:PropertyField binding-path="connectedObjects" name="property" />
             <uie:PropertyField binding-path="startPowered" name="property" />
             <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
-            <uie:PropertyField binding-path="startWithFuse" name="property" />
-            <uie:PropertyField binding-path="fuse" name="property" />
+            <uie:PropertyField binding-path="startWithFuse" name="start-fuse" />
+            <uie:PropertyField binding-path="fuse" name="fuse-object" />
             <ui:VisualElement name="GUID" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center;">
                 <uie:PropertyField binding-path="persistentID" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
                 <ui:Button text="Generate" display-tooltip-when-elided="true" name="generate-button" class="button" style="padding-top: 3px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;" />
@@ -20,9 +20,11 @@
             <uie:PropertyField binding-path="humSound" name="property" />
             <uie:PropertyField binding-path="onSound" name="property" />
             <uie:PropertyField binding-path="offSound" name="property" />
-            <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
-            <uie:PropertyField binding-path="addFuseSound" name="property" />
-            <uie:PropertyField binding-path="noFuseSound" name="property" />
+            <ui:VisualElement name="fuse-sound" style="flex-grow: 1;">
+                <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
+                <uie:PropertyField binding-path="addFuseSound" name="property" />
+                <uie:PropertyField binding-path="noFuseSound" name="property" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:Button text="Edit Script" display-tooltip-when-elided="true" name="open-button" class="button" style="padding-top: 3px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; margin-top: 10px; margin-bottom: 5px;" />
