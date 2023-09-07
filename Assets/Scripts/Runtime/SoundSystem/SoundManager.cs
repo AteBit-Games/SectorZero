@@ -44,6 +44,8 @@ namespace Runtime.SoundSystem
         {
             ambienceSources[0].Play();
             ambienceSources[1].Play();
+            
+           // Sound
         }
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
@@ -70,6 +72,8 @@ namespace Runtime.SoundSystem
                 destroy = true;
             }
             
+            Debug.Log($"Playing sound: {sound.name}");
+            
             audioSource.outputAudioMixerGroup = sound.mixerGroup;
             audioSource.clip = sound.clip;
             audioSource.volume = sound.volumeScale;
@@ -77,6 +81,11 @@ namespace Runtime.SoundSystem
             audioSource.Play();
             
             if (destroy && !sound.loop) StartCoroutine(DestroySoundSource(audioSource, audioSource.clip.length+0.5f));
+        }
+        
+        public void StartSounds()
+        { 
+            foreach (var soundSource in _activeSoundEntitySources) soundSource.AudioSource.Play();
         }
         
         public void StopAll()

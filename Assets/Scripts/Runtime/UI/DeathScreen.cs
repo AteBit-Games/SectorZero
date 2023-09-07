@@ -42,6 +42,7 @@ namespace Runtime.UI
         private Button _cancelMenuQuit;
         
         private SaveMenu _saveMenu;
+        private VisualElement _activePopup;
         
         private void Awake()
         {
@@ -109,6 +110,9 @@ namespace Runtime.UI
         public override void CloseSubWindow()
         {
             if (isSavesWindowOpen) CloseSavesMenu();
+            else if(_activePopup != null) ClosePopup();
+            
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
         }
 
         private void OpenSavesMenu()
@@ -128,7 +132,6 @@ namespace Runtime.UI
         {
             UIUtils.HideUIElement(_savesWindow);
             UIUtils.ShowUIElement(_deathContainer);
-            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             
             isSavesWindowOpen = false;
             isSubWindowOpen = false;
@@ -139,7 +142,6 @@ namespace Runtime.UI
             //Bind Menu Popup Buttons
             _quitMenuButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UIUtils.HideUIElement(_confirmDesktopPopup);
                 OpenConfirmPopup(_confirmMenuPopup);
             });
             _quitMenuButton.RegisterCallback<MouseEnterEvent>(_ => {
@@ -157,7 +159,7 @@ namespace Runtime.UI
             
             _cancelMenuQuit.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UIUtils.HideUIElement(_confirmMenuPopup);
+                ClosePopup();
             });
             _cancelMenuQuit.RegisterCallback<MouseEnterEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
@@ -166,7 +168,6 @@ namespace Runtime.UI
             //Bind Desktop Popup Buttons
             _quitDesktopButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UIUtils.HideUIElement(_confirmMenuPopup);
                 OpenConfirmPopup(_confirmDesktopPopup);
             });
             _quitDesktopButton.RegisterCallback<MouseEnterEvent>(_ => {
@@ -184,16 +185,30 @@ namespace Runtime.UI
             
             _cancelDesktopQuit.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UIUtils.HideUIElement(_confirmDesktopPopup);
+                isSubWindowOpen = false;
+                ClosePopup();
             });
             _cancelDesktopQuit.RegisterCallback<MouseEnterEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
         }
         
-        private static void OpenConfirmPopup(VisualElement popup)
+        private void OpenConfirmPopup(VisualElement popup)
         {
+            ClosePopup();
             UIUtils.ShowUIElement(popup);
+            
+            _activePopup = popup;
+            isSubWindowOpen = true;
+        }
+        
+        private void ClosePopup()
+        {
+            if(_activePopup == null) return;
+            
+            UIUtils.HideUIElement(_activePopup);
+            _activePopup = null;
+            isSubWindowOpen = false;
         }
 
         private static void GoToMainMenu()

@@ -6,9 +6,12 @@
             <uie:PropertyField binding-path="levelDescription" name="property" />
             <uie:PropertyField binding-path="navMeshSurface" name="property" />
             <uie:PropertyField binding-path="cullingReferencePoint" name="property" focusable="false" />
+            <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
+            <uie:PropertyField binding-path="startAmbience" name="property" focusable="false" />
+            <uie:PropertyField binding-path="playAmbienceOnStart" name="property" focusable="false" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="VisualElement" class="property-group">
+    <ui:VisualElement name="VisualElement" class="property-group" style="visibility: visible; display: none;">
         <ui:Label tabindex="-1" text="Light Culling Settings" display-tooltip-when-elided="true" name="header" enable-rich-text="true" />
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <uie:PropertyField binding-path="showLightTargets" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />

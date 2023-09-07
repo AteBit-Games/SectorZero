@@ -19,7 +19,7 @@ namespace Editor.InventorySystem
         
         public override VisualElement CreateInspectorGUI() 
         {
-            VisualElement root = new VisualElement();
+            var root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
             
             var note = target as Note;
@@ -37,10 +37,13 @@ namespace Editor.InventorySystem
                     NoteType.Research => DisplayStyle.Flex,
                     _ => throw new ArgumentOutOfRangeException()
                 };
-
+                
                 serializedObject.ApplyModifiedProperties();
             });
+            
+            root.Q<VisualElement>("extra-settings").style.display = note.noteType == NoteType.Research ? DisplayStyle.Flex : DisplayStyle.None;
 
+                
             return root;
         }
     }

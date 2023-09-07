@@ -31,7 +31,6 @@ namespace Editor.InteractionSystem.PoweredItems
             var hasFuseField = root.Q<PropertyField>("start-fuse");
             hasFuseField.RegisterCallback<ChangeEvent<bool>>(evt =>
             {
-                Debug.Log(evt.newValue);
                 fuseBox.startWithFuse = evt.newValue;
                 if(!evt.newValue)
                 {

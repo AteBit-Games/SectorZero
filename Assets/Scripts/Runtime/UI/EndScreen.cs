@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 
 namespace Runtime.UI
 {
-    public class EndScreen : MonoBehaviour
+    public class EndScreen : Window
     {
         // Main Pause Items
         private VisualElement _endWindow;
@@ -28,6 +28,8 @@ namespace Runtime.UI
         private VisualElement _confirmMenuPopup;
         private Button _confirmMenuQuit;
         private Button _cancelMenuQuit;
+        
+        private VisualElement _activePopup;
         
         private void Awake()
         {
@@ -54,9 +56,17 @@ namespace Runtime.UI
             SetupPopups();
         }
 
-        public void Show()
+        public override void OpenWindow()
         {
             UIUtils.ShowUIElement(_endWindow);
+        }
+        
+        public override void CloseWindow() {}
+        
+        public override void CloseSubWindow()
+        {
+            if(_activePopup != null) ClosePopup();
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
         }
 
         private void SetupPopups()
@@ -104,9 +114,22 @@ namespace Runtime.UI
             });
         }
         
-        private static void OpenConfirmPopup(VisualElement popup)
+        private void OpenConfirmPopup(VisualElement popup)
         {
+            ClosePopup();
             UIUtils.ShowUIElement(popup);
+            
+            _activePopup = popup;
+            isSubWindowOpen = true;
+        }
+        
+        private void ClosePopup()
+        {
+            if(_activePopup == null) return;
+            
+            UIUtils.HideUIElement(_activePopup);
+            _activePopup = null;
+            isSubWindowOpen = false;
         }
 
         private static void GoToMainMenu()

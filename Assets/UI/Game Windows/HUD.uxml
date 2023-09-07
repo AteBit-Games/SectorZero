@@ -72,7 +72,7 @@
                             </ui:Button>
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="tapes-inventory" picking-mode="Ignore" style="flex-grow: 1; position: absolute; left: 0; top: -1px; bottom: 3px; right: 0; display: flex;">
+                    <ui:VisualElement name="tapes-inventory" picking-mode="Ignore" style="flex-grow: 1; position: absolute; left: 0; top: 0; bottom: 0; right: 0; display: flex;">
                         <ui:VisualElement name="tape-information" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 22%; right: 10%; position: absolute; top: 8%; bottom: 8%; align-items: center; justify-content: flex-start;">
                             <ui:VisualElement name="padding" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); height: 75px;" />
                             <ui:VisualElement name="tape-image" style="flex-grow: 0; background-color: rgba(56, 56, 56, 0); width: 215px; height: 215px; background-image: url(&apos;project://database/Assets/Art/Sprites/IconsAndMugshots/TapeRecorderIcon.png?fileID=21300000&amp;guid=0ebb2054dcc37814fa3b35092eb81ac2&amp;type=3#TapeRecorderIcon&apos;);" />
@@ -131,7 +131,7 @@
                             </ui:Button>
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="notes-inventory" picking-mode="Ignore" style="flex-grow: 1; position: absolute; left: 0; top: -1px; bottom: 3px; right: 0; display: none;">
+                    <ui:VisualElement name="notes-inventory" picking-mode="Ignore" style="flex-grow: 1; position: absolute; left: 0; top: -1px; bottom: 0; right: 0; display: none;">
                         <ui:VisualElement name="note-information" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 22%; right: 10%; position: absolute; top: 8%; bottom: 8%; align-items: center; justify-content: flex-start;">
                             <ui:VisualElement name="padding" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); height: 75px;" />
                             <ui:VisualElement name="note-image" style="flex-grow: 0; background-color: rgba(56, 56, 56, 0); width: 215px; height: 215px; background-image: url(&apos;project://database/Assets/Art/Sprites/IconsAndMugshots/PaperTemp.png?fileID=21300000&amp;guid=633e43b0cca294c40b9b7ca29966762e&amp;type=3#PaperTemp&apos;);" />

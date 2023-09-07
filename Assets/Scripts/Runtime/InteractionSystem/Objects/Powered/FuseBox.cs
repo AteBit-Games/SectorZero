@@ -126,8 +126,8 @@ namespace Runtime.InteractionSystem.Objects.Powered
             _animator.SetBool(Powered, state);
             _light.enabled = state;
             
-            if(state) GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
-            else _audioSource.Stop();
+            // if(state) GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
+            // else _audioSource.Stop();
         }
 
         //=========================== Save System =============================//

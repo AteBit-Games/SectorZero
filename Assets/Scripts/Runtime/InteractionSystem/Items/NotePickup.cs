@@ -26,8 +26,6 @@ namespace Runtime.InteractionSystem.Items
         
         public bool OnInteract(GameObject player)
         {
-            
-            Debug.Log(GameManager.Instance.SaveSystem.GetPlayerData().autoNotes);
             if(GameManager.Instance.SaveSystem.GetPlayerData().autoNotes)
             {
                 GameManager.Instance.HUD.OpenNote(note, true);

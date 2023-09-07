@@ -28,8 +28,7 @@ namespace Runtime.Misc
         [SerializeField] private Sound offSound;
         [Range(0.0f, 1.0f)]
         [SerializeField] private float volumeScale;
-
-        [HideInInspector] public bool isCulled;
+        
         
         private Coroutine _coroutine;
         private Animator _animator;
@@ -39,7 +38,6 @@ namespace Runtime.Misc
         public bool IsPowered { get; set; }
 
         public AudioSource AudioSource { get; set; }
-        public Sound Sound => loopSound;
 
         public float Volume { get; set; }
         public float VolumeScale
@@ -59,7 +57,6 @@ namespace Runtime.Misc
         private void Start()
         {
             AudioSource.clip = loopSound.clip;
-            AudioSource.Play();
             if (startPowered) PowerOn();
             else PowerOff();
         }
@@ -89,19 +86,7 @@ namespace Runtime.Misc
                 _coroutine = null;
             }
         }
-        
-        public void UnCull()
-        {
-            isCulled = false;
-            if (IsPowered) PowerOn();
-            else PowerOff();
-        }
-        
-        public void Cull()
-        {
-            isCulled = true;
-            PowerOff();
-        }
+
         
         //============================== Coroutines ==============================
         
@@ -119,7 +104,7 @@ namespace Runtime.Misc
                 yield return FadeOut();
 
             yield return new WaitForSeconds(Random.Range(minOff, maxOff));
-            AudioSource.Play();
+            //AudioSource.Play();
             _coroutine = StartCoroutine(FlickerOff());
         }
 

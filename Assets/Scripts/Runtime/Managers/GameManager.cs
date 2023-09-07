@@ -208,7 +208,8 @@ namespace Runtime.Managers
         {
             Time.timeScale = 0f;
             inputReader.SetUI();
-            EndScreen.Show();
+            EndScreen.OpenWindow();
+            activeWindow = EndScreen;
         }
         
         // /// <summary>
