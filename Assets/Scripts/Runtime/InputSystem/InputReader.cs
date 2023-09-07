@@ -35,10 +35,6 @@ namespace Runtime.InputSystem
         public event Action InteractEvent;
         public event Action SneakEvent;
         
-        public event Action AimEvent;
-        public event Action AimCancelEvent;
-
-        public event Action ContinueAction;
 
         public void OnMove(InputAction.CallbackContext context)
         {
@@ -107,11 +103,11 @@ namespace Runtime.InputSystem
         {
             if(context.phase == InputActionPhase.Performed)
             {
-                AimEvent?.Invoke();
+
             }
             else if(context.phase == InputActionPhase.Canceled)
             {
-                AimCancelEvent?.Invoke();
+
             }
         }
 
@@ -142,7 +138,7 @@ namespace Runtime.InputSystem
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                ContinueAction?.Invoke();
+              
             }
         }
 

@@ -36,11 +36,11 @@ namespace Runtime.SaveSystem
             _backButton.RegisterCallback<MouseEnterEvent>(_ =>
             {
                 _buttonDescription.text = "Exit the load save menu";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             _backButton.RegisterCallback<ClickEvent>(_ =>
             {
                 GameManager.Instance.HandleEscape();
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             });
         }
 

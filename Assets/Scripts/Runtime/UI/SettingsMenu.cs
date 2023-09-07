@@ -32,7 +32,7 @@ namespace Runtime.UI
         private float _activeMasterVolume;
         private float _activeMusicVolume;
         private float _activeSfxVolume;
-
+        
         private void Awake()
         {
             _uiDocument = GetComponent<UIDocument>();
@@ -43,11 +43,11 @@ namespace Runtime.UI
             _backButton.RegisterCallback<MouseEnterEvent>(_ =>
             {
                 _settingDescription.text = "Exit the settings menu";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             _backButton.RegisterCallback<ClickEvent>(_ =>
             {
                 GameManager.Instance.HandleEscape();
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             });
         }
 
@@ -176,6 +176,7 @@ namespace Runtime.UI
             {
                 _activeAutoNotes = evt.newValue;
                 GameManager.Instance.SaveSystem.UpdatePlayerNotesValue(_activeAutoNotes);
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             });
         }
         
@@ -196,6 +197,7 @@ namespace Runtime.UI
             {
                 _activeAutoTapes = evt.newValue;
                 GameManager.Instance.SaveSystem.UpdatePlayerTapesValue(_activeAutoTapes);
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             });
         }
         
@@ -228,6 +230,7 @@ namespace Runtime.UI
                 GameManager.Instance.SaveSystem.UpdatePlayerMasterVolume(_activeMasterVolume);
                 GameManager.Instance.SoundSystem.SetMasterVolume(_activeMasterVolume);
             });
+
             
             var soundVolume = soundSlider.Q<Slider>("slider");
             soundVolume.value = _activeSfxVolume;
@@ -237,6 +240,7 @@ namespace Runtime.UI
                 GameManager.Instance.SaveSystem.UpdatePlayerSoundsVolume(_activeSfxVolume);
                 GameManager.Instance.SoundSystem.SetSfxVolume(_activeSfxVolume);
             });
+
             
             var musicVolume = musicSlider.Q<Slider>("slider");
             musicVolume.value = _activeMusicVolume;
@@ -273,5 +277,6 @@ namespace Runtime.UI
             button.SetEnabled(state);
             button.style.opacity = state ? 1 : 0.5f;
         }
+        
     }
 }

@@ -144,6 +144,7 @@ namespace Runtime.UI
             if(isSettingsOpen) CloseSettings();
             else if(isSavesWindowOpen) CloseSavesMenu();
             
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             isSubWindowOpen = false;
         }
         

@@ -98,11 +98,13 @@ namespace Runtime.ReporterSystem
         public void ShowForm()
         {
            UIUtils.ShowUIElement(_feedbackWindow);
+           categoryDropdown.SetEnabled(true);
         }
         
         public void HideForm()
         {
             UIUtils.HideUIElement(_feedbackWindow);
+            categoryDropdown.SetEnabled(false);
         }
 
         public void SendForm()

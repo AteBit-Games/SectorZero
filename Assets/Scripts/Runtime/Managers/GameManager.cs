@@ -236,7 +236,6 @@ namespace Runtime.Managers
                     break;
                 case true:
                     InventorySystem.CloseWindow();
-                    activeWindow = null;
                     break;
             }
         }
@@ -318,6 +317,8 @@ namespace Runtime.Managers
             {
                 yield return null;
             }
+            
+            if(sceneIndex == 0) LoadingScreen.HideLoading();
         }
 
         public void FinishedLoading()

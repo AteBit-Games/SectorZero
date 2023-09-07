@@ -8,7 +8,6 @@ using Runtime.ReporterSystem;
 using Runtime.SaveSystem;
 using Runtime.Utils;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Runtime.UI
@@ -115,6 +114,8 @@ namespace Runtime.UI
         private void OpenSavesMenu()
         {
             UIUtils.HideUIElement(_deathContainer);
+            UIUtils.HideUIElement(_confirmMenuPopup);
+            UIUtils.HideUIElement(_confirmDesktopPopup);
             UIUtils.ShowUIElement(_savesWindow);
             
             GameManager.Instance.SaveSystem.GetSaveGames();
@@ -127,6 +128,7 @@ namespace Runtime.UI
         {
             UIUtils.HideUIElement(_savesWindow);
             UIUtils.ShowUIElement(_deathContainer);
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             
             isSavesWindowOpen = false;
             isSubWindowOpen = false;
@@ -137,6 +139,7 @@ namespace Runtime.UI
             //Bind Menu Popup Buttons
             _quitMenuButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                UIUtils.HideUIElement(_confirmDesktopPopup);
                 OpenConfirmPopup(_confirmMenuPopup);
             });
             _quitMenuButton.RegisterCallback<MouseEnterEvent>(_ => {
@@ -163,10 +166,11 @@ namespace Runtime.UI
             //Bind Desktop Popup Buttons
             _quitDesktopButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                UIUtils.HideUIElement(_confirmMenuPopup);
                 OpenConfirmPopup(_confirmDesktopPopup);
             });
             _quitDesktopButton.RegisterCallback<MouseEnterEvent>(_ => {
-                _buttonDescription.text = "Quit the game";
+                _buttonDescription.text = "Quit to desktop";
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
@@ -192,13 +196,13 @@ namespace Runtime.UI
             UIUtils.ShowUIElement(popup);
         }
 
-        public void GoToMainMenu()
+        private static void GoToMainMenu()
         {
             Time.timeScale = 1;
             GameManager.Instance.SoundSystem.StopAll();
             GameManager.Instance.isMainMenu = true;
             GameManager.Instance.ResetInput();
-            SceneManager.LoadScene(0);
+            GameManager.Instance.LoadScene(0);
         }
     }
 }
