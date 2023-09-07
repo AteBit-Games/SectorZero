@@ -92,6 +92,8 @@ namespace Runtime.SaveSystem.Data
         
         public SerializableDictionary<string, bool> pickups = new();
         public SerializableDictionary<string, bool> tapeRecorders = new();
+        public SerializableDictionary<string, bool> notes = new();
+        
         public SerializableDictionary<string, bool> triggers = new();
         public SerializableDictionary<string, bool> doors = new();
         public SerializableDictionary<string, bool> miscItems = new();
@@ -131,8 +133,10 @@ namespace Runtime.SaveSystem.Data
     [Serializable]
     public class PlayerData
     {
-        public int displayMode = 2;
+        public int displayMode = 1;
         public bool vSync = true;
+        public bool autoNotes = true;
+        public bool autoTapes = true;
         public float masterVolume = 1f;
         public float musicVolume = 1f;
         public float sfxVolume = 1f;

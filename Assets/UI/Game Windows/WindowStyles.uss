@@ -526,3 +526,41 @@
     width: 80%;
     height: 80%;
 }
+
+#Toggle Label {
+    width: 0;
+    height: 0;
+    flex-shrink: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    max-width: 0;
+    min-width: 0;
+    max-height: 0;
+    min-height: 0;
+}
+
+#Toggle VisualElement {
+    align-items: center;
+    justify-content: center;
+}
+
+#Toggle #unity-checkmark {
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(126, 126, 126);
+    color: rgb(255, 255, 255);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-left-color: rgb(113, 113, 113);
+    border-right-color: rgb(113, 113, 113);
+    border-top-color: rgb(113, 113, 113);
+    border-bottom-color: rgb(113, 113, 113);
+}

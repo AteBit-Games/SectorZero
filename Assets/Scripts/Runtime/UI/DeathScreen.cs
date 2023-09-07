@@ -13,10 +13,9 @@ using UnityEngine.UIElements;
 
 namespace Runtime.UI
 {
-    public class DeathScreen : MonoBehaviour
+    public class DeathScreen : Window
     {
         [HideInInspector] public bool isSavesWindowOpen;
-        [HideInInspector] public bool isOpen;
 
         // Main Pause Items
         private VisualElement _deathWindow;
@@ -98,10 +97,21 @@ namespace Runtime.UI
         public void Show(string deathDescription)
         {
             _deathDescription.text = deathDescription;
-            isOpen = true;
+            OpenWindow();
+        }
+
+        public override void OpenWindow()
+        {
             UIUtils.ShowUIElement(_deathWindow);
         }
         
+        public override void CloseWindow() {}
+        
+        public override void CloseSubWindow()
+        {
+            if (isSavesWindowOpen) CloseSavesMenu();
+        }
+
         private void OpenSavesMenu()
         {
             UIUtils.HideUIElement(_deathContainer);
@@ -110,13 +120,16 @@ namespace Runtime.UI
             GameManager.Instance.SaveSystem.GetSaveGames();
             _saveMenu.ShowSaves();
             isSavesWindowOpen = true;
+            isSubWindowOpen = true;
         }
-        
-        public void CloseSavesMenu()
+
+        private void CloseSavesMenu()
         {
             UIUtils.HideUIElement(_savesWindow);
             UIUtils.ShowUIElement(_deathContainer);
+            
             isSavesWindowOpen = false;
+            isSubWindowOpen = false;
         }
         
         private void SetupPopups()

@@ -12,7 +12,6 @@ using Runtime.InputSystem;
 using Discord;
 using ElRaccoone.Tweens;
 using Runtime.AI;
-using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
 using Runtime.UI;
@@ -34,6 +33,7 @@ namespace Runtime.Managers
         [SerializeField] private InputReader inputReader;
         [SerializeField] public bool isMainMenu;
         
+        
         [SerializeField] public bool testMode;
         public bool TestMode
         {
@@ -42,13 +42,13 @@ namespace Runtime.Managers
         }
         //========================= Interface =========================
         
+        
         public DialogueManager DialogueSystem { get; private set;  }
         public InventoryManager InventorySystem { get; private set; }
         public SoundManager SoundSystem { get; private set; }
         public SaveManager SaveSystem { get; private set; }
         public NotificationManager NotificationManager { get; private set; }
-        public AIManager AIManager { get; private set; }
-        
+
         public HUD HUD { get; private set; }
         private DeathScreen DeathScreen { get; set; }
         private PauseMenu PauseMenu { get; set; }
@@ -56,6 +56,7 @@ namespace Runtime.Managers
         private EndScreen EndScreen { get; set; }
         
         private CinemachineVirtualCamera _camera;
+        [HideInInspector] public Window activeWindow;
 
         
         //====== Discord ========
@@ -84,7 +85,7 @@ namespace Runtime.Managers
             Instance.LoadingScreen = GetComponentInChildren<LoadingScreen>();
             Instance.SoundSystem = GetComponent<SoundManager>();
             Instance.SaveSystem = GetComponent<SaveManager>();
-            Instance.AIManager = GetComponent<AIManager>();
+            GetComponent<AIManager>();
         }
 
         private void Update()
@@ -159,42 +160,14 @@ namespace Runtime.Managers
                 {
                     mainMenu.CloseAllPopups();
                 }
-            }
-            else
-            {
-                if(InventorySystem.isInventoryOpen)
-                {
-                    InventorySystem.CloseInventory();
-                    return;
-                }
-            
-                if(PauseMenu.isPaused)
-                {
-                    if(PauseMenu.isSettingsOpen)
-                    {
-                        PauseMenu.CloseSettings();
-                        inputReader.SetUI();
-                        Time.timeScale = 0f;
-                    }
-                    else if(PauseMenu.isSavesWindowOpen)
-                    {
-                        PauseMenu.CloseSavesMenu();
-                        inputReader.SetUI();
-                        Time.timeScale = 0f;
-                    }
-                    else
-                    {
-                        PauseMenu.Resume();
-                    }
-                    
-                    return;
-                }
                 
-                if(DeathScreen.isOpen && DeathScreen.isSavesWindowOpen)
-                {
-                    DeathScreen.CloseSavesMenu();
-                    inputReader.SetUI();
-                }
+                return;
+            }
+            
+            if (activeWindow != null)
+            {
+                if(activeWindow.isSubWindowOpen) activeWindow.CloseSubWindow();
+                else activeWindow.CloseWindow();
             }
         }
 
@@ -212,6 +185,8 @@ namespace Runtime.Managers
         {
             TestMode = false;
             isMainMenu = sceneIndex == 0;
+            activeWindow = null;
+            
             SoundSystem.ResetSystem();
             StartCoroutine(LoadSceneAsync(sceneIndex));
         }
@@ -220,6 +195,7 @@ namespace Runtime.Managers
         {
             inputReader.SetUI();
             DeathScreen.Show(EnumUtils.GetDeathMessage(deathType));
+            activeWindow = DeathScreen;
 
             var transposer = _camera.GetCinemachineComponent<CinemachineTransposer>();
             transposer.TweenValueFloat(4f, 0.35f, value =>
@@ -235,6 +211,18 @@ namespace Runtime.Managers
             EndScreen.Show();
         }
         
+        // /// <summary>
+        // /// 
+        // /// </summary>
+        // /// <param name="note">The note to read</param>
+        // /// <param name="standAlone">If the note UI window is within another window or not</param>
+        // public void ReadNote(Note note, bool standAlone)
+        // {
+        //     Time.timeScale = 0f;
+        //     inputReader.SetUI();
+        //     EndScreen.Show();
+        // }
+        
         //========================= Private Methods =========================
         
         private void OpenInventoryWindow()
@@ -243,18 +231,21 @@ namespace Runtime.Managers
             switch (InventorySystem.isInventoryOpen)
             {
                 case false when InventorySystem.isInventoryScreenEnabled:
-                    InventorySystem.OpenInventory();
+                    InventorySystem.OpenWindow();
+                    activeWindow = InventorySystem;
                     break;
                 case true:
-                    InventorySystem.CloseInventory();
+                    InventorySystem.CloseWindow();
+                    activeWindow = null;
                     break;
             }
         }
 
         private void HandlePause()
         {
-            if(isMainMenu || DeathScreen.isOpen || InventorySystem == null || InventorySystem.isInventoryOpen) return;
-            PauseMenu.Pause();
+            if(activeWindow != null) return;
+            activeWindow = PauseMenu;
+            PauseMenu.OpenWindow();
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

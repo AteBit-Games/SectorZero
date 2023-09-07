@@ -6,6 +6,7 @@
 using System.Collections.Generic;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
+using Runtime.UI;
 using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -20,7 +21,7 @@ namespace Runtime.InventorySystem
         Notes
     }
     
-    public class InventoryManager : MonoBehaviour
+    public class InventoryManager : Window
     {
         [FormerlySerializedAs("isInventoryEnabled")]
         [Header("Items Inventory")]
@@ -29,6 +30,7 @@ namespace Runtime.InventorySystem
         
         public PlayerInventory PlayerInventory => playerInventory;
         [HideInInspector] public bool isInventoryOpen;
+        [HideInInspector] public bool isNoteWindowOpen;
 
         // Main Pause Items
         private UIDocument _uiDocument;
@@ -106,7 +108,7 @@ namespace Runtime.InventorySystem
             SetupNotesReferences(_notesInventoryContainer);
         }
 
-        public void OpenInventory()
+        public override void OpenWindow()
         {
             GameManager.Instance.SoundSystem.PauseAll();
             GameManager.Instance.DisableInput();
@@ -122,14 +124,24 @@ namespace Runtime.InventorySystem
             SwitchToItemsInventory();
         }
         
-        public void CloseInventory()
+        public override void CloseWindow()
         {
+            if (isNoteWindowOpen) return;
+            
             Time.timeScale = 1;
             isInventoryOpen = false;
-            GameManager.Instance.ResetInput();
-            GameManager.Instance.SoundSystem.ResumeAll();
+            GameManager.Instance.activeWindow = null;
             
             UIUtils.HideUIElement(_inventoryWindow);
+            GameManager.Instance.ResetInput();
+            GameManager.Instance.SoundSystem.ResumeAll();
+        }
+
+        public override void CloseSubWindow()
+        {
+            GameManager.Instance.HUD.CloseNote();
+            isNoteWindowOpen = false;
+            isSubWindowOpen = false;
         }
 
         private void SwitchToItemsInventory()
@@ -186,6 +198,10 @@ namespace Runtime.InventorySystem
         {
             if(_activeInventory == ActiveInventory.Notes) return;
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+            
+            _activeItemSlot?.Deselect();
+            SelectNote(_notesInventoryList[0].OnClick());
+            _activeItemSlot = _notesInventoryList[0];
             
             _activeInventory = ActiveInventory.Notes;
             UIUtils.HideUIElement(_itemsInventoryContainer);
@@ -388,15 +404,17 @@ namespace Runtime.InventorySystem
         private void ListenToTape(Tape tape)
         {
             if(tape == null) return;
-            CloseInventory();
+            CloseWindow();
             GameManager.Instance.DialogueSystem.StartDialogue(tape.dialogue);
         }
         
         private void ReadNote()
         {
             if(_activeNote == null) return;
-            CloseInventory();
-            //GameManager.Instance.DialogueSystem.StartDialogue(_activeNote);
+            
+            GameManager.Instance.HUD.OpenNote(_activeNote, false);
+            isNoteWindowOpen = true;
+            isSubWindowOpen = true;
         }
     }
 }

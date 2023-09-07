@@ -15,8 +15,11 @@ MonoBehaviour:
   itemName: Research Notes
   itemSprite: {fileID: 21300000, guid: 633e43b0cca294c40b9b7ca29966762e, type: 3}
   itemDescription: Found in the medical archive of the facility
-  noteType: 0
-  title: 
-  author: 
-  date: 
-  content: 
+  noteType: 1
+  title: Lab Report
+  author: Dr Henry Carver
+  date: 1969.08.02
+  content: Lab reports on the fragment on the strange artefact we recieved indicates
+    that it has a reaction to the obelisk. We have no clue how these items are connected
+    but this poses a great risk if the artefact starts a reaction that we cannot
+    stop. Bababoey bazinga.

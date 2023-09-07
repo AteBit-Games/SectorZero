@@ -19,6 +19,6 @@ namespace Runtime.InventorySystem.ScriptableObjects
         public string title;
         public string author;
         public string date;
-        public string content;
+        [TextArea] public string content;
     }
 }

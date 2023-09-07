@@ -21,6 +21,9 @@ namespace Runtime.UI
         private readonly int[] _vsync = { 0, 1 };
         private int _activeVsync;
         private readonly string[] _vsyncNames = { "Off", "On" };
+
+        private bool _activeAutoNotes;
+        private bool _activeAutoTapes;
         
         private readonly FullScreenMode[] _displayModes = { FullScreenMode.Windowed, FullScreenMode.MaximizedWindow, FullScreenMode.FullScreenWindow };
         private FullScreenMode _activeDisplayMode;
@@ -55,6 +58,8 @@ namespace Runtime.UI
             RegisterVsyncSetting();
             RegisterVolumeSettings();
             RegisterResolutionSetting();
+            RegisterNoteSetting();
+            RegisterTapeSetting();
         }
 
         private void RegisterDisplayModeSetting()
@@ -153,7 +158,47 @@ namespace Runtime.UI
                 GameManager.Instance.SaveSystem.UpdatePlayerVSync(newIndex > 0);
             });
         }
+        
+        private void RegisterNoteSetting()
+        {
+            var rootVisualElement = _uiDocument.rootVisualElement;
+            var noteSetting = rootVisualElement.Q<VisualElement>("read-mode");
+            noteSetting.RegisterCallback<MouseEnterEvent>(_ =>
+            {
+                _settingDescription.text = "Change the read mode for picked up notes";
+            });
 
+            var activeNote = noteSetting.Q<Toggle>("Toggle");
+            activeNote.value = _activeAutoNotes;
+            
+            // register buttons for changing display mode
+            activeNote.RegisterValueChangedCallback(evt =>
+            {
+                _activeAutoNotes = evt.newValue;
+                GameManager.Instance.SaveSystem.UpdatePlayerNotesValue(_activeAutoNotes);
+            });
+        }
+        
+        private void RegisterTapeSetting()
+        {
+            var rootVisualElement = _uiDocument.rootVisualElement;
+            var tapeSetting = rootVisualElement.Q<VisualElement>("tape-mode");
+            tapeSetting.RegisterCallback<MouseEnterEvent>(_ =>
+            {
+                _settingDescription.text = "Change the read mode for picked up tapes";
+            });
+
+            var activeTape = tapeSetting.Q<Toggle>("Toggle");
+            activeTape.value = _activeAutoTapes;
+            
+            // register buttons for changing display mode
+            activeTape.RegisterValueChangedCallback(evt =>
+            {
+                _activeAutoTapes = evt.newValue;
+                GameManager.Instance.SaveSystem.UpdatePlayerTapesValue(_activeAutoTapes);
+            });
+        }
+        
         private void RegisterVolumeSettings()
         {
             var rootVisualElement = _uiDocument.rootVisualElement;
@@ -218,6 +263,8 @@ namespace Runtime.UI
             //_activeResolution = _resolutions[LoadPlayerPref(ResolutionKey, 2)];
             _activeVsync = _vsync[playerData.vSync ? 1 : 0];
             _activeDisplayMode = _displayModes[playerData.displayMode];
+            _activeAutoNotes = playerData.autoNotes;
+            _activeAutoTapes = playerData.autoTapes;
         }
 
         private static void SetButtonState(Button button, bool state)

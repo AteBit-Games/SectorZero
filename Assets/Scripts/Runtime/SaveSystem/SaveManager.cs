@@ -192,6 +192,18 @@ namespace Runtime.SaveSystem
             _dataHandler.SavePlayerData(_playerData);
         }
         
+        public void UpdatePlayerNotesValue(bool manual)
+        {
+            _playerData.autoNotes = manual;
+            _dataHandler.SavePlayerData(_playerData);
+        }
+        
+        public void UpdatePlayerTapesValue(bool manual)
+        {
+            _playerData.autoTapes = manual;
+            _dataHandler.SavePlayerData(_playerData);
+        }
+        
         public PlayerData GetPlayerData()
         {
             return _playerData;

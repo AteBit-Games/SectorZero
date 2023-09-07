@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
-    <ui:VisualElement name="settings-window" picking-mode="Ignore" style="visibility: visible; display: none; flex-grow: 1; align-items: stretch;">
+    <ui:VisualElement name="settings-window" picking-mode="Ignore" style="visibility: visible; display: flex; flex-grow: 1; align-items: stretch;">
         <ui:VisualElement name="settings-container" style="flex-grow: 1; align-items: stretch; justify-content: flex-end;">
             <ui:VisualElement name="control-group" style="flex-grow: 1; position: absolute; bottom: 50px; left: 100px; align-items: flex-start; overflow: visible; opacity: 1; visibility: visible;">
                 <ui:VisualElement name="settingsGroup" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-bottom: 30px;">
@@ -43,6 +43,21 @@
                     <ui:VisualElement name="music-slider" focusable="true" class="slider">
                         <ui:Label tabindex="-1" text="Music" display-tooltip-when-elided="true" name="Label" />
                         <ui:Slider picking-mode="Ignore" value="0.8" high-value="1" name="slider" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="settingsGroup" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-bottom: 30px;">
+                    <ui:Label tabindex="-1" text="Gameplay" display-tooltip-when-elided="true" name="group-heading" style="color: rgb(62, 95, 154);" />
+                    <ui:VisualElement name="read-mode" focusable="true" class="selection">
+                        <ui:Label tabindex="-1" text="Auto Read Notes" display-tooltip-when-elided="true" name="Label" />
+                        <ui:VisualElement name="container" class="setting-item" style="justify-content: center;">
+                            <ui:Toggle label="     &#10;" name="Toggle" style="flex-grow: 1; justify-content: center;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="tape-mode" focusable="true" class="selection">
+                        <ui:Label tabindex="-1" text="Auto Listen Tapes" display-tooltip-when-elided="true" name="Label" />
+                        <ui:VisualElement name="container" class="setting-item">
+                            <ui:Toggle label="     &#10;" name="Toggle" style="flex-grow: 1; justify-content: center;" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="settingsGroup" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-bottom: 30px; height: 45px;">

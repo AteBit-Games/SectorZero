@@ -13,11 +13,10 @@ using UnityEngine.UIElements;
 
 namespace Runtime.UI
 {
-    public class PauseMenu : MonoBehaviour
+    public class PauseMenu : Window
     {
         [HideInInspector] public bool isSettingsOpen;
         [HideInInspector] public bool isSavesWindowOpen;
-        [HideInInspector] public bool isPaused;
         
         // Main Pause Items
         private Label _buttonDescription;
@@ -76,7 +75,7 @@ namespace Runtime.UI
             _resumeButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 UIUtils.HideUIElement(_confirmMenuPopup);
-                Resume();
+                CloseWindow();
             });
             _resumeButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Resume playing the game";
@@ -118,21 +117,19 @@ namespace Runtime.UI
             SetupPopups();
         }
 
-        public void Pause()
+        public override void OpenWindow()
         {
             Time.timeScale = 0;
-            isPaused = true;
-            
             UIUtils.ShowUIElement(_pauseWindow);
             UIUtils.ShowUIElement(_overlay);
         }
         
-        public void Resume()
+        public override void CloseWindow()
         {
             Time.timeScale = 1;
             GameManager.Instance.ResetInput();
             GameManager.Instance.SoundSystem.ResumeAll();
-            isPaused = false;
+            GameManager.Instance.activeWindow = null;
             _feedbackForm.HideForm();
             
             UIUtils.HideUIElement(_pauseWindow);
@@ -140,6 +137,14 @@ namespace Runtime.UI
             UIUtils.HideUIElement(_settingsContainer);
             UIUtils.HideUIElement(_settingsWindow);
             UIUtils.HideUIElement(_confirmMenuPopup);
+        }
+        
+        public override void CloseSubWindow()
+        {
+            if(isSettingsOpen) CloseSettings();
+            else if(isSavesWindowOpen) CloseSavesMenu();
+            
+            isSubWindowOpen = false;
         }
         
        private void OpenSavesMenu()
@@ -150,12 +155,14 @@ namespace Runtime.UI
             GameManager.Instance.SaveSystem.GetSaveGames();
             _saveMenu.ShowSaves();
             isSavesWindowOpen = true;
+            isSubWindowOpen = true;
         }
         
-        public void CloseSavesMenu()
+        private void CloseSavesMenu()
         {
             UIUtils.HideUIElement(_savesWindow);
             UIUtils.ShowUIElement(_pauseWindow);
+            
             isSavesWindowOpen = false;
         }
 
@@ -164,18 +171,21 @@ namespace Runtime.UI
             UIUtils.HideUIElement(_pauseWindow);
             UIUtils.ShowUIElement(_settingsWindow);
             UIUtils.ShowUIElement(_settingsContainer);
+            
             isSettingsOpen = true;
+            isSubWindowOpen = true;
             
             // Hide Elements
             _feedbackForm.HideForm();
             UIUtils.HideUIElement(_confirmMenuPopup);
         }
         
-        public void CloseSettings()
+        private void CloseSettings()
         {
             UIUtils.HideUIElement(_settingsWindow);
             UIUtils.HideUIElement(_settingsContainer);
             UIUtils.ShowUIElement(_pauseWindow);
+            
             isSettingsOpen = false;
         }
         
@@ -185,7 +195,7 @@ namespace Runtime.UI
             GameManager.Instance.SoundSystem.StopAll();
             GameManager.Instance.isMainMenu = true;
             GameManager.Instance.ResetInput();
-            SceneManager.LoadScene(0);
+            GameManager.Instance.LoadScene(0);
         }
         
         private static void OpenConfirmPopup(VisualElement popup)

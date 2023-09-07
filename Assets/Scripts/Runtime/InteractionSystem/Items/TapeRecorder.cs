@@ -3,16 +3,13 @@
 * All rights reserved.
 ****************************************************************/
 
-using Runtime.DialogueSystem;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem;
-using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
-using UnityEngine.Events;
 using Tape = Runtime.InventorySystem.ScriptableObjects.Tape;
 
 namespace Runtime.InteractionSystem.Items
@@ -29,9 +26,16 @@ namespace Runtime.InteractionSystem.Items
         
         public bool OnInteract(GameObject player)
         {
-            GameManager.Instance.DialogueSystem.StartDialogue(tape.dialogue);
-            gameObject.SetActive(false);
+            if (GameManager.Instance.SaveSystem.GetPlayerData().autoTapes)
+            {
+                GameManager.Instance.DialogueSystem.StartDialogue(tape.dialogue);
+            }
+            else
+            {
+                GameManager.Instance.NotificationManager.ShowPickupNotification(tape);
+            }
             
+            gameObject.SetActive(false);
             GameManager.Instance.SoundSystem.Play(interactSound);
             
             var inventory = player.GetComponentInParent<PlayerInventory>();
@@ -52,9 +56,9 @@ namespace Runtime.InteractionSystem.Items
         
         public string LoadData(SaveGame game)
         {
-            if (game.worldData.tapeRecorders.TryGetValue(persistentID, out var tape))
+            if (game.worldData.tapeRecorders.TryGetValue(persistentID, out var currentTape))
             {
-                gameObject.SetActive(tape);
+                gameObject.SetActive(currentTape);
             }
             
             return persistentID;
