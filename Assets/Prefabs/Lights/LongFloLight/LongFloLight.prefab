@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 7384101036700095114}
-  startPowered: 1
+  startPowered: 0
   flicker: 0
   minOn: 3
   maxOn: 6
@@ -70,7 +70,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f33ddad6d63e34e479530046426a5a3f, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -329,8 +329,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.032649994, y: -1.2837996, z: 0}
-    m_Extent: {x: 12.06795, y: 12.760099, z: 0}
+    m_Center: {x: -0.0316, y: -1.2829504, z: 0}
+    m_Extent: {x: 12.0652, y: 12.75595, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

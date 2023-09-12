@@ -69,8 +69,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.20170021, y: -1.9142504, z: 0}
-    m_Extent: {x: 13.7899, y: 11.17245, z: 0}
+    m_Center: {x: 0.20240021, y: -1.9064999, z: 0}
+    m_Extent: {x: 13.7825, y: 11.1751, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 5321328557027622668}
-  startPowered: 1
+  startPowered: 0
   flicker: 1
   minOn: 3
   maxOn: 6

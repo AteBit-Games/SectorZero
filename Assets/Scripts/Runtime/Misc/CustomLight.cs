@@ -27,9 +27,6 @@ namespace Runtime.Misc
         [SerializeField] private Sound onSound;
         [SerializeField] private Sound loopSound;
         [SerializeField] private Sound offSound;
-        [Range(0.0f, 1.0f)]
-        [SerializeField] private float volumeScale;
-        
         
         private Coroutine _coroutine;
         private Animator _animator;
@@ -38,14 +35,8 @@ namespace Runtime.Misc
         //----- Interface Variables -----//
         public bool IsPowered { get; set; }
 
-        public AudioSource AudioSource { get; set; }
-
-        public float Volume { get; set; }
-        public float VolumeScale
-        {
-            get => volumeScale;
-            set => volumeScale = value;
-        }
+        public AudioSource AudioSource { get; private set; }
+        public Sound Sound => loopSound;
         
         //============================== Unity Events ==============================
 

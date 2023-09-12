@@ -6,6 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Runtime.Managers;
 using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -43,6 +44,8 @@ namespace Runtime.SoundSystem
         {
             ambienceSources[0].Play();
             ambienceSources[1].Play();
+            
+            if(GameManager.Instance.testMode) StartSounds();
         }
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
@@ -68,6 +71,8 @@ namespace Runtime.SoundSystem
                 _activeSoundInstanceSources.Add(audioSource, sound);
                 destroy = true;
             }
+            
+            Debug.Log($"Playing sound: {sound.name}");
             
             audioSource.outputAudioMixerGroup = sound.mixerGroup;
             audioSource.clip = sound.clip;
@@ -226,11 +231,9 @@ namespace Runtime.SoundSystem
                 soundSource.Key.volume = volume * soundSource.Value.volumeScale;
             }
             
-            foreach (var soundSource in _activeSoundEntitySources)
+            foreach (var soundSource in _activeSoundEntitySources.Where(soundSource => soundSource.AudioSource != null))
             {
-                if(soundSource.AudioSource == null) continue;
-                soundSource.Volume = volume * soundSource.VolumeScale;
-                soundSource.AudioSource.volume = soundSource.Volume;
+                soundSource.AudioSource.volume = volume * soundSource.Sound.volumeScale;
             }
         }
         

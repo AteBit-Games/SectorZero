@@ -57,27 +57,27 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             _animator = GetComponent<Animator>();
             _light = transform.parent.gameObject.GetComponentInChildren<Light2D>();
-            
             _audioSource = GetComponent<AudioSource>();
-            GameManager.Instance.SoundSystem.SetupSound(_audioSource, onSound);
         }
 
         private void Start()
         {
-            if (GameManager.Instance.TestMode)
-            {
-                _hasFuse = startWithFuse;
-                if (_hasFuse)
-                {
-                    SetPowered(startPowered);
-                    _isPowered = startPowered;
-                }
-                else
-                {
-                    SetPowered(false);
-                    _animator.SetTrigger(NoFuse);
-                }
-            }
+            GameManager.Instance.SoundSystem.SetupSound(_audioSource, humSound);
+            
+            // if (GameManager.Instance.TestMode)
+            // {
+            //     _hasFuse = startWithFuse;
+            //     if (_hasFuse)
+            //     {
+            //         SetPowered(startPowered);
+            //         _isPowered = startPowered;
+            //     }
+            //     else
+            //     {
+            //         SetPowered(false);
+            //         _animator.SetTrigger(NoFuse);
+            //     }
+            // }
         }
 
         //========================= Interface events =========================//
@@ -126,8 +126,8 @@ namespace Runtime.InteractionSystem.Objects.Powered
             _animator.SetBool(Powered, state);
             _light.enabled = state;
             
-            // if(state) GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
-            // else _audioSource.Stop();
+            if(state) _audioSource.Play();
+            else _audioSource.Stop();
         }
 
         //=========================== Save System =============================//
