@@ -23,7 +23,7 @@ using UnityEngine.SceneManagement;
 
 namespace Runtime.Managers
 {
-    [DefaultExecutionOrder(0)]
+    [DefaultExecutionOrder(2)]
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }

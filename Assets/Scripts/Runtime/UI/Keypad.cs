@@ -31,6 +31,7 @@ namespace Runtime.UI
     }
     
     [Serializable]
+    [DefaultExecutionOrder(5)]
     public class Keypad : MonoBehaviour
     {
         //References
@@ -107,7 +108,6 @@ namespace Runtime.UI
             {
                 _keyPadInput += key;
                 _keyPadInputLength++;
-                Debug.Log(_keyPadInput);
             }
         }
    

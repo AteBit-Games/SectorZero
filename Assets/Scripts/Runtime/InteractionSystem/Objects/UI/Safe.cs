@@ -5,6 +5,8 @@
 
 using System;
 using Runtime.InteractionSystem.Interfaces;
+using Runtime.InventorySystem;
+using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
@@ -15,13 +17,20 @@ namespace Runtime.InteractionSystem.Objects.UI
 {
     public class Safe : MonoBehaviour, IInteractable, IPersistant
     {
+        [SerializeField] public Item safeItem;
+        [SerializeField] public Sound itemPickupSound;
+        
         [SerializeField] public string safeCode;
         [SerializeField] private Sound interactSound;
+        [SerializeField] private Sound safeOpenSound;
+        
         public Sound InteractSound => interactSound;
         
+        private GameObject _player;
         private Animator _animator;
         private bool _isOpen;
-        
+        private static readonly int Open = Animator.StringToHash("open");
+
         //=============================== Unity Events ===============================//
         
         private void Awake()
@@ -35,6 +44,7 @@ namespace Runtime.InteractionSystem.Objects.UI
         {
             GameManager.Instance.SoundSystem.Play(interactSound);
             GameManager.Instance.HUD.OpenKeyPad(this);
+            _player = player;
             return true;
         }
 
@@ -52,7 +62,29 @@ namespace Runtime.InteractionSystem.Objects.UI
 
         public void OpenSafe()
         {
-            Debug.Log("Open Safe");
+            //Disable the collider and interaction
+            _player.GetComponent<PlayerInteraction>().RemoveInteractable(gameObject);
+            DisableInteraction();
+            
+            //Open the safe
+            GameManager.Instance.SoundSystem.Play(safeOpenSound);
+            _animator.SetTrigger(Open);
+            _isOpen = true;
+        }
+
+        private void DisableInteraction()
+        {
+            gameObject.layer = 0;
+            GetComponent<Collider2D>().enabled = false;
+        }
+
+        public void AddItem()
+        {
+            GameManager.Instance.SoundSystem.Play(itemPickupSound);
+            var inventory = _player.GetComponentInParent<PlayerInventory>();
+            
+            GameManager.Instance.NotificationManager.ShowPickupNotification(safeItem);
+            inventory.AddItemToInventory(safeItem);
         }
         
         //========================= Save System =========================//
@@ -61,7 +93,8 @@ namespace Runtime.InteractionSystem.Objects.UI
         {
             if (game.worldData.safeOpen)
             {
-                //TODO: Open safe
+                DisableInteraction();
+                _animator.SetTrigger(Open);
             }
             return "Safe";
         }

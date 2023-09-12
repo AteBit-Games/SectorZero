@@ -11,6 +11,7 @@ using UnityEngine.UIElements;
 
 namespace Runtime.UI
 {
+    [DefaultExecutionOrder(5)]
     public class LoadingScreen : MonoBehaviour
     {
         [SerializeField] private Sprite[] iconStates;

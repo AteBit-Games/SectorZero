@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace Runtime.UI
 {
+    [DefaultExecutionOrder(5)]
     public abstract class Window : MonoBehaviour
     {
         [HideInInspector] public bool isSubWindowOpen;

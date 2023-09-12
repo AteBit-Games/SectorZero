@@ -13,7 +13,7 @@ using UnityEngine.Serialization;
 
 namespace Runtime.Managers.Tutorial
 {
-    [DefaultExecutionOrder(10)]
+    [DefaultExecutionOrder(6)]
     public class TutorialManager : MonoBehaviour
     {
         [FormerlySerializedAs("cinematicManager")] public TutorialCinematicManager tutorialCinematicManager;

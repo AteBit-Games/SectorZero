@@ -12,6 +12,7 @@ using UnityEngine.UIElements;
 
 namespace Runtime.UI
 {
+    [DefaultExecutionOrder(5)]
     public class DeathScreen : Window
     {
         [HideInInspector] public bool isSavesWindowOpen;

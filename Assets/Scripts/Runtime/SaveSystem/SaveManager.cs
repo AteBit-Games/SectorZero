@@ -21,7 +21,7 @@ namespace Runtime.SaveSystem
         public Vector3 startPosition;
     }
     
-    [DefaultExecutionOrder(-1)]
+    [DefaultExecutionOrder(1)]
     public class SaveManager : MonoBehaviour
     {
         [Header("SAVE SYSTEM CONFIG")]

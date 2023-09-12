@@ -430,9 +430,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f5ca142cf5447e81dc6a591d5b38f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSubWindowOpen: 0
   isSettingsOpen: 0
   isSavesWindowOpen: 0
-  isPaused: 0
 --- !u!114 &1691487452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,8 +520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093cae748d8846c3bbeb4e8714c0f078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSubWindowOpen: 0
   isSavesWindowOpen: 0
-  isOpen: 0
 --- !u!114 &3442233700904491185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 5671400013858970792}
   - component: {fileID: 309184797907884733}
   - component: {fileID: 8574626929475193642}
+  - component: {fileID: 7513976801172220177}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -597,6 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b52e4fe8b9871849b3dd71cc90871aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSubWindowOpen: 0
 --- !u!114 &8574626929475193642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,9 +611,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127bbf71006eaa142b9c6333b10f4691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSubWindowOpen: 0
   isInventoryScreenEnabled: 1
   playerInventory: {fileID: 0}
   isInventoryOpen: 0
+  isNoteWindowOpen: 0
+--- !u!114 &7513976801172220177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861824172995040030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2d7460a48049a1aaf3f18043f48df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyPressSound: {fileID: 11400000, guid: aece9e2401d15fd42a90b3a2a8222edf, type: 2}
+  keyPressErrorSound: {fileID: 11400000, guid: 0e70610fea69ba94b887fa2719109e29, type: 2}
+  keyPadSuccessSound: {fileID: 11400000, guid: 3bb10801436d39e4f8b371525abc933d, type: 2}
+  keyPadErrorSound: {fileID: 11400000, guid: a0ff95bba7dd0e346953efb1ecfacd6b, type: 2}
+  keypadSuccessState:
+    onState: {fileID: -1370065209, guid: 5b3dc49ff67124243ab33862ca9990c8, type: 3}
+    offState: {fileID: -1579395503, guid: 5b3dc49ff67124243ab33862ca9990c8, type: 3}
+  keypadErrorState:
+    onState: {fileID: -1440937068, guid: 047de6b508c28a14fa6fcd182c5b77cc, type: 3}
+    offState: {fileID: -1441564077, guid: 047de6b508c28a14fa6fcd182c5b77cc, type: 3}
+  keysList:
+  - value: 48
+    upIcon: {fileID: -1875466501, guid: effcf993a319512449a348eb026dddbe, type: 3}
+    downIcon: {fileID: -128641644, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
+  - value: 49
+    upIcon: {fileID: -1525207490, guid: effcf993a319512449a348eb026dddbe, type: 3}
+    downIcon: {fileID: 743708920, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
+  - value: 50
+    upIcon: {fileID: -46459060, guid: effcf993a319512449a348eb026dddbe, type: 3}
+    downIcon: {fileID: -1866816087, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
+  - value: 51
+    upIcon: {fileID: -485751999, guid: effcf993a319512449a348eb026dddbe, type: 3}
+    downIcon: {fileID: -218435148, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
+  - value: 52
+    upIcon: {fileID: -632522479, guid: effcf993a319512449a348eb026dddbe, type: 3}
+    downIcon: {fileID: -806771272, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
+  - value: 53
+    upIcon: {fileID: -1440501695, guid: effcf993a319512449a348eb026dddbe, type: 3}
+    downIcon: {fileID: -814499710, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
+  - value: 54
+    upIcon: {fileID: 665380624, guid: effcf993a319512449a348eb026dddbe, type: 3}
+    downIcon: {fileID: 1164527701, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
+  - value: 55
+    upIcon: {fileID: -1407719422, guid: effcf993a319512449a348eb026dddbe, type: 3}
+    downIcon: {fileID: -158549812, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
+  - value: 56
+    upIcon: {fileID: 735921149, guid: effcf993a319512449a348eb026dddbe, type: 3}
+    downIcon: {fileID: -858599665, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
+  - value: 57
+    upIcon: {fileID: -1751391471, guid: effcf993a319512449a348eb026dddbe, type: 3}
+    downIcon: {fileID: -352426125, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
+  - value: 35
+    upIcon: {fileID: -592321360, guid: effcf993a319512449a348eb026dddbe, type: 3}
+    downIcon: {fileID: 1334412138, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
 --- !u!1 &8569070492367958656
 GameObject:
   m_ObjectHideFlags: 0

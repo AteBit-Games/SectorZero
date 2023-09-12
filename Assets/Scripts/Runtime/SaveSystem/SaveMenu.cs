@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 
 namespace Runtime.SaveSystem
 {
-    [DefaultExecutionOrder(10)]
+    [DefaultExecutionOrder(5)]
     public class SaveMenu : MonoBehaviour
     {
         public VisualTreeAsset saveInstance;

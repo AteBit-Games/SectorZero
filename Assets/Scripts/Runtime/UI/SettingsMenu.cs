@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 
 namespace Runtime.UI
 {
-    [DefaultExecutionOrder(10)]
+    [DefaultExecutionOrder(3)]
     public class SettingsMenu : MonoBehaviour
     {
         private Label _settingDescription;

@@ -14,7 +14,7 @@ using Random = UnityEngine.Random;
 
 namespace Runtime.DialogueSystem
 {
-    [DefaultExecutionOrder(2)]
+    [DefaultExecutionOrder(3)]
     public class DialogueManager : MonoBehaviour
     {
         [SerializeField] private InputReader inputReader;

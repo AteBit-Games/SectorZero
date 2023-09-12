@@ -12,6 +12,7 @@ using UnityEngine;
 
 namespace Runtime.InteractionSystem.Objects.Powered
 {
+    [DefaultExecutionOrder(6)]
     public class SecurityTerminal : MonoBehaviour, IInteractable, IPowered
     {
         [SerializeField] private Sound offSound;

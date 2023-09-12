@@ -20,6 +20,7 @@ namespace Runtime.UI
         Note
     }
     
+    [DefaultExecutionOrder(5)]
     public class HUD : Window
     {
         private UIDocument _uiDocument;

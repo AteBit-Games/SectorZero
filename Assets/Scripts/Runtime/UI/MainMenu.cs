@@ -12,7 +12,7 @@ using UnityEngine.UIElements;
 
 namespace Runtime.UI
 {
-    [DefaultExecutionOrder(10)]
+    [DefaultExecutionOrder(5)]
     public class MainMenu : MonoBehaviour
     {
         [HideInInspector] public bool isSettingsOpen;

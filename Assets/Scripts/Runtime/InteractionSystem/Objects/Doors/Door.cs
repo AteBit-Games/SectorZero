@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace Runtime.InteractionSystem.Objects.Doors
 {
+    [DefaultExecutionOrder(6)]
     public class Door : MonoBehaviour
     {
         [SerializeField] private Sound openSound;

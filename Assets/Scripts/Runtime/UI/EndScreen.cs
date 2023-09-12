@@ -10,6 +10,7 @@ using UnityEngine.UIElements;
 
 namespace Runtime.UI
 {
+    [DefaultExecutionOrder(5)]
     public class EndScreen : Window
     {
         // Main Pause Items

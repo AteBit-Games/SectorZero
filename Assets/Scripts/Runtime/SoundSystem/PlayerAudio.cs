@@ -23,6 +23,7 @@ namespace Runtime.SoundSystem
         public List<Sound> footstepSounds;
     }
     
+    [DefaultExecutionOrder(6)]
     public class PlayerAudio : MonoBehaviour
     {
         [SerializeField] private AudioSource audioSource;

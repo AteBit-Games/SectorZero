@@ -24,6 +24,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f4a03f0013404226841ac46b59a6815d1a1c00/d9/371228cc/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f4a03f0013404226841ac46b59a6815d1a1c00/db/bbb8bcd3/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/InteractionSystem/CustomLockInspector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/InteractionSystem/CustomSafeInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/AI/Sentinel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/BehaviourTree/Actions/Navigation/MoveToPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/InteractionSystem/Objects/Lock.cs" root0="FORCE_HIGHLIGHTING" />
@@ -168,7 +169,7 @@
       <workItem from="1694361006078" duration="6969000" />
       <workItem from="1694456280780" duration="5425000" />
       <workItem from="1694510085989" duration="8000" />
-      <workItem from="1694510104020" duration="752000" />
+      <workItem from="1694510104020" duration="3898000" />
     </task>
     <servers />
   </component>
@@ -177,4 +178,23 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/HUD.cs</url>
+          <line>78</line>
+          <properties documentPath="C:\Users\Francois\Desktop\SectorZero\Assets\Scripts\Runtime\UI\HUD.cs" initialLine="77" containingFunctionPresentation="Method 'OpenNote'">
+            <startOffsets>
+              <option value="2446" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2487" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
 </project>

@@ -48,7 +48,7 @@ namespace Runtime.BehaviourTree
     }
     
     [AddComponentMenu("BehaviourTree/BehaviourTreeOwner")]
-    [DefaultExecutionOrder(99)]
+    [DefaultExecutionOrder(10)]
     public class BehaviourTreeOwner : MonoBehaviour, IHearingHandler, ISightHandler, IPersistant
     {
         [Tooltip("BehaviourTree asset to instantiate during Awake")] 

@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 
 namespace Runtime.SoundSystem
 {
-    [DefaultExecutionOrder(11)]
+    [DefaultExecutionOrder(4)]
 	public class SoundManager : MonoBehaviour
 	{
         [Header("MIX GROUPS")]
@@ -68,8 +68,6 @@ namespace Runtime.SoundSystem
                 _activeSoundInstanceSources.Add(audioSource, sound);
                 destroy = true;
             }
-            
-            Debug.Log($"Playing sound: {sound.name}");
             
             audioSource.outputAudioMixerGroup = sound.mixerGroup;
             audioSource.clip = sound.clip;

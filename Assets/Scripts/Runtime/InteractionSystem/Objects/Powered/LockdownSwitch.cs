@@ -15,7 +15,7 @@ using UnityEngine.Rendering.Universal;
 
 namespace Runtime.InteractionSystem.Objects.Powered
 {
-    [DefaultExecutionOrder(22)]
+    [DefaultExecutionOrder(6)]
     public class LockdownSwitch : MonoBehaviour, IInteractable, IPersistant
     {
         [SerializeField] public string persistentID;
