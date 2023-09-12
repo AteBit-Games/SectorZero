@@ -3,7 +3,6 @@
  * All rights reserved.
  ****************************************************************/
 
-using System.Collections;
 using Runtime.Managers;
 using Runtime.ReporterSystem;
 using Runtime.SaveSystem;
@@ -16,8 +15,6 @@ namespace Runtime.UI
     [DefaultExecutionOrder(10)]
     public class MainMenu : MonoBehaviour
     {
-        [SerializeField] private Sprite[] iconStates;
-        [SerializeField] private float iconSpeed = 0.08f;
         [HideInInspector] public bool isSettingsOpen;
         [HideInInspector] public bool isSavesWindowOpen;
 
@@ -48,10 +45,6 @@ namespace Runtime.UI
         private VisualElement _confirmQuitPopup;
         private Button _confirmDesktopQuit;
         private Button _cancelDesktopQuit;
-        
-        // Microwave
-        private VisualElement _microwaveIcon;
-        private int _microwaveIndex;
 
         private SaveMenu _saveMenu;
 
@@ -158,17 +151,7 @@ namespace Runtime.UI
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             
-            _microwaveIcon = rootVisualElement.Q<VisualElement>("microwaveVisual");
-            StartCoroutine(Microwave());
             SetupPopups();
-        }
-        
-        private IEnumerator Microwave()
-        {
-            _microwaveIcon.style.backgroundImage = new StyleBackground(iconStates[_microwaveIndex]);
-            _microwaveIndex = (_microwaveIndex + 1) % iconStates.Length;
-            yield return new WaitForSecondsRealtime(iconSpeed);
-            StartCoroutine(Microwave());
         }
         
         private void SetupPopups()

@@ -33,7 +33,6 @@ namespace Runtime.Managers
         [SerializeField] private InputReader inputReader;
         [SerializeField] public bool isMainMenu;
         
-        
         [SerializeField] public bool testMode;
         public bool TestMode
         {
@@ -188,6 +187,7 @@ namespace Runtime.Managers
             activeWindow = null;
             
             SoundSystem.ResetSystem();
+            AudioListener.pause = true;
             StartCoroutine(LoadSceneAsync(sceneIndex));
         }
 
@@ -211,18 +211,6 @@ namespace Runtime.Managers
             EndScreen.OpenWindow();
             activeWindow = EndScreen;
         }
-        
-        // /// <summary>
-        // /// 
-        // /// </summary>
-        // /// <param name="note">The note to read</param>
-        // /// <param name="standAlone">If the note UI window is within another window or not</param>
-        // public void ReadNote(Note note, bool standAlone)
-        // {
-        //     Time.timeScale = 0f;
-        //     inputReader.SetUI();
-        //     EndScreen.Show();
-        // }
         
         //========================= Private Methods =========================
         
@@ -259,8 +247,6 @@ namespace Runtime.Managers
             //Required objects for all scenes
             _camera = FindFirstObjectByType<CinemachineVirtualCamera>();
             NotificationManager = FindFirstObjectByType<NotificationManager>(FindObjectsInactive.Include);
-            SoundSystem.SilenceAmbience();
-            SoundSystem.ResetSystem();
 
             if (isMainMenu)
             {
@@ -325,6 +311,9 @@ namespace Runtime.Managers
         public void FinishedLoading()
         {
             ResetInput();
+            AudioListener.pause = false;
+            SoundSystem.StartSounds();
+            
             LoadingScreen.HideLoading();
             Time.timeScale = 1f;
         }

@@ -120,6 +120,7 @@ namespace Runtime.BehaviourTree
             }
             
             SetupReferences();
+            GameManager.Instance.SoundSystem.SetupSound(audioSource, footstepSounds[0]);
             
             var sightVisual = Instantiate(sightVisualPrefab, transform);
             _material = sightVisual.GetComponent<MeshRenderer>().material;
@@ -332,8 +333,7 @@ namespace Runtime.BehaviourTree
         public void PlayFootstepSound()
         {
             var sound = footstepSounds[Random.Range(0, footstepSounds.Count)];
-            audioSource.volume = sound.volumeScale;
-            audioSource.PlayOneShot(sound.clip);
+            GameManager.Instance.SoundSystem.PlayOneShot(sound, audioSource);
         }
 
         // ====================== Private Methods ======================

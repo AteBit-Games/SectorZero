@@ -10,7 +10,7 @@ using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Runtime.SaveSystem
+namespace Runtime.UI.WindowItems
 {
     public class SaveSlot
     {

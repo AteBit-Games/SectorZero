@@ -4,6 +4,7 @@
 ****************************************************************/
 
 using NavMeshPlus.Components;
+using Runtime.Managers;
 using Runtime.SoundSystem;
 using UnityEngine;
 
@@ -32,6 +33,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
         {
             mainAnimator = GetComponent<Animator>();
             audioSource = GetComponent<AudioSource>();
+            GameManager.Instance.SoundSystem.SetupSound(audioSource, openSound);
         }
         
         //=========================== Public Methods =============================//
@@ -39,7 +41,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
         public void OpenDoor()
         {
             audioSource.volume = openSound.volumeScale;
-            audioSource.PlayOneShot(openSound.clip);
+            GameManager.Instance.SoundSystem.PlayOneShot(openSound, audioSource);
             
             mainAnimator.SetBool(isOpen, true);
             opened = true;
@@ -48,7 +50,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
         public void CloseDoor()
         {
             audioSource.volume = closeSound.volumeScale;
-            audioSource.PlayOneShot(closeSound.clip);
+            GameManager.Instance.SoundSystem.PlayOneShot(closeSound, audioSource);
             
             mainAnimator.SetBool(isOpen, false);
             opened = false;

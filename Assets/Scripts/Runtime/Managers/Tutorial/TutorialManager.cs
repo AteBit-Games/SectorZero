@@ -146,7 +146,6 @@ namespace Runtime.Managers.Tutorial
 
         public void TriggerTutorialEnd()
         {
-            GameManager.Instance.SoundSystem.SilenceAmbience();
             GameManager.Instance.SaveSystem.SetNellieState(2);
             GameManager.Instance.LoadScene(2);
         }

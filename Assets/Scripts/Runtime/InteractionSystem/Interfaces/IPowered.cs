@@ -8,7 +8,7 @@ namespace Runtime.InteractionSystem.Interfaces
     public interface IPowered
     {
         bool IsPowered { get; set; }
-        public void PowerOn();
+        public void PowerOn(bool load = false);
         public void PowerOff();
     }
 }

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Runtime.AI;
+using Runtime.Managers;
 using Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -38,6 +39,7 @@ namespace Runtime.SoundSystem
         private void Awake()
         {
             _noiseEmitter = audioSource.GetComponent<NoiseEmitter>();
+            GameManager.Instance.SoundSystem.SetupSound(audioSource, footstepSounds[0].footstepSounds[0]);
         }
         
         //========================= Public Methods =========================//
@@ -52,7 +54,7 @@ namespace Runtime.SoundSystem
             }
             
             audioSource.volume = sound.volumeScale;
-            audioSource.PlayOneShot(sound.clip);
+            GameManager.Instance.SoundSystem.PlayOneShot(sound, audioSource);
             _noiseEmitter.Radius = joggingRange;
             _noiseEmitter.EmitLocal();
         }
@@ -69,7 +71,7 @@ namespace Runtime.SoundSystem
             }
             
             audioSource.volume = sound.volumeScale / 2f;
-            audioSource.PlayOneShot(sound.clip);
+            GameManager.Instance.SoundSystem.PlayOneShot(sound, audioSource);
             _noiseEmitter.Radius = sneakingRange;
             _noiseEmitter.EmitLocal();
         }

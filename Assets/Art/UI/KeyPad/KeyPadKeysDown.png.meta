@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a0d31483ae77a8b4b87fb78d505c6a40
+guid: abac8d2cbd227d14a9e164cc4b6af674
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,7 +107,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KeyPadKeys_0
+      name: KeyPadKeysNew2_0
       rect:
         serializedVersion: 2
         x: 25
@@ -115,20 +115,20 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03dd5924affb8bb468680c9feccdca6e
-      internalID: -454378374
+      spriteID: 9e5a2f55efbb5c84ba40fb34cc672462
+      internalID: 743708920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KeyPadKeys_1
+      name: KeyPadKeysNew2_1
       rect:
         serializedVersion: 2
         x: 61
@@ -136,20 +136,20 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34e1fab77df0e734b84e6d9b5534c0b5
-      internalID: -91068822
+      spriteID: b02cb79b58433974f99e55027450197c
+      internalID: -1866816087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KeyPadKeys_2
+      name: KeyPadKeysNew2_2
       rect:
         serializedVersion: 2
         x: 97
@@ -157,20 +157,20 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfda4017934c87b4ba7bf9dbcaa8c91e
-      internalID: -1152260723
+      spriteID: 01a1e19314b798e45bc8aa5b77d7036b
+      internalID: -218435148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KeyPadKeys_3
+      name: KeyPadKeysNew2_3
       rect:
         serializedVersion: 2
         x: 25
@@ -178,20 +178,20 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 031272501532c534a9392d28a1bb8da6
-      internalID: -1473243951
+      spriteID: e1100166f8083bb46b70daba4d4608bd
+      internalID: -806771272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KeyPadKeys_4
+      name: KeyPadKeysNew2_4
       rect:
         serializedVersion: 2
         x: 61
@@ -199,20 +199,20 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 632c9a9440af90b4681f589544102ca5
-      internalID: 1882500384
+      spriteID: d8c7e8e0a8d3a7343b32d7cba8917369
+      internalID: -814499710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KeyPadKeys_5
+      name: KeyPadKeysNew2_5
       rect:
         serializedVersion: 2
         x: 97
@@ -220,20 +220,20 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc4a2929361ad934cad0970644c1f7d7
-      internalID: 556548242
+      spriteID: 02fba0f15e2592547a6ca23f9237390f
+      internalID: 1164527701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KeyPadKeys_6
+      name: KeyPadKeysNew2_6
       rect:
         serializedVersion: 2
         x: 25
@@ -241,20 +241,20 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 093adfe33b6c27a4c92fc3ec5bde776d
-      internalID: 1728387050
+      spriteID: e859647bd0367654f938a45290b1a8fd
+      internalID: -158549812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KeyPadKeys_7
+      name: KeyPadKeysNew2_7
       rect:
         serializedVersion: 2
         x: 61
@@ -262,20 +262,20 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8008b841278310e4d8bcdf749c8719d2
-      internalID: -1982739430
+      spriteID: fbcccb947a961754f9d185817f5e4403
+      internalID: -858599665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KeyPadKeys_8
+      name: KeyPadKeysNew2_8
       rect:
         serializedVersion: 2
         x: 97
@@ -283,20 +283,20 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5e4f77dd50f9a54f86b53ad8c832a49
-      internalID: 768666519
+      spriteID: 5d74874276a55dc4a91674ab4deebada
+      internalID: -352426125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KeyPadKeys_9
+      name: KeyPadKeysNew2_9
       rect:
         serializedVersion: 2
         x: 61
@@ -304,20 +304,20 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e1ce33f3e9b8094ebdb45d6a68d67b2
-      internalID: 1194655466
+      spriteID: 74f06d219d8de634d95af8d9c921d734
+      internalID: -128641644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KeyPadKeys_10
+      name: KeyPadKeysNew2_10
       rect:
         serializedVersion: 2
         x: 97
@@ -325,14 +325,14 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbff2742e259b6f4690125e872095b48
-      internalID: -2047449596
+      spriteID: 672b09a58f634304fba347b27ae2973b
+      internalID: 1334412138
       vertices: []
       indices: 
       edges: []
@@ -348,17 +348,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      KeyPadKeys_0: -454378374
-      KeyPadKeys_1: -91068822
-      KeyPadKeys_10: -2047449596
-      KeyPadKeys_2: -1152260723
-      KeyPadKeys_3: -1473243951
-      KeyPadKeys_4: 1882500384
-      KeyPadKeys_5: 556548242
-      KeyPadKeys_6: 1728387050
-      KeyPadKeys_7: -1982739430
-      KeyPadKeys_8: 768666519
-      KeyPadKeys_9: 1194655466
+      KeyPadKeysNew2_0: 743708920
+      KeyPadKeysNew2_1: -1866816087
+      KeyPadKeysNew2_10: -218435148
+      KeyPadKeysNew2_2: -806771272
+      KeyPadKeysNew2_3: -814499710
+      KeyPadKeysNew2_4: 1164527701
+      KeyPadKeysNew2_5: -158549812
+      KeyPadKeysNew2_6: -858599665
+      KeyPadKeysNew2_7: -352426125
+      KeyPadKeysNew2_8: -128641644
+      KeyPadKeysNew2_9: 1334412138
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

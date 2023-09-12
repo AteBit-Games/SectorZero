@@ -81,7 +81,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
             return GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(key) && IsPowered;
         }
         
-        public void PowerOn()
+        public void PowerOn(bool load)
         {
             IsPowered = true;
         }

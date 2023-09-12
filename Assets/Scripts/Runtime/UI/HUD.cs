@@ -7,7 +7,6 @@ using System;
 using Runtime.InteractionSystem.Objects.UI;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
-using Runtime.SoundSystem;
 using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -23,12 +22,6 @@ namespace Runtime.UI
     
     public class HUD : Window
     {
-        [SerializeField] private Sound keyPressSound;
-        [SerializeField] private Sound keyPressErrorSound;
-        [SerializeField] private Sound keyPadSuccessSound;
-        [SerializeField] private Sound keyPadErrorSound;
-        
-        
         private UIDocument _uiDocument;
         private UIType _activeUIType;
         
@@ -51,10 +44,8 @@ namespace Runtime.UI
         private Label _handWrittenNoteAuthor;
         
         //KeyPad
+        private Keypad _keyPad;
         private VisualElement _keyPadContainer;
-        private Safe _activeSafe;
-        private int _keyPadInputLength;
-        private string _keyPadInput;
 
         //=============================== Unity Events ===============================//
         
@@ -68,8 +59,9 @@ namespace Runtime.UI
             _notesContainer = rootVisualElement.Q<VisualElement>("note-view");
             SetupNotes(_notesContainer);
             
+            _keyPad = GetComponent<Keypad>();
             _keyPadContainer = rootVisualElement.Q<VisualElement>("keypad-view");
-            SetupKeyPad(_keyPadContainer);
+            _keyPad.SetupKeypad(_keyPadContainer);
         }
 
         //=============================== Public Functions ===============================//
@@ -131,8 +123,8 @@ namespace Runtime.UI
         {
             UIUtils.ShowUIElement(_keyPadContainer);
             GameManager.Instance.activeWindow = this;
-            _activeSafe = safe;
-            
+            _keyPad.OpenKeypad(safe);
+
             Time.timeScale = 0;
             GameManager.Instance.DisableInput();
             _activeUIType = UIType.KeyPad;
@@ -141,7 +133,6 @@ namespace Runtime.UI
         private void CloseKeyPad()
         {
             UIUtils.HideUIElement(_keyPadContainer);
-            _activeSafe = null;
         }
         
         //=============================== Helper Function ===============================//
@@ -159,68 +150,6 @@ namespace Runtime.UI
             _handWrittenNoteAuthor = _handWrittenNote.Q<Label>("note-author");
         }
         
-        private void SetupKeyPad(VisualElement keyPadContainer)
-        {
-            var keysList = keyPadContainer.Query<VisualElement>("keypad-key").ToList();
-            
-            for(var i = 1; i < 10; i++)
-            {
-                var key = keysList[i-1];
-                var currentKey = i;
-                key.RegisterCallback<ClickEvent>(_ =>
-                {
-                    AddKeyToInput(currentKey);
-                });
-            }
-            
-            var zeroKey = keysList[9];
-            zeroKey.RegisterCallback<ClickEvent>(_ =>
-            {
-                AddKeyToInput(0);
-            });
-            
-            var enterKey = keysList[10];
-            enterKey.RegisterCallback<ClickEvent>(_ =>
-            {
-                if (_keyPadInputLength == 4)
-                {
-                    if (_activeSafe == null) return;
-
-                    if (_keyPadInput == _activeSafe.safeCode)
-                    {
-                        GameManager.Instance.SoundSystem.Play(keyPadSuccessSound);
-                        _activeSafe.OpenSafe();
-                        CloseKeyPad();
-                    }
-                    else ClearKeyPadInput();
-                }
-                else
-                {
-                    ClearKeyPadInput();
-                }
-            });
-        }
-        
-        private void AddKeyToInput(int key)
-        {
-            if (_keyPadInputLength < 4)
-            {
-                _keyPadInput += key;
-                _keyPadInputLength++;
-                GameManager.Instance.SoundSystem.Play(keyPressSound);
-            }
-            else
-            {
-                GameManager.Instance.SoundSystem.Play(keyPressErrorSound);
-            }
-        }
-        
-        private void ClearKeyPadInput()
-        {
-            _keyPadInput = "";
-            _keyPadInputLength = 0;
-            GameManager.Instance.SoundSystem.Play(keyPadErrorSound);
-        }
         
         //=============================== Window Overrides ===============================//
         

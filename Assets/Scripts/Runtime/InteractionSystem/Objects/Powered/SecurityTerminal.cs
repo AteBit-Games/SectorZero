@@ -3,7 +3,6 @@
 * All rights reserved.
 ****************************************************************/
 
-using System;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.InteractionSystem.Objects.Doors;
 using Runtime.InventorySystem.ScriptableObjects;
@@ -44,14 +43,14 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             _animator = GetComponent<Animator>();
             _audioSource = GetComponent<AudioSource>();
-            _audioSource.outputAudioMixerGroup = humSound.mixerGroup;
+            GameManager.Instance.SoundSystem.SetupSound(_audioSource, offSound);
         }
 
         //========================= Interface events =========================//
         
         public bool OnInteract(GameObject player)
         {
-            _audioSource.PlayOneShot(offSound.clip);
+            GameManager.Instance.SoundSystem.PlayOneShot(offSound, _audioSource);
             _animator.SetTrigger(Unlock);
             return true;
         }
@@ -61,10 +60,10 @@ namespace Runtime.InteractionSystem.Objects.Powered
             switch (_isPowered)
             {
                 case false:
-                    _audioSource.PlayOneShot(offSound.clip);
+                    GameManager.Instance.SoundSystem.PlayOneShot(offSound, _audioSource);
                     break;
                 case true when !GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(keyCard):
-                    _audioSource.PlayOneShot(lockedSound.clip);
+                    GameManager.Instance.SoundSystem.PlayOneShot(lockedSound, _audioSource);
                     _animator.SetTrigger(Locked);
                     break;
             }
@@ -82,7 +81,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         //========================= Public methods =========================//
         
-        public void PowerOn()
+        public void PowerOn(bool load)
         {
             _isPowered = true;
             _animator.SetBool(Powered, true);

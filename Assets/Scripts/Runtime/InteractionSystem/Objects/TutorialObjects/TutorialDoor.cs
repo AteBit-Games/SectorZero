@@ -4,6 +4,7 @@
 ****************************************************************/
 
 using NavMeshPlus.Components;
+using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
@@ -24,7 +25,7 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
         //----- Private Variables -----//
         private Animator _mainAnimator;
         private AudioSource _audioSource;
-        private bool open;
+        private bool _open;
         
         //---- Animator Hashes -----//
         private readonly int _isOpen = Animator.StringToHash("isOpen");
@@ -38,24 +39,23 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
         {
             _mainAnimator = GetComponent<Animator>();
             _audioSource = GetComponent<AudioSource>();
+            GameManager.Instance.SoundSystem.SetupSound(_audioSource, openSound);
         }
         
         //=========================== Public Methods =============================//
         
         public void OpenDoor()
         {
-            _audioSource.volume = openSound.volumeScale;
-            _audioSource.PlayOneShot(openSound.clip);
+            GameManager.Instance.SoundSystem.PlayOneShot(openSound, _audioSource);
             _mainAnimator.SetBool(_isOpen, true);
-            open = true;
+            _open = true;
         }
 
         public void CloseDoor()
         {
-            _audioSource.volume = closeSound.volumeScale;
-            _audioSource.PlayOneShot(closeSound.clip);
+            GameManager.Instance.SoundSystem.PlayOneShot(closeSound, _audioSource);
             _mainAnimator.SetBool(_isOpen, false);
-            open = false;
+            _open = false;
         }
         
         public void TriggerHit()
@@ -78,9 +78,9 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
             bottomAnimator.SetTrigger(Property);
         }
 
-        public void SetBlocker(int enabled)
+        public void SetBlocker(int active)
         {
-            navigationBlocker.gameObject.SetActive(enabled > 0);
+            navigationBlocker.gameObject.SetActive(active > 0);
         }
 
         public void UpdateMesh()
@@ -105,8 +105,8 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
 
         public void SaveData(SaveGame game)
         {
-            if(!game.worldData.doors.ContainsKey(persistentID)) game.worldData.doors.Add(persistentID, open);
-            else game.worldData.doors[persistentID] = open;
+            if(!game.worldData.doors.ContainsKey(persistentID)) game.worldData.doors.Add(persistentID, _open);
+            else game.worldData.doors[persistentID] = _open;
         }
     }
 }

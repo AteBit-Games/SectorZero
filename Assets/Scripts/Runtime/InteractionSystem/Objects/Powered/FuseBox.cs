@@ -59,7 +59,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
             _light = transform.parent.gameObject.GetComponentInChildren<Light2D>();
             
             _audioSource = GetComponent<AudioSource>();
-            _audioSource.outputAudioMixerGroup = humSound.mixerGroup;
+            GameManager.Instance.SoundSystem.SetupSound(_audioSource, onSound);
         }
 
         private void Start()
@@ -86,7 +86,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             if(!_hasFuse)
             {
-                _audioSource.PlayOneShot(addFuseSound.clip);
+                GameManager.Instance.SoundSystem.PlayOneShot(addFuseSound, _audioSource);
                 _animator.SetTrigger(AddFuse);
                 GameManager.Instance.InventorySystem.PlayerInventory.UseItemInInventory(fuse);
                 GameManager.Instance.SaveSystem.SaveGame();
@@ -96,7 +96,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
             {
                 _isPowered = !_isPowered;
                 SetPowered(_isPowered);
-                _audioSource.PlayOneShot(_isPowered ? onSound.clip : offSound.clip);
+                GameManager.Instance.SoundSystem.PlayOneShot(_isPowered ? onSound : offSound, _audioSource);
             }
             
             return true;
@@ -104,7 +104,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         public void OnInteractFailed(GameObject player)
         {
-            _audioSource.PlayOneShot(noFuseSound.clip);
+            GameManager.Instance.SoundSystem.PlayOneShot(noFuseSound, _audioSource);
         }
 
         public bool CanInteract()

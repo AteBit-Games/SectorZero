@@ -6,7 +6,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Runtime.Managers;
 using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -14,7 +13,7 @@ using UnityEngine.SceneManagement;
 
 namespace Runtime.SoundSystem
 {
-    [DefaultExecutionOrder(1)]
+    [DefaultExecutionOrder(11)]
 	public class SoundManager : MonoBehaviour
 	{
         [Header("MIX GROUPS")]
@@ -44,8 +43,6 @@ namespace Runtime.SoundSystem
         {
             ambienceSources[0].Play();
             ambienceSources[1].Play();
-            
-           // Sound
         }
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
@@ -83,9 +80,25 @@ namespace Runtime.SoundSystem
             if (destroy && !sound.loop) StartCoroutine(DestroySoundSource(audioSource, audioSource.clip.length+0.5f));
         }
         
+        public void PlayOneShot(Sound sound, AudioSource audioSource)
+        {
+            if (sound == null || sound.loop) return;
+            
+            audioSource.PlayOneShot(sound.clip, sound.volumeScale);
+        }
+
+        public void SetupSound(AudioSource audioSource, Sound sound)
+        {
+            audioSource.outputAudioMixerGroup = sound.mixerGroup;
+            audioSource.clip = sound.clip;
+            audioSource.volume = sound.volumeScale;
+            audioSource.loop = sound.loop;
+        }
+        
         public void StartSounds()
-        { 
-            foreach (var soundSource in _activeSoundEntitySources) soundSource.AudioSource.Play();
+        {
+            mainMixer.SetFloat("masterVolume", -80.0f);
+            StartCoroutine(SoundUtils.StartFade(mainMixer, "masterVolume", 1.0f, 1.0f));
         }
         
         public void StopAll()
@@ -127,23 +140,24 @@ namespace Runtime.SoundSystem
         public void ResetSystem()
         {
             StopAll();
+            SilenceAmbience();
             _activeSoundInstanceSources.Clear();
             _activeSoundEntitySources.Clear();
         }
         
         public void FadeInAmbience(float fadeTime = 1.0f)
         {
-            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, 0.0f));
+            StartCoroutine(SoundUtils.StartFade(mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, 0.0f));
         }
         
         public void FadeOutAmbience(float fadeTime = 1.0f)
         {
-            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
+            StartCoroutine(SoundUtils.StartFade(mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
         }
 
         public void SilenceAmbience()
         {
-            GameManager.Instance.SoundSystem.mainMixer.SetFloat(_ambMixerNames[_currentAmbIndex], -80.0f);
+            mainMixer.SetFloat(_ambMixerNames[_currentAmbIndex], -80.0f);
         }
         
         public void FadeToNextAmbience(Sound nextAmb, float fadeTime = 1.0f)
@@ -152,8 +166,9 @@ namespace Runtime.SoundSystem
             ambienceSources[1 - _currentAmbIndex].volume = nextAmb.volumeScale;
             ambienceSources[1 - _currentAmbIndex].loop = nextAmb.loop;
             ambienceSources[1 - _currentAmbIndex].Play();
-            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
-            StartCoroutine(SoundUtils.StartFade(GameManager.Instance.SoundSystem.mainMixer, _ambMixerNames[1 - (_currentAmbIndex)], fadeTime, 1.0f));
+            
+            StartCoroutine(SoundUtils.StartFade(mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
+            StartCoroutine(SoundUtils.StartFade(mainMixer, _ambMixerNames[1 - (_currentAmbIndex)], fadeTime, 1.0f));
             _currentAmbIndex = 1 - _currentAmbIndex;
         }
 

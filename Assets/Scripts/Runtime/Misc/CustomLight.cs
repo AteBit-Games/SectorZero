@@ -4,6 +4,7 @@
 ****************************************************************/
 using System.Collections;
 using Runtime.InteractionSystem.Interfaces;
+using Runtime.Managers;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -56,18 +57,19 @@ namespace Runtime.Misc
 
         private void Start()
         {
-            AudioSource.clip = loopSound.clip;
-            if (startPowered) PowerOn();
+            GameManager.Instance.SoundSystem.SetupSound(AudioSource, loopSound);
+            if (startPowered) PowerOn(false);
             else PowerOff();
         }
 
         //============================== Interface ==============================
         
-        public void PowerOn()
+        public void PowerOn(bool load)
         {
             light.enabled = true;
             IsPowered = true;
-            AudioSource.mute = false;
+            AudioSource.Play();
+            
             if (flicker)
             {
                 if (_coroutine != null) StopCoroutine(_coroutine);
@@ -79,14 +81,14 @@ namespace Runtime.Misc
         {
             light.enabled = false;
             IsPowered = false;
-            if(AudioSource != null) AudioSource.mute = true;
+            AudioSource.Stop();
+            
             if (_coroutine != null)
             {
                 StopCoroutine(_coroutine);
                 _coroutine = null;
             }
         }
-
         
         //============================== Coroutines ==============================
         
@@ -94,17 +96,16 @@ namespace Runtime.Misc
         {
             light.enabled = true;
             _animator.SetBool(On, true);
-            AudioSource.PlayOneShot(onSound.clip);
+            GameManager.Instance.SoundSystem.PlayOneShot(onSound, AudioSource);
 
             yield return new WaitForSeconds(Random.Range(minOn, maxOn));
             light.enabled = false;
             _animator.SetBool(On, false);
-            AudioSource.PlayOneShot(offSound.clip);
-            if(minOff >= 0.5)
-                yield return FadeOut();
+            GameManager.Instance.SoundSystem.PlayOneShot(offSound, AudioSource);
+            if(minOff >= 0.5) yield return FadeOut();
 
             yield return new WaitForSeconds(Random.Range(minOff, maxOff));
-            //AudioSource.Play();
+            AudioSource.Play();
             _coroutine = StartCoroutine(FlickerOff());
         }
 

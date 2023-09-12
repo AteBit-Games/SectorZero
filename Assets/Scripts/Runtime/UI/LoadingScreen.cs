@@ -20,7 +20,6 @@ namespace Runtime.UI
 
         private VisualElement _loadContainer;
         private VisualElement _loadingIcon;
-        private VisualElement _continueText;
         
         private int _loadingIndex;
         private Coroutine _loadingIconCoroutine;
@@ -31,7 +30,6 @@ namespace Runtime.UI
             var rootVisualElement = _uiDocument.rootVisualElement;
             
             _loadContainer = rootVisualElement.Q<VisualElement>("load-overlay");
-            _continueText = rootVisualElement.Q<VisualElement>("loading-label");
             _loadingIcon = rootVisualElement.Q<VisualElement>("loading-icon");
         }
         
@@ -41,7 +39,6 @@ namespace Runtime.UI
             _loadingIconCoroutine = StartCoroutine(LoadingIcon());
 
             UIUtils.ShowUIElement(_loadContainer);
-            _continueText.visible = false;
         }
         
         public void HideLoading()

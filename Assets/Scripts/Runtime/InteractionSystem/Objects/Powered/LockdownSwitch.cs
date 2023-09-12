@@ -52,6 +52,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
             _animator = GetComponent<Animator>();
             _mainLight = GetComponentInChildren<Light2D>();
             _audioSource = GetComponent<AudioSource>();
+            GameManager.Instance.SoundSystem.SetupSound(_audioSource, onSound);
             
             _stareLights.AddRange(meterAnimator.gameObject.GetComponentsInChildren<Light2D>());
             foreach (var fuseBox in fuseBoxes)
@@ -66,7 +67,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
             
             if(debug)
             {
-                securityTerminal.PowerOn();
+                securityTerminal.PowerOn(false);
             }
         }
 
@@ -82,7 +83,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _isPowered = false;
                 _mainLight.enabled = false;
                 
-                _audioSource.PlayOneShot(failSound.clip);
+                GameManager.Instance.SoundSystem.PlayOneShot(failSound, _audioSource);
                 securityTerminal.PowerOff();
             }
         }
@@ -107,14 +108,13 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _mainLight.enabled = true;
                 _isPowered = true;
                 
-                _audioSource.PlayOneShot(onSound.clip);
+                GameManager.Instance.SoundSystem.PlayOneShot(onSound, _audioSource);
                 GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
-                securityTerminal.PowerOn();
+                securityTerminal.PowerOn(false);
             }
             else
             {
-                _audioSource.PlayOneShot(onSound.clip);
-                _audioSource.PlayOneShot(failSound.clip);
+                GameManager.Instance.SoundSystem.PlayOneShot(failSound, _audioSource);
                 _animator.SetTrigger(Failure);
             }
             
@@ -141,7 +141,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _mainLight.enabled = true;
                 _isPowered = true;
                 GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
-                securityTerminal.PowerOn();
+                securityTerminal.PowerOn(true);
             }
             
             return persistentID;
