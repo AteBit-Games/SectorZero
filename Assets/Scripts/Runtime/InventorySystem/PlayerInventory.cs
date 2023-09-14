@@ -69,9 +69,9 @@ namespace Runtime.InventorySystem
 
         public void SaveData(SaveGame game)
         {
-            var itemRefs = itemInventory.Select(item => item.itemRef.ToString()).ToList();
-
-            game.playerData.itemInventoryRefs = itemRefs;
+            // var itemRefs = itemInventory.Select(item => item.itemRef.ToString()).ToList();
+            //
+            // game.playerData.itemInventoryRefs = itemRefs;
             // game.playerData.tapeInventory = tapeInventory;
             // game.playerData.noteInventory = noteInventory;
         }
