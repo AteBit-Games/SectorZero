@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: KeyPad_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.92857146, y: -33.8}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 184
-      height: 184
+      width: 42
+      height: 5
     spriteID: 0eb234b7e87213142877deb5bd56dc3b
     spriteBone: []
     spriteOutline: []
@@ -141,15 +141,15 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: KeyPad_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.92857146, y: -33.8}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 196
-      width: 184
-      height: 184
+      y: 17
+      width: 42
+      height: 5
     spriteID: fc7c57a2ae0f23d4db47c3ab940d7969
     spriteBone: []
     spriteOutline: []
@@ -158,7 +158,67 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 196}
+    uvTransform: {x: 4, y: 17}
+  - name: KeyPad_Frame_2
+    originalName: 
+    pivot: {x: 0.92857146, y: -33.8}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 30
+      width: 42
+      height: 5
+    spriteID: 288b6ea84fda106439e83f17af163066
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 30}
+  - name: KeyPad_Frame_3
+    originalName: 
+    pivot: {x: 0.92857146, y: -33.8}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 43
+      width: 42
+      height: 5
+    spriteID: 6d9660f93ae5d0341ba2ef820f90171f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 43}
+  - name: KeyPad_Frame_4
+    originalName: 
+    pivot: {x: 0.92857146, y: -33.8}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 56
+      width: 42
+      height: 5
+    spriteID: e1e397000b656a64087a87f2c834f59e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 56}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -171,19 +231,43 @@ ScriptedImporter:
     - name: KeyPad_Frame_0
       frameIndex: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 184
-        height: 184
+        x: 53
+        y: 169
+        width: 42
+        height: 5
       spriteId: 0eb234b7e87213142877deb5bd56dc3b
     - name: KeyPad_Frame_1
       frameIndex: 1
       cellRect:
-        x: 0
-        y: 0
-        width: 184
-        height: 184
+        x: 53
+        y: 169
+        width: 42
+        height: 5
       spriteId: fc7c57a2ae0f23d4db47c3ab940d7969
+    - name: KeyPad_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 53
+        y: 169
+        width: 42
+        height: 5
+      spriteId: 288b6ea84fda106439e83f17af163066
+    - name: KeyPad_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 53
+        y: 169
+        width: 42
+        height: 5
+      spriteId: 6d9660f93ae5d0341ba2ef820f90171f
+    - name: KeyPad_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 53
+        y: 169
+        width: 42
+        height: 5
+      spriteId: e1e397000b656a64087a87f2c834f59e
     linkedCells: []
     parentIndex: -1
   platformSettings: []
