@@ -41,7 +41,11 @@
                         <ui:Slider picking-mode="Ignore" value="0.35" high-value="1" name="slider" />
                     </ui:VisualElement>
                     <ui:VisualElement name="music-slider" focusable="true" class="slider">
-                        <ui:Label tabindex="-1" text="Music" display-tooltip-when-elided="true" name="Label" />
+                        <ui:Label tabindex="-1" text="Ambience" display-tooltip-when-elided="true" name="Label" />
+                        <ui:Slider picking-mode="Ignore" value="0.8" high-value="1" name="slider" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="voices-slider" focusable="true" class="slider">
+                        <ui:Label tabindex="-1" text="Voices" display-tooltip-when-elided="true" name="Label" />
                         <ui:Slider picking-mode="Ignore" value="0.8" high-value="1" name="slider" />
                     </ui:VisualElement>
                 </ui:VisualElement>

@@ -140,6 +140,7 @@ namespace Runtime.SaveSystem.Data
         public bool autoTapes = true;
         public float masterVolume = 1f;
         public float musicVolume = 1f;
+        public float voicesVolume = 1f;
         public float sfxVolume = 1f;
     }
 }

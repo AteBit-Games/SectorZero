@@ -15,10 +15,11 @@ using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
+
 namespace Runtime.InteractionSystem.Objects.Powered
 {
     [DefaultExecutionOrder(6)]
-    public class FuseBox : MonoBehaviour, IInteractable, IPersistant
+    public class FuseBox : MonoBehaviour, IInteractable, IPersistant, ISoundEntity
     {
         [SerializeField] public string persistentID;
         [SerializeField] private Item fuse;
@@ -39,13 +40,15 @@ namespace Runtime.InteractionSystem.Objects.Powered
         
         //----- Interface Properties -----//
         private bool _hasFuse;
-        private bool _isPowered;
-        public bool IsPowered => _isPowered;
+        public bool IsPowered { get; private set; }
+
+        public AudioSource AudioSource { get; private set; }
+        public Sound Sound => humSound;
+        public bool CanPlay { get; set; } = true;
 
         //----- Private Variables -----//
         private Animator _animator;
         private Light2D _light;
-        private AudioSource _audioSource;
         
         private static readonly int NoFuse = Animator.StringToHash("noFuse");
         private static readonly int AddFuse = Animator.StringToHash("addFuse");
@@ -57,27 +60,27 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             _animator = GetComponent<Animator>();
             _light = transform.parent.gameObject.GetComponentInChildren<Light2D>();
-            _audioSource = GetComponent<AudioSource>();
+            
+            AudioSource = GetComponent<AudioSource>();
+            GameManager.Instance.SoundSystem.SetupSound(AudioSource, humSound);
         }
 
         private void Start()
         {
-            GameManager.Instance.SoundSystem.SetupSound(_audioSource, humSound);
-            
-            // if (GameManager.Instance.TestMode)
-            // {
-            //     _hasFuse = startWithFuse;
-            //     if (_hasFuse)
-            //     {
-            //         SetPowered(startPowered);
-            //         _isPowered = startPowered;
-            //     }
-            //     else
-            //     {
-            //         SetPowered(false);
-            //         _animator.SetTrigger(NoFuse);
-            //     }
-            // }
+            if (GameManager.Instance.TestMode)
+            {
+                _hasFuse = startWithFuse;
+                if (_hasFuse)
+                {
+                    SetPowered(startPowered);
+                    IsPowered = startPowered;
+                }
+                else
+                {
+                    SetPowered(false);
+                    _animator.SetTrigger(NoFuse);
+                }
+            }
         }
 
         //========================= Interface events =========================//
@@ -86,7 +89,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             if(!_hasFuse)
             {
-                GameManager.Instance.SoundSystem.PlayOneShot(addFuseSound, _audioSource);
+                GameManager.Instance.SoundSystem.PlayOneShot(addFuseSound, AudioSource);
                 _animator.SetTrigger(AddFuse);
                 GameManager.Instance.InventorySystem.PlayerInventory.UseItemInInventory(fuse);
                 GameManager.Instance.SaveSystem.SaveGame();
@@ -94,9 +97,9 @@ namespace Runtime.InteractionSystem.Objects.Powered
             }
             else
             {
-                _isPowered = !_isPowered;
-                SetPowered(_isPowered);
-                GameManager.Instance.SoundSystem.PlayOneShot(_isPowered ? onSound : offSound, _audioSource);
+                IsPowered = !IsPowered;
+                SetPowered(IsPowered);
+                GameManager.Instance.SoundSystem.PlayOneShot(IsPowered ? onSound : offSound, AudioSource);
             }
             
             return true;
@@ -104,7 +107,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         public void OnInteractFailed(GameObject player)
         {
-            GameManager.Instance.SoundSystem.PlayOneShot(noFuseSound, _audioSource);
+            GameManager.Instance.SoundSystem.PlayOneShot(noFuseSound, AudioSource);
         }
 
         public bool CanInteract()
@@ -126,10 +129,10 @@ namespace Runtime.InteractionSystem.Objects.Powered
             _animator.SetBool(Powered, state);
             _light.enabled = state;
             
-            if(state) _audioSource.Play();
-            else _audioSource.Stop();
+            if(state) AudioSource.Play();
+            else AudioSource.Stop();
         }
-
+        
         //=========================== Save System =============================//
         
         public string LoadData(SaveGame game)
@@ -140,13 +143,13 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 {
                     _hasFuse = false;
                     SetPowered(false);
-                    _isPowered = false;
+                    IsPowered = false;
                     _animator.SetTrigger(NoFuse);
                 }
                 else
                 {
                     _hasFuse = true;
-                    _isPowered = fusebox == 1;
+                    IsPowered = fusebox == 1;
                     SetPowered(fusebox == 1);
                 }
             }
@@ -155,13 +158,13 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _hasFuse = startWithFuse;
                 if (_hasFuse)
                 {
-                    _isPowered = startPowered;
+                    IsPowered = startPowered;
                     SetPowered(startPowered);
                 }
                 else
                 {
                     SetPowered(false);
-                    _isPowered = false;
+                    IsPowered = false;
                     _animator.SetTrigger(NoFuse);
                 }
             }
@@ -171,7 +174,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         public void SaveData(SaveGame game)
         {
-            if (_hasFuse) game.worldData.fuseBoxes[persistentID] = _isPowered ? 1 : 0;
+            if (_hasFuse) game.worldData.fuseBoxes[persistentID] = IsPowered ? 1 : 0;
             else game.worldData.fuseBoxes[persistentID] = 2;
         }
     }

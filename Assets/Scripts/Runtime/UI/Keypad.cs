@@ -51,6 +51,7 @@ namespace Runtime.UI
         
         //References
         private int _keyPadInputLength;
+        private int _currentAttempt;
         private string _keyPadInput;
         private Safe _activeSafe;
         
@@ -65,6 +66,25 @@ namespace Runtime.UI
                 uiKey.RegisterCallback<ClickEvent>(_ =>
                 {
                     AddKeyToInput(keyRef.Click(_keyPadInputLength == 4));
+                    if(_keyPadInputLength == 4)
+                    {
+                        if (_activeSafe == null) return;
+                        _currentAttempt++;
+
+                        if (_keyPadInput == _activeSafe.safeCode)
+                        {
+                            GameManager.Instance.SoundSystem.Play(keyPadSuccessSound);
+                            StartCoroutine(SuccessState());
+                        }
+                        else ClearKeyPadInput();
+                        
+                        if(_currentAttempt == 3)
+                        {
+                            GameManager.Instance.HUD.CloseWindow();
+                            _activeSafe.TriggerAlarm();
+                            _currentAttempt = 0;
+                        }
+                    }
                 });
             }
             
@@ -77,21 +97,8 @@ namespace Runtime.UI
             
             enterKey.RegisterCallback<ClickEvent>(_ =>
             {
-                if (_keyPadInputLength == 4)
-                {
-                    if (_activeSafe == null) return;
-
-                    if (_keyPadInput == _activeSafe.safeCode)
-                    {
-                        GameManager.Instance.SoundSystem.Play(keyPadSuccessSound);
-                        StartCoroutine(SuccessState());
-                    }
-                    else ClearKeyPadInput();
-                }
-                else
-                {
-                    ClearKeyPadInput();
-                }
+                if (_keyPadInputLength == 4) return;
+                ClearKeyPadInput();
             });
         }
 

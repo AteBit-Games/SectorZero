@@ -70,6 +70,7 @@ namespace Runtime.InventorySystem
         private VisualElement _notesInventoryInformationImage;
         private Label _notesInventoryInformationTitle;
         private Label _notesInventoryInformationDescription;
+        private Button _notesInventoryReadButton;
         
         //Tracking
         private ActiveInventory _activeInventory = ActiveInventory.Tapes;
@@ -240,7 +241,7 @@ namespace Runtime.InventorySystem
             if (tape == null)
             {
                 _tapesInventoryInformationImage.style.backgroundImage = null;
-                _tapesInventoryInformationTitle.text = "No Item Selected";
+                _tapesInventoryInformationTitle.text = "No Tape Selected";
                 _tapesInventoryInformationDescription.text = "";
                 _tapesInventoryPlayButton.style.display = DisplayStyle.None;
             }
@@ -260,14 +261,16 @@ namespace Runtime.InventorySystem
             if (note == null)
             {
                 _notesInventoryInformationImage.style.backgroundImage = null;
-                _notesInventoryInformationTitle.text = "No Item Selected";
+                _notesInventoryInformationTitle.text = "No Note Selected";
                 _notesInventoryInformationDescription.text = "";
+                _notesInventoryReadButton.style.display = DisplayStyle.None;
             }
             else
             {
                 _notesInventoryInformationImage.style.backgroundImage = note.itemSprite.texture;
                 _notesInventoryInformationTitle.text = note.itemName;
                 _notesInventoryInformationDescription.text = note.itemDescription;
+                _notesInventoryReadButton.style.display = DisplayStyle.Flex;
                 
                 _activeNote = (Note)note;
             }
@@ -294,6 +297,7 @@ namespace Runtime.InventorySystem
                             _activeItemSlot?.Deselect();
                             _activeItemSlot = _itemsInventoryList[currentIndex];
                             SelectItem(_itemsInventoryList[currentIndex].OnClick());
+                            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                         }
                     });
                     item.RegisterCallback<MouseEnterEvent>(_ =>
@@ -326,6 +330,7 @@ namespace Runtime.InventorySystem
                             _activeItemSlot?.Deselect();
                             _activeItemSlot = _tapesInventoryList[currentIndex];
                             SelectTape(_tapesInventoryList[currentIndex].OnClick());
+                            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                         }
                     });
                     tape.RegisterCallback<MouseEnterEvent>(_ => GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound()));
@@ -355,6 +360,7 @@ namespace Runtime.InventorySystem
                             _activeItemSlot?.Deselect();
                             _activeItemSlot = _notesInventoryList[currentIndex];
                             SelectNote(_notesInventoryList[currentIndex].OnClick());
+                            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                         }
                     });
                     note.RegisterCallback<MouseEnterEvent>(_ => GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound()));
@@ -374,8 +380,8 @@ namespace Runtime.InventorySystem
             _notesInventoryInformationDescription = notesInventoryContainer.Q<Label>("note-description");
             
             //Button to read note
-            var notesInventoryReadButton = notesInventoryContainer.Q<Button>("note-read");
-            notesInventoryReadButton.RegisterCallback<ClickEvent>(_ => ReadNote());
+            _notesInventoryReadButton = notesInventoryContainer.Q<Button>("note-read");
+            _notesInventoryReadButton.RegisterCallback<ClickEvent>(_ => ReadNote());
         }
 
         private void SetupTapesReferences(VisualElement tapesInventoryContainer)
@@ -412,7 +418,7 @@ namespace Runtime.InventorySystem
         {
             if(_activeNote == null) return;
             
-            GameManager.Instance.HUD.OpenNote(_activeNote, false);
+            GameManager.Instance.HUD.OpenNote(_activeNote);
             isNoteWindowOpen = true;
             isSubWindowOpen = true;
         }

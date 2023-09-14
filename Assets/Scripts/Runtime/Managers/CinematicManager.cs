@@ -16,8 +16,7 @@ namespace Runtime.Managers
     public class CinematicManager : MonoBehaviour, IPersistant
     {
         [SerializeField] public string persistentID;
-        
-        public Dictionary<PlayableDirector, bool> director;
+        private Dictionary<PlayableDirector, bool> _director;
 
         private void Start()
         {
@@ -26,16 +25,16 @@ namespace Runtime.Managers
 
         private void Awake()
         {
-            director = GetComponentsInChildren<PlayableDirector>().ToDictionary(playableDirector => playableDirector, _ => false);
+            _director = GetComponentsInChildren<PlayableDirector>().ToDictionary(playableDirector => playableDirector, _ => false);
         }
         
         public void TriggerCinematic(int index)
         {
-            if(index >= director.Count) Debug.LogError("Index out of range");
-            if (!director.ElementAt(index).Value)
+            if(index >= _director.Count) Debug.LogError("Index out of range");
+            if (!_director.ElementAt(index).Value)
             {
-                director.ElementAt(index).Key.time = 0;
-                director.ElementAt(index).Key.Play();
+                _director.ElementAt(index).Key.time = 0;
+                _director.ElementAt(index).Key.Play();
             }
         }
         
@@ -44,10 +43,10 @@ namespace Runtime.Managers
             if (!game.worldData.cinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
             {
                 var cinematicData = game.worldData.cinematics.Find(cinematicData => cinematicData.managerID == persistentID);
-                for (var i = 0; i < director.Count; i++)
+                for (var i = 0; i < _director.Count; i++)
                 {
-                    director[director.ElementAt(i).Key] = cinematicData.cinematicStates[i];
-                    if(cinematicData.cinematicStates[i]) director.ElementAt(i).Key.time = director.ElementAt(i).Key.duration;
+                    _director[_director.ElementAt(i).Key] = cinematicData.cinematicStates[i];
+                    if(cinematicData.cinematicStates[i]) _director.ElementAt(i).Key.time = _director.ElementAt(i).Key.duration;
                 }
             }
             
@@ -59,9 +58,9 @@ namespace Runtime.Managers
             if(!game.worldData.cinematics.FindIndex(cinematicData => cinematicData.managerID == persistentID).Equals(-1))
             {
                 var cinematicData = game.worldData.cinematics.Find(cinematicData => cinematicData.managerID == persistentID);
-                for (var i = 0; i < director.Count; i++)
+                for (var i = 0; i < _director.Count; i++)
                 {
-                    cinematicData.cinematicStates[i] = Math.Abs(director.ElementAt(i).Key.time - director.ElementAt(i).Key.duration) < 0.01f;
+                    cinematicData.cinematicStates[i] = Math.Abs(_director.ElementAt(i).Key.time - _director.ElementAt(i).Key.duration) < 0.01f;
                 }
             }
             else
@@ -72,7 +71,7 @@ namespace Runtime.Managers
                     cinematicStates = new List<bool>()
                 };
             
-                foreach (var playableDirector in director)
+                foreach (var playableDirector in _director)
                 {
                     cinematicData.cinematicStates.Add(Math.Abs(playableDirector.Key.time - playableDirector.Key.duration) < 0.01f);
                 }

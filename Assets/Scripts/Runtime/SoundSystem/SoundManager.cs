@@ -30,6 +30,7 @@ namespace Runtime.SoundSystem
         private int _currentAmbIndex;
         private readonly string[] _ambMixerNames = {"mainAmbA", "mainAmbB"};
         private bool _isBusy;
+        private float _masterVolume = 1.0f;
         
         //========================= Unity Events =========================//
 
@@ -72,8 +73,6 @@ namespace Runtime.SoundSystem
                 destroy = true;
             }
             
-            Debug.Log($"Playing sound: {sound.name}");
-            
             audioSource.outputAudioMixerGroup = sound.mixerGroup;
             audioSource.clip = sound.clip;
             audioSource.volume = sound.volumeScale;
@@ -100,8 +99,7 @@ namespace Runtime.SoundSystem
         
         public void StartSounds()
         {
-            mainMixer.SetFloat("masterVolume", -80.0f);
-            StartCoroutine(SoundUtils.StartFade(mainMixer, "masterVolume", 1.0f, 1.0f));
+            StartCoroutine(SoundUtils.StartFade(mainMixer, "masterVolume", 1.0f, _masterVolume));
         }
         
         public void StopAll()
@@ -212,15 +210,25 @@ namespace Runtime.SoundSystem
         {
             ambienceSources[1 - _currentAmbIndex].clip = sound.clip;
         }
+
+        public void LoadMasterVolume(float volume)
+        {
+            _masterVolume = volume;
+        }
         
         public void SetMasterVolume(float volume)
         {
-            mainMixer.SetFloat("masterVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f))* 20);
+            mainMixer.SetFloat("masterVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
         }
 
         public void SetMusicVolume(float volume)
         {
             mainMixer.SetFloat("ambienceVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
+        }
+        
+        public void SetVoicesVolume(float volume)
+        {
+            mainMixer.SetFloat("voicesVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
         }
 
         public void SetSfxVolume(float volume)

@@ -25,13 +25,12 @@ namespace Runtime.AI
         }
         
         // ================================ Public Methods ================================
-        
-        protected void FindTargets()
+
+        private void FindTargets()
         {
             var targetsInRadius = Physics2D.OverlapCircleAll(transform.position, radius, targetMask);
             foreach (var t in targetsInRadius)
             {
-                
                 if(t.gameObject != gameObject)
                 {
                     var hearing = t.GetComponentInChildren<IHearingHandler>();

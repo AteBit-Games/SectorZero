@@ -13,6 +13,7 @@ using UnityEngine.Rendering.Universal;
 
 namespace Runtime.InteractionSystem.Objects.TutorialObjects
 {
+    [DefaultExecutionOrder(6)]
     public class TutorialDoor : MonoBehaviour, IPersistant
     {
         [SerializeField] private Sound openSound;

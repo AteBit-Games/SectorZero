@@ -9,6 +9,7 @@ using UnityEngine;
 namespace Runtime.SoundSystem
 {
     [RequireComponent(typeof(AudioSource))]
+    [DefaultExecutionOrder(5)]
     public class SoundObject : MonoBehaviour, ISoundEntity
     {
         [SerializeField] private Sound sound;
@@ -19,11 +20,12 @@ namespace Runtime.SoundSystem
         private void Awake()
         {
             AudioSource = GetComponent<AudioSource>();
-        }
-
-        private void Start()
-        {
             GameManager.Instance.SoundSystem.SetupSound(AudioSource, sound);
+        }
+        
+        public void Start()
+        {
+            AudioSource.Play();
         }
     }
 }

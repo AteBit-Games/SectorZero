@@ -12,11 +12,10 @@ using Random = UnityEngine.Random;
 
 namespace Runtime.Misc
 {
-    [DefaultExecutionOrder(6)]
+    [DefaultExecutionOrder(5)]
     public class CustomLight : MonoBehaviour, IPowered, ISoundEntity
     {
         [SerializeField] private new Light2D light;
-        [SerializeField] private bool startPowered;
 
         [SerializeField] private bool flicker;
         [SerializeField] private float minOn = 3f;
@@ -37,22 +36,17 @@ namespace Runtime.Misc
 
         public AudioSource AudioSource { get; private set; }
         public Sound Sound => loopSound;
-        
+
         //============================== Unity Events ==============================
 
         private void Awake()
         {
-            AudioSource = GetComponent<AudioSource>();
             _animator = GetComponent<Animator>();
-        }
-
-        private void Start()
-        {
+            
+            AudioSource = GetComponent<AudioSource>();
             GameManager.Instance.SoundSystem.SetupSound(AudioSource, loopSound);
-            if (startPowered) PowerOn(false);
-            else PowerOff();
         }
-
+        
         //============================== Interface ==============================
         
         public void PowerOn(bool load)

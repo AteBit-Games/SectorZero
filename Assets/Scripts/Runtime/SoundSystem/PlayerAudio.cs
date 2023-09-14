@@ -64,7 +64,6 @@ namespace Runtime.SoundSystem
         {
             var sound = DetermineSound();
             
-            
             if (sound == null)
             {
                 Debug.LogWarning("No sound found for sneak sound");

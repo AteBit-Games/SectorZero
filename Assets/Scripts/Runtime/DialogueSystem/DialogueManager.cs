@@ -57,7 +57,7 @@ namespace Runtime.DialogueSystem
             _dialogueContainer = rootVisualElement.Q<VisualElement>("dialogue-window");
             
             //Bind Audio Source
-            _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource = gameObject.GetComponent<AudioSource>();
         }
 
         private void OnEnable()

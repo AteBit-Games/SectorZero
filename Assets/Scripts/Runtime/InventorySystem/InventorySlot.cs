@@ -4,7 +4,6 @@
  ****************************************************************/
 
 using Runtime.InventorySystem.ScriptableObjects;
-using Runtime.Managers;
 using UnityEngine.UIElements;
 
 namespace Runtime.InventorySystem
@@ -34,7 +33,6 @@ namespace Runtime.InventorySystem
 
         public BaseItem OnClick()
         {
-            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             _inventorySlot.RemoveFromClassList("inventory-slot");
             _inventorySlot.AddToClassList("selected-slot");
             return _item;

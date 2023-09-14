@@ -32,6 +32,7 @@ namespace Runtime.UI
         private float _activeMasterVolume;
         private float _activeMusicVolume;
         private float _activeSfxVolume;
+        private float _activeVoicesVolume;
         
         private void Awake()
         {
@@ -49,11 +50,12 @@ namespace Runtime.UI
             {
                 GameManager.Instance.HandleEscape();
             });
+            
+            RegisterPlayerPrefs();
         }
 
         private void Start()
         {
-            RegisterPlayerPrefs();
             RegisterDisplayModeSetting();
             RegisterVsyncSetting();
             RegisterVolumeSettings();
@@ -222,6 +224,12 @@ namespace Runtime.UI
                 _settingDescription.text = "Change the volume of music";
             });
             
+            var voicesSlider = rootVisualElement.Q<VisualElement>("voices-slider");
+            voicesSlider.RegisterCallback<MouseEnterEvent>(_ =>
+            {
+                _settingDescription.text = "Change the volume of voices";
+            });
+            
             var masterVolume = masterSlider.Q<Slider>("slider");
             masterVolume.value = _activeMasterVolume;
             masterVolume.RegisterValueChangedCallback(evt =>
@@ -230,7 +238,6 @@ namespace Runtime.UI
                 GameManager.Instance.SaveSystem.UpdatePlayerMasterVolume(_activeMasterVolume);
                 GameManager.Instance.SoundSystem.SetMasterVolume(_activeMasterVolume);
             });
-
             
             var soundVolume = soundSlider.Q<Slider>("slider");
             soundVolume.value = _activeSfxVolume;
@@ -240,7 +247,6 @@ namespace Runtime.UI
                 GameManager.Instance.SaveSystem.UpdatePlayerSoundsVolume(_activeSfxVolume);
                 GameManager.Instance.SoundSystem.SetSfxVolume(_activeSfxVolume);
             });
-
             
             var musicVolume = musicSlider.Q<Slider>("slider");
             musicVolume.value = _activeMusicVolume;
@@ -250,6 +256,15 @@ namespace Runtime.UI
                 GameManager.Instance.SaveSystem.UpdatePlayerMusicVolume(_activeMusicVolume);
                 GameManager.Instance.SoundSystem.SetMusicVolume(_activeMusicVolume);
             });
+            
+            var voicesVolume = voicesSlider.Q<Slider>("slider");
+            voicesVolume.value = _activeVoicesVolume;
+            voicesVolume.RegisterValueChangedCallback(evt =>
+            {
+                _activeVoicesVolume = evt.newValue;
+                GameManager.Instance.SaveSystem.UpdatePlayerVoicesVolume(_activeVoicesVolume);
+                GameManager.Instance.SoundSystem.SetVoicesVolume(_activeVoicesVolume);
+            });
         }
         
         private void RegisterPlayerPrefs()
@@ -257,14 +272,15 @@ namespace Runtime.UI
             var playerData = GameManager.Instance.SaveSystem.GetPlayerData();
             
             _activeMasterVolume = playerData.masterVolume;
-            _activeSfxVolume = playerData.sfxVolume;
             _activeMusicVolume = playerData.musicVolume;
+            _activeSfxVolume = playerData.sfxVolume;
+            _activeVoicesVolume = playerData.voicesVolume;
             
-            GameManager.Instance.SoundSystem.SetMasterVolume(_activeMasterVolume);
+            GameManager.Instance.SoundSystem.LoadMasterVolume(_activeMasterVolume);
             GameManager.Instance.SoundSystem.SetSfxVolume(_activeSfxVolume);
             GameManager.Instance.SoundSystem.SetMusicVolume(_activeMusicVolume);
+            GameManager.Instance.SoundSystem.SetVoicesVolume(_activeVoicesVolume);
             
-            //_activeResolution = _resolutions[LoadPlayerPref(ResolutionKey, 2)];
             _activeVsync = _vsync[playerData.vSync ? 1 : 0];
             _activeDisplayMode = _displayModes[playerData.displayMode];
             _activeAutoNotes = playerData.autoNotes;
@@ -277,6 +293,5 @@ namespace Runtime.UI
             button.SetEnabled(state);
             button.style.opacity = state ? 1 : 0.5f;
         }
-        
     }
 }

@@ -192,6 +192,12 @@ namespace Runtime.SaveSystem
             _dataHandler.SavePlayerData(_playerData);
         }
         
+        public void UpdatePlayerVoicesVolume(float volume)
+        {
+            _playerData.voicesVolume = volume;
+            _dataHandler.SavePlayerData(_playerData);
+        }
+        
         public void UpdatePlayerNotesValue(bool manual)
         {
             _playerData.autoNotes = manual;

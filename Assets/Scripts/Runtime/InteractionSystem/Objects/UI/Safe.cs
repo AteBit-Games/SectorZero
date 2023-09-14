@@ -8,6 +8,7 @@ using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
+using Runtime.Misc;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
@@ -19,14 +20,17 @@ namespace Runtime.InteractionSystem.Objects.UI
     {
         [SerializeField] public Item safeItem;
         [SerializeField] public Sound itemPickupSound;
+        [SerializeField] private Alarm alarm; 
         
         [SerializeField] public string safeCode;
         [SerializeField] private Sound interactSound;
+        
         [SerializeField] private Sound safeOpenSound;
+        [SerializeField] private Sound safeFailSound;
         
         public Sound InteractSound => interactSound;
-        
         private GameObject _player;
+        
         private Animator _animator;
         private bool _isOpen;
         private static readonly int Open = Animator.StringToHash("open");
@@ -65,11 +69,18 @@ namespace Runtime.InteractionSystem.Objects.UI
             //Disable the collider and interaction
             _player.GetComponent<PlayerInteraction>().RemoveInteractable(gameObject);
             DisableInteraction();
+            AddItem();
             
             //Open the safe
             GameManager.Instance.SoundSystem.Play(safeOpenSound);
             _animator.SetTrigger(Open);
             _isOpen = true;
+        }
+
+        public void TriggerAlarm()
+        {
+            GameManager.Instance.SoundSystem.Play(safeFailSound);
+            alarm.Trigger();
         }
 
         private void DisableInteraction()

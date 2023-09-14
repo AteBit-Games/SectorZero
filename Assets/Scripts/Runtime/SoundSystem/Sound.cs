@@ -17,7 +17,6 @@ namespace Runtime.SoundSystem
         [Range(0.0f, 1.0f)]
         public float volumeScale = 1f;
         
-
         public bool loop;
     }
 }

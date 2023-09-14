@@ -196,12 +196,8 @@ namespace Runtime.Player
             //Let monster know the player is hiding if they were seen
             if (IsSeen)
             {
-                if (_monster.treeStates.Find(x => x.state == TreeState.State.AggroInspect) == null) Debug.LogError("No hidable check found");
-                else
-                {
-                    _seenEnter.value = true;
-                    _monster.SetActiveState(_monster.treeStates.Find(x => x.state == TreeState.State.AggroInspect).stateIndex);
-                }
+                _seenEnter.value = true;
+                _monster.SetState(State.AggroInspect);
             }
             
             //Start the hiding coroutine
@@ -210,8 +206,6 @@ namespace Runtime.Player
         
         public void RevealPlayer(Vector2 position, Vector2 facingDirection)
         {
-           
-
             //Show the player
             SetVisible(true);
             EnableMovement();
@@ -223,12 +217,7 @@ namespace Runtime.Player
 
             if (_seenEnter.value)
             {
-                if (_monster.treeStates.Find(x => x.state == TreeState.State.AggroChase) == null)Debug.LogError("No aggro chase state found");
-                else
-                {
-                    _seenEnter.value = false;
-                    _monster.SetActiveState(_monster.treeStates.Find(x => x.state == TreeState.State.AggroChase).stateIndex);
-                }
+                _monster.SetState(State.AggroChase);
             }
             
             _audioLowPassFilter.enabled = false;

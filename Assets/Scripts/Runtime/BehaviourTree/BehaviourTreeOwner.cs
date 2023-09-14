@@ -23,19 +23,19 @@ using Random = UnityEngine.Random;
 
 namespace Runtime.BehaviourTree 
 {
+    public enum State
+    {
+        Idle,
+        Patrol,
+        InspectPoint,
+        AggroInspect,
+        AggroChase,
+        SentinelAlert,
+    }
+    
     [Serializable]
     public class TreeState
     {
-        public enum State
-        {
-            Idle,
-            Patrol,
-            InspectPoint,
-            AggroInspect,
-            AggroChase,
-            SentinelAlert,
-        }
-        
         public State state;
         public int stateIndex;
     }
@@ -44,7 +44,6 @@ namespace Runtime.BehaviourTree
     {
         Vincent,
         VoidMask,
-        MouthPouch,
     }
     
     [AddComponentMenu("BehaviourTree/BehaviourTreeOwner")]
@@ -86,6 +85,7 @@ namespace Runtime.BehaviourTree
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
         
+        private State _currentState = State.Patrol;
         private bool _canSeePlayer;
         private bool _looseSightCoroutineRunning;
         private bool _gainSightCoroutineRunning;
@@ -167,22 +167,26 @@ namespace Runtime.BehaviourTree
         public LayerMask PlayerMask => playerMask;
         [HideInInspector] public bool isPlayerCrouching;
         
-        
         public void OnHearing(NoiseEmitter sender)
         {
-            var otherStates = _stateReference.value != treeStates.Find(x => x.state == TreeState.State.AggroInspect).stateIndex ||
-                                _stateReference.value != treeStates.Find(x => x.state == TreeState.State.AggroChase).stateIndex ||
-                                _stateReference.value != treeStates.Find(x => x.state == TreeState.State.Idle).stateIndex;
-            if (!_canSeePlayer && !otherStates)
+            if (!_canSeePlayer && !StateOverride())
             {
-                if(treeStates.Find(x => x.state == TreeState.State.InspectPoint) == null) Debug.LogError("No Inspect state found");
-                else
-                {
-                    _inspectLocationReference.value = sender.transform.position;
-                    SetActiveState(treeStates.Find(x => x.state == TreeState.State.InspectPoint).stateIndex);
-                }
+                _inspectLocationReference.value = sender.transform.position;
+                SetState(State.InspectPoint);
             }
         }
+
+        public void SetState(State state)
+        {
+            if(treeStates.Find(x => x.state == state) == null) Debug.LogError( state + " state not found");
+            else
+            {
+                _currentState = state;
+                SetActiveState(treeStates.Find(x => x.state == state).stateIndex);
+            }
+        }
+        
+        // ====================== Sight Functions ======================
         
         public void OnSightEnter()
         {
@@ -192,7 +196,7 @@ namespace Runtime.BehaviourTree
                 _looseSightCoroutineRunning = false;
             }
             
-            if (!_canSeePlayer && !_gainSightCoroutineRunning)
+            if (!_canSeePlayer && !_gainSightCoroutineRunning )
             {
                 _gainSightCoroutine = StartCoroutine(GainSight());
                 _gainSightCoroutineRunning = true;
@@ -227,7 +231,7 @@ namespace Runtime.BehaviourTree
                 return;
             }
             
-            var didSeePlayerEnterHidable = _stateReference.value == treeStates.Find(x => x.state == TreeState.State.AggroInspect).stateIndex;
+            var didSeePlayerEnterHidable = _stateReference.value == treeStates.Find(x => x.state == State.AggroInspect).stateIndex;
             if(_canSeePlayer && !_looseSightCoroutineRunning && !didSeePlayerEnterHidable)
             {
                 _inspectLocationReference.value = lastKnownPosition;
@@ -260,12 +264,8 @@ namespace Runtime.BehaviourTree
                 if (aberration != null) aberration.intensity.value = value;
             }).SetFrom(aberration.intensity.value).SetEaseSineInOut();
 
-            if(treeStates.Find(x => x.state == TreeState.State.InspectPoint) == null) Debug.LogError("No last known state specified");
-            else
-            {
-                _material.color = idleColour;
-                SetActiveState(treeStates.Find(x => x.state == TreeState.State.InspectPoint).stateIndex);
-            }
+            _material.color = idleColour;
+            SetState(State.Idle);
             
             _loseSightCoroutine = null;
             _looseSightCoroutineRunning = false;
@@ -283,7 +283,8 @@ namespace Runtime.BehaviourTree
                 if (vignette != null) vignette.intensity.value = value;
             }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
             
-            yield return new WaitForSeconds(1.2f);
+            if(_currentState == State.InspectPoint) yield return new WaitForSeconds(0);
+            else yield return new WaitForSeconds(1.2f);
             
             var aberration = volume.sharedProfile.components[1] as ChromaticAberration;
             if(_activeAberrationTween != null) _activeAberrationTween.Cancel();
@@ -293,14 +294,10 @@ namespace Runtime.BehaviourTree
             }).SetFrom(0).SetEaseSineInOut();
             
             GameManager.Instance.SoundSystem.PlaySting(detectedSound);
-                
-            if(treeStates.Find(x => x.state == TreeState.State.AggroChase) == null) Debug.LogError("No aggro state found");
-            else
-            {
-                _canSeePlayer = true;
-                _material.color = aggroColour;
-                SetActiveState(treeStates.Find(x => x.state == TreeState.State.AggroChase).stateIndex);
-            }
+            
+            SetState(State.AggroChase);
+            _canSeePlayer = true;
+            _material.color = aggroColour;
                 
             OnSightEnterAction?.Invoke();
             _gainSightCoroutine = null;
@@ -312,16 +309,6 @@ namespace Runtime.BehaviourTree
         public BlackboardKey<T> FindBlackboardKey<T>(string keyName)
         {
             return behaviourTree ? behaviourTree.blackboard.Find<T>(keyName) : null;
-        }
-
-        public void SetBlackboardValue<T>(string keyName, T value)
-        {
-            if (behaviourTree) behaviourTree.blackboard.SetValue(keyName, value);
-        }
-
-        public T GetBlackboardValue<T>(string keyName)
-        {
-            return behaviourTree ? behaviourTree.blackboard.GetValue<T>(keyName) : default;
         }
         
         public Vector2 DirFromAngle(float angleDeg)
@@ -379,6 +366,11 @@ namespace Runtime.BehaviourTree
         public Vector2 GetLookDirection()
         {
             return new Vector2(_animator.GetFloat(MoveX), _animator.GetFloat(MoveY));
+        }
+
+        private bool StateOverride()
+        {
+            return _currentState is State.AggroInspect or State.AggroChase or State.Idle;
         }
         
         // ====================== Save System ======================
