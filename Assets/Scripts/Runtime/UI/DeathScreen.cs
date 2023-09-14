@@ -25,6 +25,8 @@ namespace Runtime.UI
         //Buttons
         private Label _buttonDescription;
         private Label _deathDescription;
+        
+        private Button _loadLast;
         private Button _loadButton;
         private Button _quitMenuButton;
         private Button _quitDesktopButton;
@@ -44,6 +46,8 @@ namespace Runtime.UI
         
         private SaveMenu _saveMenu;
         private VisualElement _activePopup;
+        
+        
         
         private void Awake()
         {
@@ -89,6 +93,16 @@ namespace Runtime.UI
             });
             _loadButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Continue from a previous save point";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+            });
+            
+            _loadLast = rootVisualElement.Q<Button>("last-save");
+            _loadLast.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                GameManager.Instance.SaveSystem.ContinueGame();
+            });
+            _loadLast.RegisterCallback<MouseEnterEvent>(_ => {
+                _buttonDescription.text = "Load from the last checkpoint";
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             

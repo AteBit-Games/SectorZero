@@ -23,17 +23,24 @@ namespace Runtime.InteractionSystem.Items
         [SerializeField] public string persistentID;
         [SerializeField] private Item item;
         
+        //========================= Unity events =========================//
+        
+        private void Awake()
+        {
+            if(string.IsNullOrEmpty(persistentID)) Debug.LogWarning("No persistent ID set for " + gameObject.name);
+        }
+        
         //========================= Interface events =========================//
         
         public bool OnInteract(GameObject player)
         {
-            if(saveOnPickup) GameManager.Instance.SaveSystem.SaveGame();
-            
             gameObject.SetActive(false);
             GameManager.Instance.SoundSystem.Play(interactSound);
             var inventory = player.GetComponentInParent<PlayerInventory>();
             
             GameManager.Instance.NotificationManager.ShowPickupNotification(item);
+            if(saveOnPickup) GameManager.Instance.SaveSystem.SaveGame();
+            
             return inventory.AddItemToInventory(item);
         }
 

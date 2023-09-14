@@ -3,6 +3,7 @@
 * All rights reserved.
 ****************************************************************/
 using System.Collections.Generic;
+using System.Linq;
 using Runtime.InteractionSystem.Items;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.SaveSystem;
@@ -57,18 +58,22 @@ namespace Runtime.InventorySystem
         
         public string LoadData(SaveGame game)
         {
-            itemInventory = game.playerData.itemInventory;
-            tapeInventory = game.playerData.tapeInventory;
-            noteInventory = game.playerData.noteInventory;
+            
+            
+            //itemInventory = game.playerData.itemInventory;
+            //tapeInventory = game.playerData.tapeInventory;
+            //noteInventory = game.playerData.noteInventory;
             
             return "Player Inventory";
         }
 
         public void SaveData(SaveGame game)
         {
-            game.playerData.itemInventory = itemInventory;
-            game.playerData.tapeInventory = tapeInventory;
-            game.playerData.noteInventory = noteInventory;
+            var itemRefs = itemInventory.Select(item => item.itemRef.ToString()).ToList();
+
+            game.playerData.itemInventoryRefs = itemRefs;
+            // game.playerData.tapeInventory = tapeInventory;
+            // game.playerData.noteInventory = noteInventory;
         }
     }
 }

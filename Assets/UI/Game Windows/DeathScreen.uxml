@@ -32,7 +32,10 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="control-group" style="flex-grow: 0; position: relative; align-items: flex-start; overflow: visible; opacity: 1; visibility: visible; margin-bottom: 50px;">
                     <ui:VisualElement name="button-group" style="background-color: rgba(0, 0, 0, 0); margin-bottom: 30px; flex-grow: 1; width: 259px;">
-                        <ui:Button text="Load Save" display-tooltip-when-elided="true" name="load" class="button" style="width: 128px;">
+                        <ui:Button text="Reload Last Save" display-tooltip-when-elided="true" name="last-save" class="button" style="width: 211px;">
+                            <ui:VisualElement name="side-item" />
+                        </ui:Button>
+                        <ui:Button text="Load Game" display-tooltip-when-elided="true" name="load" class="button" style="width: 128px;">
                             <ui:VisualElement name="side-item" />
                         </ui:Button>
                         <ui:Button text="Main Menu" display-tooltip-when-elided="true" name="quit-menu" class="button" style="width: 132px;">
