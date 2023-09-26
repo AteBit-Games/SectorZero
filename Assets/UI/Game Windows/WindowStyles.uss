@@ -579,3 +579,14 @@
     -unity-text-align: upper-left;
     -unity-font-style: normal;
 }
+
+.todo-hidden {
+    position: absolute;
+    right: 35px;
+    top: -70px;
+}
+
+.todo-show {
+    position: absolute;
+    top: 15px;
+}

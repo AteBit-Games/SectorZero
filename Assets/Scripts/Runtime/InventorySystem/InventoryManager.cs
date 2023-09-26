@@ -432,6 +432,7 @@ namespace Runtime.InventorySystem
                 return;
             }
             
+            _summarySectionListContainer.Clear();
             foreach (var summary in playerInventory.summaryEntries)
             {
                 var summaryInstance = summaryEntry.CloneTree();

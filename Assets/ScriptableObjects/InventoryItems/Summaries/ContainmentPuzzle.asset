@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 594f12d5e8f54860858c7b104fe4bb24, type: 3}
-  m_Name: TestingWing
+  m_Name: ContainmentPuzzle
   m_EditorClassIdentifier: 
-  itemRef: FindCarver
-  summaryContent: Get a keycard to access the testing wing
-  isCompleted: 1
+  itemRef: ContainmentPuzzle
+  summaryContent: Find a way to stop the containment door from closing
+  isCompleted: 0

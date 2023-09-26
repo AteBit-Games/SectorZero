@@ -4,21 +4,13 @@
 ****************************************************************/
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using ElRaccoone.Tweens;
-using ElRaccoone.Tweens.Core;
-using Runtime.AI;
-using Runtime.AI.Interfaces;
 using Runtime.Managers;
-using Runtime.Player;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
 namespace Runtime.BehaviourTree 
@@ -48,7 +40,7 @@ namespace Runtime.BehaviourTree
     
     [AddComponentMenu("BehaviourTree/BehaviourTreeOwner")]
     [DefaultExecutionOrder(10)]
-    public class BehaviourTreeOwner : MonoBehaviour, IHearingHandler, ISightHandler, IPersistant
+    public class BehaviourTreeOwner : MonoBehaviour, IPersistant
     {
         [Tooltip("BehaviourTree asset to instantiate during Awake")] 
         public BehaviourTree behaviourTree;
@@ -58,50 +50,20 @@ namespace Runtime.BehaviourTree
         public List<BlackboardKeyValuePair> blackboardOverrides = new();
         public List<TreeState> treeStates = new();
         
-        [Tooltip("Masks that block field of view"), SerializeField] private LayerMask obstacleMask;
-        [Tooltip("Wall Mask"), SerializeField] private LayerMask wallMask;
-        [Tooltip("Masks that contains the player character"), SerializeField] private LayerMask playerMask;
-        [Tooltip("Maximum view distance"), SerializeField] private float viewRadius = 5.0f;
-        [Tooltip("Maximum angle that the monster can see"), SerializeField, Range(0f, 360f)] private float viewAngle = 135.0f;
-        
         [Header("SOUNDS")]
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private List<Sound> footstepSounds;
         
-        [SerializeField] private Sound detectedSound;
-        [SerializeField] private Sound lostSound;
-        
-        public bool debug;
-        public GameObject sightVisualPrefab;
-        [Tooltip("Colour of the view cone when the monster is idle"), SerializeField] private Color idleColour = new(0.0f, 0.0f, 0.0f, 150.0f);
-        [Tooltip("Colour of the view cone when the monster spots the player"), SerializeField] private Color aggroColour = new(255.0f, 0.0f, 0.0f, 150.0f);
-        
-        //----- Interfaces -----//
-        public Action OnSightEnterAction { get; set; }
-        
-        // ====================== Private Variables ======================
-        private Material _material;
+        private State _currentState = State.Patrol;
         private Context _context;
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
         
-        private State _currentState = State.Patrol;
-        private bool _canSeePlayer;
-        private bool _looseSightCoroutineRunning;
-        private bool _gainSightCoroutineRunning;
-
         private BlackboardKey<int> _stateReference;
         private BlackboardKey<Vector2> _inspectLocationReference;
         private static readonly int MoveX = Animator.StringToHash("moveX");
         private static readonly int MoveY = Animator.StringToHash("moveY");
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
-
-        private Coroutine _loseSightCoroutine;
-        private Coroutine _gainSightCoroutine;
-        private Tween<float> _activeVignetteTween;
-        private Tween<float> _activeAberrationTween;
-
-        // ====================== Unity Events ======================
         
         private void Awake() 
         {
@@ -121,10 +83,6 @@ namespace Runtime.BehaviourTree
             
             SetupReferences();
             GameManager.Instance.SoundSystem.SetupSound(audioSource, footstepSounds[0]);
-            
-            var sightVisual = Instantiate(sightVisualPrefab, transform);
-            _material = sightVisual.GetComponent<MeshRenderer>().material;
-            _material.color = idleColour;
             
             _navMeshAgent = _context.agent;
             _navMeshAgent.updateRotation = false;
@@ -159,21 +117,11 @@ namespace Runtime.BehaviourTree
         }
 
         // ====================== Interface ======================
-
-        public float ViewAngle => viewAngle;
-        public float ViewRadius => viewRadius;
-        public LayerMask ObstacleMask => obstacleMask;
-        public LayerMask WallMask => wallMask;
-        public LayerMask PlayerMask => playerMask;
-        [HideInInspector] public bool isPlayerCrouching;
         
-        public void OnHearing(NoiseEmitter sender)
+        public void SetHeard(Vector2 position)
         {
-            if (!_canSeePlayer && !StateOverride())
-            {
-                _inspectLocationReference.value = sender.transform.position;
-                SetState(State.InspectPoint);
-            }
+            _inspectLocationReference.value = position;
+            SetState(State.InspectPoint);
         }
 
         public void SetState(State state)
@@ -185,124 +133,6 @@ namespace Runtime.BehaviourTree
                 SetActiveState(treeStates.Find(x => x.state == state).stateIndex);
             }
         }
-        
-        // ====================== Sight Functions ======================
-        
-        public void OnSightEnter()
-        {
-            if (_looseSightCoroutineRunning && _loseSightCoroutine != null)
-            {
-                StopCoroutine(_loseSightCoroutine);
-                _looseSightCoroutineRunning = false;
-            }
-            
-            if (!_canSeePlayer && !_gainSightCoroutineRunning )
-            {
-                _gainSightCoroutine = StartCoroutine(GainSight());
-                _gainSightCoroutineRunning = true;
-                
-                var volume = FindFirstObjectByType<Volume>();
-                var vignette = volume.sharedProfile.components[0] as Vignette;
-
-                if(_activeVignetteTween != null) _activeVignetteTween.Cancel();
-                _activeVignetteTween = volume.TweenValueFloat(0.3f, 1.4f, value =>
-                {
-                    if (vignette != null) vignette.intensity.value = value;
-                }).SetFrom(0f).SetEaseSineInOut();
-            }
-        }
-
-        public void OnSightExit(Vector2 lastKnownPosition)
-        {
-            if(_gainSightCoroutineRunning && _gainSightCoroutine != null)
-            {
-                StopCoroutine(_gainSightCoroutine);
-                _gainSightCoroutineRunning = false;
-                
-                var volume = FindFirstObjectByType<Volume>();
-                var vignette = volume.sharedProfile.components[0] as Vignette;
-            
-                if(_activeVignetteTween != null) _activeVignetteTween.Cancel();
-                _activeVignetteTween = volume.TweenValueFloat(0f, 1f, value =>
-                {
-                    if (vignette != null) vignette.intensity.value = value;
-                }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
-                
-                return;
-            }
-            
-            var didSeePlayerEnterHidable = _stateReference.value == treeStates.Find(x => x.state == State.AggroInspect).stateIndex;
-            if(_canSeePlayer && !_looseSightCoroutineRunning && !didSeePlayerEnterHidable)
-            {
-                _inspectLocationReference.value = lastKnownPosition;
-                _loseSightCoroutine = StartCoroutine(LoseSight());
-                _looseSightCoroutineRunning = true;
-            }
-        }
-        
-        private IEnumerator LoseSight()
-        {
-            yield return new WaitForSeconds(2f);
-            
-            GameManager.Instance.SoundSystem.PlaySting(lostSound);
-            FindFirstObjectByType<PlayerController>().GetComponent<ISightEntity>().IsSeen = false;
-            _material.color = idleColour;
-            
-            var volume = FindFirstObjectByType<Volume>();
-            var vignette = volume.sharedProfile.components[0] as Vignette;
-            
-            if(_activeVignetteTween != null) _activeVignetteTween.Cancel();
-            _activeVignetteTween = volume.TweenValueFloat(0f, 1f, value =>
-            {
-                if (vignette != null) vignette.intensity.value = value;
-            }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
-            
-            var aberration = volume.sharedProfile.components[1] as ChromaticAberration;
-            if(_activeAberrationTween != null) _activeAberrationTween.Cancel();
-            _activeAberrationTween = volume.TweenValueFloat(0f, 1f, value =>
-            {
-                if (aberration != null) aberration.intensity.value = value;
-            }).SetFrom(aberration.intensity.value).SetEaseSineInOut();
-
-            _material.color = idleColour;
-            SetState(State.Idle);
-            
-            _loseSightCoroutine = null;
-            _looseSightCoroutineRunning = false;
-            _canSeePlayer = false;
-        }
-
-        private IEnumerator GainSight()
-        {
-            var volume = FindFirstObjectByType<Volume>();
-            var vignette = volume.sharedProfile.components[0] as Vignette;
-            
-            if(_activeVignetteTween != null) _activeVignetteTween.Cancel();
-            _activeVignetteTween = volume.TweenValueFloat(0.3f, 1.4f, value =>
-            {
-                if (vignette != null) vignette.intensity.value = value;
-            }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
-            
-            if(_currentState == State.InspectPoint) yield return new WaitForSeconds(0);
-            else yield return new WaitForSeconds(1.2f);
-            
-            var aberration = volume.sharedProfile.components[1] as ChromaticAberration;
-            if(_activeAberrationTween != null) _activeAberrationTween.Cancel();
-            _activeAberrationTween = volume.TweenValueFloat(0.8f, 1f, value =>
-            {
-                if (aberration != null) aberration.intensity.value = value;
-            }).SetFrom(0).SetEaseSineInOut();
-            
-            GameManager.Instance.SoundSystem.PlaySting(detectedSound);
-            
-            SetState(State.AggroChase);
-            _canSeePlayer = true;
-            _material.color = aggroColour;
-                
-            OnSightEnterAction?.Invoke();
-            _gainSightCoroutine = null;
-            _gainSightCoroutineRunning = false;
-        }
 
         // ====================== Public Methods ======================
         
@@ -311,16 +141,21 @@ namespace Runtime.BehaviourTree
             return behaviourTree ? behaviourTree.blackboard.Find<T>(keyName) : null;
         }
         
-        public Vector2 DirFromAngle(float angleDeg)
-        {
-            angleDeg += _context.agent.transform.eulerAngles.z;
-            return new Vector2(Mathf.Cos(angleDeg * Mathf.Deg2Rad), Mathf.Sin(angleDeg * Mathf.Deg2Rad));
-        }
         
         public void PlayFootstepSound()
         {
             var sound = footstepSounds[Random.Range(0, footstepSounds.Count)];
             GameManager.Instance.SoundSystem.PlayOneShot(sound, audioSource);
+        }
+
+        public bool DidSeeEnter()
+        {
+            return _stateReference.value == treeStates.Find(x => x.state == State.AggroInspect).stateIndex;
+        }
+        
+        public void SetLastKnownPosition(Vector2 position)
+        {
+            _inspectLocationReference.value = position;
         }
 
         // ====================== Private Methods ======================
@@ -368,7 +203,7 @@ namespace Runtime.BehaviourTree
             return new Vector2(_animator.GetFloat(MoveX), _animator.GetFloat(MoveY));
         }
 
-        private bool StateOverride()
+        public bool StateOverride()
         {
             return _currentState is State.AggroInspect or State.AggroChase or State.Idle;
         }

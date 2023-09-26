@@ -5,6 +5,7 @@
 
 using System.Collections;
 using Cinemachine;
+using Runtime.AI;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
 using Runtime.InputSystem;
@@ -18,6 +19,7 @@ using UnityEngine.SceneManagement;
 
 namespace Runtime.Player
 {
+    [DefaultExecutionOrder(6)]
     public class PlayerController : MonoBehaviour, IPersistant, ISightEntity
     {
         [Space(10)]
@@ -267,7 +269,7 @@ namespace Runtime.Player
                 _movementAnimator.SetBool(id: _isSneaking, isSneaking);
                 
                 //Let monster know the player is crouching
-                if(_monster != null) _monster.isPlayerCrouching = isSneaking;
+                if(_monster != null) _monster.GetComponentInChildren<AIPerception>().isPlayerCrouching = isSneaking;
                 
                 SetViewBounds(isSneaking);
                 StartCoroutine(SneakCooldown());

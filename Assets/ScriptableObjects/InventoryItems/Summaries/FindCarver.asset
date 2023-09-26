@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FindCarver
   m_EditorClassIdentifier: 
   itemRef: FindCarver
-  summaryContent: Inspect Cafeteria
-  isCompleted: 1
+  summaryContent: Look for Dr. Henry Carver in the Testing wing
+  isCompleted: 0

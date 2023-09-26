@@ -5,6 +5,8 @@
 
 using System.Collections;
 using Runtime.InventorySystem.ScriptableObjects;
+using Runtime.Managers;
+using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,6 +17,7 @@ namespace Runtime.UI
     {
         [SerializeField] private Sprite[] savingIconStates;
         [SerializeField] private float iconSpeed = 0.5f;
+        [SerializeField] private Sound scribbleSound;
         private int _savingIndex;
         
         private UIDocument _uiDocument;
@@ -31,10 +34,14 @@ namespace Runtime.UI
         
         //Saving notification items
         private VisualElement _savingIcon;
+        
+        //Summary notification items
+        private VisualElement _summaryContainer;
 
         private Coroutine _savingLoopCoroutine;
         private Coroutine _pickupCoroutine;
         private Coroutine _resultCoroutine;
+        private Coroutine _summaryCoroutine;
         
         private void Awake()
         {
@@ -51,11 +58,7 @@ namespace Runtime.UI
             _resultContainer = rootVisualElement.Q<VisualElement>("report-status");
             
             _savingIcon = rootVisualElement.Q<VisualElement>("saving-icon");
-        }
-
-        public void HideSavingNotification()
-        {
-            _savingIcon.RemoveFromClassList("saving-show");
+            _summaryContainer = rootVisualElement.Q<VisualElement>("todo-popup");
         }
         
         public void ShowPickupNotification(BaseItem item)
@@ -120,6 +123,27 @@ namespace Runtime.UI
             _savingIndex = (_savingIndex + 1) % savingIconStates.Length;
             yield return new WaitForSecondsRealtime(iconSpeed);
             _savingLoopCoroutine = StartCoroutine(SavingIcon());
+        }
+        
+        public void ShowSummaryAddedNotification()
+        {
+            _summaryContainer.AddToClassList("todo-show");
+            GameManager.Instance.SoundSystem.Play(scribbleSound);
+
+            if (_pickupCoroutine != null)
+            {
+                StopCoroutine(_pickupCoroutine);
+                _summaryContainer.RemoveFromClassList("popup-show");
+            }
+
+            _pickupCoroutine = StartCoroutine(HideSummaryAddedNotification());
+        }        
+        
+        private IEnumerator HideSummaryAddedNotification()
+        { 
+            yield return new WaitForSecondsRealtime(3.5f);
+            _summaryContainer.RemoveFromClassList("todo-show");
+            _pickupCoroutine = null;
         }
     }
 }

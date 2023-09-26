@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8867f8660bed496a936c9d5953af8a6a, type: 3}
   m_Name: Crowbar
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
-  itemSprite: {fileID: 0}
-  itemType: 0
-  itemDescription: 
+  itemRef: Crowbar
+  itemName: Crowbar
+  itemSprite: {fileID: 21300000, guid: f3bfc25bc60dde7439c89ed6b03f9e40, type: 3}
+  itemDescription: This doesnt seem strong enough to open doors but I can use it
+    to pry open smaller containers

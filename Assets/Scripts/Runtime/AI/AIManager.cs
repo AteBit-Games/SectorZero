@@ -27,6 +27,7 @@ namespace Runtime.AI
         [SerializeField, Tooltip("If not close enough, what is the base value")] private float closeDistanceBase = 0.15f;
 
         private BehaviourTreeOwner _monster;
+        private AIPerception _perception;
         private PlayerController _player;
         
         //------- Menace Gauge -------//
@@ -81,7 +82,7 @@ namespace Runtime.AI
                 return;
             }
 
-            _monster.OnSightEnterAction += ResetAggroLevel;
+            _perception.OnSightEnterAction += ResetAggroLevel;
             if (_monster.monster == Monster.VoidMask)
             {
                 _sentinels = new List<Sentinel>(FindObjectsByType<Sentinel>(FindObjectsSortMode.None));
@@ -119,10 +120,10 @@ namespace Runtime.AI
             {
                 var rayDistance = Vector3.Distance(monsterPosition, playerPosition);
                 var ray = Physics2D.Raycast(monsterPosition, playerPosition - monsterPosition, rayDistance,
-                    _monster.PlayerMask | _monster.WallMask);
+                    _perception.PlayerMask | _perception.WallMask);
                 if (ray.collider != null)
                 {
-                    lineOfSight = (_monster.PlayerMask.value & 1 << ray.transform.gameObject.layer) > 0 && ray.collider.CompareTag("Player");
+                    lineOfSight = (_perception.PlayerMask.value & 1 << ray.transform.gameObject.layer) > 0 && ray.collider.CompareTag("Player");
                 }
             }
 
@@ -229,6 +230,7 @@ namespace Runtime.AI
         {
             _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
             _monster = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
+            _perception = _monster.GetComponentInChildren<AIPerception>();
             
             _patrolStateKey = _monster.FindBlackboardKey<bool>("PatrolState");
             _aggroLevelKey = _monster.FindBlackboardKey<int>("AggroLevel");

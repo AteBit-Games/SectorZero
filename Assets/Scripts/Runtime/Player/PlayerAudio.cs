@@ -1,20 +1,20 @@
 /****************************************************************
-* Copyright (c) 2023 AteBit Games
-* All rights reserved.
-****************************************************************/
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Runtime.AI;
 using Runtime.Managers;
 using Runtime.Misc;
+using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
-namespace Runtime.SoundSystem
+namespace Runtime.Player
 {
     [Serializable]
     internal class FootstepSoundSet

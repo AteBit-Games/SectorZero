@@ -5,6 +5,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Runtime.InventorySystem.ScriptableObjects;
+using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
@@ -17,7 +18,9 @@ namespace Runtime.InventorySystem
         public List<Tape> tapeInventory = new();
         public List<Item> itemInventory = new();
         public List<Note> noteInventory = new();
+        
         public List<SummaryEntry> summaryEntries = new();
+        private readonly List<SummaryEntry> _finishedSummaryRefs = new();
         
         public bool AddTapeToInventory(Tape item)
         {
@@ -37,23 +40,34 @@ namespace Runtime.InventorySystem
             return true;
         }
         
-        public bool AddSummaryEntry(SummaryEntry entry)
+        public void AddSummaryEntry(SummaryEntry entry)
         {
+            if(summaryEntries.Contains(entry) || _finishedSummaryRefs.Contains(entry)) return;
+            
+            Debug.Log("Adding summary entry");
+
+            entry.isCompleted = false;
             summaryEntries.Add(entry);
-            return true;
+            GameManager.Instance.NotificationManager.ShowSummaryAddedNotification();
         }
         
-        public bool SetSummaryEntryCompleted(SummaryEntry entry)
+        public bool ContainsSummaryEntry(SummaryEntry entry)
+        {
+            return summaryEntries.Contains(entry);
+        }
+        
+        public void SetSummaryEntryCompleted(SummaryEntry entry)
         {
             var index = summaryEntries.IndexOf(entry);
             if (index == -1)
             {
-                Debug.LogError("Summary Entry not found");
-                return false;
+                Debug.Log("Summary Entry not found");
+                _finishedSummaryRefs.Add(entry);
             }
-            
-            summaryEntries[index].isCompleted = true;
-            return true;
+            else
+            {
+                summaryEntries[index].isCompleted = true;
+            }
         }
         
         public bool ContainsKeyItem(Item item)

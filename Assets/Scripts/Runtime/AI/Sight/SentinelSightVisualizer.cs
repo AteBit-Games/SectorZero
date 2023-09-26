@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿/****************************************************************
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
+
+using System.Collections.Generic;
 using Runtime.AI.Interfaces;
-using Runtime.BehaviourTree;
 using Runtime.Player;
 using UnityEngine;
 
-namespace Runtime.AI
+namespace Runtime.AI.Sight
 {
     public class SentinelSightVisualizer : MonoBehaviour
     {

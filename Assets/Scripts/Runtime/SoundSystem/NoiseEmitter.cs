@@ -1,13 +1,13 @@
 ﻿/****************************************************************
-* Copyright (c) 2023 AteBit Games
-* All rights reserved.
-****************************************************************/
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
 
 using System.Linq;
 using Runtime.AI.Interfaces;
 using UnityEngine;
 
-namespace Runtime.AI
+namespace Runtime.SoundSystem
 {
     public class NoiseEmitter : MonoBehaviour
     {

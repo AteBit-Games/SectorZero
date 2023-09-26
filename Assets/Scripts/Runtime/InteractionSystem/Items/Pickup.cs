@@ -23,6 +23,9 @@ namespace Runtime.InteractionSystem.Items
         [SerializeField] public string persistentID;
         [SerializeField] private Item item;
         
+        [SerializeField] public bool finishSummaryOnPickup;
+        [SerializeField] private SummaryEntry finishSummaryEntry;
+        
         //========================= Unity events =========================//
         
         private void Awake()
@@ -41,6 +44,7 @@ namespace Runtime.InteractionSystem.Items
             GameManager.Instance.NotificationManager.ShowPickupNotification(item);
             if(saveOnPickup) GameManager.Instance.SaveSystem.SaveGame();
             
+            if(finishSummaryOnPickup) GameManager.Instance.InventorySystem.PlayerInventory.SetSummaryEntryCompleted(finishSummaryEntry);
             return inventory.AddItemToInventory(item);
         }
 

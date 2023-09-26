@@ -4,6 +4,8 @@
         <ui:Label tabindex="-1" text="Interaction Settings" display-tooltip-when-elided="true" name="header" enable-rich-text="true" />
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <uie:PropertyField binding-path="interactSound" name="property" />
+            <uie:PropertyField binding-path="finishSummaryOnPickup" name="finish-summary" />
+            <uie:PropertyField binding-path="finishSummaryEntry" name="summary-entry" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="VisualElement" class="property-group">
