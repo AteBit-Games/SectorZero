@@ -32,9 +32,11 @@ namespace Runtime.SaveSystem
 
         private List<IPersistant> _persistantObjects;
         private FileHandler _dataHandler;
-        private Dictionary<Texture2D, SaveGame> _saveGames = new();
         private PlayerData _playerData;
         private SaveGame _activeSave;
+        
+        private Dictionary<Texture2D, SaveGame> _saveGamesData = new();
+        private List<SaveGame> _saveGames = new();
 
         // ======================================= UNITY METHODS =======================================
         
@@ -53,8 +55,9 @@ namespace Runtime.SaveSystem
 
         public void RegisterSaves()
         {
-            _saveGames = _dataHandler.LoadSaves();
-            saveExists = _saveGames.Count > 0;
+            _saveGamesData = _dataHandler.LoadSaves();
+            _saveGames = _saveGamesData.Values.ToList();
+            saveExists = _saveGamesData.Count > 0;
         }
 
         private void OnEnable() 
@@ -79,13 +82,13 @@ namespace Runtime.SaveSystem
         
         public void ContinueGame()
         {
-            _activeSave = _saveGames.Values.First();
+            _activeSave = _saveGamesData.Values.First();
             GameManager.Instance.LoadScene(_activeSave.currentScene);
         }
         
         public void LoadGame(long saveTime)
         {
-            _activeSave = _saveGames.Values.First(s => s.saveTime == saveTime);
+            _activeSave = _saveGamesData.Values.First(s => s.saveTime == saveTime);
             GameManager.Instance.LoadScene(_activeSave.currentScene);
         }
         
@@ -100,9 +103,8 @@ namespace Runtime.SaveSystem
 
         public void SaveGame()
         {
-            if (_saveGames.Count >= 3) _dataHandler.DeleteSave(_saveGames.Values.Last().saveTime);
- 
-            _activeSave ??= new SaveGame();
+            if (_saveGames.Count >= 3) _dataHandler.DeleteSave(_saveGames.Last().saveTime);
+            
             SaveGame saveGame = new()
             {
                 saveTime = DateTime.Now.Ticks,
@@ -115,7 +117,9 @@ namespace Runtime.SaveSystem
                 persistentObject.SaveData(saveGame);
             }
 
-            _dataHandler.Save(saveGame);
+            var newSave = _dataHandler.Save(saveGame);
+            _saveGames.Add(newSave.saveGame);
+            _activeSave = saveGame;
         }
 
         public void SetNellieState(int sceneIndex)
@@ -127,8 +131,8 @@ namespace Runtime.SaveSystem
         
         public Dictionary<Texture2D, SaveGame> GetSaveGames()
         {
-            _saveGames = _dataHandler.LoadSaves();
-            return _saveGames;
+            _saveGamesData = _dataHandler.LoadSaves();
+            return _saveGamesData;
         }
         
         public void DeleteSave(long saveTime)
@@ -171,6 +175,12 @@ namespace Runtime.SaveSystem
         public void UpdatePlayerDisplayMode(int mode)
         {
             _playerData.displayMode = mode;
+            _dataHandler.SavePlayerData(_playerData);
+        }
+        
+        public void UpdatePlayerBrightness(float brightnessGain)
+        {
+            _playerData.brightnessGain = brightnessGain;
             _dataHandler.SavePlayerData(_playerData);
         }
         

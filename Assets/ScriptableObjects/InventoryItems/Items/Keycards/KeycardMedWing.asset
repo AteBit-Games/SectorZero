@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8867f8660bed496a936c9d5953af8a6a, type: 3}
   m_Name: KeycardMedWing
   m_EditorClassIdentifier: 
+  itemRef: KeycardMedical
   itemName: Medical Wing Keycard
   itemSprite: {fileID: 21300000, guid: fd4285eae00b9f94f822a887b0a8ecf8, type: 3}
-  itemType: 1
   itemDescription: Keycard Assigned to medical wing staff to gain access to the medical
     facilities.

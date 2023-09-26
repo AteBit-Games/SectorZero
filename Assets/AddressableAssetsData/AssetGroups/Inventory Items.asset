@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Inventory Items
+  m_EditorClassIdentifier: 
+  m_GroupName: Inventory Items
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 357759168db1f294b8f2d2bf1158494a
+  m_SerializeEntries:
+  - m_GUID: 0f9fe1f2293bb9a40a6bb43a1f51069e
+    m_Address: KeycardOffice
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - keycard
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e73daebd8fc6c594693dd83a49727ff6
+    m_Address: KeycardMedical
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - keycard
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76e703a2457d50f4a8619ce36b12ad2c
+    m_Address: KeycardSecurity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - keycard
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e63880d8ab2e154ca4cb8e6614dcc8b
+    m_Address: KeycardContainment
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - keycard
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f874538968770a4ab2e04aff862afd1
+    m_Address: Crowbar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - key-item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0ef51b0977e09347aed7fa5e583836a
+    m_Address: Hand
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - key-item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d9c5dd9332daa2469dbecd307d52283
+    m_Address: Fuse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - key-item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f12e17dd0dad858428602ccf89de78f4
+    m_Address: Key
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - key-item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40e86f1b6d90e6042915146dc351111e
+    m_Address: Code
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - key-item
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b964706df64f2bd4e9cfafbde4832052, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8ffd40401151ceb418a5bbee80203216, type: 2}
+    - {fileID: 11400000, guid: bb3fd59a95b5aca4cbd7be55f676cc42, type: 2}

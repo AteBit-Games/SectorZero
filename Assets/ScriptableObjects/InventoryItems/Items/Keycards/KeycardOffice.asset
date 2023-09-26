@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8867f8660bed496a936c9d5953af8a6a, type: 3}
   m_Name: KeycardOffice
   m_EditorClassIdentifier: 
-  id: 0
+  itemRef: KeycardOffice
   itemName: Office Keycard
   itemSprite: {fileID: 21300000, guid: 13ba4b69ffeb91243bc0f2b80f59fc5e, type: 3}
-  itemType: 1
   itemDescription: Grants access to the facility's head office

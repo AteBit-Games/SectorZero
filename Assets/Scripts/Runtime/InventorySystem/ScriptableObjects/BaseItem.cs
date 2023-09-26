@@ -10,7 +10,7 @@ namespace Runtime.InventorySystem.ScriptableObjects
     public class BaseItem : ScriptableObject
     {
         [Header("ITEM DETAILS")]
-        // public AssetReference itemRef;
+        public string itemRef;
         public string itemName;
         public Sprite itemSprite;
         [TextArea] public string itemDescription;

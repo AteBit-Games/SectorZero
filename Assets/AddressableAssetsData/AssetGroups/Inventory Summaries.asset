@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Inventory Summaries
+  m_EditorClassIdentifier: 
+  m_GroupName: Inventory Summaries
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2d806cc7d8360f7469c5c91ba6511883
+  m_SerializeEntries:
+  - m_GUID: c02f37141ea0dcd4cb8d54fea85c2864
+    m_Address: FindCarver
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b964706df64f2bd4e9cfafbde4832052, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 23c36d64389f04e43b6f70474096a4f8, type: 2}
+    - {fileID: 11400000, guid: df6d9655ea305b145a1291719a9cc248, type: 2}

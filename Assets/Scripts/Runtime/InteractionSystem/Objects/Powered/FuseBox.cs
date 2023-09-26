@@ -92,8 +92,9 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 GameManager.Instance.SoundSystem.PlayOneShot(addFuseSound, AudioSource);
                 _animator.SetTrigger(AddFuse);
                 GameManager.Instance.InventorySystem.PlayerInventory.UseItemInInventory(fuse);
-                GameManager.Instance.SaveSystem.SaveGame();
+                
                 _hasFuse = true;
+                GameManager.Instance.SaveSystem.SaveGame();
             }
             else
             {

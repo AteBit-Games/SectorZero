@@ -15,16 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_Data:
     m_SerializedData: []
-  m_GUID: 73f485face53e2d409c4dc05f9f6b129
-  m_SerializeEntries:
-  - m_GUID: 427255b8f68a64b4bb8213b8044dc067
-    m_Address: InventoryItems
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_GUID: 307e81bc6c69b2142b50612f8eb73188
+  m_SerializeEntries: []
   m_ReadOnly: 0
-  m_Settings: {fileID: 11400000, guid: d004a978d4f7e3a40bde912fa39e495f, type: 2}
+  m_Settings: {fileID: 11400000, guid: b964706df64f2bd4e9cfafbde4832052, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 36a2cc9ca20dfab4e871a06762326d36, type: 2}
-    - {fileID: 11400000, guid: 84de2aa7790812a4a981cf2dcedcc7ec, type: 2}
+    - {fileID: 11400000, guid: c649aab2a488c0345aabfb6bfb7b06c9, type: 2}
+    - {fileID: 11400000, guid: 1b1002f4f9541644ab67d0c67ebfe15a, type: 2}

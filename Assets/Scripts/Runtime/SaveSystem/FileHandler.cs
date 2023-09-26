@@ -62,6 +62,7 @@ namespace Runtime.SaveSystem
                         writer.Write(dataToStore);
                     }
                 }
+                
             }
             catch (Exception e) 
             {
@@ -74,7 +75,7 @@ namespace Runtime.SaveSystem
                 Debug.LogError("Error occured when trying to save data to file: " + saveFolder + "\n" + e);
             }
             
-            return LoadSave(saveFolder);
+            return LoadSave(saveFolder);  
         }
         
         public void ClearSaves()
@@ -177,6 +178,8 @@ namespace Runtime.SaveSystem
         
         public void DeleteSave(long saveTime)
         {
+            Debug.Log("Deleting save: " + saveTime);
+            
             var saveTimeString = new DateTime(saveTime).ToString("yyyyMMddhhmmss");
             var saveFolder = Path.Combine(_savePath, "Save-"+saveTimeString);
             

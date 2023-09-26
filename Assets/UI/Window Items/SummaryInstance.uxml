@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
+    <ui:VisualElement name="summary" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; position: relative; align-self: flex-start; -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/Notepen.ttf?fileID=12800000&amp;guid=d5e4d832be212b145a115d5cabbc4363&amp;type=3#Notepen&apos;); color: rgb(53, 53, 53);">
+        <ui:Label tabindex="-1" text="•" display-tooltip-when-elided="true" name="dot" style="font-size: 32px; -unity-font-definition: url(&apos;project://database/Assets/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=db48a81794f184a489dfe0d79ec26256&amp;type=3#NotInter-Regular&apos;); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 4px; padding-right: 8px; padding-bottom: 0; padding-left: 0;" />
+        <ui:VisualElement name="content" style="flex-grow: 1;">
+            <ui:VisualElement name="summary-line" style="flex-grow: 0; position: absolute; left: 0; top: 55%; right: 5px; height: 2px; background-color: rgb(53, 53, 53); font-size: 47px;" />
+            <ui:Label tabindex="-1" text="Nellie Task" display-tooltip-when-elided="true" name="summary-text" style="font-size: 34px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

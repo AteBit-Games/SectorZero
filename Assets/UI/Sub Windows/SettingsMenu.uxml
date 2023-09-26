@@ -29,6 +29,10 @@
                             <ui:Button text="&gt;" display-tooltip-when-elided="true" name="right-button" class="setting-button" />
                         </ui:VisualElement>
                     </ui:VisualElement>
+                    <ui:VisualElement name="brightness-slider" focusable="true" class="slider">
+                        <ui:Label tabindex="-1" text="Brightness" display-tooltip-when-elided="true" name="Label" />
+                        <ui:Slider picking-mode="Ignore" value="0" high-value="0.25" name="slider" low-value="-0.25" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="settingsGroup" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-bottom: 30px;">
                     <ui:Label tabindex="-1" text="Audio" display-tooltip-when-elided="true" name="group-heading" style="color: rgb(62, 95, 154);" />

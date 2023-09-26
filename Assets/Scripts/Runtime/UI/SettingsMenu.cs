@@ -6,6 +6,8 @@
 using System;
 using Runtime.Managers;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 
 namespace Runtime.UI
@@ -29,6 +31,9 @@ namespace Runtime.UI
         private FullScreenMode _activeDisplayMode;
         private readonly string[] _displayModeNames = { "Windowed", "Borderless", "Fullscreen" };
         
+        private float _activeBrightnessGain;
+        private Volume _activeVolume;
+        
         private float _activeMasterVolume;
         private float _activeMusicVolume;
         private float _activeSfxVolume;
@@ -51,6 +56,8 @@ namespace Runtime.UI
                 GameManager.Instance.HandleEscape();
             });
             
+            _activeVolume = FindFirstObjectByType<Volume>();
+            
             RegisterPlayerPrefs();
         }
 
@@ -58,6 +65,7 @@ namespace Runtime.UI
         {
             RegisterDisplayModeSetting();
             RegisterVsyncSetting();
+            RegisterBrightnessSetting();
             RegisterVolumeSettings();
             RegisterResolutionSetting();
             RegisterNoteSetting();
@@ -267,6 +275,37 @@ namespace Runtime.UI
             });
         }
         
+        private void RegisterBrightnessSetting()
+        {
+            //slider
+            var rootVisualElement = _uiDocument.rootVisualElement;
+            var brightnessSlider = rootVisualElement.Q<VisualElement>("brightness-slider");
+            brightnessSlider.RegisterCallback<MouseEnterEvent>(_ =>
+            {
+                _settingDescription.text = "Change the brightness of the game";
+            });
+            
+            var brightness = brightnessSlider.Q<Slider>("slider");
+            brightness.value = _activeBrightnessGain;
+            var gammaGain = _activeVolume.sharedProfile.components[3] as LiftGammaGain;
+            if (gammaGain != null)
+            {
+                gammaGain.gamma.value= new Vector4(1, 1, 1, _activeBrightnessGain);
+                gammaGain.lift.value = new Vector4(1, 1, 1, _activeBrightnessGain);
+            }
+            
+            brightness.RegisterValueChangedCallback(evt =>
+            {
+                _activeBrightnessGain = evt.newValue;
+                GameManager.Instance.SaveSystem.UpdatePlayerBrightness(_activeBrightnessGain);
+                if (gammaGain != null)
+                {
+                    gammaGain.gamma.value = new Vector4(1, 1, 1, _activeBrightnessGain);
+                    gammaGain.lift.value = new Vector4(1, 1, 1, _activeBrightnessGain);
+                }
+            });
+        }
+        
         private void RegisterPlayerPrefs()
         {
             var playerData = GameManager.Instance.SaveSystem.GetPlayerData();
@@ -283,6 +322,8 @@ namespace Runtime.UI
             
             _activeVsync = _vsync[playerData.vSync ? 1 : 0];
             _activeDisplayMode = _displayModes[playerData.displayMode];
+            _activeBrightnessGain = playerData.brightnessGain;
+            
             _activeAutoNotes = playerData.autoNotes;
             _activeAutoTapes = playerData.autoTapes;
         }

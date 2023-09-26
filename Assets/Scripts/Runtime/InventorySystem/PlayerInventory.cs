@@ -4,27 +4,20 @@
 ****************************************************************/
 using System.Collections.Generic;
 using System.Linq;
-using Runtime.InteractionSystem.Items;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Runtime.InventorySystem
 {
-    public enum ItemType
-    {
-        TapeRecording,
-        Item,
-        Note
-    }
-    
     public class PlayerInventory : MonoBehaviour, IPersistant
     {
         public List<Tape> tapeInventory = new();
         public List<Item> itemInventory = new();
         public List<Note> noteInventory = new();
-        
+        public List<SummaryEntry> summaryEntries = new();
         
         public bool AddTapeToInventory(Tape item)
         {
@@ -44,6 +37,25 @@ namespace Runtime.InventorySystem
             return true;
         }
         
+        public bool AddSummaryEntry(SummaryEntry entry)
+        {
+            summaryEntries.Add(entry);
+            return true;
+        }
+        
+        public bool SetSummaryEntryCompleted(SummaryEntry entry)
+        {
+            var index = summaryEntries.IndexOf(entry);
+            if (index == -1)
+            {
+                Debug.LogError("Summary Entry not found");
+                return false;
+            }
+            
+            summaryEntries[index].isCompleted = true;
+            return true;
+        }
+        
         public bool ContainsKeyItem(Item item)
         {
             return itemInventory.Contains(item);
@@ -58,22 +70,46 @@ namespace Runtime.InventorySystem
         
         public string LoadData(SaveGame game)
         {
+            itemInventory.Clear();
+            tapeInventory.Clear();
+            noteInventory.Clear();
             
+            foreach(var item in game.playerData.itemInventoryRefs)
+            {
+                Addressables.LoadAssetAsync<Item>(item).Completed += handle => itemInventory.Add(handle.Result);
+            }
             
-            //itemInventory = game.playerData.itemInventory;
-            //tapeInventory = game.playerData.tapeInventory;
-            //noteInventory = game.playerData.noteInventory;
+            foreach(var tape in game.playerData.tapeInventoryRefs)
+            {
+                Addressables.LoadAssetAsync<Tape>(tape).Completed += handle => tapeInventory.Add(handle.Result);
+            }
+            
+            foreach(var note in game.playerData.noteInventoryRefs)
+            {
+                Addressables.LoadAssetAsync<Note>(note).Completed += handle => noteInventory.Add(handle.Result);
+            }
+            
+            foreach(var entry in game.playerData.summaryEntries)
+            {
+                Addressables.LoadAssetAsync<SummaryEntry>(entry).Completed += handle => summaryEntries.Add(handle.Result);
+            }
             
             return "Player Inventory";
         }
 
         public void SaveData(SaveGame game)
         {
-            // var itemRefs = itemInventory.Select(item => item.itemRef.ToString()).ToList();
-            //
-            // game.playerData.itemInventoryRefs = itemRefs;
-            // game.playerData.tapeInventory = tapeInventory;
-            // game.playerData.noteInventory = noteInventory;
+            var itemRefs = itemInventory.Select(item => item.itemRef).ToList();
+            game.playerData.itemInventoryRefs = itemRefs;
+
+            var tapeRefs = tapeInventory.Select(tape => tape.itemRef).ToList();
+            game.playerData.tapeInventoryRefs = tapeRefs;
+
+            var noteRefs = noteInventory.Select(note => note.itemRef).ToList();
+            game.playerData.noteInventoryRefs = noteRefs;
+
+            var summaryRefs = summaryEntries.Select(entry => entry.itemRef).ToList();
+            game.playerData.summaryEntries = summaryRefs;
         }
     }
 }

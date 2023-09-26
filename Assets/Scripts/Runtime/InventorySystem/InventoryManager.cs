@@ -18,13 +18,15 @@ namespace Runtime.InventorySystem
     {
         Items, 
         Tapes,
-        Notes
+        Notes,
+        Summary
     }
     
     public class InventoryManager : Window
     {
         [FormerlySerializedAs("isInventoryEnabled")]
         [Header("Items Inventory")]
+        [SerializeField] public VisualTreeAsset summaryEntry;
         [SerializeField] public bool isInventoryScreenEnabled;
         [SerializeField] private PlayerInventory playerInventory;
         
@@ -39,6 +41,7 @@ namespace Runtime.InventorySystem
         private Button _itemsButton;
         private Button _tapesButton;
         private Button _notesButton;
+        private Button _summaryButton;
         
         //Items Inventory
         private VisualElement _itemsInventoryContainer;
@@ -72,6 +75,10 @@ namespace Runtime.InventorySystem
         private Label _notesInventoryInformationDescription;
         private Button _notesInventoryReadButton;
         
+        //Summary Section
+        private VisualElement _summarySectionContainer;
+        private VisualElement _summarySectionListContainer;
+        
         //Tracking
         private ActiveInventory _activeInventory = ActiveInventory.Tapes;
         private Tape _activeTape;
@@ -96,6 +103,9 @@ namespace Runtime.InventorySystem
             _notesButton = _inventoryWindow.Q<Button>("notes-toggle");
             _notesButton.RegisterCallback<ClickEvent>(_ => SwitchToNotesInventory());
             
+            _summaryButton = _inventoryWindow.Q<Button>("summary-toggle");
+            _summaryButton.RegisterCallback<ClickEvent>(_ => SwitchToSummaries());
+            
             //Items
             _itemsInventoryContainer = _inventoryWindow.Q<VisualElement>("items-inventory");
             SetupItemsReferences(_itemsInventoryContainer);
@@ -107,6 +117,10 @@ namespace Runtime.InventorySystem
             //Notes
             _notesInventoryContainer = _inventoryWindow.Q<VisualElement>("notes-inventory");
             SetupNotesReferences(_notesInventoryContainer);
+            
+            //Summary
+            _summarySectionContainer = _inventoryWindow.Q<VisualElement>("summaries-section");
+            SetupSummaryReferences(_summarySectionContainer);
         }
 
         public override void OpenWindow()
@@ -120,6 +134,7 @@ namespace Runtime.InventorySystem
             RegisterInventoryTapes();
             RegisterInventoryItems();
             RegisterInventoryNotes();
+            RegisterSummaries();
             
             _activeInventory = ActiveInventory.Tapes;
             SwitchToItemsInventory();
@@ -161,6 +176,8 @@ namespace Runtime.InventorySystem
             _tapesInventoryContainer.pickingMode = PickingMode.Ignore;
             UIUtils.HideUIElement(_notesInventoryContainer);
             _notesInventoryContainer.pickingMode = PickingMode.Ignore;
+            UIUtils.HideUIElement(_summarySectionContainer);
+            _summarySectionContainer.pickingMode = PickingMode.Ignore;
             
             _itemsButton.BringToFront();
             _itemsButton.AddToClassList("inventory-toggle-active");
@@ -168,6 +185,8 @@ namespace Runtime.InventorySystem
             _tapesButton.RemoveFromClassList("inventory-toggle-active");
             _notesButton.SendToBack();
             _notesButton.RemoveFromClassList("inventory-toggle-active");
+            _summaryButton.SendToBack();
+            _summaryButton.RemoveFromClassList("inventory-toggle-active");
         }
         
         private void SwitchToTapesInventory()
@@ -186,6 +205,8 @@ namespace Runtime.InventorySystem
             _tapesInventoryContainer.pickingMode = PickingMode.Ignore;
             UIUtils.HideUIElement(_notesInventoryContainer);
             _notesInventoryContainer.pickingMode = PickingMode.Ignore;
+            UIUtils.HideUIElement(_summarySectionContainer);
+            _summarySectionContainer.pickingMode = PickingMode.Ignore;
             
             _tapesButton.BringToFront();
             _tapesButton.AddToClassList("inventory-toggle-active");
@@ -193,6 +214,8 @@ namespace Runtime.InventorySystem
             _itemsButton.RemoveFromClassList("inventory-toggle-active");
             _notesButton.SendToBack();
             _notesButton.RemoveFromClassList("inventory-toggle-active");
+            _summaryButton.SendToBack();
+            _summaryButton.RemoveFromClassList("inventory-toggle-active");
         }
         
         private void SwitchToNotesInventory()
@@ -211,9 +234,38 @@ namespace Runtime.InventorySystem
             _tapesInventoryContainer.pickingMode = PickingMode.Ignore;
             UIUtils.ShowUIElement(_notesInventoryContainer);
             _notesInventoryContainer.pickingMode = PickingMode.Ignore;
+            UIUtils.HideUIElement(_summarySectionContainer);
+            _summarySectionContainer.pickingMode = PickingMode.Ignore;
             
             _notesButton.BringToFront();
             _notesButton.AddToClassList("inventory-toggle-active");
+            _tapesButton.SendToBack();
+            _tapesButton.RemoveFromClassList("inventory-toggle-active");
+            _itemsButton.SendToBack();
+            _itemsButton.RemoveFromClassList("inventory-toggle-active");
+            _summaryButton.SendToBack();
+            _summaryButton.RemoveFromClassList("inventory-toggle-active");
+        }
+
+        private void SwitchToSummaries()
+        {
+            if(_activeInventory == ActiveInventory.Summary) return;
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+            
+            _activeInventory = ActiveInventory.Summary;
+            UIUtils.HideUIElement(_itemsInventoryContainer);
+            _itemsInventoryContainer.pickingMode = PickingMode.Ignore;
+            UIUtils.HideUIElement(_tapesInventoryContainer);
+            _tapesInventoryContainer.pickingMode = PickingMode.Ignore;
+            UIUtils.HideUIElement(_notesInventoryContainer);
+            _notesInventoryContainer.pickingMode = PickingMode.Ignore;
+            UIUtils.ShowUIElement(_summarySectionContainer);
+            _summarySectionContainer.pickingMode = PickingMode.Ignore;
+            
+            _summaryButton.BringToFront();
+            _summaryButton.AddToClassList("inventory-toggle-active");
+            _notesButton.SendToBack();
+            _notesButton.RemoveFromClassList("inventory-toggle-active");
             _tapesButton.SendToBack();
             _tapesButton.RemoveFromClassList("inventory-toggle-active");
             _itemsButton.SendToBack();
@@ -369,10 +421,37 @@ namespace Runtime.InventorySystem
                 index++;
             }
         }
+
+        private void RegisterSummaries()
+        {
+            if (playerInventory.summaryEntries.Count == 0)
+            {
+                var label = new Label("No Summaries Found");
+                label.AddToClassList("no-summaries");
+                _summarySectionListContainer.Add(label);
+                return;
+            }
+            
+            foreach (var summary in playerInventory.summaryEntries)
+            {
+                var summaryInstance = summaryEntry.CloneTree();
+                
+                //Set content
+                var summaryText = summaryInstance.Q<Label>("summary-text");
+                summaryText.text = summary.summaryContent;
+
+                //Set completed
+                var summaryComplete = summaryInstance.Q<VisualElement>("summary-line");
+                summaryComplete.style.visibility = summary.isCompleted ? Visibility.Visible : Visibility.Hidden;
+                
+                //add to list
+                _summarySectionListContainer.Add(summaryInstance);
+            }
+        }
         
         //========================================== Helper Methods ==========================================//
         
-          private void SetupNotesReferences(VisualElement notesInventoryContainer)
+        private void SetupNotesReferences(VisualElement notesInventoryContainer)
         {
             _notesInventoryListContainer = notesInventoryContainer.Q<VisualElement>("note-list");
             _notesInventoryInformationTitle = notesInventoryContainer.Q<Label>("note-title");
@@ -403,6 +482,11 @@ namespace Runtime.InventorySystem
             _itemsInventoryInformationTitle = itemsInventoryContainer.Q<Label>("item-title");
             _itemsInventoryInformationImage = itemsInventoryContainer.Q<VisualElement>("item-image");
             _itemsInventoryInformationDescription = itemsInventoryContainer.Q<Label>("item-description");
+        }
+        
+        private void SetupSummaryReferences(VisualElement summarySectionContainer)
+        {
+            _summarySectionListContainer = summarySectionContainer.Q<VisualElement>("summary-list");
         }
         
         //========================================== Interaction Events ==========================================//

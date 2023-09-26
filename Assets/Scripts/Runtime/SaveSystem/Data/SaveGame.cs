@@ -71,9 +71,10 @@ namespace Runtime.SaveSystem.Data
         public bool enabled;
         
         //Inventory
-        public List<Tape> tapeInventory = new();
-        public List<Item> itemInventory = new();
-        public List<Note> noteInventory = new();
+        public List<string> tapeInventoryRefs = new();
+        public List<string> itemInventoryRefs = new();
+        public List<string> noteInventoryRefs = new();
+        public List<string> summaryEntries = new();
     }
 
     [Serializable]
@@ -131,16 +132,4 @@ namespace Runtime.SaveSystem.Data
         }
     }
 
-    [Serializable]
-    public class PlayerData
-    {
-        public int displayMode = 1;
-        public bool vSync = true;
-        public bool autoNotes = true;
-        public bool autoTapes = true;
-        public float masterVolume = 1f;
-        public float musicVolume = 1f;
-        public float voicesVolume = 1f;
-        public float sfxVolume = 1f;
-    }
 }
