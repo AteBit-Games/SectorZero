@@ -148,6 +148,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Mortician_CoolersDoor_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e21f94f32668aa4f9d7329ba912df75
+      internalID: -1258731017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -161,6 +182,7 @@ TextureImporter:
     nameFileIdTable:
       Mortician_CoolersDoor_0: 478592449
       Mortician_CoolersDoor_1: 2077032324
+      Mortician_CoolersDoor_2: -1258731017
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

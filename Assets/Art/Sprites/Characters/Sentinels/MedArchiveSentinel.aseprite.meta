@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: MedArchiveSentinel_Frame_0
     originalName: 
-    pivot: {x: 0.44055945, y: 0.014705882}
+    pivot: {x: 0.44055945, y: -0.014705883}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -141,7 +141,7 @@ ScriptedImporter:
     uvTransform: {x: 3, y: 4}
   - name: MedArchiveSentinel_Frame_1
     originalName: 
-    pivot: {x: 0.44055945, y: 0.014705882}
+    pivot: {x: 0.44055945, y: -0.014705883}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -161,7 +161,7 @@ ScriptedImporter:
     uvTransform: {x: 3, y: 80}
   - name: MedArchiveSentinel_Frame_2
     originalName: 
-    pivot: {x: 0.44055945, y: 0.014705882}
+    pivot: {x: 0.44055945, y: -0.014705883}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -192,7 +192,7 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: -32
-        y: -1
+        y: 1
         width: 144
         height: 72
       spriteId: 605e1bc368ffdd44c927b0f432f3d8f9
@@ -200,7 +200,7 @@ ScriptedImporter:
       frameIndex: 1
       cellRect:
         x: -32
-        y: -1
+        y: 1
         width: 144
         height: 72
       spriteId: 871bcb688fbf4f2478f1105859eb2adf
@@ -208,7 +208,7 @@ ScriptedImporter:
       frameIndex: 2
       cellRect:
         x: -32
-        y: -1
+        y: 1
         width: 144
         height: 72
       spriteId: 02a94cb89dc50b0489ea2aa80e461caa
@@ -217,4 +217,4 @@ ScriptedImporter:
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 64, y: 78}
+  canvasSize: {x: 64, y: 80}
