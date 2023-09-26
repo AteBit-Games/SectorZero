@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 4
       width: 40
       height: 41
-    spriteID: 3ff0994b26f546348bc741e46735b617
+    spriteID: 2565b5deed15c6d41b10c4be25193455
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 4
       width: 42
       height: 43
-    spriteID: 7fff04c073538204a9242fc8cc721834
+    spriteID: ba90bbd703fbe1243a7d9cee5f37caa4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -203,7 +203,7 @@ ScriptedImporter:
         y: 5
         width: 40
         height: 41
-      spriteId: 3ff0994b26f546348bc741e46735b617
+      spriteId: 2565b5deed15c6d41b10c4be25193455
     - name: OfficeSentinel_01_Frame_2
       frameIndex: 2
       cellRect:
@@ -211,7 +211,7 @@ ScriptedImporter:
         y: 5
         width: 42
         height: 43
-      spriteId: 7fff04c073538204a9242fc8cc721834
+      spriteId: ba90bbd703fbe1243a7d9cee5f37caa4
     linkedCells: []
     parentIndex: -1
   platformSettings: []
