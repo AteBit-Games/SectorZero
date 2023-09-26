@@ -74,7 +74,9 @@ namespace Runtime.SaveSystem.Data
         public List<string> tapeInventoryRefs = new();
         public List<string> itemInventoryRefs = new();
         public List<string> noteInventoryRefs = new();
+        
         public List<string> summaryEntries = new();
+        public List<string> summaryEntriesFinished = new();
     }
 
     [Serializable]

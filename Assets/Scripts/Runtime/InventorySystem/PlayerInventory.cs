@@ -108,6 +108,11 @@ namespace Runtime.InventorySystem
                 Addressables.LoadAssetAsync<SummaryEntry>(entry).Completed += handle => summaryEntries.Add(handle.Result);
             }
             
+            foreach(var entry in game.playerData.summaryEntriesFinished)
+            {
+                Addressables.LoadAssetAsync<SummaryEntry>(entry).Completed += handle => _finishedSummaryRefs.Add(handle.Result);
+            }
+            
             return "Player Inventory";
         }
 
@@ -124,6 +129,9 @@ namespace Runtime.InventorySystem
 
             var summaryRefs = summaryEntries.Select(entry => entry.itemRef).ToList();
             game.playerData.summaryEntries = summaryRefs;
+            
+            var finishedSummaryRefs = _finishedSummaryRefs.Select(entry => entry.itemRef).ToList();
+            game.playerData.summaryEntriesFinished = finishedSummaryRefs;
         }
     }
 }
