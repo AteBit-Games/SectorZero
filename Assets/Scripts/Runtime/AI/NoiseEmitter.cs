@@ -25,8 +25,8 @@ namespace Runtime.AI
         }
         
         // ================================ Public Methods ================================
-
-        private void FindTargets()
+        
+        public void EmitLocal()
         {
             var targetsInRadius = Physics2D.OverlapCircleAll(transform.position, radius, targetMask);
             foreach (var t in targetsInRadius)
@@ -42,12 +42,6 @@ namespace Runtime.AI
             }
         }
         
-        
-        public void EmitLocal()
-        {
-            FindTargets();
-        }
-        
         public void EmitGlobal()
         {
             var targets = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IHearingHandler>();
@@ -56,7 +50,7 @@ namespace Runtime.AI
                 t.OnHearing(this);
             }
         }
-        
+
         // ================================== Unity Gizmos =====================================
         
         private void OnDrawGizmosSelected()

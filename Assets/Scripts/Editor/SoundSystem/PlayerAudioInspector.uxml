@@ -12,7 +12,7 @@
         <ui:Label tabindex="-1" text="Audio Settings" display-tooltip-when-elided="true" name="header" />
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <uie:PropertyField binding-path="joggingRange" name="property" />
-            <uie:PropertyField binding-path="sneakingRange" name="property" style="padding-top: 5px;" />
+            <uie:PropertyField binding-path="dangerRange" name="property" style="padding-top: 5px;" />
             <uie:PropertyField binding-path="debug" name="property" />
         </ui:VisualElement>
     </ui:VisualElement>

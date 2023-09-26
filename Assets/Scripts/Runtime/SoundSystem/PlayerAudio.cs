@@ -30,10 +30,10 @@ namespace Runtime.SoundSystem
         [FormerlySerializedAs("_tilemap")] [SerializeField] private Tilemap tilemap;
         [SerializeField] private List<FootstepSoundSet> footstepSounds;
         [SerializeField] private float joggingRange = 18f;
-        [SerializeField] private float sneakingRange = 6f;
         [SerializeField] private bool debug;
 
         private NoiseEmitter _noiseEmitter;
+        
 
         //========================= Unity Events =========================//
         
@@ -72,8 +72,6 @@ namespace Runtime.SoundSystem
             
             audioSource.volume = sound.volumeScale / 2f;
             GameManager.Instance.SoundSystem.PlayOneShot(sound, audioSource);
-            _noiseEmitter.Radius = sneakingRange;
-            _noiseEmitter.EmitLocal();
         }
         
         //========================= Private Methods =========================//
@@ -100,8 +98,6 @@ namespace Runtime.SoundSystem
             {
                 Gizmos.color = Color.red;
                 Gizmos.DrawWireSphere(transform.position, joggingRange);
-                Gizmos.color = Color.blue;
-                Gizmos.DrawWireSphere(transform.position, sneakingRange);
             }
         }
     }
