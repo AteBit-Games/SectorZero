@@ -16,7 +16,6 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-
 namespace Runtime.AI
 {
     [DefaultExecutionOrder(10)]

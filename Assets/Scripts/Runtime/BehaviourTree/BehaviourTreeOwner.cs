@@ -5,12 +5,14 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Runtime.BehaviourTree 
@@ -64,6 +66,9 @@ namespace Runtime.BehaviourTree
         private static readonly int MoveY = Animator.StringToHash("moveY");
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
         
+        [SerializeField] private List<GameObject> initialSentinels;
+        private BlackboardKey<List<GameObject>> _sentinelsReference;
+        
         private void Awake() 
         {
             var isValid = ValidateTree();
@@ -87,6 +92,9 @@ namespace Runtime.BehaviourTree
             _navMeshAgent.updateRotation = false;
             _navMeshAgent.updateUpAxis = false;
             _animator = GetComponent<Animator>();
+            
+            _sentinelsReference = FindBlackboardKey<List<GameObject>>("Sentinels");
+            _sentinelsReference.value = initialSentinels;
         }
         
         public void SetActiveState(int state)
@@ -207,6 +215,16 @@ namespace Runtime.BehaviourTree
         public bool StateOverride()
         {
             return _currentState is State.AggroInspect or State.AggroChase or State.Idle;
+        }
+        
+        public void AddSentinels(List<GameObject> newSentinels)
+        {
+            var sentinels = _sentinelsReference.value;
+            foreach (var sentinel in newSentinels.Where(sentinel => !sentinels.Contains(sentinel)))
+            {
+                sentinels.Add(sentinel);
+            }
+            _sentinelsReference.value = sentinels;
         }
         
         // ====================== Save System ======================

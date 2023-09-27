@@ -12,6 +12,7 @@ using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace Runtime.AI
@@ -26,6 +27,8 @@ namespace Runtime.AI
         [SerializeField] private float closeDistanceMultiplier = 0.3f;
         [SerializeField, Tooltip("If not close enough, what is the base value")] private float closeDistanceBase = 0.15f;
 
+        public Action activateEvents;
+
         private BehaviourTreeOwner _monster;
         private AIPerception _perception;
         private PlayerController _player;
@@ -36,7 +39,6 @@ namespace Runtime.AI
         private NavMeshPath _path;
 
         //Aggro level is a value between 0 and 10 that represents how impatient the monster is
-        private int _aggroLevel;
         private float _lastSeenPlayerTime;
         
         //------- Blackboard Keys -------//
@@ -55,8 +57,8 @@ namespace Runtime.AI
         [HideInInspector] public bool isPlayerCrouching;
 
         //----- Interface ---//
-        public int AggroLevel => _aggroLevel;
-        
+        public int AggroLevel { get; private set; }
+
         // ============================ Unity Events ============================
         
         private void Start()
@@ -64,7 +66,6 @@ namespace Runtime.AI
             _lastSeenPlayerTime = Time.time;
             _path = new NavMeshPath();
         }
-
         
         private void OnEnable()
         {
@@ -142,18 +143,18 @@ namespace Runtime.AI
             //Patrol Far
             else
             {
-                _menaceGaugeValue -= Time.deltaTime * Math.Clamp(_aggroLevel / 8f, 0.3f, 0.8f);
+                _menaceGaugeValue -= Time.deltaTime * Math.Clamp(AggroLevel / 8f, 0.3f, 0.8f);
             }
             
             _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue, menaceGaugeMin, menaceGaugeMax);
             
             if (Time.time - _lastSeenPlayerTime > 60f)
             {
-                _aggroLevel++;
-                _aggroLevelKey.value = _aggroLevel;
+                AggroLevel++;
+                _aggroLevelKey.value = AggroLevel;
                 _lastSeenPlayerTime = Time.time;
                 
-                if(_monster.monster == Monster.VoidMask) UpdateSentinelAggro(_aggroLevel);
+                if(_monster.monster == Monster.VoidMask) UpdateSentinelAggro(AggroLevel);
             }
             
             //Flip flop between patrol states based on menace value
@@ -207,12 +208,13 @@ namespace Runtime.AI
             _isActiveKey.value = true;
             _menaceState = false;
             _patrolStateKey.value = false;
+            activateEvents?.Invoke();
         }
 
         private void ResetAggroLevel()
         {
             _lastSeenPlayerTime = Time.time;
-            _aggroLevel = 0;
+            AggroLevel = 0;
             _aggroLevelKey.value = 0;
         }
         
@@ -220,8 +222,8 @@ namespace Runtime.AI
         {
             if(_active)
             {
-                _aggroLevel += 2;
-                _aggroLevelKey.value = _aggroLevel;
+                AggroLevel += 2;
+                _aggroLevelKey.value = AggroLevel;
                 _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue + (_menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
                 
                 _roomKey.value = room;
@@ -261,7 +263,7 @@ namespace Runtime.AI
             _menaceState = monsterSave.menaceState;
             _patrolStateKey.value = _menaceState;
 
-            _aggroLevel = monsterSave.aggroLevel;
+            AggroLevel = monsterSave.aggroLevel;
             _lastSeenPlayerTime = monsterSave.lastSeenPlayerTime;
 
             return "AIManager";
@@ -280,7 +282,7 @@ namespace Runtime.AI
                 
             monsterSave.menaceGaugeValue = _menaceGaugeValue;
             monsterSave.menaceState = _menaceState;
-            monsterSave.aggroLevel = _aggroLevel;
+            monsterSave.aggroLevel = AggroLevel;
             monsterSave.lastSeenPlayerTime = _lastSeenPlayerTime;
         }
     }

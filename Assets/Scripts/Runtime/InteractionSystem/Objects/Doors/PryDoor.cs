@@ -12,7 +12,7 @@ using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
 
-namespace Runtime.InteractionSystem.Objects
+namespace Runtime.InteractionSystem.Objects.Doors
 {
     [DefaultExecutionOrder(6)]
     [RequireComponent(typeof(Animator))]
@@ -20,6 +20,7 @@ namespace Runtime.InteractionSystem.Objects
     {
         [SerializeField] private Item requiredItem;
         [SerializeField] public SummaryEntry summaryEntry;
+        [SerializeField] private Item itemToAdd;
         [SerializeField] public string persistentID;
 
         [SerializeField] private Sound interactSound;
@@ -44,7 +45,7 @@ namespace Runtime.InteractionSystem.Objects
         {
             if (requiredItem == null) Debug.LogWarning("No required item set for " + gameObject.name);
             if (summaryEntry == null) Debug.LogWarning("No summary entry set for " + gameObject.name);
-            if (string.IsNullOrEmpty(persistentID)) Debug.LogWarning("No persistent ID set for " + gameObject.name);
+            if (string.IsNullOrEmpty(persistentID)) Debug.LogWarning("No persistent ID set for pry door");
         }
 
         //========================= Interface events =========================//
@@ -54,11 +55,14 @@ namespace Runtime.InteractionSystem.Objects
             GameManager.Instance.SoundSystem.Play(interactSound);
             _mainAnimator.SetTrigger(_open);
             
+            var inventory = player.GetComponentInParent<PlayerInventory>();
+            GameManager.Instance.NotificationManager.ShowPickupNotification(itemToAdd);
+            
             player.GetComponent<PlayerInteraction>().RemoveInteractable(gameObject);
             DisableInteraction();
             
             _isOpened = true;
-            return true;
+            return inventory.AddItemToInventory(itemToAdd);
         }
 
         public void OnInteractFailed(GameObject player)

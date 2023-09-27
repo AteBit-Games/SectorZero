@@ -62,6 +62,9 @@ namespace Runtime.SaveSystem.Data
         public bool menaceState;
         public int aggroLevel;
         public float lastSeenPlayerTime;
+
+        public bool addedInitialSentinels;
+        public bool addedContainmentSentinels;
     }
     
     [Serializable]

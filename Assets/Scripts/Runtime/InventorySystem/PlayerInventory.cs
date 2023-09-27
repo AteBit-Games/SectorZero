@@ -43,8 +43,6 @@ namespace Runtime.InventorySystem
         public void AddSummaryEntry(SummaryEntry entry)
         {
             if(summaryEntries.Contains(entry) || _finishedSummaryRefs.Contains(entry)) return;
-            
-            Debug.Log("Adding summary entry");
 
             entry.isCompleted = false;
             summaryEntries.Add(entry);
@@ -61,7 +59,6 @@ namespace Runtime.InventorySystem
             var index = summaryEntries.IndexOf(entry);
             if (index == -1)
             {
-                Debug.Log("Summary Entry not found");
                 _finishedSummaryRefs.Add(entry);
             }
             else
