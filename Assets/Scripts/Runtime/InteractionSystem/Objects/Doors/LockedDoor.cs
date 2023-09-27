@@ -28,9 +28,14 @@ namespace Runtime.InteractionSystem.Objects.Doors
         [SerializeField] private Sound lockedSound;
         [SerializeField] private Sound poweredOffSound;
         
+        [SerializeField] public bool addsSummaryOnFail;
+        [SerializeField] public bool finishSummaryOnOpen;
+        [SerializeField] private SummaryEntry failSummaryEntry;
+        [SerializeField] private SummaryEntry openSummaryEntry;
+        
         public bool IsPowered { get; set; }
-        protected readonly int locked = Animator.StringToHash("locked");
-        protected readonly int poweredOff = Animator.StringToHash("poweredOff");
+        private readonly int _locked = Animator.StringToHash("locked");
+        private readonly int _poweredOff = Animator.StringToHash("poweredOff");
 
         //=========================== Unity Events =============================//
 
@@ -54,6 +59,11 @@ namespace Runtime.InteractionSystem.Objects.Doors
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             if(destroyKeyOnUse) player.GetComponentInParent<PlayerInventory>().UseItemInInventory(key);
             OpenDoor();
+
+            if (finishSummaryOnOpen)
+            {
+                GameManager.Instance.InventorySystem.PlayerInventory.SetSummaryEntryCompleted(openSummaryEntry);
+            }
             
             //Remove the collider from the player's interactable list
             DisableInteraction();
@@ -63,16 +73,21 @@ namespace Runtime.InteractionSystem.Objects.Doors
 
         public void OnInteractFailed(GameObject player)
         {
-            Debug.Log("Failed to interact with " + gameObject.name + " that is powered: " + IsPowered);
             if (IsPowered)
             {
                 GameManager.Instance.SoundSystem.Play(lockedSound, transform.GetComponent<AudioSource>());
-                mainAnimator.SetTrigger(locked);
+                mainAnimator.SetTrigger(_locked);
             }
             else
             {
                 GameManager.Instance.SoundSystem.Play(poweredOffSound, transform.GetComponent<AudioSource>());
-                mainAnimator.SetTrigger(poweredOff);
+                mainAnimator.SetTrigger(_poweredOff);
+            }
+            
+            if(addsSummaryOnFail)
+            { 
+                var inventory = player.GetComponentInParent<PlayerInventory>();
+                if(!inventory.ContainsSummaryEntry(failSummaryEntry)) inventory.AddSummaryEntry(failSummaryEntry);
             }
         }
 

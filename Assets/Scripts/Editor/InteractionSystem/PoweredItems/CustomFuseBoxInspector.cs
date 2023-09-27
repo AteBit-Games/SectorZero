@@ -27,6 +27,7 @@ namespace Editor.InteractionSystem.PoweredItems
             
             var fuseSound = root.Q<VisualElement>("fuse-sound");
             var fuseObject = root.Q<PropertyField>("fuse-object");
+            var summaryEntry = root.Q<PropertyField>("summary-entry");
             
             var hasFuseField = root.Q<PropertyField>("start-fuse");
             hasFuseField.RegisterCallback<ChangeEvent<bool>>(evt =>
@@ -36,11 +37,13 @@ namespace Editor.InteractionSystem.PoweredItems
                 {
                     fuseSound.style.display = DisplayStyle.Flex;
                     fuseObject.style.display = DisplayStyle.Flex;
+                    summaryEntry.style.display = DisplayStyle.Flex;
                 }
                 else
                 {
                     fuseSound.style.display = DisplayStyle.None;
                     fuseObject.style.display = DisplayStyle.None;
+                    summaryEntry.style.display = DisplayStyle.None;
                 }
                 serializedObject.ApplyModifiedProperties();
             });

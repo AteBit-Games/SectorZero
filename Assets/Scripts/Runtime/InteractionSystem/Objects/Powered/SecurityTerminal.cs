@@ -5,6 +5,7 @@
 
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.InteractionSystem.Objects.Doors;
+using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.SoundSystem;
@@ -23,6 +24,8 @@ namespace Runtime.InteractionSystem.Objects.Powered
         
         [SerializeField] private Item keyCard;
         [SerializeField] private TriggerDoor door;
+        [SerializeField] public SummaryEntry powerEntry;
+        [SerializeField] public SummaryEntry cardEntry;
 
         //----- Interface Properties -----//
         private bool _isPowered;
@@ -62,10 +65,14 @@ namespace Runtime.InteractionSystem.Objects.Powered
             {
                 case false:
                     GameManager.Instance.SoundSystem.PlayOneShot(offSound, _audioSource);
+                    if (!player.GetComponentInParent<PlayerInventory>().ContainsSummaryEntry(powerEntry))  
+                        GameManager.Instance.InventorySystem.PlayerInventory.AddSummaryEntry(powerEntry);
                     break;
                 case true when !GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(keyCard):
                     GameManager.Instance.SoundSystem.PlayOneShot(lockedSound, _audioSource);
                     _animator.SetTrigger(Locked);
+                    if (!player.GetComponentInParent<PlayerInventory>().ContainsSummaryEntry(cardEntry))  
+                        GameManager.Instance.InventorySystem.PlayerInventory.AddSummaryEntry(cardEntry);
                     break;
             }
         }

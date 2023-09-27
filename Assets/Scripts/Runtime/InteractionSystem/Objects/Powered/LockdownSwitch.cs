@@ -6,6 +6,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Runtime.InteractionSystem.Interfaces;
+using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
@@ -29,6 +30,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         [SerializeField] private Animator meterAnimator;
         
         [SerializeField] private bool debug;
+        [SerializeField] public SummaryEntry summaryEntry;
 
         //----- Private Variables -----//
         private readonly Dictionary<FuseBox, bool> _fuseBoxStates = new();
@@ -111,6 +113,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 GameManager.Instance.SoundSystem.PlayOneShot(onSound, _audioSource);
                 GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
                 securityTerminal.PowerOn(false);
+                GameManager.Instance.InventorySystem.PlayerInventory.SetSummaryEntryCompleted(summaryEntry);
             }
             else
             {

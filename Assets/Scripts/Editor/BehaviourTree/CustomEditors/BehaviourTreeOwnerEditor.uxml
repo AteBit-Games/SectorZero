@@ -4,18 +4,9 @@
         <ui:Label tabindex="-1" text="Behaviour Tree Settings" display-tooltip-when-elided="true" name="header" />
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <uie:PropertyField binding-path="behaviourTree" name="property" />
+            <uie:PropertyField binding-path="monster" name="property" />
             <uie:PropertyField binding-path="blackboardOverrides" name="property" style="padding-top: 5px;" />
             <uie:PropertyField binding-path="treeStates" name="property" style="padding-top: 5px;" />
-        </ui:VisualElement>
-    </ui:VisualElement>
-    <ui:VisualElement name="VisualElement" class="property-group">
-        <ui:Label tabindex="-1" text="Sight Settings" display-tooltip-when-elided="true" name="header" />
-        <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-            <uie:PropertyField binding-path="playerMask" name="property" />
-            <uie:PropertyField binding-path="obstacleMask" name="property" />
-            <uie:PropertyField binding-path="wallMask" name="property" />
-            <uie:PropertyField binding-path="viewRadius" name="property" style="padding-top: 5px;" />
-            <uie:PropertyField binding-path="viewAngle" name="property" style="padding-top: 5px;" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="VisualElement" class="property-group">
@@ -23,16 +14,6 @@
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <uie:PropertyField binding-path="audioSource" name="property" />
             <uie:PropertyField binding-path="footstepSounds" name="property" />
-            <uie:PropertyField binding-path="detectedSound" name="property" />
-        </ui:VisualElement>
-    </ui:VisualElement>
-    <ui:VisualElement name="VisualElement" class="property-group">
-        <ui:Label tabindex="-1" text="DEBUG" display-tooltip-when-elided="true" name="header" />
-        <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-            <uie:PropertyField binding-path="debug" name="property" />
-            <uie:PropertyField binding-path="sightVisualPrefab" name="property" />
-            <uie:PropertyField binding-path="idleColour" name="property" style="padding-top: 5px;" />
-            <uie:PropertyField binding-path="aggroColour" name="property" style="padding-top: 5px;" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:Button text="Edit Script" display-tooltip-when-elided="true" name="open-button" class="button" style="padding-top: 3px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; margin-top: 10px; margin-bottom: 5px;" />

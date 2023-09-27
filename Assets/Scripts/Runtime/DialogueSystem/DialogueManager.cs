@@ -7,6 +7,8 @@ using System;
 using System.Collections;
 using System.Linq;
 using Runtime.InputSystem;
+using Runtime.InventorySystem;
+using Runtime.Managers;
 using Runtime.Utils;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -39,9 +41,9 @@ namespace Runtime.DialogueSystem
         
         //================ Tracking ==================
         private int _currentLineIndex;
-        private Coroutine displayLineCoroutine;
-        private Coroutine endDialogueCoroutine;
-        private readonly char[] sentenceBreakCharacters = { '.', '!', '?' };
+        private Coroutine _displayLineCoroutine;
+        private Coroutine _endDialogueCoroutine;
+        private readonly char[] _sentenceBreakCharacters = { '.', '!', '?' };
         
         //============================== Unity Events ==============================//
         
@@ -93,8 +95,8 @@ namespace Runtime.DialogueSystem
             _actorImage.style.backgroundImage = new StyleBackground(dialogue.dialogueLines[_currentLineIndex].actor.Sprite);
             _dialogueTextElement.text = "";
             
-            if (displayLineCoroutine != null) StopCoroutine(displayLineCoroutine);
-            if (endDialogueCoroutine != null) StopCoroutine(endDialogueCoroutine);
+            if (_displayLineCoroutine != null) StopCoroutine(_displayLineCoroutine);
+            if (_endDialogueCoroutine != null) StopCoroutine(_endDialogueCoroutine);
 
             ContinueDialogue();
         }
@@ -108,19 +110,25 @@ namespace Runtime.DialogueSystem
                 _skipDialogue = false;
                 
                 // set text for the current dialogue line
-                if (displayLineCoroutine != null) 
+                if (_displayLineCoroutine != null) 
                 {
-                    StopCoroutine(displayLineCoroutine);
+                    StopCoroutine(_displayLineCoroutine);
                 }
-                displayLineCoroutine = StartCoroutine(DisplayLine(_currentDialogue, _currentLineIndex));
+                _displayLineCoroutine = StartCoroutine(DisplayLine(_currentDialogue, _currentLineIndex));
                 _currentLineIndex++;
             }
             else
             {
                 if (_skipDialogue) ShowDialogue(false);
-                else endDialogueCoroutine = StartCoroutine(ExitDialogue());
+                else _endDialogueCoroutine = StartCoroutine(ExitDialogue());
 
                 if(_currentDialogue.trigger) OnDialogueFinish?.Invoke();
+                if (_currentDialogue.addSummaryEntry)
+                {
+                    var inventory = GameManager.Instance.InventorySystem.PlayerInventory;
+                    if (!inventory.ContainsSummaryEntry(_currentDialogue.summaryEntry)) inventory.AddSummaryEntry(_currentDialogue.summaryEntry);
+                }
+                
                 _currentDialogue = null;
             }
         }
@@ -172,8 +180,8 @@ namespace Runtime.DialogueSystem
         
         public void CancelDialogue()
         {
-            if (displayLineCoroutine != null) StopCoroutine(displayLineCoroutine);
-            if (endDialogueCoroutine != null) StopCoroutine(endDialogueCoroutine);
+            if (_displayLineCoroutine != null) StopCoroutine(_displayLineCoroutine);
+            if (_endDialogueCoroutine != null) StopCoroutine(_endDialogueCoroutine);
             ShowDialogue(false);
             _currentDialogue = null;
         }
@@ -200,7 +208,7 @@ namespace Runtime.DialogueSystem
                 PlayDialogueSound(dialogue.dialogueLines[lineIndex].actor, currentLetterIndex, character);
                 currentLetterIndex++;
 
-                if (sentenceBreakCharacters.Contains(previousLetter) && character == ' ') yield return new WaitForSeconds(sentencePauseTime);
+                if (_sentenceBreakCharacters.Contains(previousLetter) && character == ' ') yield return new WaitForSeconds(sentencePauseTime);
                 else yield return new WaitForSeconds(textSpeed);
                 previousLetter = character;
             }

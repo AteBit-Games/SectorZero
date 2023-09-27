@@ -50,7 +50,6 @@ namespace Runtime.BehaviourTree
         public List<BlackboardKeyValuePair> blackboardOverrides = new();
         public List<TreeState> treeStates = new();
         
-        [Header("SOUNDS")]
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private List<Sound> footstepSounds;
         
@@ -67,7 +66,7 @@ namespace Runtime.BehaviourTree
         
         private void Awake() 
         {
-            bool isValid = ValidateTree();
+            var isValid = ValidateTree();
             if (isValid) 
             {
                 behaviourTree = behaviourTree.Clone();

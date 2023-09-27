@@ -17,8 +17,33 @@ namespace Editor.InteractionSystem.Doors
         
         public override VisualElement CreateInspectorGUI() 
         {
-            VisualElement root = new VisualElement();
+            var root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
+            
+            var door = target as LockedDoor;
+            if (door == null) return root;
+            
+            var finishSummaryEntry = root.Q<VisualElement>("finish-summary-entry");
+            var addSummaryEntry = root.Q<VisualElement>("add-summary-entry");
+            
+            var finishSummary = root.Q<PropertyField>("finish-summary");
+            finishSummary.RegisterCallback<ChangeEvent<bool>>(evt =>
+            {
+                door.finishSummaryOnOpen = evt.newValue;
+                finishSummaryEntry.style.display = evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
+                serializedObject.ApplyModifiedProperties();
+            });
+
+            var addSummary = root.Q<PropertyField>("add-summary");
+            addSummary.RegisterCallback<ChangeEvent<bool>>(evt =>
+            {
+                door.addsSummaryOnFail = evt.newValue;
+                addSummaryEntry.style.display = evt.newValue ? DisplayStyle.Flex : DisplayStyle.None;
+                serializedObject.ApplyModifiedProperties();
+            });
+            
+            addSummaryEntry.style.display = door.addsSummaryOnFail ? DisplayStyle.Flex : DisplayStyle.None;
+            finishSummaryEntry.style.display = door.finishSummaryOnOpen ? DisplayStyle.Flex : DisplayStyle.None;
             
             var generateGuidButton = root.Q<Button>("generate-button");
             generateGuidButton.RegisterCallback<ClickEvent>(_ =>

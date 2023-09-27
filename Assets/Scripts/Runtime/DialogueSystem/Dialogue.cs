@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using Runtime.InventorySystem.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,5 +26,7 @@ namespace Runtime.DialogueSystem
         [SerializeField, Tooltip("Can dialogue be skipped")] public bool canSkip;
         [SerializeField, Tooltip("Can dialogue be skipped")] public float autoSkipDelay;
         [SerializeField, Tooltip("If this dialogue should trigger an event")] public bool trigger;
+        [SerializeField, Tooltip("If this dialogue should trigger an event")] public bool addSummaryEntry;
+        [SerializeField, Tooltip("If this dialogue should trigger an event")] public SummaryEntry summaryEntry;
     }
 }

@@ -25,6 +25,8 @@ namespace Runtime.InteractionSystem.Objects.Powered
         [SerializeField] private Item fuse;
         [SerializeField] public bool startWithFuse;
         
+        [SerializeField] public SummaryEntry summaryEntry;
+        
         [SerializeField] private Sound humSound;
         [SerializeField] private Sound noFuseSound;
         [SerializeField] private Sound addFuseSound;
@@ -109,6 +111,9 @@ namespace Runtime.InteractionSystem.Objects.Powered
         public void OnInteractFailed(GameObject player)
         {
             GameManager.Instance.SoundSystem.PlayOneShot(noFuseSound, AudioSource);
+            
+            if(GameManager.Instance.InventorySystem.PlayerInventory.ContainsSummaryEntry(summaryEntry))
+                GameManager.Instance.InventorySystem.PlayerInventory.AddSummaryEntry(summaryEntry);
         }
 
         public bool CanInteract()

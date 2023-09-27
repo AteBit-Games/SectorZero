@@ -33,6 +33,8 @@ namespace Editor.InteractionSystem.Pickups
                 serializedObject.ApplyModifiedProperties();
             });
             
+            summaryEntry.style.display = pickup.finishSummaryOnPickup ? DisplayStyle.Flex : DisplayStyle.None;
+            
             var generateGuidButton = root.Q<Button>("generate-button");
             generateGuidButton.RegisterCallback<ClickEvent>(_ =>
             {

@@ -6,9 +6,12 @@
             <uie:PropertyField binding-path="date" name="property" />
             <uie:PropertyField binding-path="canSkip" name="property" />
             <uie:PropertyField binding-path="autoSkipDelay" name="property" />
-            <uie:PropertyField binding-path="trigger" name="property" />
             <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
             <uie:PropertyField binding-path="dialogueLines" name="property" />
+            <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
+            <uie:PropertyField binding-path="trigger" name="property" />
+            <uie:PropertyField binding-path="addSummaryEntry" name="finish-summary" />
+            <uie:PropertyField binding-path="summaryEntry" name="summary-entry" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

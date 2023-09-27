@@ -67,6 +67,7 @@ MonoBehaviour:
   - {fileID: -1957200121, guid: a07d92164218b4d45aa9e08746711f14, type: 3}
   - {fileID: 132823136, guid: a07d92164218b4d45aa9e08746711f14, type: 3}
   iconSpeed: 0.08
+  scribbleSound: {fileID: 0}
 --- !u!1 &1694232223
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSubWindowOpen: 0
+  summaryEntry: {fileID: 9197481963319205126, guid: ce8428b44fc89464aa973eaa5d5aa1d3, type: 3}
   isInventoryScreenEnabled: 1
   playerInventory: {fileID: 0}
   isInventoryOpen: 0

@@ -21,3 +21,5 @@ MonoBehaviour:
   canSkip: 1
   autoSkipDelay: 3
   trigger: 0
+  addSummaryEntry: 0
+  summaryEntry: {fileID: 0}
