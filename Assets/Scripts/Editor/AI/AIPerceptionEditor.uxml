@@ -8,6 +8,7 @@
             <uie:PropertyField binding-path="wallMask" name="property" />
             <uie:PropertyField binding-path="viewRadius" name="property" style="padding-top: 5px;" />
             <uie:PropertyField binding-path="viewAngle" name="property" style="padding-top: 5px;" />
+            <uie:PropertyField binding-path="player" name="property" style="padding-top: 5px;" />
             <uie:PropertyField binding-path="debug" name="property" />
         </ui:VisualElement>
     </ui:VisualElement>

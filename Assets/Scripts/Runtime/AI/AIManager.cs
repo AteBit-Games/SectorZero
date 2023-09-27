@@ -44,6 +44,7 @@ namespace Runtime.AI
         private BlackboardKey<bool> _patrolStateKey;
         private BlackboardKey<int> _aggroLevelKey;
         private BlackboardKey<bool> _isActiveKey;
+        private BlackboardKey<Collider2D> _roomKey;
         
         //VoidMask variables
         private List<Sentinel> _sentinels;
@@ -51,14 +52,19 @@ namespace Runtime.AI
         private BlackboardKey<float> _sentinelDurationKey;
 
         private bool _active;
+        [HideInInspector] public bool isPlayerCrouching;
 
+        //----- Interface ---//
+        public int AggroLevel => _aggroLevel;
+        
+        // ============================ Unity Events ============================
+        
         private void Start()
         {
             _lastSeenPlayerTime = Time.time;
             _path = new NavMeshPath();
         }
-        
-        // ============================ Unity Events ============================
+
         
         private void OnEnable()
         {
@@ -210,13 +216,16 @@ namespace Runtime.AI
             _aggroLevelKey.value = 0;
         }
         
-        private void IncreaseAggroLevel()
+        private void IncreaseAggroLevel(Collider2D room)
         {
             if(_active)
             {
                 _aggroLevel += 2;
                 _aggroLevelKey.value = _aggroLevel;
                 _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue + (_menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
+                
+                _roomKey.value = room;
+                _monster.SetState(State.SentinelAlert);
             }
             else Activate();
         }
@@ -235,6 +244,7 @@ namespace Runtime.AI
             _patrolStateKey = _monster.FindBlackboardKey<bool>("PatrolState");
             _aggroLevelKey = _monster.FindBlackboardKey<int>("AggroLevel");
             _isActiveKey = _monster.FindBlackboardKey<bool>("Active");
+            _roomKey = _monster.FindBlackboardKey<Collider2D>("InspectRoom");
         }
         
         // ============================ Save System ============================

@@ -95,6 +95,9 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _animator.SetTrigger(AddFuse);
                 GameManager.Instance.InventorySystem.PlayerInventory.UseItemInInventory(fuse);
                 
+                var inventory = GameManager.Instance.InventorySystem.PlayerInventory;
+                inventory.SetSummaryEntryCompleted(summaryEntry);
+                
                 _hasFuse = true;
                 GameManager.Instance.SaveSystem.SaveGame();
             }
@@ -112,7 +115,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             GameManager.Instance.SoundSystem.PlayOneShot(noFuseSound, AudioSource);
             
-            if(GameManager.Instance.InventorySystem.PlayerInventory.ContainsSummaryEntry(summaryEntry))
+            if(!GameManager.Instance.InventorySystem.PlayerInventory.ContainsSummaryEntry(summaryEntry))
                 GameManager.Instance.InventorySystem.PlayerInventory.AddSummaryEntry(summaryEntry);
         }
 

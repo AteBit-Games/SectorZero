@@ -35,11 +35,6 @@ namespace Runtime.Player
         [SerializeField] private Transform lookPointer;
         [SerializeField] private Collider2D lookDeadZone;
         [SerializeField] private Collider2D lookOuterBounds;
-        
-        // [Space(10)] 
-        // [Header("THROWING DETAILS")]
-        // [SerializeField] private GameObject throwIndicator;
-        // [SerializeField] private LayerMask throwBoundsMask;
 
         [Space(10)]
         [Header("STEALTH DETAILS")]
@@ -86,31 +81,18 @@ namespace Runtime.Player
         private readonly int _isMoving = Animator.StringToHash("isMoving");
         private readonly int _isSneaking = Animator.StringToHash("isSneaking");
         
-        // ============ Throwing System ============
-        // private bool _isAiming;
-        // private bool _canThrow;
-        // private SpriteRenderer _indicatorSpriteRenderer;
-        // private Rigidbody2D _indicatorRb;
-        
-        
         // =========================== Unity Events ===========================
 
         private void OnEnable()
         {
             inputReader.MoveEvent += HandleMove;
             inputReader.SneakEvent += HandleSneak;
-            //inputReader.AimEvent += HandleAim;
-            //inputReader.AimCancelEvent += HandleAimCancel;
-            //inputReader.LeftClickEvent += HandleThrow;
         }
 
         private void OnDisable()
         {
             inputReader.MoveEvent -= HandleMove;
             inputReader.SneakEvent -= HandleSneak;
-            //inputReader.AimEvent -= HandleAim;
-            //inputReader.AimCancelEvent -= HandleAimCancel;
-            //inputReader.LeftClickEvent -= HandleThrow;
         }
 
         private void Awake()
@@ -127,20 +109,15 @@ namespace Runtime.Player
             {
                 _seenEnter = _monster.FindBlackboardKey<bool>("DidSeeEnter");
             }
-            
-            // _indicatorSpriteRenderer = throwIndicator.GetComponent<SpriteRenderer>();
-            // _indicatorRb = throwIndicator.GetComponent<Rigidbody2D>();
 
             if (SceneManager.GetActiveScene().name == "Tutorial") TutorialManager.StartListening("TutorialStage3", Init);
         }
-
-        //Update to allow smoother updating
+        
         private void LateUpdate()
         {
             if(_isDead) return;
             
             if(!_cameraDisabled) UpdateMouseLook();
-            //if(_isAiming) UpdateThrowIndicator();
         }
         
         private void FixedUpdate()
@@ -269,46 +246,13 @@ namespace Runtime.Player
                 _movementAnimator.SetBool(id: _isSneaking, isSneaking);
                 
                 //Let monster know the player is crouching
-                if(_monster != null) _monster.GetComponentInChildren<AIPerception>().isPlayerCrouching = isSneaking;
+                GameManager.Instance.AIManager.isPlayerCrouching = isSneaking;
                 
                 SetViewBounds(isSneaking);
                 StartCoroutine(SneakCooldown());
             }
         }
         
-        // private void HandleAim()
-        // {
-        //     if(gameObject.GetComponent<PlayerInventory>().HasThrowableItem && !_inputDisabled)
-        //     {
-        //         _isAiming = true;
-        //         _indicatorSpriteRenderer.enabled = true;
-        //         
-        //         UpdateThrowIndicator();
-        //         DisableMovement();
-        //     }
-        // }
-        //
-        // private void HandleThrow()
-        // {
-        //     if (_isAiming && _canThrow && !_inputDisabled)
-        //     {
-        //         var inventory = gameObject.GetComponent<PlayerInventory>();
-        //         inventory.GetThrowable().Throw(new Vector2(transform.position.x, transform.position.y + 1f), throwIndicator);
-        //         inventory.DropThrowable();
-        //         
-        //         GameManager.Instance.HUD.ShowThrowableIcon(false);
-        //         HandleAimCancel();
-        //     }
-        // }
-        //
-        // private void HandleAimCancel()
-        // {
-        //     _indicatorSpriteRenderer.enabled = false;
-        //     _isAiming = false;
-        //     
-        //     EnableMovement();
-        // }
-
         //================================== Save System ==================================
 
         public string LoadData(SaveGame game)
@@ -387,39 +331,6 @@ namespace Runtime.Player
                 lookPointer.position = mousePos;
             }
         }
-        
-        // private void UpdateThrowIndicator()
-        // {
-        //     //move the game object to the mouse position based on rigidbody physics
-        //     _indicatorRb.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        //
-        //     //scale the indicator based on the distance from the player
-        //     var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //     var distance = Vector2.Distance(transform.position, mousePos);
-        //     var scale = Mathf.Clamp(distance/25, 0.5f, 1f);
-        //     throwIndicator.transform.localScale = new Vector3(scale, scale, 1);
-        //
-        //     //calculate the angle between the player and the mouse and set the rotation of the player animation of vector 2
-        //     var direction = (mousePos - transform.position).normalized;
-        //     _movementAnimator.SetFloat(id: _moveX, direction.x);
-        //     _movementAnimator.SetFloat(id: _moveY, direction.y);
-        //     
-        //     //get list of all colliders that the indicator is overlapping
-        //     var roomBound = Physics2D.OverlapPoint(throwIndicator.transform.position, throwBoundsMask);
-        //     
-        //     //if overlapping with a object with tag "RoomBounds" then change the color to red
-        //
-        //     if (roomBound != null)
-        //     {
-        //         _canThrow = true;
-        //         _indicatorSpriteRenderer.color = Color.white;
-        //     }
-        //     else
-        //     {
-        //         _canThrow = false;
-        //         _indicatorSpriteRenderer.color = Color.red;
-        //     }
-        // }
 
         private void SetViewBounds(bool sneaking)
         {

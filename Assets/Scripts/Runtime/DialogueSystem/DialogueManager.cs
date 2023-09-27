@@ -126,7 +126,10 @@ namespace Runtime.DialogueSystem
                 if (_currentDialogue.addSummaryEntry)
                 {
                     var inventory = GameManager.Instance.InventorySystem.PlayerInventory;
-                    if (!inventory.ContainsSummaryEntry(_currentDialogue.summaryEntry)) inventory.AddSummaryEntry(_currentDialogue.summaryEntry);
+                    foreach (var entry in _currentDialogue.summaryEntry.Where(entry => !inventory.ContainsSummaryEntry(entry)))
+                    {
+                        inventory.AddSummaryEntry(entry);
+                    }
                 }
                 
                 _currentDialogue = null;

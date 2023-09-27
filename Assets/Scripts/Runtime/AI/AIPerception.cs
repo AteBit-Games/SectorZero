@@ -16,6 +16,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
+
 namespace Runtime.AI
 {
     [DefaultExecutionOrder(10)]
@@ -26,6 +27,7 @@ namespace Runtime.AI
         [Tooltip("Masks that block field of view"), SerializeField] private LayerMask obstacleMask;
         [Tooltip("Wall Mask"), SerializeField] private LayerMask wallMask;
         [Tooltip("Masks that contains the player character"), SerializeField] private LayerMask playerMask;
+        [SerializeField] private PlayerController player;
         
         [Tooltip("Maximum view distance"), SerializeField] private float viewRadius = 5.0f;
         [Tooltip("Maximum angle that the monster can see"), SerializeField, Range(0f, 360f)] private float viewAngle = 135.0f;
@@ -39,13 +41,12 @@ namespace Runtime.AI
         
         //----- Interfaces -----//
         public Action OnSightEnterAction { get; set; }
-        [HideInInspector] public bool isPlayerCrouching;
+
         public LayerMask PlayerMask => playerMask;
         public LayerMask WallMask => wallMask;
         
         // ====================== Private Variables ======================
         private bool _canSeePlayer;
-        private PlayerController _player;
         private bool _looseSightCoroutineRunning;
         private bool _gainSightCoroutineRunning;
 
@@ -64,8 +65,6 @@ namespace Runtime.AI
         private void Start()
         {
             _volume = FindFirstObjectByType<Volume>();
-            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            
             StartCoroutine(SightRoutine());
         }
 
@@ -161,7 +160,7 @@ namespace Runtime.AI
             yield return new WaitForSeconds(2f);
             
             GameManager.Instance.SoundSystem.PlaySting(lostSound);
-            _player.GetComponent<ISightEntity>().IsSeen = false;
+            player.GetComponent<ISightEntity>().IsSeen = false;
 
             if (_volume.sharedProfile.components[0] is Vignette vignette)
             {
@@ -225,7 +224,7 @@ namespace Runtime.AI
                     if (!Physics2D.Raycast(position, directionToTarget, distanceToTarget, wallMask))
                     {
                         //Check if the player is crouching
-                        if (isPlayerCrouching)
+                        if (GameManager.Instance.AIManager.isPlayerCrouching)
                         {
                             //Check if the player is behind an obstacle only if the player is crouching
                             _canSeePlayer = !Physics2D.Raycast(position, directionToTarget, distanceToTarget,obstacleMask);
@@ -236,7 +235,7 @@ namespace Runtime.AI
                             OnSightEnter();
                         }
                     }
-                    else OnSightExit(_player.transform.position);
+                    else OnSightExit(player.transform.position);
                 }
                 else
                 {
@@ -250,13 +249,10 @@ namespace Runtime.AI
                             }
                         }
                     }
-                    else OnSightExit(_player.transform.position);
+                    else OnSightExit(player.transform.position);
                 }
             }
-            else if(_canSeePlayer)
-            {
-                OnSightExit(_player.transform.position);
-            }
+            else OnSightExit(player.transform.position);
         }
         
         // ====================== Private Methods ======================

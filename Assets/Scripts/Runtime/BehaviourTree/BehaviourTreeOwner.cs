@@ -125,6 +125,8 @@ namespace Runtime.BehaviourTree
 
         public void SetState(State state)
         {
+            
+            
             if(treeStates.Find(x => x.state == state) == null) Debug.LogError( state + " state not found");
             else
             {

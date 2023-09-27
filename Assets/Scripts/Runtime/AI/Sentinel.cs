@@ -38,7 +38,6 @@ namespace Runtime.AI
         public Color alertColor;
         
         public bool debug;
-        public GameObject sightVisualPrefab;
         
         private Animator _animator;
         private List<Light2D> _eyeLights;
@@ -46,18 +45,13 @@ namespace Runtime.AI
 
         private bool _isActivated;
         private float _activeTimeLeft;
+        private Coroutine _sightRoutine;
+
         private static readonly int Activated = Animator.StringToHash("activated");
 
         // ====================== Interface ======================
-
-        public bool IsActivated => _isActivated;
-        public float ViewAngle => viewAngle;
-        public float ViewRadius => viewRadius;
-        public LayerMask ObstacleMask => obstacleMask;
-        public LayerMask PlayerMask => playerMask;
-        public LayerMask WallMask => wallMask;
         
-        public Action OnSightEnterAction { get; set; }
+        public Action<Collider2D> OnSightEnterAction { get; set; }
         
         //=============================== Unity Events =================================//
 
@@ -73,9 +67,6 @@ namespace Runtime.AI
                 eye.enabled = false;
                 eye.intensity = intensity;
             });
-            
-            
-            Instantiate(sightVisualPrefab, transform);
         }
 
         private void Start()
@@ -97,6 +88,11 @@ namespace Runtime.AI
                 if (_activeTimeLeft <= 0f)
                 {
                     _isActivated = false;
+                    _eyeLights.ForEach(eye =>
+                    {
+                        eye.color = defaultColor;
+                        eye.intensity = _initialIntensity;
+                    });
                     DeactivateSentinel();
                 }
             }
@@ -126,6 +122,7 @@ namespace Runtime.AI
             });
             
             _animator.SetBool(Activated, true);
+            _sightRoutine = StartCoroutine(SightRoutine());
         }
 
         private void TriggerSentinel()
@@ -140,7 +137,7 @@ namespace Runtime.AI
                 
                 var hit = Physics2D.OverlapPoint(transform.position, 1 << LayerMask.NameToLayer("RoomBounds"));
                 if(hit == null) Debug.LogWarning("No RoomBounds found for " + gameObject.name);
-                OnSightEnterAction?.Invoke();
+                else OnSightEnterAction?.Invoke(hit);
                 
                 StartCoroutine(TriggerEyes());
                 StartCoroutine(TriggerDeactivate());
@@ -152,17 +149,13 @@ namespace Runtime.AI
         {
             _isActivated = false;
             _activeTimeLeft = 0f;
+            StopCoroutine(_sightRoutine);
+            _sightRoutine = null;
             
             _animator.SetBool(Activated, false);
         }
         
         //================================= Helpers ===================================//
-        
-        public Vector2 DirFromAngle(float angleDeg)
-        {
-            angleDeg += lookAngle;
-            return new Vector2(Mathf.Sin(angleDeg * Mathf.Deg2Rad), Mathf.Cos(angleDeg * Mathf.Deg2Rad));
-        }
         
         private Vector2 GetAngleFromLook()
         {
@@ -178,8 +171,57 @@ namespace Runtime.AI
             });
         }
         
+        private void FieldOfViewCheck()
+        {
+            var rangeChecks = Physics2D.OverlapCircleAll(transform.position, viewRadius, playerMask);
+            
+            if (rangeChecks.Length != 0)
+            {
+                var target = rangeChecks[0].transform;
+                var position = transform.position;
+                var targetPosition = target.position;
+                
+                var distanceToTarget = Vector3.Distance(position, targetPosition);
+                
+                var directionToTarget = (targetPosition - position).normalized;
+                var angle = Vector2.Angle(directionToTarget, GetAngleFromLook());
+                
+                //Check if the player is within the field of view
+                if (angle < viewAngle / 2)
+                {
+                    //Check if the player is not behind a wall
+                    if (!Physics2D.Raycast(position, directionToTarget, distanceToTarget, wallMask))
+                    {
+                        //Check if the player is crouching
+                        if (GameManager.Instance.AIManager.isPlayerCrouching)
+                        {
+                            //Check if the player is behind an obstacle only if the player is crouching
+                            if(!Physics2D.Raycast(position, directionToTarget, distanceToTarget,obstacleMask))
+                            {
+                                OnSightEnter();
+                            }
+                        }
+                        else
+                        {
+                            //If here then player is within view and out in the open
+                            OnSightEnter();
+                        }
+                    }
+                }
+            }
+        }
+        
         //================================= Coroutine ===================================//
 
+        private IEnumerator SightRoutine()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(0.2f);
+                FieldOfViewCheck();
+            }
+        }
+        
         private IEnumerator TriggerDetection()
         {
             GameManager.Instance.SoundSystem.PlaySting(detectSound);
@@ -231,22 +273,21 @@ namespace Runtime.AI
             if (!debug) return;
             
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, viewRadius);
-            
-            //Debug.DrawRay(transform.position, GetAngleFromLook()*viewRadius, Color.red);
+            var position = transform.position;
+            Gizmos.DrawWireSphere(position, viewRadius);
 
             //from th middle line get the left and right line
             var leftLine = GetAngleFromLook() * viewRadius;
             var rightLine = GetAngleFromLook() * viewRadius;
             
-            //rotate the left and right line by the view angle
+            //rotate the left and right line by the view angle, get from look angle
             leftLine = Quaternion.AngleAxis(-viewAngle / 2, Vector3.forward) * leftLine;
             rightLine = Quaternion.AngleAxis(viewAngle / 2, Vector3.forward) * rightLine;
             
             //draw the left and right line
             Gizmos.color = Color.green;
-            Gizmos.DrawRay(transform.position, leftLine);
-            Gizmos.DrawRay(transform.position, rightLine);
+            Gizmos.DrawRay(position, leftLine);
+            Gizmos.DrawRay(position, rightLine);
         }
     }
 }

@@ -47,12 +47,14 @@ namespace Runtime.Managers
         public SoundManager SoundSystem { get; private set; }
         public SaveManager SaveSystem { get; private set; }
         public NotificationManager NotificationManager { get; private set; }
+        public AIManager AIManager { get; set; }
 
         public HUD HUD { get; private set; }
         private DeathScreen DeathScreen { get; set; }
         private PauseMenu PauseMenu { get; set; }
         private LoadingScreen LoadingScreen { get; set; }
         private EndScreen EndScreen { get; set; }
+
         
         private CinemachineVirtualCamera _camera;
         [HideInInspector] public Window activeWindow;
@@ -84,6 +86,7 @@ namespace Runtime.Managers
             Instance.LoadingScreen = GetComponentInChildren<LoadingScreen>();
             Instance.SoundSystem = GetComponent<SoundManager>();
             Instance.SaveSystem = GetComponent<SaveManager>();
+            Instance.AIManager = GetComponent<AIManager>();
             GetComponent<AIManager>();
         }
 
