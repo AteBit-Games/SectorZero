@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e353c9ef2deb4440982e8ff533938ba, type: 3}
+  m_Name: CarverOfficeNote
+  m_EditorClassIdentifier: 
+  itemRef: CarverOfficeNote
+  itemName: 
+  itemSprite: {fileID: 21300000, guid: 3676aa666ff751741a62071ea8f53a80, type: 3}
+  itemDescription: 
+  noteType: 0
+  title: Morgue Signoff
+  author: '- Carver'
+  date: 1978.07.05
+  content: 

@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 307e81bc6c69b2142b50612f8eb73188
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 58984478e69a5774a9cf394605bf2dae
+    m_Address: CarverRoomTape
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b964706df64f2bd4e9cfafbde4832052, type: 2}
   m_SchemaSet:

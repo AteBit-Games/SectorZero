@@ -16,7 +16,22 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 6b4a62b47175da7408e905b0a8dc6cda
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 80fe7e69900177841b3404cde8c45a30
+    m_Address: CarverOfficeNote
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dea0056da40f01e43beaded2dace5308
+    m_Address: CarverBodyNote
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e2ba339e4a94194d8ffc4815fc4a54f
+    m_Address: Assets/ScriptableObjects/InventoryItems/Notes/Research/MorgueNote.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b964706df64f2bd4e9cfafbde4832052, type: 2}
   m_SchemaSet:

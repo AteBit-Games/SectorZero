@@ -9,6 +9,5 @@ namespace Runtime.InventorySystem.ScriptableObjects
     [CreateAssetMenu(fileName = "New Item", menuName = "Inventory System/Items/Item")]
     public class Item : BaseItem
     {
-        
     }
 }

@@ -3,6 +3,7 @@
     <ui:VisualElement name="VisualElement" class="property-group">
         <ui:Label tabindex="-1" text="Item Settings" display-tooltip-when-elided="true" name="header" enable-rich-text="true" />
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <uie:PropertyField binding-path="itemRef" name="property" />
             <uie:PropertyField binding-path="itemName" name="property" />
             <uie:PropertyField binding-path="itemSprite" name="property" />
             <uie:PropertyField binding-path="noteType" name="note-type" />
