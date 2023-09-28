@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1278252856864131237}
   - component: {fileID: 3621629229646542525}
   - component: {fileID: 7397063408590626667}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: DoorwayNavigation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,8 +404,8 @@ MonoBehaviour:
   door: {fileID: 6572523044974820501}
   key: {fileID: 11400000, guid: f12e17dd0dad858428602ccf89de78f4, type: 2}
   persistentID: c58a1a94-e8e0-4db7-9c7e-146caf5ca514
-  interactSound: {fileID: 11400000, guid: 6cc18b8dc03c57f4ab3fc2a2039974da, type: 2}
-  lockedSound: {fileID: 11400000, guid: aa8dfbcad90789e4da2b5de202c074bb, type: 2}
+  interactSound: {fileID: 11400000, guid: 353d08b3bafa1c7469f97d6d490beefc, type: 2}
+  lockedSound: {fileID: 11400000, guid: fae4ae6e9d4e77944afa16edb2290f6f, type: 2}
 --- !u!82 &6125417202039051319
 AudioSource:
   m_ObjectHideFlags: 0
@@ -536,7 +536,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.055955887, y: 1.2417295}
+  m_Offset: {x: 0.055955887, y: 2.0451584}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: -0.010416667}
@@ -546,7 +546,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.6658211, y: 0.795197}
+  m_Size: {x: 1.6658211, y: 0.279747}
   m_EdgeRadius: 0
 --- !u!210 &5060568788837834524
 SortingGroup:
@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 3880125683171738383}
   - component: {fileID: 6691478923943092587}
   - component: {fileID: 6323426940833097270}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: NavigationBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +762,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 045a0fc57c65924498dbe2aaf2f1dd30, type: 2}
+  - {fileID: 2100000, guid: 9de0fdd37e4a63c459326cb9bfc943d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
