@@ -4,6 +4,7 @@
  ****************************************************************/
 
 using System;
+using Runtime.InteractionSystem.Objects;
 using Runtime.InteractionSystem.Objects.UI;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
@@ -28,6 +29,8 @@ namespace Runtime.UI
         
         //Map
         private VisualElement _mapContainer;
+        private VisualElement _map1;
+        private VisualElement _map2;
         
         //Notes
         private VisualElement _notesContainer;
@@ -56,6 +59,8 @@ namespace Runtime.UI
             var rootVisualElement = _uiDocument.rootVisualElement;
             
             _mapContainer = rootVisualElement.Q<VisualElement>("map-view");
+            _map1 = _mapContainer.Q<VisualElement>("map1");
+            _map2 = _mapContainer.Q<VisualElement>("map2");
              
             _notesContainer = rootVisualElement.Q<VisualElement>("note-view");
             SetupNotes(_notesContainer);
@@ -105,9 +110,20 @@ namespace Runtime.UI
             UIUtils.HideUIElement(_notesContainer);
         }
 
-        public void OpenMap()
+        public void OpenMap(MapType mapType)
         {
             UIUtils.ShowUIElement(_mapContainer);
+            
+            if(mapType == MapType.Type1)
+            {
+                UIUtils.ShowUIElement(_map1);
+                UIUtils.HideUIElement(_map2);
+            }
+            else
+            {
+                UIUtils.ShowUIElement(_map2);
+                UIUtils.HideUIElement(_map1);
+            }
             GameManager.Instance.activeWindow = this;
             
             Time.timeScale = 0;

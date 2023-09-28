@@ -40,6 +40,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
             context.owner.SetLookDirection(direction.normalized);
             
             if (context.agent.pathPending) return State.Running;
+            
             if (_willFail && Vector3.Distance(context.agent.transform.position, context.agent.destination)/_totalDistance < failureDistanceRemaining.Value)
             {
                 context.agent.isStopped = true;

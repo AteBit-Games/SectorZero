@@ -254,7 +254,7 @@ namespace Runtime.AI
         {
             _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
             _monster = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
-            _perception = _monster.GetComponentInChildren<AIPerception>();
+            _perception = _monster.gameObject.transform.parent.GetComponentInChildren<AIPerception>();
             
             _patrolStateKey = _monster.FindBlackboardKey<bool>("PatrolState");
             _aggroLevelKey = _monster.FindBlackboardKey<int>("AggroLevel");

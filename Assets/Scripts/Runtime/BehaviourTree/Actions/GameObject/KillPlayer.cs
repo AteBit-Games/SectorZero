@@ -69,10 +69,8 @@ namespace Runtime.BehaviourTree.Actions.GameObject
             {
                 return Time.time - _startTime < animationClip.length ? State.Running : State.Success;
             }
-            else
-            {
-                return State.Success;
-            }
+            
+            return State.Success;
         }
         
         protected override void OnReset() { }

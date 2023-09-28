@@ -15,13 +15,14 @@ using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
 namespace Runtime.AI
 {
     [DefaultExecutionOrder(10)]
     public class AIPerception : MonoBehaviour, IHearingHandler, ISightHandler
     {
-        private BehaviourTreeOwner _treeOwner;
+        [SerializeField] private BehaviourTreeOwner treeOwner;
         
         [Tooltip("Masks that block field of view"), SerializeField] private LayerMask obstacleMask;
         [Tooltip("Wall Mask"), SerializeField] private LayerMask wallMask;
@@ -56,11 +57,6 @@ namespace Runtime.AI
 
         // ====================== Unity Events ======================
 
-        private void Awake()
-        {
-            _treeOwner = GetComponentInParent<BehaviourTreeOwner>();
-        }
-
         private void Start()
         {
             _volume = FindFirstObjectByType<Volume>();
@@ -73,9 +69,9 @@ namespace Runtime.AI
         {
             Debug.Log("Heard " + sender.name);
             
-            if (!_canSeePlayer && !_treeOwner.StateOverride())
+            if (!_canSeePlayer && !treeOwner.StateOverride())
             {
-                _treeOwner.SetHeard(sender.transform.position);
+                treeOwner.SetHeard(sender.transform.position);
             }
         }
 
@@ -119,7 +115,7 @@ namespace Runtime.AI
             }
 
             GameManager.Instance.SoundSystem.PlaySting(detectedSound);
-            _treeOwner.SetState(MonsterState.AggroChase);
+            treeOwner.SetState(MonsterState.AggroChase);
             _canSeePlayer = true;
             
             OnSightEnterAction?.Invoke();
@@ -147,10 +143,10 @@ namespace Runtime.AI
                 return;
             }
             
-            var didSeePlayerEnterHidable = _treeOwner.DidSeeEnter();
+            var didSeePlayerEnterHidable = treeOwner.DidSeeEnter();
             if(_canSeePlayer && !_looseSightCoroutineRunning && !didSeePlayerEnterHidable)
             {
-                _treeOwner.SetLastKnownPosition(lastKnownPosition);
+                treeOwner.SetLastKnownPosition(lastKnownPosition);
                 _loseSightCoroutine = StartCoroutine(LoseSight());
                 _looseSightCoroutineRunning = true;
             }
@@ -181,7 +177,7 @@ namespace Runtime.AI
                 }).SetFrom(aberration.intensity.value).SetEaseSineInOut();
             }
 
-            _treeOwner.SetState(MonsterState.Idle);
+            treeOwner.SetState(MonsterState.Idle);
             
             _loseSightCoroutine = null;
             _looseSightCoroutineRunning = false;
@@ -215,7 +211,7 @@ namespace Runtime.AI
                 
                 //Determine the cone radius and direction to check
                 var directionToTarget = (targetPosition - position).normalized;
-                var direction = DirectionFromAngleCenter(transform.eulerAngles.y);
+                var direction = DirectionFromAngleCenter(transform.eulerAngles.z);
                 var angle = Vector2.Angle(direction, directionToTarget);
                 
                 //Check if the player is within the field of view
@@ -281,8 +277,8 @@ namespace Runtime.AI
             Gizmos.DrawWireSphere(position, viewRadius);
 
             var eulerAngles = transform.eulerAngles;
-            var viewAngle01 = DirectionFromAngle(eulerAngles.y, -viewAngle / 2);
-            var viewAngle02 = DirectionFromAngle(eulerAngles.y, viewAngle / 2);
+            var viewAngle01 = DirectionFromAngle(eulerAngles.z, -viewAngle / 2);
+            var viewAngle02 = DirectionFromAngle(eulerAngles.z, viewAngle / 2);
             
             Gizmos.color = Color.yellow;
             Gizmos.DrawLine(position, position + viewAngle01 * viewRadius);

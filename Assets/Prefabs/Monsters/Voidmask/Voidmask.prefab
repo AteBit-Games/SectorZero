@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: -33, y: -0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3665454490497470612}
   m_Father: {fileID: 2672757191909828582}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &5318597753798500139
@@ -139,12 +140,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3065806210154931762}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.15884742, z: 0, w: 0.9873032}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.15884742, z: -0, w: 0.9873032}
+  m_LocalPosition: {x: -18.8, y: 18.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6328663348082306447}
+  m_Father: {fileID: 4867338141419686471}
   m_LocalEulerAnglesHint: {x: 0, y: 18.28, z: 0}
 --- !u!114 &4286371577241151574
 MonoBehaviour:
@@ -158,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9d02773f8f4424a425ad75ed2e569b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treeOwner: {fileID: 920597039}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 4224
@@ -167,13 +169,13 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 256
+  player: {fileID: 0}
   viewRadius: 18.3
   viewAngle: 128
   detectRadius: 3
   detectedSound: {fileID: 11400000, guid: 3e58a5000fec3bd4e882873694e3d6a8, type: 2}
   lostSound: {fileID: 11400000, guid: f1a1400ccc596474d9b9a2f2dc7a3421, type: 2}
   debug: 1
-  isPlayerCrouching: 0
 --- !u!1 &3369446493431426671
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,8 +211,7 @@ Transform:
   m_LocalPosition: {x: -51.8, y: 18.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3665454490497470612}
+  m_Children: []
   m_Father: {fileID: 2672757191909828582}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2907473679960595917
@@ -315,17 +316,17 @@ MonoBehaviour:
     value:
       rid: 130803839992070147
   treeStates:
-  - state: 0
+  - monsterState: 0
     stateIndex: 0
-  - state: 1
+  - monsterState: 1
     stateIndex: 1
-  - state: 2
+  - monsterState: 2
     stateIndex: 2
-  - state: 5
+  - monsterState: 5
     stateIndex: 3
-  - state: 4
+  - monsterState: 4
     stateIndex: 4
-  - state: 3
+  - monsterState: 3
     stateIndex: 5
   audioSource: {fileID: 920597040}
   footstepSounds:
@@ -333,6 +334,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bda294c36115e4e46afb53ea2f475146, type: 2}
   - {fileID: 11400000, guid: c9ba80b5115d9804ebe442e3082d1808, type: 2}
   - {fileID: 11400000, guid: 6366ac5a42c71404f9b4505e8843cfb2, type: 2}
+  initialSentinels: []
+  initialPatrolRooms: []
   references:
     version: 2
     RefIds:

@@ -21,7 +21,7 @@ MonoBehaviour:
   - rid: 130803868398780421
   - rid: 130803868398780422
   - rid: 130803893468135437
-  - rid: 4809529486358609939
+  - rid: 4809529490587254784
   treeState: 1
   blackboard:
     keys:
@@ -32,8 +32,8 @@ MonoBehaviour:
     - rid: 130803864545001475
     - rid: 130803864545001498
     - rid: 130803864545001501
-  viewPosition: {x: 542, y: 2, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: 366, y: -29, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -113,7 +113,7 @@ MonoBehaviour:
         children:
         - rid: 130803868398780420
         - rid: 130803868398780421
-        - rid: 4809529486358609939
+        - rid: 4809529490587254784
     - rid: 130803868398780420
       type: {class: SelectRoom, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
       data:
@@ -251,16 +251,16 @@ MonoBehaviour:
         name: LostPlayer
         typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 0
-    - rid: 4809529486358609939
+    - rid: 4809529490587254784
       type: {class: ValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: 98b86e1cf2f41d746ba1fb1a597067ea
+        guid: 15eff6e5b6456994587dcaa0fcfdbf73
         position: {x: -80, y: 380}
         blackboard:
           keys: []
-        comment: 
+        comment: Check that there is a valid path towards the selected point
         drawGizmos: 0
         positionToCheck:
           reference:

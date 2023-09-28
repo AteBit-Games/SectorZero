@@ -68,6 +68,7 @@ namespace Runtime.BehaviourTree
         
         [SerializeField] private List<GameObject> initialSentinels;
         [SerializeField] private List<Collider2D> initialPatrolRooms;
+        [SerializeField] private List<GameObject> savePoints;
         
         private BlackboardKey<List<GameObject>> _sentinelsReference;
         private BlackboardKey<List<Collider2D>> _patrolRoomsReference;
@@ -154,7 +155,6 @@ namespace Runtime.BehaviourTree
             return behaviourTree ? behaviourTree.blackboard.Find<T>(keyName) : null;
         }
         
-        
         public void PlayFootstepSound()
         {
             var sound = footstepSounds[Random.Range(0, footstepSounds.Count)];
@@ -209,6 +209,8 @@ namespace Runtime.BehaviourTree
         {
             _animator.SetFloat(MoveX, direction.x);
             _animator.SetFloat(MoveY, direction.y);
+            
+            
         } 
         
         public Vector2 GetLookDirection()
@@ -251,7 +253,8 @@ namespace Runtime.BehaviourTree
             SetupReferences();
             var monsterSave = save.monsterData[monster.ToString()];
             gameObject.transform.parent.gameObject.SetActive(monsterSave.isActive);
-            transform.position = _navMeshAgent.transform.position;
+            Debug.Log(monsterSave.position);
+            _navMeshAgent.Warp(monsterSave.position);
             _stateReference.value = monsterSave.activeState;
             
             return monster.ToString();
@@ -267,8 +270,30 @@ namespace Runtime.BehaviourTree
             
             var monsterSave = save.monsterData[monster.ToString()];
             monsterSave.isActive = gameObject.transform.parent.gameObject.activeSelf;
-            monsterSave.position = _navMeshAgent.transform.position;
-            monsterSave.activeState = _stateReference.value;
+            
+            //if ! aggro state, save position
+            if (_currentMonsterState != MonsterState.AggroChase)
+            {
+                monsterSave.position = _navMeshAgent.transform.position;
+                monsterSave.activeState = _stateReference.value;
+            }
+            else
+            {
+                var nearestSavePoint = savePoints[0];
+                var nearestDistance = Vector2.Distance(_navMeshAgent.transform.position, nearestSavePoint.transform.position);
+                foreach (var savePoint in savePoints)
+                {
+                    var distance = Vector2.Distance(_navMeshAgent.transform.position, savePoint.transform.position);
+                    if (distance < nearestDistance)
+                    {
+                        nearestDistance = distance;
+                        nearestSavePoint = savePoint;
+                    }
+                }
+                monsterSave.position = nearestSavePoint.transform.position;
+                
+                monsterSave.activeState = treeStates.Find(x => x.monsterState == MonsterState.Patrol).stateIndex;
+            }
         }
     }
 }
