@@ -28,6 +28,11 @@ namespace Runtime.Misc.Helpers
             
             GameManager.Instance.AIManager.activateEvents += AddSentinels;
         }
+        
+        private void OnDestroy()
+        {
+            GameManager.Instance.AIManager.activateEvents -= AddSentinels;
+        }
 
         private void AddSentinels()
         {

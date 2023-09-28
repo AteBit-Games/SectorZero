@@ -15,5 +15,4 @@ MonoBehaviour:
   itemRef: Code
   itemName: Damaged Keycard
   itemSprite: {fileID: 21300000, guid: a16e941cb5649cb4c9c1049c55f70463, type: 3}
-  itemDescription: This keycard won't work on any door but it has some sort of code
-    etched into it
+  itemDescription: This keycard is broken but has 8204 etched into it

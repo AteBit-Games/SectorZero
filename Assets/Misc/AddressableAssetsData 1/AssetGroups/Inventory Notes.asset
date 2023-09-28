@@ -28,7 +28,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e2ba339e4a94194d8ffc4815fc4a54f
-    m_Address: Assets/ScriptableObjects/InventoryItems/Notes/Research/MorgueNote.asset
+    m_Address: MorgueNote
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

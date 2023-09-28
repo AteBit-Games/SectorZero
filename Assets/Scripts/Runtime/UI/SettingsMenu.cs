@@ -57,17 +57,18 @@ namespace Runtime.UI
             });
             
             _activeVolume = FindFirstObjectByType<Volume>();
-            
-            RegisterPlayerPrefs();
         }
 
         private void Start()
         {
+            RegisterPlayerPrefs();
+            RegisterVolumeSettings();
+
             RegisterDisplayModeSetting();
             RegisterVsyncSetting();
             RegisterBrightnessSetting();
-            RegisterVolumeSettings();
             RegisterResolutionSetting();
+            
             RegisterNoteSetting();
             RegisterTapeSetting();
         }

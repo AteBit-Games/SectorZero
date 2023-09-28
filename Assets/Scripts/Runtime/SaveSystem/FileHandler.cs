@@ -178,8 +178,6 @@ namespace Runtime.SaveSystem
         
         public void DeleteSave(long saveTime)
         {
-            Debug.Log("Deleting save: " + saveTime);
-            
             var saveTimeString = new DateTime(saveTime).ToString("yyyyMMddhhmmss");
             var saveFolder = Path.Combine(_savePath, "Save-"+saveTimeString);
             

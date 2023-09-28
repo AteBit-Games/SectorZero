@@ -26,9 +26,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032972587301118351}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.4375, y: -10.625, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8764086020381667705}
@@ -263,7 +263,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.033183098, y: 1.1538134}
+  m_Offset: {x: -0.03240919, y: 1.9782133}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -273,7 +273,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.6863365, y: 2.305872}
+  m_Size: {x: 1.4352579, y: 3.9290485}
   m_EdgeRadius: 0
 --- !u!1 &6186595324722563920
 GameObject:
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 1433801281700260800}
   - component: {fileID: 5076769847640717330}
   - component: {fileID: 8306251668343533089}
-  m_Layer: 12
+  m_Layer: 7
   m_Name: NavigationBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.03097248, y: 1.4099998}
+  m_Offset: {x: -0.03240919, y: 1.42}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -352,7 +352,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.690134, y: 2.8128796}
+  m_Size: {x: 1.4352579, y: 2.812622}
   m_EdgeRadius: 0
 --- !u!114 &8306251668343533089
 MonoBehaviour:

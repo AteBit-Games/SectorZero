@@ -234,15 +234,6 @@ namespace Runtime.SoundSystem
         public void SetSfxVolume(float volume)
         {
             mainMixer.SetFloat("sfxVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
-            foreach (var soundSource in _activeSoundInstanceSources)
-            {
-                soundSource.Key.volume = volume * soundSource.Value.volumeScale;
-            }
-            
-            foreach (var soundSource in _activeSoundEntitySources.Where(soundSource => soundSource.AudioSource != null))
-            {
-                soundSource.AudioSource.volume = volume * soundSource.Sound.volumeScale;
-            }
         }
         
         //========================= Coroutines =========================//

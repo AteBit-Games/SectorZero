@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8343215419623723899}
   - component: {fileID: 498917281932419377}
   - component: {fileID: 1539269541114539994}
-  m_Layer: 0
+  - component: {fileID: 9044051717532136001}
+  m_Layer: 7
   m_Name: Refined_Metal_Chair_W
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,6 +174,22 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_SortAtRoot: 0
+--- !u!114 &9044051717532136001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755281455956074749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &7273722323492474448
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +201,7 @@ GameObject:
   - component: {fileID: 402807383206668203}
   - component: {fileID: 2589961197877199452}
   - component: {fileID: 60663070729909875}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: MorgueNote
   m_EditorClassIdentifier: 
   itemRef: MorgueNote
-  itemName: Research Notes
+  itemName: Morgue Note
   itemSprite: {fileID: 21300000, guid: 9345020d4510a204e95d201e23ca6200, type: 3}
-  itemDescription: Found in the medical archive of the facility
+  itemDescription: 
   noteType: 1
   title: Subject 38 - Mortician Findings
   author: Dr. Peter Reed
