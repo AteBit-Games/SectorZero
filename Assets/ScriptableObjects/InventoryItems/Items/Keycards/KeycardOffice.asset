@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: KeycardOffice
   m_EditorClassIdentifier: 
   itemRef: KeycardOffice
-  itemName: Office Keycard
+  itemName: Office Wing Keycard
   itemSprite: {fileID: 21300000, guid: 13ba4b69ffeb91243bc0f2b80f59fc5e, type: 3}
   itemDescription: Grants access to the facility's head office
