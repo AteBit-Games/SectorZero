@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 42fc08d76d533c949bd92d1c6d00ad36, type: 2}
+  m_Motion: {fileID: 7400000, guid: b86b35d7cf15cd34ab6d586e2dbb15bf, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -73,7 +73,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ba70d2e2c89509742aef7a470fdcde03, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4e38e82b48d3689499cb3323d2daf41c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -125,7 +125,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a1659ad59a0192c4daf445ba3d52af00, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6e37518a6900130469eb82870c8f23e5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -137,7 +137,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AC_MedArchiveSentinel_01
+  m_Name: AC_MedArchiveSentinel
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: activated
