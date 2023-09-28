@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1814306171652526645}
   - component: {fileID: 7758261863038846467}
   - component: {fileID: 4653342370798119014}
-  - component: {fileID: 7616715369418642798}
   m_Layer: 0
   m_Name: NavigationBlocker
   m_TagString: Untagged
@@ -96,55 +95,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7616715369418642798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 475913327282872337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_Priority: 0
-  m_ComponentVersion: 3
-  m_HasRenderer: 0
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_AlphaCutoff: 0.1
-  m_ApplyToSortingLayers: 0000000073213335c5c427239338d3cfe3bf271bbd926ea1
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  m_ShapePathHash: 0
-  m_InstanceId: 0
-  m_ShadowShape2DComponent: {fileID: 4653342370798119014}
-  m_ShadowShape2DProvider:
-    rid: 130804052386119680
-  m_ShadowCastingSource: 2
-  m_ShadowMesh:
-    m_Mesh: {fileID: 0}
-    m_LocalBounds:
-      m_Center: {x: 0, y: -1, z: 0}
-      m_Extent: {x: 2.5, y: 0.5, z: 0}
-    m_EdgeProcessing: 1
-    m_TrimEdge: 0
-    m_FlipX: 0
-    m_FlipY: 0
-    m_InitialTrim: 0
-  m_CastingOption: 1
-  references:
-    version: 2
-    RefIds:
-    - rid: 130804052386119680
-      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
-      data: 
 --- !u!1 &2470662952147776490
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +386,10 @@ MonoBehaviour:
   interactSound: {fileID: 11400000, guid: 3bb10801436d39e4f8b371525abc933d, type: 2}
   lockedSound: {fileID: 11400000, guid: 6617773c6de026f4aa0933cbb406b7af, type: 2}
   poweredOffSound: {fileID: 11400000, guid: 5b238b0c78925e64f98528e0af729784, type: 2}
+  addsSummaryOnFail: 0
+  finishSummaryOnOpen: 0
+  failSummaryEntry: {fileID: 0}
+  openSummaryEntry: {fileID: 0}
 --- !u!95 &6101478518748970037
 Animator:
   serializedVersion: 7
