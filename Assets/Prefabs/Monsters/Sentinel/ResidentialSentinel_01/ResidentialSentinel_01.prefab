@@ -724,4 +724,4 @@ MonoBehaviour:
   intensity: 0.2
   defaultColor: {r: 0.96862745, g: 0.95686275, b: 1, a: 1}
   alertColor: {r: 1, g: 0.7311321, b: 0.74549913, a: 1}
-  debug: 1
+  debug: 0

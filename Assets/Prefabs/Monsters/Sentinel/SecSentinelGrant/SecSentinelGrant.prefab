@@ -441,9 +441,9 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 256
-  viewRadius: 12
-  viewAngle: 37
-  lookAngle: 98
+  viewRadius: 11.3
+  viewAngle: 30
+  lookAngle: 46.39802
   deactivateDelay: 0.5
   startActive: 0
   detectSound: {fileID: 11400000, guid: 3e58a5000fec3bd4e882873694e3d6a8, type: 2}
@@ -451,7 +451,6 @@ MonoBehaviour:
   defaultColor: {r: 0.96862745, g: 0.95686275, b: 1, a: 1}
   alertColor: {r: 1, g: 0.7311321, b: 0.74549913, a: 1}
   debug: 0
-  sightVisualPrefab: {fileID: 4193361830035308745, guid: 37fb5c7461e5e054ab92ca386464fbcc, type: 3}
 --- !u!1 &3479809132467266767
 GameObject:
   m_ObjectHideFlags: 0
