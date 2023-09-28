@@ -9,10 +9,12 @@ using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.Misc;
+using Runtime.Misc.Objects;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Runtime.InteractionSystem.Objects.UI
 {
@@ -20,7 +22,7 @@ namespace Runtime.InteractionSystem.Objects.UI
     {
         [SerializeField] public Item safeItem;
         [SerializeField] public Sound itemPickupSound;
-        [SerializeField] private Alarm alarm; 
+        [FormerlySerializedAs("alarm")] [SerializeField] private SafeAlarm safeAlarm; 
         
         [SerializeField] public string safeCode;
         [SerializeField] private Sound interactSound;
@@ -80,7 +82,7 @@ namespace Runtime.InteractionSystem.Objects.UI
         public void TriggerAlarm()
         {
             GameManager.Instance.SoundSystem.Play(safeFailSound);
-            alarm.Trigger();
+            safeAlarm.Trigger();
         }
 
         private void DisableInteraction()

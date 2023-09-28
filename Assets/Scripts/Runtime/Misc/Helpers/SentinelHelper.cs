@@ -47,7 +47,7 @@ namespace Runtime.Misc.Helpers
         {
             if (game.monsterData["VoidMask"].addedInitialSentinels)
             {
-                AddSentinels();
+                behaviourTreeOwner.AddSentinels(sentinels);
             }
             
             return persistentID;

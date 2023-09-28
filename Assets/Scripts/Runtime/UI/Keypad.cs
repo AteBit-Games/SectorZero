@@ -36,18 +36,21 @@ namespace Runtime.UI
     {
         //References
         public Sound keyPressSound;
-        public Sound keyPressErrorSound;
         public Sound keyPadSuccessSound;
         public Sound keyPadErrorSound;
+        public Sound keyClearSound;
         
         public KeypadState keypadSuccessState;
         public KeypadState keypadErrorState;
         public List<Key> keysList;
+        public Key resetKey;
+        public List<Sprite> stateSprites;
         
         //UI
         private List<KeypadKey> _keys = new();
         private VisualElement _errorIcon;
         private VisualElement _successIcon;
+        private VisualElement _keypadState;
         
         //References
         private int _keyPadInputLength;
@@ -65,7 +68,7 @@ namespace Runtime.UI
                 var keyRef = _keys[i];
                 uiKey.RegisterCallback<ClickEvent>(_ =>
                 {
-                    AddKeyToInput(keyRef.Click(_keyPadInputLength == 4));
+                    AddKeyToInput(keyRef.Click());
                     if(_keyPadInputLength == 4)
                     {
                         if (_activeSafe == null) return;
@@ -76,7 +79,7 @@ namespace Runtime.UI
                             GameManager.Instance.SoundSystem.Play(keyPadSuccessSound);
                             StartCoroutine(SuccessState());
                         }
-                        else ClearKeyPadInput();
+                        else ClearKeyPadInput(true);
                         
                         if(_currentAttempt == 3)
                         {
@@ -90,15 +93,17 @@ namespace Runtime.UI
             
             _errorIcon = keypad.Q<VisualElement>("keypad-error");
             _successIcon = keypad.Q<VisualElement>("keypad-success");
+            _keypadState = keypad.Q<VisualElement>("keypad-state");
             
-            var enterKey = keypad.Q<VisualElement>("key-submit");
-            var enterKeyRef = keysList[10];
-            _keys.Add(new KeypadKey(enterKeyRef, enterKey, this));
+            var resetKeyUi = keypad.Q<VisualElement>("key-reset");
+            var resetKeyRef = resetKey;
+            _keys.Add(new KeypadKey(resetKeyRef, resetKeyUi, this));    
             
-            enterKey.RegisterCallback<ClickEvent>(_ =>
+            resetKeyUi.RegisterCallback<ClickEvent>(_ =>
             {
                 if (_keyPadInputLength == 4) return;
-                ClearKeyPadInput();
+                _keys[10].Click();
+                ClearKeyPadInput(false);
             });
         }
 
@@ -106,6 +111,7 @@ namespace Runtime.UI
         {
             _activeSafe = safe;
         }
+        
 
         //=============================== Public Functions ===============================//
         
@@ -115,15 +121,23 @@ namespace Runtime.UI
             {
                 _keyPadInput += key;
                 _keyPadInputLength++;
+                
+                UpdateKeyPadState(_keyPadInputLength);
             }
         }
-   
-        private void ClearKeyPadInput()
+
+        private void UpdateKeyPadState(int keyPadInputLength)
+        {
+            _keypadState.style.backgroundImage = new StyleBackground(stateSprites[keyPadInputLength]);
+        }
+
+        private void ClearKeyPadInput(bool error)
         {
             _keyPadInput = "";
             _keyPadInputLength = 0;
-            GameManager.Instance.SoundSystem.Play(keyPadErrorSound);
-            StartCoroutine(ErrorState());
+            UpdateKeyPadState(_keyPadInputLength);
+            GameManager.Instance.SoundSystem.Play(error ? keyPadErrorSound : keyClearSound);
+            if(error) StartCoroutine(ErrorState());
         }
         
         //=============================== Coroutines ===============================//

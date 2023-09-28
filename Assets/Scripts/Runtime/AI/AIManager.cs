@@ -12,7 +12,6 @@ using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace Runtime.AI
@@ -169,6 +168,20 @@ namespace Runtime.AI
                 SetPatrolState(true);
                 _menaceState = true;
             }
+        }
+        
+        // ============================ Public Methods ============================
+        
+        public void AddSentinels(List<GameObject> sentinels)
+        {
+            if (_monster.monster != Monster.VoidMask) return;
+            _monster.AddSentinels(sentinels);
+        }
+        
+        public void AddRooms(List<Collider2D> rooms)
+        {
+            if (_monster.monster != Monster.VoidMask) return;
+            _monster.AddPatrolRooms(rooms);
         }
         
         // ============================ Private Methods ============================

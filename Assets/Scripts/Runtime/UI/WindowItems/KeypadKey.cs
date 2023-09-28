@@ -24,21 +24,15 @@ namespace Runtime.UI.WindowItems
         {
             _keyRef = key;
             _keyPadRef = keypadRef;
-            
             _key = keypadKeyRef;
+            
             _key.style.backgroundImage = new StyleBackground(key.upIcon);
         }
 
-        public char Click(bool full)
+        public char Click()
         {
             if(_pressCoroutine != null) GameManager.Instance.StopCoroutine(_pressCoroutine);
             _pressCoroutine = _keyPadRef.StartCoroutine(Press());
-            
-            if(full)
-            {
-                GameManager.Instance.SoundSystem.Play(_keyPadRef.keyPressErrorSound);
-                return '\0';
-            }
 
             GameManager.Instance.SoundSystem.Play(_keyPadRef.keyPressSound);
             return _keyRef.value;

@@ -71,6 +71,8 @@ namespace Runtime.AI
         
         public void OnHearing(NoiseEmitter sender)
         {
+            Debug.Log("Heard " + sender.name);
+            
             if (!_canSeePlayer && !_treeOwner.StateOverride())
             {
                 _treeOwner.SetHeard(sender.transform.position);

@@ -67,7 +67,10 @@ namespace Runtime.BehaviourTree
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
         
         [SerializeField] private List<GameObject> initialSentinels;
+        [SerializeField] private List<Collider2D> initialPatrolRooms;
+        
         private BlackboardKey<List<GameObject>> _sentinelsReference;
+        private BlackboardKey<List<Collider2D>> _patrolRoomsReference;
         
         private void Awake() 
         {
@@ -94,7 +97,10 @@ namespace Runtime.BehaviourTree
             _animator = GetComponent<Animator>();
             
             _sentinelsReference = FindBlackboardKey<List<GameObject>>("Sentinels");
-            _sentinelsReference.value = initialSentinels;
+            _patrolRoomsReference = FindBlackboardKey<List<Collider2D>>("Rooms");
+            
+            AddPatrolRooms(initialPatrolRooms);
+            AddSentinels(initialSentinels);
         }
         
         public void SetActiveState(int state)
@@ -219,12 +225,26 @@ namespace Runtime.BehaviourTree
         
         public void AddSentinels(List<GameObject> newSentinels)
         {
+            Debug.Log("Adding sentinels");
+            
             var sentinels = _sentinelsReference.value;
             foreach (var sentinel in newSentinels.Where(sentinel => !sentinels.Contains(sentinel)))
             {
                 sentinels.Add(sentinel);
             }
             _sentinelsReference.value = sentinels;
+        }
+        
+        public void AddPatrolRooms(List<Collider2D> newRooms)
+        {
+            Debug.Log("Adding patrol rooms");
+            
+            var rooms = _patrolRoomsReference.value;
+            foreach (var room in newRooms.Where(room => !rooms.Contains(room)))
+            {
+                rooms.Add(room);
+            }
+            _patrolRoomsReference.value = rooms;
         }
         
         // ====================== Save System ======================

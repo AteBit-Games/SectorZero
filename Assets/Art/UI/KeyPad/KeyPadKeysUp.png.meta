@@ -299,7 +299,7 @@ TextureImporter:
       name: KeyPadKeysNew1_9
       rect:
         serializedVersion: 2
-        x: 61
+        x: 25
         y: 25
         width: 26
         height: 26
@@ -320,9 +320,9 @@ TextureImporter:
       name: KeyPadKeysNew1_10
       rect:
         serializedVersion: 2
-        x: 97
+        x: 61
         y: 25
-        width: 26
+        width: 62
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

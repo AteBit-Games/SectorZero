@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: CafeteriaSentinal_01
     originalName: 
-    pivot: {x: 0.5217391, y: -0.050000004}
+    pivot: {x: 0.2524272, y: -0.02}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 103
-      width: 69
-      height: 40
+      y: 109
+      width: 103
+      height: 50
     spriteID: 0ea6099f2151d874bba224963705edaf
     spriteBone: []
     spriteOutline: []
@@ -138,18 +138,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 103}
+    uvTransform: {x: 4, y: 109}
   - name: CafeteriaSentinal_01_Frame_1
     originalName: 
-    pivot: {x: 0.5217391, y: -0.050000004}
+    pivot: {x: 0.2524272, y: -0.02}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 151
-      width: 69
-      height: 40
+      y: 167
+      width: 103
+      height: 50
     spriteID: 640c57ff27a89a74eafcb00c9f1434d2
     spriteBone: []
     spriteOutline: []
@@ -158,18 +158,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 151}
+    uvTransform: {x: 4, y: 167}
   - name: CafeteriaSentinal_01_Frame_2
     originalName: 
-    pivot: {x: 0.5217391, y: -0.048780486}
+    pivot: {x: 0.2524272, y: -0.02}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 54
-      width: 69
-      height: 41
+      x: 115
+      y: 4
+      width: 103
+      height: 50
     spriteID: 5619b875e750a4944b3fcecda36ac702
     spriteBone: []
     spriteOutline: []
@@ -178,18 +178,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 54}
+    uvTransform: {x: 115, y: 4}
   - name: CafeteriaSentinal_01_Frame_3
     originalName: 
-    pivot: {x: 0.5217391, y: -0.047619052}
+    pivot: {x: 0.2524272, y: 0.46391752}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 69
-      height: 42
+      width: 103
+      height: 97
     spriteID: b5e9b12442c27fa4e9a5727d2437bf11
     spriteBone: []
     spriteOutline: []
@@ -211,38 +211,38 @@ ScriptedImporter:
     - name: CafeteriaSentinal_01_Frame_0
       frameIndex: 0
       cellRect:
-        x: 4
-        y: 2
-        width: 69
-        height: 40
+        x: 6
+        y: 1
+        width: 103
+        height: 50
       spriteId: 0ea6099f2151d874bba224963705edaf
     - name: CafeteriaSentinal_01_Frame_1
       frameIndex: 1
       cellRect:
-        x: 4
-        y: 2
-        width: 69
-        height: 40
+        x: 6
+        y: 1
+        width: 103
+        height: 50
       spriteId: 640c57ff27a89a74eafcb00c9f1434d2
     - name: CafeteriaSentinal_01_Frame_2
       frameIndex: 2
       cellRect:
-        x: 4
-        y: 2
-        width: 69
-        height: 41
+        x: 6
+        y: 1
+        width: 103
+        height: 50
       spriteId: 5619b875e750a4944b3fcecda36ac702
     - name: CafeteriaSentinal_01_Frame_3
       frameIndex: 3
       cellRect:
-        x: 4
-        y: 2
-        width: 69
-        height: 42
+        x: 6
+        y: -45
+        width: 103
+        height: 97
       spriteId: b5e9b12442c27fa4e9a5727d2437bf11
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 80, y: 48}
+  canvasSize: {x: 64, y: 64}
