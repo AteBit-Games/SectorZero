@@ -227,12 +227,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d93f921c87b4c209d2e10b240903ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persistentID: 
-  fuse: {fileID: 0}
+  persistentID: f19544b2-b45d-40c3-9f07-736d1dc5481f
+  fuse: {fileID: 11400000, guid: 1d9c5dd9332daa2469dbecd307d52283, type: 2}
   startWithFuse: 0
+  summaryEntry: {fileID: 11400000, guid: 7fd01acebe7e7d048a795a4a8a533f0c, type: 2}
   humSound: {fileID: 11400000, guid: 82f46bedb56c51a4d88c5b4f5b64a0b8, type: 2}
-  noFuseSound: {fileID: 0}
-  addFuseSound: {fileID: 0}
+  noFuseSound: {fileID: 11400000, guid: 8d80047831119064682dd04eb074cd08, type: 2}
+  addFuseSound: {fileID: 11400000, guid: 4a54d4916ef082c4ba7fadd445082399, type: 2}
   offSound: {fileID: 11400000, guid: 3054be9e93367d24586b2b5a8cac342d, type: 2}
   onSound: {fileID: 11400000, guid: 3fbf79167f966484ea5db539231872fd, type: 2}
   connectedObjects:
@@ -242,15 +243,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  startPowered: 1
+  startPowered: 0
 --- !u!61 &8362004098614943770
 BoxCollider2D:
   m_ObjectHideFlags: 0
