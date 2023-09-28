@@ -17,7 +17,7 @@ using Random = UnityEngine.Random;
 
 namespace Runtime.BehaviourTree 
 {
-    public enum State
+    public enum MonsterState
     {
         Idle,
         Patrol,
@@ -30,7 +30,7 @@ namespace Runtime.BehaviourTree
     [Serializable]
     public class TreeState
     {
-        public State state;
+        [FormerlySerializedAs("state")] public MonsterState monsterState;
         public int stateIndex;
     }
     
@@ -55,7 +55,7 @@ namespace Runtime.BehaviourTree
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private List<Sound> footstepSounds;
         
-        private State _currentState = State.Patrol;
+        private MonsterState _currentMonsterState = MonsterState.Patrol;
         private Context _context;
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
@@ -134,18 +134,16 @@ namespace Runtime.BehaviourTree
         public void SetHeard(Vector2 position)
         {
             _inspectLocationReference.value = position;
-            SetState(State.InspectPoint);
+            SetState(MonsterState.InspectPoint);
         }
 
-        public void SetState(State state)
+        public void SetState(MonsterState monsterState)
         {
-            
-            
-            if(treeStates.Find(x => x.state == state) == null) Debug.LogError( state + " state not found");
+            if(treeStates.Find(x => x.monsterState == monsterState) == null) Debug.LogError( monsterState + " state not found");
             else
             {
-                _currentState = state;
-                SetActiveState(treeStates.Find(x => x.state == state).stateIndex);
+                _currentMonsterState = monsterState;
+                SetActiveState(treeStates.Find(x => x.monsterState == monsterState).stateIndex);
             }
         }
 
@@ -165,7 +163,7 @@ namespace Runtime.BehaviourTree
 
         public bool DidSeeEnter()
         {
-            return _stateReference.value == treeStates.Find(x => x.state == State.AggroInspect).stateIndex;
+            return _stateReference.value == treeStates.Find(x => x.monsterState == MonsterState.AggroInspect).stateIndex;
         }
         
         public void SetLastKnownPosition(Vector2 position)
@@ -220,13 +218,11 @@ namespace Runtime.BehaviourTree
 
         public bool StateOverride()
         {
-            return _currentState is State.AggroInspect or State.AggroChase or State.Idle;
+            return _currentMonsterState is MonsterState.AggroInspect or MonsterState.AggroChase or MonsterState.Idle;
         }
         
         public void AddSentinels(List<GameObject> newSentinels)
         {
-            Debug.Log("Adding sentinels");
-            
             var sentinels = _sentinelsReference.value;
             foreach (var sentinel in newSentinels.Where(sentinel => !sentinels.Contains(sentinel)))
             {
@@ -237,8 +233,6 @@ namespace Runtime.BehaviourTree
         
         public void AddPatrolRooms(List<Collider2D> newRooms)
         {
-            Debug.Log("Adding patrol rooms");
-            
             var rooms = _patrolRoomsReference.value;
             foreach (var room in newRooms.Where(room => !rooms.Contains(room)))
             {

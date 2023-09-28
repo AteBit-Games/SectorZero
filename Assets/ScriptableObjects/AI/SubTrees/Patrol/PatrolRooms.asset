@@ -21,6 +21,7 @@ MonoBehaviour:
   - rid: 130803868398780421
   - rid: 130803868398780422
   - rid: 130803893468135437
+  - rid: 4809529486358609939
   treeState: 1
   blackboard:
     keys:
@@ -31,8 +32,8 @@ MonoBehaviour:
     - rid: 130803864545001475
     - rid: 130803864545001498
     - rid: 130803864545001501
-  viewPosition: {x: 970, y: 121, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+  viewPosition: {x: 542, y: 2, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -112,13 +113,14 @@ MonoBehaviour:
         children:
         - rid: 130803868398780420
         - rid: 130803868398780421
+        - rid: 4809529486358609939
     - rid: 130803868398780420
       type: {class: SelectRoom, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 016b54e4cc4b73149bb5e5f8e4df7426
-        position: {x: -340, y: 380}
+        position: {x: -420, y: 380}
         blackboard:
           keys: []
         comment: Select a room in the candidate passed down from the parent tree.
@@ -142,7 +144,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 1743dc889417bdd4095c881f543d57df
-        position: {x: -140, y: 380}
+        position: {x: -240, y: 380}
         blackboard:
           keys: []
         comment: Selects a random point in the room to move to, the Origin Chance
@@ -249,3 +251,18 @@ MonoBehaviour:
         name: LostPlayer
         typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 0
+    - rid: 4809529486358609939
+      type: {class: ValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 98b86e1cf2f41d746ba1fb1a597067ea
+        position: {x: -80, y: 380}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        positionToCheck:
+          reference:
+            rid: 130803864545001491
+          defaultValue: {x: 0, y: 0}

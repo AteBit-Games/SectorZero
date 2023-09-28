@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8867f8660bed496a936c9d5953af8a6a, type: 3}
   m_Name: SecurityCode
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
-  itemSprite: {fileID: 0}
-  itemType: 0
-  itemDescription: 
+  itemRef: Code
+  itemName: Damaged Keycard
+  itemSprite: {fileID: 21300000, guid: a16e941cb5649cb4c9c1049c55f70463, type: 3}
+  itemDescription: This keycard won't work on any door but it has some sort of code
+    etched into it

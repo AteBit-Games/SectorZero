@@ -240,7 +240,7 @@ namespace Runtime.AI
                 _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue + (_menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
                 
                 _roomKey.value = room;
-                _monster.SetState(State.SentinelAlert);
+                _monster.SetState(MonsterState.SentinelAlert);
             }
             else Activate();
         }

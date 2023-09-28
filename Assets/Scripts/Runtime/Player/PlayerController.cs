@@ -176,7 +176,7 @@ namespace Runtime.Player
             if (IsSeen)
             {
                 _seenEnter.value = true;
-                _monster.SetState(State.AggroInspect);
+                _monster.SetState(MonsterState.AggroInspect);
             }
             
             //Start the hiding coroutine
@@ -196,7 +196,7 @@ namespace Runtime.Player
 
             if (_seenEnter.value)
             {
-                _monster.SetState(State.AggroChase);
+                _monster.SetState(MonsterState.AggroChase);
             }
             
             _audioLowPassFilter.enabled = false;

@@ -85,8 +85,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: -81, y: -197, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: 1494, y: -491, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -110,7 +110,7 @@ MonoBehaviour:
       data:
         name: ActiveState
         typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 0
+        value: 1
     - rid: 61114352745054247
       type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -213,7 +213,6 @@ MonoBehaviour:
         comment: <b>Patrol </b>
         drawGizmos: 0
         children:
-        - rid: 130803868398780424
         - rid: 130803868398780428
     - rid: 130803868398780424
       type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}

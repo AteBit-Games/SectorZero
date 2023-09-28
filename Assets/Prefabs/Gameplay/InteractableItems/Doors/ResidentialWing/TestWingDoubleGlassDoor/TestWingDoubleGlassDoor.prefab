@@ -432,8 +432,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4372992860272108650}
   - component: {fileID: 7782209938358837811}
-  - component: {fileID: 4352360996866598742}
   - component: {fileID: 4909400488187721270}
+  - component: {fileID: 858806132726068325}
   - component: {fileID: 1723638626035943566}
   - component: {fileID: 8351391267005955344}
   - component: {fileID: 5859566213234076016}
@@ -512,29 +512,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4352360996866598742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7280897996466566718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97d20150da546e6b65743b158ae4348, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openSound: {fileID: 11400000, guid: 1eef30045895d244db5ad50821af61fe, type: 2}
-  closeSound: {fileID: 11400000, guid: 733e4738d3f84dc41ad344145ad0ea42, type: 2}
-  navMeshSurface: {fileID: 0}
-  navigationBlocker: {fileID: 1028587235810696984}
-  startOpen: 0
-  persistentID: dc0255a2-48f9-4923-a3b6-a94810c4bbd7
-  key: {fileID: 11400000, guid: 4e63880d8ab2e154ca4cb8e6614dcc8b, type: 2}
-  destroyKeyOnUse: 0
-  interactSound: {fileID: 11400000, guid: 3bb10801436d39e4f8b371525abc933d, type: 2}
-  lockedSound: {fileID: 11400000, guid: 6617773c6de026f4aa0933cbb406b7af, type: 2}
-  poweredOffSound: {fileID: 11400000, guid: 5b238b0c78925e64f98528e0af729784, type: 2}
 --- !u!95 &4909400488187721270
 Animator:
   serializedVersion: 7
@@ -557,6 +534,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &858806132726068325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280897996466566718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d209a63365fb4ff6a09591fc10539962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openSound: {fileID: 11400000, guid: 1eef30045895d244db5ad50821af61fe, type: 2}
+  closeSound: {fileID: 11400000, guid: 94f8286b2041c774db147546c0a449ad, type: 2}
+  navMeshSurface: {fileID: 0}
+  navigationBlocker: {fileID: 5859566213234076016}
+  startOpen: 0
+  persistentID: d606e469-80e2-4bb7-9ddb-d29422cf8344
+  key: {fileID: 11400000, guid: 4e63880d8ab2e154ca4cb8e6614dcc8b, type: 2}
+  destroyKeyOnUse: 0
+  interactSound: {fileID: 11400000, guid: 3bb10801436d39e4f8b371525abc933d, type: 2}
+  lockedSound: {fileID: 11400000, guid: 6617773c6de026f4aa0933cbb406b7af, type: 2}
+  roomsToAdd:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  sentinels:
+  - {fileID: 0}
 --- !u!82 &1723638626035943566
 AudioSource:
   m_ObjectHideFlags: 0

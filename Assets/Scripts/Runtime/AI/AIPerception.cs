@@ -119,7 +119,7 @@ namespace Runtime.AI
             }
 
             GameManager.Instance.SoundSystem.PlaySting(detectedSound);
-            _treeOwner.SetState(State.AggroChase);
+            _treeOwner.SetState(MonsterState.AggroChase);
             _canSeePlayer = true;
             
             OnSightEnterAction?.Invoke();
@@ -181,7 +181,7 @@ namespace Runtime.AI
                 }).SetFrom(aberration.intensity.value).SetEaseSineInOut();
             }
 
-            _treeOwner.SetState(State.Idle);
+            _treeOwner.SetState(MonsterState.Idle);
             
             _loseSightCoroutine = null;
             _looseSightCoroutineRunning = false;

@@ -24,32 +24,14 @@ AnimatorStateMachine:
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -1876874039617915746}
-  m_EntryTransitions:
-  - {fileID: -6206815692919870070}
+  m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 430, y: 400, z: 0}
-  m_EntryPosition: {x: -130, y: 200, z: 0}
+  m_EntryPosition: {x: -150, y: 140, z: 0}
   m_ExitPosition: {x: 790, y: 150, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 7987779733835673754}
---- !u!1109 &-6206815692919870070
-AnimatorTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: isOpen
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 7774560826225695649}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 1
 --- !u!1102 &-5139806094433399533
 AnimatorState:
   serializedVersion: 6
@@ -137,13 +119,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: open
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

@@ -22,6 +22,7 @@ MonoBehaviour:
   - rid: 130803868398780416
   - rid: 130803868398780417
   - rid: 130803868398780418
+  - rid: 4809529486358609937
   treeState: 1
   blackboard:
     keys:
@@ -30,8 +31,8 @@ MonoBehaviour:
     - rid: 130803864545001491
     - rid: 130803864545001475
     - rid: 130803893468135442
-  viewPosition: {x: 954, y: 50, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+  viewPosition: {x: 573, y: -54, z: 0}
+  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
   references:
     version: 2
     RefIds:
@@ -115,7 +116,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 30fac5aa93dd0744db6d1ae4a2b96ba9
-        position: {x: -360, y: 360}
+        position: {x: -540, y: 360}
         blackboard:
           keys: []
         comment: 'Move to the selected point
@@ -224,8 +225,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 130803864545001535
-        - rid: 130803864545001523
-        - rid: 130803864545001538
+        - rid: 4809529486358609937
     - rid: 130803871365464068
       type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -258,3 +258,18 @@ MonoBehaviour:
         name: LostPlayer
         typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 0
+    - rid: 4809529486358609937
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 45d2efb6adfac1e438cb1170883099e3
+        position: {x: -360, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
+          reference:
+            rid: -2
+          defaultValue: 0
