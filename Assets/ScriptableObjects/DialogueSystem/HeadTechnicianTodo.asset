@@ -16,6 +16,10 @@ MonoBehaviour:
   dialogueLines:
   - actor: {fileID: 11400000, guid: 864db4242d547024abb77b847f7fe900, type: 2}
     line: dwadwadawd
+  - actor: {fileID: 11400000, guid: 864db4242d547024abb77b847f7fe900, type: 2}
+    line: dwadwadawd
+  - actor: {fileID: 11400000, guid: 864db4242d547024abb77b847f7fe900, type: 2}
+    line: dwadwadawd
   canSkip: 1
   autoSkipDelay: 2
   trigger: 0
