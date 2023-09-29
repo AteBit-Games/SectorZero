@@ -29,7 +29,7 @@ namespace Runtime.AI
 
         public Action activateEvents;
 
-        private BehaviourTreeOwner _monster;
+        private VoidMask _monster;
         private AIPerception _perception;
         private PlayerController _player;
         
@@ -249,7 +249,7 @@ namespace Runtime.AI
         private void InitializeReferences()
         {
             _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
-            _monster = FindFirstObjectByType<BehaviourTreeOwner>(FindObjectsInactive.Include);
+            _monster = FindFirstObjectByType<VoidMask>(FindObjectsInactive.Include);
             _perception = _monster.gameObject.transform.parent.GetComponentInChildren<AIPerception>();
             
             _patrolStateKey = _monster.FindBlackboardKey<bool>("PatrolState");

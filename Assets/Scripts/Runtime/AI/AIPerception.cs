@@ -68,11 +68,25 @@ namespace Runtime.AI
         
         public void OnHearing(NoiseEmitter sender)
         {
-            Debug.Log("Heard " + sender.name);
-            
-            if (!_canSeePlayer && !treeOwner.StateOverride())
+            if (!_canSeePlayer)
             {
-                treeOwner.SetHeard(sender.transform.position);
+                switch (treeOwner)
+                {
+                    case Vincent vincent:
+                    {
+                        Debug.Log("Heard");
+                        vincent.SetHeard(sender.transform.position);
+                        break;
+                    }
+                    case VoidMask voidMask:
+                    {
+                        if(!voidMask.StateOverride())
+                        {
+                            voidMask.SetHeard(sender.transform.position);
+                        }
+                        break;
+                    }
+                }
             }
         }
 
@@ -179,7 +193,6 @@ namespace Runtime.AI
             }
 
             treeOwner.SetState(MonsterState.Idle);
-            
             _loseSightCoroutine = null;
             _looseSightCoroutineRunning = false;
             _canSeePlayer = false;
@@ -247,7 +260,6 @@ namespace Runtime.AI
                             }
                         }
                     }
-                    else OnSightExit(player.transform.position);
                 }
             }
             else OnSightExit(player.transform.position);

@@ -5,7 +5,6 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using Runtime.BehaviourTree;
 using Runtime.BehaviourTree.Monsters;
 using Runtime.Managers;
 using Runtime.SaveSystem;
@@ -18,13 +17,13 @@ namespace Runtime.Misc.Helpers
     {
         [SerializeField] public string persistentID;
         [SerializeField] private List<GameObject> sentinels;
-        [SerializeField] private BehaviourTreeOwner behaviourTreeOwner;
+        [SerializeField] private VoidMask voidMask;
 
         private bool _hasAdded;
 
         private void Start()
         {
-            Debug.Assert(behaviourTreeOwner != null, "behaviourTreeOwner != null");
+            Debug.Assert(voidMask != null, "behaviourTreeOwner != null");
             Debug.Assert(sentinels.Count > 0, "sentinels.Count > 0");
             
             GameManager.Instance.AIManager.activateEvents += AddSentinels;
@@ -44,7 +43,7 @@ namespace Runtime.Misc.Helpers
         private IEnumerator AddSentinelsRoutine()
         {
             yield return new WaitForSeconds(30f);
-            behaviourTreeOwner.AddSentinels(sentinels);
+            voidMask.AddSentinels(sentinels);
         }
 
         // ============================ Save System ============================
@@ -53,7 +52,7 @@ namespace Runtime.Misc.Helpers
         {
             if (game.monsterData["VoidMask"].addedInitialSentinels)
             {
-                behaviourTreeOwner.AddSentinels(sentinels);
+                voidMask.AddSentinels(sentinels);
             }
             
             return persistentID;

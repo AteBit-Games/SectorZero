@@ -98,6 +98,7 @@ namespace Runtime.InteractionSystem.Objects.TutorialObjects
                 if (game.worldData.doors[persistentID])
                 {
                     _mainAnimator.SetTrigger(Open);
+                    _mainAnimator.SetBool(_isOpen, true);
                 }
             }
             

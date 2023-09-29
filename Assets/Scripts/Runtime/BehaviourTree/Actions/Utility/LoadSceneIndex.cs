@@ -14,7 +14,7 @@ namespace Runtime.BehaviourTree.Actions.Utility
 
         protected override void OnStart()
         {
-            SceneManager.LoadScene(sceneIndex.Value);
+            GameManager.Instance.LoadScene(sceneIndex.Value);
         }
     
         protected override void OnStop() { }

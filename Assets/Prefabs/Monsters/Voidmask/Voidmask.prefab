@@ -301,7 +301,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: 1c87f95cd256652448a8bac810860ba8, type: 2}
-  monster: 0
   blackboardOverrides:
   - key:
       rid: 61114352745054250
@@ -334,8 +333,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bda294c36115e4e46afb53ea2f475146, type: 2}
   - {fileID: 11400000, guid: c9ba80b5115d9804ebe442e3082d1808, type: 2}
   - {fileID: 11400000, guid: 6366ac5a42c71404f9b4505e8843cfb2, type: 2}
-  initialSentinels: []
-  initialPatrolRooms: []
   references:
     version: 2
     RefIds:

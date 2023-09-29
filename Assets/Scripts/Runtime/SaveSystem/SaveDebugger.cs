@@ -10,7 +10,7 @@ namespace Runtime.SaveSystem
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.P ) && !_isTriggered && GameManager.Instance.TestMode)
+            if (Input.GetKeyDown(KeyCode.P) && !_isTriggered)
             {
                 GameManager.Instance.SaveSystem.SaveGame();
                 _isTriggered = true;

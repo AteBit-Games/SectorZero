@@ -16,10 +16,12 @@ namespace Runtime.Managers.Tutorial
     [DefaultExecutionOrder(6)]
     public class TutorialManager : MonoBehaviour
     {
-        [FormerlySerializedAs("cinematicManager")] public TutorialCinematicManager tutorialCinematicManager;
+        public TutorialCinematicManager tutorialCinematicManager;
+        public static TutorialCinematicManager GetCinematicManager() => Instance.tutorialCinematicManager;
+        
         public List<Dialogue> tutorialDialogue;
 
-        private Dictionary <string, UnityEvent[]> eventDictionary;
+        private Dictionary <string, UnityEvent[]> _eventDictionary;
         private static TutorialManager _tutorialManager;
 
         //============================== Unity Events ==============================//
@@ -69,7 +71,7 @@ namespace Runtime.Managers.Tutorial
 
         public static void StartListening(string eventName, UnityAction listener)
         {
-            if (Instance.eventDictionary.TryGetValue(eventName, out var thisEvent))
+            if (Instance._eventDictionary.TryGetValue(eventName, out var thisEvent))
             {
                 var oldLength = thisEvent.Length;
                 var newLength = oldLength + 1;
@@ -81,21 +83,21 @@ namespace Runtime.Managers.Tutorial
 
                 newEvent[newLength - 1] = new UnityEvent();
                 newEvent[newLength - 1].AddListener(listener);
-                Instance.eventDictionary[eventName] = newEvent;
+                Instance._eventDictionary[eventName] = newEvent;
             } 
             else
             {
                 var newEvent = new UnityEvent[1];
                 newEvent[0] = new UnityEvent();
                 newEvent[0].AddListener(listener);
-                Instance.eventDictionary.Add(eventName, newEvent);
+                Instance._eventDictionary.Add(eventName, newEvent);
             }
         }
 
         public static void StopListening(string eventName, UnityAction listener)
         {
             if(_tutorialManager == null) return;
-            if (Instance.eventDictionary.TryGetValue (eventName, out var thisEvent))
+            if (Instance._eventDictionary.TryGetValue (eventName, out var thisEvent))
             {
                 foreach (var t in thisEvent)
                 {
@@ -106,7 +108,7 @@ namespace Runtime.Managers.Tutorial
 
         public static void TriggerEvent(string eventName)
         {
-            if (Instance.eventDictionary.TryGetValue (eventName, out var thisEvent))
+            if (Instance._eventDictionary.TryGetValue (eventName, out var thisEvent))
             {
                 foreach (var t in thisEvent)
                 {
@@ -119,7 +121,7 @@ namespace Runtime.Managers.Tutorial
         
         private void Init ()
         {
-            eventDictionary ??= new Dictionary<string, UnityEvent[]>();
+            _eventDictionary ??= new Dictionary<string, UnityEvent[]>();
         }
         
         //============================== Stage Triggers ==============================//
@@ -144,7 +146,7 @@ namespace Runtime.Managers.Tutorial
             GameManager.Instance.DialogueSystem.StartDialogue(tutorialDialogue[index]);
         }
 
-        public void TriggerTutorialEnd()
+        public static void TriggerTutorialEnd()
         {
             GameManager.Instance.SaveSystem.SetNellieState(2);
             GameManager.Instance.LoadScene(2);
