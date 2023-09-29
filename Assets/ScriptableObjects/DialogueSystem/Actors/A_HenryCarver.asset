@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: A_HenryCarver
   m_EditorClassIdentifier: 
   name: Dr. Henry Carver
-  sprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
+  sprite: {fileID: 21300000, guid: 68eabefaf1465b94896668f261f6c00e, type: 3}
   actorSounds:
   - {fileID: 8300000, guid: f669ea07a32cfb84e8ad6c1539e3c2b4, type: 3}
   frequency: 3
