@@ -34,7 +34,7 @@ namespace Runtime.AI
         private PlayerController _player;
         
         //------- Menace Gauge -------//
-        private float _menaceGaugeValue = 45f;
+        private float _menaceGaugeValue = 60f;
         private bool _menaceState;
         private NavMeshPath _path;
 
@@ -178,6 +178,16 @@ namespace Runtime.AI
         public void AddRooms(List<Collider2D> rooms)
         {
             _monster.AddPatrolRooms(rooms);
+        }
+        
+        public void StartNewGame()
+        {
+            _menaceGaugeValue = 60f;
+            _menaceState = false;
+            _lastSeenPlayerTime = Time.time;
+            AggroLevel = 0;
+            _active = false;
+            _menaceState = false;
         }
         
         // ============================ Private Methods ============================

@@ -34,10 +34,8 @@ MonoBehaviour:
   - rid: 130803886202814478
   - rid: 130803886202814479
   - rid: 130803886202814480
-  - rid: 130803886202814482
   - rid: 130803893069414402
   - rid: 130803893468135429
-  - rid: 130803893468135433
   - rid: 130803893468135444
   - rid: 130803893468135445
   - rid: 130803895344037890
@@ -47,7 +45,6 @@ MonoBehaviour:
   - rid: 130803909263360000
   - rid: 130803909263360003
   - rid: 130803909263360004
-  - rid: 130803909263360012
   - rid: 130803909263360014
   - rid: 130803909263360020
   - rid: 130803909263360028
@@ -66,7 +63,10 @@ MonoBehaviour:
   - rid: 130804122505707526
   - rid: 130804122505707527
   - rid: 130804122505707528
-  - rid: 130804122505707531
+  - rid: 4809529514812243972
+  - rid: 4809529514812243973
+  - rid: 4809529514812243974
+  - rid: 4809529514812243975
   treeState: 0
   blackboard:
     keys:
@@ -85,8 +85,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: 967, y: -29, z: 0}
-  viewScale: {x: 0.375937, y: 0.375937, z: 1}
+  viewPosition: {x: 962, y: 400, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
     RefIds:
@@ -550,7 +550,7 @@ MonoBehaviour:
         children:
         - rid: 130803893069414402
         - rid: 130803886202814480
-        - rid: 130803886202814482
+        - rid: 4809529514812243973
     - rid: 130803886202814480
       type: {class: LogMessage, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
       data:
@@ -567,28 +567,6 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: Invalid Room Sent From Sentinel
-    - rid: 130803886202814482
-      type: {class: SetProperty, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: c59f73915a193e34d8a1a7c8a46870a7
-        position: {x: 760, y: 780}
-        blackboard:
-          keys: []
-        comment: Reset the AI to patrol state to not get stuck
-        drawGizmos: 0
-        pair:
-          key:
-            rid: 61114352745054246
-          value:
-            rid: 130803886202814483
-    - rid: 130803886202814483
-      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
-      data:
-        name: 
-        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 1
     - rid: 130803893069414402
       type: {class: CheckValidRoom, ns: Runtime.BehaviourTree.Conditions.GameObject, asm: Assembly-CSharp}
       data:
@@ -619,7 +597,7 @@ MonoBehaviour:
         children:
         - rid: 130803893468135445
         - rid: 130803893468135444
-        - rid: 130803893468135433
+        - rid: 4809529514812243974
     - rid: 130803893468135432
       type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -627,28 +605,6 @@ MonoBehaviour:
         typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
         value: {x: 0, y: 0}
-    - rid: 130803893468135433
-      type: {class: SetProperty, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 4ca04eba7d17d9741ab6bab97f12a954
-        position: {x: 1280, y: 640}
-        blackboard:
-          keys: []
-        comment: After the room has been inspected move go back to patrolling
-        drawGizmos: 0
-        pair:
-          key:
-            rid: 61114352745054246
-          value:
-            rid: 130803893468135434
-    - rid: 130803893468135434
-      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
-      data:
-        name: 
-        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 1
     - rid: 130803893468135444
       type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -792,7 +748,7 @@ MonoBehaviour:
         children:
         - rid: 130803909263360014
         - rid: 130803895344037900
-        - rid: 130803909263360012
+        - rid: 4809529514812243975
     - rid: 130803895344037900
       type: {class: Switch, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -882,28 +838,6 @@ MonoBehaviour:
         drawGizmos: 0
         child:
           rid: 130803909263360003
-    - rid: 130803909263360012
-      type: {class: SetProperty, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 0cd427f4faf47b1409601043fb806524
-        position: {x: 200, y: 500}
-        blackboard:
-          keys: []
-        comment: After inspect go back to patrol if noting was found
-        drawGizmos: 0
-        pair:
-          key:
-            rid: 61114352745054246
-          value:
-            rid: 130803909263360013
-    - rid: 130803909263360013
-      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
-      data:
-        name: 
-        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 1
     - rid: 130803909263360014
       type: {class: Remapper, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
@@ -1362,7 +1296,7 @@ MonoBehaviour:
         - rid: 130804122505707526
         - rid: 130804122505707527
         - rid: 130804122505707528
-        - rid: 130804122505707531
+        - rid: 4809529514812243972
     - rid: 130804122505707525
       type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
       data:
@@ -1431,25 +1365,51 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 2.5
-    - rid: 130804122505707531
-      type: {class: SetProperty, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
+    - rid: 4809529514812243972
+      type: {class: SetCurrentState, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: e2444773a68997242a3ac584bbdf4a51
+        guid: 3acfe879f9613b64bbe702356ef10b90
         position: {x: -2440, y: 640}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
-        pair:
-          key:
-            rid: 61114352745054246
-          value:
-            rid: 130804122505707533
-    - rid: 130804122505707533
-      type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+        newState: 1
+    - rid: 4809529514812243973
+      type: {class: SetCurrentState, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
       data:
-        name: 
-        typeName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        value: 1
+        state: 0
+        started: 0
+        guid: da53dd152cdfb7149965dc4551ce126d
+        position: {x: 780, y: 780}
+        blackboard:
+          keys: []
+        comment: Reset the AI to patrol state to not get stuck
+        drawGizmos: 0
+        newState: 1
+    - rid: 4809529514812243974
+      type: {class: SetCurrentState, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 929e2b9be02c63445805a1daed4c86b2
+        position: {x: 1280, y: 640}
+        blackboard:
+          keys: []
+        comment: After the room has been inspected move go back to patrolling
+        drawGizmos: 0
+        newState: 1
+    - rid: 4809529514812243975
+      type: {class: SetCurrentState, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 4df78487e3d1b9841ae4adf14302a33f
+        position: {x: 180, y: 500}
+        blackboard:
+          keys: []
+        comment: After inspect go back to patrol if noting was found
+        drawGizmos: 0
+        newState: 1

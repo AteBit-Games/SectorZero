@@ -46,7 +46,7 @@ namespace Runtime.SoundSystem
             ambienceSources[0].Play();
             ambienceSources[1].Play();
             
-            if(GameManager.Instance.testMode) StartSounds();
+            if(GameManager.Instance.testMode || SceneManager.GetActiveScene().buildIndex == 0) StartSounds();
         }
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
@@ -142,6 +142,8 @@ namespace Runtime.SoundSystem
         {
             StopAll();
             SilenceAmbience();
+            mainMixer.SetFloat("masterVolume", -80.0f);
+            
             _activeSoundInstanceSources.Clear();
             _activeSoundEntitySources.Clear();
         }
@@ -218,22 +220,22 @@ namespace Runtime.SoundSystem
         
         public void SetMasterVolume(float volume)
         {
-            mainMixer.SetFloat("masterVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
+            mainMixer.SetFloat("masterVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1.4f)) * 20);
         }
 
         public void SetMusicVolume(float volume)
         {
-            mainMixer.SetFloat("ambienceVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
+            mainMixer.SetFloat("ambienceVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1.4f)) * 20);
         }
         
         public void SetVoicesVolume(float volume)
         {
-            mainMixer.SetFloat("voicesVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
+            mainMixer.SetFloat("voicesVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1.4f)) * 20);
         }
 
         public void SetSfxVolume(float volume)
         {
-            mainMixer.SetFloat("sfxVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1f)) * 20);
+            mainMixer.SetFloat("sfxVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1.4f)) * 20);
         }
         
         //========================= Coroutines =========================//

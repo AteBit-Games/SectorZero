@@ -107,11 +107,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d49ac1029ada9d04e811236434d46e2c
-    m_Address: Assets/Scripts/Runtime/InputSystem/IA_Player.inputactions
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7cb4a5f34a37f1d45997d08405addd99
     m_Address: NewPatientsReport
     m_ReadOnly: 0

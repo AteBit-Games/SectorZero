@@ -67,6 +67,7 @@ namespace Runtime.InteractionSystem.Objects
             active = false;
             gameObject.layer = 0;
             _interactionCollider.enabled = false;
+            GameManager.Instance.SaveSystem.SaveGame();
         }
     }
 }

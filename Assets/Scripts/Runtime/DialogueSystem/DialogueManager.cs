@@ -6,8 +6,6 @@
 using System;
 using System.Collections;
 using System.Linq;
-using Runtime.InputSystem;
-using Runtime.InventorySystem;
 using Runtime.Managers;
 using Runtime.Utils;
 using UnityEngine;
@@ -25,7 +23,6 @@ namespace Runtime.DialogueSystem
         //============== Settings ================
         public event Action OnDialogueFinish;
         private AudioSource _audioSource;
-        private InputReader _inputReader;
         
         //================ UI Elements ==================
         private Label _dialogueTextElement;
@@ -43,7 +40,7 @@ namespace Runtime.DialogueSystem
         private int _currentLineIndex;
         private Coroutine _displayLineCoroutine;
         private Coroutine _endDialogueCoroutine;
-        private readonly char[] _sentenceBreakCharacters = { '.', '!', '?' };
+        private readonly char[] _sentenceBreakCharacters = { '.', '!', '?', '"' };
         
         //============================== Unity Events ==============================//
         
@@ -60,17 +57,17 @@ namespace Runtime.DialogueSystem
             
             //Bind Audio Source
             _audioSource = gameObject.GetComponent<AudioSource>();
-            _inputReader = GameManager.Instance.inputReader;
+            GameManager.Instance.inputReader = GameManager.Instance.inputReader;
         }
 
         private void OnEnable()
         {
-            _inputReader.LeftClickEvent += SkipDialogue;
+            GameManager.Instance.inputReader.LeftClickEvent += SkipDialogue;
         }
         
         private void OnDisable()
         {
-            _inputReader.LeftClickEvent -= SkipDialogue;
+            GameManager.Instance.inputReader.LeftClickEvent -= SkipDialogue;
         }
         
         //============================== Dialogue Functions ==============================//

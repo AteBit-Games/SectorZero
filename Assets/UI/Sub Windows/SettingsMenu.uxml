@@ -38,19 +38,19 @@
                     <ui:Label tabindex="-1" text="Audio" display-tooltip-when-elided="true" name="group-heading" style="color: rgb(62, 95, 154);" />
                     <ui:VisualElement name="master-slider" focusable="true" class="slider">
                         <ui:Label tabindex="-1" text="Master" display-tooltip-when-elided="true" name="Label" />
-                        <ui:Slider picking-mode="Ignore" value="0.6" high-value="1" name="slider" />
+                        <ui:Slider picking-mode="Ignore" value="0.6" high-value="1.4" name="slider" />
                     </ui:VisualElement>
                     <ui:VisualElement name="sound-slider" focusable="true" class="slider">
                         <ui:Label tabindex="-1" text="Sounds" display-tooltip-when-elided="true" name="Label" />
-                        <ui:Slider picking-mode="Ignore" value="0.35" high-value="1" name="slider" />
+                        <ui:Slider picking-mode="Ignore" value="0.35" high-value="1.4" name="slider" />
                     </ui:VisualElement>
                     <ui:VisualElement name="music-slider" focusable="true" class="slider">
                         <ui:Label tabindex="-1" text="Ambience" display-tooltip-when-elided="true" name="Label" />
-                        <ui:Slider picking-mode="Ignore" value="0.8" high-value="1" name="slider" />
+                        <ui:Slider picking-mode="Ignore" value="0.8" high-value="1.4" name="slider" />
                     </ui:VisualElement>
                     <ui:VisualElement name="voices-slider" focusable="true" class="slider">
                         <ui:Label tabindex="-1" text="Voices" display-tooltip-when-elided="true" name="Label" />
-                        <ui:Slider picking-mode="Ignore" value="0.8" high-value="1" name="slider" />
+                        <ui:Slider picking-mode="Ignore" value="0.8" high-value="1.4" name="slider" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="settingsGroup" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-bottom: 30px;">

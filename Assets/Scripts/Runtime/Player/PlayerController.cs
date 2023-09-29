@@ -69,7 +69,6 @@ namespace Runtime.Player
         [HideInInspector] public bool isHiding;
         private Coroutine _hideCoroutine;
         private bool _sneakCooldownActive;
-        private InputReader _inputReader;
 
 
        // ============ Animator Hashes ============
@@ -82,20 +81,20 @@ namespace Runtime.Player
 
         private void OnEnable()
         {
-            _inputReader.MoveEvent += HandleMove;
-            _inputReader.SneakEvent += HandleSneak;
+            GameManager.Instance.inputReader.MoveEvent += HandleMove;
+            GameManager.Instance.inputReader.SneakEvent += HandleSneak;
         }
 
         private void OnDisable()
         {
-            _inputReader.MoveEvent -= HandleMove;
-            _inputReader.SneakEvent -= HandleSneak;
+            GameManager.Instance.inputReader.MoveEvent -= HandleMove;
+            GameManager.Instance.inputReader.SneakEvent -= HandleSneak;
         }
 
         private void Awake()
         {
             
-            _inputReader = GameManager.Instance.inputReader;
+            GameManager.Instance.inputReader = GameManager.Instance.inputReader;
             _rb = GetComponent<Rigidbody2D>();
             _movementAnimator = GetComponent<Animator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -166,7 +165,7 @@ namespace Runtime.Player
             
             //Set the player to the hiding position
             _movementAnimator.SetBool(id: _isMoving, false);
-            globalLight.intensity = 0.2f;
+            globalLight.intensity = 0.15f;
             transform.position = position;
             hideable = hidableObject.GetComponent<Collider2D>();
             

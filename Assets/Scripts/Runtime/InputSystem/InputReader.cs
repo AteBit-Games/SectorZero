@@ -73,7 +73,6 @@ namespace Runtime.InputSystem
                 SneakEvent?.Invoke();
             }
         }
-        
 
         public void OnPause(InputAction.CallbackContext context)
         {
@@ -120,6 +119,8 @@ namespace Runtime.InputSystem
 
         public void OnExit(InputAction.CallbackContext context)
         {
+            if(context.phase != InputActionPhase.Performed) return;
+
             switch (context.control.name)
             {
                 case "tab":

@@ -89,7 +89,7 @@ namespace Runtime.InputSystem
                     ""id"": ""55d55829-f199-4d17-8adc-d3c28d805f65"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -340,7 +340,7 @@ namespace Runtime.InputSystem
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -388,7 +388,7 @@ namespace Runtime.InputSystem
                     ""id"": ""ad152547-813e-4e0f-8df4-a010f7f4e435"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
                 },
                 {

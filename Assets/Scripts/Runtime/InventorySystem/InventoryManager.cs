@@ -1,8 +1,9 @@
 /****************************************************************
-* Copyright (c) 2023 AteBit Games
-* All rights reserved.
-****************************************************************/
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
 
+using System;
 using System.Collections.Generic;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
@@ -29,6 +30,7 @@ namespace Runtime.InventorySystem
         [SerializeField] public VisualTreeAsset summaryEntry;
         [SerializeField] public bool isInventoryScreenEnabled;
         [SerializeField] private PlayerInventory playerInventory;
+        [SerializeField] private VisualTreeAsset inventorySlot;
         
         public PlayerInventory PlayerInventory => playerInventory;
         [HideInInspector] public bool isInventoryOpen;
@@ -80,7 +82,7 @@ namespace Runtime.InventorySystem
         private VisualElement _summarySectionListContainer;
         
         //Tracking
-        private ActiveInventory _activeInventory = ActiveInventory.Tapes;
+        private ActiveInventory _activeInventory = ActiveInventory.Items;
         private Tape _activeTape;
         private Note _activeNote;
         
@@ -125,21 +127,43 @@ namespace Runtime.InventorySystem
 
         public override void OpenWindow()
         {
-            GameManager.Instance.SoundSystem.PauseAll();
-            GameManager.Instance.DisableInput();
-            Time.timeScale = 0;
-            UIUtils.ShowUIElement(_inventoryWindow);
             isInventoryOpen = true;
             
+            GameManager.Instance.SoundSystem.PauseAll();
+            GameManager.Instance.DisableInput();
+            
+            Time.timeScale = 0;
+            UIUtils.ShowUIElement(_inventoryWindow);
+            
             RegisterInventoryTapes();
-            RegisterInventoryItems();
+            RegisterInventoryItems(); 
             RegisterInventoryNotes();
             RegisterSummaries();
             
-            _activeInventory = ActiveInventory.Tapes;
-            SwitchToItemsInventory();
+            SwitchToPreviousWindow();
         }
-        
+
+        private void SwitchToPreviousWindow()
+        {
+            switch (_activeInventory)
+            {
+                case ActiveInventory.Items:
+                    SwitchToItemsInventory();
+                    break;
+                case ActiveInventory.Tapes:
+                    SwitchToTapesInventory();
+                    break;
+                case ActiveInventory.Notes:
+                    SwitchToNotesInventory();
+                    break;
+                case ActiveInventory.Summary:
+                    SwitchToSummaries();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
         public override void CloseWindow()
         {
             if (isNoteWindowOpen) return;
@@ -331,14 +355,18 @@ namespace Runtime.InventorySystem
         private void RegisterInventoryItems()
         {
             _itemsInventoryList.Clear();
-            var itemsList = _itemsInventoryListContainer.Query<VisualElement>("inventory-item").ToList();
+            _itemsInventoryListContainer.Clear();
+            
             var index = 0;
-            foreach (var item in itemsList)
+            for(var i = 0; i < 16; i++)
             {
+                var itemInstance = inventorySlot.CloneTree();
+                var item = itemInstance.Q<VisualElement>("inventory-item");
+                
                 _itemsInventoryList.Add(index < playerInventory.itemInventory.Count
                 ? new InventorySlot(playerInventory.itemInventory[index], item)
                 : new InventorySlot(null, item));
-
+                
                 var currentIndex = index;
                 if (index < playerInventory.itemInventory.Count)
                 {
@@ -357,18 +385,23 @@ namespace Runtime.InventorySystem
                         if(_activeItemSlot != _itemsInventoryList[currentIndex]) GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
                     });
                 }
-
+                
                 index++;
+                _itemsInventoryListContainer.Add(item);
             }
         }
 
         private void RegisterInventoryTapes()
         {
             _tapesInventoryList.Clear();
-            var tapesList = _tapesInventoryListContainer.Query<VisualElement>("inventory-tape").ToList();
+            _tapesInventoryListContainer.Clear();
+            
             var index = 0;
-            foreach (var tape in tapesList)
+            for(var i = 0; i < 16; i++)
             {
+                var itemInstance = inventorySlot.CloneTree();
+                var tape = itemInstance.Q<VisualElement>("inventory-item");
+                
                 _tapesInventoryList.Add(index < playerInventory.tapeInventory.Count
                 ? new InventorySlot(playerInventory.tapeInventory[index], tape)
                 : new InventorySlot(null, tape));
@@ -387,18 +420,23 @@ namespace Runtime.InventorySystem
                     });
                     tape.RegisterCallback<MouseEnterEvent>(_ => GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound()));
                 }
-
+                
                 index++;
+                _tapesInventoryListContainer.Add(tape);
             }
         }
         
         private void RegisterInventoryNotes()
         {
             _notesInventoryList.Clear();
-            var notesList = _notesInventoryListContainer.Query<VisualElement>("inventory-note").ToList();
+            _notesInventoryListContainer.Clear();
+            
             var index = 0;
-            foreach (var note in notesList)
+            for(var i = 0; i < 16; i++)
             {
+                var itemInstance = inventorySlot.CloneTree();
+                var note = itemInstance.Q<VisualElement>("inventory-item");
+                
                 _notesInventoryList.Add(index < playerInventory.noteInventory.Count
                     ? new InventorySlot(playerInventory.noteInventory[index], note)
                     : new InventorySlot(null, note));
@@ -419,6 +457,7 @@ namespace Runtime.InventorySystem
                 }
 
                 index++;
+                _notesInventoryListContainer.Add(note);
             }
         }
 
@@ -426,7 +465,7 @@ namespace Runtime.InventorySystem
         {
             if (playerInventory.summaryEntries.Count == 0)
             {
-                var label = new Label("No Summaries Found");
+                var label = new Label("Nothing found yet.");
                 label.AddToClassList("no-summaries");
                 _summarySectionListContainer.Add(label);
                 return;

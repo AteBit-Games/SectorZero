@@ -98,6 +98,7 @@ namespace Runtime.SaveSystem
             _activeSave = new SaveGame();
             saveExists = false;
             
+            GameManager.Instance.AIManager.StartNewGame();
             SetNellieState(scene);
         }
 

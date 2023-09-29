@@ -239,7 +239,7 @@ namespace Runtime.Managers
             if(isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
             switch (InventorySystem.isInventoryOpen)
             {
-                case false when InventorySystem.isInventoryScreenEnabled:
+                case false:
                     InventorySystem.OpenWindow();
                     activeWindow = InventorySystem;
                     break;

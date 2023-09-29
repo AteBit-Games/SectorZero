@@ -366,7 +366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1f1f72ba9caa643a69f8c7c711e738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
   textSpeed: 0.03
   sentencePauseTime: 0.6
 --- !u!82 &3130201264180696802
@@ -713,6 +712,7 @@ MonoBehaviour:
   summaryEntry: {fileID: 9197481963319205126, guid: ce8428b44fc89464aa973eaa5d5aa1d3, type: 3}
   isInventoryScreenEnabled: 1
   playerInventory: {fileID: 0}
+  inventorySlot: {fileID: 9197481963319205126, guid: c79ec188670f61c46b78350554e4e917, type: 3}
   isInventoryOpen: 0
   isNoteWindowOpen: 0
 --- !u!114 &7513976801172220177
@@ -728,9 +728,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyPressSound: {fileID: 11400000, guid: aece9e2401d15fd42a90b3a2a8222edf, type: 2}
-  keyPressErrorSound: {fileID: 11400000, guid: 0e70610fea69ba94b887fa2719109e29, type: 2}
   keyPadSuccessSound: {fileID: 11400000, guid: 3bb10801436d39e4f8b371525abc933d, type: 2}
   keyPadErrorSound: {fileID: 11400000, guid: a0ff95bba7dd0e346953efb1ecfacd6b, type: 2}
+  keyClearSound: {fileID: 0}
   keypadSuccessState:
     onState: {fileID: -1370065209, guid: 5b3dc49ff67124243ab33862ca9990c8, type: 3}
     offState: {fileID: -1579395503, guid: 5b3dc49ff67124243ab33862ca9990c8, type: 3}
@@ -771,6 +771,11 @@ MonoBehaviour:
   - value: 35
     upIcon: {fileID: -592321360, guid: effcf993a319512449a348eb026dddbe, type: 3}
     downIcon: {fileID: 1334412138, guid: abac8d2cbd227d14a9e164cc4b6af674, type: 3}
+  resetKey:
+    value: 0
+    upIcon: {fileID: 0}
+    downIcon: {fileID: 0}
+  stateSprites: []
 --- !u!1 &8569070492367958656
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,15 +46,15 @@ namespace Runtime.BehaviourTree.Monsters
         [SerializeField] private List<Sound> footstepSounds;
         
         protected MonsterState currentMonsterState = MonsterState.Patrol;
-        protected Context context;
         protected NavMeshAgent navMeshAgent;
-        protected Animator animator;
+        private Context _context;
+        private Animator _animator;
         
         protected BlackboardKey<int> stateReference;
-        protected BlackboardKey<Vector2> inspectLocationReference;
-        protected static readonly int MoveX = Animator.StringToHash("moveX");
-        protected static readonly int MoveY = Animator.StringToHash("moveY");
-        protected static readonly int IsMoving = Animator.StringToHash("isMoving");
+        private BlackboardKey<Vector2> _inspectLocationReference;
+        private static readonly int MoveX = Animator.StringToHash("moveX");
+        private static readonly int MoveY = Animator.StringToHash("moveY");
+        private static readonly int IsMoving = Animator.StringToHash("isMoving");
         
         protected void Awake() 
         {
@@ -63,8 +63,8 @@ namespace Runtime.BehaviourTree.Monsters
             {
                 behaviourTree = behaviourTree.Clone();
                 
-                context = CreateBehaviourTreeContext(behaviourTree);
-                behaviourTree.Bind(context);
+                _context = CreateBehaviourTreeContext(behaviourTree);
+                behaviourTree.Bind(_context);
                 ApplyKeyOverrides();
             }
             else
@@ -75,10 +75,10 @@ namespace Runtime.BehaviourTree.Monsters
             SetupReferences();
             GameManager.Instance.SoundSystem.SetupSound(audioSource, footstepSounds[0]);
             
-            navMeshAgent = context.agent;
+            navMeshAgent = _context.agent;
             navMeshAgent.updateRotation = false;
             navMeshAgent.updateUpAxis = false;
-            animator = GetComponent<Animator>();
+            _animator = GetComponent<Animator>();
         }
         
         public void SetActiveState(int state)
@@ -94,8 +94,8 @@ namespace Runtime.BehaviourTree.Monsters
         protected void Update() 
         {
             if (behaviourTree) behaviourTree.Update();
-            animator.transform.position = navMeshAgent.transform.position;
-            animator.SetBool(IsMoving, navMeshAgent.velocity.magnitude > 0.1f);
+            _animator.transform.position = navMeshAgent.transform.position;
+            _animator.SetBool(IsMoving, navMeshAgent.velocity.magnitude > 0.1f);
         }
 
         protected void OnDrawGizmos() 
@@ -111,7 +111,7 @@ namespace Runtime.BehaviourTree.Monsters
         
         public void SetHeard(Vector2 position)
         {
-            inspectLocationReference.value = position;
+            _inspectLocationReference.value = position;
             SetState(MonsterState.InspectPoint);
         }
 
@@ -145,12 +145,12 @@ namespace Runtime.BehaviourTree.Monsters
         
         public void SetLastKnownPosition(Vector2 position)
         {
-            inspectLocationReference.value = position;
+            _inspectLocationReference.value = position;
         }
 
         // ====================== Private Methods ======================
-        
-        protected void ApplyKeyOverrides() 
+
+        private void ApplyKeyOverrides() 
         {
             foreach(var pair in blackboardOverrides)
             {
@@ -159,8 +159,8 @@ namespace Runtime.BehaviourTree.Monsters
                 if (targetKey != null && sourceKey != null) targetKey.CopyFrom(sourceKey);
             }
         }
-        
-        protected Context CreateBehaviourTreeContext(BehaviourTree tree) 
+
+        private Context CreateBehaviourTreeContext(BehaviourTree tree) 
         {
             return Context.CreateFromGameObject(gameObject, tree);
         }
@@ -168,10 +168,10 @@ namespace Runtime.BehaviourTree.Monsters
         protected void SetupReferences()
         {
             stateReference = FindBlackboardKey<int>("ActiveState");
-            inspectLocationReference = FindBlackboardKey<Vector2>("InspectPoint");
+            _inspectLocationReference = FindBlackboardKey<Vector2>("InspectPoint");
         }
 
-        protected bool ValidateTree() 
+        private bool ValidateTree() 
         {
             if (!behaviourTree) 
             {
@@ -184,13 +184,13 @@ namespace Runtime.BehaviourTree.Monsters
         
         public void SetLookDirection(Vector2 direction)
         {
-            animator.SetFloat(MoveX, direction.x);
-            animator.SetFloat(MoveY, direction.y);
+            _animator.SetFloat(MoveX, direction.x);
+            _animator.SetFloat(MoveY, direction.y);
         } 
         
         public Vector2 GetLookDirection()
         {
-            return new Vector2(animator.GetFloat(MoveX), animator.GetFloat(MoveY));
+            return new Vector2(_animator.GetFloat(MoveX), _animator.GetFloat(MoveY));
         }
 
         public bool StateOverride()

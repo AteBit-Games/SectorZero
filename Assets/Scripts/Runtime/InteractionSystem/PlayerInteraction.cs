@@ -19,7 +19,6 @@ namespace Runtime.InteractionSystem
         //----- Private Variables -----//
         private CircleCollider2D _interactionRadius;
         private readonly List<GameObject> _interactables = new();
-        private InputReader _inputReader;
 
         //----- Hash Variables -----//
         private static readonly int OutlineThickness = Shader.PropertyToID("_Radius");
@@ -29,17 +28,17 @@ namespace Runtime.InteractionSystem
         
         private void OnEnable()
         {
-            _inputReader.InteractEvent += Interact;   
+            GameManager.Instance.inputReader.InteractEvent += Interact;   
         }
 
         private void OnDisable()
         {
-            _inputReader.InteractEvent -= Interact;
+            GameManager.Instance.inputReader.InteractEvent -= Interact;
         }
         
         private void Awake()
         {
-            _inputReader = GameManager.Instance.inputReader;
+            GameManager.Instance.inputReader = GameManager.Instance.inputReader;
             _interactionRadius = GetComponent<CircleCollider2D>();
         }
         

@@ -8,7 +8,6 @@ using System.Collections;
 using ElRaccoone.Tweens;
 using ElRaccoone.Tweens.Core;
 using Runtime.AI.Interfaces;
-using Runtime.BehaviourTree;
 using Runtime.BehaviourTree.Monsters;
 using Runtime.Managers;
 using Runtime.Player;
@@ -16,7 +15,6 @@ using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
 
 namespace Runtime.AI
 {
@@ -213,6 +211,7 @@ namespace Runtime.AI
 
         private void FieldOfViewCheck()
         {
+            if(player.isHiding) return;
             var rangeChecks = Physics2D.OverlapCircleAll(transform.position, viewRadius, playerMask);
             
             if (rangeChecks.Length != 0)

@@ -54,27 +54,27 @@ namespace Runtime.BehaviourTree.Monsters
         
         public string LoadData(SaveGame save)
         {
-            if(!gameObject.activeSelf) return "Voidmask";
-            if (!save.monsterData.ContainsKey("Voidmask")) return "Voidmask";
+            if(!gameObject.activeSelf) return "VoidMask";
+            if (!save.monsterData.ContainsKey("VoidMask")) return "VoidMask";
             
             SetupReferences();
-            var monsterSave = save.monsterData["Voidmask"];
+            var monsterSave = save.monsterData["VoidMask"];
             gameObject.transform.parent.gameObject.SetActive(monsterSave.isActive);
             navMeshAgent.Warp(monsterSave.position);
             stateReference.value = monsterSave.activeState;
 
-            return "Voidmask";
+            return "VoidMask";
         }
 
         public void SaveData(SaveGame save)
         {
-            if(!save.monsterData.ContainsKey("Voidmask"))
+            if(!save.monsterData.ContainsKey("VoidMask"))
             {
-                Debug.LogError("AIManager: " + "Voidmask" + " not found in save data!");
+                Debug.LogError("AIManager: " + "VoidMask" + " not found in save data!");
                 return;
             }
             
-            var monsterSave = save.monsterData["Voidmask"];
+            var monsterSave = save.monsterData["VoidMask"];
             monsterSave.isActive = gameObject.transform.parent.gameObject.activeSelf;
             
             //if ! aggro state, save position

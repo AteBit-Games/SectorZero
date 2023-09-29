@@ -64,7 +64,6 @@ namespace Runtime.SaveSystem.Data
         public float lastSeenPlayerTime;
 
         public bool addedInitialSentinels;
-        public bool addedContainmentSentinels;
     }
     
     [Serializable]
