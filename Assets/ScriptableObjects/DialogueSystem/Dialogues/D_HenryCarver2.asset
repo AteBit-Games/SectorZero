@@ -15,8 +15,8 @@ MonoBehaviour:
   date: 1975.03.08
   dialogueLines:
   - actor: {fileID: 11400000, guid: ad5f14d3b54ef4d49bcf993274ae74bc, type: 2}
-    line: 'The Supervisors transported Subject 3 to the Infirmary, she fell unconscious
-      but her vitals appear to be fine. Subject 1 was confirmed dead and is being
+    line: 'The Supervisors transported Subject 57 to the Infirmary, she fell unconscious
+      but her vitals appear to be fine. Subject 55 was confirmed dead and is being
       carried to the Morgue. '
   - actor: {fileID: 11400000, guid: f6238a4e06f21594dbab755e23d0bbba, type: 2}
     line: First the expedition and now this... My future is paved by paperwork.
