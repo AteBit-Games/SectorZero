@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SampleResearchNotes
   m_EditorClassIdentifier: 
   itemRef: SampleResearchNotes
-  itemName: SampleResearchNotes
+  itemName: Sample Research Notes
   itemSprite: {fileID: 21300000, guid: 9345020d4510a204e95d201e23ca6200, type: 3}
   itemDescription: 
   noteType: 1
