@@ -18,11 +18,11 @@ MonoBehaviour:
   itemDescription: A list of the people that came in with me.
   noteType: 1
   title: Test Subject Intake
-  author: Dr. Evan Kolvak
+  author: Mia Davis
   date: 1975.03.05
-  content: "\rSubject 1 - \"Vincent\"\r\r\n  Gender: Male\r\n  Height: 188cm\r\n 
-    Age: Adult\r\n  Appearance: Stocky with short black hair\n\r\nSubject 2 - \"Dani\"\r\r\n 
+  content: "\rSubject 55 - \"Vincent\"\r\r\n  Gender: Male\r\n  Height: 188cm\r\n 
+    Age: Adult\r\n  Appearance: Stocky with short black hair\n\r\nSubject 56 - \"Dani\"\r\r\n 
     Gender: Female\r\t\n  Height: 181cm\r\n  Age: Young Adult\r\n  Appearance: Slender
-    with short red hair\n\r\nSubject 3 - \"Nellie\"\r\r\n  Gender: Female\r\n  Height:
+    with short red hair\n\r\nSubject 57 - \"Nellie\"\r\r\n  Gender: Female\r\n  Height:
     178cm\r\n  Age: Young Adult\r\n  Appearance: Slender with shoulder length red
     hair\r\n\r\nFinal list signed off by Dr. G. McAddams, Senior Scientist."

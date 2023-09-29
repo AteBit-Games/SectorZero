@@ -15,11 +15,11 @@ MonoBehaviour:
   itemRef: SampleResearchNotes
   itemName: Sample Research Notes
   itemSprite: {fileID: 21300000, guid: 9345020d4510a204e95d201e23ca6200, type: 3}
-  itemDescription: 
+  itemDescription: Notes about a sample taken from Sector Zero.
   noteType: 1
   title: Sector Zero sample #16
   author: Dr. Evan Kolvak
-  date: 1975.01.27
+  date: 1975.01.25
   content: "The inorganic material appears to exhibit \u201Corganic\u201D behaviours
     under constant exposure. Pieces of the sample fuse together to create semi-volatile
     bonds. The affected clusters appear to compete for control over the weaker clusters

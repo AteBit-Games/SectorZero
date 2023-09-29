@@ -15,11 +15,11 @@ MonoBehaviour:
   itemRef: MorgueNote
   itemName: Morgue Note
   itemSprite: {fileID: 21300000, guid: 9345020d4510a204e95d201e23ca6200, type: 3}
-  itemDescription: 
+  itemDescription: An autopsy report.
   noteType: 1
   title: Subject 38 - Mortician Findings
   author: Dr. Peter Reed
-  date: 1978.07.05
+  date: 1975.01.17
   content: 'Subject 38, local. No signs of aggression displayed, but became unresponsive.
 
 
