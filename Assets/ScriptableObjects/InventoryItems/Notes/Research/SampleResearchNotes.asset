@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e353c9ef2deb4440982e8ff533938ba, type: 3}
+  m_Name: SampleResearchNotes
+  m_EditorClassIdentifier: 
+  itemRef: SampleResearchNotes
+  itemName: SampleResearchNotes
+  itemSprite: {fileID: 21300000, guid: 9345020d4510a204e95d201e23ca6200, type: 3}
+  itemDescription: 
+  noteType: 1
+  title: Sector Zero sample #16
+  author: Dr. Evan Kolvak
+  date: 1975.01.27
+  content: "The inorganic material appears to exhibit \u201Corganic\u201D behaviours
+    under constant exposure. Pieces of the sample fuse together to create semi-volatile
+    bonds. The affected clusters appear to compete for control over the weaker clusters
+    and unaffected material.\n\r\nExposure to inorganic material stimulates and feeds
+    the growth process. The effects wear off after time leaving a stable but transformed
+    product.\r\n\r\nExposure to organic material causes unpredictable mutations varying
+    from subject to subject. The results are as of yet inconclusive.\n\n- Sample
+    acquired 22 metres from the Monolith.\n- 12 hours since exposure.\r\n"
