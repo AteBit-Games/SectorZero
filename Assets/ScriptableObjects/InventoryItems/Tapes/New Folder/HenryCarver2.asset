@@ -15,5 +15,5 @@ MonoBehaviour:
   itemRef: HenryCarver2
   itemName: Dr. Henry Carver #2
   itemSprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
-  itemDescription: 
+  itemDescription: Dr. Carver and Dr. Kolvak discuss a recent incident.
   dialogue: {fileID: 11400000, guid: 9910f132adde2e84dac8d516ff1c9a56, type: 2}

@@ -15,5 +15,5 @@ MonoBehaviour:
   itemRef: JeanBaker2
   itemName: Technician Jean Baker #2
   itemSprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
-  itemDescription: 
+  itemDescription: Technician Jean needs a fuse.
   dialogue: {fileID: 11400000, guid: a8979148722879b4e91068a74d0327a8, type: 2}

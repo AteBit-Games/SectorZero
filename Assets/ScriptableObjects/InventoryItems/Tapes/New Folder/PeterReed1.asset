@@ -15,5 +15,5 @@ MonoBehaviour:
   itemRef: PeterReed1
   itemName: Dr. Peter Reed #1
   itemSprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
-  itemDescription: 
+  itemDescription: Dr. Reed's checkup on supervisor Alexander.
   dialogue: {fileID: 11400000, guid: 8b97f8243bb38044594ee1246730cf43, type: 2}
