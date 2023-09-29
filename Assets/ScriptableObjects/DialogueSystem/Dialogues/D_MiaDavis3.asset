@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45592774a6613004c9d7daa230919261, type: 3}
+  m_Name: D_MiaDavis3
+  m_EditorClassIdentifier: 
+  date: 1975.03.02
+  dialogueLines:
+  - actor: {fileID: 11400000, guid: 0e15dff3629e9c94b96dc18ba3f20095, type: 2}
+    line: What the hell are they keeping down here!
+  - actor: {fileID: 11400000, guid: 0e15dff3629e9c94b96dc18ba3f20095, type: 2}
+    line: "I managed to get into Sector One this morning. It felt like a fever dream\u2026"
+  - actor: {fileID: 11400000, guid: 0e15dff3629e9c94b96dc18ba3f20095, type: 2}
+    line: "There\u2019s this giant pit, glowing red\u2026 and they are sending the
+      test subjects down into it!"
+  - actor: {fileID: 11400000, guid: 0e15dff3629e9c94b96dc18ba3f20095, type: 2}
+    line: This is bigger than I thought. I need to get out.
+  canSkip: 1
+  autoSkipDelay: 2
+  trigger: 0
+  addSummaryEntry: 0
+  summaryEntry: []
