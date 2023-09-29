@@ -24,6 +24,8 @@ namespace Runtime.InputSystem
                 
                 SetGameplay();
             }
+            
+            _playerInput.Enable();
         }
 
         public event Action PauseEvent;
@@ -121,7 +123,8 @@ namespace Runtime.InputSystem
             switch (context.control.name)
             {
                 case "tab":
-                    if(GameManager.Instance.InventorySystem.isInventoryOpen) OpenInventoryEvent?.Invoke();
+                    if(GameManager.Instance.InventorySystem != null) 
+                        if(GameManager.Instance.InventorySystem.isInventoryOpen) OpenInventoryEvent?.Invoke();
                     break;
                 case "escape":
                     if(context.phase == InputActionPhase.Performed) CloseUIEvent?.Invoke();

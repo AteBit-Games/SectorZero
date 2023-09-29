@@ -5,9 +5,9 @@
 
 using System.Collections;
 using Cinemachine;
-using Runtime.AI;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
+using Runtime.BehaviourTree.Monsters;
 using Runtime.InputSystem;
 using Runtime.Managers;
 using Runtime.Managers.Tutorial;
@@ -22,10 +22,6 @@ namespace Runtime.Player
     [DefaultExecutionOrder(6)]
     public class PlayerController : MonoBehaviour, IPersistant, ISightEntity
     {
-        [Space(10)]
-        [Header("REFERENCES")]
-        [SerializeField] private InputReader inputReader;
-        
         [Space(10)]
         [Header("MOVEMENT DETAILS")]
         [SerializeField] private float moveSpeed = 1f;
@@ -73,6 +69,7 @@ namespace Runtime.Player
         [HideInInspector] public bool isHiding;
         private Coroutine _hideCoroutine;
         private bool _sneakCooldownActive;
+        private InputReader _inputReader;
 
 
        // ============ Animator Hashes ============
@@ -85,18 +82,20 @@ namespace Runtime.Player
 
         private void OnEnable()
         {
-            inputReader.MoveEvent += HandleMove;
-            inputReader.SneakEvent += HandleSneak;
+            _inputReader.MoveEvent += HandleMove;
+            _inputReader.SneakEvent += HandleSneak;
         }
 
         private void OnDisable()
         {
-            inputReader.MoveEvent -= HandleMove;
-            inputReader.SneakEvent -= HandleSneak;
+            _inputReader.MoveEvent -= HandleMove;
+            _inputReader.SneakEvent -= HandleSneak;
         }
 
         private void Awake()
         {
+            
+            _inputReader = GameManager.Instance.inputReader;
             _rb = GetComponent<Rigidbody2D>();
             _movementAnimator = GetComponent<Animator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -116,7 +115,6 @@ namespace Runtime.Player
         private void LateUpdate()
         {
             if(_isDead) return;
-            
             if(!_cameraDisabled) UpdateMouseLook();
         }
         
@@ -234,7 +232,7 @@ namespace Runtime.Player
 
         private void HandleMove(Vector2 direction)
         {
-            if(!_movementDisabled && !_inputDisabled) _movementInput = direction;
+            if (!_movementDisabled && !_inputDisabled) _movementInput = direction;
         }
         
         private void HandleSneak()

@@ -8,7 +8,6 @@ using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
-using Runtime.Misc;
 using Runtime.Misc.Objects;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
@@ -24,6 +23,7 @@ namespace Runtime.InteractionSystem.Objects.UI
         [SerializeField] public Sound itemPickupSound;
         [FormerlySerializedAs("alarm")] [SerializeField] private SafeAlarm safeAlarm; 
         
+        [SerializeField] public SummaryEntry summaryEntry;
         [SerializeField] public string safeCode;
         [SerializeField] private Sound interactSound;
         
@@ -50,6 +50,10 @@ namespace Runtime.InteractionSystem.Objects.UI
         {
             GameManager.Instance.SoundSystem.Play(interactSound);
             GameManager.Instance.HUD.OpenKeyPad(this);
+            
+            var inventory = player.GetComponentInParent<PlayerInventory>();
+            if(!inventory.ContainsSummaryEntry(summaryEntry)) inventory.AddSummaryEntry(summaryEntry);
+            
             _player = player;
             return true;
         }
@@ -73,10 +77,14 @@ namespace Runtime.InteractionSystem.Objects.UI
             DisableInteraction();
             AddItem();
             
+            _player.GetComponentInParent<PlayerInventory>().SetSummaryEntryCompleted(summaryEntry);
+            
             //Open the safe
             GameManager.Instance.SoundSystem.Play(safeOpenSound);
             _animator.SetTrigger(Open);
             _isOpen = true;
+            
+            GameManager.Instance.SaveSystem.SaveGame();
         }
 
         public void TriggerAlarm()
@@ -91,7 +99,7 @@ namespace Runtime.InteractionSystem.Objects.UI
             GetComponent<Collider2D>().enabled = false;
         }
 
-        public void AddItem()
+        private void AddItem()
         {
             GameManager.Instance.SoundSystem.Play(itemPickupSound);
             var inventory = _player.GetComponentInParent<PlayerInventory>();

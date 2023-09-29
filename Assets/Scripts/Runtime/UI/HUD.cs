@@ -31,6 +31,7 @@ namespace Runtime.UI
         private VisualElement _mapContainer;
         private VisualElement _map1;
         private VisualElement _map2;
+        private VisualElement _map3;
         
         //Notes
         private VisualElement _notesContainer;
@@ -61,6 +62,7 @@ namespace Runtime.UI
             _mapContainer = rootVisualElement.Q<VisualElement>("map-view");
             _map1 = _mapContainer.Q<VisualElement>("map1");
             _map2 = _mapContainer.Q<VisualElement>("map2");
+            _map3 = _mapContainer.Q<VisualElement>("map3");
              
             _notesContainer = rootVisualElement.Q<VisualElement>("note-view");
             SetupNotes(_notesContainer);
@@ -114,16 +116,27 @@ namespace Runtime.UI
         {
             UIUtils.ShowUIElement(_mapContainer);
             
-            if(mapType == MapType.Type1)
+            switch (mapType)
             {
-                UIUtils.ShowUIElement(_map1);
-                UIUtils.HideUIElement(_map2);
+                case MapType.Type1:
+                    UIUtils.ShowUIElement(_map1);
+                    UIUtils.HideUIElement(_map2);
+                    UIUtils.HideUIElement(_map3);
+                    break;
+                case MapType.Type2:
+                    UIUtils.HideUIElement(_map1);
+                    UIUtils.ShowUIElement(_map2);
+                    UIUtils.HideUIElement(_map3);
+                    break;
+                case MapType.Type3:
+                    UIUtils.HideUIElement(_map1);
+                    UIUtils.HideUIElement(_map2);
+                    UIUtils.ShowUIElement(_map3);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(mapType), mapType, null);
             }
-            else
-            {
-                UIUtils.ShowUIElement(_map2);
-                UIUtils.HideUIElement(_map1);
-            }
+            
             GameManager.Instance.activeWindow = this;
             
             Time.timeScale = 0;

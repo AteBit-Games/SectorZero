@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 18.5625, y: -6.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4593564482821495686}
   m_Father: {fileID: 2672757191909828582}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &5318597753798500139
@@ -397,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourTree: {fileID: 11400000, guid: a8f5d6ddcfc4c0946b84f2dc125397ed, type: 2}
+  monster: 0
   blackboardOverrides:
   - key:
       rid: 2098102494435999795
@@ -415,23 +417,12 @@ MonoBehaviour:
     value:
       rid: 2098102505811476492
   treeStates:
-  - state: 1
+  - monsterState: 1
     stateIndex: 4
-  - state: 2
+  - monsterState: 2
     stateIndex: 3
-  - state: 0
+  - monsterState: 0
     stateIndex: 4
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 4224
-  wallMask:
-    serializedVersion: 2
-    m_Bits: 64
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  viewRadius: 20
-  viewAngle: 50
   audioSource: {fileID: 920597040}
   footstepSounds:
   - {fileID: 11400000, guid: 86cbc8059301c7949b90aec0c1d93019, type: 2}
@@ -442,12 +433,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b8526e7f8aa28704a922269b6ddf17a1, type: 2}
   - {fileID: 11400000, guid: 8d67bf934685b1b439a4c6e1f9bf5cd4, type: 2}
   - {fileID: 11400000, guid: 0edcb2cdafea62048acc22ba7c26f619, type: 2}
-  detectedSound: {fileID: 11400000, guid: 3e58a5000fec3bd4e882873694e3d6a8, type: 2}
-  debug: 0
-  sightVisualPrefab: {fileID: 4193361830035308745, guid: 7fbb647d3619d9b4898983be60e448e2, type: 3}
-  idleColour: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0.5058824}
-  aggroColour: {r: 0.7075472, g: 0.12281949, b: 0.12281949, a: 0.5254902}
-  isPlayerCrouching: 0
+  initialSentinels: []
+  initialPatrolRooms: []
+  savePoints: []
   references:
     version: 2
     RefIds:
@@ -615,3 +603,64 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b04aa8b18f65529449d929598faf59aa, type: 2}
   - {fileID: 11400000, guid: 5509104b67c7a6a4e8a109b1bb3ff71b, type: 2}
   - {fileID: 11400000, guid: c3eb4d56d8588d54eb03fbe7fb14c97e, type: 2}
+--- !u!1 &4141624404909745293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4593564482821495686}
+  - component: {fileID: 6518385422257810766}
+  m_Layer: 9
+  m_Name: Perception
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4593564482821495686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141624404909745293}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.15884742, z: -0, w: 0.9873032}
+  m_LocalPosition: {x: -70.362495, y: 24.640001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4867338141419686471}
+  m_LocalEulerAnglesHint: {x: 0, y: 18.28, z: 0}
+--- !u!114 &6518385422257810766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141624404909745293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9d02773f8f4424a425ad75ed2e569b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeOwner: {fileID: 0}
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4224
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 64
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  player: {fileID: 0}
+  viewRadius: 18.3
+  viewAngle: 128
+  detectRadius: 3
+  detectedSound: {fileID: 11400000, guid: 3e58a5000fec3bd4e882873694e3d6a8, type: 2}
+  lostSound: {fileID: 11400000, guid: f1a1400ccc596474d9b9a2f2dc7a3421, type: 2}
+  debug: 1

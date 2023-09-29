@@ -6,18 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using Runtime.InputSystem;
 using Runtime.InteractionSystem.Interfaces;
+using Runtime.Managers;
 using UnityEngine;
 
 namespace Runtime.InteractionSystem
 {
+    [DefaultExecutionOrder(6)]
     public class PlayerInteraction : MonoBehaviour
     {
         [SerializeField] private LayerMask interactionMask;
-        [SerializeField] private InputReader inputReader;
         
         //----- Private Variables -----//
         private CircleCollider2D _interactionRadius;
         private readonly List<GameObject> _interactables = new();
+        private InputReader _inputReader;
 
         //----- Hash Variables -----//
         private static readonly int OutlineThickness = Shader.PropertyToID("_Radius");
@@ -27,16 +29,17 @@ namespace Runtime.InteractionSystem
         
         private void OnEnable()
         {
-            inputReader.InteractEvent += Interact;   
+            _inputReader.InteractEvent += Interact;   
         }
 
         private void OnDisable()
         {
-            inputReader.InteractEvent -= Interact;
+            _inputReader.InteractEvent -= Interact;
         }
         
         private void Awake()
         {
+            _inputReader = GameManager.Instance.inputReader;
             _interactionRadius = GetComponent<CircleCollider2D>();
         }
         

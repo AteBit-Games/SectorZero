@@ -17,8 +17,11 @@ using Runtime.SoundSystem;
 using Runtime.UI;
 using Runtime.Utils;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 namespace Runtime.Managers
@@ -30,7 +33,6 @@ namespace Runtime.Managers
         
         [SerializeField] private Sound menuClickSound;
         [SerializeField] private Sound menuHoverSound;
-        [SerializeField] private InputReader inputReader;
         [SerializeField] public bool isMainMenu;
         
         [SerializeField] public bool testMode;
@@ -41,6 +43,7 @@ namespace Runtime.Managers
         }
         //========================= Interface =========================
         
+        [HideInInspector] public InputReader inputReader;
         
         public DialogueManager DialogueSystem { get; private set;  }
         public InventoryManager InventorySystem { get; private set; }
@@ -54,11 +57,10 @@ namespace Runtime.Managers
         private PauseMenu PauseMenu { get; set; }
         private LoadingScreen LoadingScreen { get; set; }
         private EndScreen EndScreen { get; set; }
-
         
         private CinemachineVirtualCamera _camera;
         [HideInInspector] public Window activeWindow;
-
+        private SceneInstance _sceneInstance;
         
         //====== Discord ========
         private const long ApplicationId = 1109955823121215509;
@@ -78,6 +80,14 @@ namespace Runtime.Managers
                 return;
             }
             Instance = this;
+            
+            Addressables.LoadAssetAsync<InputReader>("InputReader").Completed += handle =>
+            {
+                inputReader = handle.Result;
+                inputReader.PauseEvent += HandlePause;
+                inputReader.OpenInventoryEvent += OpenInventoryWindow;
+                inputReader.CloseUIEvent += HandleEscape;
+            };
             
             DontDestroyOnLoad(gameObject);
             _discord = new Discord.Discord(ApplicationId, (ulong)CreateFlags.NoRequireDiscord);
@@ -115,9 +125,6 @@ namespace Runtime.Managers
         private void OnEnable()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
-            inputReader.PauseEvent += HandlePause;
-            inputReader.OpenInventoryEvent += OpenInventoryWindow;
-            inputReader.CloseUIEvent += HandleEscape;
         }
 
         private void OnDisable()
@@ -191,7 +198,17 @@ namespace Runtime.Managers
             
             SoundSystem.ResetSystem();
             AudioListener.pause = true;
-            StartCoroutine(LoadSceneAsync(sceneIndex));
+
+            if (sceneIndex != 2)
+            {
+                StartCoroutine(LoadSceneAsync(sceneIndex));
+            }
+            else
+            {
+                //unload scene
+                if(_sceneInstance.Scene.isLoaded) Addressables.UnloadSceneAsync(_sceneInstance);
+                StartCoroutine(LoadMainSceneAsync());
+            }
         }
 
         public void GameOver(DeathType deathType)
@@ -309,6 +326,21 @@ namespace Runtime.Managers
             }
             
             if(sceneIndex == 0) LoadingScreen.HideLoading();
+        }
+        
+        private IEnumerator LoadMainSceneAsync()
+        {
+            var asyncOperation = Addressables.LoadSceneAsync("SectorTwo", LoadSceneMode.Single, false);
+            LoadingScreen.ShowLoading();
+            while (!asyncOperation.IsDone)
+            {
+                yield return asyncOperation;
+            }
+            
+            if (asyncOperation.Status == AsyncOperationStatus.Succeeded)
+                yield return asyncOperation.Result.ActivateAsync();
+            
+            _sceneInstance = asyncOperation.Result;
         }
 
         public void FinishedLoading()

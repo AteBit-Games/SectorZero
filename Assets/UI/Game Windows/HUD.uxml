@@ -244,12 +244,73 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="map-view" picking-mode="Ignore" style="visibility: visible; display: none; flex-grow: 1; background-color: rgba(0, 0, 0, 0.41); opacity: 1; justify-content: center; align-items: center;">
+                <ui:VisualElement name="spacer" style="flex-grow: 1; position: absolute; left: 0; top: 0; bottom: 0; width: 350px; background-color: rgb(29, 29, 29); align-items: flex-start; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px;">
+                    <ui:VisualElement name="SecurityWing" class="legend-group" style="flex-grow: 0;">
+                        <ui:VisualElement name="header" style="flex-grow: 0;">
+                            <ui:Label tabindex="-1" text="SECURITY WING" display-tooltip-when-elided="true" name="legend-header" style="color: rgb(153, 122, 91); -unity-font-style: normal;" />
+                            <ui:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background-color: rgb(153, 122, 91);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="items" style="flex-grow: 1;">
+                            <ui:Label tabindex="-1" text="1. Security Checkpoint" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="2. Elevator" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="3. Power Room" display-tooltip-when-elided="true" name="location-instance" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="MedWing" class="legend-group" style="flex-grow: 0;">
+                        <ui:VisualElement name="header" style="flex-grow: 0;">
+                            <ui:Label tabindex="-1" text="MEDICAL WING" display-tooltip-when-elided="true" name="legend-header" style="color: rgb(115, 130, 147); -unity-font-style: normal;" />
+                            <ui:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background-color: rgb(115, 130, 147);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="items" style="flex-grow: 1;">
+                            <ui:Label tabindex="-1" text="4. Medical Laboratory" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="5. Medical Archive" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="6. Infirmary" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="7. Emergency Room" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="8. Morgue" display-tooltip-when-elided="true" name="location-instance" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="TestingWing" class="legend-group" style="flex-grow: 0;">
+                        <ui:VisualElement name="header" style="flex-grow: 0;">
+                            <ui:Label tabindex="-1" text="TESTING WING" display-tooltip-when-elided="true" name="legend-header" style="color: rgb(120, 129, 83); -unity-font-style: normal;" />
+                            <ui:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background-color: rgb(120, 129, 83);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="items" style="flex-grow: 1;">
+                            <ui:Label tabindex="-1" text="9. Observation Room" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="10. Testing Room" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="11. Containment Cells" display-tooltip-when-elided="true" name="location-instance" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="OfficeWing" class="legend-group" style="flex-grow: 0;">
+                        <ui:VisualElement name="header" style="flex-grow: 0;">
+                            <ui:Label tabindex="-1" text="OFFICE WING" display-tooltip-when-elided="true" name="legend-header" style="color: rgb(123, 98, 132); -unity-font-style: normal;" />
+                            <ui:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background-color: rgb(123, 98, 132);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="items" style="flex-grow: 1;">
+                            <ui:Label tabindex="-1" text="12. Main Offices" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="13. Dr. Carver&apos;s Office" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="14. Office Archive" display-tooltip-when-elided="true" name="location-instance" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="OfficeWing" class="legend-group" style="flex-grow: 0;">
+                        <ui:VisualElement name="header" style="flex-grow: 0;">
+                            <ui:Label tabindex="-1" text="RESIDENTIAL WING" display-tooltip-when-elided="true" name="legend-header" style="color: rgb(106, 95, 90); -unity-font-style: normal;" />
+                            <ui:VisualElement name="VisualElement" style="flex-grow: 1; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background-color: rgb(106, 96, 91);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="items" style="flex-grow: 1;">
+                            <ui:Label tabindex="-1" text="15. Cafeteria" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="16. Storage Room" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="17. Residences" display-tooltip-when-elided="true" name="location-instance" />
+                            <ui:Label tabindex="-1" text="18. Bathroom" display-tooltip-when-elided="true" name="location-instance" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
                 <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; position: absolute; bottom: 50px; right: 100px; align-self: center; align-items: center; justify-content: center;">
                     <ui:Label tabindex="-1" text="Close" display-tooltip-when-elided="true" name="Label" style="font-size: 38px; -unity-font: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); color: rgb(255, 255, 255); border-right-width: 4px;" />
                     <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/escKey.png?fileID=21300000&amp;guid=87a53038706062f4eb67d395d2191662&amp;type=3#escKey&apos;); width: 55px; height: 55px;" />
                 </ui:VisualElement>
-                <ui:VisualElement name="map1" style="flex-grow: 0; background-image: url(&apos;project://database/Assets/Art/UI/Map1.png?fileID=2800000&amp;guid=fbbd7a4c9f008794d877fb9f6784131f&amp;type=3#Map1&apos;); width: 1146px; height: 816px;" />
-                <ui:VisualElement name="map2" style="flex-grow: 0; background-image: url(&apos;project://database/Assets/Art/UI/Map2.png?fileID=2800000&amp;guid=af32cc4ea50802848bd7b4bbe6ee75e1&amp;type=3#Map2&apos;); width: 1146px; height: 816px; display: none;" />
+                <ui:VisualElement name="map1" style="flex-grow: 0; background-image: url(&apos;project://database/Assets/Art/UI/MapLabelled.png?fileID=2800000&amp;guid=3db5ac78a4047d541afffc418cd5016b&amp;type=3#MapLabelled&apos;); width: 1146px; height: 816px; margin-left: 350px;" />
+                <ui:VisualElement name="map2" style="flex-grow: 0; background-image: url(&apos;project://database/Assets/Art/UI/MapLabelled.png?fileID=2800000&amp;guid=3db5ac78a4047d541afffc418cd5016b&amp;type=3#MapLabelled&apos;); width: 1146px; height: 816px; display: none; margin-left: 350px;" />
+                <ui:VisualElement name="map3" style="flex-grow: 0; background-image: url(&apos;project://database/Assets/Art/UI/MapLabelled.png?fileID=2800000&amp;guid=3db5ac78a4047d541afffc418cd5016b&amp;type=3#MapLabelled&apos;); width: 1146px; height: 816px; display: none; margin-left: 350px;" />
             </ui:VisualElement>
             <ui:VisualElement name="keypad-view" picking-mode="Ignore" style="visibility: visible; display: none; flex-grow: 1; background-color: rgba(0, 0, 0, 0.41); opacity: 1; align-items: center; justify-content: center;">
                 <ui:VisualElement name="keypad-background" style="flex-grow: 0; background-image: url(&apos;project://database/Assets/Art/UI/KeyPad/KeyPadBackground.png?fileID=2800000&amp;guid=1644e266b8962ec48a1267adff0b7d7f&amp;type=3#KeyPadBackground&apos;); width: 736px; height: 736px;" />

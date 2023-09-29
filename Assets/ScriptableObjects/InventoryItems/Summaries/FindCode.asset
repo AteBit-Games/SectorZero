@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FindCode
   m_EditorClassIdentifier: 
   itemRef: FindCode
-  summaryContent: Find the safe code
+  summaryContent: Find a way to open the safe
   isCompleted: 0

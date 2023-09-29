@@ -109,7 +109,7 @@ namespace Runtime.SaveSystem
             {
                 saveTime = DateTime.Now.Ticks,
                 saveName = SceneManager.GetActiveScene().name,
-                currentScene = SceneManager.GetActiveScene().buildIndex
+                currentScene = GetSceneIndex()
             };
                         
             foreach (var persistentObject in _persistantObjects)
@@ -120,6 +120,16 @@ namespace Runtime.SaveSystem
             var newSave = _dataHandler.Save(saveGame);
             _saveGames.Add(newSave.saveGame);
             _activeSave = saveGame;
+        }
+
+        private int GetSceneIndex()
+        {
+            return SceneManager.GetActiveScene().name switch
+            {
+                "SectorTwo" => 2,
+                "SectorZero" => 3,
+                _ => SceneManager.GetActiveScene().buildIndex
+            };
         }
 
         public void SetNellieState(int sceneIndex)

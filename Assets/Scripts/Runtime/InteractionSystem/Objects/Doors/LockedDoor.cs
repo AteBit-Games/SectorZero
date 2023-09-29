@@ -32,6 +32,8 @@ namespace Runtime.InteractionSystem.Objects.Doors
         [SerializeField] public bool finishSummaryOnOpen;
         [SerializeField] private SummaryEntry failSummaryEntry;
         [SerializeField] private SummaryEntry openSummaryEntry;
+
+        [SerializeField] public bool saveOnOpen;
         
         public bool IsPowered { get; set; }
         private readonly int _locked = Animator.StringToHash("locked");
@@ -64,6 +66,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
             {
                 GameManager.Instance.InventorySystem.PlayerInventory.SetSummaryEntryCompleted(openSummaryEntry);
             }
+            if(saveOnOpen) GameManager.Instance.SaveSystem.SaveGame();
             
             //Remove the collider from the player's interactable list
             DisableInteraction();

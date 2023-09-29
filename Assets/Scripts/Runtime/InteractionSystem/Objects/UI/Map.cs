@@ -14,6 +14,7 @@ namespace Runtime.InteractionSystem.Objects
     {
         Type1,
         Type2,
+        Type3,
     }
     
     public class Map : MonoBehaviour, IInteractable

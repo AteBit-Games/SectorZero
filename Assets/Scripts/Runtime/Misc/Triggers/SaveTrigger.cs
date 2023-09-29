@@ -23,8 +23,8 @@ namespace Runtime.Misc.Triggers
             if (other.CompareTag("Player") && !_triggered)
             {
                 gameObject.SetActive(false);
-                GameManager.Instance.SaveSystem.SaveGame();
                 _triggered = true;
+                GameManager.Instance.SaveSystem.SaveGame();
             }
         }
         

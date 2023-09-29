@@ -590,3 +590,21 @@
     position: absolute;
     top: 15px;
 }
+
+#legend-header {
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    color: rgb(255, 255, 255);
+    font-size: 34px;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+#location-instance {
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    font-size: 26px;
+    color: rgb(236, 236, 236);
+}
+
+.legend-group {
+    margin-bottom: 10px;
+}

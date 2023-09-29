@@ -13,6 +13,7 @@ using UnityEngine.AddressableAssets;
 
 namespace Runtime.InventorySystem
 {
+    [DefaultExecutionOrder(6)]
     public class PlayerInventory : MonoBehaviour, IPersistant
     {
         public List<Tape> tapeInventory = new();

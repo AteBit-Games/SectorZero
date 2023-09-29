@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using Runtime.BehaviourTree;
+using Runtime.BehaviourTree.Monsters;
 using Runtime.Managers;
 using Runtime.Player;
 using Runtime.SaveSystem;
@@ -89,14 +90,11 @@ namespace Runtime.AI
             }
 
             _perception.OnSightEnterAction += ResetAggroLevel;
-            if (_monster.monster == Monster.VoidMask)
-            {
-                _sentinels = new List<Sentinel>(FindObjectsByType<Sentinel>(FindObjectsSortMode.None));
-                foreach (var sentinel in _sentinels) sentinel.OnSightEnterAction += IncreaseAggroLevel;
+            _sentinels = new List<Sentinel>(FindObjectsByType<Sentinel>(FindObjectsSortMode.None));
+            foreach (var sentinel in _sentinels) sentinel.OnSightEnterAction += IncreaseAggroLevel;
                 
-                _activeSentinelsKey = _monster.FindBlackboardKey<int>("ActiveSentinels");
-                _sentinelDurationKey = _monster.FindBlackboardKey<float>("SentinelActivationTime");
-            }
+            _activeSentinelsKey = _monster.FindBlackboardKey<int>("ActiveSentinels");
+            _sentinelDurationKey = _monster.FindBlackboardKey<float>("SentinelActivationTime");
         }
 
         private void FixedUpdate()
@@ -152,8 +150,7 @@ namespace Runtime.AI
                 AggroLevel++;
                 _aggroLevelKey.value = AggroLevel;
                 _lastSeenPlayerTime = Time.time;
-                
-                if(_monster.monster == Monster.VoidMask) UpdateSentinelAggro(AggroLevel);
+                UpdateSentinelAggro(AggroLevel);
             }
             
             //Flip flop between patrol states based on menace value
@@ -174,13 +171,12 @@ namespace Runtime.AI
         
         public void AddSentinels(List<GameObject> sentinels)
         {
-            if (_monster.monster != Monster.VoidMask) return;
+            
             _monster.AddSentinels(sentinels);
         }
         
         public void AddRooms(List<Collider2D> rooms)
         {
-            if (_monster.monster != Monster.VoidMask) return;
             _monster.AddPatrolRooms(rooms);
         }
         
@@ -269,9 +265,9 @@ namespace Runtime.AI
             if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return "AIManager";
             
             InitializeReferences();
-            if (!save.monsterData.ContainsKey(_monster.monster.ToString())) return "AIManager";
+            if (!save.monsterData.ContainsKey("VoidMask")) return "AIManager";
             
-            var monsterSave = save.monsterData[_monster.monster.ToString()];
+            var monsterSave = save.monsterData["VoidMask"];
             _menaceGaugeValue = monsterSave.menaceGaugeValue;
             _menaceState = monsterSave.menaceState;
             _patrolStateKey.value = _menaceState;
@@ -286,10 +282,10 @@ namespace Runtime.AI
         {
             if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
             
-            var monsterSave = save.monsterData[_monster.monster.ToString()];
+            var monsterSave = save.monsterData["VoidMask"];
             if (monsterSave == null)
             {
-                Debug.LogError("AIManager: " + _monster.monster + " not found in save data!");
+                Debug.LogError("AIManager: " + "VoidMask" + " not found in save data!");
                 return;
             }
                 

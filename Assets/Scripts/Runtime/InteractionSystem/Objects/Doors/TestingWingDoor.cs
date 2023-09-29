@@ -58,6 +58,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
             
             GameManager.Instance.AIManager.AddRooms(roomsToAdd);
             GameManager.Instance.AIManager.AddSentinels(sentinels);
+            GameManager.Instance.SaveSystem.SaveGame();
             
             //Remove the collider from the player's interactable list
             DisableInteraction();

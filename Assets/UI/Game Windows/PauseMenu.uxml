@@ -2,7 +2,7 @@
     <ui:Template name="SettingsMenu" src="project://database/Assets/UI/Sub%20Windows/SettingsMenu.uxml?fileID=9197481963319205126&amp;guid=013bfde6f25a18849b895653dad64b67&amp;type=3#SettingsMenu" />
     <ui:Template name="Saves" src="project://database/Assets/UI/Sub%20Windows/Saves.uxml?fileID=9197481963319205126&amp;guid=769eaf304c8fbc646813f1bc414c61ea&amp;type=3#Saves" />
     <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
-    <ui:VisualElement name="overlay" picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(15, 17, 22, 0.77); visibility: visible; width: 1920px; height: 1080px; position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: none;" />
+    <ui:VisualElement name="overlay" style="flex-grow: 1; display: none;" />
     <ui:Instance template="SettingsMenu" name="SettingsMenu" picking-mode="Ignore" style="display: none;" />
     <ui:Instance template="Saves" name="Saves" picking-mode="Ignore" />
     <ui:VisualElement name="pause-window" picking-mode="Ignore" style="display: none; align-items: stretch; flex-grow: 1; width: 100%; height: 100%;">
@@ -36,7 +36,6 @@
                 <ui:VisualElement name="undeline" style="flex-grow: 1; background-color: rgb(255, 255, 255); width: 550px; height: 2px;" />
                 <ui:Label tabindex="-1" text="Switch between different screen modes" display-tooltip-when-elided="true" name="button-description" style="-unity-font: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 35px; color: rgb(255, 255, 255); padding-top: 0; margin-top: 2px; margin-left: 3px;" />
             </ui:VisualElement>
-            <ui:VisualElement name="sizer" picking-mode="Ignore" style="flex-grow: 0; background-color: rgba(29, 29, 29, 0); width: 35%; height: 100%; justify-content: space-between; align-items: center;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

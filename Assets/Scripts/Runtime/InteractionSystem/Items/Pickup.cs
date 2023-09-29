@@ -42,10 +42,12 @@ namespace Runtime.InteractionSystem.Items
             var inventory = player.GetComponentInParent<PlayerInventory>();
             
             GameManager.Instance.NotificationManager.ShowPickupNotification(item);
-            if(saveOnPickup) GameManager.Instance.SaveSystem.SaveGame();
-            
             if(finishSummaryOnPickup) GameManager.Instance.InventorySystem.PlayerInventory.SetSummaryEntryCompleted(finishSummaryEntry);
-            return inventory.AddItemToInventory(item);
+            
+            inventory.AddItemToInventory(item);
+            if(saveOnPickup) GameManager.Instance.SaveSystem.SaveGame();
+            return true;
+            
         }
 
         public void OnInteractFailed(GameObject player)

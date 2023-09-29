@@ -19,13 +19,13 @@ namespace Runtime.DialogueSystem
     [DefaultExecutionOrder(3)]
     public class DialogueManager : MonoBehaviour
     {
-        [SerializeField] private InputReader inputReader;
         [SerializeField, Tooltip("Speed the text is 'typed' onto the screen")] private float textSpeed = 0.05f;
         [SerializeField] private float sentencePauseTime;
         
         //============== Settings ================
         public event Action OnDialogueFinish;
         private AudioSource _audioSource;
+        private InputReader _inputReader;
         
         //================ UI Elements ==================
         private Label _dialogueTextElement;
@@ -60,16 +60,17 @@ namespace Runtime.DialogueSystem
             
             //Bind Audio Source
             _audioSource = gameObject.GetComponent<AudioSource>();
+            _inputReader = GameManager.Instance.inputReader;
         }
 
         private void OnEnable()
         {
-            inputReader.LeftClickEvent += SkipDialogue;
+            _inputReader.LeftClickEvent += SkipDialogue;
         }
         
         private void OnDisable()
         {
-            inputReader.LeftClickEvent -= SkipDialogue;
+            _inputReader.LeftClickEvent -= SkipDialogue;
         }
         
         //============================== Dialogue Functions ==============================//
