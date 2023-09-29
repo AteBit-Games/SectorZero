@@ -223,6 +223,8 @@ namespace Runtime.AI
 
         private void Activate()
         {
+            Debug.Log("AIManager: Activating AI");
+            
             _active = true;
             _isActiveKey.value = true;
             _menaceState = false;
@@ -278,6 +280,8 @@ namespace Runtime.AI
             if (!save.monsterData.ContainsKey("VoidMask")) return "AIManager";
             
             var monsterSave = save.monsterData["VoidMask"];
+            
+            _active = monsterSave.isActive;
             _menaceGaugeValue = monsterSave.menaceGaugeValue;
             _menaceState = monsterSave.menaceState;
             _patrolStateKey.value = _menaceState;
@@ -298,7 +302,8 @@ namespace Runtime.AI
                 Debug.LogError("AIManager: " + "VoidMask" + " not found in save data!");
                 return;
             }
-                
+            
+            monsterSave.isActive = _active;
             monsterSave.menaceGaugeValue = _menaceGaugeValue;
             monsterSave.menaceState = _menaceState;
             monsterSave.aggroLevel = AggroLevel;

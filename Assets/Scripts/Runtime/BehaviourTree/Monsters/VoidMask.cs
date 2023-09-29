@@ -59,7 +59,6 @@ namespace Runtime.BehaviourTree.Monsters
             
             SetupReferences();
             var monsterSave = save.monsterData["VoidMask"];
-            gameObject.transform.parent.gameObject.SetActive(monsterSave.isActive);
             navMeshAgent.Warp(monsterSave.position);
             stateReference.value = monsterSave.activeState;
 
@@ -75,7 +74,6 @@ namespace Runtime.BehaviourTree.Monsters
             }
             
             var monsterSave = save.monsterData["VoidMask"];
-            monsterSave.isActive = gameObject.transform.parent.gameObject.activeSelf;
             
             //if ! aggro state, save position
             if (currentMonsterState != MonsterState.AggroChase)

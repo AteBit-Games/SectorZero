@@ -127,7 +127,7 @@ namespace Runtime.SaveSystem.Data
         {
             monsterData.Add("VoidMask", new MonsterSaveData
             {
-                isActive = true,
+                isActive = false,
                 position = new Vector3(-33f, -0.65f, 0),
                 activeState = 0,
                 menaceGaugeValue = 45f,

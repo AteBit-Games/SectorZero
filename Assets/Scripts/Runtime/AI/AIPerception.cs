@@ -130,6 +130,7 @@ namespace Runtime.AI
             GameManager.Instance.SoundSystem.PlaySting(detectedSound);
             treeOwner.SetState(MonsterState.AggroChase);
             _canSeePlayer = true;
+            player.GetComponent<ISightEntity>().IsSeen = false;
             
             OnSightEnterAction?.Invoke();
             _gainSightCoroutine = null;
@@ -190,7 +191,7 @@ namespace Runtime.AI
                 }).SetFrom(aberration.intensity.value).SetEaseSineInOut();
             }
 
-            treeOwner.SetState(MonsterState.Idle);
+            treeOwner.SetState(MonsterState.Patrol);
             _loseSightCoroutine = null;
             _looseSightCoroutineRunning = false;
             _canSeePlayer = false;
@@ -237,7 +238,10 @@ namespace Runtime.AI
                         if (GameManager.Instance.AIManager.isPlayerCrouching)
                         {
                             //Check if the player is behind an obstacle only if the player is crouching
-                            _canSeePlayer = !Physics2D.Raycast(position, directionToTarget, distanceToTarget,obstacleMask);
+                            if (!Physics2D.Raycast(position, directionToTarget, distanceToTarget, obstacleMask))
+                            {
+                                OnSightEnter();
+                            }
                         }
                         else
                         {
@@ -259,6 +263,7 @@ namespace Runtime.AI
                             }
                         }
                     }
+                    else OnSightExit(player.transform.position);
                 }
             }
             else OnSightExit(player.transform.position);
