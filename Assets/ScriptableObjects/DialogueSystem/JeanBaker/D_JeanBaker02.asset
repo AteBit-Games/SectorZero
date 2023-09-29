@@ -28,3 +28,5 @@ MonoBehaviour:
   canSkip: 1
   autoSkipDelay: 2.2
   trigger: 0
+  addSummaryEntry: 0
+  summaryEntry: []

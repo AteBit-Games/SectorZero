@@ -15,7 +15,7 @@ namespace Runtime.DialogueSystem
     public class DialogueLine
     {
         [SerializeField, Tooltip("The actor that will be speaking the line")] public Actor actor;
-        [SerializeField, Tooltip("The line that the actor will be speaking")] public string line;
+        [SerializeField, Tooltip("The line that the actor will be speaking"), TextArea(5, 15)] public string line;
     }
     
     [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue System/Dialogue")]
