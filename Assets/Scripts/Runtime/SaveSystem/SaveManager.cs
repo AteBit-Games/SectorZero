@@ -42,8 +42,9 @@ namespace Runtime.SaveSystem
         
         private void Awake() 
         {
-            var saveGamePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).Replace("\\", "/");
-            saveGamePath += "/My Games/Sector Zero/";
+            //persistant data path
+            var saveGamePath = Application.persistentDataPath;
+            Debug.Log("Save Path: " + saveGamePath);
             _dataHandler = new FileHandler(saveGamePath, saveFileExtension, useEncryption ? EncryptionType.AES : EncryptionType.None);
             _playerData = _dataHandler.LoadPlayerData();
         }
