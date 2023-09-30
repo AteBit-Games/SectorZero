@@ -14,6 +14,7 @@ using Runtime.SaveSystem.Data;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace Runtime.AI
 {
@@ -35,7 +36,7 @@ namespace Runtime.AI
         
         //------- Menace Gauge -------//
         private float _menaceGaugeValue = 60f;
-        private bool _menaceState;
+        [HideInInspector] public bool menaceState;
         private NavMeshPath _path;
 
         //Aggro level is a value between 0 and 10 that represents how impatient the monster is
@@ -132,7 +133,7 @@ namespace Runtime.AI
             }
 
             //Patrol Close
-            if (_menaceState)
+            if (menaceState)
             {
                 _menaceGaugeValue += Time.deltaTime * (lineOfSight ? directSightMultiplier : directSightBase);
                 _menaceGaugeValue += Time.deltaTime * (totalDistance < 30f ? closeDistanceMultiplier : closeDistanceBase);
@@ -157,13 +158,13 @@ namespace Runtime.AI
             if (_menaceGaugeValue >= menaceGaugeMax)
             {
                 SetPatrolState(false);
-                _menaceState = false;
+                menaceState = false;
             }
 
             if (_menaceGaugeValue <= menaceGaugeMin)
             {
                 SetPatrolState(true);
-                _menaceState = true;
+                menaceState = true;
             }
         }
         
@@ -183,11 +184,11 @@ namespace Runtime.AI
         public void StartNewGame()
         {
             _menaceGaugeValue = 60f;
-            _menaceState = false;
+            menaceState = false;
             _lastSeenPlayerTime = Time.time;
             AggroLevel = 0;
             _active = false;
-            _menaceState = false;
+            menaceState = false;
         }
         
         // ============================ Private Methods ============================
@@ -227,7 +228,7 @@ namespace Runtime.AI
             
             _active = true;
             _isActiveKey.value = true;
-            _menaceState = false;
+            menaceState = false;
             _patrolStateKey.value = false;
             activateEvents?.Invoke();
         }
@@ -245,7 +246,7 @@ namespace Runtime.AI
             {
                 AggroLevel += 2;
                 _aggroLevelKey.value = AggroLevel;
-                _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue + (_menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
+                _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue + (menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
                 
                 _roomKey.value = room;
                 _monster.SetState(MonsterState.SentinelAlert);
@@ -283,8 +284,8 @@ namespace Runtime.AI
             
             _active = monsterSave.isActive;
             _menaceGaugeValue = monsterSave.menaceGaugeValue;
-            _menaceState = monsterSave.menaceState;
-            _patrolStateKey.value = _menaceState;
+            menaceState = monsterSave.menaceState;
+            _patrolStateKey.value = menaceState;
 
             AggroLevel = monsterSave.aggroLevel;
             _lastSeenPlayerTime = monsterSave.lastSeenPlayerTime;
@@ -305,7 +306,7 @@ namespace Runtime.AI
             
             monsterSave.isActive = _active;
             monsterSave.menaceGaugeValue = _menaceGaugeValue;
-            monsterSave.menaceState = _menaceState;
+            monsterSave.menaceState = menaceState;
             monsterSave.aggroLevel = AggroLevel;
             monsterSave.lastSeenPlayerTime = _lastSeenPlayerTime;
         }

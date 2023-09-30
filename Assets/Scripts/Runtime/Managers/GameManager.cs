@@ -57,6 +57,7 @@ namespace Runtime.Managers
         private PauseMenu PauseMenu { get; set; }
         private LoadingScreen LoadingScreen { get; set; }
         private EndScreen EndScreen { get; set; }
+        private DebugMenu DebugWindow { get; set; }
         
         private CinemachineVirtualCamera _camera;
         [HideInInspector] public Window activeWindow;
@@ -69,6 +70,8 @@ namespace Runtime.Managers
         [HideInInspector] public string details = "";
         private long _time;
         private Discord.Discord _discord;
+
+        private bool _isDebugOpen;
         
         //========================= Unity Events =========================
         
@@ -115,6 +118,22 @@ namespace Runtime.Managers
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Quote) && (testMode || Debug.isDebugBuild))
+            {
+                Debug.Log("Test");
+                
+                if(_isDebugOpen)
+                {
+                    DebugWindow.Hide();
+                    _isDebugOpen = false;
+                }
+                else
+                {
+                    DebugWindow.Show();
+                    _isDebugOpen = true;
+                }
+            }
+            
             if(_discord == null) return;
             try
             {

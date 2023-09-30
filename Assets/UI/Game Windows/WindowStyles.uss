@@ -620,3 +620,13 @@
     color: rgb(27, 27, 27);
     opacity: 1;
 }
+
+#DebugMenu-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
