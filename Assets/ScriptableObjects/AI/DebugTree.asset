@@ -20,6 +20,7 @@ MonoBehaviour:
   - rid: 6414687230186225668
   - rid: 6414687230186225671
   - rid: 4809529536864845834
+  - rid: 4809529539082059776
   treeState: 0
   blackboard:
     keys:
@@ -38,8 +39,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: 179, y: -17, z: 0}
-  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
+  viewPosition: {x: 503, y: 25, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -174,6 +175,25 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: Yeet
+    - rid: 4809529539082059776
+      type: {class: LookAt, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: dd815013b4d313c4597820cb407fa80b
+        position: {x: -260, y: 340}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        target:
+          reference:
+            rid: -2
+          defaultValue: {x: -33.0625, y: -2.0625}
+        lookTime:
+          reference:
+            rid: -2
+          defaultValue: 2
     - rid: 6414687230186225667
       type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
@@ -205,6 +225,7 @@ MonoBehaviour:
         comment: 
         drawGizmos: 0
         children:
+        - rid: 4809529539082059776
         - rid: 6414687230186225671
         - rid: 4809529536864845834
     - rid: 6414687230186225671
@@ -213,7 +234,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 8f45a07f2ae51984797cf826bdae9243
-        position: {x: -100, y: 340}
+        position: {x: -80, y: 340}
         blackboard:
           keys: []
         comment: 
