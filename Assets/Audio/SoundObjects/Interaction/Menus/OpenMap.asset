@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da09ef4e6e9b5f74486f1c4010871c5d, type: 3}
-  m_Name: DoorSlideOpen
+  m_Name: OpenMap
   m_EditorClassIdentifier: 
   mixerGroup: {fileID: -2711704030924625141, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
-  clip: {fileID: 8300000, guid: 81bc28af9b89d034291af3d518d226b8, type: 3}
-  volumeScale: 0.2
+  clip: {fileID: 8300000, guid: 0303e3c6d6cf1fe4ba0a94841acd4dd8, type: 3}
+  volumeScale: 0.708
   loop: 0
