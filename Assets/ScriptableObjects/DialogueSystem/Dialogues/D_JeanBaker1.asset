@@ -25,5 +25,6 @@ MonoBehaviour:
   canSkip: 1
   autoSkipDelay: 2
   trigger: 0
-  addSummaryEntry: 0
-  summaryEntry: []
+  addSummaryEntry: 1
+  summaryEntry:
+  - {fileID: 11400000, guid: ca987cfcf004ed945a54b9c77c00e0e9, type: 2}

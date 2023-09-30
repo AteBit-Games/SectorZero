@@ -57,7 +57,6 @@ namespace Runtime.InteractionSystem.Objects.Powered
             _audioSource = GetComponent<AudioSource>();
             GameManager.Instance.SoundSystem.SetupSound(_audioSource, offSound);
         }
-        
 
         //========================= Interface events =========================//
         
@@ -80,20 +79,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         public void OnInteractFailed(GameObject player)
         {
-            // switch (_isPowered)
-            // {
-            //     case false:
-            //         GameManager.Instance.SoundSystem.PlayOneShot(offSound, _audioSource);
-            //         if (!player.GetComponentInParent<PlayerInventory>().ContainsSummaryEntry(powerEntry))  
-            //             GameManager.Instance.InventorySystem.PlayerInventory.AddSummaryEntry(powerEntry);
-            //         break;
-            //     case true when !GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(keyCard):
-            //         GameManager.Instance.SoundSystem.PlayOneShot(lockedSound, _audioSource);
-            //         _animator.SetTrigger(Locked);
-            //         if (!player.GetComponentInParent<PlayerInventory>().ContainsSummaryEntry(cardEntry))  
-            //             GameManager.Instance.InventorySystem.PlayerInventory.AddSummaryEntry(cardEntry);
-            //         break;
-            // }
+            
         }
 
         public bool CanInteract()
@@ -130,9 +116,10 @@ namespace Runtime.InteractionSystem.Objects.Powered
             if(_doorRoutine != null) StopCoroutine(_doorRoutine);
             if (_triggered && !_solved)
             {
+                Debug.Log("Resetting doors");
                 _playerInventory.SetSummaryEntryCompleted(puzzleEntry);
                 DisableInteraction();
-                _animator.SetTrigger(Solved);
+                _animator.SetBool(Solved, true);
                 _solved = true;
             }
             
@@ -154,7 +141,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
                     door.LoadDoor();
                 }
                 
-                _animator.SetTrigger(Solved);
+                _animator.SetBool(Solved, true);
                 DisableInteraction();
             }
 

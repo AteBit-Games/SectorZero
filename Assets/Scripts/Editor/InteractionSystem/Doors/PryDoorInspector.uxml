@@ -6,6 +6,7 @@
             <uie:PropertyField binding-path="requiredItem" name="property" />
             <uie:PropertyField binding-path="itemToAdd" name="property" />
             <uie:PropertyField binding-path="summaryEntry" name="property" />
+            <uie:PropertyField binding-path="summaryEntryToFinish" name="property" />
             <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
             <ui:VisualElement name="GUID" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center;">
                 <uie:PropertyField binding-path="persistentID" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
@@ -18,6 +19,7 @@
         <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
             <uie:PropertyField binding-path="interactSound" name="property" />
             <uie:PropertyField binding-path="failSound" name="property" />
+            <uie:PropertyField binding-path="itemPickupSound" name="property" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:Button text="Edit Script" display-tooltip-when-elided="true" name="open-button" class="button" style="padding-top: 3px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; margin-top: 10px; margin-bottom: 5px;" />

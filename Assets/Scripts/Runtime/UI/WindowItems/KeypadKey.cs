@@ -34,7 +34,7 @@ namespace Runtime.UI.WindowItems
             if(_pressCoroutine != null) GameManager.Instance.StopCoroutine(_pressCoroutine);
             _pressCoroutine = _keyPadRef.StartCoroutine(Press());
 
-            GameManager.Instance.SoundSystem.Play(_keyPadRef.keyPressSound);
+            if(_keyRef.value != '#') GameManager.Instance.SoundSystem.Play(_keyPadRef.keyPressSound);
             return _keyRef.value;
         }
 

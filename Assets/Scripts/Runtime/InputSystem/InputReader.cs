@@ -121,8 +121,6 @@ namespace Runtime.InputSystem
         {
             if(context.phase == InputActionPhase.Performed)
             {
-                Debug.Log("Exit");
-                
                 switch (context.control.name)
                 {
                     case "tab":

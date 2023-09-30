@@ -82,6 +82,21 @@ namespace Runtime.SoundSystem
             if (destroy && !sound.loop) StartCoroutine(DestroySoundSource(audioSource, audioSource.clip.length+0.5f));
         }
         
+        public void PlayRealtime(Sound sound)
+        {
+            if (sound == null || sound.loop) return;
+            
+            var audioSource = new GameObject(sound.name + " source").AddComponent<AudioSource>();
+            DontDestroyOnLoad(audioSource);
+            
+            audioSource.outputAudioMixerGroup = sound.mixerGroup;
+            audioSource.clip = sound.clip;
+            audioSource.volume = sound.volumeScale;
+            audioSource.Play();
+            
+            StartCoroutine(DestroySoundSource(audioSource, audioSource.clip.length+0.5f));
+        }
+        
         public void PlayOneShot(Sound sound, AudioSource audioSource)
         {
             if (sound == null || sound.loop) return;

@@ -20,12 +20,14 @@ namespace Runtime.InteractionSystem.Objects.Doors
     {
         [SerializeField] private Item requiredItem;
         [SerializeField] public SummaryEntry summaryEntry;
+        [SerializeField] public SummaryEntry summaryEntryToFinish;
         [SerializeField] private Item itemToAdd;
         [SerializeField] public string persistentID;
 
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         
+        [SerializeField] private Sound itemPickupSound;
         [SerializeField] private Sound failSound;
 
         private readonly int _failed = Animator.StringToHash("stuck");
@@ -53,10 +55,13 @@ namespace Runtime.InteractionSystem.Objects.Doors
         public bool OnInteract(GameObject player)
         {
             GameManager.Instance.SoundSystem.Play(interactSound);
+            GameManager.Instance.SoundSystem.Play(itemPickupSound);
             _mainAnimator.SetTrigger(_open);
             
             var inventory = player.GetComponentInParent<PlayerInventory>();
             GameManager.Instance.NotificationManager.ShowPickupNotification(itemToAdd);
+            
+            if(summaryEntryToFinish != null) inventory.SetSummaryEntryCompleted(summaryEntryToFinish);
             
             player.GetComponent<PlayerInteraction>().RemoveInteractable(gameObject);
             DisableInteraction();

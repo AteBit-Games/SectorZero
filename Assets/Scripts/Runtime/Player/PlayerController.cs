@@ -163,7 +163,7 @@ namespace Runtime.Player
             
             //Set the player to the hiding position
             _movementAnimator.SetBool(id: _isMoving, false);
-            globalLight.intensity = 0.15f;
+            globalLight.intensity = 0.18f;
             transform.position = position;
             hideable = hidableObject.GetComponent<Collider2D>();
             

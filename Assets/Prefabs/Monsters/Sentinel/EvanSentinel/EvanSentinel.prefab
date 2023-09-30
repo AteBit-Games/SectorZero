@@ -652,10 +652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indexedSounds: []
   randomSounds:
-  - {fileID: 11400000, guid: 5a39894a6f585634ba59d21359d1cead, type: 2}
-  - {fileID: 11400000, guid: b2b32e38e2872e4459c06692dfbc2c72, type: 2}
-  - {fileID: 11400000, guid: 286622b3bcceb134e9ab2df07ba2afae, type: 2}
-  - {fileID: 11400000, guid: e36ba401ce56eb34e878dc90705a66ad, type: 2}
+  - {fileID: 11400000, guid: 29b3266869971ce4f84252d647e34959, type: 2}
+  - {fileID: 11400000, guid: e37ca423e7354d24b96728fe00792de2, type: 2}
 --- !u!82 &721744795634003950
 AudioSource:
   m_ObjectHideFlags: 0

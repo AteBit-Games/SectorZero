@@ -26,6 +26,8 @@ namespace Runtime.InteractionSystem.Items
         
         public bool OnInteract(GameObject player)
         {
+            GameManager.Instance.SoundSystem.PlayRealtime(interactSound);
+            
             if(GameManager.Instance.SaveSystem.GetPlayerData().autoNotes)
             {
                 GameManager.Instance.HUD.OpenNote(note, true);
@@ -36,7 +38,6 @@ namespace Runtime.InteractionSystem.Items
             }
             
             gameObject.SetActive(false);
-            GameManager.Instance.SoundSystem.Play(interactSound);
             
             var inventory = player.GetComponentInParent<PlayerInventory>();
             return inventory.AddNoteToInventory(note);
