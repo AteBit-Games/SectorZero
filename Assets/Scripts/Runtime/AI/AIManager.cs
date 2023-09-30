@@ -35,7 +35,7 @@ namespace Runtime.AI
         private PlayerController _player;
         
         //------- Menace Gauge -------//
-        private float _menaceGaugeValue = 60f;
+        [HideInInspector] public float menaceGaugeValue = 60f;
         [HideInInspector] public bool menaceState;
         private NavMeshPath _path;
 
@@ -135,16 +135,16 @@ namespace Runtime.AI
             //Patrol Close
             if (menaceState)
             {
-                _menaceGaugeValue += Time.deltaTime * (lineOfSight ? directSightMultiplier : directSightBase);
-                _menaceGaugeValue += Time.deltaTime * (totalDistance < 30f ? closeDistanceMultiplier : closeDistanceBase);
+                menaceGaugeValue += Time.deltaTime * (lineOfSight ? directSightMultiplier : directSightBase);
+                menaceGaugeValue += Time.deltaTime * (totalDistance < 30f ? closeDistanceMultiplier : closeDistanceBase);
             }
             //Patrol Far
             else
             {
-                _menaceGaugeValue -= Time.deltaTime * Math.Clamp(AggroLevel / 8f, 0.3f, 0.8f);
+                menaceGaugeValue -= Time.deltaTime * Math.Clamp(AggroLevel / 8f, 0.3f, 0.8f);
             }
             
-            _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue, menaceGaugeMin, menaceGaugeMax);
+            menaceGaugeValue = Mathf.Clamp(menaceGaugeValue, menaceGaugeMin, menaceGaugeMax);
             
             if (Time.time - _lastSeenPlayerTime > 60f)
             {
@@ -155,13 +155,13 @@ namespace Runtime.AI
             }
             
             //Flip flop between patrol states based on menace value
-            if (_menaceGaugeValue >= menaceGaugeMax)
+            if (menaceGaugeValue >= menaceGaugeMax)
             {
                 SetPatrolState(false);
                 menaceState = false;
             }
 
-            if (_menaceGaugeValue <= menaceGaugeMin)
+            if (menaceGaugeValue <= menaceGaugeMin)
             {
                 SetPatrolState(true);
                 menaceState = true;
@@ -183,7 +183,7 @@ namespace Runtime.AI
         
         public void StartNewGame()
         {
-            _menaceGaugeValue = 60f;
+            menaceGaugeValue = 60f;
             menaceState = false;
             _lastSeenPlayerTime = Time.time;
             AggroLevel = 0;
@@ -246,7 +246,7 @@ namespace Runtime.AI
             {
                 AggroLevel += 2;
                 _aggroLevelKey.value = AggroLevel;
-                _menaceGaugeValue = Mathf.Clamp(_menaceGaugeValue + (menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
+                menaceGaugeValue = Mathf.Clamp(menaceGaugeValue + (menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
                 
                 _roomKey.value = room;
                 _monster.SetState(MonsterState.SentinelAlert);
@@ -283,7 +283,7 @@ namespace Runtime.AI
             var monsterSave = save.monsterData["VoidMask"];
             
             _active = monsterSave.isActive;
-            _menaceGaugeValue = monsterSave.menaceGaugeValue;
+            menaceGaugeValue = monsterSave.menaceGaugeValue;
             menaceState = monsterSave.menaceState;
             _patrolStateKey.value = menaceState;
 
@@ -305,7 +305,7 @@ namespace Runtime.AI
             }
             
             monsterSave.isActive = _active;
-            monsterSave.menaceGaugeValue = _menaceGaugeValue;
+            monsterSave.menaceGaugeValue = menaceGaugeValue;
             monsterSave.menaceState = menaceState;
             monsterSave.aggroLevel = AggroLevel;
             monsterSave.lastSeenPlayerTime = _lastSeenPlayerTime;

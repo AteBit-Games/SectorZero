@@ -3,9 +3,7 @@
  * All rights reserved.
  ****************************************************************/
 
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Runtime.Managers;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -16,27 +14,30 @@ namespace Runtime.UI
     public class DebugMenu : MonoBehaviour
     {
         private UIDocument _uiDocument;
+        private VisualElement _mainContainer;
         
         private VisualElement _aiManagerContainer;
         private Label _menaceStateValue;
+        private Label _menaceGaugeValue;
         
         public void Show()
         {
-            _uiDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+            _mainContainer.style.display = DisplayStyle.Flex;
         }
         
         public void Hide()
         {
-            _uiDocument.rootVisualElement.style.display = DisplayStyle.None;
+            _mainContainer.style.display = DisplayStyle.None;
         }
 
         private void Awake()
         {
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;
-
-            SetupAIManager(rootVisualElement);
             
+            _mainContainer = rootVisualElement.Q<VisualElement>("debug-container");
+            
+            SetupAIManager(rootVisualElement);
             StartCoroutine(UpdateStates());
         }
         
@@ -44,6 +45,7 @@ namespace Runtime.UI
         {
             var aiManager = root.Q<VisualElement>("ai-manager");
             _menaceStateValue = aiManager.Q<Label>("menace-state-value");
+            _menaceGaugeValue = aiManager.Q<Label>("menace-gauge-value");
         }
 
         private IEnumerator UpdateStates()
@@ -58,6 +60,7 @@ namespace Runtime.UI
         private void UpdateAIManagerValues()
         {
             _menaceStateValue.text = "Menace State: " + MenaceStateString();
+            _menaceGaugeValue.text = "Menace Gauge: " + GameManager.Instance.AIManager.menaceState;
         }
 
         private static string MenaceStateString()

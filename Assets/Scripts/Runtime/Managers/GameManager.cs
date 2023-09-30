@@ -94,10 +94,10 @@ namespace Runtime.Managers
             
             DontDestroyOnLoad(gameObject);
             
-            Instance.LoadingScreen = GetComponentInChildren<LoadingScreen>();
-            Instance.SoundSystem = GetComponent<SoundManager>();
-            Instance.SaveSystem = GetComponent<SaveManager>();
-            Instance.AIManager = GetComponent<AIManager>();
+            LoadingScreen = GetComponentInChildren<LoadingScreen>();
+            SoundSystem = GetComponent<SoundManager>();
+            SaveSystem = GetComponent<SaveManager>();
+            AIManager = GetComponent<AIManager>();
             GetComponent<AIManager>();
 
             InstantiateDiscord();
@@ -317,6 +317,7 @@ namespace Runtime.Managers
             HUD = FindFirstObjectByType<HUD>(FindObjectsInactive.Include);
             DeathScreen = FindFirstObjectByType<DeathScreen>(FindObjectsInactive.Include);
             EndScreen = FindFirstObjectByType<EndScreen>(FindObjectsInactive.Include);
+            DebugWindow = FindFirstObjectByType<DebugMenu>(FindObjectsInactive.Include);
         }
 
         private void UpdateStatus()
