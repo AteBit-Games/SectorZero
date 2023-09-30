@@ -69,8 +69,7 @@ namespace Runtime.Player
         private Coroutine _hideCoroutine;
         private bool _sneakCooldownActive;
 
-
-       // ============ Animator Hashes ============
+        // ============ Animator Hashes ============
         private readonly int _moveX = Animator.StringToHash("moveX");
         private readonly int _moveY = Animator.StringToHash("moveY");
         private readonly int _isMoving = Animator.StringToHash("isMoving");

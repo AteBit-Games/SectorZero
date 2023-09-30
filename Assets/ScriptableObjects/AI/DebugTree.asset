@@ -19,7 +19,8 @@ MonoBehaviour:
   - rid: 6414687230186225667
   - rid: 6414687230186225668
   - rid: 6414687230186225671
-  - rid: 6414687230186225672
+  - rid: 6414687863843061760
+  - rid: 6414687863843061765
   treeState: 0
   blackboard:
     keys:
@@ -38,8 +39,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: 430, y: 210, z: 0}
-  viewScale: {x: 0.375937, y: 0.375937, z: 1}
+  viewPosition: {x: 456.8, y: -10.4, z: 0}
+  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
   references:
     version: 2
     RefIds:
@@ -172,7 +173,7 @@ MonoBehaviour:
         child:
           rid: 6414687230186225668
         restartOnSuccess: 1
-        restartOnFailure: 0
+        restartOnFailure: 1
         maxRepeats:
           reference:
             rid: -2
@@ -189,15 +190,15 @@ MonoBehaviour:
         comment: 
         drawGizmos: 0
         children:
+        - rid: 6414687863843061765
         - rid: 6414687230186225671
-        - rid: 6414687230186225672
     - rid: 6414687230186225671
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 8f45a07f2ae51984797cf826bdae9243
-        position: {x: -100, y: 340}
+        position: {x: 80, y: 340}
         blackboard:
           keys: []
         comment: 
@@ -205,19 +206,56 @@ MonoBehaviour:
         duration:
           reference:
             rid: -2
-          defaultValue: 9999
-    - rid: 6414687230186225672
-      type: {class: LogKey, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
+          defaultValue: 10
+    - rid: 6414687863843061760
+      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: 92fe7df3270509343a8defcf5058e68a
-        position: {x: 80, y: 340}
+        guid: aa65342ec8060ff48a1612b369459e62
+        position: {x: -100, y: 460}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
-        logType: 0
-        messageKey:
-          reference:
-            rid: 61114352745054246
+        treeAsset: {fileID: 11400000, guid: 8377cdaad0f20a5408fbfa8bf49e6dfe, type: 2}
+        treeInstance: {fileID: 0}
+        cloneInstance: 1
+        blackboardOverrides:
+        - source:
+            rid: 61114352745054247
+          target:
+            rid: 6414687863843061761
+        - source:
+            rid: 130803886202814472
+          target:
+            rid: 6414687863843061762
+    - rid: 6414687863843061761
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 6414687863843061762
+      type: {class: ColliderKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Room
+        typeName: UnityEngine.Collider2D, UnityEngine.Physics2DModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 6414687863843061765
+      type: {class: Remapper, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 1e70c24ba279f844ea19822e6f459881
+        position: {x: -100, y: 340}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 6414687863843061760
+        successRemap: 1
+        failureRemap: 1

@@ -17,18 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: bafa630bcbab68845bd7e59cc71a3f4f
   m_SerializeEntries:
-  - m_GUID: 8bd629c1673a02b408386a293716d5df
-    m_Address: OfficeTape
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - tape
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3add22be9f5e4924d8c2e8b71f57e124
-    m_Address: ERTape
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - tape
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49ca6a6939db31e43bd9c598b6eff515
     m_Address: GrantMcAddams1
     m_ReadOnly: 0

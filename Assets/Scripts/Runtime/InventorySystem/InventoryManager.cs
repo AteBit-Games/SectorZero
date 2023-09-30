@@ -28,7 +28,6 @@ namespace Runtime.InventorySystem
         [FormerlySerializedAs("isInventoryEnabled")]
         [Header("Items Inventory")]
         [SerializeField] public VisualTreeAsset summaryEntry;
-        [SerializeField] public bool isInventoryScreenEnabled;
         [SerializeField] private PlayerInventory playerInventory;
         [SerializeField] private VisualTreeAsset inventorySlot;
         
@@ -186,7 +185,6 @@ namespace Runtime.InventorySystem
 
         private void SwitchToItemsInventory()
         {
-            if(_activeInventory == ActiveInventory.Items) return;
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             
             _activeItemSlot?.Deselect();
@@ -203,8 +201,15 @@ namespace Runtime.InventorySystem
             UIUtils.HideUIElement(_summarySectionContainer);
             _summarySectionContainer.pickingMode = PickingMode.Ignore;
             
-            _itemsButton.BringToFront();
+            //Reset the buttons
+            ReenableButtons();
+            
+            //Bring the summary button to the front and disable it
             _itemsButton.AddToClassList("inventory-toggle-active");
+            _itemsButton.BringToFront();
+            _itemsButton.SetEnabled(false);
+
+            //Send the other buttons to the back
             _tapesButton.SendToBack();
             _tapesButton.RemoveFromClassList("inventory-toggle-active");
             _notesButton.SendToBack();
@@ -215,7 +220,6 @@ namespace Runtime.InventorySystem
         
         private void SwitchToTapesInventory()
         {
-            if(_activeInventory == ActiveInventory.Tapes) return;
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
 
             _activeItemSlot?.Deselect();
@@ -232,8 +236,15 @@ namespace Runtime.InventorySystem
             UIUtils.HideUIElement(_summarySectionContainer);
             _summarySectionContainer.pickingMode = PickingMode.Ignore;
             
+            //Reset the buttons
+            ReenableButtons();
+            
+            //Bring the summary button to the front and disable it
             _tapesButton.BringToFront();
             _tapesButton.AddToClassList("inventory-toggle-active");
+            _tapesButton.SetEnabled(false);
+            
+            //Send the other buttons to the back 
             _itemsButton.SendToBack();
             _itemsButton.RemoveFromClassList("inventory-toggle-active");
             _notesButton.SendToBack();
@@ -244,7 +255,6 @@ namespace Runtime.InventorySystem
         
         private void SwitchToNotesInventory()
         {
-            if(_activeInventory == ActiveInventory.Notes) return;
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             
             _activeItemSlot?.Deselect();
@@ -261,8 +271,15 @@ namespace Runtime.InventorySystem
             UIUtils.HideUIElement(_summarySectionContainer);
             _summarySectionContainer.pickingMode = PickingMode.Ignore;
             
+            //Reset the buttons
+            ReenableButtons();
+            
+            //Bring the summary button to the front and disable it
             _notesButton.BringToFront();
             _notesButton.AddToClassList("inventory-toggle-active");
+            _notesButton.SetEnabled(false);
+            
+            //Send the other buttons to the back
             _tapesButton.SendToBack();
             _tapesButton.RemoveFromClassList("inventory-toggle-active");
             _itemsButton.SendToBack();
@@ -273,7 +290,6 @@ namespace Runtime.InventorySystem
 
         private void SwitchToSummaries()
         {
-            if(_activeInventory == ActiveInventory.Summary) return;
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             
             _activeInventory = ActiveInventory.Summary;
@@ -286,14 +302,29 @@ namespace Runtime.InventorySystem
             UIUtils.ShowUIElement(_summarySectionContainer);
             _summarySectionContainer.pickingMode = PickingMode.Ignore;
             
+            //Reset the buttons
+            ReenableButtons();
+            
+            //Bring the summary button to the front and disable it
             _summaryButton.BringToFront();
             _summaryButton.AddToClassList("inventory-toggle-active");
+            _summaryButton.SetEnabled(false);
+            
+            //Send the other buttons to the back 
             _notesButton.SendToBack();
             _notesButton.RemoveFromClassList("inventory-toggle-active");
             _tapesButton.SendToBack();
             _tapesButton.RemoveFromClassList("inventory-toggle-active");
             _itemsButton.SendToBack();
             _itemsButton.RemoveFromClassList("inventory-toggle-active");
+        }
+
+        private void ReenableButtons()
+        {
+            _summaryButton.SetEnabled(true);
+            _tapesButton.SetEnabled(true);
+            _notesButton.SetEnabled(true);
+            _itemsButton.SetEnabled(true);
         }
 
         private void SelectItem(BaseItem item)

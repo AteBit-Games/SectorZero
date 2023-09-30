@@ -614,3 +614,9 @@
 .legend-group {
     margin-bottom: 10px;
 }
+
+#clipboard-background .unity-disabled {
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    color: rgb(27, 27, 27);
+    opacity: 1;
+}

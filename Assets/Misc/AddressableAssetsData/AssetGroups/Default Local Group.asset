@@ -17,11 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 307e81bc6c69b2142b50612f8eb73188
   m_SerializeEntries:
-  - m_GUID: 58984478e69a5774a9cf394605bf2dae
-    m_Address: CarverRoomTape
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a94dc7ed7c62537408a397bc4accb493
     m_Address: KeycardResidential
     m_ReadOnly: 0
@@ -104,11 +99,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fbe0720cd1ed56c40be383c2db482716
     m_Address: Assets/ScriptableObjects/AI/SubTrees/Patrol/SearchRoom.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7cfd48a4d296e7342b084083677a6566
-    m_Address: Jean1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

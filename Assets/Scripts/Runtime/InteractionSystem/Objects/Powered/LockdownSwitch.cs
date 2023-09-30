@@ -104,34 +104,27 @@ namespace Runtime.InteractionSystem.Objects.Powered
         
         public bool OnInteract(GameObject player)
         {
-            if(_canBePowered)
-            {
-                _animator.SetBool(Powered, true);
-                _mainLight.enabled = true;
-                _isPowered = true;
+            _animator.SetBool(Powered, true);
+            _mainLight.enabled = true;
+            _isPowered = true;
                 
-                GameManager.Instance.SoundSystem.PlayOneShot(onSound, _audioSource);
-                GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
-                securityTerminal.PowerOn(false);
-                GameManager.Instance.InventorySystem.PlayerInventory.SetSummaryEntryCompleted(summaryEntry);
-            }
-            else
-            {
-                GameManager.Instance.SoundSystem.PlayOneShot(failSound, _audioSource);
-                _animator.SetTrigger(Failure);
-            }
+            GameManager.Instance.SoundSystem.PlayOneShot(onSound, _audioSource);
+            GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
+            securityTerminal.PowerOn(false);
+            GameManager.Instance.InventorySystem.PlayerInventory.SetSummaryEntryCompleted(summaryEntry);
             
             return true;
         }
 
         public void OnInteractFailed(GameObject player)
         {
-            throw new System.NotImplementedException();
+            GameManager.Instance.SoundSystem.PlayOneShot(failSound, _audioSource);
+            _animator.SetTrigger(Failure);
         }
 
         public bool CanInteract()
         {
-            return true;
+            return _canBePowered;
         }
         
         //=========================== Save System =============================//

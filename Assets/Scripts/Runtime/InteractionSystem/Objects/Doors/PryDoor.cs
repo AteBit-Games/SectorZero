@@ -62,7 +62,9 @@ namespace Runtime.InteractionSystem.Objects.Doors
             DisableInteraction();
             
             _isOpened = true;
-            return inventory.AddItemToInventory(itemToAdd);
+            inventory.AddItemToInventory(itemToAdd);
+            GameManager.Instance.SaveSystem.SaveGame();
+            return true;
         }
 
         public void OnInteractFailed(GameObject player)

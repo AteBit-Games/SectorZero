@@ -119,17 +119,20 @@ namespace Runtime.InputSystem
 
         public void OnExit(InputAction.CallbackContext context)
         {
-            if(context.phase != InputActionPhase.Performed) return;
-
-            switch (context.control.name)
+            if(context.phase == InputActionPhase.Performed)
             {
-                case "tab":
-                    if(GameManager.Instance.InventorySystem != null) 
-                        if(GameManager.Instance.InventorySystem.isInventoryOpen) OpenInventoryEvent?.Invoke();
-                    break;
-                case "escape":
-                    if(context.phase == InputActionPhase.Performed) CloseUIEvent?.Invoke();
-                    break;
+                Debug.Log("Exit");
+                
+                switch (context.control.name)
+                {
+                    case "tab":
+                        if(GameManager.Instance.InventorySystem != null) 
+                            if(GameManager.Instance.InventorySystem.isInventoryOpen) OpenInventoryEvent?.Invoke();
+                        break;
+                    case "escape":
+                        if(context.phase == InputActionPhase.Performed) CloseUIEvent?.Invoke();
+                        break;
+                }
             }
         }
 

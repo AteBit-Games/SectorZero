@@ -44,7 +44,6 @@ namespace Runtime.SaveSystem
         {
             //persistant data path
             var saveGamePath = Application.persistentDataPath;
-            Debug.Log("Save Path: " + saveGamePath);
             _dataHandler = new FileHandler(saveGamePath, saveFileExtension, useEncryption ? EncryptionType.AES : EncryptionType.None);
             _playerData = _dataHandler.LoadPlayerData();
         }

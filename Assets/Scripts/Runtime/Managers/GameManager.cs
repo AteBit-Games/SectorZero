@@ -266,7 +266,7 @@ namespace Runtime.Managers
 
         private void HandlePause()
         {
-            if(activeWindow != null) return;
+            if(activeWindow != null || isMainMenu) return;
             activeWindow = PauseMenu;
             PauseMenu.OpenWindow();
         }
@@ -288,7 +288,9 @@ namespace Runtime.Managers
                 inputReader.SetUI();
                 return;
             }
-
+            
+            inputReader.SetGameplay();
+            
             //Required objects for gameplay scenes
             DialogueSystem = FindFirstObjectByType<DialogueManager>(FindObjectsInactive.Include);
             InventorySystem = FindFirstObjectByType<InventoryManager>(FindObjectsInactive.Include);
