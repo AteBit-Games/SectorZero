@@ -90,18 +90,32 @@ namespace Runtime.Managers
             };
             
             DontDestroyOnLoad(gameObject);
-            _discord = new Discord.Discord(ApplicationId, (ulong)CreateFlags.NoRequireDiscord);
-            _time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             
             Instance.LoadingScreen = GetComponentInChildren<LoadingScreen>();
             Instance.SoundSystem = GetComponent<SoundManager>();
             Instance.SaveSystem = GetComponent<SaveManager>();
             Instance.AIManager = GetComponent<AIManager>();
             GetComponent<AIManager>();
+
+            InstantiateDiscord();
+        }
+
+        private void InstantiateDiscord()
+        {
+            try
+            {
+                _discord = new Discord.Discord(ApplicationId, (UInt64)CreateFlags.NoRequireDiscord);
+                _time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
         }
 
         private void Update()
         {
+            if(_discord == null) return;
             try
             {
                 _discord.RunCallbacks();
@@ -114,12 +128,13 @@ namespace Runtime.Managers
 
         private void LateUpdate()
         {
+            if(_discord == null) return;
             UpdateStatus();
         }
 
         private void OnApplicationQuit()
         {
-            _discord.Dispose();
+            _discord?.Dispose();
         }
 
         private void OnEnable()
