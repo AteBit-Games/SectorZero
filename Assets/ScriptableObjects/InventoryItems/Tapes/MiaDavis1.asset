@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemRef: MiaDavis1
   itemName: Mia Davis #1
-  itemSprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
-  itemDescription: Mia Davis starts work at the facility.
+  itemSprite: {fileID: 21300000, guid: 4388ab573c6bdf04880e8d2b2600dc06, type: 3}
+  itemDescription: Mia Davis starts work at the facility
   dialogue: {fileID: 11400000, guid: 7358390df52a63f45943ce36492b6edb, type: 2}

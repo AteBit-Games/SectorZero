@@ -145,9 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alarmDelay: 4
-  failSound: {fileID: 11400000, guid: 353d08b3bafa1c7469f97d6d490beefc, type: 2}
-  alarmSound: {fileID: 11400000, guid: a9f11bb6b42dc444a82952041b71441b, type: 2}
-  interactSound: {fileID: 11400000, guid: 40adada6a75a68642bcbc5ab351c6f82, type: 2}
+  alarmSound: {fileID: 11400000, guid: 727aaa8f541197147b3c19762fe10348, type: 2}
 --- !u!61 &6944514534311185792
 BoxCollider2D:
   m_ObjectHideFlags: 0

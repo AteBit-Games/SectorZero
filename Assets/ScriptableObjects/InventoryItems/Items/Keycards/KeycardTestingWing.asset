@@ -15,4 +15,4 @@ MonoBehaviour:
   itemRef: KeycardContainment
   itemName: Testing Wing Keycard
   itemSprite: {fileID: 21300000, guid: 8d015ea219749754f99ddd5f99b28de3, type: 3}
-  itemDescription: 
+  itemDescription: A keycard that can be used in the Testing Wing

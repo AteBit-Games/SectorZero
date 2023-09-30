@@ -10,6 +10,8 @@ namespace Runtime.InventorySystem.ScriptableObjects
     {
         Handwritten,
         Research,
+        MonolithNews,
+        MoonNews
     }
     
     [CreateAssetMenu(fileName = "New Item", menuName = "Inventory System/Items/Note")]

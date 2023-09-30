@@ -15,5 +15,5 @@ MonoBehaviour:
   itemRef: HenryCarver1
   itemName: Dr. Henry Carver #1
   itemSprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
-  itemDescription: Dr. Carver and Dr. McAddams discuss the expedition.
+  itemDescription: Dr. Carver and Dr. McAddams discuss the expedition
   dialogue: {fileID: 11400000, guid: c48b0a66fcd1ab84b9f8213c46172568, type: 2}

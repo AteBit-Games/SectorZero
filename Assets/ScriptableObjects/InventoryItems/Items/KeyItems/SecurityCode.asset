@@ -15,4 +15,4 @@ MonoBehaviour:
   itemRef: SecurityCode
   itemName: Damaged Keycard
   itemSprite: {fileID: 21300000, guid: a16e941cb5649cb4c9c1049c55f70463, type: 3}
-  itemDescription: This keycard is broken but has 8204 etched into it
+  itemDescription: It looks broken. Wait... it has 8204 etched into it

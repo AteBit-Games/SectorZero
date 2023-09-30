@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemRef: MiaDavis3
   itemName: Mia Davis #3
-  itemSprite: {fileID: 21300000, guid: 0ebb2054dcc37814fa3b35092eb81ac2, type: 3}
-  itemDescription: Mia Davis snuck into Sector One.
+  itemSprite: {fileID: 21300000, guid: 4388ab573c6bdf04880e8d2b2600dc06, type: 3}
+  itemDescription: Mia Davis snuck into Sector One
   dialogue: {fileID: 11400000, guid: d9622399204a5424eb93f6848c4b329b, type: 2}

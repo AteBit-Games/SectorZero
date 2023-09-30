@@ -47,6 +47,9 @@ namespace Runtime.UI
         private VisualElement _handWrittenNote;
         private Label _handWrittenNoteContent;
         private Label _handWrittenNoteAuthor;
+
+        private VisualElement _monoView;
+        private VisualElement _moonView;
         
         //KeyPad
         private Keypad _keyPad;
@@ -77,24 +80,51 @@ namespace Runtime.UI
         public void OpenNote(Note note, bool standalone = false)
         {
             UIUtils.ShowUIElement(_notesContainer);
-            
-            if (note.noteType == NoteType.Research)
+
+            switch (note.noteType)
             {
-                UIUtils.HideUIElement(_handWrittenNote);
-                UIUtils.ShowUIElement(_researchNote);
+                case NoteType.Research:
+                {
+                    UIUtils.ShowUIElement(_researchNote);
+                    UIUtils.HideUIElement(_handWrittenNote);
+                    UIUtils.HideUIElement(_monoView);
+                    UIUtils.HideUIElement(_moonView);
                 
-                _researchNoteContent.text = note.content;
-                _researchNoteTitle.text = note.title;
-                _researchNoteAuthor.text = note.author;
-                _researchNoteDate.text = note.date;
-            }
-            else
-            {
-                UIUtils.HideUIElement(_researchNote);
-                UIUtils.ShowUIElement(_handWrittenNote);
+                    _researchNoteContent.text = note.content;
+                    _researchNoteTitle.text = note.title;
+                    _researchNoteAuthor.text = note.author;
+                    _researchNoteDate.text = note.date;
+                    break;
+                }
+                case NoteType.Handwritten:
+                {
+                    UIUtils.ShowUIElement(_handWrittenNote);
+                    UIUtils.HideUIElement(_researchNote);
+                    UIUtils.HideUIElement(_monoView);
+                    UIUtils.HideUIElement(_moonView);
                 
-                _handWrittenNoteContent.text = note.content;
-                _handWrittenNoteAuthor.text = note.author;
+                    _handWrittenNoteContent.text = note.content;
+                    _handWrittenNoteAuthor.text = note.author;
+                    break;
+                }
+                case NoteType.MonolithNews:
+                {
+                    UIUtils.ShowUIElement(_monoView);
+                    UIUtils.HideUIElement(_handWrittenNote);
+                    UIUtils.HideUIElement(_researchNote);
+                    UIUtils.HideUIElement(_moonView);
+                    break;
+                }
+                case NoteType.MoonNews:
+                {
+                    UIUtils.ShowUIElement(_moonView);
+                    UIUtils.HideUIElement(_handWrittenNote);
+                    UIUtils.HideUIElement(_researchNote);
+                    UIUtils.HideUIElement(_monoView);
+                    break;
+                }
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             if (standalone)
@@ -178,6 +208,9 @@ namespace Runtime.UI
             _handWrittenNote = container.Q<VisualElement>("handwritten-note");
             _handWrittenNoteContent = _handWrittenNote.Q<Label>("note-content");
             _handWrittenNoteAuthor = _handWrittenNote.Q<Label>("note-author");
+            
+            _moonView = _notesContainer.Q<VisualElement>("moon-news");
+            _monoView = _notesContainer.Q<VisualElement>("monolith-news");
         }
         
         

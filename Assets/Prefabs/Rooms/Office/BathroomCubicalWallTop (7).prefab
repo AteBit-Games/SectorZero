@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3271157944029863474}
   - component: {fileID: 3172395675022471154}
   - component: {fileID: 8139179768311016866}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: BathroomCubicalWallTop (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

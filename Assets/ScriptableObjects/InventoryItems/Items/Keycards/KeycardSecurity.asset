@@ -15,4 +15,4 @@ MonoBehaviour:
   itemRef: KeycardSecurity
   itemName: Security Keycard
   itemSprite: {fileID: 21300000, guid: b2bbee695827e09478d19d5bace3ba1e, type: 3}
-  itemDescription: High level security keycard used to override security installation
+  itemDescription: A keycard that can be used to override the security lockdown

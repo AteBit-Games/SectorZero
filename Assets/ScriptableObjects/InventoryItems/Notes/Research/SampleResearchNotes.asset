@@ -15,7 +15,7 @@ MonoBehaviour:
   itemRef: SampleResearchNotes
   itemName: Sample Research Notes
   itemSprite: {fileID: 21300000, guid: 9345020d4510a204e95d201e23ca6200, type: 3}
-  itemDescription: Notes about a sample taken from Sector Zero.
+  itemDescription: Notes about a sample taken from Sector Zero
   noteType: 1
   title: Sector Zero sample #16
   author: Dr. Evan Kolvak

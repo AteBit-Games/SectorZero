@@ -242,6 +242,7 @@ namespace Runtime.AI
                             {
                                 OnSightEnter();
                             }
+                            else OnSightExit(player.transform.position);
                         }
                         else
                         {

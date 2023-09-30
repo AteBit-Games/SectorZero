@@ -5,6 +5,8 @@
 
 using System.Collections;
 using Runtime.InteractionSystem.Interfaces;
+using Runtime.Managers;
+using Runtime.SoundSystem;
 using UnityEngine;
 
 namespace Runtime.InteractionSystem.Objects.Doors
@@ -13,6 +15,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
     [RequireComponent(typeof(AudioSource))]
     public class PuzzleDoor : Door, IPowered
     {
+        public Sound warningSound;
         public bool IsPowered { get; set; }
         private Coroutine _closeDoorRoutine;
         
@@ -46,6 +49,8 @@ namespace Runtime.InteractionSystem.Objects.Doors
         private IEnumerator CloseDoor(float delay)
         {
             yield return new WaitForSeconds(delay);
+            GameManager.Instance.SoundSystem.Play(warningSound, GetComponent<AudioSource>());
+            yield return new WaitForSeconds(1);
             CloseDoor();
         } 
     }

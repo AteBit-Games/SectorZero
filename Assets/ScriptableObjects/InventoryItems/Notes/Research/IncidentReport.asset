@@ -15,7 +15,7 @@ MonoBehaviour:
   itemRef: IncidentReport
   itemName: Incident Report
   itemSprite: {fileID: 21300000, guid: 9345020d4510a204e95d201e23ca6200, type: 3}
-  itemDescription: A report of a recent incident.
+  itemDescription: A report of a recent incident
   noteType: 1
   title: Incident Report #072
   author: Dr. Evan Kolvak

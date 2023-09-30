@@ -15,7 +15,7 @@ MonoBehaviour:
   itemRef: NewPatientsReport
   itemName: New Patients Report
   itemSprite: {fileID: 21300000, guid: 9345020d4510a204e95d201e23ca6200, type: 3}
-  itemDescription: A list of the people that came in with me.
+  itemDescription: A list of the people that came in with me
   noteType: 1
   title: Test Subject Intake
   author: Mia Davis

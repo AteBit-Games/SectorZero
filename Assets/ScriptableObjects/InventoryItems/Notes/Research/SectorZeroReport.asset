@@ -15,7 +15,7 @@ MonoBehaviour:
   itemRef: SectorZeroReport
   itemName: Sector Zero Report
   itemSprite: {fileID: 21300000, guid: 9345020d4510a204e95d201e23ca6200, type: 3}
-  itemDescription: Research paper talking about samples taken from Sector Zero.
+  itemDescription: Research paper talking about samples taken from Sector Zero
   noteType: 1
   title: Sector Zero Sample Findings
   author: Dr. Grant McAddams

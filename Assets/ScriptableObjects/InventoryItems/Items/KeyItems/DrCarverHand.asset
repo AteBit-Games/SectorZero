@@ -15,4 +15,4 @@ MonoBehaviour:
   itemRef: Hand
   itemName: Dr Carver's Hand
   itemSprite: {fileID: 21300000, guid: 8a3721ee30217bd4ab7cedd80ea89c6d, type: 3}
-  itemDescription: 
+  itemDescription: Gross...

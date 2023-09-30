@@ -27,9 +27,6 @@ namespace Runtime.InteractionSystem.Objects.UI
         [SerializeField] public string safeCode;
         [SerializeField] private Sound interactSound;
         
-        [SerializeField] private Sound safeOpenSound;
-        [SerializeField] private Sound safeFailSound;
-        
         public Sound InteractSound => interactSound;
         private GameObject _player;
         
@@ -80,7 +77,6 @@ namespace Runtime.InteractionSystem.Objects.UI
             _player.GetComponentInParent<PlayerInventory>().SetSummaryEntryCompleted(summaryEntry);
             
             //Open the safe
-            GameManager.Instance.SoundSystem.Play(safeOpenSound);
             _animator.SetTrigger(Open);
             _isOpen = true;
             
@@ -89,7 +85,6 @@ namespace Runtime.InteractionSystem.Objects.UI
 
         public void TriggerAlarm()
         {
-            GameManager.Instance.SoundSystem.Play(safeFailSound);
             safeAlarm.Trigger();
         }
 

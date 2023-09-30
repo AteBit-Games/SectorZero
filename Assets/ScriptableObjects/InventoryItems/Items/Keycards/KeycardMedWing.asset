@@ -15,5 +15,4 @@ MonoBehaviour:
   itemRef: KeycardMedical
   itemName: Medical Wing Keycard
   itemSprite: {fileID: 21300000, guid: fd4285eae00b9f94f822a887b0a8ecf8, type: 3}
-  itemDescription: Keycard Assigned to medical wing staff to gain access to the medical
-    facilities.
+  itemDescription: A keycard that can be used in the Medical Wing

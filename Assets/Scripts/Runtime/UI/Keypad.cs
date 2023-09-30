@@ -78,9 +78,10 @@ namespace Runtime.UI
                         {
                             GameManager.Instance.SoundSystem.Play(keyPadSuccessSound);
                             StartCoroutine(SuccessState());
+                            return;
                         }
-                        else ClearKeyPadInput(true);
                         
+                        ClearKeyPadInput(true);
                         if(_currentAttempt == 3)
                         {
                             GameManager.Instance.HUD.CloseWindow();

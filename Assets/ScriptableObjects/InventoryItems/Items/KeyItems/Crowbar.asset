@@ -15,5 +15,5 @@ MonoBehaviour:
   itemRef: Crowbar
   itemName: Crowbar
   itemSprite: {fileID: 21300000, guid: f3bfc25bc60dde7439c89ed6b03f9e40, type: 3}
-  itemDescription: This doesnt seem strong enough to open doors but I can use it
-    to pry open smaller containers
+  itemDescription: It doesn't seem strong enough to open doors but I can use it to
+    pry open smaller containers

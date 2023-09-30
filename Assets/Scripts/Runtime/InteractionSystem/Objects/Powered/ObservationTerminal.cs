@@ -23,6 +23,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         [SerializeField] private float triggerDuration;
         [SerializeField] public string persistentID;
         
+        [SerializeField] private Sound countDownSound;
         [SerializeField] private Sound offSound;
         [SerializeField] private Sound humSound;
         [SerializeField] private Sound interactSound;
@@ -63,6 +64,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         public bool OnInteract(GameObject player)
         {
             GameManager.Instance.SoundSystem.PlayOneShot(interactSound, _audioSource);
+            GameManager.Instance.SoundSystem.Play(countDownSound, _audioSource);
             _animator.SetTrigger(Trigger);
             
             _playerInventory = player.GetComponentInParent<PlayerInventory>();
@@ -79,7 +81,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         public void OnInteractFailed(GameObject player)
         {
-            
+            GameManager.Instance.SoundSystem.PlayOneShot(offSound, _audioSource);
         }
 
         public bool CanInteract()

@@ -21,29 +21,7 @@ namespace Editor.InventorySystem
         {
             var root = new VisualElement();
             mVisualTreeAsset.CloneTree(root);
-            
-            var note = target as Note;
-            if (note == null) return root;
-            
-            //callback for when the note type is changed
-            var noteTypeField = root.Q<PropertyField>("note-type");
-            noteTypeField.RegisterCallback<ChangeEvent<string>>(evt =>
-            {
-                Enum.TryParse(evt.newValue, out NoteType valueInt);
-                note.noteType = valueInt;
-                root.Q<VisualElement>("extra-settings").style.display = valueInt switch
-                {
-                    NoteType.Handwritten => DisplayStyle.None,
-                    NoteType.Research => DisplayStyle.Flex,
-                    _ => throw new ArgumentOutOfRangeException()
-                };
-                
-                serializedObject.ApplyModifiedProperties();
-            });
-            
-            root.Q<VisualElement>("extra-settings").style.display = note.noteType == NoteType.Research ? DisplayStyle.Flex : DisplayStyle.None;
-
-                
+     
             return root;
         }
     }

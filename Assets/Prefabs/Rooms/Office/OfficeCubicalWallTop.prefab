@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2611213845135446445}
   - component: {fileID: 816279298389774201}
   - component: {fileID: 3553816969712034314}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: OfficeCubicalWallTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
