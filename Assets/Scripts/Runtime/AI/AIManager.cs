@@ -30,7 +30,8 @@ namespace Runtime.AI
 
         public Action activateEvents;
 
-        private VoidMask _monster;
+        
+        [HideInInspector] public VoidMask monster;
         private AIPerception _perception;
         private PlayerController _player;
         
@@ -66,6 +67,8 @@ namespace Runtime.AI
         {
             _lastSeenPlayerTime = Time.time;
             _path = new NavMeshPath();
+            
+            if(GameManager.Instance.TestMode) StartNewGame();
         }
         
         private void OnEnable()
@@ -84,7 +87,7 @@ namespace Runtime.AI
             
             InitializeReferences();
             
-            if (_monster == null || _player == null)
+            if (monster == null || _player == null)
             {
                 Debug.LogError("AIManager: Monster or Player not found!");
                 return;
@@ -94,17 +97,17 @@ namespace Runtime.AI
             _sentinels = new List<Sentinel>(FindObjectsByType<Sentinel>(FindObjectsSortMode.None));
             foreach (var sentinel in _sentinels) sentinel.OnSightEnterAction += IncreaseAggroLevel;
                 
-            _activeSentinelsKey = _monster.FindBlackboardKey<int>("ActiveSentinels");
-            _sentinelDurationKey = _monster.FindBlackboardKey<float>("SentinelActivationTime");
+            _activeSentinelsKey = monster.FindBlackboardKey<int>("ActiveSentinels");
+            _sentinelDurationKey = monster.FindBlackboardKey<float>("SentinelActivationTime");
         }
 
         private void FixedUpdate()
         {
             if(!_active) return;
             
-            if (_monster == null || _player == null) return;
+            if (monster == null || _player == null) return;
 
-            var monsterPosition = _monster.transform.position;
+            var monsterPosition = monster.transform.position;
             var playerPosition = _player.transform.position;
 
             NavMesh.CalculatePath(monsterPosition, playerPosition, NavMesh.AllAreas, _path);
@@ -173,16 +176,17 @@ namespace Runtime.AI
         public void AddSentinels(List<GameObject> sentinels)
         {
             
-            _monster.AddSentinels(sentinels);
+            monster.AddSentinels(sentinels);
         }
         
         public void AddRooms(List<Collider2D> rooms)
         {
-            _monster.AddPatrolRooms(rooms);
+            monster.AddPatrolRooms(rooms);
         }
         
         public void StartNewGame()
         {
+            monster.SetState(MonsterState.Idle);
             menaceGaugeValue = 60f;
             menaceState = false;
             _lastSeenPlayerTime = Time.time;
@@ -200,21 +204,21 @@ namespace Runtime.AI
             
             switch (level)
             {
-                case <= 3:
-                    activeSentinels = 2;
-                    sentinelDuration = 15f;
+                case <= 2:
+                    activeSentinels = 4;
+                    sentinelDuration = 20f;
+                    break;
+                case <= 4:
+                    activeSentinels = 5;
+                    sentinelDuration = 24f;
                     break;
                 case <= 6:
-                    activeSentinels = 4;
-                    sentinelDuration = 22f;
+                    activeSentinels = 7;
+                    sentinelDuration = 30f;
                     break;
-                case <= 9:
-                    activeSentinels = 6;
-                    sentinelDuration = 28f;
-                    break;
-                case 10:
+                case > 6:
                     activeSentinels = 8;
-                    sentinelDuration = 35f;
+                    sentinelDuration = 38f;
                     break;
             }
             
@@ -224,8 +228,6 @@ namespace Runtime.AI
 
         private void Activate()
         {
-            Debug.Log("AIManager: Activating AI");
-            
             _active = true;
             _isActiveKey.value = true;
             menaceState = false;
@@ -249,7 +251,7 @@ namespace Runtime.AI
                 menaceGaugeValue = Mathf.Clamp(menaceGaugeValue + (menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
                 
                 _roomKey.value = room;
-                _monster.SetState(MonsterState.SentinelAlert);
+                monster.SetState(MonsterState.SentinelAlert);
             }
             else Activate();
         }
@@ -262,13 +264,13 @@ namespace Runtime.AI
         private void InitializeReferences()
         {
             _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
-            _monster = FindFirstObjectByType<VoidMask>(FindObjectsInactive.Include);
-            _perception = _monster.gameObject.transform.parent.GetComponentInChildren<AIPerception>();
+            monster = FindFirstObjectByType<VoidMask>(FindObjectsInactive.Include);
+            _perception = monster.gameObject.transform.parent.GetComponentInChildren<AIPerception>();
             
-            _patrolStateKey = _monster.FindBlackboardKey<bool>("PatrolState");
-            _aggroLevelKey = _monster.FindBlackboardKey<int>("AggroLevel");
-            _isActiveKey = _monster.FindBlackboardKey<bool>("Active");
-            _roomKey = _monster.FindBlackboardKey<Collider2D>("InspectRoom");
+            _patrolStateKey = monster.FindBlackboardKey<bool>("PatrolState");
+            _aggroLevelKey = monster.FindBlackboardKey<int>("AggroLevel");
+            _isActiveKey = monster.FindBlackboardKey<bool>("Active");
+            _roomKey = monster.FindBlackboardKey<Collider2D>("InspectRoom");
         }
         
         // ============================ Save System ============================

@@ -120,8 +120,6 @@ namespace Runtime.Managers
         {
             if (Input.GetKeyDown(KeyCode.Quote) && (testMode || Debug.isDebugBuild))
             {
-                Debug.Log("Test");
-                
                 if(_isDebugOpen)
                 {
                     DebugWindow.Hide();

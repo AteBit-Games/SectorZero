@@ -191,7 +191,7 @@ namespace Runtime.AI
                 }).SetFrom(aberration.intensity.value).SetEaseSineInOut();
             }
 
-            treeOwner.SetState(MonsterState.Patrol);
+            treeOwner.SetState(MonsterState.InspectPoint);
             _loseSightCoroutine = null;
             _looseSightCoroutineRunning = false;
             _canSeePlayer = false;

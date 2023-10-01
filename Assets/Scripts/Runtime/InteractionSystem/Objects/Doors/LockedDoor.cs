@@ -84,7 +84,6 @@ namespace Runtime.InteractionSystem.Objects.Doors
             else
             {
                 GameManager.Instance.SoundSystem.Play(poweredOffSound, transform.GetComponent<AudioSource>());
-                mainAnimator.SetTrigger(_poweredOff);
             }
             
             if(addsSummaryOnFail)
@@ -101,11 +100,13 @@ namespace Runtime.InteractionSystem.Objects.Doors
         
         public void PowerOn(bool load)
         {
+            mainAnimator.SetBool(_poweredOff, false);
             IsPowered = true;
         }
         
         public void PowerOff()
         {
+            mainAnimator.SetBool(_poweredOff, true);
             IsPowered = false;
         }
 

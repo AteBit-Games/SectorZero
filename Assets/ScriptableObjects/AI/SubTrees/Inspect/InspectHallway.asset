@@ -35,6 +35,7 @@ MonoBehaviour:
   - rid: 130803909263360054
   - rid: 130803909263360055
   - rid: 130803909263360057
+  - rid: 4809529542262915073
   treeState: 1
   blackboard:
     keys:
@@ -44,8 +45,8 @@ MonoBehaviour:
     - rid: 130803864545001491
     - rid: 130803864545001475
     - rid: 130803893468135442
-  viewPosition: {x: 418, y: 141, z: 0}
-  viewScale: {x: 0.32690176, y: 0.32690176, z: 1}
+  viewPosition: {x: -158, y: -163, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -392,6 +393,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 130803909263360053
+        - rid: 4809529542262915073
         - rid: 130803909263360054
         - rid: 130803909263360055
     - rid: 130803909263360049
@@ -455,7 +457,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 7d63a0dff6308c04c95a56922437bdcb
-        position: {x: 840, y: 780}
+        position: {x: 1020, y: 780}
         blackboard:
           keys: []
         comment: 
@@ -474,7 +476,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ea848ee24491da943b9850de9bf7399e
-        position: {x: 1020, y: 780}
+        position: {x: 1200, y: 780}
         blackboard:
           keys: []
         comment: 
@@ -498,3 +500,18 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 3
+    - rid: 4809529542262915073
+      type: {class: ValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b78c13f67a0cf4346b3d5d83ebb9ea6c
+        position: {x: 840, y: 780}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        positionToCheck:
+          reference:
+            rid: 130803864545001491
+          defaultValue: {x: 0, y: 0}

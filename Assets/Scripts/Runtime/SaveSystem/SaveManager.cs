@@ -82,6 +82,7 @@ namespace Runtime.SaveSystem
         
         public void ContinueGame()
         {
+            _saveGamesData = _dataHandler.LoadSaves();
             _activeSave = _saveGamesData.Values.First();
             GameManager.Instance.LoadScene(_activeSave.currentScene);
         }

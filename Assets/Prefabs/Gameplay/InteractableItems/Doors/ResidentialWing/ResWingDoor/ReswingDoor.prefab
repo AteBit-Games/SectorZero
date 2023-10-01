@@ -390,6 +390,7 @@ MonoBehaviour:
   finishSummaryOnOpen: 0
   failSummaryEntry: {fileID: 0}
   openSummaryEntry: {fileID: 0}
+  saveOnOpen: 0
 --- !u!95 &6101478518748970037
 Animator:
   serializedVersion: 7
@@ -546,7 +547,7 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_SortAtRoot: 1
+  m_SortAtRoot: 0
 --- !u!61 &6639056752041977495
 BoxCollider2D:
   m_ObjectHideFlags: 0

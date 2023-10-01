@@ -45,7 +45,7 @@ namespace Runtime.BehaviourTree.Monsters
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private List<Sound> footstepSounds;
         
-        protected MonsterState currentMonsterState = MonsterState.Patrol;
+        [HideInInspector] public MonsterState currentMonsterState;
         protected NavMeshAgent navMeshAgent;
         private Context _context;
         private Animator _animator;

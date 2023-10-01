@@ -67,6 +67,11 @@ MonoBehaviour:
   - rid: 4809529514812243973
   - rid: 4809529514812243974
   - rid: 4809529514812243975
+  - rid: 4809529542262915072
+  - rid: 4809529542262915080
+  - rid: 4809529542262915081
+  - rid: 4809529542262915082
+  - rid: 4809529542262915083
   treeState: 0
   blackboard:
     keys:
@@ -85,8 +90,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: 649.6, y: -182.4, z: 0}
-  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
+  viewPosition: {x: 786, y: 184, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
     RefIds:
@@ -207,7 +212,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 812bbbde342022243a2c7e21d1738e2c
-        position: {x: -1600, y: 240}
+        position: {x: -2320, y: 240}
         blackboard:
           keys: []
         comment: <b>Patrol </b>
@@ -221,7 +226,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d4e3f06e629bc554e9bafa4b23ecd30a
-        position: {x: -1840, y: 380}
+        position: {x: -2560, y: 380}
         blackboard:
           keys: []
         comment: <b>Sentinel Behaviour</b>
@@ -240,7 +245,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: e67b1e4fd94c0954f9721c16432b4d03
-        position: {x: -1840, y: 500}
+        position: {x: -2560, y: 500}
         blackboard:
           keys: []
         comment: 
@@ -254,7 +259,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a3b7c0ead454e4e4abdfcfa2f5ba4d5d
-        position: {x: -1960, y: 640}
+        position: {x: -2680, y: 640}
         blackboard:
           keys: []
         comment: 'Activate Sentinels based on criteria
@@ -286,7 +291,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3319861b7beb79a408fa5e4a93d42e43
-        position: {x: -1740, y: 640}
+        position: {x: -2460, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -301,7 +306,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a4f0bad0efe01ad40b932ce7879cf678
-        position: {x: -1380, y: 380}
+        position: {x: -2100, y: 380}
         blackboard:
           keys: []
         comment: <b>Patrol Behaviour</b>
@@ -318,7 +323,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 9e335afe39dbf5c4ba6ce37478eac415
-        position: {x: -1380, y: 500}
+        position: {x: -2100, y: 500}
         blackboard:
           keys: []
         comment: 
@@ -337,7 +342,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d4ec1235792439046ad6c6f7b357b31d
-        position: {x: -1380, y: 640}
+        position: {x: -2100, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -351,7 +356,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3febdb7b3f5d4b74ba369c2a6a00e3a5
-        position: {x: -1280, y: 780}
+        position: {x: -2000, y: 780}
         blackboard:
           keys: []
         comment: '<b>Patrol rooms subtree</b>
@@ -388,7 +393,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3f5e0d6d60fa70042a030ae08c20afb3
-        position: {x: -1520, y: 780}
+        position: {x: -2240, y: 780}
         blackboard:
           keys: []
         comment: Based on the active menace state select rooms either close to or
@@ -405,7 +410,7 @@ MonoBehaviour:
         numberOfRooms:
           reference:
             rid: -2
-          defaultValue: 4
+          defaultValue: 6
         patrolState:
           reference:
             rid: 130803839992070149
@@ -440,7 +445,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2adc6c8f71a07914c9edee4f08b02739
-        position: {x: -2920, y: 240}
+        position: {x: -3640, y: 240}
         blackboard:
           keys: []
         comment: <b>Idle</b>
@@ -746,8 +751,9 @@ MonoBehaviour:
         comment: 
         drawGizmos: 0
         children:
+        - rid: 4809529542262915080
         - rid: 130803909263360014
-        - rid: 130803895344037900
+        - rid: 4809529542262915072
         - rid: 4809529514812243975
     - rid: 130803895344037900
       type: {class: Switch, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
@@ -755,7 +761,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2181e5daa88061e4bb939b11ce44c8f4
-        position: {x: -180, y: 500}
+        position: {x: -160, y: 620}
         blackboard:
           keys: []
         comment: '<b>Inspect Type</b>
@@ -862,7 +868,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 65b92be2e0dffe94ea429a40981bcdcc
-        position: {x: -280, y: 640}
+        position: {x: -260, y: 760}
         blackboard:
           keys: []
         comment: '<b>Inspect Room Subtree</b>
@@ -957,7 +963,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: bccd5bd4ad961cc4aae1dd4295f0fee3
-        position: {x: -100, y: 640}
+        position: {x: -80, y: 760}
         blackboard:
           keys: []
         comment: '<b>Inspect Hallway Subtree</b>
@@ -1244,7 +1250,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b8d99bfd369148142bc6026b32b13773
-        position: {x: -2920, y: 360}
+        position: {x: -3640, y: 360}
         blackboard:
           keys: []
         comment: 
@@ -1258,7 +1264,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 603cf7299b1c7c8418079f5e5a6dbd5f
-        position: {x: -3360, y: 500}
+        position: {x: -4080, y: 500}
         blackboard:
           keys: []
         comment: 'Checks if Voidmask has been initially triggered, if he has do intro
@@ -1286,7 +1292,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 7e3ab2c03fc9cf24bb7abd62f9ae06d4
-        position: {x: -2780, y: 500}
+        position: {x: -3500, y: 500}
         blackboard:
           keys: []
         comment: 
@@ -1303,7 +1309,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 677a6f98ca6bce648a078c4e22d2a62c
-        position: {x: -3120, y: 640}
+        position: {x: -3840, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -1322,7 +1328,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 37128faa557ea814db25c9514aff53cd
-        position: {x: -2940, y: 640}
+        position: {x: -3660, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -1337,7 +1343,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 8289ea5376e46104fb9559450fd7f0c2
-        position: {x: -2780, y: 640}
+        position: {x: -3500, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -1356,7 +1362,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 875218b4b57ad8945898720fc9cf0bf0
-        position: {x: -2600, y: 640}
+        position: {x: -3320, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -1371,7 +1377,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3acfe879f9613b64bbe702356ef10b90
-        position: {x: -2440, y: 640}
+        position: {x: -3160, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -1413,3 +1419,82 @@ MonoBehaviour:
         comment: After inspect go back to patrol if noting was found
         drawGizmos: 0
         newState: 1
+    - rid: 4809529542262915072
+      type: {class: Remapper, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 10044272dfd8dc04c9e0be883d9c74a9
+        position: {x: -160, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 130803895344037900
+        successRemap: 1
+        failureRemap: 1
+    - rid: 4809529542262915080
+      type: {class: Remapper, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 3240b45766e93b040b7679d2c1329654
+        position: {x: -1320, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 4809529542262915081
+        successRemap: 1
+        failureRemap: 1
+    - rid: 4809529542262915081
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 3f078221fd6c9fd4e8a9db8eba5c151d
+        position: {x: -1320, y: 620}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 4809529542262915083
+        - rid: 4809529542262915082
+    - rid: 4809529542262915082
+      type: {class: SetCurrentState, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 00df95b4ec10af84e95a95438e845ad5
+        position: {x: -1240, y: 760}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        newState: 1
+    - rid: 4809529542262915083
+      type: {class: CompareProperty, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 6c53d595b2acd404db0fb431398243bd
+        position: {x: -1440, y: 760}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        pair:
+          key:
+            rid: 130803893468135432
+          value:
+            rid: 4809529542262915085
+    - rid: 4809529542262915085
+      type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: 
+        typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {x: 0, y: 0}
