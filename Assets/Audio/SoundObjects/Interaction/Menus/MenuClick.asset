@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MenuClick
   m_EditorClassIdentifier: 
   mixerGroup: {fileID: -2711704030924625141, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
-  clip: {fileID: 8300000, guid: e3076fa3a4e0f8e4da904f63725c9f37, type: 3}
-  volumeScale: 0.703
+  clip: {fileID: 8300000, guid: 7945f5bec308ee044b1dbd5c7fdcb10e, type: 3}
+  volumeScale: 0.13
   loop: 0

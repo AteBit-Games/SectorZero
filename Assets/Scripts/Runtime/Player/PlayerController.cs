@@ -213,6 +213,8 @@ namespace Runtime.Player
         public void Die()
         {
             _isDead = true;
+            //mute all sounds
+            GetComponent<PlayerAudio>().enabled = false;
 
             //Disable the player
             DisableInput();

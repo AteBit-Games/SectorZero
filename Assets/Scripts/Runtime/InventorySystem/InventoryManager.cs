@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
+using Runtime.SoundSystem;
 using Runtime.UI;
 using Runtime.Utils;
 using UnityEngine;
@@ -28,6 +29,8 @@ namespace Runtime.InventorySystem
         [FormerlySerializedAs("isInventoryEnabled")]
         [Header("Items Inventory")]
         [SerializeField] public VisualTreeAsset summaryEntry;
+        [SerializeField] public Sound noteSound;
+        [SerializeField] public Sound tapeSound;
         [SerializeField] private PlayerInventory playerInventory;
         [SerializeField] private VisualTreeAsset inventorySlot;
         
@@ -531,7 +534,11 @@ namespace Runtime.InventorySystem
             
             //Button to read note
             _notesInventoryReadButton = notesInventoryContainer.Q<Button>("note-read");
-            _notesInventoryReadButton.RegisterCallback<ClickEvent>(_ => ReadNote());
+            _notesInventoryReadButton.RegisterCallback<ClickEvent>(_ =>
+            {
+                GameManager.Instance.SoundSystem.Play(noteSound);
+                ReadNote();
+            });
         }
 
         private void SetupTapesReferences(VisualElement tapesInventoryContainer)
@@ -543,7 +550,11 @@ namespace Runtime.InventorySystem
             
             //Button to play tape
             _tapesInventoryPlayButton = tapesInventoryContainer.Q<Button>("tape-listen");
-            _tapesInventoryPlayButton.RegisterCallback<ClickEvent>(_ => ListenToTape(_activeTape));
+            _tapesInventoryPlayButton.RegisterCallback<ClickEvent>(_ =>
+            {
+                GameManager.Instance.SoundSystem.Play(tapeSound);
+                ListenToTape(_activeTape);
+            });
         }
 
         private void SetupItemsReferences(VisualElement itemsInventoryContainer)

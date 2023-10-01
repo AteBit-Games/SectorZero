@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemRef: MonolithNews
   itemName: Ancient Aliens?
-  itemSprite: {fileID: 21300000, guid: 3676aa666ff751741a62071ea8f53a80, type: 3}
+  itemSprite: {fileID: 21300000, guid: c452743ddf2ad0543b3dd1029b22dfe2, type: 3}
   itemDescription: An article about a strange pillar found underground
   noteType: 2
   title: 
