@@ -202,7 +202,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: panLevelCustomCurve.m_Curve.Array.size
-    value: 3
+    value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].time
@@ -238,19 +238,19 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: panLevelCustomCurve.m_Curve.Array.data[1].time
-    value: 0.7560132
+    value: 0.7663797
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: panLevelCustomCurve.m_Curve.Array.data[1].value
-    value: 0.5057957
+    value: 1.0007908
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: panLevelCustomCurve.m_Curve.Array.data[1].inSlope
-    value: 0.0063522207
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: panLevelCustomCurve.m_Curve.Array.data[1].outSlope
-    value: 0.0063522207
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: panLevelCustomCurve.m_Curve.Array.data[1].tangentMode
@@ -262,42 +262,10 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: panLevelCustomCurve.m_Curve.Array.data[1].inWeight
-    value: 0.38064554
+    value: 0.33333334
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: panLevelCustomCurve.m_Curve.Array.data[1].outWeight
-    value: 0.33333334
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: panLevelCustomCurve.m_Curve.Array.data[2].time
-    value: 0.75777376
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: panLevelCustomCurve.m_Curve.Array.data[2].value
-    value: 0.5057957
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: panLevelCustomCurve.m_Curve.Array.data[2].inSlope
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: panLevelCustomCurve.m_Curve.Array.data[2].outSlope
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: panLevelCustomCurve.m_Curve.Array.data[2].tangentMode
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: panLevelCustomCurve.m_Curve.Array.data[2].weightedMode
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: panLevelCustomCurve.m_Curve.Array.data[2].inWeight
-    value: 0.33333334
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: panLevelCustomCurve.m_Curve.Array.data[2].outWeight
     value: 0.33333334
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -409,3 +377,8 @@ Preset:
     value: 4
     objectReference: {fileID: 0}
   m_ExcludedProperties: []
+  m_CoupledType:
+    m_NativeTypeID: 0
+    m_ManagedTypePPtr: {fileID: 0}
+    m_ManagedTypeFallback: 
+  m_CoupledProperties: []

@@ -23,35 +23,32 @@ namespace Runtime.InteractionSystem.Objects.Powered
         public Sound InteractSound => interactSound;
         
         [SerializeField] private ElevatorDoor door;
+        [SerializeField] private AudioSource audioSource;
 
         //----- Interface Properties -----//
         private bool _isPowered;
 
         public bool IsPowered { get; set; }
 
-        //----- Private Variables -----//
-        private AudioSource _audioSource;
-
         //========================= Unity events =========================//
 
         private void Awake()
         {
-            _audioSource = GetComponent<AudioSource>();
-            GameManager.Instance.SoundSystem.SetupSound(_audioSource, interactSound);
+            GameManager.Instance.SoundSystem.SetupSound(audioSource, elevatorSound);
         }
 
         //========================= Interface events =========================//
         
         public bool OnInteract(GameObject player)
         {
-            GameManager.Instance.SoundSystem.PlayOneShot(interactSound, _audioSource);
+            GameManager.Instance.SoundSystem.PlayOneShot(interactSound, audioSource);
             GameManager.Instance.EndGame();
             return true;
         }
 
         public void OnInteractFailed(GameObject player)
         {
-            GameManager.Instance.SoundSystem.PlayOneShot(offSound, _audioSource);
+            GameManager.Instance.SoundSystem.PlayOneShot(offSound, audioSource);
         }
 
         public bool CanInteract()
@@ -65,7 +62,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         public void PowerOn(bool load)
         {
             _isPowered = true;
-            GameManager.Instance.SoundSystem.Play(elevatorSound, _audioSource);
+            GameManager.Instance.SoundSystem.Play(elevatorSound, audioSource);
             door.canInteract = true;
             customLight.PowerOn(false);
         }
@@ -73,7 +70,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         public void PowerOff()
         {
             _isPowered = false;
-            _audioSource.Stop();
+            audioSource.Stop();
             door.canInteract = false;
             customLight.PowerOff();
         }
