@@ -280,6 +280,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1909714392}
+  - {fileID: 906538669618446088}
   - {fileID: 2444336974607860552}
   - {fileID: 2404948344304442431}
   - {fileID: 1383164877}
@@ -632,6 +633,113 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveInstance: {fileID: 9197481963319205126, guid: b696ad3ff097b1a4183d482070fdb3ff, type: 3}
+--- !u!1 &7846370066448243466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 906538669618446088}
+  - component: {fileID: 185609489196047883}
+  - component: {fileID: 9197886032026414878}
+  m_Layer: 5
+  m_Name: CheatWindow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &906538669618446088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846370066448243466}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2444336974268369326}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &185609489196047883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846370066448243466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 580b3f8ebcc452a46948910f76f66935, type: 2}
+  m_ParentUI: {fileID: 2444336974268369327}
+  sourceAsset: {fileID: 9197481963319205126, guid: 8b54ffe1315d7ca4bb9f94656b38d6ad, type: 3}
+  m_SortingOrder: 4
+--- !u!114 &9197886032026414878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846370066448243466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138d655494d29d74088960835ba138f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryItems:
+    tapeInventory:
+    - {fileID: 11400000, guid: 49ca6a6939db31e43bd9c598b6eff515, type: 2}
+    - {fileID: 11400000, guid: 82596b1e6c174104fbca02a773c7601b, type: 2}
+    - {fileID: 11400000, guid: 71c3da73f7e5f4c43a8018a89e5c37ff, type: 2}
+    - {fileID: 11400000, guid: 82722cdab96238848bebc2c89cbc6743, type: 2}
+    - {fileID: 11400000, guid: befe60aa649652445be3cf7bfe9c4eed, type: 2}
+    - {fileID: 11400000, guid: 01bc37d1f85addf489016adce1c5dc7e, type: 2}
+    - {fileID: 11400000, guid: 3f1a95156a3a1b443ab5c133e46f23e3, type: 2}
+    - {fileID: 11400000, guid: 89844660ed8848d45ad6c3cf3bda2218, type: 2}
+    - {fileID: 11400000, guid: 275a11612bcaf0e45a505192cb496af5, type: 2}
+    - {fileID: 11400000, guid: fda65ecce89f3724e9e72988ff85965d, type: 2}
+    itemInventory:
+    - {fileID: 11400000, guid: e73daebd8fc6c594693dd83a49727ff6, type: 2}
+    - {fileID: 11400000, guid: 0f9fe1f2293bb9a40a6bb43a1f51069e, type: 2}
+    - {fileID: 11400000, guid: a94dc7ed7c62537408a397bc4accb493, type: 2}
+    - {fileID: 11400000, guid: 76e703a2457d50f4a8619ce36b12ad2c, type: 2}
+    - {fileID: 11400000, guid: 4e63880d8ab2e154ca4cb8e6614dcc8b, type: 2}
+    - {fileID: 11400000, guid: 5f874538968770a4ab2e04aff862afd1, type: 2}
+    - {fileID: 11400000, guid: a0ef51b0977e09347aed7fa5e583836a, type: 2}
+    - {fileID: 11400000, guid: 1d9c5dd9332daa2469dbecd307d52283, type: 2}
+    - {fileID: 11400000, guid: c4401c7d136305f44b6eab51aa6b77f8, type: 2}
+    - {fileID: 11400000, guid: f12e17dd0dad858428602ccf89de78f4, type: 2}
+    - {fileID: 11400000, guid: c5c19a22cc257e34ea350020ac124fde, type: 2}
+    - {fileID: 11400000, guid: 40e86f1b6d90e6042915146dc351111e, type: 2}
+    noteInventory:
+    - {fileID: 11400000, guid: fc4e1598319b40640910a6bab84a8123, type: 2}
+    - {fileID: 11400000, guid: a5c416a6e102d544e943c656e26d64a0, type: 2}
+    - {fileID: 11400000, guid: 5ad708b65e786104c8b9943d6c69e941, type: 2}
+    - {fileID: 11400000, guid: e977569256d944e4ab35e947ca955047, type: 2}
+    - {fileID: 11400000, guid: 1e2ba339e4a94194d8ffc4815fc4a54f, type: 2}
+    - {fileID: 11400000, guid: 5e0a715d5ef59dd42807b31421e63158, type: 2}
+    - {fileID: 11400000, guid: 0bd47cb02f7d9734eb864605f4a2f141, type: 2}
+    - {fileID: 11400000, guid: db592d8b2a5bb9049984216fdeb4b5f1, type: 2}
+    summaryEntries:
+    - {fileID: 11400000, guid: b0cbce60652b0cf4db5293f01e1a3f79, type: 2}
+    - {fileID: 11400000, guid: 7aaccd14125356149b59e8383c6efc65, type: 2}
+    - {fileID: 11400000, guid: 8c8cda9a65f7e6c40932476e7f8da94b, type: 2}
+    - {fileID: 11400000, guid: 3c974c4e40b5b42469d38c8bcfa737ea, type: 2}
+    - {fileID: 11400000, guid: 9a9e65871fb06674a822e140905b84f5, type: 2}
+    - {fileID: 11400000, guid: 9d74fa49fff0fe14b924c4e963a2b8aa, type: 2}
+    - {fileID: 11400000, guid: c02f37141ea0dcd4cb8d54fea85c2864, type: 2}
+    - {fileID: 11400000, guid: ca987cfcf004ed945a54b9c77c00e0e9, type: 2}
+    - {fileID: 11400000, guid: 18bb77516e6891a43a6e5cd8060cb1bf, type: 2}
+    - {fileID: 11400000, guid: 23c6a994f1c6dd04a9254805fb836bf5, type: 2}
+    - {fileID: 11400000, guid: 7fd01acebe7e7d048a795a4a8a533f0c, type: 2}
 --- !u!1 &7861824172995040030
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +818,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSubWindowOpen: 0
   summaryEntry: {fileID: 9197481963319205126, guid: ce8428b44fc89464aa973eaa5d5aa1d3, type: 3}
-  isInventoryScreenEnabled: 1
+  noteSound: {fileID: 0}
+  tapeSound: {fileID: 0}
   playerInventory: {fileID: 0}
   inventorySlot: {fileID: 9197481963319205126, guid: c79ec188670f61c46b78350554e4e917, type: 3}
   isInventoryOpen: 0

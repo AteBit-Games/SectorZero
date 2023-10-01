@@ -8,7 +8,6 @@ using Runtime.ReporterSystem;
 using Runtime.SaveSystem;
 using Runtime.Utils;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Runtime.UI
@@ -27,14 +26,18 @@ namespace Runtime.UI
         private Button _quitButton;
         private VisualElement _pauseWindow;
         private UIDocument _uiDocument;
+        
         private Button _reportBugButton;
+        private Button _cheatMenuButton;
         
         // Settings Items
         private VisualElement _settingsContainer;
         private VisualElement _settingsWindow;
         private VisualElement _overlay;
         private VisualElement _savesWindow;
+        
         private FeedbackForm _feedbackForm;
+        private CheatMenu _cheatMenu;
         
         private VisualElement _confirmMenuPopup;
         private Button _confirmMenuQuit;
@@ -46,7 +49,9 @@ namespace Runtime.UI
         {
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;
+            
             _feedbackForm = FindFirstObjectByType<FeedbackForm>();
+            _cheatMenu = FindFirstObjectByType<CheatMenu>();
             
             // Main Pause Items
             _buttonDescription = rootVisualElement.Q<Label>("button-description");
@@ -69,6 +74,15 @@ namespace Runtime.UI
             });
             _reportBugButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Report a problem";
+            });
+            
+            _cheatMenuButton = rootVisualElement.Q<Button>("cheat-menu");
+            _cheatMenuButton.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                _cheatMenu.ShowMenu();
+            });
+            _cheatMenuButton.RegisterCallback<MouseEnterEvent>(_ => {
+                _buttonDescription.text = "Open the cheat menu";
             });
 
             // Main Pause Items
@@ -131,7 +145,9 @@ namespace Runtime.UI
             GameManager.Instance.ResetInput();
             GameManager.Instance.SoundSystem.ResumeAll();
             GameManager.Instance.activeWindow = null;
+            
             _feedbackForm.HideForm();
+            _cheatMenu.HideMenu();
             
             UIUtils.HideUIElement(_pauseWindow);
             UIUtils.HideUIElement(_overlay);
@@ -179,6 +195,7 @@ namespace Runtime.UI
             
             // Hide Elements
             _feedbackForm.HideForm();
+            _cheatMenu.HideMenu();
             UIUtils.HideUIElement(_confirmMenuPopup);
         }
         

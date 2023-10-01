@@ -51,6 +51,7 @@ namespace Runtime.Managers
         public SaveManager SaveSystem { get; private set; }
         public NotificationManager NotificationManager { get; private set; }
         public AIManager AIManager { get; set; }
+        public PowerManager PowerManager { get; private set; }
 
         public HUD HUD { get; private set; }
         private DeathScreen DeathScreen { get; set; }
@@ -316,6 +317,7 @@ namespace Runtime.Managers
             DeathScreen = FindFirstObjectByType<DeathScreen>(FindObjectsInactive.Include);
             EndScreen = FindFirstObjectByType<EndScreen>(FindObjectsInactive.Include);
             DebugWindow = FindFirstObjectByType<DebugMenu>(FindObjectsInactive.Include);
+            PowerManager = FindFirstObjectByType<PowerManager>(FindObjectsInactive.Include);
         }
 
         private void UpdateStatus()

@@ -198,6 +198,5 @@ namespace Runtime.BehaviourTree.Monsters
         {
             return currentMonsterState is MonsterState.AggroInspect or MonsterState.AggroChase or MonsterState.Idle;
         }
-        
     }
 }

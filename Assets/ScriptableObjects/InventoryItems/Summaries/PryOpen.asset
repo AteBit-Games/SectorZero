@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemRef: PryOpen
   summaryContent: "Find something to pry open containers\r"
-  isCompleted: 1
+  isCompleted: 0

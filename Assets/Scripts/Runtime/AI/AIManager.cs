@@ -222,7 +222,7 @@ namespace Runtime.AI
             _sentinelDurationKey.value = sentinelDuration;
         }
 
-        private void Activate()
+        public void Activate()
         {
             _active = true;
             _isActiveKey.value = true;

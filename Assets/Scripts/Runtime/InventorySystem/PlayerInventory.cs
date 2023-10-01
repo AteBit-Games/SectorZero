@@ -8,6 +8,7 @@ using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
+using Runtime.UI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -35,10 +36,9 @@ namespace Runtime.InventorySystem
             return true;
         }
         
-        public bool AddItemToInventory(Item item)
+        public void AddItemToInventory(Item item)
         {
             itemInventory.Add(item);
-            return true;
         }
         
         public void AddSummaryEntry(SummaryEntry entry)
@@ -76,6 +76,14 @@ namespace Runtime.InventorySystem
         public void UseItemInInventory(Item item)
         {
             itemInventory.Remove(item);
+        }
+
+        public void AddAllItems(InventoryItems inventoryItems)
+        {
+            tapeInventory = inventoryItems.tapeInventory;
+            itemInventory = inventoryItems.itemInventory;
+            noteInventory = inventoryItems.noteInventory;
+            summaryEntries = inventoryItems.summaryEntries;
         }
         
         //=============================== Save System ===============================//

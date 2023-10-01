@@ -139,7 +139,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         //========================= Public methods =========================//
 
-        private void SetPowered(bool state)
+        public void SetPowered(bool state)
         {
             foreach (var powerObject in connectedObjects.Select(item => item.GetComponent<IPowered>() ?? item.GetComponentInChildren<IPowered>()))
             {
@@ -153,6 +153,11 @@ namespace Runtime.InteractionSystem.Objects.Powered
             
             if(state) AudioSource.Play();
             else AudioSource.Stop();
+        }
+        
+        public void SetFuseTrue()
+        {
+            _hasFuse = true;
         }
         
         //=========================== Save System =============================//

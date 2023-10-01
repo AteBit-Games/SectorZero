@@ -5,6 +5,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using Runtime.Managers;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
@@ -91,6 +92,20 @@ namespace Runtime.BehaviourTree.Monsters
                 
                 monsterSave.activeState = treeStates.Find(x => x.monsterState == MonsterState.Patrol).stateIndex;
             }
+        }
+        
+        public void SetNewTree(BehaviourTree tree)
+        {
+            behaviourTree = tree;
+            Awake();
+            Start();
+        }
+
+        public void ReturnToDefault(BehaviourTree tree)
+        {
+            SetNewTree(tree);
+            SetState(MonsterState.Patrol);
+            GameManager.Instance.AIManager.Activate();
         }
     }
 }
