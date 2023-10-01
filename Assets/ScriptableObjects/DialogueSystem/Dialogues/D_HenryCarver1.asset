@@ -17,9 +17,9 @@ MonoBehaviour:
   - actor: {fileID: 11400000, guid: f6238a4e06f21594dbab755e23d0bbba, type: 2}
     line: What the hell happened?
   - actor: {fileID: 11400000, guid: 877da39e88d1a094f93ec196fcd7db14, type: 2}
-    line: The group reported an unexpected flare of exposure, cutting the expedition
-      short. Shortly after the supervisor started to show violent signs of contamination.
-      He is currently being overseen in the ER.
+    line: An unexpected flare of exposure. The group was evacuated, but the supervisor
+      started to show violent signs of contamination. He is currently being overseen
+      in the ER.
   - actor: {fileID: 11400000, guid: f6238a4e06f21594dbab755e23d0bbba, type: 2}
     line: "\u2026"
   - actor: {fileID: 11400000, guid: f6238a4e06f21594dbab755e23d0bbba, type: 2}
