@@ -306,7 +306,7 @@ namespace Runtime.InventorySystem
             ReenableButtons();
             
             //Bring the summary button to the front and disable it
-            _summaryButton.BringToFront();
+            //_summaryButton.BringToFront();
             _summaryButton.AddToClassList("inventory-toggle-active");
             _summaryButton.SetEnabled(false);
             

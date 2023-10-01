@@ -89,6 +89,7 @@ namespace Runtime.BehaviourTree.Monsters
         protected void Start()
         {
             behaviourTree.treeState = Node.State.Running;
+            if(GameManager.Instance.TestMode) SetState(MonsterState.Idle);
         }
         
         protected void Update() 

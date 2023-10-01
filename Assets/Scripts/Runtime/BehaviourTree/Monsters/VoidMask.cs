@@ -3,6 +3,7 @@
  * All rights reserved.
  ****************************************************************/
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Runtime.SaveSystem;
@@ -60,7 +61,7 @@ namespace Runtime.BehaviourTree.Monsters
             SetupReferences();
             var monsterSave = save.monsterData["VoidMask"];
             navMeshAgent.Warp(monsterSave.position);
-            stateReference.value = monsterSave.activeState;
+            SetState((MonsterState)monsterSave.activeState);
 
             return "VoidMask";
         }

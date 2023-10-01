@@ -186,7 +186,6 @@ namespace Runtime.AI
         
         public void StartNewGame()
         {
-            monster.SetState(MonsterState.Idle);
             menaceGaugeValue = 60f;
             menaceState = false;
             _lastSeenPlayerTime = Time.time;
