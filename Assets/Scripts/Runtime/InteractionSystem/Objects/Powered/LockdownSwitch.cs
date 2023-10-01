@@ -111,6 +111,8 @@ namespace Runtime.InteractionSystem.Objects.Powered
             GameManager.Instance.SoundSystem.PlayOneShot(onSound, _audioSource);
             GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
             elevatorPanel.PowerOn(false);
+            
+            player.GetComponent<PlayerInteraction>().RemoveInteractable(gameObject);
             GameManager.Instance.InventorySystem.PlayerInventory.SetSummaryEntryCompleted(summaryEntry);
             
             return true;
@@ -118,13 +120,16 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         public void OnInteractFailed(GameObject player)
         {
-            GameManager.Instance.SoundSystem.PlayOneShot(failSound, _audioSource);
-            _animator.SetTrigger(Failure);
+            if (!_isPowered)
+            {
+                GameManager.Instance.SoundSystem.PlayOneShot(failSound, _audioSource);
+                _animator.SetTrigger(Failure);
+            }
         }
 
         public bool CanInteract()
         {
-            return _canBePowered;
+            return _canBePowered && !_isPowered;
         }
         
         //=========================== Save System =============================//

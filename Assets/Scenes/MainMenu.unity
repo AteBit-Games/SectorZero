@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d48e80f11b0f143bf9ed109ecad90f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startAmbience: {fileID: 11400000, guid: f6c38579c1935744cb4b1f39165c42f9, type: 2}
+  startAmbience: {fileID: 11400000, guid: d50fbaae7d262a2439f36191ef3028ed, type: 2}
   playAmbienceOnStart: 1
   levelDescription: In Main Menu
   navMeshSurface: {fileID: 0}

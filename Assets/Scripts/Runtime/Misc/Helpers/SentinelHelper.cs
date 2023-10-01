@@ -50,7 +50,7 @@ namespace Runtime.Misc.Helpers
 
         public string LoadData(SaveGame game)
         {
-            if (game.monsterData["VoidMask"].addedInitialSentinels)
+            if (game.monsterData.addedInitialSentinels)
             {
                 voidMask.AddSentinels(sentinels);
             }
@@ -60,7 +60,7 @@ namespace Runtime.Misc.Helpers
 
         public void SaveData(SaveGame game)
         {
-            game.monsterData["VoidMask"].addedInitialSentinels = _hasAdded;
+            game.monsterData.addedInitialSentinels = _hasAdded;
         }
     }
 }

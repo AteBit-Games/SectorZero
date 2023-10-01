@@ -66,8 +66,6 @@ namespace Runtime.AI
         {
             _lastSeenPlayerTime = Time.time;
             _path = new NavMeshPath();
-            
-            if(GameManager.Instance.TestMode) StartNewGame();
         }
         
         private void OnEnable()
@@ -185,7 +183,7 @@ namespace Runtime.AI
         
         public void StartNewGame()
         {
-            menaceGaugeValue = 60f;
+            menaceGaugeValue = 50f;
             menaceState = false;
             _lastSeenPlayerTime = Time.time;
             AggroLevel = 0;
@@ -278,9 +276,7 @@ namespace Runtime.AI
             if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return "AIManager";
             
             InitializeReferences();
-            if (!save.monsterData.ContainsKey("VoidMask")) return "AIManager";
-            
-            var monsterSave = save.monsterData["VoidMask"];
+            var monsterSave = save.monsterData;
             
             _active = monsterSave.isActive;
             menaceGaugeValue = monsterSave.menaceGaugeValue;
@@ -295,20 +291,22 @@ namespace Runtime.AI
 
         public void SaveData(SaveGame save)
         {
+            if(save.isDataSaved) return;
             if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
             
-            var monsterSave = save.monsterData["VoidMask"];
-            if (monsterSave == null)
-            {
-                Debug.LogError("AIManager: " + "VoidMask" + " not found in save data!");
-                return;
-            }
-            
+            var monsterSave = save.monsterData;
             monsterSave.isActive = _active;
+            Debug.LogError("Active: "+ _active);
             monsterSave.menaceGaugeValue = menaceGaugeValue;
+            Debug.LogError("Guage Value: "+menaceGaugeValue);
             monsterSave.menaceState = menaceState;
+            Debug.LogError("Menace State: "+menaceState);
             monsterSave.aggroLevel = AggroLevel;
+            Debug.LogError("Aggro Level: "+AggroLevel);
             monsterSave.lastSeenPlayerTime = _lastSeenPlayerTime;
+            Debug.LogError("Last Save: "+_lastSeenPlayerTime);
+            
+            save.isDataSaved = true;
         }
     }
 }

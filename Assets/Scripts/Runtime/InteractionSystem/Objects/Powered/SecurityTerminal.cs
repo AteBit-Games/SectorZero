@@ -24,6 +24,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         
         [SerializeField] private Item keyCard;
         [SerializeField] private TriggerDoor door;
+        [SerializeField] public NoiseEmitter noiseEmitter;
         [SerializeField] public SummaryEntry powerEntry;
         [SerializeField] public SummaryEntry cardEntry;
 
@@ -85,6 +86,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         public void TriggerDoor()
         {
             door.OpenDoor();
+            noiseEmitter.EmitGlobal();
         }
 
         //========================= Public methods =========================//

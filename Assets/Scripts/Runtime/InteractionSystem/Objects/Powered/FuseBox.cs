@@ -6,7 +6,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Runtime.InteractionSystem.Interfaces;
+using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
 using Runtime.SaveSystem;
@@ -22,7 +24,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
     public class FuseBox : MonoBehaviour, IInteractable, IPersistant, ISoundEntity
     {
         [SerializeField] public string persistentID;
-        [SerializeField] private Item fuse;
+        [SerializeField] private List<Item> fuse;
         [SerializeField] public bool startWithFuse;
         
         [SerializeField] public SummaryEntry summaryEntry;
@@ -93,9 +95,9 @@ namespace Runtime.InteractionSystem.Objects.Powered
             {
                 GameManager.Instance.SoundSystem.PlayOneShot(addFuseSound, AudioSource);
                 _animator.SetTrigger(AddFuse);
-                GameManager.Instance.InventorySystem.PlayerInventory.UseItemInInventory(fuse);
                 
                 var inventory = GameManager.Instance.InventorySystem.PlayerInventory;
+                inventory.UseItemInInventory(GetFirstFuse(inventory));
                 inventory.SetSummaryEntryCompleted(summaryEntry);
                 
                 _hasFuse = true;
@@ -110,6 +112,15 @@ namespace Runtime.InteractionSystem.Objects.Powered
             
             return true;
         }
+        
+        private Item GetFirstFuse([NotNull] PlayerInventory inventory)
+        {
+            if (inventory == null) throw new ArgumentNullException(nameof(inventory));
+            inventory = GameManager.Instance.InventorySystem.PlayerInventory;
+            var itemsList = inventory.itemInventory;
+
+            return fuse.FirstOrDefault(item => itemsList.Contains(item));
+        }
 
         public void OnInteractFailed(GameObject player)
         {
@@ -121,7 +132,9 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         public bool CanInteract()
         {
-            return _hasFuse || GameManager.Instance.InventorySystem.PlayerInventory.ContainsKeyItem(fuse);
+            var contains = GetFirstFuse(GameManager.Instance.InventorySystem.PlayerInventory) != null;
+            
+            return _hasFuse || contains;
         }
 
         //========================= Public methods =========================//

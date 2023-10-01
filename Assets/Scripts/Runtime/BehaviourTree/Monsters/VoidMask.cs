@@ -3,7 +3,6 @@
  * All rights reserved.
  ****************************************************************/
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Runtime.SaveSystem;
@@ -56,10 +55,9 @@ namespace Runtime.BehaviourTree.Monsters
         public string LoadData(SaveGame save)
         {
             if(!gameObject.activeSelf) return "VoidMask";
-            if (!save.monsterData.ContainsKey("VoidMask")) return "VoidMask";
             
             SetupReferences();
-            var monsterSave = save.monsterData["VoidMask"];
+            var monsterSave = save.monsterData;
             navMeshAgent.Warp(monsterSave.position);
             SetState((MonsterState)monsterSave.activeState);
 
@@ -68,13 +66,7 @@ namespace Runtime.BehaviourTree.Monsters
 
         public void SaveData(SaveGame save)
         {
-            if(!save.monsterData.ContainsKey("VoidMask"))
-            {
-                Debug.LogError("AIManager: " + "VoidMask" + " not found in save data!");
-                return;
-            }
-            
-            var monsterSave = save.monsterData["VoidMask"];
+            var monsterSave = save.monsterData;
             
             //if ! aggro state, save position
             if (currentMonsterState != MonsterState.AggroChase)

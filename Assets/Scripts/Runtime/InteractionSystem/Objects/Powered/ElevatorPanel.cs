@@ -38,6 +38,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             _audioSource = GetComponent<AudioSource>();
             GameManager.Instance.SoundSystem.SetupSound(_audioSource, interactSound);
+            customLight.PowerOff();
         }
 
         //========================= Interface events =========================//

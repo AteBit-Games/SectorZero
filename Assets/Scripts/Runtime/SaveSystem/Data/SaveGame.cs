@@ -5,8 +5,6 @@
 
 using System;
 using System.Collections.Generic;
-using Runtime.InteractionSystem.Items;
-using Runtime.InventorySystem.ScriptableObjects;
 using UnityEngine;
 
 namespace Runtime.SaveSystem.Data
@@ -56,9 +54,9 @@ namespace Runtime.SaveSystem.Data
     public class MonsterSaveData
     {
         public bool isActive;
-        public Vector3 position;
+        public Vector3 position = new(-33f, -0.65f, 0);
         public int activeState;
-        public float menaceGaugeValue;
+        public float menaceGaugeValue = 50;
         public bool menaceState;
         public int aggroLevel;
         public float lastSeenPlayerTime;
@@ -113,29 +111,15 @@ namespace Runtime.SaveSystem.Data
     [Serializable]
     public class SaveGame
     {
+        public bool isDataSaved;
         public string saveName;
         public long saveTime;
         public int currentScene;
         
         public PlayerSaveData playerData = new();
-        public SerializableDictionary<string, MonsterSaveData> monsterData = new();
+        public MonsterSaveData monsterData = new();
         
         public TutorialData tutorialData = new();
         public WorldData worldData = new();
-        
-        public SaveGame()
-        {
-            monsterData.Add("VoidMask", new MonsterSaveData
-            {
-                isActive = false,
-                position = new Vector3(-33f, -0.65f, 0),
-                activeState = 0,
-                menaceGaugeValue = 45f,
-                menaceState = false,
-                aggroLevel = 0,
-                lastSeenPlayerTime = 0
-            });
-        }
     }
-
 }
