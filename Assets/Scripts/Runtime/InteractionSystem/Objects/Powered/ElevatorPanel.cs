@@ -22,7 +22,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         
-        [SerializeField] private NormalDoor door;
+        [SerializeField] private ElevatorDoor door;
 
         //----- Interface Properties -----//
         private bool _isPowered;
@@ -38,7 +38,6 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             _audioSource = GetComponent<AudioSource>();
             GameManager.Instance.SoundSystem.SetupSound(_audioSource, interactSound);
-            customLight.PowerOff();
         }
 
         //========================= Interface events =========================//

@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 
 namespace Editor.InteractionSystem.Doors 
 {
-    [CustomEditor(typeof(NormalDoor))]
+    [CustomEditor(typeof(ElevatorDoor))]
     public class CustomNormalDoorInspector : UnityEditor.Editor
     {
         public VisualTreeAsset mVisualTreeAsset;
@@ -24,7 +24,7 @@ namespace Editor.InteractionSystem.Doors
             var generateGuidButton = root.Q<Button>("generate-button");
             generateGuidButton.RegisterCallback<ClickEvent>(_ =>
             {
-                var door = target as NormalDoor;
+                var door = target as ElevatorDoor;
                 if (door != null && door.persistentID == "")
                 {
                     door.persistentID = System.Guid.NewGuid().ToString();
