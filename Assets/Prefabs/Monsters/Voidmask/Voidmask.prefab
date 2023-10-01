@@ -175,7 +175,7 @@ MonoBehaviour:
   detectRadius: 3
   detectedSound: {fileID: 11400000, guid: 3e58a5000fec3bd4e882873694e3d6a8, type: 2}
   lostSound: {fileID: 11400000, guid: f1a1400ccc596474d9b9a2f2dc7a3421, type: 2}
-  debug: 1
+  debug: 0
 --- !u!1 &3369446493431426671
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +334,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bda294c36115e4e46afb53ea2f475146, type: 2}
   - {fileID: 11400000, guid: c9ba80b5115d9804ebe442e3082d1808, type: 2}
   - {fileID: 11400000, guid: 6366ac5a42c71404f9b4505e8843cfb2, type: 2}
+  currentMonsterState: 0
   references:
     version: 2
     RefIds:
