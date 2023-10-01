@@ -26,18 +26,24 @@ namespace Runtime.InventorySystem
         
         public bool AddTapeToInventory(Tape item)
         {
+            if(tapeInventory.Contains(item)) return false;
+            
             tapeInventory.Add(item);
             return true;
         }
         
         public bool AddNoteToInventory(Note item)
         {
+            if(noteInventory.Contains(item)) return false;
+            
             noteInventory.Add(item);
             return true;
         }
         
         public void AddItemToInventory(Item item)
         {
+            if(itemInventory.Contains(item)) return;
+            
             itemInventory.Add(item);
         }
         

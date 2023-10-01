@@ -644,3 +644,14 @@
 .cheat-instance {
     flex-grow: 1;
 }
+
+.cheat-popup-hidden {
+    position: absolute;
+    right: 35px;
+    top: -70px;
+}
+
+.cheat-popup-show {
+    position: absolute;
+    top: 15px;
+}

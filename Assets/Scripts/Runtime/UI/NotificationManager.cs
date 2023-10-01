@@ -35,13 +35,15 @@ namespace Runtime.UI
         //Saving notification items
         private VisualElement _savingIcon;
         
-        //Summary notification items
+        //Misc
         private VisualElement _summaryContainer;
+        private VisualElement _cheatAddedContainer;
 
         private Coroutine _savingLoopCoroutine;
         private Coroutine _pickupCoroutine;
         private Coroutine _resultCoroutine;
         private Coroutine _summaryCoroutine;
+        private Coroutine _cheatCoroutine;
         
         private void Awake()
         {
@@ -59,6 +61,7 @@ namespace Runtime.UI
             
             _savingIcon = rootVisualElement.Q<VisualElement>("saving-icon");
             _summaryContainer = rootVisualElement.Q<VisualElement>("todo-popup");
+            _cheatAddedContainer = rootVisualElement.Q<VisualElement>("cheat-popup");
         }
         
         public void ShowPickupNotification(BaseItem item)
@@ -133,17 +136,37 @@ namespace Runtime.UI
             if (_pickupCoroutine != null)
             {
                 StopCoroutine(_pickupCoroutine);
-                _summaryContainer.RemoveFromClassList("popup-show");
+                _summaryContainer.RemoveFromClassList("todo-show");
             }
 
-            _pickupCoroutine = StartCoroutine(HideSummaryAddedNotification());
+            _summaryCoroutine = StartCoroutine(HideSummaryAddedNotification());
         }        
         
         private IEnumerator HideSummaryAddedNotification()
         { 
             yield return new WaitForSecondsRealtime(3.5f);
             _summaryContainer.RemoveFromClassList("todo-show");
-            _pickupCoroutine = null;
+            _summaryCoroutine = null;
+        }
+        
+        public void ShowCheatEnabledNotification()
+        {
+            _cheatAddedContainer.AddToClassList("cheat-popup-show");
+            
+            if (_pickupCoroutine != null)
+            {
+                StopCoroutine(_pickupCoroutine);
+                _cheatAddedContainer.RemoveFromClassList("cheat-popup-show");
+            }
+
+            _cheatCoroutine = StartCoroutine(HideCheatEnabledNotification());
+        }        
+        
+        private IEnumerator HideCheatEnabledNotification()
+        { 
+            yield return new WaitForSecondsRealtime(3.5f);
+            _cheatAddedContainer.RemoveFromClassList("cheat-popup-show");
+            _cheatCoroutine = null;
         }
     }
 }

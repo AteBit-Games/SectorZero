@@ -12,19 +12,22 @@ namespace Runtime.Misc.Triggers
 {
     public class AnimatorSoundTrigger : MonoBehaviour
     {
+        [SerializeField] private AudioSource audioSource;
         [SerializeField] private List<Sound> indexedSounds;
         [SerializeField] private List<Sound> randomSounds;
-
+        
         public void TriggerIndexedSound(int id)
         {
             if (id < 0 || id >= indexedSounds.Count) Debug.LogError("Sound ID does not exist!");
-            GameManager.Instance.SoundSystem.Play(indexedSounds[id], transform.GetComponent<AudioSource>());
+            
+            var source = audioSource ? audioSource : transform.GetComponent<AudioSource>();
+            GameManager.Instance.SoundSystem.Play(indexedSounds[id], source);
         }
         
         private void TriggerRandomSound()
         {
-            var audioSource = transform.GetComponent<AudioSource>();
-            GameManager.Instance.SoundSystem.Play(randomSounds[Random.Range(0, randomSounds.Count)], audioSource);
+            var source = audioSource ? audioSource : transform.GetComponent<AudioSource>();
+            GameManager.Instance.SoundSystem.Play(randomSounds[Random.Range(0, randomSounds.Count)], source);
         }
     }
 }

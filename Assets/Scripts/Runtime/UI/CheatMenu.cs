@@ -54,6 +54,7 @@ namespace Runtime.UI
             {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 GameManager.Instance.InventorySystem.PlayerInventory.AddAllItems(inventoryItems);
+                GameManager.Instance.NotificationManager.ShowCheatEnabledNotification();
             });
             _addAll.RegisterCallback<MouseEnterEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
@@ -65,6 +66,7 @@ namespace Runtime.UI
             {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 GameManager.Instance.PowerManager.DisableAllBreakers();
+                GameManager.Instance.NotificationManager.ShowCheatEnabledNotification();
             });
             _disableBreakers.RegisterCallback<MouseEnterEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
@@ -76,6 +78,7 @@ namespace Runtime.UI
             {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 GameManager.Instance.AIManager.monster.SetNewTree(idleTree);
+                GameManager.Instance.NotificationManager.ShowCheatEnabledNotification();
             });
             _disableTree.RegisterCallback<MouseEnterEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
@@ -87,6 +90,7 @@ namespace Runtime.UI
             {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 GameManager.Instance.AIManager.monster.SetNewTree(buddyTree);
+                GameManager.Instance.NotificationManager.ShowCheatEnabledNotification();
             });
             _companion.RegisterCallback<MouseEnterEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
@@ -98,6 +102,7 @@ namespace Runtime.UI
             {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 GameManager.Instance.AIManager.monster.ReturnToDefault(defaultTree);
+                GameManager.Instance.NotificationManager.ShowCheatEnabledNotification();
             });
             _enableTree.RegisterCallback<MouseEnterEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
@@ -109,6 +114,7 @@ namespace Runtime.UI
             {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 GameManager.Instance.PowerManager.EnableAllBreakers();
+                GameManager.Instance.NotificationManager.ShowCheatEnabledNotification();
             });
             _enableBreakers.RegisterCallback<MouseEnterEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());

@@ -57,7 +57,6 @@ namespace Runtime.DialogueSystem
             
             //Bind Audio Source
             _audioSource = gameObject.GetComponent<AudioSource>();
-            GameManager.Instance.inputReader = GameManager.Instance.inputReader;
         }
 
         private void OnEnable()
@@ -214,11 +213,20 @@ namespace Runtime.DialogueSystem
                 previousLetter = character;
             }
             
+            
             _dialogueTextElement.text = dialogue.dialogueLines[lineIndex].line;
-            yield return new WaitForSeconds(_currentDialogue.autoSkipDelay);
+            
+            
+            if(!_skipDialogue) yield return new WaitForSeconds(_currentDialogue.autoSkipDelay);
+            else yield return new WaitForSeconds(DetermineDisplayTime(dialogue.dialogueLines[lineIndex].line));
+            
             ContinueDialogue();
         }
-
+        
+        private float DetermineDisplayTime(string text)
+        {
+            return text.Length * textSpeed + 1f;
+        }
         
         private IEnumerator ExitDialogue() 
         {
