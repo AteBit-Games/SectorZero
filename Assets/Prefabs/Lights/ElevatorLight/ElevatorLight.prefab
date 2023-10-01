@@ -49,8 +49,8 @@ MonoBehaviour:
   m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
-  m_Color: {r: 0.9607843, g: 0.83197916, b: 0.64372545, a: 1}
-  m_Intensity: 1.2
+  m_Color: {r: 1, g: 0.495283, b: 0.495283, a: 1}
+  m_Intensity: 0.8
   m_LightVolumeIntensity: 0.09
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000bd926ea1
@@ -69,8 +69,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.2031002, y: -1.9088998, z: 0}
-    m_Extent: {x: 13.7886, y: 11.1772, z: 0}
+    m_Center: {x: 0.045749903, y: 0.8073001, z: 0}
+    m_Extent: {x: 7.62805, y: 7.6696, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -78,21 +78,18 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 7.5
+  m_ShapeLightFalloffSize: 6.49
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -5.1342354, y: -4.729186, z: 0}
-  - {x: -2.8986073, y: -5.5280285, z: 0}
-  - {x: 0.005713582, y: -5.5836334, z: 0}
-  - {x: 3.0009499, y: -5.393519, z: 0}
-  - {x: 5.0146446, y: -4.7074213, z: 0}
-  - {x: 6.3397675, y: -3.5157785, z: 0}
-  - {x: 6.4932137, y: -1.978097, z: 0}
-  - {x: 0.7711525, y: 1.7608814, z: 0}
-  - {x: 0.0008506775, y: 1.7615986, z: 0}
-  - {x: -0.72634315, y: 1.7571354, z: 0}
-  - {x: -6.0863323, y: -1.8687816, z: 0}
-  - {x: -6.017206, y: -3.369197, z: 0}
+  - {x: -1.0858002, y: 0.27804184, z: 0}
+  - {x: -0.48176384, y: -0.33954906, z: 0}
+  - {x: 0.5008812, y: -0.36597228, z: 0}
+  - {x: 1.1769047, y: 0.38208437, z: 0}
+  - {x: 0.7366352, y: 1.5257535, z: 0}
+  - {x: 0.3628006, y: 1.8980122, z: 0}
+  - {x: 0.028259277, y: 1.9790297, z: 0}
+  - {x: -0.26981926, y: 1.9120631, z: 0}
+  - {x: -0.7608223, y: 1.4442091, z: 0}
 --- !u!210 &66673509533470767
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -134,7 +131,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7664491144595180837}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.875, y: -2.25, z: 0.04330176}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
