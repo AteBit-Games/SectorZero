@@ -438,7 +438,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 50
+  MaxDistance: 40
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -490,8 +490,8 @@ AudioSource:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.8019834
-      value: 0.807889
+      time: 0.79911476
+      value: 1.0067339
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -660,10 +660,10 @@ AudioSource:
   m_GameObject: {fileID: 8869193597704614059}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2711704030924625141, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
+  m_audioClip: {fileID: 8300000, guid: cd4f90323dad3274c95e05daaedf9fef, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -672,9 +672,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 13.5
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -682,23 +682,59 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.05
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -5.688461
+      outSlope: -5.688461
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0.1979169
+    - serializedVersion: 3
+      time: 0.16034469
+      value: 0.5126953
+      inSlope: -3.3314936
+      outSlope: -3.3314936
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.538457
+    - serializedVersion: 3
+      time: 0.25747222
+      value: 0.27539062
+      inSlope: -1.5764757
+      outSlope: -1.5764757
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.45107117
+      value: 0.11929321
+      inSlope: -0.46941304
+      outSlope: -0.46941304
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.8508121
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7868164
+      value: 0.019744873
+      inSlope: -0.07815612
+      outSlope: -0.07815612
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.05001994
+      outSlope: -0.05001994
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
