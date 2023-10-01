@@ -28,7 +28,6 @@ namespace Runtime.AI
         [SerializeField, Tooltip("If not close enough, what is the base value")] private float closeDistanceBase = 0.15f;
 
         public Action activateEvents;
-
         
         [HideInInspector] public VoidMask monster;
         private AIPerception _perception;
@@ -206,15 +205,15 @@ namespace Runtime.AI
                     break;
                 case <= 4:
                     activeSentinels = 5;
-                    sentinelDuration = 24f;
+                    sentinelDuration = 23f;
                     break;
                 case <= 6:
                     activeSentinels = 7;
-                    sentinelDuration = 30f;
+                    sentinelDuration = 26f;
                     break;
                 case > 6:
                     activeSentinels = 8;
-                    sentinelDuration = 38f;
+                    sentinelDuration = 30f;
                     break;
             }
             
@@ -247,6 +246,7 @@ namespace Runtime.AI
                 menaceGaugeValue = Mathf.Clamp(menaceGaugeValue + (menaceState ? 20f : -20f), menaceGaugeMin, menaceGaugeMax);
                 
                 _roomKey.value = room;
+                monster.SetState(MonsterState.Patrol);
                 monster.SetState(MonsterState.SentinelAlert);
             }
             else Activate();
@@ -296,15 +296,10 @@ namespace Runtime.AI
             
             var monsterSave = save.monsterData;
             monsterSave.isActive = _active;
-            Debug.LogError("Active: "+ _active);
             monsterSave.menaceGaugeValue = menaceGaugeValue;
-            Debug.LogError("Guage Value: "+menaceGaugeValue);
             monsterSave.menaceState = menaceState;
-            Debug.LogError("Menace State: "+menaceState);
             monsterSave.aggroLevel = AggroLevel;
-            Debug.LogError("Aggro Level: "+AggroLevel);
             monsterSave.lastSeenPlayerTime = _lastSeenPlayerTime;
-            Debug.LogError("Last Save: "+_lastSeenPlayerTime);
             
             save.isDataSaved = true;
         }

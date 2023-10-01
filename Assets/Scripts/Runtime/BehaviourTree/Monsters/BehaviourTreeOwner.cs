@@ -4,6 +4,7 @@
  ****************************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Runtime.Managers;
 using Runtime.SoundSystem;
@@ -112,6 +113,13 @@ namespace Runtime.BehaviourTree.Monsters
         
         public void SetHeard(Vector2 position)
         {
+            SetState(MonsterState.Patrol);
+            StartCoroutine(HeardState(position));
+        }
+
+        private IEnumerator HeardState(Vector2 position)
+        {
+            yield return new WaitForSeconds(0.1f);
             _inspectLocationReference.value = position;
             SetState(MonsterState.InspectPoint);
         }

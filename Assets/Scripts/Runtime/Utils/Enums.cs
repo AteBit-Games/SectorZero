@@ -21,6 +21,7 @@ namespace Runtime.Utils
         
         private static readonly string[] LockerDeathMessages = {
             "If the creature sees you entering a locker your chances of survival are slim.",
+            
         };
         
         public static string GetDeathMessage(DeathType deathType)

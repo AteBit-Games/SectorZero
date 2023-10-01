@@ -28,7 +28,7 @@ namespace Runtime.SaveSystem
             
             if (Input.GetKeyDown(KeyCode.Minus) && !_isSlowDownTimeTriggered && GameManager.Instance.testMode)
             {
-                Time.timeScale = 3;
+                Time.timeScale = 1;
                 _isSlowDownTimeTriggered = true;
                 _isSpeedUpTimeTriggered = false;
             }

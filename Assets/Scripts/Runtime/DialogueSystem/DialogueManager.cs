@@ -225,7 +225,7 @@ namespace Runtime.DialogueSystem
         
         private float DetermineDisplayTime(string text)
         {
-            return text.Length * textSpeed + 1f;
+            return text.Length * textSpeed + 2.5f;
         }
         
         private IEnumerator ExitDialogue() 

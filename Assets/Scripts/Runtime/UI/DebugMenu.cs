@@ -40,7 +40,6 @@ namespace Runtime.UI
             {
                 StopCoroutine(_updateStates);
                 _updateStates = null;
-
             }
         }
 

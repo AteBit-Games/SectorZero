@@ -40,7 +40,7 @@ namespace Runtime.AI
             var count = GetSentinelCount();
             
             for (var i = 0; i < count; i++) sentinels[i].ActivateSentinel(duration);
-            yield return new WaitForSeconds(duration+2);
+            yield return new WaitForSeconds(duration+10);
             StartCoroutine(SentinelLoop());
         }
 
@@ -69,9 +69,9 @@ namespace Runtime.AI
         {
             return _aiManager.AggroLevel switch
             {
-                <= 0 => 15,
+                <= 0 => 16,
                 <= 4 => 22,
-                > 4 => 30
+                > 4 => 28
             };
         }
     }
