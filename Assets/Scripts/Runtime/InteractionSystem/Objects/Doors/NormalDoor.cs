@@ -17,9 +17,11 @@ namespace Runtime.InteractionSystem.Objects.Doors
     public class NormalDoor : Door, IInteractable, IPersistant
     {
         [SerializeField] public string persistentID;
-
         [SerializeField] private Sound interactSound;
+        [SerializeField] private Sound interactFail;
         public Sound InteractSound => interactSound;
+
+        public bool canInteract;
 
         //=========================== Unity Events =============================//
 
@@ -51,12 +53,12 @@ namespace Runtime.InteractionSystem.Objects.Doors
 
         public void OnInteractFailed(GameObject player)
         {
-            throw new System.NotImplementedException();
+            GameManager.Instance.SoundSystem.Play(interactFail, transform.GetComponent<AudioSource>());
         }
 
         public bool CanInteract()
         {
-            return true;
+            return canInteract;
         }
         
 

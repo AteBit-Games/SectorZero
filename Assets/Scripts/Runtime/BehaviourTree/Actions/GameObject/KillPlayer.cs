@@ -57,8 +57,6 @@ namespace Runtime.BehaviourTree.Actions.GameObject
             {
                 playerController.Die();
             }
-            
-            context.owner.gameObject.GetComponent<SortingGroup>().sortingOrder = 9999;
         }
     
         protected override void OnStop() { }

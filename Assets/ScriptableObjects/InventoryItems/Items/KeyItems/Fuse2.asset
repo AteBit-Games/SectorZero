@@ -15,4 +15,4 @@ MonoBehaviour:
   itemRef: Fuse2
   itemName: Power Breaker Fuse
   itemSprite: {fileID: 21300000, guid: 8f1902c5ac81f874298a739e63fbfb55, type: 3}
-  itemDescription: This could come in handy.
+  itemDescription: This could come in handy

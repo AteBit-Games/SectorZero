@@ -25,7 +25,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         [SerializeField] private Sound onSound;
         public Sound InteractSound => onSound;
 
-        [SerializeField] private SecurityTerminal securityTerminal;
+        [SerializeField] private ElevatorPanel elevatorPanel;
         [SerializeField] private List<FuseBox> fuseBoxes;
         [SerializeField] private Animator meterAnimator;
         
@@ -69,7 +69,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
             
             if(debug)
             {
-                securityTerminal.PowerOn(false);
+                elevatorPanel.PowerOn(false);
             }
         }
 
@@ -86,7 +86,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _mainLight.enabled = false;
                 
                 GameManager.Instance.SoundSystem.PlayOneShot(failSound, _audioSource);
-                securityTerminal.PowerOff();
+                elevatorPanel.PowerOff();
             }
         }
         
@@ -110,7 +110,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 
             GameManager.Instance.SoundSystem.PlayOneShot(onSound, _audioSource);
             GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
-            securityTerminal.PowerOn(false);
+            elevatorPanel.PowerOn(false);
             GameManager.Instance.InventorySystem.PlayerInventory.SetSummaryEntryCompleted(summaryEntry);
             
             return true;
@@ -137,7 +137,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
                 _mainLight.enabled = true;
                 _isPowered = true;
                 GameManager.Instance.SoundSystem.Play(humSound, _audioSource);
-                securityTerminal.PowerOn(true);
+                elevatorPanel.PowerOn(true);
             }
             
             return persistentID;

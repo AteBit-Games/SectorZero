@@ -14,7 +14,6 @@ using Runtime.SaveSystem.Data;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace Runtime.AI
 {
@@ -144,7 +143,7 @@ namespace Runtime.AI
             //Patrol Far
             else
             {
-                menaceGaugeValue -= Time.deltaTime * Math.Clamp(AggroLevel / 8f, 0.3f, 0.8f);
+                menaceGaugeValue -= Time.deltaTime * Math.Clamp(AggroLevel / 8f, 0.4f, 0.95f);
             }
             
             menaceGaugeValue = Mathf.Clamp(menaceGaugeValue, menaceGaugeMin, menaceGaugeMax);
@@ -198,8 +197,8 @@ namespace Runtime.AI
 
         private void UpdateSentinelAggro(int level)
         {
-            var activeSentinels = 0;
-            var sentinelDuration = 0f;
+            int activeSentinels;
+            float sentinelDuration;
             
             switch (level)
             {

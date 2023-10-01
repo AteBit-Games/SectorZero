@@ -157,6 +157,10 @@ PrefabInstance:
       value: 49.625
       objectReference: {fileID: 0}
     - target: {fileID: 8564143802284992274, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
+      propertyPath: menaceGaugeMax
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564143802284992274, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
       propertyPath: directSightBase
       value: 0.18
       objectReference: {fileID: 0}
