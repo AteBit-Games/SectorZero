@@ -1,0 +1,556 @@
+fileFormatVersion: 2
+guid: 29792bc625a05ec4e920e7371c10115b
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: VoidmaskIdleIdleProgress_Frame_0
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.027027026}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 87
+      width: 112
+      height: 74
+    spriteID: 59df6cd9add5355489eabd9336d67cb9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 87}
+  - name: VoidmaskIdleIdleProgress_Frame_1
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.027027026}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 87
+      width: 112
+      height: 74
+    spriteID: dff154180a3938e4d83bf0d80bb47b9c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 87}
+  - name: VoidmaskIdleIdleProgress_Frame_2
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.02739726}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 169
+      width: 112
+      height: 73
+    spriteID: 1ee0aa75294f7294eb9b0320f27cd6fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 169}
+  - name: VoidmaskIdleIdleProgress_Frame_3
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.02777778}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 244
+      y: 169
+      width: 112
+      height: 72
+    spriteID: 9adaf2f519487e34ab615a6eca8efe61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 244, y: 169}
+  - name: VoidmaskIdleIdleProgress_Frame_4
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.02777778}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 169
+      width: 112
+      height: 72
+    spriteID: 7b688cbaeaee18a459e52adb2fe7b72d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 169}
+  - name: VoidmaskIdleIdleProgress_Frame_5
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.02777778}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 250
+      width: 112
+      height: 72
+    spriteID: 5579eae5452073c4e911d7764fb5aec2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 250}
+  - name: VoidmaskIdleIdleProgress_Frame_6
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.02777778}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 250
+      width: 112
+      height: 72
+    spriteID: 8acb5db213829944d8e937f0c2c9b194
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 250}
+  - name: VoidmaskIdleIdleProgress_Frame_7
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.02777778}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 244
+      y: 250
+      width: 112
+      height: 72
+    spriteID: fd18c29d36c8cce4aa55cacdccc9ebcb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 244, y: 250}
+  - name: VoidmaskIdleIdleProgress_Frame_8
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.02739726}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 169
+      width: 112
+      height: 73
+    spriteID: 388b06e28b74f104e9f2d94c74b87a9c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 169}
+  - name: VoidmaskIdleIdleProgress_Frame_9
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.027027026}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 244
+      y: 87
+      width: 112
+      height: 74
+    spriteID: e13879a2319d7314fa3c9bf4762afa5d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 244, y: 87}
+  - name: VoidmaskIdleIdleProgress_Frame_10
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.027027026}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 87
+      width: 112
+      height: 74
+    spriteID: f5decf6c658e956498ac84f0cd99628e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 87}
+  - name: VoidmaskIdleIdleProgress_Frame_11
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.02666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 112
+      height: 75
+    spriteID: df13c6edc8e0d09459da3949d79fe063
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: VoidmaskIdleIdleProgress_Frame_12
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.02666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 4
+      width: 112
+      height: 75
+    spriteID: 1f73205e7a11a7b49b1313b427ec2740
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 124, y: 4}
+  - name: VoidmaskIdleIdleProgress_Frame_13
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.02666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 244
+      y: 4
+      width: 112
+      height: 75
+    spriteID: 2d6d46645946ac642a0f1763acfe61db
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 244, y: 4}
+  - name: VoidmaskIdleIdleProgress_Frame_14
+    originalName: 
+    pivot: {x: 0.4464286, y: -0.02666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 4
+      width: 112
+      height: 75
+    spriteID: 3a0d40f73fd15a245bb4c54d9194a0e4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 4}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1689258823
+    name: VoidmaskIdleIdleProgress
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: VoidmaskIdleIdleProgress_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 74
+      spriteId: 59df6cd9add5355489eabd9336d67cb9
+    - name: VoidmaskIdleIdleProgress_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 74
+      spriteId: dff154180a3938e4d83bf0d80bb47b9c
+    - name: VoidmaskIdleIdleProgress_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 73
+      spriteId: 1ee0aa75294f7294eb9b0320f27cd6fe
+    - name: VoidmaskIdleIdleProgress_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 72
+      spriteId: 9adaf2f519487e34ab615a6eca8efe61
+    - name: VoidmaskIdleIdleProgress_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 72
+      spriteId: 7b688cbaeaee18a459e52adb2fe7b72d
+    - name: VoidmaskIdleIdleProgress_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 72
+      spriteId: 5579eae5452073c4e911d7764fb5aec2
+    - name: VoidmaskIdleIdleProgress_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 72
+      spriteId: 8acb5db213829944d8e937f0c2c9b194
+    - name: VoidmaskIdleIdleProgress_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 72
+      spriteId: fd18c29d36c8cce4aa55cacdccc9ebcb
+    - name: VoidmaskIdleIdleProgress_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 73
+      spriteId: 388b06e28b74f104e9f2d94c74b87a9c
+    - name: VoidmaskIdleIdleProgress_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 74
+      spriteId: e13879a2319d7314fa3c9bf4762afa5d
+    - name: VoidmaskIdleIdleProgress_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 74
+      spriteId: f5decf6c658e956498ac84f0cd99628e
+    - name: VoidmaskIdleIdleProgress_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 75
+      spriteId: df13c6edc8e0d09459da3949d79fe063
+    - name: VoidmaskIdleIdleProgress_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 75
+      spriteId: 1f73205e7a11a7b49b1313b427ec2740
+    - name: VoidmaskIdleIdleProgress_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 75
+      spriteId: 2d6d46645946ac642a0f1763acfe61db
+    - name: VoidmaskIdleIdleProgress_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 30
+        y: 2
+        width: 112
+        height: 75
+      spriteId: 3a0d40f73fd15a245bb4c54d9194a0e4
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 160, y: 80}
