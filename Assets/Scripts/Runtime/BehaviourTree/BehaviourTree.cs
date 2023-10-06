@@ -40,6 +40,7 @@ namespace Runtime.BehaviourTree
 
         public Node.State Update() 
         {
+            
             if (treeState == Node.State.Running) treeState = rootNode.Update();
             return treeState;
         }

@@ -36,6 +36,7 @@ MonoBehaviour:
   - rid: 130803909263360055
   - rid: 130803909263360057
   - rid: 4809529542262915073
+  - rid: 3640664503623614495
   treeState: 1
   blackboard:
     keys:
@@ -45,7 +46,7 @@ MonoBehaviour:
     - rid: 130803864545001491
     - rid: 130803864545001475
     - rid: 130803893468135442
-  viewPosition: {x: -158, y: -163, z: 0}
+  viewPosition: {x: 418, y: 198, z: 0}
   viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
@@ -58,13 +59,15 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d6b7abf0-6dec-4040-9b0e-f791e493c8ed
-        position: {x: 0, y: 0}
+        position: {x: 0, y: -120}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
+        name: Inspect Hallway
+        debug: 1
         child:
-          rid: 130803868398780416
+          rid: 3640664503623614495
     - rid: 130803864545001475
       type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -500,6 +503,23 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 3
+    - rid: 3640664503623614495
+      type: {class: Timeout, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ee541d03f9d024945a5a094a6d33ce4d
+        position: {x: 0, y: -40}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 130803868398780416
+        timeout:
+          reference:
+            rid: -2
+          defaultValue: 120
     - rid: 4809529542262915073
       type: {class: ValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
       data:

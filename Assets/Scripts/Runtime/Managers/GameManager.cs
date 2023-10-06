@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections;
+using System.Linq;
 using Cinemachine;
 using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
@@ -362,6 +363,10 @@ namespace Runtime.Managers
                 yield return null;
             }
             
+            //get the loaded scene
+            // var mixer = SceneManager.GetSceneByBuildIndex(sceneIndex).GetRootGameObjects().First(x => x.name == "TempSound").GetComponent<TempSound>().mainMixer;
+            // SoundSystem.mainMixer = mixer;
+            
             if(sceneIndex == 0) LoadingScreen.HideLoading();
         }
         
@@ -373,11 +378,18 @@ namespace Runtime.Managers
             {
                 yield return asyncOperation;
             }
-            
+
             if (asyncOperation.Status == AsyncOperationStatus.Succeeded)
                 yield return asyncOperation.Result.ActivateAsync();
             
             _sceneInstance = asyncOperation.Result;
+            
+            //get TempSound instance from scene loaded
+            // var mixer = _sceneInstance.Scene.GetRootGameObjects().First(x => x.name == "TempSound").GetComponent<TempSound>().mainMixer;
+            // SoundSystem.mainMixer = mixer;
+            
+            LoadingScreen.HideLoading();
+            Time.timeScale = 1f;
         }
 
         public void FinishedLoading()

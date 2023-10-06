@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
+    <ui:VisualElement name="template-container" style="flex-grow: 1; align-items: flex-start; position: relative; margin-top: 15px;">
+        <ui:VisualElement name="title-container" style="flex-grow: 0; height: 43px;">
+            <ui:VisualElement name="underline" style="flex-grow: 1; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background-color: rgb(255, 255, 255);" />
+            <ui:Label tabindex="-1" text="TREE VALUES" display-tooltip-when-elided="true" name="title" style="color: rgb(255, 255, 255); font-size: 28px; -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="keys-list" style="flex-grow: 1;" />
+    </ui:VisualElement>
+</ui:UXML>

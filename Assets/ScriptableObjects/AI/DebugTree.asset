@@ -17,10 +17,10 @@ MonoBehaviour:
   nodes:
   - rid: 61114352745054245
   - rid: 6414687230186225667
-  - rid: 6414687230186225668
-  - rid: 6414687230186225671
-  - rid: 4809529536864845834
-  - rid: 4809529539082059776
+  - rid: 3640664503623614502
+  - rid: 3640664503623614503
+  - rid: 3640664503623614504
+  - rid: 3640664503623614505
   treeState: 0
   blackboard:
     keys:
@@ -39,8 +39,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: 263, y: 11, z: 0}
-  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
+  viewPosition: {x: 351, y: -1, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -57,6 +57,8 @@ MonoBehaviour:
           keys: []
         comment: 
         drawGizmos: 0
+        name: Debug Tree
+        debug: 1
         child:
           rid: 6414687230186225667
     - rid: 61114352745054246
@@ -159,41 +161,92 @@ MonoBehaviour:
         name: Active
         typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 0
-    - rid: 4809529536864845834
-      type: {class: LogMessage, ns: Runtime.BehaviourTree.Actions.Debug, asm: Assembly-CSharp}
+    - rid: 3640664503623614502
+      type: {class: PatrolToPoint, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: d4766bb1cffb767418c5b6723fdaff80
-        position: {x: 100, y: 340}
+        guid: a95a451e12c37764985363e461c1d9d9
+        position: {x: 160, y: 340}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
-        logType: 0
-        message:
+        targetPoint:
           reference:
             rid: -2
-          defaultValue: Yeet
-    - rid: 4809529539082059776
-      type: {class: LookAt, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+          defaultValue: {x: -55, y: 21}
+        speed:
+          reference:
+            rid: -2
+          defaultValue: 5
+        failureChance:
+          reference:
+            rid: -2
+          defaultValue: 0
+        failureDistanceRemaining:
+          reference:
+            rid: -2
+          defaultValue: 0.25
+        speedUp: 0
+    - rid: 3640664503623614503
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
-        guid: dd815013b4d313c4597820cb407fa80b
-        position: {x: -260, y: 340}
+        guid: d9f35614c593e284c9ff52cad867e1cd
+        position: {x: 0, y: 200}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
-        target:
+        children:
+        - rid: 3640664503623614505
+        - rid: 3640664503623614504
+        - rid: 3640664503623614502
+    - rid: 3640664503623614504
+      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 39bc7d3efcff5ae45864d98e8336fc96
+        position: {x: 0, y: 340}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        duration:
           reference:
             rid: -2
-          defaultValue: {x: -33.0625, y: -2.0625}
-        lookTime:
+          defaultValue: 3
+    - rid: 3640664503623614505
+      type: {class: PatrolToPoint, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: ad036e6869129e745a78d04886759bc5
+        position: {x: -180, y: 340}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        targetPoint:
           reference:
             rid: -2
-          defaultValue: 2
+          defaultValue: {x: 64.625, y: -28.5}
+        speed:
+          reference:
+            rid: -2
+          defaultValue: 5
+        failureChance:
+          reference:
+            rid: -2
+          defaultValue: 0
+        failureDistanceRemaining:
+          reference:
+            rid: -2
+          defaultValue: 0.25
+        speedUp: 1
     - rid: 6414687230186225667
       type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
@@ -206,40 +259,10 @@ MonoBehaviour:
         comment: 
         drawGizmos: 1
         child:
-          rid: 6414687230186225668
+          rid: 3640664503623614503
         restartOnSuccess: 1
         restartOnFailure: 1
         maxRepeats:
           reference:
             rid: -2
           defaultValue: 0
-    - rid: 6414687230186225668
-      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: c9ee8f5dbb020204cae8d9bd0a38fc3a
-        position: {x: 0, y: 200}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        children:
-        - rid: 4809529539082059776
-        - rid: 6414687230186225671
-        - rid: 4809529536864845834
-    - rid: 6414687230186225671
-      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 8f45a07f2ae51984797cf826bdae9243
-        position: {x: -80, y: 340}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        duration:
-          reference:
-            rid: -2
-          defaultValue: 100000000

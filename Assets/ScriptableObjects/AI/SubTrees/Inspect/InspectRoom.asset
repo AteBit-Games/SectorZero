@@ -22,6 +22,7 @@ MonoBehaviour:
   - rid: 130803868398780416
   - rid: 130803868398780417
   - rid: 130803868398780418
+  - rid: 3640664503623614496
   treeState: 1
   blackboard:
     keys:
@@ -30,8 +31,8 @@ MonoBehaviour:
     - rid: 130803864545001491
     - rid: 130803864545001475
     - rid: 130803893468135442
-  viewPosition: {x: 408, y: 213, z: 0}
-  viewScale: {x: 0.375937, y: 0.375937, z: 1}
+  viewPosition: {x: 832, y: 200, z: 0}
+  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
   references:
     version: 2
     RefIds:
@@ -43,13 +44,15 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d6b7abf0-6dec-4040-9b0e-f791e493c8ed
-        position: {x: 0, y: 0}
+        position: {x: 0, y: -140}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
+        name: Inspect Room
+        debug: 1
         child:
-          rid: 130803868398780416
+          rid: 3640664503623614496
     - rid: 130803864545001475
       type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -258,3 +261,20 @@ MonoBehaviour:
         name: LostPlayer
         typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 0
+    - rid: 3640664503623614496
+      type: {class: Timeout, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: b51d51e06addcdb45a8d0c735082c1af
+        position: {x: 0, y: -40}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 130803868398780416
+        timeout:
+          reference:
+            rid: -2
+          defaultValue: 120

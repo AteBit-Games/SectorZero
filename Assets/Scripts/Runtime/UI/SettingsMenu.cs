@@ -6,6 +6,8 @@
 using System;
 using Runtime.Managers;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
@@ -327,6 +329,7 @@ namespace Runtime.UI
             
             _activeAutoNotes = playerData.autoNotes;
             _activeAutoTapes = playerData.autoTapes;
+            
         }
 
         private static void SetButtonState(Button button, bool state)

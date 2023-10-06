@@ -90,8 +90,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: 1139, y: 237, z: 0}
-  viewScale: {x: 0.43232757, y: 0.43232757, z: 1}
+  viewPosition: {x: -194, y: -208, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -108,6 +108,8 @@ MonoBehaviour:
           keys: []
         comment: 
         drawGizmos: 0
+        name: 
+        debug: 0
         child:
           rid: 61114553026215937
     - rid: 61114352745054246
@@ -708,7 +710,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c51637e9d73afea42aa3344cb30c2548
-        position: {x: -680, y: 640}
+        position: {x: -680, y: 620}
         blackboard:
           keys: []
         comment: 
@@ -723,7 +725,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: dfd0e377c56755242b02bbaf20e427c6
-        position: {x: -940, y: 780}
+        position: {x: -940, y: 760}
         blackboard:
           keys: []
         comment: Set the default to room
@@ -761,7 +763,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2181e5daa88061e4bb939b11ce44c8f4
-        position: {x: -160, y: 620}
+        position: {x: -200, y: 620}
         blackboard:
           keys: []
         comment: '<b>Inspect Type</b>
@@ -789,7 +791,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c622b9a696ac4114c955b90f94b50f8d
-        position: {x: -560, y: 780}
+        position: {x: -560, y: 760}
         blackboard:
           keys: []
         comment: If no room was found then set it to hallway
@@ -817,7 +819,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 4fb40d7369a591743b8c493a1f922b2e
-        position: {x: -780, y: 900}
+        position: {x: -780, y: 880}
         blackboard:
           keys: []
         comment: Check if the inspect point is within a room, inverter causes the
@@ -837,7 +839,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3b156b747e8cc7044b4f74cb69fbca26
-        position: {x: -760, y: 780}
+        position: {x: -760, y: 760}
         blackboard:
           keys: []
         comment: 
@@ -868,7 +870,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 65b92be2e0dffe94ea429a40981bcdcc
-        position: {x: -260, y: 760}
+        position: {x: -300, y: 760}
         blackboard:
           keys: []
         comment: '<b>Inspect Room Subtree</b>
@@ -963,7 +965,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: bccd5bd4ad961cc4aae1dd4295f0fee3
-        position: {x: -80, y: 760}
+        position: {x: -120, y: 760}
         blackboard:
           keys: []
         comment: '<b>Inspect Hallway Subtree</b>
@@ -1413,7 +1415,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 4df78487e3d1b9841ae4adf14302a33f
-        position: {x: 180, y: 500}
+        position: {x: 200, y: 500}
         blackboard:
           keys: []
         comment: After inspect go back to patrol if noting was found
@@ -1425,7 +1427,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 10044272dfd8dc04c9e0be883d9c74a9
-        position: {x: -160, y: 500}
+        position: {x: -200, y: 500}
         blackboard:
           keys: []
         comment: 
@@ -1440,7 +1442,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3240b45766e93b040b7679d2c1329654
-        position: {x: -1320, y: 500}
+        position: {x: -1260, y: 500}
         blackboard:
           keys: []
         comment: 
@@ -1455,7 +1457,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3f078221fd6c9fd4e8a9db8eba5c151d
-        position: {x: -1320, y: 620}
+        position: {x: -1260, y: 620}
         blackboard:
           keys: []
         comment: 
@@ -1469,7 +1471,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 00df95b4ec10af84e95a95438e845ad5
-        position: {x: -1240, y: 760}
+        position: {x: -1180, y: 760}
         blackboard:
           keys: []
         comment: 
@@ -1481,7 +1483,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6c53d595b2acd404db0fb431398243bd
-        position: {x: -1440, y: 760}
+        position: {x: -1380, y: 760}
         blackboard:
           keys: []
         comment: 

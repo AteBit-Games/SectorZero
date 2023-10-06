@@ -22,6 +22,7 @@ MonoBehaviour:
   - rid: 130803868398780422
   - rid: 130803893468135437
   - rid: 4809529490587254784
+  - rid: 3640664503623614499
   treeState: 1
   blackboard:
     keys:
@@ -32,7 +33,7 @@ MonoBehaviour:
     - rid: 130803864545001475
     - rid: 130803864545001498
     - rid: 130803864545001501
-  viewPosition: {x: 366, y: -29, z: 0}
+  viewPosition: {x: 423, y: 255, z: 0}
   viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
@@ -45,13 +46,15 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d6b7abf0-6dec-4040-9b0e-f791e493c8ed
-        position: {x: 0, y: 0}
+        position: {x: 0, y: -100}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
+        name: Patrol Room
+        debug: 1
         child:
-          rid: 130803868398780422
+          rid: 3640664503623614499
     - rid: 130803864545001475
       type: {class: IntKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -251,6 +254,23 @@ MonoBehaviour:
         name: LostPlayer
         typeName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         value: 0
+    - rid: 3640664503623614499
+      type: {class: Timeout, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 8714198534f3fa4488cec9a81f09a161
+        position: {x: 0, y: -20}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 130803868398780422
+        timeout:
+          reference:
+            rid: -2
+          defaultValue: 120
     - rid: 4809529490587254784
       type: {class: ValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
       data:

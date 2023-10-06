@@ -3,22 +3,17 @@
     <ui:VisualElement name="debug-window" picking-mode="Ignore" style="display: flex; flex-grow: 1; align-items: stretch; visibility: visible; overflow: visible;">
         <ui:VisualElement name="debug-container" picking-mode="Ignore" style="flex-grow: 1; align-items: stretch; justify-content: flex-end; display: none;">
             <ui:VisualElement style="flex-grow: 1; position: absolute; top: 40px; left: 40px;">
-                <ui:VisualElement name="ai-manager" style="flex-grow: 1; align-items: flex-start; position: relative;">
-                    <ui:VisualElement style="flex-grow: 0; height: 43px;">
+                <ui:VisualElement name="ai-manager" style="flex-grow: 1; align-items: flex-start; position: relative; display: flex;">
+                    <ui:VisualElement name="title" style="flex-grow: 0; height: 43px;">
                         <ui:VisualElement style="flex-grow: 1; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background-color: rgb(255, 255, 255);" />
                         <ui:Label tabindex="-1" text="AI MANAGER" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 36px; -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;);" />
                     </ui:VisualElement>
                     <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="menace-state-value" style="color: rgb(255, 255, 255); font-size: 30px; -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;);" />
                     <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="menace-gauge-value" style="color: rgb(255, 255, 255); font-size: 30px; -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;);" />
                     <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="aggro-level-value" style="color: rgb(255, 255, 255); font-size: 30px; -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;);" />
-                </ui:VisualElement>
-                <ui:VisualElement name="monster-state" style="flex-grow: 1; align-items: flex-start; position: relative; margin-top: 15px;">
-                    <ui:VisualElement name="wad" style="flex-grow: 0; height: 43px;">
-                        <ui:VisualElement style="flex-grow: 1; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background-color: rgb(255, 255, 255);" />
-                        <ui:Label tabindex="-1" text="TREE VALUES" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 36px; -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;);" />
-                    </ui:VisualElement>
                     <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="active-state-value" style="color: rgb(255, 255, 255); font-size: 30px; -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;);" />
                 </ui:VisualElement>
+                <ui:VisualElement name="debug-list" style="flex-grow: 1;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

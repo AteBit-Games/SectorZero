@@ -40,7 +40,6 @@ namespace Runtime.BehaviourTree
     [Serializable]
     public abstract class BlackboardKey<T> : BlackboardKey
     {
-
         public T value;
         protected BlackboardKey() : base(typeof(T)) { }
 
@@ -66,6 +65,5 @@ namespace Runtime.BehaviourTree
             }
             return false;
         }
-
     }
 }

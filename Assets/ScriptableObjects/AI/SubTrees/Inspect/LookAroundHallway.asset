@@ -20,12 +20,13 @@ MonoBehaviour:
   - rid: 130803864545001514
   - rid: 130803864545001515
   - rid: 130803864545001522
+  - rid: 3640664503623614497
   treeState: 1
   blackboard:
     keys:
     - rid: 130803864545001509
     - rid: 130803864545001516
-  viewPosition: {x: 247, y: 181, z: 0}
+  viewPosition: {x: 473, y: 193, z: 0}
   viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
@@ -38,13 +39,15 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 4c9a7c25-d081-4599-a553-e8d54235bd7b
-        position: {x: 0, y: 0}
+        position: {x: 0, y: -120}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
+        name: Look Around Hallway
+        debug: 1
         child:
-          rid: 130803864545001508
+          rid: 3640664503623614497
     - rid: 130803864545001508
       type: {class: Repeat, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
       data:
@@ -137,3 +140,20 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 3
+    - rid: 3640664503623614497
+      type: {class: Timeout, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 6a82e9255983c2c40a181a5590b8d73f
+        position: {x: 0, y: -40}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 130803864545001508
+        timeout:
+          reference:
+            rid: -2
+          defaultValue: 120

@@ -18,17 +18,22 @@ namespace Runtime.BehaviourTree.Actions.Navigation
         public NodeProperty<float> speed = new(){Value = 4f};
         public NodeProperty<float> failureChance = new(){Value = 0.1f};
         public NodeProperty<float> failureDistanceRemaining = new(){Value = 0.25f};
+        public bool speedUp;
         
+        private bool _farFromTarget;
+
         private bool _willFail;
         private float _totalDistance;
 
         protected override void OnStart()
         {
-            context.agent.speed = speed.Value;
             context.agent.destination = targetPoint.Value;
             context.agent.isStopped = false;
             
             _totalDistance = Vector3.Distance(context.agent.transform.position, context.agent.destination);
+            
+            if(speedUp) _farFromTarget = _totalDistance > 25f;
+            context.agent.speed = _farFromTarget ? 12f : speed.Value;
             _willFail = UnityEngine.Random.Range(0f, 1f) < failureChance.Value;
         }
 
@@ -45,6 +50,13 @@ namespace Runtime.BehaviourTree.Actions.Navigation
             {
                 context.agent.isStopped = true;
                 return State.Failure;
+            }
+            
+            if(_farFromTarget && Vector3.Distance(context.agent.transform.position, context.agent.destination) < 40f)
+            {
+
+                context.agent.speed = speed.Value;
+                _farFromTarget = false;
             }
             
             if (context.agent.remainingDistance < context.agent.stoppingDistance) return State.Success;

@@ -13,10 +13,18 @@ using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 namespace Runtime.AI
 {
+    public struct DebugData
+    {
+        public string title;
+        public List<string> keys;
+    }
+    
+    [DefaultExecutionOrder(4)]
     public class AIManager : MonoBehaviour, IPersistant
     {
         [SerializeField] private float menaceGaugeMax = 100f;
@@ -52,6 +60,8 @@ namespace Runtime.AI
         private List<Sentinel> _sentinels;
         private BlackboardKey<int> _activeSentinelsKey;
         private BlackboardKey<float> _sentinelDurationKey;
+        
+        private List<DebugData> _debugData;
 
         private bool _active;
         [HideInInspector] public bool isPlayerCrouching;
@@ -95,6 +105,21 @@ namespace Runtime.AI
                 
             _activeSentinelsKey = monster.FindBlackboardKey<int>("ActiveSentinels");
             _sentinelDurationKey = monster.FindBlackboardKey<float>("SentinelActivationTime");
+        }
+
+        private void Update()
+        {
+            _debugData = new List<DebugData>();
+        }
+        
+        public void AddData(DebugData data)
+        {
+            _debugData.Add(data);
+        }
+        
+        public IEnumerable<DebugData> GetDebugData()
+        {
+            return _debugData;
         }
 
         private void FixedUpdate()
@@ -147,7 +172,7 @@ namespace Runtime.AI
             
             if (Time.time - _lastSeenPlayerTime > 60f)
             {
-                AggroLevel++;
+                AggroLevel = Mathf.Clamp(AggroLevel + 1, 0, 10);
                 _aggroLevelKey.value = AggroLevel;
                 _lastSeenPlayerTime = Time.time;
                 UpdateSentinelAggro(AggroLevel);
@@ -200,20 +225,20 @@ namespace Runtime.AI
             switch (level)
             {
                 case <= 2:
-                    activeSentinels = 4;
+                    activeSentinels = 3;
                     sentinelDuration = 20f;
                     break;
                 case <= 4:
-                    activeSentinels = 5;
-                    sentinelDuration = 23f;
+                    activeSentinels = 4;
+                    sentinelDuration = 22f;
                     break;
                 case <= 6:
-                    activeSentinels = 7;
-                    sentinelDuration = 26f;
+                    activeSentinels = 5;
+                    sentinelDuration = 25f;
                     break;
                 case > 6:
-                    activeSentinels = 8;
-                    sentinelDuration = 30f;
+                    activeSentinels = 6;
+                    sentinelDuration = 28f;
                     break;
             }
             

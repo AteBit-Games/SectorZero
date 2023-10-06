@@ -13,28 +13,34 @@ namespace Runtime.UI
     [DefaultExecutionOrder(6)]
     public class DebugMenu : MonoBehaviour
     {
+        public VisualTreeAsset templateContainer;
+        
         private UIDocument _uiDocument;
         private VisualElement _mainContainer;
         
         private VisualElement _aiManagerContainer;
+        
         private Label _menaceStateValue;
         private Label _menaceGaugeValue;
         private Label _aggroLevelValue;
-        
-        private VisualElement _monsterStateContainer;
         private Label _activeStateValue;
         
+        private VisualElement _debugList;
+        
+        private bool _showing;
         private Coroutine _updateStates;
         
         public void Show()
         {
             _mainContainer.style.display = DisplayStyle.Flex;
             _updateStates = StartCoroutine(UpdateStates());
+            _showing = true;
         }
         
         public void Hide()
         {
             _mainContainer.style.display = DisplayStyle.None;
+            _showing = false;
 
             if (_updateStates != null)
             {
@@ -49,15 +55,9 @@ namespace Runtime.UI
             var rootVisualElement = _uiDocument.rootVisualElement;
             
             _mainContainer = rootVisualElement.Q<VisualElement>("debug-container");
+            _debugList = rootVisualElement.Q<VisualElement>("debug-list");
             
             SetupAIManager(rootVisualElement);
-            SetupMonsterState(rootVisualElement);
-        }
-
-        private void SetupMonsterState(VisualElement rootVisualElement)
-        {
-            _monsterStateContainer = rootVisualElement.Q<VisualElement>("monster-state");
-            _activeStateValue = _monsterStateContainer.Q<Label>("active-state-value");
         }
 
         private void SetupAIManager(VisualElement root)
@@ -66,6 +66,7 @@ namespace Runtime.UI
             _menaceStateValue = _aiManagerContainer.Q<Label>("menace-state-value");
             _menaceGaugeValue = _aiManagerContainer.Q<Label>("menace-gauge-value");
             _aggroLevelValue = _aiManagerContainer.Q<Label>("aggro-level-value");
+            _activeStateValue = _aiManagerContainer.Q<Label>("active-state-value");
         }
 
         private IEnumerator UpdateStates()
@@ -77,7 +78,34 @@ namespace Runtime.UI
                 
                 yield return new WaitForSeconds(0.2f);
             }
-        } 
+        }
+
+        private void LateUpdate()
+        {
+            if(!_showing) return;
+            
+            _debugList.Clear();
+            
+            var data = GameManager.Instance.AIManager.GetDebugData();
+            foreach (var debugData in data)
+            {
+                //clone template
+                var instance = templateContainer.CloneTree();
+                var container = instance.Q<VisualElement>("keys-list");
+                
+                instance.Q<Label>("title").text = debugData.title;
+                foreach (var key in debugData.keys)
+                {
+                    var keyLabel = new Label(key);
+                    keyLabel.AddToClassList("debug-value");
+                    keyLabel.text = key;
+                    
+                    container.Add(keyLabel);
+                }
+                
+                _debugList.Add(instance);
+            }
+        }
 
         private void UpdateAIManagerValues()
         {

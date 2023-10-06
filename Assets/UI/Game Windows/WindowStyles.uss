@@ -655,3 +655,9 @@
     position: absolute;
     top: 15px;
 }
+
+.debug-value {
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+}

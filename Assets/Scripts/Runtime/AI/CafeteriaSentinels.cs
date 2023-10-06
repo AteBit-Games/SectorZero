@@ -3,7 +3,6 @@
  * All rights reserved.
  ****************************************************************/
 
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Runtime.Managers;
@@ -34,14 +33,15 @@ namespace Runtime.AI
         // ============================ Private Methods ============================
 
         private IEnumerator SentinelLoop()
-        {
-            ShuffleSentinels();
+        { 
+            ShuffleSentinels(); 
             var duration = GetSentinelDuration();
-            var count = GetSentinelCount();
+            //var count = GetSentinelCount();
             
-            for (var i = 0; i < count; i++) sentinels[i].ActivateSentinel(duration);
-            yield return new WaitForSeconds(duration+10);
-            StartCoroutine(SentinelLoop());
+           // for (var i = 0; i < count; i++) sentinels[i].ActivateSentinel(duration);
+           sentinels[0].ActivateSentinel(duration);
+           yield return new WaitForSeconds(duration+10);
+           StartCoroutine(SentinelLoop());
         }
 
         private void ShuffleSentinels()

@@ -25,6 +25,11 @@ MonoBehaviour:
   - rid: 2098102505811476532
   - rid: 130803873525530630
   - rid: 130803909263360077
+  - rid: 3640664460904890369
+  - rid: 3640664460904890370
+  - rid: 3640664460904890371
+  - rid: 3640664460904890374
+  - rid: 3640664503623614494
   treeState: 1
   blackboard:
     keys:
@@ -32,8 +37,8 @@ MonoBehaviour:
     - rid: 484473896144994330
     - rid: 484473896144994341
     - rid: 484473896144994304
-  viewPosition: {x: 346, y: 20, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: 321, y: 182, z: 0}
+  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
   references:
     version: 2
     RefIds:
@@ -140,13 +145,15 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 743f58bb-ec1e-4457-adfb-74fad29c451c
-        position: {x: 0, y: 20}
+        position: {x: 0, y: -100}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
+        name: Check Specific Hidable
+        debug: 1
         child:
-          rid: 484473896144994323
+          rid: 3640664503623614494
     - rid: 484473896144994304
       type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
       data:
@@ -166,6 +173,7 @@ MonoBehaviour:
         drawGizmos: 0
         children:
         - rid: 2098102505811476532
+        - rid: 3640664460904890370
         - rid: 484473896144994333
         - rid: 484473896144994336
         - rid: 130803909263360077
@@ -272,7 +280,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 204ff11b7af71b248bf85477d4d61675
-        position: {x: -260, y: 240}
+        position: {x: -580, y: 240}
         blackboard:
           keys: []
         comment: 
@@ -289,3 +297,76 @@ MonoBehaviour:
           reference:
             rid: 484473896144994330
           defaultValue: {x: 0, y: 0}
+    - rid: 3640664460904890369
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 4064e16bd3ca7bd4a97bf493e9a9d099
+        position: {x: -320, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 3640664460904890374
+        - rid: 3640664460904890371
+    - rid: 3640664460904890370
+      type: {class: Remapper, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 21d74afd425eaa8488c1079960f51dab
+        position: {x: -320, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 3640664460904890369
+        successRemap: 1
+        failureRemap: 1
+    - rid: 3640664460904890371
+      type: {class: SetCurrentState, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d39aca6ed8a391740863980e578127f4
+        position: {x: -240, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        newState: 1
+    - rid: 3640664460904890374
+      type: {class: CheckCollider, ns: Runtime.BehaviourTree.Conditions.Blackboard, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 0f10cd018ee609e44a7a8e86547cf6fa
+        position: {x: -420, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        value:
+          reference:
+            rid: 484473896144994329
+          defaultValue: {fileID: 0}
+    - rid: 3640664503623614494
+      type: {class: Timeout, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e11a03fd9aadf3c42970c02b2765906a
+        position: {x: 0, y: -20}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 484473896144994323
+        timeout:
+          reference:
+            rid: -2
+          defaultValue: 120
