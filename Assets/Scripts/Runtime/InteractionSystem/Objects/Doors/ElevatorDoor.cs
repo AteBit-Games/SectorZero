@@ -43,6 +43,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
         public bool OnInteract(GameObject player)
         {
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
+            GameManager.Instance.SaveSystem.SaveGame();
             OpenDoor();
             
             //Remove the collider from the player's interactable list

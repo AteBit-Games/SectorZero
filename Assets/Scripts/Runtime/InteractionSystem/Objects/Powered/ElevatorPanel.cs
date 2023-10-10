@@ -42,7 +42,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         public bool OnInteract(GameObject player)
         {
             GameManager.Instance.SoundSystem.PlayOneShot(interactSound, audioSource);
-            GameManager.Instance.EndGame();
+            GameManager.Instance.ShowChoiceUI();
             return true;
         }
 

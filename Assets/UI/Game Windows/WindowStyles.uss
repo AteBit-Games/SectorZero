@@ -671,3 +671,49 @@
     right: 0;
     bottom: 0;
 }
+
+.choice-button {
+    overflow: visible;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgb(48, 48, 48);
+    border-left-color: rgb(130, 130, 130);
+    border-right-color: rgb(130, 130, 130);
+    border-top-color: rgb(130, 130, 130);
+    border-bottom-color: rgb(130, 130, 130);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    width: 30%;
+    color: rgb(236, 236, 236);
+    -unity-font-definition: url('project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&guid=33cef30adfbef2144ba608f4d99caaee&type=3#PixelOperator');
+    font-size: 34px;
+    transition-property: all;
+    transition-duration: 0.08s;
+    transition-timing-function: ease-in;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.choice-button:hover {
+    overflow: visible;
+    border-left-color: rgb(52, 106, 142);
+    border-right-color: rgb(52, 106, 142);
+    border-top-color: rgb(52, 106, 142);
+    border-bottom-color: rgb(52, 106, 142);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    background-color: rgb(46, 46, 46);
+    color: rgb(171, 171, 171);
+}
+
+.cover {
+    background-color: rgb(48, 48, 48);
+    transition-duration: 0.05s;
+}
+
+.choice-button:hover .cover {
+    background-color: rgb(46, 46, 46);
+}

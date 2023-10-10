@@ -58,6 +58,7 @@ namespace Runtime.Managers
         private PauseMenu PauseMenu { get; set; }
         private LoadingScreen LoadingScreen { get; set; }
         private EndScreen EndScreen { get; set; }
+        private ChoiceUI ChoiceUI { get; set; }
         private DebugMenu DebugWindow { get; set; }
         
         private CinemachineVirtualCamera _camera;
@@ -263,6 +264,12 @@ namespace Runtime.Managers
             EndScreen.OpenWindow();
             activeWindow = EndScreen;
         }
+
+        public void ShowChoiceUI()
+        {
+            ChoiceUI.OpenWindow();
+            activeWindow = ChoiceUI;
+        }
         
         //========================= Private Methods =========================
         
@@ -317,6 +324,7 @@ namespace Runtime.Managers
             EndScreen = FindFirstObjectByType<EndScreen>(FindObjectsInactive.Include);
             DebugWindow = FindFirstObjectByType<DebugMenu>(FindObjectsInactive.Include);
             PowerManager = FindFirstObjectByType<PowerManager>(FindObjectsInactive.Include);
+            ChoiceUI = FindFirstObjectByType<ChoiceUI>(FindObjectsInactive.Include);
         }
 
         private void UpdateStatus()

@@ -70,21 +70,6 @@
                     <ui:Label tabindex="-1" text="Close" display-tooltip-when-elided="true" name="Label" style="font-size: 38px; -unity-font: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); color: rgb(255, 255, 255); border-right-width: 4px;" />
                     <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/escKey.png?fileID=21300000&amp;guid=87a53038706062f4eb67d395d2191662&amp;type=3#escKey&apos;); width: 55px; height: 55px;" />
                 </ui:VisualElement>
-                <ui:VisualElement name="research-note" style="flex-grow: 0; height: 80%; width: 650px; background-color: rgba(94, 94, 94, 0); display: none; background-image: url(&apos;project://database/Assets/Art/UI/ResearchPaper.png?fileID=2800000&amp;guid=7386cf89c9e6afa4cb80fc54c8835d75&amp;type=3#ResearchPaper&apos;);">
-                    <ui:VisualElement name="padding" style="flex-grow: 0; height: 215px;" />
-                    <ui:VisualElement name="note-content" style="flex-grow: 0; height: 100%; padding-left: 35px;">
-                        <ui:VisualElement name="note-header" style="flex-grow: 0;">
-                            <ui:VisualElement name="note-title" style="flex-grow: 0; padding-right: 25px; flex-direction: row; justify-content: space-between;">
-                                <ui:Label tabindex="-1" text="Research Notes" display-tooltip-when-elided="true" name="note-title" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 34px; color: rgb(14, 14, 14); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-left: 0; -unity-font-style: normal;" />
-                                <ui:Label tabindex="-1" text="1978.07.16" display-tooltip-when-elided="true" name="note-date" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 30px; color: rgb(63, 63, 63); padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
-                            </ui:VisualElement>
-                            <ui:Label tabindex="-1" text="Dr Henry Carver" display-tooltip-when-elided="true" name="note-author" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 24px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; color: rgb(58, 58, 58); -unity-font-style: italic;" />
-                        </ui:VisualElement>
-                        <ui:VisualElement name="note-content" style="flex-grow: 0; padding-right: 35px; flex-direction: row; justify-content: space-between; padding-top: 30px;">
-                            <ui:Label tabindex="-1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Convallis tellus id interdum velit laoreet id donec. Augue neque gravida in fermentum et sollicitudin ac orci. Eget arcu dictum varius duis at consectetur lorem donec massa. Pharetra pharetra massa massa ultricies mi quis. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Aliquet porttitor lacus luctus accumsan tortor posuere ac. Senectus et netus et malesuada fames ac turpis egestas. Cras ornare arcu dui vivamus arcu felis bibendum ut. Aliquam sem fringilla ut morbi tincidunt. Facilisis leo vel fringilla est. Sed tempus urna et pharetra pharetra massa massa. Porta non pulvinar neque laoreet suspendisse interdum consectetur libero id. Ac felis donec et odio pellentesque diam volutpat commodo. " display-tooltip-when-elided="true" name="note-content" style="-unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); font-size: 25px; white-space: normal;" />
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                </ui:VisualElement>
                 <ui:VisualElement name="handwritten-note" style="flex-grow: 0; height: 80%; width: 650px; background-color: rgba(140, 140, 140, 0); -unity-font-style: normal; -unity-text-align: upper-left; background-image: url(&apos;project://database/Assets/Art/UI/Note.png?fileID=2800000&amp;guid=0c80d301294240b458009bbd0b637b95&amp;type=3#Note&apos;); display: none;">
                     <ui:VisualElement name="padding" style="flex-grow: 0; height: 75px;" />
                     <ui:VisualElement name="note-content" style="flex-grow: 0; height: 100%; padding-left: 50px;">
@@ -192,6 +177,17 @@
                     <ui:Label tabindex="-1" text="Close" display-tooltip-when-elided="true" name="Label" style="font-size: 38px; -unity-font: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); color: rgb(255, 255, 255); border-right-width: 4px;" />
                     <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/escKey.png?fileID=21300000&amp;guid=87a53038706062f4eb67d395d2191662&amp;type=3#escKey&apos;); width: 55px; height: 55px;" />
                 </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="choice-view" picking-mode="Ignore" style="visibility: visible; display: none; flex-grow: 1; background-color: rgba(0, 0, 0, 0.41); opacity: 1; align-items: center; justify-content: center;">
+                <ui:Button display-tooltip-when-elided="true" name="choice-one" class="choice-button">
+                    <ui:VisualElement name="cover" class="cover" style="flex-grow: 0; position: absolute; left: -2px; right: -2px; top: 10px; bottom: 10px; align-self: center;" />
+                    <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="content" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                </ui:Button>
+                <ui:Button display-tooltip-when-elided="true" name="choice-two" class="choice-button">
+                    <ui:VisualElement name="cover" class="cover" style="flex-grow: 0; position: absolute; left: -2px; right: -2px; top: 10px; bottom: 10px; align-self: center;" />
+                    <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="content" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                </ui:Button>
+                <ui:VisualElement name="overlay" style="flex-grow: 1; display: none;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
