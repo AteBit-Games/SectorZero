@@ -193,7 +193,7 @@ namespace Runtime.UI
             
             _yesTutorial.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                StartNewGame(1);
+                StartNewGame("Tutorial");
             });
             _yesTutorial.RegisterCallback<MouseEnterEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
@@ -201,7 +201,7 @@ namespace Runtime.UI
             
             _noTutorial.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                StartNewGame(2);
+                StartNewGame("SectorTwo");
             });
             _noTutorial.RegisterCallback<MouseEnterEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
@@ -247,11 +247,11 @@ namespace Runtime.UI
             isSettingsOpen = false;
         }
 
-        private static void StartNewGame(int level)
+        private static void StartNewGame(string levelName)
         {
-            GameManager.Instance.SaveSystem.NewGame(level);
+            GameManager.Instance.SaveSystem.NewGame(levelName);
             GameManager.Instance.isMainMenu = false;
-            GameManager.Instance.LoadScene(level);
+            GameManager.Instance.LoadScene(levelName);
         }
         
         private void OpenSavesMenu()

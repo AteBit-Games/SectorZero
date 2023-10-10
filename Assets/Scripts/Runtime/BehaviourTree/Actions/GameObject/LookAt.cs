@@ -1,6 +1,5 @@
 using System;
-using ElRaccoone.Tweens;
-using ElRaccoone.Tweens.Core;
+using Tweens;
 using UnityEngine;
 
 namespace Runtime.BehaviourTree.Actions.GameObject 
@@ -20,14 +19,26 @@ namespace Runtime.BehaviourTree.Actions.GameObject
         {
             _lookTime = Time.time;
             var direction = target.Value - (Vector2)context.agent.transform.position;
-            context.agent.transform.TweenRotation(Quaternion.LookRotation(Vector3.forward, direction).eulerAngles, lookTime.Value - 1).SetEaseSineOut();
+            var rotationTween = new EulerAnglesTween
+            {
+                to = Quaternion.LookRotation(Vector3.forward, direction).eulerAngles,
+                duration = lookTime.Value-1,
+                easeType = EaseType.SineInOut,
+            };
+            context.agent.transform.gameObject.AddTween(rotationTween);
             
             var directionNormalized = direction.normalized;
-            context.owner.TweenValueVector2(directionNormalized, lookTime.Value - 1, value =>
+            var lookDirectionTween = new Vector2Tween
             {
-                context.owner.SetLookDirection(value);
-            }).SetFrom(context.owner.GetLookDirection()).SetEaseSineOut();
-            //context.owner.SetLookDirection(directionNormalized);
+                to = directionNormalized,
+                duration = lookTime.Value-1,
+                easeType = EaseType.SineInOut,
+                from = context.owner.GetLookDirection(),
+                onUpdate = (_, value) => {
+                    context.owner.SetLookDirection(value);
+                }
+            };
+            context.owner.gameObject.AddTween(lookDirectionTween);
         }
 
         protected override void OnStop() { }

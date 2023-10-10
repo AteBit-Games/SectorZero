@@ -5,13 +5,12 @@
 
 using System;
 using System.Collections;
-using ElRaccoone.Tweens;
-using ElRaccoone.Tweens.Core;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree.Monsters;
 using Runtime.Managers;
 using Runtime.Player;
 using Runtime.SoundSystem;
+using Tweens;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -51,8 +50,8 @@ namespace Runtime.AI
 
         private Coroutine _loseSightCoroutine;
         private Coroutine _gainSightCoroutine;
-        private Tween<float> _activeVignetteTween;
-        private Tween<float> _activeAberrationTween;
+        private TweenInstance<Transform, float> _activeVignetteTween;
+        private TweenInstance<Transform, float> _activeAberrationTween;
 
         // ====================== Unity Events ======================
 
@@ -66,6 +65,8 @@ namespace Runtime.AI
         
         public void OnHearing(NoiseEmitter sender)
         {
+            Debug.Log("Heard");
+            
             if (!_canSeePlayer)
             {
                 switch (treeOwner)
@@ -108,11 +109,23 @@ namespace Runtime.AI
         {
             if (_volume.sharedProfile.components[0] is Vignette vignette)
             {
-                if (_activeVignetteTween != null) _activeVignetteTween.Cancel();
-                _activeVignetteTween = _volume.TweenValueFloat(0.3f, 1.4f, value =>
+                if (_activeVignetteTween != null)
                 {
-                    if (vignette != null) vignette.intensity.value = value;
-                }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
+                    _activeVignetteTween.Cancel();
+                    _activeVignetteTween = null;
+                }
+                
+                var tween = new FloatTween {
+                    from = vignette.intensity.value,
+                    to = 0.3f,
+                    duration = 1.4f,
+                    easeType = EaseType.SineInOut,
+                    onUpdate = (_, value) => {
+                        if (vignette != null) vignette.intensity.value = value;
+                    }
+                };
+
+                _activeVignetteTween = _volume.gameObject.AddTween(tween);
             }
 
             if(!instant) yield return new WaitForSeconds(1.2f);
@@ -120,11 +133,23 @@ namespace Runtime.AI
 
             if (_volume.sharedProfile.components[1] is ChromaticAberration aberration)
             {
-                if (_activeAberrationTween != null) _activeAberrationTween.Cancel();
-                _activeAberrationTween = _volume.TweenValueFloat(0.8f, 1f, value =>
+                if (_activeAberrationTween != null)
                 {
-                    if (aberration != null) aberration.intensity.value = value;
-                }).SetFrom(0).SetEaseSineInOut();
+                    _activeAberrationTween.Cancel();
+                    _activeAberrationTween = null;
+                }
+                
+                var tween = new FloatTween {
+                    from = 0,
+                    to = 0.8f,
+                    duration = 1f,
+                    easeType = EaseType.SineInOut,
+                    onUpdate = (_, value) => {
+                        if (aberration != null) aberration.intensity.value = value;
+                    }
+                };
+                
+                _activeAberrationTween = _volume.gameObject.AddTween(tween);
             }
 
             GameManager.Instance.SoundSystem.PlaySting(detectedSound);
@@ -147,11 +172,23 @@ namespace Runtime.AI
 
                 if (_volume.sharedProfile.components[0] is Vignette vignette)
                 {
-                    if (_activeVignetteTween != null) _activeVignetteTween.Cancel();
-                    _activeVignetteTween = _volume.TweenValueFloat(0f, 1f, value =>
+                    if (_activeVignetteTween != null)
                     {
-                        if (vignette != null) vignette.intensity.value = value;
-                    }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
+                        _activeVignetteTween.Cancel();
+                        _activeVignetteTween = null;
+                    }
+                    
+                    var tween = new FloatTween {
+                        from = vignette.intensity.value,
+                        to = 0f,
+                        duration = 1f,
+                        easeType = EaseType.SineInOut,
+                        onUpdate = (_, value) => {
+                            if (vignette != null) vignette.intensity.value = value;
+                        }
+                    };
+                    
+                    _activeVignetteTween = _volume.gameObject.AddTween(tween);
                 }
 
                 return;
@@ -175,20 +212,44 @@ namespace Runtime.AI
 
             if (_volume.sharedProfile.components[0] is Vignette vignette)
             {
-                if(_activeVignetteTween != null) _activeVignetteTween.Cancel();
-                _activeVignetteTween = _volume.TweenValueFloat(0f, 1f, value =>
+                if (_activeVignetteTween != null)
                 {
-                    if (vignette != null) vignette.intensity.value = value;
-                }).SetFrom(vignette.intensity.value).SetEaseSineInOut();
+                    _activeVignetteTween.Cancel();
+                    _activeVignetteTween = null;
+                }
+                
+                var tween = new FloatTween {
+                    from = vignette.intensity.value,
+                    to = 0f,
+                    duration = 1f,
+                    easeType = EaseType.SineInOut,
+                    onUpdate = (_, value) => {
+                        if (vignette != null) vignette.intensity.value = value;
+                    }
+                };
+                
+                _activeVignetteTween = _volume.gameObject.AddTween(tween);
             }
             
             if(_volume.sharedProfile.components[1] is ChromaticAberration aberration)
             {
-                if(_activeAberrationTween != null) _activeAberrationTween.Cancel();
-                _activeAberrationTween = _volume.TweenValueFloat(0f, 1f, value =>
+                if (_activeAberrationTween != null)
                 {
-                    if (aberration != null) aberration.intensity.value = value;
-                }).SetFrom(aberration.intensity.value).SetEaseSineInOut();
+                    _activeAberrationTween.Cancel();
+                    _activeAberrationTween = null;
+                }
+                
+                var tween = new FloatTween {
+                    from = aberration.intensity.value,
+                    to = 0f,
+                    duration = 1f,
+                    easeType = EaseType.SineInOut,
+                    onUpdate = (_, value) => {
+                        if (aberration != null) aberration.intensity.value = value;
+                    }
+                };
+                
+                _activeAberrationTween = _volume.gameObject.AddTween(tween);
             }
 
             treeOwner.SetState(MonsterState.InspectPoint);

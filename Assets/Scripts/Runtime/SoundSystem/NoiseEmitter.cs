@@ -31,12 +31,21 @@ namespace Runtime.SoundSystem
             var targetsInRadius = Physics2D.OverlapCircleAll(transform.position, radius, targetMask);
             foreach (var t in targetsInRadius)
             {
-                if(t.gameObject != gameObject)
+                var wallMask = LayerMask.GetMask("Walls");
+                var ray = Physics2D.Raycast(transform.position,
+                    t.transform.position - transform.position, radius, targetMask | wallMask);
+                if (ray.collider != null)
                 {
-                    var hearing = t.GetComponentInChildren<IHearingHandler>();
-                    if (hearing != null)
+                    var lineOfSight = (targetMask.value & 1 << ray.transform.gameObject.layer) > 0 && ray.collider.CompareTag("Monster");
+                    if (lineOfSight)
                     {
-                        hearing.OnHearing(this);
+                        var hearing = t.GetComponentInChildren<IHearingHandler>();
+                        hearing?.OnHearing(this);
+                    }
+                    else if(Random.Range(0, 100) < 20)
+                    {
+                        var hearing = t.GetComponentInChildren<IHearingHandler>();
+                        hearing?.OnHearing(this);
                     }
                 }
             }

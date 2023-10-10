@@ -34,6 +34,7 @@ namespace Runtime.InputSystem
 
         public event Action<Vector2> MoveEvent;
         public event Action LeftClickEvent;
+        public event Action SkipEvent;
         public event Action InteractEvent;
         public event Action SneakEvent;
         
@@ -143,7 +144,7 @@ namespace Runtime.InputSystem
         {
             if (context.phase == InputActionPhase.Performed)
             {
-              
+                SkipEvent?.Invoke();
             }
         }
 

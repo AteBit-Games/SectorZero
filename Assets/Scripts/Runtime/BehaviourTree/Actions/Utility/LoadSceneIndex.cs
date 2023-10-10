@@ -1,20 +1,19 @@
 using System;
 using Runtime.Managers;
-using UnityEngine.SceneManagement;
 
 namespace Runtime.BehaviourTree.Actions.Utility 
 {
     [Serializable]
-    [Name("Load Scene Index")]
+    [Name("Load Scene")]
     [Category("Utility")]
     [Description("Load a scene by index")]
     public class LoadSceneIndex : ActionNode
     {
-        public NodeProperty<int> sceneIndex;
+        public NodeProperty<string> sceneName;
 
         protected override void OnStart()
         {
-            GameManager.Instance.LoadScene(sceneIndex.Value);
+            GameManager.Instance.LoadScene(sceneName.Value);
         }
     
         protected override void OnStop() { }

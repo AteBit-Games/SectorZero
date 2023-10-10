@@ -299,12 +299,12 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "nl.elraccoone.tweens": {
+    "nl.jeffreylanters.tweens": {
       "version": "git+https://github.com/jeffreylanters/unity-tweens",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "94c07f2cffd42e33e7d6f6a19322d9178cd9e4d6"
+      "hash": "c4f2322175d1806a1d9843800fb8c4cd8cb356c6"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

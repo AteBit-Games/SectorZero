@@ -46,7 +46,7 @@ namespace Runtime.SoundSystem
             ambienceSources[0].Play();
             ambienceSources[1].Play();
             
-            if(GameManager.Instance.testMode || SceneManager.GetActiveScene().buildIndex == 0) StartSounds();
+            if(GameManager.Instance.testMode || SceneManager.GetActiveScene().name == "MainMenu") StartSounds();
         }
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
@@ -230,6 +230,7 @@ namespace Runtime.SoundSystem
 
         public void LoadMasterVolume(float volume)
         {
+            Debug.Log("Loading master volume: " + volume);
             _masterVolume = volume;
         }
         

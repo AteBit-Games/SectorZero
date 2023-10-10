@@ -54,7 +54,7 @@ namespace Runtime.UI.WindowItems
             saveImageContainer.style.backgroundImage = saveImage;
             
             var saveName = saveSlotRef.Q<Label>("save-title");
-            saveName.text = saveGame.saveName.SplitCamelCase();
+            saveName.text = saveGame.levelName.SplitCamelCase();
             
             var saveTime = saveSlotRef.Q<Label>("save-time");
             saveTime.text = new DateTime(saveGame.saveTime).ToString("dd/MM/yyyy HH:mm");

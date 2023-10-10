@@ -133,9 +133,9 @@ namespace Runtime.UI
             _summaryContainer.AddToClassList("todo-show");
             GameManager.Instance.SoundSystem.Play(scribbleSound);
 
-            if (_pickupCoroutine != null)
+            if (_summaryCoroutine != null)
             {
-                StopCoroutine(_pickupCoroutine);
+                StopCoroutine(_summaryCoroutine);
                 _summaryContainer.RemoveFromClassList("todo-show");
             }
 
@@ -153,9 +153,9 @@ namespace Runtime.UI
         {
             _cheatAddedContainer.AddToClassList("cheat-popup-show");
             
-            if (_pickupCoroutine != null)
+            if (_cheatCoroutine != null)
             {
-                StopCoroutine(_pickupCoroutine);
+                StopCoroutine(_cheatCoroutine);
                 _cheatAddedContainer.RemoveFromClassList("cheat-popup-show");
             }
 

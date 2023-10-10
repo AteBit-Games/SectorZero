@@ -9,7 +9,6 @@ using System.Linq;
 using Runtime.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Runtime.Managers.Tutorial
 {
@@ -148,8 +147,8 @@ namespace Runtime.Managers.Tutorial
 
         public static void TriggerTutorialEnd()
         {
-            GameManager.Instance.SaveSystem.SetNellieState(2);
-            GameManager.Instance.LoadScene(2);
+            GameManager.Instance.SaveSystem.SetNellieState("SectorTwo");
+            GameManager.Instance.LoadScene("SectorTwo");
         }
         
         //============================== Coroutines ==============================//

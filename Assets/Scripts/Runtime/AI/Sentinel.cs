@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Runtime.AI.Interfaces;
 using UnityEngine;
-using ElRaccoone.Tweens;
 using Runtime.Managers;
 using Runtime.Misc.Triggers;
 using Runtime.SoundSystem;
@@ -229,17 +228,17 @@ namespace Runtime.AI
             var volume = FindFirstObjectByType<Volume>();
             var vignette = volume.sharedProfile.components[0] as Vignette;
             
-            volume.TweenValueFloat(0.2f, 1.4f, value =>
-            {
-                if (vignette != null) vignette.intensity.value = value;
-            }).SetFrom(0f).SetEaseSineInOut();
-            
+            // volume.TweenValueFloat(0.2f, 1.4f, value =>
+            // {
+            //     if (vignette != null) vignette.intensity.value = value;
+            // }).SetFrom(0f).SetEaseSineInOut();
+            //
             yield return new WaitForSeconds(2f);
-            
-            volume.TweenValueFloat(0, 1f, value =>
-            {
-                if (vignette != null) vignette.intensity.value = value;
-            }).SetFrom(0.2f).SetEaseSineInOut();
+            //
+            // volume.TweenValueFloat(0, 1f, value =>
+            // {
+            //     if (vignette != null) vignette.intensity.value = value;
+            // }).SetFrom(0.2f).SetEaseSineInOut();
         }
         
         private IEnumerator TriggerDeactivate()
@@ -261,10 +260,10 @@ namespace Runtime.AI
             _eyeLights.ForEach(eye =>
             {
                 //eye.enabled = true;
-                eye.TweenValueFloat(0f, 1.4f, value =>
-                {
-                    eye.intensity = value;
-                }).SetFrom(eye.intensity).SetEaseBackOut();
+                // eye.TweenValueFloat(0f, 1.4f, value =>
+                // {
+                //     eye.intensity = value;
+                // }).SetFrom(eye.intensity).SetEaseBackOut();
             });
         }
 

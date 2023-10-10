@@ -43,7 +43,7 @@ namespace Runtime.Misc.Objects
         private IEnumerator AlarmCoroutine()
         {
             yield return new WaitForSeconds(alarmDelay);
-            _noiseEmitter.EmitLocal();
+            _noiseEmitter.EmitGlobal();
             yield return new WaitForSeconds(alarmSound.clip.length+1f);
             _isTriggered = false;
         }

@@ -10,12 +10,12 @@ using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
 using Runtime.InputSystem;
 using Discord;
-using ElRaccoone.Tweens;
 using Runtime.AI;
 using Runtime.SaveSystem;
 using Runtime.SoundSystem;
 using Runtime.UI;
 using Runtime.Utils;
+using Tweens;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Rendering;
@@ -223,25 +223,17 @@ namespace Runtime.Managers
             inputReader.SetUI();    
         }
         
-        public void LoadScene(int sceneIndex)
+        public void LoadScene(string levelName)
         {
             TestMode = false;
-            isMainMenu = sceneIndex == 0;
+            isMainMenu = levelName == "MainMenu";
             activeWindow = null;
             
             SoundSystem.ResetSystem();
             AudioListener.pause = true;
-
-            if (sceneIndex < 2)
-            {
-                StartCoroutine(LoadSceneAsync(sceneIndex));
-            }
-            else
-            {
-                //unload scene
-                if(_sceneInstance.Scene.isLoaded) Addressables.UnloadSceneAsync(_sceneInstance);
-                StartCoroutine(LoadMainSceneAsync(sceneIndex));
-            }
+            
+            if(_sceneInstance.Scene.isLoaded) Addressables.UnloadSceneAsync(_sceneInstance);
+            StartCoroutine(LoadMainSceneAsync(levelName));
         }
 
         public void GameOver(DeathType deathType)
@@ -251,10 +243,17 @@ namespace Runtime.Managers
             activeWindow = DeathScreen;
 
             var transposer = _camera.GetCinemachineComponent<CinemachineTransposer>();
-            transposer.TweenValueFloat(4f, 0.35f, value =>
-            {
-                transposer.m_FollowOffset = new Vector3(-value, 0f, -10f);
-            }).SetFrom(0f).SetEaseSineInOut();
+            var tween = new FloatTween {
+                from = 0,
+                to = 4f,
+                duration = 0.35f,
+                easeType = EaseType.SineInOut,
+                onUpdate = (_, value) => {
+                    transposer.m_FollowOffset = new Vector3(-value, 0f, -10f);
+                }
+            };
+            transposer.gameObject.AddTween(tween);
+   
         }
         
         public void EndGame()
@@ -353,29 +352,9 @@ namespace Runtime.Managers
         
         //========================= Coroutines =========================
         
-        private IEnumerator LoadSceneAsync(int sceneIndex)
+        private IEnumerator LoadMainSceneAsync(string levelName)
         {
-            var asyncOperation = SceneManager.LoadSceneAsync(sceneIndex);
-            LoadingScreen.ShowLoading();
-            while (!asyncOperation.isDone)
-            {
-                yield return null;
-            }
-            
-            //get the loaded scene
-            // var mixer = SceneManager.GetSceneByBuildIndex(sceneIndex).GetRootGameObjects().First(x => x.name == "TempSound").GetComponent<TempSound>().mainMixer;
-            // SoundSystem.mainMixer = mixer;
-            
-            if(sceneIndex == 0) LoadingScreen.HideLoading();
-        }
-        
-        private IEnumerator LoadMainSceneAsync(int sceneIndex)
-        {
-            var asyncOperation = sceneIndex switch
-            {
-                2 => Addressables.LoadSceneAsync("SectorTwo"),
-                3 => Addressables.LoadSceneAsync("SectorZero"),
-            };
+            var asyncOperation = Addressables.LoadSceneAsync(levelName, LoadSceneMode.Single, false);
 
             LoadingScreen.ShowLoading();
             while (!asyncOperation.IsDone)

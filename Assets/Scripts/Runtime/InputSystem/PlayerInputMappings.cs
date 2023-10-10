@@ -406,7 +406,7 @@ namespace Runtime.InputSystem
                     ""id"": ""eed31a22-094d-46d0-b790-84d82b0bffa6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": true
                 },
                 {

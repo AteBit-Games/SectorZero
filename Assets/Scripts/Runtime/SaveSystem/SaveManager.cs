@@ -17,7 +17,7 @@ namespace Runtime.SaveSystem
     [Serializable]
     internal class PlayerConfig
     {
-        public int sceneIndex;
+        public string levelName;
         public Vector3 startPosition;
     }
     
@@ -84,23 +84,23 @@ namespace Runtime.SaveSystem
         {
             _saveGamesData = _dataHandler.LoadSaves();
             _activeSave = _saveGamesData.Values.First();
-            GameManager.Instance.LoadScene(_activeSave.currentScene);
+            GameManager.Instance.LoadScene(_activeSave.levelName);
         }
         
         public void LoadGame(long saveTime)
         {
             _activeSave = _saveGamesData.Values.First(s => s.saveTime == saveTime);
-            GameManager.Instance.LoadScene(_activeSave.currentScene);
+            GameManager.Instance.LoadScene(_activeSave.levelName);
         }
         
-        public void NewGame(int scene)
+        public void NewGame(string levelName)
         {
             _dataHandler.ClearSaves();
             _activeSave = new SaveGame();
             saveExists = false;
             
             GameManager.Instance.AIManager.StartNewGame();
-            SetNellieState(scene);
+            SetNellieState(levelName);
         }
 
         public void SaveGame()
@@ -110,8 +110,7 @@ namespace Runtime.SaveSystem
             SaveGame saveGame = new()
             {
                 saveTime = DateTime.Now.Ticks,
-                saveName = SceneManager.GetActiveScene().name,
-                currentScene = GetSceneIndex()
+                levelName = SceneManager.GetActiveScene().name,
             };
                         
             foreach (var persistentObject in _persistantObjects)
@@ -124,19 +123,9 @@ namespace Runtime.SaveSystem
             _activeSave = saveGame;
         }
 
-        private static int GetSceneIndex()
+        public void SetNellieState(string levelName)
         {
-            return SceneManager.GetActiveScene().name switch
-            {
-                "SectorTwo" => 2,
-                "SectorZero" => 3,
-                _ => SceneManager.GetActiveScene().buildIndex
-            };
-        }
-
-        public void SetNellieState(int sceneIndex)
-        {
-            var index = playerConfig.FindIndex(config => config.sceneIndex == sceneIndex);
+            var index = playerConfig.FindIndex(config => config.levelName == levelName);
             _activeSave.playerData.position = index == -1 ? new Vector3(0, 0, 0) : playerConfig[index].startPosition;
             _activeSave.playerData.enabled = false;
         }

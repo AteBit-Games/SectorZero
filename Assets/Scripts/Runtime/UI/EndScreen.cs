@@ -3,8 +3,10 @@
  * All rights reserved.
  ****************************************************************/
 
+using System.Collections;
 using Runtime.Managers;
 using Runtime.Utils;
+using Tweens;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,133 +15,145 @@ namespace Runtime.UI
     [DefaultExecutionOrder(5)]
     public class EndScreen : Window
     {
-        // Main Pause Items
         private VisualElement _endWindow;
         private UIDocument _uiDocument;
         
-        //Buttons
-        private Label _buttonDescription;
-        private Button _quitMenuButton;
-        private Button _quitDesktopButton;
-        
-        private VisualElement _confirmDesktopPopup;
-        private Button _confirmDesktopQuit;
-        private Button _cancelDesktopQuit;
-
-        private VisualElement _confirmMenuPopup;
-        private Button _confirmMenuQuit;
-        private Button _cancelMenuQuit;
-        
-        private VisualElement _activePopup;
+        private VisualElement _developers;
+        private VisualElement _playtesters;
+        private VisualElement _thanks;
         
         private void Awake()
         {
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement;
-
-            // Main Items
-            _buttonDescription = rootVisualElement.Q<Label>("button-description");
-            _buttonDescription.text = "Exit to main menu";
-           
-            _endWindow = rootVisualElement.Q<VisualElement>("end-window");
             
-            _quitMenuButton = rootVisualElement.Q<Button>("quit-menu");
-            _quitDesktopButton = rootVisualElement.Q<Button>("quit-desktop");
-                
-            _confirmDesktopPopup = rootVisualElement.Q<VisualElement>("confirm-desktop-popup");
-            _confirmDesktopQuit = rootVisualElement.Q<Button>("confirm-desktop-option");
-            _cancelDesktopQuit = rootVisualElement.Q<Button>("cancel-desktop-option");
-
-            _confirmMenuPopup = rootVisualElement.Q<VisualElement>("confirm-menu-popup");
-            _confirmMenuQuit = rootVisualElement.Q<Button>("confirm-menu-option");
-            _cancelMenuQuit = rootVisualElement.Q<Button>("cancel-menu-option");
-
-            SetupPopups();
+            _endWindow = rootVisualElement.Q<VisualElement>("end-window");
+            _developers = rootVisualElement.Q<VisualElement>("Developers");
+            _playtesters = rootVisualElement.Q<VisualElement>("Playtesters");
+            _thanks = rootVisualElement.Q<VisualElement>("Thanks");
         }
 
         public override void OpenWindow()
         {
             UIUtils.ShowUIElement(_endWindow);
-        }
-        
-        public override void CloseWindow() {}
-        
-        public override void CloseSubWindow()
-        {
-            if(_activePopup != null) ClosePopup();
-            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+            _developers.style.opacity = 0;
+            _playtesters.style.opacity = 0;
+            _thanks.style.opacity = 0;
+            
+            StartCoroutine(StartThanks());
         }
 
-        private void SetupPopups()
+        private IEnumerator StartThanks()
         {
-            //Bind Menu Popup Buttons
-            _quitMenuButton.RegisterCallback<ClickEvent>(_ => {
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UIUtils.HideUIElement(_confirmDesktopPopup);
-                OpenConfirmPopup(_confirmMenuPopup);
-            });
-            _quitMenuButton.RegisterCallback<MouseEnterEvent>(_ => {
-                _buttonDescription.text = "Quit to main menu";
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
-            });
+            yield return new WaitForSecondsRealtime(0.3f);
             
-            _confirmMenuQuit.RegisterCallback<ClickEvent>(_ => {
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                GoToMainMenu();
-            });
+            var thanksTween = new FloatTween
+            {
+                to = 1f,
+                from = 0f,
+                duration = 1.2f,
+                useUnscaledTime = true,
+                onUpdate = (_, value) =>
+                {
+                    _thanks.style.opacity = value;
+                }
+            };
+            gameObject.AddTween(thanksTween);
+
+            yield return new WaitForSecondsRealtime(3f);
             
-            _cancelMenuQuit.RegisterCallback<ClickEvent>(_ => {
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UIUtils.HideUIElement(_confirmMenuPopup);
-            });
+            var thanksFadeTween = new FloatTween
+            {
+                to = 0f,
+                from = 1f,
+                duration = 0.8f,
+                useUnscaledTime = true,
+                onUpdate = (_, value) =>
+                {
+                    _thanks.style.opacity = value;
+                }
+            };
+            gameObject.AddTween(thanksFadeTween);
             
-            //Bind Desktop Popup Buttons
-            _quitDesktopButton.RegisterCallback<ClickEvent>(_ => {
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UIUtils.HideUIElement(_confirmMenuPopup);
-                OpenConfirmPopup(_confirmDesktopPopup);
-            });
-            _quitDesktopButton.RegisterCallback<MouseEnterEvent>(_ => {
-                _buttonDescription.text = "Quit to desktop";
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
-            });
-            
-            _confirmDesktopQuit.RegisterCallback<ClickEvent>(_ => {
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                Application.Quit();
-            });
-            
-            _cancelDesktopQuit.RegisterCallback<ClickEvent>(_ => {
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
-                UIUtils.HideUIElement(_confirmDesktopPopup);
-            });
+            yield return new WaitForSecondsRealtime(1f);
+            StartCoroutine(StartDevelopers());
         }
         
-        private void OpenConfirmPopup(VisualElement popup)
+        private IEnumerator StartDevelopers()
         {
-            ClosePopup();
-            UIUtils.ShowUIElement(popup);
+            yield return new WaitForSecondsRealtime(0.3f);
             
-            _activePopup = popup;
-            isSubWindowOpen = true;
-        }
-        
-        private void ClosePopup()
-        {
-            if(_activePopup == null) return;
+            var developersTween = new FloatTween
+            {
+                to = 1f,
+                from = 0f,
+                duration = 0.8f,
+                useUnscaledTime = true,
+                onUpdate = (_, value) =>
+                {
+                    _developers.style.opacity = value;
+                }
+            };
+            gameObject.AddTween(developersTween);
             
-            UIUtils.HideUIElement(_activePopup);
-            _activePopup = null;
-            isSubWindowOpen = false;
+            yield return new WaitForSecondsRealtime(5f);
+            
+            var developersFadeTween = new FloatTween
+            {
+                to = 0f,
+                from = 1f,
+                duration = 0.8f,
+                useUnscaledTime = true,
+                onUpdate = (_, value) =>
+                {
+                    _developers.style.opacity = value;
+                }
+            };
+            gameObject.AddTween(developersFadeTween);
+            yield return new WaitForSecondsRealtime(1f);
+            StartCoroutine(StartPlaytesters());
         }
 
-        private static void GoToMainMenu()
+        private IEnumerator StartPlaytesters()
         {
-            Time.timeScale = 1;
-            GameManager.Instance.SoundSystem.StopAll();
-            GameManager.Instance.isMainMenu = true;
-            GameManager.Instance.ResetInput();
-            GameManager.Instance.LoadScene(0);
+            yield return new WaitForSecondsRealtime(0.3f);
+            
+            var playtestersTween = new FloatTween
+            {
+                to = 1f,
+                from = 0f,
+                duration = 0.8f,
+                useUnscaledTime = true,
+                onUpdate = (_, value) =>
+                {
+                    _playtesters.style.opacity = value;
+                }
+            };
+            gameObject.AddTween(playtestersTween);
+            
+            yield return new WaitForSecondsRealtime(5f);
+            
+            var playtestersFadeTween = new FloatTween
+            {
+                to = 0f,
+                from = 1f,
+                duration = 0.8f,
+                useUnscaledTime = true,
+                onUpdate = (_, value) =>
+                {
+                    _playtesters.style.opacity = value;
+                }
+            };
+            gameObject.AddTween(playtestersFadeTween);
+            yield return new WaitForSecondsRealtime(1f);
+            CloseWindow();
         }
+
+        public override void CloseWindow()
+        {
+            GameManager.Instance.LoadScene("MainMenu");
+        }
+        
+        public override void CloseSubWindow(){ }
     }
 }

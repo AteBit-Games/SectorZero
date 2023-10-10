@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Game%20Windows/WindowStyles.uss?fileID=7433441132597879392&amp;guid=f739e203aa749e840a98c3e7347d7fff&amp;type=3#WindowStyles" />
+    <ui:VisualElement name="end-window" picking-mode="Ignore" style="display: flex; flex-grow: 1; align-items: stretch; visibility: visible; overflow: visible;">
+        <ui:VisualElement name="end-container" style="flex-grow: 1; align-items: stretch; justify-content: flex-end; display: flex;">
+            <ui:VisualElement name="end-content" style="flex-grow: 0; background-color: rgb(29, 29, 29); width: 100%; height: 100%; justify-content: center; align-items: center; flex-direction: row;">
+                <ui:VisualElement name="Warning" style="flex-grow: 0; background-image: url(&apos;project://database/Assets/Art/UI/Disclaimer.png?fileID=2800000&amp;guid=bdf7192fba63b4441b3fb30adcb7dee3&amp;type=3#Disclaimer&apos;); height: 60%; width: 50%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

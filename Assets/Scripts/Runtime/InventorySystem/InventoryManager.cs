@@ -33,6 +33,8 @@ namespace Runtime.InventorySystem
         [SerializeField] public Sound tapeSound;
         [SerializeField] private PlayerInventory playerInventory;
         [SerializeField] private VisualTreeAsset inventorySlot;
+        [SerializeField] private Sprite hoverState;
+        [SerializeField] private Sprite unHoverState;
         
         public PlayerInventory PlayerInventory => playerInventory;
         [HideInInspector] public bool isInventoryOpen;
@@ -452,7 +454,11 @@ namespace Runtime.InventorySystem
                             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                         }
                     });
-                    tape.RegisterCallback<MouseEnterEvent>(_ => GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound()));
+                    tape.RegisterCallback<MouseEnterEvent>(_ =>
+                    {
+                        if (_activeItemSlot != _tapesInventoryList[currentIndex])
+                            GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+                    });
                 }
                 
                 index++;
@@ -539,6 +545,17 @@ namespace Runtime.InventorySystem
                 GameManager.Instance.SoundSystem.Play(noteSound);
                 ReadNote();
             });
+            _notesInventoryReadButton.RegisterCallback<MouseEnterEvent>(_ =>
+            {
+                _notesInventoryReadButton.style.backgroundImage = new StyleBackground(hoverState);
+                _notesInventoryReadButton.Q<Label>().style.bottom = 0;
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+            });
+            _notesInventoryReadButton.RegisterCallback<MouseLeaveEvent>(_ =>
+            {
+                _notesInventoryReadButton.style.backgroundImage = new StyleBackground(unHoverState);
+                _notesInventoryReadButton.Q<Label>().style.bottom = 5;
+            });
         }
 
         private void SetupTapesReferences(VisualElement tapesInventoryContainer)
@@ -554,6 +571,17 @@ namespace Runtime.InventorySystem
             {
                 GameManager.Instance.SoundSystem.Play(tapeSound);
                 ListenToTape(_activeTape);
+            });
+            _tapesInventoryPlayButton.RegisterCallback<MouseEnterEvent>(_ =>
+            {
+                _tapesInventoryPlayButton.style.backgroundImage = new StyleBackground(hoverState);
+                _notesInventoryReadButton.Q<Label>().style.bottom = 0;
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+            });
+            _tapesInventoryPlayButton.RegisterCallback<MouseLeaveEvent>(_ =>
+            {
+                _tapesInventoryPlayButton.style.backgroundImage = new StyleBackground(unHoverState);
+                _notesInventoryReadButton.Q<Label>().style.bottom = 5;
             });
         }
 

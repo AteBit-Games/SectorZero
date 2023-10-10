@@ -214,7 +214,7 @@ namespace Runtime.UI
             GameManager.Instance.SoundSystem.StopAll();
             GameManager.Instance.isMainMenu = true;
             GameManager.Instance.ResetInput();
-            GameManager.Instance.LoadScene(0);
+            GameManager.Instance.LoadScene("MainMenu");
         }
         
         private static void OpenConfirmPopup(VisualElement popup)

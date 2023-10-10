@@ -112,9 +112,8 @@ namespace Runtime.SaveSystem.Data
     public class SaveGame
     {
         public bool isDataSaved;
-        public string saveName;
         public long saveTime;
-        public int currentScene;
+        public string levelName;
         
         public PlayerSaveData playerData = new();
         public MonsterSaveData monsterData = new();
