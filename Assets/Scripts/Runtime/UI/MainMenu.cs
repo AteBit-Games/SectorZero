@@ -21,6 +21,7 @@ namespace Runtime.UI
         // Main Pause Items
         private Label _buttonDescription;
         private Button _continueButton;
+        private Button _loadButton;
         private Button _newGameButton;
         private Button _settingsButton;
         private Button _quitButton;
@@ -32,6 +33,7 @@ namespace Runtime.UI
         private VisualElement _settingsWindow;
         private VisualElement _savesWindow;
         private FeedbackForm _feedbackForm;
+        private Button _discordButton;
         
         // Popups
         private VisualElement _confirmNewGamePopup;
@@ -48,7 +50,7 @@ namespace Runtime.UI
 
         private SaveMenu _saveMenu;
 
-        private void Start()
+        private void Awake()
         {
             GameManager.Instance.SaveSystem.RegisterSaves();
             
@@ -56,8 +58,7 @@ namespace Runtime.UI
             var rootVisualElement = _uiDocument.rootVisualElement;
             _feedbackForm = FindFirstObjectByType<FeedbackForm>();
             
-            _buttonDescription = rootVisualElement.Q<Label>("button-description");
-            _mainMenuWindow = rootVisualElement.Q<VisualElement>("main-menu-window");
+            _mainMenuWindow = rootVisualElement.Q<VisualElement>("main-menu-window");            
             _settingsWindow = rootVisualElement.Q<VisualElement>("settings-window");
             
             _savesWindow = rootVisualElement.Q<VisualElement>("saves-window");
@@ -75,7 +76,11 @@ namespace Runtime.UI
             _confirmDesktopQuit = rootVisualElement.Q<Button>("confirm-desktop-option");
             _cancelDesktopQuit = rootVisualElement.Q<Button>("cancel-desktop-option");
             
+            _buttonDescription = _mainMenuWindow.Q<Label>("button-description");
+            
             var saveExists = GameManager.Instance.SaveSystem.saveExists;
+            _buttonDescription.text = saveExists ? "Continue from the last save point" : "Start a new game";
+
             
             // Main Menu Items
             _continueButton = rootVisualElement.Q<Button>("continue");
@@ -92,13 +97,13 @@ namespace Runtime.UI
                 }
             });
             
-            _continueButton = rootVisualElement.Q<Button>("load-game");
-            SetButtonState(_continueButton, saveExists);
-            _continueButton.RegisterCallback<ClickEvent>(_ => {
+            _loadButton = rootVisualElement.Q<Button>("load-game");
+            SetButtonState(_loadButton, saveExists);
+            _loadButton.RegisterCallback<ClickEvent>(_ => {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound()); 
                 OpenSavesMenu();
             });
-            _continueButton.RegisterCallback<MouseEnterEvent>(_ => {
+            _loadButton.RegisterCallback<MouseEnterEvent>(_ => {
                 if (saveExists)
                 {
                     _buttonDescription.text = "Continue from a previous save point";
@@ -116,6 +121,16 @@ namespace Runtime.UI
             });
             _reportBugButton.RegisterCallback<MouseEnterEvent>(_ => {
                 _buttonDescription.text = "Report a problem";
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
+            });
+            
+            _discordButton = rootVisualElement.Q<Button>("discord");
+            _discordButton.RegisterCallback<ClickEvent>(_ => {
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                Application.OpenURL("https://discord.com/invite/TynJMyUCfY");
+            });
+            _discordButton.RegisterCallback<MouseEnterEvent>(_ => {
+                _buttonDescription.text = "Join Our Discord Server";
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
 
@@ -136,7 +151,9 @@ namespace Runtime.UI
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 OpenSettings();
             });
-            _settingsButton.RegisterCallback<MouseEnterEvent>(_ => {
+            _settingsButton.RegisterCallback<MouseEnterEvent>(_ =>
+            {
+
                 _buttonDescription.text = "Change the game settings";
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
@@ -152,6 +169,7 @@ namespace Runtime.UI
             });
             
             SetupPopups();
+            
         }
         
         private void SetupPopups()

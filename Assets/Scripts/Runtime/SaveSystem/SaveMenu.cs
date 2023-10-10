@@ -29,14 +29,14 @@ namespace Runtime.SaveSystem
             _uiDocument = GetComponent<UIDocument>();
             var rootVisualElement = _uiDocument.rootVisualElement.Q<VisualElement>("saves-window");
             _buttonDescription = rootVisualElement.Q<Label>("button-description");
-            _buttonDescription.text = "Exit the load save menu";
+            _buttonDescription.text = "Exit the save menu";
             
             _saveList = rootVisualElement.Q<VisualElement>("saves-list");
             
             _backButton = rootVisualElement.Q<Button>("back-button");
             _backButton.RegisterCallback<MouseEnterEvent>(_ =>
             {
-                _buttonDescription.text = "Exit the load save menu";
+                _buttonDescription.text = "Exit the save menu";
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.HoverSound());
             });
             _backButton.RegisterCallback<ClickEvent>(_ =>

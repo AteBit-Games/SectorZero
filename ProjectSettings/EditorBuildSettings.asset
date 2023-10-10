@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SectorTwo.unity
     guid: fda4f8b9dd4300348b0583eb492cff0d
   - enabled: 0
+    path: Assets/Scenes/SectorZero.unity
+    guid: 41d9a9c9ddc9c2a429441fe8d61c85d5
+  - enabled: 0
     path: Assets/Scenes/SectorTwoSandbox.unity
     guid: f5f1450e55a2d714a881b966e48ac4b4
   m_configObjects:

@@ -124,7 +124,7 @@ namespace Runtime.SaveSystem
             _activeSave = saveGame;
         }
 
-        private int GetSceneIndex()
+        private static int GetSceneIndex()
         {
             return SceneManager.GetActiveScene().name switch
             {

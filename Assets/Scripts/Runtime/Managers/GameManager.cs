@@ -5,7 +5,6 @@
 
 using System;
 using System.Collections;
-using System.Linq;
 using Cinemachine;
 using Runtime.DialogueSystem;
 using Runtime.InventorySystem;
@@ -233,7 +232,7 @@ namespace Runtime.Managers
             SoundSystem.ResetSystem();
             AudioListener.pause = true;
 
-            if (sceneIndex != 2)
+            if (sceneIndex < 2)
             {
                 StartCoroutine(LoadSceneAsync(sceneIndex));
             }
@@ -241,7 +240,7 @@ namespace Runtime.Managers
             {
                 //unload scene
                 if(_sceneInstance.Scene.isLoaded) Addressables.UnloadSceneAsync(_sceneInstance);
-                StartCoroutine(LoadMainSceneAsync());
+                StartCoroutine(LoadMainSceneAsync(sceneIndex));
             }
         }
 
@@ -270,7 +269,7 @@ namespace Runtime.Managers
         
         private void OpenInventoryWindow()
         {
-            if(isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
+            if(isMainMenu || SceneManager.GetActiveScene().name == "Tutorial" || SceneManager.GetActiveScene().name == "SectorZero") return;
             switch (InventorySystem.isInventoryOpen)
             {
                 case false:
@@ -370,9 +369,14 @@ namespace Runtime.Managers
             if(sceneIndex == 0) LoadingScreen.HideLoading();
         }
         
-        private IEnumerator LoadMainSceneAsync()
+        private IEnumerator LoadMainSceneAsync(int sceneIndex)
         {
-            var asyncOperation = Addressables.LoadSceneAsync("SectorTwo", LoadSceneMode.Single, false);
+            var asyncOperation = sceneIndex switch
+            {
+                2 => Addressables.LoadSceneAsync("SectorTwo"),
+                3 => Addressables.LoadSceneAsync("SectorZero"),
+            };
+
             LoadingScreen.ShowLoading();
             while (!asyncOperation.IsDone)
             {
@@ -383,11 +387,7 @@ namespace Runtime.Managers
                 yield return asyncOperation.Result.ActivateAsync();
             
             _sceneInstance = asyncOperation.Result;
-            
-            //get TempSound instance from scene loaded
-            // var mixer = _sceneInstance.Scene.GetRootGameObjects().First(x => x.name == "TempSound").GetComponent<TempSound>().mainMixer;
-            // SoundSystem.mainMixer = mixer;
-            
+
             LoadingScreen.HideLoading();
             Time.timeScale = 1f;
         }

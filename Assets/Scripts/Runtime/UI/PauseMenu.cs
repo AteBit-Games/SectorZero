@@ -54,8 +54,8 @@ namespace Runtime.UI
             _cheatMenu = FindFirstObjectByType<CheatMenu>();
             
             // Main Pause Items
-            _buttonDescription = rootVisualElement.Q<Label>("button-description");
             _pauseWindow = rootVisualElement.Q<VisualElement>("pause-window");
+            _buttonDescription = _pauseWindow.Q<Label>("button-description");
             _settingsWindow = rootVisualElement.Q<VisualElement>("SettingsMenu");
             _settingsContainer = rootVisualElement.Q<VisualElement>("settings-window");
             
