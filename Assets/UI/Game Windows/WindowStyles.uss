@@ -691,8 +691,8 @@
     transition-property: all;
     transition-duration: 0.08s;
     transition-timing-function: ease-in;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .choice-button:hover {
@@ -706,7 +706,7 @@
     border-bottom-width: 2px;
     border-left-width: 2px;
     background-color: rgb(46, 46, 46);
-    color: rgb(171, 171, 171);
+    color: rgb(202, 202, 202);
 }
 
 .cover {

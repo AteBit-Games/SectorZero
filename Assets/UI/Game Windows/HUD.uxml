@@ -188,6 +188,10 @@
                     <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="content" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
                 </ui:Button>
                 <ui:VisualElement name="overlay" style="flex-grow: 1; display: none;" />
+                <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; position: absolute; bottom: 50px; right: 100px; align-self: center; align-items: center; justify-content: center;">
+                    <ui:Label tabindex="-1" text="Close" display-tooltip-when-elided="true" name="Label" style="font-size: 38px; -unity-font: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); color: rgb(255, 255, 255); border-right-width: 4px;" />
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/Art/UI/escKey.png?fileID=21300000&amp;guid=87a53038706062f4eb67d395d2191662&amp;type=3#escKey&apos;); width: 55px; height: 55px;" />
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

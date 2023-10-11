@@ -2,9 +2,9 @@
 * Copyright (c) 2023 AteBit Games
 * All rights reserved.
 ****************************************************************/
+
 using System.Collections.Generic;
 using System.Linq;
-using Runtime.InputSystem;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using UnityEngine;
@@ -87,13 +87,24 @@ namespace Runtime.InteractionSystem
 
         public void RemoveInteractable(GameObject interactable)
         {
-            
             if (interactable != null && _interactables.Contains(interactable))
             {
                 var spriteRenderer = interactable.GetComponent<SpriteRenderer>();
                 spriteRenderer.material.SetFloat(OutlineThickness, 0f);
                 _interactables.Remove(interactable);
             }
+        }
+        
+        public void DisableInteraction()
+        {
+            //remove all interactables
+            foreach (var spriteRenderer in _interactables.Select(interactable => interactable.GetComponent<SpriteRenderer>()))
+            {
+                spriteRenderer.material.SetFloat(OutlineThickness, 0f);
+            }
+            
+            _interactables.Clear();
+            enabled = false;
         }
 
         //========================= Private Methods =========================//

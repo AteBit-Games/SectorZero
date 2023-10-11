@@ -43,12 +43,12 @@ namespace Runtime.InteractionSystem.Objects.Doors
         public bool OnInteract(GameObject player)
         {
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
-            GameManager.Instance.SaveSystem.SaveGame();
             OpenDoor();
             
             //Remove the collider from the player's interactable list
             DisableInteraction();
             player.GetComponent<PlayerInteraction>().RemoveInteractable(gameObject);
+            GameManager.Instance.SaveSystem.SaveGame();
             return true;
         }
 
@@ -71,6 +71,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
                 if(door)
                 {
                     mainAnimator.SetTrigger(Open);
+                    mainAnimator.SetBool(isOpen, true);
                     DisableInteraction();
                     SetBlocker(0);
                     opened = true;
@@ -81,6 +82,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
                 if(startOpen)
                 {
                     mainAnimator.SetTrigger(Open);
+                    mainAnimator.SetBool(isOpen, true);
                     DisableInteraction();
                     SetBlocker(0);
                     opened = true;

@@ -61,8 +61,8 @@ namespace Runtime.InteractionSystem.Objects.Powered
         
         public void PowerOn(bool load)
         {
+            if(!load) GameManager.Instance.SoundSystem.Play(elevatorSound, audioSource);
             _isPowered = true;
-            GameManager.Instance.SoundSystem.Play(elevatorSound, audioSource);
             door.canInteract = true;
             customLight.PowerOn(false);
         }
