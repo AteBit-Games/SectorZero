@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7248621611726732653}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.219, z: 0}
+  m_LocalPosition: {x: 0, y: -0.06249821, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 4623490752569869719}
   - component: {fileID: 4394469075820390929}
   - component: {fileID: 9192487962091516608}
+  - component: {fileID: 7321710010097138667}
   m_Layer: 0
   m_Name: WoodenCrateBig
   m_TagString: Untagged
@@ -125,7 +126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7565635900863064984}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.1875, y: 40.4375, z: 0.08660352}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -258,10 +259,10 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0059833527, y: -0.56}
+  m_Offset: {x: 0.0059833527, y: 0.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.8125, y: 2.3125}
     newSize: {x: 1, y: 2.5625}
     adaptiveTilingThreshold: 0.5
@@ -270,3 +271,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.8044243, y: 1.1947337}
   m_EdgeRadius: 0
+--- !u!114 &7321710010097138667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7565635900863064984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
