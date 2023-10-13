@@ -55,7 +55,7 @@ namespace Runtime.InteractionSystem.Objects
             
             yield return new WaitForSecondsRealtime(1f);
             
-            GameManager.Instance.LoadScene(choice == 0 ? "SectorTree" : "SectorZero");
+            GameManager.Instance.LoadScene(choice == 0 ? "SectorThree" : "SectorZero");
         }
     }
 }

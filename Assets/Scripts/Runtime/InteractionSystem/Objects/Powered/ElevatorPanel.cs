@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Runtime.InteractionSystem.Objects.Powered
 {
-    [DefaultExecutionOrder(6)]
+    [DefaultExecutionOrder(5)]
     public class ElevatorPanel : MonoBehaviour, IInteractable, IPowered
     {
         [SerializeField] private CustomLight customLight;
@@ -61,6 +61,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         
         public void PowerOn(bool load)
         {
+            Debug.Log("Powering on | loaded: " + load);
             if(!load) GameManager.Instance.SoundSystem.Play(elevatorSound, audioSource);
             _isPowered = true;
             door.canInteract = true;

@@ -66,11 +66,6 @@ namespace Runtime.InteractionSystem.Objects.Powered
             SetActiveState(_fuseBoxStates.Count(isPowered => !isPowered.Value));
             _canBePowered = _fuseBoxStates.Values.All(powered => !powered);
             _mainLight.enabled = _canBePowered;
-            
-            if(debug)
-            {
-                elevatorPanel.PowerOn(false);
-            }
         }
 
         private void OnPowerStateChanged(FuseBox fuseBox, bool state)
@@ -150,7 +145,6 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         public void SaveData(SaveGame game)
         {
-            
             game.worldData.mainFuseStatus = _isPowered;
         }
     }

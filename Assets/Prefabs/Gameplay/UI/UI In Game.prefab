@@ -740,6 +740,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 18bb77516e6891a43a6e5cd8060cb1bf, type: 2}
     - {fileID: 11400000, guid: 23c6a994f1c6dd04a9254805fb836bf5, type: 2}
     - {fileID: 11400000, guid: 7fd01acebe7e7d048a795a4a8a533f0c, type: 2}
+  buddyTree: {fileID: 0}
+  idleTree: {fileID: 0}
+  defaultTree: {fileID: 0}
 --- !u!1 &7861824172995040030
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,6 +756,7 @@ GameObject:
   - component: {fileID: 309184797907884733}
   - component: {fileID: 8574626929475193642}
   - component: {fileID: 7513976801172220177}
+  - component: {fileID: 5485311363859634071}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -822,6 +826,8 @@ MonoBehaviour:
   tapeSound: {fileID: 0}
   playerInventory: {fileID: 0}
   inventorySlot: {fileID: 9197481963319205126, guid: c79ec188670f61c46b78350554e4e917, type: 3}
+  hoverState: {fileID: 0}
+  unHoverState: {fileID: 0}
   isInventoryOpen: 0
   isNoteWindowOpen: 0
 --- !u!114 &7513976801172220177
@@ -885,6 +891,52 @@ MonoBehaviour:
     upIcon: {fileID: 0}
     downIcon: {fileID: 0}
   stateSprites: []
+--- !u!114 &5485311363859634071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861824172995040030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d28676907a642c48a778e808f302f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSubWindowOpen: 0
+  choices:
+  - choiceText: Exit The Facility
+    choiceActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Runtime.InteractionSystem.Objects.Elevator, Assembly-CSharp
+          m_MethodName: Trigger
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - choiceText: Go To Sector Zero
+    choiceActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Runtime.InteractionSystem.Objects.Elevator, Assembly-CSharp
+          m_MethodName: Trigger
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8569070492367958656
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ using Random = UnityEngine.Random;
 
 namespace Runtime.Misc
 {
-    [DefaultExecutionOrder(5)]
+    [DefaultExecutionOrder(6)]
     public class CustomLight : MonoBehaviour, IPowered, ISoundEntity
     {
         [SerializeField] private new Light2D light;
