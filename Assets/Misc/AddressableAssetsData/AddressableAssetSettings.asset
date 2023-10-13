@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 307e81bc6c69b2142b50612f8eb73188
   m_currentHash:
     serializedVersion: 2
-    Hash: 0f35611efcd02f97125027f5645b3db2
+    Hash: cc53d252bcdce9a7cbcf943899573884
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -50,6 +50,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 79a96ee480a3dab42b6089ed61d6ddab, type: 2}
   - {fileID: 11400000, guid: 6b95fc7c14b115a44934228d39222b2b, type: 2}
   - {fileID: 11400000, guid: dfa80dccc0af6cb4582ed3a987982d71, type: 2}
+  - {fileID: 11400000, guid: 25e3180e9f1a5124e939ca7a353c6510, type: 2}
+  - {fileID: 11400000, guid: e246cc063a1c769418853d5e0b781e26, type: 2}
+  - {fileID: 11400000, guid: 29b90945070aa044a8406d09a1d30242, type: 2}
+  - {fileID: 11400000, guid: 2d5b9bcaf64e5fa439a41edec253d749, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -95,6 +99,12 @@ MonoBehaviour:
     - keycard
     - key-item
     - tape
+    - note
+    - summary
+    - scene
+    - sound
+    - ai
+    - misc
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 2d4b785437996a843aee3418f8403d38, type: 2}

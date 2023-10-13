@@ -77,6 +77,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - key-item
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a94dc7ed7c62537408a397bc4accb493
+    m_Address: KeycardResidential
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - keycard
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5c19a22cc257e34ea350020ac124fde
+    m_Address: OdePlushie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - key-item
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b964706df64f2bd4e9cfafbde4832052, type: 2}
   m_SchemaSet:

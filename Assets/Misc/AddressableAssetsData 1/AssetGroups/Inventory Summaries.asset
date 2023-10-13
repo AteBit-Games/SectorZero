@@ -20,57 +20,68 @@ MonoBehaviour:
   - m_GUID: c02f37141ea0dcd4cb8d54fea85c2864
     m_Address: PryOpen
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - summary
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9a9e65871fb06674a822e140905b84f5
     m_Address: OpenOffice
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - summary
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ca987cfcf004ed945a54b9c77c00e0e9
     m_Address: RestorePower
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - summary
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0cbce60652b0cf4db5293f01e1a3f79
     m_Address: ContainmentPuzzle
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - summary
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d74fa49fff0fe14b924c4e963a2b8aa
     m_Address: OverrideKeycard
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - summary
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c974c4e40b5b42469d38c8bcfa737ea
     m_Address: GeneratorFuse
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - summary
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7fd01acebe7e7d048a795a4a8a533f0c
     m_Address: StorageFuse
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - summary
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23c6a994f1c6dd04a9254805fb836bf5
     m_Address: SearchMorgue
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - summary
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18bb77516e6891a43a6e5cd8060cb1bf
     m_Address: SearchKitchen
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - summary
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7aaccd14125356149b59e8383c6efc65
     m_Address: FindCarver
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - summary
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c8cda9a65f7e6c40932476e7f8da94b
     m_Address: FindCode
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - summary
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b964706df64f2bd4e9cfafbde4832052, type: 2}

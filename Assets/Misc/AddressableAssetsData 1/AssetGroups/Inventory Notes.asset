@@ -20,42 +20,50 @@ MonoBehaviour:
   - m_GUID: 1e2ba339e4a94194d8ffc4815fc4a54f
     m_Address: MorgueNote
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - note
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc4e1598319b40640910a6bab84a8123
     m_Address: DaniNote
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - note
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5c416a6e102d544e943c656e26d64a0
     m_Address: MonolithNews
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - note
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ad708b65e786104c8b9943d6c69e941
     m_Address: MoonNews
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - note
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bd47cb02f7d9734eb864605f4a2f141
     m_Address: SampleResearchNotes
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - note
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db592d8b2a5bb9049984216fdeb4b5f1
     m_Address: SectorZeroReport
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - note
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e0a715d5ef59dd42807b31421e63158
     m_Address: NewPatientsReport
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - note
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e977569256d944e4ab35e947ca955047
     m_Address: IncidentReport
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - note
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b964706df64f2bd4e9cfafbde4832052, type: 2}
