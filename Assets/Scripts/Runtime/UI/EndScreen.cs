@@ -96,7 +96,7 @@ namespace Runtime.UI
             };
             gameObject.AddTween(developersTween);
             
-            yield return new WaitForSecondsRealtime(5f);
+            yield return new WaitForSecondsRealtime(8f);
             
             var developersFadeTween = new FloatTween
             {
@@ -131,7 +131,7 @@ namespace Runtime.UI
             };
             gameObject.AddTween(playtestersTween);
             
-            yield return new WaitForSecondsRealtime(5f);
+            yield return new WaitForSecondsRealtime(8f);
             
             var playtestersFadeTween = new FloatTween
             {
@@ -145,7 +145,7 @@ namespace Runtime.UI
                 }
             };
             gameObject.AddTween(playtestersFadeTween);
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSecondsRealtime(2.5f);
             CloseWindow();
         }
 

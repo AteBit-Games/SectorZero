@@ -22,6 +22,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
         public Sound InteractSound => interactSound;
 
         public bool canInteract;
+        public bool saveOnInteract;
 
         //=========================== Unity Events =============================//
 
@@ -48,7 +49,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
             //Remove the collider from the player's interactable list
             DisableInteraction();
             player.GetComponent<PlayerInteraction>().RemoveInteractable(gameObject);
-            GameManager.Instance.SaveSystem.SaveGame();
+            if(saveOnInteract) GameManager.Instance.SaveSystem.SaveGame();
             return true;
         }
 

@@ -87,9 +87,9 @@ namespace Runtime.AI
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
         
-        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
         {
-            if(SceneManager.GetActiveScene().name == "SectorTwo") return;
+            if(scene.name != "SectorTwo") return;
             
             InitializeReferences();
             

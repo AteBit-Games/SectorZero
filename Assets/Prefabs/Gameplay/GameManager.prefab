@@ -538,10 +538,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuClickSound: {fileID: 11400000, guid: ee71ebac7b9200b4c84687a87519b73a, type: 2}
   menuHoverSound: {fileID: 11400000, guid: aece9e2401d15fd42a90b3a2a8222edf, type: 2}
-  inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
-  itemDatabase: {fileID: 11400000, guid: 5c25e9fc84732b846a419c0aa28ba26b, type: 2}
   isMainMenu: 0
   testMode: 1
+  inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
+  activeWindow: {fileID: 0}
   details: 
 --- !u!114 &381558948670293325
 MonoBehaviour:
@@ -575,10 +575,14 @@ MonoBehaviour:
   saveFileExtension: .sctr
   useEncryption: 0
   playerConfig:
-  - sceneIndex: 1
-    startPosition: {x: 37, y: -4.625, z: 0}
-  - sceneIndex: 2
-    startPosition: {x: -35.5625, y: -53.4375, z: 0}
+  - levelName: Tutorial
+    startPosition: {x: -0.56, y: 5.81, z: 0}
+  - levelName: SectorTwo
+    startPosition: {x: -35.1875, y: 49.625, z: 0}
+  - levelName: SectorZero
+    startPosition: {x: 0, y: 0, z: 0}
+  - levelName: SectorTree
+    startPosition: {x: 0, y: -2, z: 0}
   saveExists: 0
 --- !u!114 &8564143802284992274
 MonoBehaviour:
@@ -598,6 +602,10 @@ MonoBehaviour:
   directSightBase: 0.15
   closeDistanceMultiplier: 0.3
   closeDistanceBase: 0.15
+  monster: {fileID: 0}
+  menaceGaugeValue: 60
+  menaceState: 0
+  isPlayerCrouching: 0
 --- !u!114 &864986145695122940
 MonoBehaviour:
   m_ObjectHideFlags: 0

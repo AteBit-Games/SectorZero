@@ -4,6 +4,7 @@
 ****************************************************************/
 
 using Runtime.Misc;
+using Runtime.Misc.Lights;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;

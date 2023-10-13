@@ -1,8 +1,9 @@
 /****************************************************************
-* Copyright (c) 2023 AteBit Games
-* All rights reserved.
-****************************************************************/
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Runtime.InteractionSystem.Interfaces;
@@ -66,6 +67,15 @@ namespace Runtime.InteractionSystem.Objects.Powered
             SetActiveState(_fuseBoxStates.Count(isPowered => !isPowered.Value));
             _canBePowered = _fuseBoxStates.Values.All(powered => !powered);
             _mainLight.enabled = _canBePowered;
+        }
+
+        private void Start()
+        {
+            if(debug)
+            {
+                elevatorPanel.PowerOn(false);
+                _isPowered = true;
+            }
         }
 
         private void OnPowerStateChanged(FuseBox fuseBox, bool state)

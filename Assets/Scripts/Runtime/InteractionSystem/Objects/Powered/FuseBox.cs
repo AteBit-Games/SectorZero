@@ -20,7 +20,7 @@ using UnityEngine.Rendering.Universal;
 
 namespace Runtime.InteractionSystem.Objects.Powered
 {
-    [DefaultExecutionOrder(6)]
+    [DefaultExecutionOrder(5)]
     public class FuseBox : MonoBehaviour, IInteractable, IPersistant, ISoundEntity
     {
         [SerializeField] public string persistentID;

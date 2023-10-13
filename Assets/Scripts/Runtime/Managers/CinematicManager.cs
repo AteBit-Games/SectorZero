@@ -15,12 +15,14 @@ namespace Runtime.Managers
 {
     public class CinematicManager : MonoBehaviour, IPersistant
     {
+        [SerializeField] private bool playOnStart;
         [SerializeField] public string persistentID;
         private Dictionary<PlayableDirector, bool> _director;
 
+
         private void Start()
         {
-            if(!GameManager.Instance.TestMode) TriggerCinematic(0);
+            if(playOnStart && !GameManager.Instance.TestMode) TriggerCinematic(0);
         }
 
         private void Awake()

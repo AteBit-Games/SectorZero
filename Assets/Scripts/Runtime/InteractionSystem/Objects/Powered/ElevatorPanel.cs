@@ -7,6 +7,7 @@ using Runtime.InteractionSystem.Interfaces;
 using Runtime.InteractionSystem.Objects.Doors;
 using Runtime.Managers;
 using Runtime.Misc;
+using Runtime.Misc.Lights;
 using Runtime.SoundSystem;
 using UnityEngine;
 
@@ -61,7 +62,6 @@ namespace Runtime.InteractionSystem.Objects.Powered
         
         public void PowerOn(bool load)
         {
-            Debug.Log("Powering on | loaded: " + load);
             if(!load) GameManager.Instance.SoundSystem.Play(elevatorSound, audioSource);
             _isPowered = true;
             door.canInteract = true;

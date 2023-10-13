@@ -1,7 +1,8 @@
 /****************************************************************
-* Copyright (c) 2023 AteBit Games
-* All rights reserved.
-****************************************************************/
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
+
 using System.Collections;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
@@ -10,9 +11,9 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
-namespace Runtime.Misc
+namespace Runtime.Misc.Lights
 {
-    [DefaultExecutionOrder(6)]
+    [DefaultExecutionOrder(5)]
     public class CustomLight : MonoBehaviour, IPowered, ISoundEntity
     {
         [SerializeField] private new Light2D light;

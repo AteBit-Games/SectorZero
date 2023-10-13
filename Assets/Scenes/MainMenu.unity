@@ -140,46 +140,6 @@ PrefabInstance:
       propertyPath: useEncryption
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: playerConfig.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: playerConfig.Array.data[0].levelName
-      value: Tutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: playerConfig.Array.data[1].levelName
-      value: SectorTwo
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: playerConfig.Array.data[2].levelName
-      value: SectorZero
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: playerConfig.Array.data[0].startPosition.x
-      value: -0.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: playerConfig.Array.data[0].startPosition.y
-      value: 5.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: playerConfig.Array.data[1].startPosition.x
-      value: -35.1875
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: playerConfig.Array.data[1].startPosition.y
-      value: 49.625
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: playerConfig.Array.data[2].startPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3517014781070517759, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
-      propertyPath: playerConfig.Array.data[2].startPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8564143802284992274, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
       propertyPath: menaceGaugeMax
       value: 75
