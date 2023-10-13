@@ -21,7 +21,6 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 namespace Runtime.Managers
@@ -63,7 +62,6 @@ namespace Runtime.Managers
         
         private CinemachineVirtualCamera _camera;
         [HideInInspector] public Window activeWindow;
-        private SceneInstance _sceneInstance;
         
         //====== Discord ========
         private const long ApplicationId = 1109955823121215509;
@@ -233,7 +231,6 @@ namespace Runtime.Managers
             SoundSystem.ResetSystem();
             AudioListener.pause = true;
             
-            if(_sceneInstance.Scene.isLoaded) Addressables.UnloadSceneAsync(_sceneInstance);
             StartCoroutine(LoadMainSceneAsync(levelName));
         }
 
@@ -372,10 +369,9 @@ namespace Runtime.Managers
 
             if (asyncOperation.Status == AsyncOperationStatus.Succeeded)
                 yield return asyncOperation.Result.ActivateAsync();
-            
-            _sceneInstance = asyncOperation.Result;
 
             LoadingScreen.HideLoading();
+            SoundSystem.StartSounds();
             Time.timeScale = 1f;
         }
 
@@ -383,7 +379,6 @@ namespace Runtime.Managers
         {
             ResetInput();
             AudioListener.pause = false;
-            SoundSystem.StartSounds();
             
             LoadingScreen.HideLoading();
             Time.timeScale = 1f;

@@ -89,7 +89,7 @@ namespace Runtime.AI
         
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
-            if(GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
+            if(SceneManager.GetActiveScene().name == "SectorTwo") return;
             
             InitializeReferences();
             

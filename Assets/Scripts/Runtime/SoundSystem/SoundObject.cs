@@ -25,6 +25,7 @@ namespace Runtime.SoundSystem
         
         public void Start()
         {
+            Debug.Log("SoundObject Start");
             AudioSource.Play();
         }
     }

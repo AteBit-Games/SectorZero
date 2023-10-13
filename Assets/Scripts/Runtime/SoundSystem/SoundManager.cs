@@ -230,7 +230,6 @@ namespace Runtime.SoundSystem
 
         public void LoadMasterVolume(float volume)
         {
-            Debug.Log("Loading master volume: " + volume);
             _masterVolume = volume;
         }
         
