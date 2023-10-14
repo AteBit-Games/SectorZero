@@ -213,14 +213,20 @@ namespace Runtime.Player
         public void Die()
         {
             _isDead = true;
+            
             //mute all sounds
             GetComponent<PlayerAudio>().enabled = false;
+            GetComponent<AudioSource>().enabled = false;
 
             //Disable the player
             DisableInput();
             _movementInput = Vector2.zero;
             _spriteRenderer.enabled = false;
             _playerShadow.enabled = false;
+            
+            //remove muffled sound
+            _audioLowPassFilter.enabled = false;
+            globalLight.intensity = 0.3f;
             
             //Reset Systems
             GameManager.Instance.DialogueSystem.CancelDialogue();
