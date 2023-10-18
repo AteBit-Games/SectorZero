@@ -34,7 +34,7 @@ namespace Runtime.Managers
         private void SceneLoaded(Scene scene, LoadSceneMode mode)
         {
             GameManager.Instance.details = levelDescription;
-            if(startAmbience != null && playAmbienceOnStart) GameManager.Instance.SoundSystem.FadeToNextAmbience(startAmbience);
+            if(startAmbience != null && playAmbienceOnStart) GameManager.Instance.SoundSystem.StartMainAmbience(startAmbience);
         }
     }
 }

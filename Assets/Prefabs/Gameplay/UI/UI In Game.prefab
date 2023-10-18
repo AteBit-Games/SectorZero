@@ -545,6 +545,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34673d17eea340542b6994a1a4bab28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exampleSound: {fileID: 11400000, guid: a9f9fc8148bb219419dfa0180b5433a9, type: 2}
+  exampleSoundTimeout: 1
+  masterMixer: {fileID: 24300002, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
+  musicMixer: {fileID: -3669875027937045916, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
+  sfxMixer: {fileID: -2711704030924625141, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
+  voicesMixer: {fileID: 852506298989779045, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
 --- !u!114 &1138291318300377335
 MonoBehaviour:
   m_ObjectHideFlags: 0

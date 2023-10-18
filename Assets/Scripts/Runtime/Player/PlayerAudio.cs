@@ -8,8 +8,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Runtime.Managers;
 using Runtime.Misc;
+using Runtime.Misc.Triggers;
 using Runtime.SoundSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -26,6 +28,8 @@ namespace Runtime.Player
     [DefaultExecutionOrder(6)]
     public class PlayerAudio : MonoBehaviour
     {
+        public AmbienceWing activeWing;
+        
         [SerializeField] private AudioSource audioSource;
         [FormerlySerializedAs("_tilemap")] [SerializeField] private Tilemap tilemap;
         [SerializeField] private List<FootstepSoundSet> footstepSounds;
@@ -42,7 +46,13 @@ namespace Runtime.Player
             _noiseEmitter = audioSource.GetComponent<NoiseEmitter>();
             GameManager.Instance.SoundSystem.SetupSound(audioSource, footstepSounds[0].footstepSounds[0]);
         }
-        
+
+        private void Start()
+        {
+            if(SceneManager.GetActiveScene().name == "SectorTwo")
+                GameManager.Instance.SoundSystem.FadeToNextAmbience(activeWing.ambience);
+        }
+
         //========================= Public Methods =========================//
 
         public void PlayFootstepSound()

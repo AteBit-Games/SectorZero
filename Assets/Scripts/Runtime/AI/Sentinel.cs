@@ -7,18 +7,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Runtime.AI.Interfaces;
+
 using UnityEngine;
 using Runtime.Managers;
 using Runtime.Misc.Triggers;
 using Runtime.SoundSystem;
+using Tweens;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
 namespace Runtime.AI
 {
-    public class Sentinel : MonoBehaviour, ISightHandler
+    public class Sentinel : MonoBehaviour
     {
         [Tooltip("Masks that block field of view"), SerializeField] private LayerMask obstacleMask;
         [Tooltip("Wall Mask"), SerializeField] private LayerMask wallMask;
@@ -228,17 +229,34 @@ namespace Runtime.AI
             var volume = FindFirstObjectByType<Volume>();
             var vignette = volume.sharedProfile.components[0] as Vignette;
             
-            // volume.TweenValueFloat(0.2f, 1.4f, value =>
-            // {
-            //     if (vignette != null) vignette.intensity.value = value;
-            // }).SetFrom(0f).SetEaseSineInOut();
-            //
-            yield return new WaitForSeconds(2f);
-            //
-            // volume.TweenValueFloat(0, 1f, value =>
-            // {
-            //     if (vignette != null) vignette.intensity.value = value;
-            // }).SetFrom(0.2f).SetEaseSineInOut();
+            var tween = new FloatTween()
+            {
+                easeType = EaseType.SineInOut,
+                to = 0.2f,
+                duration = 1.4f,
+                from = 0f,
+                onUpdate = (_, value) =>
+                {
+                    if (vignette != null) vignette.intensity.value = value;
+                }
+            };
+            
+            volume.gameObject.AddTween(tween);
+            yield return new WaitForSeconds(3.4f);
+            
+            tween = new FloatTween()
+            {
+                easeType = EaseType.SineInOut,
+                to = 0f,
+                duration = 1f,
+                from = 0.2f,
+                onUpdate = (_, value) =>
+                {
+                    if (vignette != null) vignette.intensity.value = value;
+                }
+            };
+            
+            volume.gameObject.AddTween(tween);
         }
         
         private IEnumerator TriggerDeactivate()
@@ -259,11 +277,28 @@ namespace Runtime.AI
             
             _eyeLights.ForEach(eye =>
             {
-                //eye.enabled = true;
+                eye.enabled = true;
+                
+                
+                
                 // eye.TweenValueFloat(0f, 1.4f, value =>
                 // {
                 //     eye.intensity = value;
                 // }).SetFrom(eye.intensity).SetEaseBackOut();
+                
+                var tween = new FloatTween()
+                {
+                    easeType = EaseType.SineInOut,
+                    to = 0f,
+                    duration = 1.4f,
+                    from = eye.intensity,
+                    onUpdate = (_, value) =>
+                    {
+                        eye.intensity = value;
+                    }
+                };
+                
+                eye.gameObject.AddTween(tween);
             });
         }
 

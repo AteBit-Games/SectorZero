@@ -4,6 +4,7 @@
 ****************************************************************/
 
 using System;
+using Runtime.BehaviourTree.Monsters;
 
 namespace Runtime.BehaviourTree.Actions.Utility 
 {
@@ -13,9 +14,18 @@ namespace Runtime.BehaviourTree.Actions.Utility
     [Description("Ends the execution of the tree")]
     public class EndTreeExecution : ActionNode
     {
+        public BehaviourTree tree;
+        
         protected override void OnStart()
         {
-            context.owner.behaviourTree = null;
+            if (context.owner is VoidMask voidMask)
+            {
+                voidMask.SetNewTree(tree);
+            }
+            else
+            {
+                UnityEngine.Debug.LogError("EndTreeExecution node can only be used with VoidMask");
+            }
         }
         
         protected override void OnStop() { }

@@ -10,6 +10,7 @@ TagManager:
   - Water
   - Shadow
   - RoomBounds
+  - PlayerInteraction
   layers:
   - Default
   - TransparentFX

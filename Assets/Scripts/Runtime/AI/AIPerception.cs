@@ -18,7 +18,7 @@ using UnityEngine.Rendering.Universal;
 namespace Runtime.AI
 {
     [DefaultExecutionOrder(10)]
-    public class AIPerception : MonoBehaviour, IHearingHandler, ISightHandler
+    public class AIPerception : MonoBehaviour, IHearingHandler
     {
         [SerializeField] private BehaviourTreeOwner treeOwner;
         
@@ -27,8 +27,12 @@ namespace Runtime.AI
         [Tooltip("Masks that contains the player character"), SerializeField] private LayerMask playerMask;
         [SerializeField] private PlayerController player;
         
-        [Tooltip("Maximum view distance"), SerializeField] private float viewRadius = 5.0f;
-        [Tooltip("Maximum angle that the monster can see"), SerializeField, Range(0f, 360f)] private float viewAngle = 135.0f;
+        [Tooltip("Maximum view distance"), SerializeField] private float farViewRadius = 5.0f;
+        [Tooltip("Maximum angle that the monster can see"), SerializeField, Range(0f, 360f)] private float farViewAngle = 135.0f;
+        
+        [Tooltip("Maximum view distance"), SerializeField] private float closeViewRadius = 5.0f;
+        [Tooltip("Maximum angle that the monster can see"), SerializeField, Range(0f, 360f)] private float closeViewAngle = 135.0f;
+        
         [Tooltip("Radius to instantly see player"), SerializeField] private float detectRadius = 5.0f;
         
         [SerializeField] private Sound detectedSound;
@@ -65,15 +69,13 @@ namespace Runtime.AI
         
         public void OnHearing(NoiseEmitter sender)
         {
-            Debug.Log("Heard");
-            
+
             if (!_canSeePlayer)
             {
                 switch (treeOwner)
                 {
                     case Vincent vincent:
                     {
-                        Debug.Log("Heard");
                         vincent.SetHeard(sender.transform.position);
                         break;
                     }
@@ -89,7 +91,7 @@ namespace Runtime.AI
             }
         }
 
-        public void OnSightEnter()
+        public void OnSightEnter(bool close)
         {
             if (_looseSightCoroutineRunning && _loseSightCoroutine != null)
             {
@@ -100,12 +102,12 @@ namespace Runtime.AI
 
             if (!_canSeePlayer && !_gainSightCoroutineRunning)
             {
-                _gainSightCoroutine = StartCoroutine(GainSight(false));
                 _gainSightCoroutineRunning = true;
+                _gainSightCoroutine = StartCoroutine(GainSight(false, close));
             }
         }
         
-        private IEnumerator GainSight(bool instant)
+        private IEnumerator GainSight(bool instant, bool close)
         {
             if (_volume.sharedProfile.components[0] is Vignette vignette)
             {
@@ -118,7 +120,7 @@ namespace Runtime.AI
                 var tween = new FloatTween {
                     from = vignette.intensity.value,
                     to = 0.3f,
-                    duration = 1.4f,
+                    duration = 1f,
                     easeType = EaseType.SineInOut,
                     onUpdate = (_, value) => {
                         if (vignette != null) vignette.intensity.value = value;
@@ -128,7 +130,11 @@ namespace Runtime.AI
                 _activeVignetteTween = _volume.gameObject.AddTween(tween);
             }
 
-            if(!instant) yield return new WaitForSeconds(1.2f);
+            if (!instant)
+            {
+                if(!close) yield return new WaitForSeconds(1f);
+                else yield return new WaitForSeconds(0.75f);
+            }
             else yield return null;
 
             if (_volume.sharedProfile.components[1] is ChromaticAberration aberration)
@@ -205,7 +211,7 @@ namespace Runtime.AI
         
         private IEnumerator LoseSight()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(2.5f);
             
             GameManager.Instance.SoundSystem.PlaySting(lostSound);
             player.GetComponent<ISightEntity>().IsSeen = false;
@@ -267,14 +273,15 @@ namespace Runtime.AI
             while (true)
             {
                 yield return new WaitForSeconds(0.2f);
-                FieldOfViewCheck();
+                FarViewCheck();
+                CloseViewCheck();
             }
         }
 
-        private void FieldOfViewCheck()
+        private void CloseViewCheck()
         {
             if(player.isHiding) return;
-            var rangeChecks = Physics2D.OverlapCircleAll(transform.position, viewRadius, playerMask);
+            var rangeChecks = Physics2D.OverlapCircleAll(transform.position, closeViewRadius, playerMask);
             
             if (rangeChecks.Length != 0)
             {
@@ -290,7 +297,7 @@ namespace Runtime.AI
                 var angle = Vector2.Angle(direction, directionToTarget);
                 
                 //Check if the player is within the field of view
-                if (angle < viewAngle / 2)
+                if (angle < closeViewAngle / 2)
                 {
                     //Check if the player is not behind a wall
                     if (!Physics2D.Raycast(position, directionToTarget, distanceToTarget, wallMask))
@@ -301,14 +308,14 @@ namespace Runtime.AI
                             //Check if the player is behind an obstacle only if the player is crouching
                             if (!Physics2D.Raycast(position, directionToTarget, distanceToTarget, obstacleMask))
                             {
-                                OnSightEnter();
+                                OnSightEnter(true);
                             }
                             else OnSightExit(player.transform.position);
                         }
                         else
                         {
                             //If here then player is within view and out in the open
-                            OnSightEnter();
+                            OnSightEnter(true);
                         }
                     }
                     else OnSightExit(player.transform.position);
@@ -321,14 +328,76 @@ namespace Runtime.AI
                         {
                             if(!_canSeePlayer)
                             {
-                                StartCoroutine(GainSight(true));
+                                StartCoroutine(GainSight(true, true));
                             }
                         }
                     }
                     else OnSightExit(player.transform.position);
                 }
             }
-            else OnSightExit(player.transform.position);
+            else if(_canSeePlayer)
+                OnSightExit(player.transform.position);
+        }
+
+        private void FarViewCheck()
+        {
+            if(player.isHiding) return;
+            var rangeChecks = Physics2D.OverlapCircleAll(transform.position, farViewRadius, playerMask);
+            
+            if (rangeChecks.Length != 0)
+            {
+                var target = rangeChecks[0].transform;
+                var position = transform.position;
+                var targetPosition = target.position;
+                
+                var distanceToTarget = Vector3.Distance(position, targetPosition);
+                
+                //Determine the cone radius and direction to check
+                var directionToTarget = (targetPosition - position).normalized;
+                var direction = DirectionFromAngleCenter(transform.eulerAngles.z);
+                var angle = Vector2.Angle(direction, directionToTarget);
+                
+                //Check if the player is within the field of view
+                if (angle < farViewAngle / 2)
+                {
+                    //Check if the player is not behind a wall
+                    if (!Physics2D.Raycast(position, directionToTarget, distanceToTarget, wallMask))
+                    {
+                        //Check if the player is crouching
+                        if (GameManager.Instance.AIManager.isPlayerCrouching)
+                        {
+                            //Check if the player is behind an obstacle only if the player is crouching
+                            if (!Physics2D.Raycast(position, directionToTarget, distanceToTarget, obstacleMask))
+                            {
+                                OnSightEnter(false);
+                            }
+                            else OnSightExit(player.transform.position);
+                        }
+                        else
+                        {
+                            //If here then player is within view and out in the open
+                            OnSightEnter(false);
+                        }
+                    }
+                    else OnSightExit(player.transform.position);
+                }
+                else
+                {
+                    if(distanceToTarget < detectRadius)
+                    {
+                        if (!Physics2D.Raycast(position, directionToTarget, distanceToTarget, obstacleMask))
+                        {
+                            if(!_canSeePlayer)
+                            {
+                                StartCoroutine(GainSight(true, false));
+                            }
+                        }
+                    }
+                    else OnSightExit(player.transform.position);
+                }
+            }
+            else if(_canSeePlayer)
+                OnSightExit(player.transform.position);
         }
         
         // ====================== Private Methods ======================
@@ -353,21 +422,25 @@ namespace Runtime.AI
             var position = transform.position;
             
             Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(position, viewRadius);
+            Gizmos.DrawWireSphere(position, farViewRadius);
 
             var eulerAngles = transform.eulerAngles;
-            var viewAngle01 = DirectionFromAngle(eulerAngles.z, -viewAngle / 2);
-            var viewAngle02 = DirectionFromAngle(eulerAngles.z, viewAngle / 2);
+            var viewAngle01 = DirectionFromAngle(eulerAngles.z, -farViewAngle / 2);
+            var viewAngle02 = DirectionFromAngle(eulerAngles.z, farViewAngle / 2);
             
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(position, position + viewAngle01 * viewRadius);
-            Gizmos.DrawLine(position, position + viewAngle02 * viewRadius);
+            Gizmos.DrawLine(position, position + viewAngle01 * farViewRadius);
+            Gizmos.DrawLine(position, position + viewAngle02 * farViewRadius);
             
-            if (_canSeePlayer)
-            {
-                Gizmos.color = Color.green;
-                Gizmos.DrawLine(transform.position, FindFirstObjectByType<PlayerController>().transform.position);
-            }
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(position, closeViewRadius);
+            
+            viewAngle01 = DirectionFromAngle(eulerAngles.z, -closeViewAngle / 2);
+            viewAngle02 = DirectionFromAngle(eulerAngles.z, closeViewAngle / 2);
+            
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(position, position + viewAngle01 * closeViewRadius);
+            Gizmos.DrawLine(position, position + viewAngle02 * closeViewRadius);
             
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(position, detectRadius);

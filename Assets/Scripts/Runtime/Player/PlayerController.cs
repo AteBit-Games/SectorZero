@@ -216,7 +216,7 @@ namespace Runtime.Player
             
             //mute all sounds
             GetComponent<PlayerAudio>().enabled = false;
-            GetComponent<AudioSource>().enabled = false;
+            GetComponentInChildren<AudioSource>().enabled = false;
 
             //Disable the player
             DisableInput();

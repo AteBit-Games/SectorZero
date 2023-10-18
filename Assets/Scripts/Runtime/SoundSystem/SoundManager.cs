@@ -21,6 +21,7 @@ namespace Runtime.SoundSystem
         [SerializeField] public AudioMixer mainMixer;
         
         [Header("AMBIENCE SETTINGS")]
+        [SerializeField] public AudioSource mainAmbienceSource;
         [SerializeField] public List<AudioSource> ambienceSources;
         [SerializeField] public AudioSource stingSource;
         
@@ -163,11 +164,6 @@ namespace Runtime.SoundSystem
             _activeSoundEntitySources.Clear();
         }
         
-        public void FadeInAmbience(float fadeTime = 1.0f)
-        {
-            StartCoroutine(SoundUtils.StartFade(mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, 0.0f));
-        }
-        
         public void FadeOutAmbience(float fadeTime = 1.0f)
         {
             StartCoroutine(SoundUtils.StartFade(mainMixer, _ambMixerNames[_currentAmbIndex], fadeTime, -80.0f));
@@ -189,14 +185,15 @@ namespace Runtime.SoundSystem
             StartCoroutine(SoundUtils.StartFade(mainMixer, _ambMixerNames[1 - (_currentAmbIndex)], fadeTime, 1.0f));
             _currentAmbIndex = 1 - _currentAmbIndex;
         }
-
-        public void FastSwapAmbience()
+        
+        public void StartMainAmbience(Sound mainAmbience)
         {
-            _currentAmbIndex = 1 - _currentAmbIndex;
-            ambienceSources[_currentAmbIndex].Play();
-            ambienceSources[1 - _currentAmbIndex].Stop();
+            mainAmbienceSource.clip = mainAmbience.clip;
+            mainAmbienceSource.volume = mainAmbience.volumeScale;
+            mainAmbienceSource.loop = mainAmbience.loop;
+            mainAmbienceSource.Play();
         }
-
+        
         public void PlaySting(Sound sound)
         {
             if(_isBusy) return;
@@ -217,16 +214,6 @@ namespace Runtime.SoundSystem
         }
         
         //========================= Setters =========================//
-
-        public void SetAmbienceClip(Sound sound)
-        {
-            ambienceSources[_currentAmbIndex].clip = sound.clip;
-        }
-        
-        public void SetNextAmbience(Sound sound)
-        {
-            ambienceSources[1 - _currentAmbIndex].clip = sound.clip;
-        }
 
         public void LoadMasterVolume(float volume)
         {

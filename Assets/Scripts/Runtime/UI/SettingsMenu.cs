@@ -5,8 +5,8 @@
 
 using System;
 using Runtime.Managers;
+using Runtime.SoundSystem;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -17,6 +17,14 @@ namespace Runtime.UI
     [DefaultExecutionOrder(3)]
     public class SettingsMenu : MonoBehaviour
     {
+        [SerializeField] private Sound exampleSound;
+        [SerializeField] private float exampleSoundTimeout = 0.5f;
+        
+        [SerializeField] private AudioMixerGroup masterMixer;
+        [SerializeField] private AudioMixerGroup musicMixer;
+        [SerializeField] private AudioMixerGroup sfxMixer;
+        [SerializeField] private AudioMixerGroup voicesMixer;
+        
         private Label _settingDescription;
         private UIDocument _uiDocument;
         
@@ -40,6 +48,8 @@ namespace Runtime.UI
         private float _activeMusicVolume;
         private float _activeSfxVolume;
         private float _activeVoicesVolume;
+        
+        private float _cooldownTimeLeft;
         
         private void Awake()
         {
@@ -73,6 +83,11 @@ namespace Runtime.UI
             
             RegisterNoteSetting();
             RegisterTapeSetting();
+        }
+
+        private void Update()
+        {
+            if (_cooldownTimeLeft > 0) _cooldownTimeLeft -= Time.fixedDeltaTime;
         }
 
         private void RegisterDisplayModeSetting()
@@ -248,6 +263,12 @@ namespace Runtime.UI
                 _activeMasterVolume = evt.newValue;
                 GameManager.Instance.SaveSystem.UpdatePlayerMasterVolume(_activeMasterVolume);
                 GameManager.Instance.SoundSystem.SetMasterVolume(_activeMasterVolume);
+                
+                if(_cooldownTimeLeft > 0) return;
+                _cooldownTimeLeft = exampleSoundTimeout;
+                
+                exampleSound.mixerGroup = masterMixer;
+                GameManager.Instance.SoundSystem.Play(exampleSound);
             });
             
             var soundVolume = soundSlider.Q<Slider>("slider");
@@ -257,6 +278,12 @@ namespace Runtime.UI
                 _activeSfxVolume = evt.newValue;
                 GameManager.Instance.SaveSystem.UpdatePlayerSoundsVolume(_activeSfxVolume);
                 GameManager.Instance.SoundSystem.SetSfxVolume(_activeSfxVolume);
+                
+                if(_cooldownTimeLeft > 0) return;
+                _cooldownTimeLeft = exampleSoundTimeout;
+                
+                exampleSound.mixerGroup = sfxMixer;
+                GameManager.Instance.SoundSystem.Play(exampleSound);
             });
             
             var musicVolume = musicSlider.Q<Slider>("slider");
@@ -266,6 +293,12 @@ namespace Runtime.UI
                 _activeMusicVolume = evt.newValue;
                 GameManager.Instance.SaveSystem.UpdatePlayerMusicVolume(_activeMusicVolume);
                 GameManager.Instance.SoundSystem.SetMusicVolume(_activeMusicVolume);
+                
+                if(_cooldownTimeLeft > 0) return;
+                _cooldownTimeLeft = exampleSoundTimeout;
+                
+                exampleSound.mixerGroup = musicMixer;
+                GameManager.Instance.SoundSystem.Play(exampleSound);
             });
             
             var voicesVolume = voicesSlider.Q<Slider>("slider");
@@ -275,6 +308,12 @@ namespace Runtime.UI
                 _activeVoicesVolume = evt.newValue;
                 GameManager.Instance.SaveSystem.UpdatePlayerVoicesVolume(_activeVoicesVolume);
                 GameManager.Instance.SoundSystem.SetVoicesVolume(_activeVoicesVolume);
+                
+                if(_cooldownTimeLeft > 0) return;
+                _cooldownTimeLeft = exampleSoundTimeout;
+                
+                exampleSound.mixerGroup = voicesMixer;
+                GameManager.Instance.SoundSystem.Play(exampleSound);
             });
         }
         
@@ -329,7 +368,6 @@ namespace Runtime.UI
             
             _activeAutoNotes = playerData.autoNotes;
             _activeAutoTapes = playerData.autoTapes;
-            
         }
 
         private static void SetButtonState(Button button, bool state)

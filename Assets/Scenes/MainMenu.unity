@@ -973,6 +973,30 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8357116548118797782, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
+      propertyPath: sfxMixer
+      value: 
+      objectReference: {fileID: -2711704030924625141, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
+    - target: {fileID: 8357116548118797782, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
+      propertyPath: musicMixer
+      value: 
+      objectReference: {fileID: -3669875027937045916, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
+    - target: {fileID: 8357116548118797782, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
+      propertyPath: masterMixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
+    - target: {fileID: 8357116548118797782, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
+      propertyPath: voicesMixer
+      value: 
+      objectReference: {fileID: 852506298989779045, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
+    - target: {fileID: 8357116548118797782, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
+      propertyPath: exampleSound
+      value: 
+      objectReference: {fileID: 11400000, guid: a9f9fc8148bb219419dfa0180b5433a9, type: 2}
+    - target: {fileID: 8357116548118797782, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
+      propertyPath: exampleSoundTimeout
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
       propertyPath: iconSpeed
       value: 0.08

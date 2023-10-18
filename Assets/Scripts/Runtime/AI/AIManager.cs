@@ -12,6 +12,7 @@ using Runtime.Managers;
 using Runtime.Player;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
+using Runtime.SoundSystem;
 using Tweens;
 using UnityEngine;
 using UnityEngine.AI;
@@ -30,6 +31,12 @@ namespace Runtime.AI
     [DefaultExecutionOrder(4)]
     public class AIManager : MonoBehaviour, IPersistant
     {
+        [SerializeField] private List<Sound> graceSwapSounds;
+        [SerializeField] private List<Sound> menaceSwapSounds;
+        
+        [SerializeField] private List<Sound> monsterStings;
+        [SerializeField] private Vector2 stingInterval = new(60f, 120f);
+        
         [SerializeField] private float menaceGaugeMax = 100f;
         [SerializeField] private float menaceGaugeMin;
 
@@ -79,6 +86,10 @@ namespace Runtime.AI
         private Coroutine _pulseCoroutine;
 
         private Volume _volume;
+        
+        //----- Adaptive Audio -----//
+        private float _stingCooldown;        
+        private AudioSource _stingSource;
 
         //----- Interface ---//
         public int AggroLevel { get; private set; }
@@ -120,6 +131,8 @@ namespace Runtime.AI
 
             _activeSentinelsKey = monster.FindBlackboardKey<int>("ActiveSentinels");
             _sentinelDurationKey = monster.FindBlackboardKey<float>("SentinelActivationTime");
+
+            _stingSource = GameObject.Find("StingSource").GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -171,6 +184,20 @@ namespace Runtime.AI
                                   ray.collider.CompareTag("Player");
                 }
             }
+            
+            
+            if(_stingCooldown > 0f)
+            {
+                _stingCooldown -= Time.deltaTime;
+            }
+            else if(totalDistance > 50f)
+            {
+                var sound = monsterStings[UnityEngine.Random.Range(0, monsterStings.Count)];
+                GameManager.Instance.SoundSystem.Play(sound, _stingSource);
+                _stingCooldown = UnityEngine.Random.Range(stingInterval.x, stingInterval.y);
+                    
+                Debug.Log("Played: " + sound.name + " | Cooldown: " + _stingCooldown);
+            }
 
             //Patrol Close
             if (menaceState)
@@ -200,6 +227,13 @@ namespace Runtime.AI
             {
                 SetPatrolState(false);
                 menaceState = false;
+                
+                //pick random sound
+                var sound = graceSwapSounds[UnityEngine.Random.Range(0, graceSwapSounds.Count)];
+                if (UnityEngine.Random.Range(0, 100) < 60)
+                {
+                    GameManager.Instance.SoundSystem.Play(sound);
+                }
 
                 SetFilmGrain(0.2f);
                 if (_pulseCoroutine != null)
@@ -215,6 +249,13 @@ namespace Runtime.AI
             {
                 SetPatrolState(true);
                 menaceState = true;
+                
+                var sound = menaceSwapSounds[UnityEngine.Random.Range(0, menaceSwapSounds.Count)];
+                if (UnityEngine.Random.Range(0, 100) < 60)
+                {
+                    GameManager.Instance.SoundSystem.Play(sound);
+                }
+                
                 SetFilmGrain(0.4f);
                 _pulseCoroutine = StartCoroutine(VignettePulse());
             }
@@ -321,6 +362,8 @@ namespace Runtime.AI
             _aggroLevelKey = monster.FindBlackboardKey<int>("AggroLevel");
             _isActiveKey = monster.FindBlackboardKey<bool>("Active");
             _roomKey = monster.FindBlackboardKey<Collider2D>("InspectRoom");
+            
+            
         }
 
 
@@ -366,67 +409,98 @@ namespace Runtime.AI
         {
             if (_volume.sharedProfile.components[0] is Vignette vignette)
             {
-                var tween = new FloatTween
-                {
-                    from = vignette.intensity.value,
-                    to = 0.2f,
-                    duration = 0.225f,
-                    onUpdate = (_, value) =>
-                    {
-                        if (vignette != null) vignette.intensity.value = value;
-                    }
-                };
-
-                _activeTween = _volume.gameObject.AddTween(tween);
-
-                yield return new WaitForSecondsRealtime(0.225f);
+                // var tween = new FloatTween
+                // {
+                //     from = vignette.intensity.value,
+                //     to = 0.25f,
+                //     duration = 0.6f,
+                //     onUpdate = (_, value) =>
+                //     {
+                //         if (vignette != null) vignette.intensity.value = value;
+                //     }
+                // };
+                //
+                // _activeTween = _volume.gameObject.AddTween(tween);
+                //
+                // yield return new WaitForSecondsRealtime(0.7f);
+                //
+                // tween = new FloatTween
+                // {
+                //     from = vignette.intensity.value,
+                //     to = 0.2f,
+                //     duration = 1.2f,
+                //     onUpdate = (_, value) =>
+                //     {
+                //         if (vignette != null) vignette.intensity.value = value;
+                //     }
+                // };
+                //
+                // _activeTween = _volume.gameObject.AddTween(tween);
+                //
+                // yield return new WaitForSecondsRealtime(1.3f);
+                //
                 
-                tween = new FloatTween
-                {
-                    from = 0.2f,
-                    to = 0.1f,
-                    duration = 0.15f,
-                    onUpdate = (_, value) =>
-                    {
-                        if (vignette != null) vignette.intensity.value = value;
-                    }
-                };
-
-                _activeTween = _volume.gameObject.AddTween(tween);
-                
-                yield return new WaitForSecondsRealtime(0.15f);
-                
-                tween = new FloatTween
-                {
-                    from = 0.1f,
-                    to = 0.2f,
-                    duration = 0.15f,
-                    onUpdate = (_, value) =>
-                    {
-                        if (vignette != null) vignette.intensity.value = value;
-                    }
-                };
-
-                _activeTween = _volume.gameObject.AddTween(tween);
-                
-                yield return new WaitForSecondsRealtime(0.15f);
-                
-                tween = new FloatTween
-                {
-                    from = 0.2f,
-                    to = 0.08f,
-                    duration = 0.975f,
-                    onUpdate = (_, value) =>
-                    {
-                        if (vignette != null) vignette.intensity.value = value;
-                    }
-                };
-
-                _activeTween = _volume.gameObject.AddTween(tween);
-                
+                // var tween = new FloatTween
+                // {
+                //     from = vignette.intensity.value,
+                //     to = 0.2f,
+                //     duration = 0.225f,
+                //     onUpdate = (_, value) =>
+                //     {
+                //         if (vignette != null) vignette.intensity.value = value;
+                //     }
+                // };
+                //
+                // _activeTween = _volume.gameObject.AddTween(tween);
+                //
+                // yield return new WaitForSecondsRealtime(0.225f);
+                //
+                // tween = new FloatTween
+                // {
+                //     from = 0.2f,
+                //     to = 0.1f,
+                //     duration = 0.15f,
+                //     onUpdate = (_, value) =>
+                //     {
+                //         if (vignette != null) vignette.intensity.value = value;
+                //     }
+                // };
+                //
+                // _activeTween = _volume.gameObject.AddTween(tween);
+                //
+                // yield return new WaitForSecondsRealtime(0.15f);
+                //
+                // tween = new FloatTween
+                // {
+                //     from = 0.1f,
+                //     to = 0.2f,
+                //     duration = 0.15f,
+                //     onUpdate = (_, value) =>
+                //     {
+                //         if (vignette != null) vignette.intensity.value = value;
+                //     }
+                // };
+                //
+                // _activeTween = _volume.gameObject.AddTween(tween);
+                //
+                // yield return new WaitForSecondsRealtime(0.15f);
+                //
+                // tween = new FloatTween
+                // {
+                //     from = 0.2f,
+                //     to = 0.08f,
+                //     duration = 0.975f,
+                //     onUpdate = (_, value) =>
+                //     {
+                //         if (vignette != null) vignette.intensity.value = value;
+                //     }
+                // };
+                //
+                // _activeTween = _volume.gameObject.AddTween(tween);
+                //
                 yield return new WaitForSecondsRealtime(0.975f);
                 
-                _pulseCoroutine = StartCoroutine(VignettePulse());
+                //_pulseCoroutine = StartCoroutine(VignettePulse());
             }
         }
 

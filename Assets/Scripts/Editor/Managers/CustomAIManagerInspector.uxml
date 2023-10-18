@@ -12,7 +12,18 @@
             <uie:PropertyField binding-path="closeDistanceMultiplier" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
             <uie:PropertyField binding-path="closeDistanceBase" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
             <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
-            <uie:PropertyField binding-path="persistentID" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
+            <uie:PropertyField binding-path="menaceGaugeValue" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="VisualElement" class="property-group">
+        <ui:Label tabindex="-1" text="Adaptive Audio" display-tooltip-when-elided="true" name="header" enable-rich-text="true" />
+        <ui:VisualElement name="properties" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <uie:PropertyField binding-path="graceSwapSounds" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
+            <uie:PropertyField binding-path="menaceSwapSounds" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
+            <ui:VisualElement name="divider" class="divider" style="flex-grow: 1; background-color: rgb(84, 84, 84); height: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; margin-top: 15px; margin-bottom: 15px; width: 90%; align-items: center; justify-content: flex-start; align-self: center;" />
+            <uie:PropertyField binding-path="stingSource" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
+            <uie:PropertyField binding-path="monsterStings" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
+            <uie:PropertyField binding-path="stingInterval" name="property" style="margin-top: 3px; justify-content: center; margin-bottom: 0; margin-right: 5px; flex-grow: 1;" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:Button text="Edit Script" display-tooltip-when-elided="true" name="open-button" class="button" style="padding-top: 3px; padding-left: 3px; padding-right: 3px; padding-bottom: 3px; margin-top: 10px; margin-bottom: 5px;" />
