@@ -14,23 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   date: 
   dialogueLines:
-  - actor: {fileID: 11400000, guid: 127a0ab04d07f0e48bcebcae40e9ed8c, type: 2}
-    line: This is the third checkup on supervisor Alexander. His condition continues
-      to deteriorate.
-  - actor: {fileID: 11400000, guid: 127a0ab04d07f0e48bcebcae40e9ed8c, type: 2}
-    line: Despite multiple separation attempts, the protective suit remains fused
-      to the skin.
-  - actor: {fileID: 11400000, guid: 127a0ab04d07f0e48bcebcae40e9ed8c, type: 2}
-    line: Further examination revealed a gash on the inseam of the suit. It appears
-      that a fault in the suit led to the exposure.
-  - actor: {fileID: 11400000, guid: 127a0ab04d07f0e48bcebcae40e9ed8c, type: 2}
-    line: Alexander has entered a constant state of lethargy, but retains some sense
-      of consciousness. He resists ingesting any food or liquids.
-  - actor: {fileID: 11400000, guid: 127a0ab04d07f0e48bcebcae40e9ed8c, type: 2}
-    line: We will continue to replace the oxygen tank daily, but his condition is
-      almost certainly terminal. We are not certain he will make it to next week.
+  - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
+    line: "Does it bother you Nellie? Not knowing.\r"
+  - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
+    line: "Maybe\u2026 in spite of everything, there is somewhere for us to go after
+      this. Maybe that\u2019s where Mum is now, and Dad and\u2026 me\u2026 I guess."
+  - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
+    line: "Maybe there we\u2019ll feel warm again and loved. Really loved, forever.
+      Forever.\r"
+  - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
+    line: "Would forever get boring? \r"
+  - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
+    line: "Maybe it\u2019s better we simply stop. No more pain.\r"
+  - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
+    line: "We could just sleep, rest\u2026 Forever\u2026\r"
+  - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
+    line: "Does that scare you? Being gone?\r"
+  - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
+    line: "What if you knew? Don\u2019t you want to know Nellie?\r"
+  - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
+    line: "Come with me Nellie. We can find out\u2026 together.\r"
   canSkip: 1
   autoSkipDelay: 2
-  trigger: 0
+  trigger: 1
   addSummaryEntry: 0
   summaryEntry: []

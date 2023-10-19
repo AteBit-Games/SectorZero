@@ -14,14 +14,12 @@ namespace Runtime.BehaviourTree.Actions.Navigation
     [Description("Seek a target position")]
     public class PatrolToPoint : ActionNode
     {
+        public NodeProperty<UnityEngine.GameObject> player;
         public NodeProperty<Vector2> targetPoint;
         public NodeProperty<float> speed = new(){Value = 4f};
         public NodeProperty<float> failureChance = new(){Value = 0.1f};
         public NodeProperty<float> failureDistanceRemaining = new(){Value = 0.25f};
-        public bool speedUp;
         
-        private bool _farFromTarget;
-
         private bool _willFail;
         private float _totalDistance;
 
@@ -31,9 +29,8 @@ namespace Runtime.BehaviourTree.Actions.Navigation
             context.agent.isStopped = false;
             
             _totalDistance = Vector3.Distance(context.agent.transform.position, context.agent.destination);
-            
-            if(speedUp) _farFromTarget = _totalDistance > 25f;
-            context.agent.speed = _farFromTarget ? 12f : speed.Value;
+
+            context.agent.speed = speed.Value;
             _willFail = UnityEngine.Random.Range(0f, 1f) < failureChance.Value;
         }
 
@@ -52,13 +49,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
                 return State.Failure;
             }
             
-            if(_farFromTarget && Vector3.Distance(context.agent.transform.position, context.agent.destination) < 40f)
-            {
-
-                context.agent.speed = speed.Value;
-                _farFromTarget = false;
-            }
-            
+            context.agent.speed = Vector3.Distance(context.agent.transform.position, player.Value.transform.position) < 35f ? speed.Value : 12f;
             if (context.agent.remainingDistance < context.agent.stoppingDistance) return State.Success;
             
             return context.agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathInvalid ? State.Failure : State.Running;

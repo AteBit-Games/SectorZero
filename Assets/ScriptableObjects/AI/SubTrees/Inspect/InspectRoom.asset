@@ -31,7 +31,7 @@ MonoBehaviour:
     - rid: 130803864545001491
     - rid: 130803864545001475
     - rid: 130803893468135442
-  viewPosition: {x: 832, y: 200, z: 0}
+  viewPosition: {x: 421, y: 27, z: 0}
   viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
   references:
     version: 2
@@ -126,6 +126,10 @@ MonoBehaviour:
           If failure is set the AI
           will have a chance to abort the current route to add a level of unpredictability'
         drawGizmos: 0
+        player:
+          reference:
+            rid: 130803871365464068
+          defaultValue: {fileID: 0}
         targetPoint:
           reference:
             rid: 130803864545001491

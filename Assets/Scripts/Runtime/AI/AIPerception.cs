@@ -72,6 +72,9 @@ namespace Runtime.AI
 
             if (!_canSeePlayer)
             {
+                Debug.Log("Heard");
+                Debug.Log(treeOwner);
+                    
                 switch (treeOwner)
                 {
                     case Vincent vincent:

@@ -88,7 +88,7 @@ MonoBehaviour:
     - rid: 484473835900633088
     - rid: 6236232439545200658
     - rid: 484473896144994402
-  viewPosition: {x: 226, y: 116, z: 0}
+  viewPosition: {x: 287, y: 60, z: 0}
   viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
@@ -1097,6 +1097,8 @@ MonoBehaviour:
           keys: []
         comment: 
         drawGizmos: 0
+        name: 
+        debug: 0
         child:
           rid: 484473836275236922
     - rid: 6236232439545200641
