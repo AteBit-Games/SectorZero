@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da09ef4e6e9b5f74486f1c4010871c5d, type: 3}
   m_Name: MenuSlider
   m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 852506298989779045, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
-  clip: {fileID: 8300000, guid: e3076fa3a4e0f8e4da904f63725c9f37, type: 3}
-  volumeScale: 0.13
+  mixerGroup: {fileID: -2711704030924625141, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
+  clip: {fileID: 8300000, guid: 3a7a9d2f4dae16b4e877fc52ecc0b90a, type: 3}
+  volumeScale: 1
   loop: 0
