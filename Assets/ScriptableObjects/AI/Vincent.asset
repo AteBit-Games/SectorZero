@@ -91,8 +91,8 @@ MonoBehaviour:
     - rid: 2098102505811476488
     - rid: 2098102505811476487
     - rid: 4809529510642319375
-  viewPosition: {x: -1281, y: -339, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: -945, y: -155, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -827,7 +827,7 @@ MonoBehaviour:
         speed:
           reference:
             rid: -2
-          defaultValue: 5.35
+          defaultValue: 6
     - rid: 2098102505811476518
       type: {class: Selector, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
@@ -993,7 +993,7 @@ MonoBehaviour:
         speed:
           reference:
             rid: -2
-          defaultValue: 4
+          defaultValue: 6
     - rid: 2098102505811476545
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:

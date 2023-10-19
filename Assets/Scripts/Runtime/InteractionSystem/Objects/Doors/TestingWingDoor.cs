@@ -15,6 +15,7 @@ using UnityEngine;
 
 namespace Runtime.InteractionSystem.Objects.Doors
 {
+    [DefaultExecutionOrder(6)]
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(AudioSource))]
     public class TestingWingDoor : Door, IInteractable, IPersistant

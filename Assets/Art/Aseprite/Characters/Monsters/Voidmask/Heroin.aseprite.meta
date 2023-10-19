@@ -121,14 +121,14 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Heroin
     originalName: 
-    pivot: {x: 0.675, y: -0.05714286}
+    pivot: {x: 0.8442623, y: -0.05714286}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 200
+      width: 122
       height: 70
     spriteID: caf71b6f199a8144ab33cfcd2ac584dc
     spriteBone: []
@@ -153,7 +153,7 @@ ScriptedImporter:
       cellRect:
         x: -63
         y: 4
-        width: 200
+        width: 122
         height: 70
       spriteId: caf71b6f199a8144ab33cfcd2ac584dc
     linkedCells: []
@@ -161,4 +161,4 @@ ScriptedImporter:
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 144, y: 80}
+  canvasSize: {x: 80, y: 80}
