@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe4b17802c61545a7de43c0855a903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSound: {fileID: 11400000, guid: 5ececcaf60583d54e82ce681f1f82403, type: 2}
+  interactSound: {fileID: 11400000, guid: a54712d38ddff7a44a5aeada32ec1fa9, type: 2}
   revealPosition: {fileID: 6946845652144023477}
   exitDirection: 1
 --- !u!61 &728743678538597299
