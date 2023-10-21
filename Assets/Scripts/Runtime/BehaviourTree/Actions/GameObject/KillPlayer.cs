@@ -1,8 +1,7 @@
 using System;
 using Runtime.Player;
-using Runtime.Utils;
+using Tweens;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Runtime.BehaviourTree.Actions.GameObject 
 {
@@ -28,18 +27,7 @@ namespace Runtime.BehaviourTree.Actions.GameObject
             context.agent.velocity = Vector3.zero;
             
             var direction = context.agent.transform.position - player.Value.transform.position;
-            // var angle = Vector3.SignedAngle(direction, Vector3.up, Vector3.forward);
-            //
-            // //for now only west and east
-            // animationClip = angle switch
-            // {
-            //     < 45f and > -45f => eastKill,
-            //     < 135f and > 45f => northKill,
-            //     < -135f or > 135f => westKill,
-            //     < -45f and > -135f => southKill,
-            //     _ => throw new ArgumentOutOfRangeException()
-            // };
-            
+
             var perp = Vector3.Cross(context.transform.forward, direction);
             var dir = Vector3.Dot(perp, player.Value.transform.up);
 
@@ -55,6 +43,8 @@ namespace Runtime.BehaviourTree.Actions.GameObject
 
             if(player.Value.TryGetComponent(out PlayerController playerController))
             {
+                playerController.gameObject.CancelTweens();
+                playerController.transform.position = context.transform.position;
                 playerController.Die();
             }
         }

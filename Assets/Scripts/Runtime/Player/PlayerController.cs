@@ -282,7 +282,7 @@ namespace Runtime.Player
             _movementAnimator.SetFloat(id: _moveX, 1);
         }
         
-        private void SetVisible(bool state)
+        public void SetVisible(bool state)
         {
             isHiding = !state;
             _movementAnimator.enabled = state;

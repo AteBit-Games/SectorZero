@@ -3,28 +3,102 @@
 * All rights reserved.
 ****************************************************************/
 
+using System.Collections;
+using System.Collections.Generic;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.Player;
 using Runtime.SoundSystem;
+using Tweens;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Runtime.InteractionSystem.Objects
 {
     public class Vent : MonoBehaviour, IInteractable
     {
-        [SerializeField] private Sound interactSound;
-        public Sound InteractSound => interactSound;
+        [SerializeField] private float moveTime = 2f;
+        
+        [SerializeField] private Sound closeSound;
+        [SerializeField] private Sound openSound;
+        public Sound InteractSound => openSound;
         
         [SerializeField, Tooltip("The location to move the player when the exit the locker")] private Transform revealPosition;
         [SerializeField] private ExitDirection exitDirection;
+        [SerializeField] private List<Transform> movePoints;
+        
+        private Coroutine _movePlayerRoutine;
+        [HideInInspector] public float progress;
+        [HideInInspector] public bool hasPlayer;
         
         //========================= Interface events =========================//
         
         public bool OnInteract(GameObject player)
         {
+            hasPlayer = true;
             var playerController = player.GetComponentInParent<PlayerController>();
+            GameManager.Instance.SoundSystem.Play(openSound, transform.GetComponent<AudioSource>());
 
+            var interaction = player.GetComponent<PlayerInteraction>();
+            interaction.RemoveInteractable(gameObject);
+            interaction.enabled = false;
+            progress = 0;
+            
+            _movePlayerRoutine = StartCoroutine(MovePlayer(playerController, interaction));
+            playerController.DisableInput();
+            playerController.SetVisible(false);
+            
+            return true;
+        }
+
+        public void OnInteractFailed(GameObject player)
+        {
+            
+        }
+        
+        public bool CanInteract()
+        {
+            return true;
+        }
+        
+        //========================= Coroutines =========================//
+
+        private IEnumerator MovePlayer(PlayerController playerController, PlayerInteraction playerInteraction)
+        {
+            //move the player to the first point
+            playerController.transform.position = movePoints[0].position;
+            var tempPoints = new List<Transform>(movePoints);
+            tempPoints.RemoveAt(0);
+            
+            //tween between the points in the movePoints list, calculate the time between each point based on the moveTime
+            var timeBetweenPoints = moveTime / (movePoints.Count-1);
+            
+            //loop through the points and move the player to each one
+            foreach (var point in tempPoints)
+            {
+                var tween = new PositionTween
+                {
+                    easeType = EaseType.SineInOut,
+                    to = point.position,
+                    duration = timeBetweenPoints,
+                    from = playerController.transform.position,
+                    onUpdate = (_, value) =>
+                    {
+                        progress += (Time.deltaTime / timeBetweenPoints)/moveTime;
+                        playerController.transform.position = value;
+                    }
+                };
+                
+                playerController.gameObject.AddTween(tween);
+                yield return new WaitForSeconds(timeBetweenPoints+0.1f);
+            }
+            
+            //move the player to the reveal position
+            ShowPlayer(playerController, playerInteraction);
+        }
+
+        private void ShowPlayer(PlayerController playerController, PlayerInteraction playerInteraction)
+        {
             var facingDirection = exitDirection switch
             {
                 ExitDirection.Left => Vector2.left,
@@ -36,19 +110,22 @@ namespace Runtime.InteractionSystem.Objects
             
             playerController.transform.position = revealPosition.position;
             if (facingDirection != Vector2.zero) playerController.SetFacingDirection(facingDirection);
-            
-            GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
-            return true;
-        }
 
-        public void OnInteractFailed(GameObject player)
-        {
-            throw new System.NotImplementedException();
+            playerInteraction.enabled = true;
+            playerController.EnableInput();
+            playerController.SetVisible(true);
+            
+            hasPlayer = false;
+            GameManager.Instance.SoundSystem.Play(closeSound, transform.GetComponent<AudioSource>());
         }
         
-        public bool CanInteract()
+        public void CancelMovePlayer()
         {
-            return true;
+            if (_movePlayerRoutine != null)
+            {
+                StopCoroutine(_movePlayerRoutine);
+                _movePlayerRoutine = null;
+            }
         }
     }
 }

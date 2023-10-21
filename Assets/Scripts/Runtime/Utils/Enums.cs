@@ -8,7 +8,8 @@ namespace Runtime.Utils
     public enum DeathType
     {
         Locker,
-        Open
+        Open,
+        Vent
     }
 
     public static class EnumUtils
@@ -23,6 +24,10 @@ namespace Runtime.Utils
             "If the creature sees you entering a locker your chances of survival are slim.",
             
         };
+
+        private static readonly string[] VentDeathMessages = {
+            "If the creature sees you entering a locker your chances of survival are slim.",
+        };
         
         public static string GetDeathMessage(DeathType deathType)
         {
@@ -30,6 +35,7 @@ namespace Runtime.Utils
             {
                 DeathType.Locker => LockerDeathMessages[UnityEngine.Random.Range(0, LockerDeathMessages.Length)],
                 DeathType.Open => OpenDeathMessages[UnityEngine.Random.Range(0, OpenDeathMessages.Length)],
+                DeathType.Vent => VentDeathMessages[UnityEngine.Random.Range(0, VentDeathMessages.Length)],
                 _ => "You died",
             };
         }

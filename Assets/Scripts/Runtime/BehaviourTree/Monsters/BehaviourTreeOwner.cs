@@ -23,6 +23,7 @@ namespace Runtime.BehaviourTree.Monsters
         AggroInspect,
         AggroChase,
         SentinelAlert,
+        KillState
     }
     
     [Serializable]

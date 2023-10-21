@@ -72,6 +72,7 @@ MonoBehaviour:
   - rid: 4809529542262915081
   - rid: 4809529542262915082
   - rid: 4809529542262915083
+  - rid: 9073406815660146688
   treeState: 0
   blackboard:
     keys:
@@ -90,8 +91,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: -575, y: -362, z: 0}
-  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
+  viewPosition: {x: -958, y: -31, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -149,6 +150,7 @@ MonoBehaviour:
         - rid: 130803868398780441
         - rid: 130803868398780442
         - rid: 130803909263360073
+        - rid: 9073406815660146688
         index:
           reference:
             rid: 61114352745054246
@@ -1500,3 +1502,83 @@ MonoBehaviour:
         typeName: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
         value: {x: 0, y: 0}
+    - rid: 9073406815660146688
+      type: {class: SubTree, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d90317fb7c0b5c046aa04f0ad1b42366
+        position: {x: 2640, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        treeAsset: {fileID: 11400000, guid: f043cd388347b754d895fcdba4e29f84, type: 2}
+        treeInstance: {fileID: 0}
+        cloneInstance: 1
+        blackboardOverrides:
+        - source:
+            rid: 61114352745054247
+          target:
+            rid: 9073406815660146689
+        - source:
+            rid: -2
+          target:
+            rid: 9073406815660146697
+        - source:
+            rid: -2
+          target:
+            rid: 9073406815660146690
+        - source:
+            rid: -2
+          target:
+            rid: 9073406815660146691
+        - source:
+            rid: -2
+          target:
+            rid: 9073406815660146696
+        - source:
+            rid: -2
+          target:
+            rid: 9073406815660146698
+    - rid: 9073406815660146689
+      type: {class: GameObjectKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: Player
+        typeName: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 0}
+    - rid: 9073406815660146690
+      type: {class: FloatKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: AmbienceDelay
+        typeName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        value: 2
+    - rid: 9073406815660146691
+      type: {class: DeathTypeKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: DeathType
+        typeName: Runtime.Utils.DeathType, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: 2
+    - rid: 9073406815660146696
+      type: {class: AnimationKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: EastKill
+        typeName: UnityEngine.AnimationClip, UnityEngine.AnimationModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 7400000, guid: 1121d169e3f817a4f8a4da0b0571ebf9, type: 2}
+    - rid: 9073406815660146697
+      type: {class: SoundKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: DeathAmbience
+        typeName: Runtime.SoundSystem.Sound, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        value: {fileID: 11400000, guid: 18a57512c87b56d4f8ae38b327f81f62, type: 2}
+    - rid: 9073406815660146698
+      type: {class: AnimationKey, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
+      data:
+        name: WestKill
+        typeName: UnityEngine.AnimationClip, UnityEngine.AnimationModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+        value: {fileID: 7400000, guid: 89f2d105870efe24cb1621a0b327581b, type: 2}
