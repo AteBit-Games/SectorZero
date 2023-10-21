@@ -230,10 +230,7 @@ namespace Runtime.AI
                 
                 //pick random sound
                 var sound = graceSwapSounds[UnityEngine.Random.Range(0, graceSwapSounds.Count)];
-                if (UnityEngine.Random.Range(0, 100) < 60)
-                {
-                    GameManager.Instance.SoundSystem.Play(sound);
-                }
+                GameManager.Instance.SoundSystem.Play(sound);
 
                 SetFilmGrain(0.2f);
                 if (_pulseCoroutine != null)
@@ -251,10 +248,7 @@ namespace Runtime.AI
                 menaceState = true;
                 
                 var sound = menaceSwapSounds[UnityEngine.Random.Range(0, menaceSwapSounds.Count)];
-                if (UnityEngine.Random.Range(0, 100) < 60)
-                {
-                    GameManager.Instance.SoundSystem.Play(sound);
-                }
+                GameManager.Instance.SoundSystem.Play(sound);
                 
                 SetFilmGrain(0.4f);
                 _pulseCoroutine = StartCoroutine(VignettePulse());

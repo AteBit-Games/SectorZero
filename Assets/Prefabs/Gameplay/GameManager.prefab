@@ -726,15 +726,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72c8e03eda53cd498be945729335758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graceSwapSounds: []
-  menaceSwapSounds: []
-  monsterStings: []
-  stingInterval: {x: 60, y: 120}
+  graceSwapSounds:
+  - {fileID: 0}
+  menaceSwapSounds:
+  - {fileID: 11400000, guid: a67bc29e327d33b4cbd7f4d5a1e6fd58, type: 2}
+  monsterStings:
+  - {fileID: 11400000, guid: 4eca87f09bf3090409802255233de77a, type: 2}
+  - {fileID: 11400000, guid: 326207d56359f31409ac0236e2e95c72, type: 2}
+  - {fileID: 11400000, guid: 1f428750f1f9c5e42ab3841a11246b75, type: 2}
+  stingInterval: {x: 35, y: 70}
   menaceGaugeMax: 100
   menaceGaugeMin: 0
-  directSightMultiplier: 0.4
+  directSightMultiplier: 0.3
   directSightBase: 0.15
-  closeDistanceMultiplier: 0.3
+  closeDistanceMultiplier: 0.28
   closeDistanceBase: 0.15
   monster: {fileID: 0}
   menaceGaugeValue: 60
