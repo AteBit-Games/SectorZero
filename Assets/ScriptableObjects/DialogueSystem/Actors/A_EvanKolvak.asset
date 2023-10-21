@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: A_EvanKolvak
   m_EditorClassIdentifier: 
   name: Dr. EvanKolvak
-  sprite: {fileID: 21300000, guid: 862f5f40810f51f489ddc83d98569795, type: 3}
+  sprite: {fileID: 21300000, guid: 9ebe14e2f1f9e4047b8c98229911517b, type: 3}
   actorSounds:
   - {fileID: 8300000, guid: f669ea07a32cfb84e8ad6c1539e3c2b4, type: 3}
   frequency: 3

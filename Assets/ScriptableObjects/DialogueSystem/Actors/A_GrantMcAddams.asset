@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: A_GrantMcAddams
   m_EditorClassIdentifier: 
   name: Dr. Grant McAddams
-  sprite: {fileID: 21300000, guid: cf6fa529ea7a03f4b93d02f9af638382, type: 3}
+  sprite: {fileID: 21300000, guid: 013d2b8d848666845aa5469652cdb95b, type: 3}
   actorSounds:
   - {fileID: 8300000, guid: f669ea07a32cfb84e8ad6c1539e3c2b4, type: 3}
   frequency: 3
