@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: ERC-Logo
     originalName: 
-    pivot: {x: 0.5034965, y: 0.055944055}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 143
-      height: 143
+      width: 128
+      height: 128
     spriteID: eb2fd7fe246c40b47bdb4ae561b87eff
     spriteBone: []
     spriteOutline: []
@@ -151,10 +151,10 @@ ScriptedImporter:
     - name: ERC-Logo
       frameIndex: 0
       cellRect:
-        x: -8
-        y: -8
-        width: 143
-        height: 143
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       spriteId: eb2fd7fe246c40b47bdb4ae561b87eff
     linkedCells: []
     parentIndex: -1
