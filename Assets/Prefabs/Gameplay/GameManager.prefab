@@ -726,8 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72c8e03eda53cd498be945729335758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graceSwapSounds:
-  - {fileID: 0}
+  graceSwapSounds: []
   menaceSwapSounds:
   - {fileID: 11400000, guid: a67bc29e327d33b4cbd7f4d5a1e6fd58, type: 2}
   monsterStings:

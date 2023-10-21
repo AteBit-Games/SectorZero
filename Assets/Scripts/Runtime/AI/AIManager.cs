@@ -4,7 +4,6 @@
  ****************************************************************/
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Runtime.BehaviourTree;
 using Runtime.BehaviourTree.Monsters;
@@ -96,13 +95,6 @@ namespace Runtime.AI
 
         // ============================ Unity Events ============================
 
-        private void Start()
-        {
-            _volume = FindFirstObjectByType<Volume>();
-            _lastSeenPlayerTime = Time.time;
-            _path = new NavMeshPath();
-        }
-
         private void OnEnable()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
@@ -116,6 +108,10 @@ namespace Runtime.AI
         private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
         {
             if (scene.name != "SectorTwo") return;
+            
+            _volume = FindFirstObjectByType<Volume>();
+            _lastSeenPlayerTime = Time.time;
+            _path = new NavMeshPath();
 
             InitializeReferences();
 
@@ -191,8 +187,7 @@ namespace Runtime.AI
                 _stingCooldown -= Time.deltaTime;
             }
             
-            
-            if(totalDistance > 50f && _stingCooldown <= 0f)
+            if(totalDistance > 50f && _stingCooldown <= 0f && !menaceState)
             {
                 var sound = monsterStings[UnityEngine.Random.Range(0, monsterStings.Count)];
                 GameManager.Instance.SoundSystem.Play(sound, _stingSource);

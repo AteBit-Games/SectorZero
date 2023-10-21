@@ -8,6 +8,7 @@ using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.Player.Nellient;
 using Runtime.SoundSystem;
+using Runtime.Utils;
 using UnityEngine;
 
 namespace Runtime.InteractionSystem.Objects
@@ -37,6 +38,8 @@ namespace Runtime.InteractionSystem.Objects
             playerObject.SetActive(true);
             var nellient = player.GetComponentInParent<Nellient>();
             nellient.gameObject.SetActive(false);
+
+            GameManager.Instance.SoundSystem.StartGame();
             
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             Finish();

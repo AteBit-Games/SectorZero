@@ -31,7 +31,9 @@ namespace Runtime.SoundSystem
         private int _currentAmbIndex;
         private readonly string[] _ambMixerNames = {"mainAmbA", "mainAmbB"};
         private bool _isBusy;
+        
         private float _masterVolume = 1.0f;
+        private float _ambienceVolume = 1.0f;
         
         //========================= Unity Events =========================//
 
@@ -177,6 +179,12 @@ namespace Runtime.SoundSystem
         {
             mainMixer.SetFloat(_ambMixerNames[_currentAmbIndex], -80.0f);
         }
+
+        public void StartGame()
+        {
+            mainMixer.SetFloat("ambienceVolume", -80.0f);
+            StartCoroutine(SoundUtils.StartFade(mainMixer, "ambienceVolume", 1.0f, _ambienceVolume));
+        }
         
         public void FadeToNextAmbience(Sound nextAmb, float fadeTime = 1.0f)
         {
@@ -232,6 +240,7 @@ namespace Runtime.SoundSystem
         public void SetMusicVolume(float volume)
         {
             mainMixer.SetFloat("ambienceVolume", Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1.4f)) * 20);
+            _ambienceVolume = Mathf.Log10(Mathf.Clamp(volume, 0.001f, 1.4f)) * 20;
         }
         
         public void SetVoicesVolume(float volume)

@@ -33,7 +33,7 @@ namespace Runtime.Misc
 
         private void TriggerEnd()
         {
-            Debug.Log("End");
+            FindFirstObjectByType<CinematicManager>().TriggerCinematic(1);
         }
     }
 }
