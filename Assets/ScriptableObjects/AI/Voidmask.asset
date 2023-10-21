@@ -73,6 +73,9 @@ MonoBehaviour:
   - rid: 4809529542262915082
   - rid: 4809529542262915083
   - rid: 9073406815660146688
+  - rid: 9073406833927127040
+  - rid: 9073406833927127041
+  - rid: 9073406833975099392
   treeState: 0
   blackboard:
     keys:
@@ -91,8 +94,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: -958, y: -31, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: -1456, y: 71, z: 0}
+  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
   references:
     version: 2
     RefIds:
@@ -150,7 +153,7 @@ MonoBehaviour:
         - rid: 130803868398780441
         - rid: 130803868398780442
         - rid: 130803909263360073
-        - rid: 9073406815660146688
+        - rid: 9073406833927127040
         index:
           reference:
             rid: 61114352745054246
@@ -1215,7 +1218,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 583f491a99e7c254b93dafb5d9b86b8d
-        position: {x: 2400, y: 240}
+        position: {x: 2340, y: 240}
         blackboard:
           keys: []
         comment: '<b>Aggro</b>
@@ -1508,7 +1511,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d90317fb7c0b5c046aa04f0ad1b42366
-        position: {x: 2640, y: 240}
+        position: {x: 3060, y: 380}
         blackboard:
           keys: []
         comment: 
@@ -1582,3 +1585,46 @@ MonoBehaviour:
         typeName: UnityEngine.AnimationClip, UnityEngine.AnimationModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
         value: {fileID: 7400000, guid: 89f2d105870efe24cb1621a0b327581b, type: 2}
+    - rid: 9073406833927127040
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: d01600926bd8d2445841e932ff2e5ca4
+        position: {x: 2880, y: 240}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 9073406833927127041
+        - rid: 9073406833975099392
+        - rid: 9073406815660146688
+    - rid: 9073406833927127041
+      type: {class: PlayAudio, ns: Runtime.BehaviourTree.Actions.Sound, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 6a7ed79f905f6224da83868cf2d9fcc1
+        position: {x: 2700, y: 380}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        sound: {fileID: 11400000, guid: a54712d38ddff7a44a5aeada32ec1fa9, type: 2}
+        waitActionFinish: 0
+    - rid: 9073406833975099392
+      type: {class: PushBack, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 01520a3b9638dc94d91f5322ea13274e
+        position: {x: 2880, y: 380}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        player:
+          reference:
+            rid: 61114352745054247
+          defaultValue: {fileID: 0}

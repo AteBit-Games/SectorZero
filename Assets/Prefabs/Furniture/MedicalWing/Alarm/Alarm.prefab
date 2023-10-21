@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 4406325518372112342}
   - component: {fileID: 2913204966792744578}
   - component: {fileID: 1004422148710644544}
-  - component: {fileID: 2595913306569618106}
+  - component: {fileID: 8928585704141282870}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -267,7 +267,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &2595913306569618106
+--- !u!114 &8928585704141282870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,7 +276,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6097135041242362020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc8ed6473b7437595533e22f3271f0f, type: 3}
+  m_Script: {fileID: 11500000, guid: ed18888ac3103ee468a6f0377678a55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 11400000, guid: 001d7114ff88b5e4eac5be7765242d1d, type: 2}
+  animator: {fileID: 4227258513340843513}
+  sound: {fileID: 11400000, guid: 8376d0c4ab1e3f64bbe927e22b347eeb, type: 2}

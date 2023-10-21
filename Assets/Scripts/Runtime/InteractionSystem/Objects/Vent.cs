@@ -11,7 +11,6 @@ using Runtime.Player;
 using Runtime.SoundSystem;
 using Tweens;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -94,6 +93,7 @@ namespace Runtime.InteractionSystem.Objects
             }
             
             //move the player to the reveal position
+            playerController.gameObject.CancelTweens();
             ShowPlayer(playerController, playerInteraction);
         }
 

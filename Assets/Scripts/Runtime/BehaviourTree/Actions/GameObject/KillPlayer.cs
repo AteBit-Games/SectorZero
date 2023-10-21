@@ -37,7 +37,7 @@ namespace Runtime.BehaviourTree.Actions.GameObject
                 > 0f => westKill.Value,
                 _ => eastKill.Value
             };
-            
+
             context.animator.Play(animationClip.name);
             _startTime = Time.time;
 

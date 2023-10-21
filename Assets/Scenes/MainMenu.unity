@@ -149,6 +149,14 @@ PrefabInstance:
       value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 8564143802284992274, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
+      propertyPath: stingInterval.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564143802284992274, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
+      propertyPath: stingInterval.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8564143802284992274, guid: 38f74a3ceae8b88478eb3389c3f89085, type: 3}
       propertyPath: closeDistanceBase
       value: 0.18
       objectReference: {fileID: 0}
@@ -995,7 +1003,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a9f9fc8148bb219419dfa0180b5433a9, type: 2}
     - target: {fileID: 8357116548118797782, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
       propertyPath: exampleSoundTimeout
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8357116548118797783, guid: 1935562de19308947931f3a4590c0ae2, type: 3}
       propertyPath: iconSpeed

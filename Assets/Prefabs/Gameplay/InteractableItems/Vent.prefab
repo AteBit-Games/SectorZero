@@ -144,9 +144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe4b17802c61545a7de43c0855a903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSound: {fileID: 11400000, guid: a54712d38ddff7a44a5aeada32ec1fa9, type: 2}
+  moveTime: 2
+  closeSound: {fileID: 11400000, guid: 59d6f30f9d1874944823665dd59c01d8, type: 2}
+  openSound: {fileID: 11400000, guid: a54712d38ddff7a44a5aeada32ec1fa9, type: 2}
   revealPosition: {fileID: 6946845652144023477}
   exitDirection: 1
+  movePoints: []
+  progress: 0
+  hasPlayer: 0
 --- !u!61 &728743678538597299
 BoxCollider2D:
   m_ObjectHideFlags: 0

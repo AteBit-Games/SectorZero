@@ -63,7 +63,11 @@ namespace Runtime.SoundSystem
 
         public void Play(Sound sound, AudioSource audioSource = null)
         {
-            if (sound == null) return;
+            if (sound == null)
+            {
+                Debug.Log("Sound is null");
+                return;
+            }
             
             var destroy = false;
             if (audioSource == null)

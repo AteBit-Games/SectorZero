@@ -9,10 +9,11 @@ using System.Linq;
 using Runtime.Managers;
 using Runtime.Misc;
 using Runtime.Misc.Triggers;
+using Runtime.SaveSystem;
+using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
@@ -26,18 +27,18 @@ namespace Runtime.Player
     }
     
     [DefaultExecutionOrder(6)]
-    public class PlayerAudio : MonoBehaviour
+    public class PlayerAudio : MonoBehaviour, IPersistant
     {
-        public AmbienceWing activeWing;
+        public AmbienceWing[] ambienceWings;
+        public Wing activeWing;
         
         [SerializeField] private AudioSource audioSource;
-        [FormerlySerializedAs("_tilemap")] [SerializeField] private Tilemap tilemap;
+        [SerializeField] private Tilemap tilemap;
         [SerializeField] private List<FootstepSoundSet> footstepSounds;
         [SerializeField] private float joggingRange = 18f;
         [SerializeField] private bool debug;
 
         private NoiseEmitter _noiseEmitter;
-        
 
         //========================= Unity Events =========================//
         
@@ -49,8 +50,14 @@ namespace Runtime.Player
 
         private void Start()
         {
-            if(SceneManager.GetActiveScene().name == "SectorTwo")
-                GameManager.Instance.SoundSystem.FadeToNextAmbience(activeWing.ambience);
+            if (SceneManager.GetActiveScene().name == "SectorTwo")
+            {
+                foreach (var wing in ambienceWings.Where(wing => wing.wing == activeWing))
+                {
+                    GameManager.Instance.SoundSystem.FadeToNextAmbience(wing.ambience);
+                    break;
+                }
+            }
         }
 
         //========================= Public Methods =========================//
@@ -109,6 +116,18 @@ namespace Runtime.Player
                 Gizmos.color = Color.red;
                 Gizmos.DrawWireSphere(transform.position, joggingRange);
             }
+        }
+
+
+        public string LoadData(SaveGame game)
+        {
+            activeWing = (Wing) Enum.Parse(typeof(Wing), game.playerData.activeWing);
+            return "PlayerAudio";
+        }
+
+        public void SaveData(SaveGame game)
+        {
+            game.playerData.activeWing = activeWing.ToString();
         }
     }
 }

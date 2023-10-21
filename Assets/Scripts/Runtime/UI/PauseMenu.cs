@@ -165,7 +165,7 @@ namespace Runtime.UI
             isSubWindowOpen = false;
         }
         
-       private void OpenSavesMenu()
+        private void OpenSavesMenu()
         {
             UIUtils.HideUIElement(_pauseWindow);
             UIUtils.ShowUIElement(_savesWindow);

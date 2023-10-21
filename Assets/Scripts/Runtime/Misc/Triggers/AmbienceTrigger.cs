@@ -34,8 +34,7 @@ namespace Runtime.Misc.Triggers
         [SerializeField] private AmbienceWing[] wings = new AmbienceWing[2];
         
         private Coroutine _ambienceCoroutine;
-        
-        
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("PlayerInteraction"))
@@ -51,7 +50,7 @@ namespace Runtime.Misc.Triggers
                     if(playerAudio == null) playerAudio = other.transform.parent.GetComponent<PlayerAudio>();
                 
                     //get the wing that is not the current wing from the 2 wings
-                    var currentWing = playerAudio.activeWing.wing;
+                    var currentWing = playerAudio.activeWing;
                     var newWing = wings[0].wing == currentWing ? wings[1] : wings[0];
                     _ambienceCoroutine = StartCoroutine(StartTransition(playerAudio, newWing));
                 }
@@ -61,8 +60,8 @@ namespace Runtime.Misc.Triggers
         private IEnumerator StartTransition(PlayerAudio playerAudio, AmbienceWing newWing)
         {
             yield return new WaitForSeconds(4f);
-            
-            playerAudio.activeWing = newWing;
+
+            playerAudio.activeWing = newWing.wing;
             GameManager.Instance.SoundSystem.FadeToNextAmbience(newWing.ambience, 6f);
             _ambienceCoroutine = null;
         }

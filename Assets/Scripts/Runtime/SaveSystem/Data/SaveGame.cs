@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using Runtime.Misc.Triggers;
 using UnityEngine;
 
 namespace Runtime.SaveSystem.Data
@@ -67,6 +68,7 @@ namespace Runtime.SaveSystem.Data
     [Serializable]
     public class PlayerSaveData
     {
+        public string activeWing = "MedicalWing";
         public Vector3 position;
         public bool enabled;
         

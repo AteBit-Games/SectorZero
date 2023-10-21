@@ -21,7 +21,7 @@ namespace Runtime.InteractionSystem.Objects.UI
     {
         [SerializeField] public Item safeItem;
         [SerializeField] public Sound itemPickupSound;
-        [FormerlySerializedAs("alarm")] [SerializeField] private SafeAlarm safeAlarm; 
+        [SerializeField] private Alarm safeAlarm; 
         
         [SerializeField] public SummaryEntry summaryEntry;
         [SerializeField] public string safeCode;
