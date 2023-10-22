@@ -6,6 +6,7 @@
 using System;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
+using Runtime.Player;
 using Runtime.Player.Nellient;
 using Runtime.SoundSystem;
 using Runtime.Utils;
@@ -36,11 +37,12 @@ namespace Runtime.InteractionSystem.Objects
         public bool OnInteract(GameObject player)
         {
             playerObject.SetActive(true);
+            playerObject.GetComponent<PlayerController>().SetFacingDirection(Vector2.right);
+                
             var nellient = player.GetComponentInParent<Nellient>();
             nellient.gameObject.SetActive(false);
 
             GameManager.Instance.SoundSystem.StartGame();
-            
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             Finish();
             return true;
@@ -70,7 +72,6 @@ namespace Runtime.InteractionSystem.Objects
             active = false;
             gameObject.layer = 0;
             _interactionCollider.enabled = false;
-            GameManager.Instance.SaveSystem.SaveGame();
         }
     }
 }
