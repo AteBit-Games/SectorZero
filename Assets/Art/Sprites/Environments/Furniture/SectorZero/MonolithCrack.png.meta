@@ -112,7 +112,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
+        width: 160
         height: 320
       alignment: 9
       pivot: {x: 0.5, y: 0.234375}
@@ -131,9 +131,9 @@ TextureImporter:
       name: MonolithCrack_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 160
         y: 0
-        width: 320
+        width: 160
         height: 320
       alignment: 9
       pivot: {x: 0.5, y: 0.234375}
@@ -152,9 +152,9 @@ TextureImporter:
       name: MonolithCrack_2
       rect:
         serializedVersion: 2
-        x: 640
+        x: 320
         y: 0
-        width: 320
+        width: 160
         height: 320
       alignment: 9
       pivot: {x: 0.5, y: 0.234375}
@@ -173,9 +173,9 @@ TextureImporter:
       name: MonolithCrack_3
       rect:
         serializedVersion: 2
-        x: 960
+        x: 480
         y: 0
-        width: 320
+        width: 160
         height: 320
       alignment: 9
       pivot: {x: 0.5, y: 0.234375}
@@ -194,9 +194,9 @@ TextureImporter:
       name: MonolithCrack_4
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 640
         y: 0
-        width: 320
+        width: 160
         height: 320
       alignment: 9
       pivot: {x: 0.5, y: 0.234375}
@@ -207,6 +207,132 @@ TextureImporter:
       bones: []
       spriteID: 54d2c21769bb7ec4ba66ccd695792259
       internalID: 284164825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonolithCrack_5
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 160
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.234375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b12adbc775564741944cfba24aed9af
+      internalID: 1532139242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonolithCrack_6
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 160
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.234375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c9faca35910b3408d0b38042c2c97c
+      internalID: 1431738531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonolithCrack_7
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 160
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.234375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d48d1c978c2b5c49a590904a5ac11f8
+      internalID: -948317747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonolithCrack_8
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 160
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.234375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c9722b0e46ffa94bbafd180f7eb6001
+      internalID: 2025877206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonolithCrack_9
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 160
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.234375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c73f88607d2888a4ab799e1bf6fc7e47
+      internalID: -2108600754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MonolithCrack_10
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 160
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.234375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 306b077bcdb55f54aa5b9435e29bae8c
+      internalID: -1029675073
       vertices: []
       indices: 
       edges: []
@@ -224,9 +350,15 @@ TextureImporter:
     nameFileIdTable:
       MonolithCrack_0: 134235910
       MonolithCrack_1: -619705917
+      MonolithCrack_10: -1029675073
       MonolithCrack_2: 744722454
       MonolithCrack_3: -1250041513
       MonolithCrack_4: 284164825
+      MonolithCrack_5: 1532139242
+      MonolithCrack_6: 1431738531
+      MonolithCrack_7: -948317747
+      MonolithCrack_8: 2025877206
+      MonolithCrack_9: -2108600754
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
