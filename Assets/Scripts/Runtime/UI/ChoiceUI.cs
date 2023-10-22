@@ -60,6 +60,7 @@ namespace Runtime.UI
             _choiceButton1.RegisterCallback<ClickEvent>(_ =>
             {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                GameManager.Instance.SaveSystem.SetNellieState("SectorThree", true);
                 choices[0].choiceActions?.Invoke();
             });
             _choiceButton1.RegisterCallback<MouseEnterEvent>(_ =>
@@ -71,6 +72,7 @@ namespace Runtime.UI
             _choiceButton2.RegisterCallback<ClickEvent>(_ =>
             {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+                GameManager.Instance.SaveSystem.SetNellieState("SectorZero", true);
                 choices[1].choiceActions?.Invoke();
             });
             _choiceButton2.RegisterCallback<MouseEnterEvent>(_ =>

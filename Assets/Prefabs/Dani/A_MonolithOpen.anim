@@ -38,8 +38,10 @@ AnimationClip:
       value: {fileID: -948317747, guid: 3fa9c03c4e736c346b26b2214836e6e9, type: 3}
     - time: 2
       value: {fileID: 2025877206, guid: 3fa9c03c4e736c346b26b2214836e6e9, type: 3}
+    - time: 2.9333334
+      value: {fileID: 2025877206, guid: 3fa9c03c4e736c346b26b2214836e6e9, type: 3}
     - time: 3
-      value: {fileID: 284164825, guid: 3fa9c03c4e736c346b26b2214836e6e9, type: 3}
+      value: {fileID: -2108600754, guid: 3fa9c03c4e736c346b26b2214836e6e9, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -71,7 +73,8 @@ AnimationClip:
     - {fileID: 1431738531, guid: 3fa9c03c4e736c346b26b2214836e6e9, type: 3}
     - {fileID: -948317747, guid: 3fa9c03c4e736c346b26b2214836e6e9, type: 3}
     - {fileID: 2025877206, guid: 3fa9c03c4e736c346b26b2214836e6e9, type: 3}
-    - {fileID: 284164825, guid: 3fa9c03c4e736c346b26b2214836e6e9, type: 3}
+    - {fileID: 2025877206, guid: 3fa9c03c4e736c346b26b2214836e6e9, type: 3}
+    - {fileID: -2108600754, guid: 3fa9c03c4e736c346b26b2214836e6e9, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -96,4 +99,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: TriggerIndexedSound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

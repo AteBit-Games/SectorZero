@@ -362,7 +362,7 @@ namespace Runtime.AI
 
         public string LoadData(SaveGame save)
         {
-            if (GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return "AIManager";
+            if (GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name != "SectorTwo") return "AIManager";
 
             InitializeReferences();
             var monsterSave = save.monsterData;

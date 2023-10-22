@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Runtime.Managers;
 using Runtime.Utils;
+using Tweens;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -203,6 +204,20 @@ namespace Runtime.SoundSystem
             mainAmbienceSource.volume = mainAmbience.volumeScale;
             mainAmbienceSource.loop = mainAmbience.loop;
             mainAmbienceSource.Play();
+        }
+        
+        public void FadeOutMainAmbience()
+        {
+            var tween = new FloatTween
+            {
+                duration = 1f,
+                from = mainAmbienceSource.volume,
+                to = 0f,
+                easeType = EaseType.SineInOut,
+                onUpdate = (_, value) => { mainAmbienceSource.volume = value; }
+            };
+            
+            gameObject.AddTween(tween);
         }
         
         public void PlaySting(Sound sound)

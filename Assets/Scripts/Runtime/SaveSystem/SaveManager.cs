@@ -100,7 +100,7 @@ namespace Runtime.SaveSystem
             saveExists = false;
             
             GameManager.Instance.AIManager.StartNewGame();
-            SetNellieState(levelName);
+            SetNellieState(levelName, false);
         }
 
         public void SaveGame()
@@ -123,11 +123,11 @@ namespace Runtime.SaveSystem
             _activeSave = saveGame;
         }
 
-        public void SetNellieState(string levelName)
+        public void SetNellieState(string levelName, bool enabled)
         {
             var index = playerConfig.FindIndex(config => config.levelName == levelName);
             _activeSave.playerData.position = index == -1 ? new Vector3(0, 0, 0) : playerConfig[index].startPosition;
-            _activeSave.playerData.enabled = false;
+            _activeSave.playerData.enabled = enabled;
         }
         
         public Dictionary<Texture2D, SaveGame> GetSaveGames()
@@ -218,6 +218,12 @@ namespace Runtime.SaveSystem
         public void UpdatePlayerTapesValue(bool manual)
         {
             _playerData.autoTapes = manual;
+            _dataHandler.SavePlayerData(_playerData);
+        }
+        
+        public void UpdatePlayerSkipValue(bool manual)
+        {
+            _playerData.autoSkip = manual;
             _dataHandler.SavePlayerData(_playerData);
         }
         

@@ -67,6 +67,12 @@
                             <ui:Toggle label="     &#10;" name="Toggle" style="flex-grow: 1; justify-content: center;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
+                    <ui:VisualElement name="skip-mode" focusable="true" class="selection">
+                        <ui:Label tabindex="-1" text="Auto Skip Dialogue" display-tooltip-when-elided="true" name="Label" />
+                        <ui:VisualElement name="container" class="setting-item">
+                            <ui:Toggle label="     &#10;" name="Toggle" style="flex-grow: 1; justify-content: center;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="settingsGroup" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-bottom: 30px; height: 10px;">
                     <ui:Button text="Back" display-tooltip-when-elided="true" name="back-button" class="button" style="width: 62px;">

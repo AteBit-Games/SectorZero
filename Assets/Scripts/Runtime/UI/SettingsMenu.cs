@@ -36,6 +36,7 @@ namespace Runtime.UI
 
         private bool _activeAutoNotes;
         private bool _activeAutoTapes;
+        private bool _activeAutoSkip;
         
         private readonly FullScreenMode[] _displayModes = { FullScreenMode.Windowed, FullScreenMode.MaximizedWindow, FullScreenMode.FullScreenWindow };
         private FullScreenMode _activeDisplayMode;
@@ -83,6 +84,7 @@ namespace Runtime.UI
             
             RegisterNoteSetting();
             RegisterTapeSetting();
+            RegisterSkipSetting();
         }
 
         private void Update()
@@ -229,6 +231,27 @@ namespace Runtime.UI
             });
         }
         
+        private void RegisterSkipSetting()
+        {
+            var rootVisualElement = _uiDocument.rootVisualElement;
+            var tapeSetting = rootVisualElement.Q<VisualElement>("skip-mode");
+            tapeSetting.RegisterCallback<MouseEnterEvent>(_ =>
+            {
+                _settingDescription.text = "Toggle auto skip to next dialogue";
+            });
+
+            var activeSkip = tapeSetting.Q<Toggle>("Toggle");
+            activeSkip.value = _activeAutoTapes;
+            
+            // register buttons for changing display mode
+            activeSkip.RegisterValueChangedCallback(evt =>
+            {
+                _activeAutoSkip = evt.newValue;
+                GameManager.Instance.SaveSystem.UpdatePlayerSkipValue(_activeAutoSkip);
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+            });
+        }
+        
         private void RegisterVolumeSettings()
         {
             var rootVisualElement = _uiDocument.rootVisualElement;
@@ -368,6 +391,7 @@ namespace Runtime.UI
             
             _activeAutoNotes = playerData.autoNotes;
             _activeAutoTapes = playerData.autoTapes;
+            _activeAutoSkip = playerData.autoSkip;
         }
 
         private static void SetButtonState(Button button, bool state)

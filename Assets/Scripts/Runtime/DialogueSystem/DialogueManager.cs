@@ -213,14 +213,15 @@ namespace Runtime.DialogueSystem
                 previousLetter = character;
             }
             
-            
             _dialogueTextElement.text = dialogue.dialogueLines[lineIndex].line;
-            
-            
-            if(!_skipDialogue) yield return new WaitForSeconds(_currentDialogue.autoSkipDelay);
-            else yield return new WaitForSeconds(DetermineDisplayTime(dialogue.dialogueLines[lineIndex].line));
-            
-            ContinueDialogue();
+
+            if(GameManager.Instance.SaveSystem.GetPlayerData().autoSkip)
+            {
+                if(!_skipDialogue) yield return new WaitForSeconds(_currentDialogue.autoSkipDelay);
+                else yield return new WaitForSeconds(DetermineDisplayTime(dialogue.dialogueLines[lineIndex].line));
+                
+                ContinueDialogue();
+            }
         }
         
         private float DetermineDisplayTime(string text)

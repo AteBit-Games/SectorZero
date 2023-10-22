@@ -33,6 +33,7 @@ namespace Runtime.Misc
 
         private void TriggerEnd()
         {
+            GameManager.Instance.SoundSystem.FadeOutMainAmbience();
             FindFirstObjectByType<CinematicManager>().TriggerCinematic(1);
         }
     }

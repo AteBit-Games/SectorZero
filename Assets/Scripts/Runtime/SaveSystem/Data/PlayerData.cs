@@ -25,5 +25,6 @@ namespace Runtime.SaveSystem.Data
         //Gameplay
         public bool autoNotes = true;
         public bool autoTapes = true;
+        public bool autoSkip = true;
     }
 }

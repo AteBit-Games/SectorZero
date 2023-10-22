@@ -147,7 +147,7 @@ namespace Runtime.Managers.Tutorial
 
         public static void TriggerTutorialEnd()
         {
-            GameManager.Instance.SaveSystem.SetNellieState("SectorTwo");
+            GameManager.Instance.SaveSystem.SetNellieState("SectorTwo", false);
             GameManager.Instance.LoadScene("SectorTwo");
         }
         
