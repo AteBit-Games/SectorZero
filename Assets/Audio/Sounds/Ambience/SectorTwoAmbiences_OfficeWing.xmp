@@ -12,10 +12,10 @@
             xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/">
          <xmp:CreatorTool>Adobe Audition 23.2 (Windows)</xmp:CreatorTool>
          <xmp:CreateDate>2023-10-18T16:49:40+02:00</xmp:CreateDate>
-         <xmp:MetadataDate>2023-10-21T15:35:28+02:00</xmp:MetadataDate>
-         <xmp:ModifyDate>2023-10-21T15:35:28+02:00</xmp:ModifyDate>
-         <xmpMM:InstanceID>xmp.iid:75bb60bc-5e60-9046-8c03-2f9c75b94e1c</xmpMM:InstanceID>
-         <xmpMM:DocumentID>xmp.did:84fbc5e4-e52f-4d43-9cb3-51c8096500b9</xmpMM:DocumentID>
+         <xmp:MetadataDate>2023-10-22T18:07:06+02:00</xmp:MetadataDate>
+         <xmp:ModifyDate>2023-10-22T18:07:06+02:00</xmp:ModifyDate>
+         <xmpMM:InstanceID>xmp.iid:b4e5666b-b227-7940-93fd-4b8171fd8a63</xmpMM:InstanceID>
+         <xmpMM:DocumentID>xmp.did:b4e5666b-b227-7940-93fd-4b8171fd8a63</xmpMM:DocumentID>
          <xmpMM:OriginalDocumentID>xmp.did:cbc3c051-4cfe-834d-ab5a-bde0770180ce</xmpMM:OriginalDocumentID>
          <xmpMM:History>
             <rdf:Seq>
@@ -28,61 +28,124 @@
                </rdf:li>
                <rdf:li rdf:parseType="Resource">
                   <stEvt:action>saved</stEvt:action>
-                  <stEvt:instanceID>xmp.iid:e8ccb48e-5a4b-194f-ad58-979478cd4a58</stEvt:instanceID>
-                  <stEvt:when>2023-10-18T17:15:57+02:00</stEvt:when>
+                  <stEvt:instanceID>xmp.iid:a49f4a35-2f05-5142-ad32-ac8fa7982818</stEvt:instanceID>
+                  <stEvt:when>2023-10-18T17:45:31+02:00</stEvt:when>
                   <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
                   <stEvt:changed>/metadata</stEvt:changed>
                </rdf:li>
                <rdf:li rdf:parseType="Resource">
-                  <stEvt:action>converted</stEvt:action>
-                  <stEvt:parameters>from application/xml to audio/ogg; codec="vorbis"</stEvt:parameters>
-               </rdf:li>
-               <rdf:li rdf:parseType="Resource">
                   <stEvt:action>saved</stEvt:action>
-                  <stEvt:instanceID>xmp.iid:a716b822-9e35-6949-9828-4a57f34093b9</stEvt:instanceID>
-                  <stEvt:when>2023-10-18T17:15:57+02:00</stEvt:when>
-                  <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
-               </rdf:li>
-               <rdf:li rdf:parseType="Resource">
-                  <stEvt:action>converted</stEvt:action>
-                  <stEvt:parameters>from application/xml to audio/ogg; codec="vorbis"</stEvt:parameters>
-               </rdf:li>
-               <rdf:li rdf:parseType="Resource">
-                  <stEvt:action>saved</stEvt:action>
-                  <stEvt:instanceID>xmp.iid:84fbc5e4-e52f-4d43-9cb3-51c8096500b9</stEvt:instanceID>
-                  <stEvt:when>2023-10-18T17:15:57+02:00</stEvt:when>
+                  <stEvt:instanceID>xmp.iid:6bfc8227-18cd-2147-b3fb-4b0e89039a75</stEvt:instanceID>
+                  <stEvt:when>2023-10-18T17:45:31+02:00</stEvt:when>
                   <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
                   <stEvt:changed>/</stEvt:changed>
                </rdf:li>
                <rdf:li rdf:parseType="Resource">
                   <stEvt:action>saved</stEvt:action>
-                  <stEvt:instanceID>xmp.iid:1d07c833-81a0-ad44-b36e-f26be4bb7dd0</stEvt:instanceID>
-                  <stEvt:when>2023-10-21T15:35:28+02:00</stEvt:when>
+                  <stEvt:instanceID>xmp.iid:47c2e2b8-77da-4e4c-b77a-15d0a933f367</stEvt:instanceID>
+                  <stEvt:when>2023-10-18T18:45:58+02:00</stEvt:when>
                   <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
                   <stEvt:changed>/metadata</stEvt:changed>
                </rdf:li>
                <rdf:li rdf:parseType="Resource">
                   <stEvt:action>saved</stEvt:action>
-                  <stEvt:instanceID>xmp.iid:75bb60bc-5e60-9046-8c03-2f9c75b94e1c</stEvt:instanceID>
-                  <stEvt:when>2023-10-21T15:35:28+02:00</stEvt:when>
+                  <stEvt:instanceID>xmp.iid:1da640a2-25a3-0443-8dff-c759f6ad5204</stEvt:instanceID>
+                  <stEvt:when>2023-10-18T18:45:58+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:56cf6207-81b8-534b-99e5-fd6f4c7cfe15</stEvt:instanceID>
+                  <stEvt:when>2023-10-18T18:46:18+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/metadata</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:36be80fa-1857-794e-9833-6e3bafd91219</stEvt:instanceID>
+                  <stEvt:when>2023-10-18T18:46:18+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:c7da44be-be39-cf4f-9763-a543e6e7658b</stEvt:instanceID>
+                  <stEvt:when>2023-10-18T18:46:54+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/metadata</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:c129bbe6-e9bd-b144-8bde-646b69148a0b</stEvt:instanceID>
+                  <stEvt:when>2023-10-18T18:46:54+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:116bdf7f-09f9-de42-8bcc-810e934efab5</stEvt:instanceID>
+                  <stEvt:when>2023-10-22T18:06:19+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/metadata</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:5f3b4b0e-3f5e-4a45-b65c-9cc2b7af6fe5</stEvt:instanceID>
+                  <stEvt:when>2023-10-22T18:06:19+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:90a2c3f2-0e5f-d640-9d69-65f2ceab4134</stEvt:instanceID>
+                  <stEvt:when>2023-10-22T18:07:06+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/metadata</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:c34dc140-565f-1e40-90b3-32965d7490d7</stEvt:instanceID>
+                  <stEvt:when>2023-10-22T18:07:06+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/metadata</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>converted</stEvt:action>
+                  <stEvt:parameters>from application/xml to audio/ogg; codec="vorbis"</stEvt:parameters>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:5212e08a-738d-8f42-bf7d-934fa2fd8b70</stEvt:instanceID>
+                  <stEvt:when>2023-10-22T18:07:06+02:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>converted</stEvt:action>
+                  <stEvt:parameters>from application/xml to audio/ogg; codec="vorbis"</stEvt:parameters>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:b4e5666b-b227-7940-93fd-4b8171fd8a63</stEvt:instanceID>
+                  <stEvt:when>2023-10-22T18:07:06+02:00</stEvt:when>
                   <stEvt:softwareAgent>Adobe Audition 23.2 (Windows)</stEvt:softwareAgent>
                   <stEvt:changed>/</stEvt:changed>
                </rdf:li>
             </rdf:Seq>
          </xmpMM:History>
          <xmpMM:DerivedFrom rdf:parseType="Resource">
-            <stRef:instanceID>xmp.iid:a716b822-9e35-6949-9828-4a57f34093b9</stRef:instanceID>
-            <stRef:documentID>xmp.did:a716b822-9e35-6949-9828-4a57f34093b9</stRef:documentID>
+            <stRef:instanceID>xmp.iid:5212e08a-738d-8f42-bf7d-934fa2fd8b70</stRef:instanceID>
+            <stRef:documentID>xmp.did:5212e08a-738d-8f42-bf7d-934fa2fd8b70</stRef:documentID>
             <stRef:originalDocumentID>xmp.did:cbc3c051-4cfe-834d-ab5a-bde0770180ce</stRef:originalDocumentID>
          </xmpMM:DerivedFrom>
          <dc:format>audio/ogg; codec="vorbis"</dc:format>
-         <bext:originationDate>2023-10-18</bext:originationDate>
-         <bext:originationTime>17:15:57</bext:originationTime>
+         <bext:originationDate>2023-10-22</bext:originationDate>
+         <bext:originationTime>18:07:06</bext:originationTime>
          <bext:timeReference>0</bext:timeReference>
          <creatorAtom:windowsAtom rdf:parseType="Resource">
             <creatorAtom:extension>.sesx</creatorAtom:extension>
             <creatorAtom:invocationFlags>-EO</creatorAtom:invocationFlags>
-            <creatorAtom:uncProjectPath>C:\Users\Mitten\Documents\Adobe\Audition\23.0\Metal_Breaker_Switch\SectorTwoAmbiences\SectorTwoAmbiences.sesx</creatorAtom:uncProjectPath>
+            <creatorAtom:uncProjectPath>C:\Users\Mitten\Documents\Adobe\Audition\23.0\SectorTwoAmbiences_Offices.sesx</creatorAtom:uncProjectPath>
          </creatorAtom:windowsAtom>
          <creatorAtom:macAtom rdf:parseType="Resource">
             <creatorAtom:applicationCode>1097089397</creatorAtom:applicationCode>
