@@ -217,8 +217,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   player: {fileID: 0}
-  viewRadius: 30
-  viewAngle: 50
+  farViewRadius: 5
+  farViewAngle: 135
+  closeViewRadius: 5
+  closeViewAngle: 135
   detectRadius: 3
   detectedSound: {fileID: 11400000, guid: 3e58a5000fec3bd4e882873694e3d6a8, type: 2}
   lostSound: {fileID: 11400000, guid: f1a1400ccc596474d9b9a2f2dc7a3421, type: 2}
@@ -426,7 +428,7 @@ AudioSource:
   m_GameObject: {fileID: 3369446493431426671}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 4b6225b1afdca5547a3fb4a6f0d512e9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -438,7 +440,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 40
+  MaxDistance: 60
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -450,20 +452,20 @@ AudioSource:
     - serializedVersion: 3
       time: 0.01
       value: 1
-      inSlope: -2.0627503
-      outSlope: -2.0627503
+      inSlope: -0.8230484
+      outSlope: -0.8230484
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.1687301
+      outWeight: 0.282535
     - serializedVersion: 3
       time: 0.59789395
       value: 0.103129745
-      inSlope: -0.76758903
-      outSlope: -0.76758903
+      inSlope: -0.89696294
+      outSlope: -0.89696294
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.24961053
+      inWeight: 0.20930849
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.93652344
@@ -482,7 +484,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.3099718
+      value: 0.6116533
       inSlope: 0
       outSlope: 0
       tangentMode: 0
