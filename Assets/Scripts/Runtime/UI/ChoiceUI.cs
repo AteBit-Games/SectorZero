@@ -53,6 +53,7 @@ namespace Runtime.UI
                         
             GameManager.Instance.SoundSystem.PauseAll();
             GameManager.Instance.DisableInput();
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             
             Time.timeScale = 0;
             
@@ -88,6 +89,7 @@ namespace Runtime.UI
             UIUtils.HideUIElement(_choiceContainer);
             GameManager.Instance.ResetInput();
             GameManager.Instance.SoundSystem.ResumeAll();
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
         }
 
         public override void CloseSubWindow()

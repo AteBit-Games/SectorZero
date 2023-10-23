@@ -88,7 +88,6 @@ namespace Runtime.UI
             // Main Pause Items
             _resumeButton = rootVisualElement.Q<Button>("resume");
             _resumeButton.RegisterCallback<ClickEvent>(_ => {
-                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
                 UIUtils.HideUIElement(_confirmMenuPopup);
                 CloseWindow();
             });
@@ -135,7 +134,6 @@ namespace Runtime.UI
         public override void OpenWindow()
         {
             Time.timeScale = 0;
-            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             UIUtils.ShowUIElement(_pauseWindow);
             UIUtils.ShowUIElement(_overlay);
         }
@@ -149,6 +147,7 @@ namespace Runtime.UI
             
             _feedbackForm.HideForm();
             _cheatMenu.HideMenu();
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             
             UIUtils.HideUIElement(_pauseWindow);
             UIUtils.HideUIElement(_overlay);

@@ -228,7 +228,7 @@ namespace Runtime.AI
             }
             else
             {
-                if (Time.time - _lastSeenPlayerTime > 40f)
+                if (Time.time - _lastSeenPlayerTime > 45f)
                 {
                     AggroLevel = Mathf.Clamp(AggroLevel - 1, 0, 10);
                     _aggroLevelKey.value = AggroLevel;

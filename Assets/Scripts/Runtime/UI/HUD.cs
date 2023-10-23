@@ -141,6 +141,7 @@ namespace Runtime.UI
         
         public void CloseNote()
         {
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             UIUtils.HideUIElement(_notesContainer);
         }
 
@@ -180,6 +181,7 @@ namespace Runtime.UI
         private void CloseMap()
         {
             isMapOpen = false;
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             UIUtils.HideUIElement(_mapContainer);
         }
         
@@ -196,6 +198,7 @@ namespace Runtime.UI
         
         private void CloseKeyPad()
         {
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             UIUtils.HideUIElement(_keyPadContainer);
         }
         

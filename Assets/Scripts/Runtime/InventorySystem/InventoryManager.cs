@@ -179,6 +179,7 @@ namespace Runtime.InventorySystem
             UIUtils.HideUIElement(_inventoryWindow);
             GameManager.Instance.ResetInput();
             GameManager.Instance.SoundSystem.ResumeAll();
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
         }
 
         public override void CloseSubWindow()

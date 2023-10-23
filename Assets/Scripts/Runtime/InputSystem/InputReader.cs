@@ -82,6 +82,7 @@ namespace Runtime.InputSystem
                 PauseEvent?.Invoke();
                 SetUI();
                 GameManager.Instance.SoundSystem.PauseAll();
+                GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             }
         }
 

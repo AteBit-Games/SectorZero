@@ -106,7 +106,11 @@ namespace Runtime.SaveSystem
 
         public void SaveGame()
         {
-            if (_saveGames.Count >= 3) _dataHandler.DeleteSave(_saveGames.First().saveTime);
+            if (_saveGames.Count >= 3)
+            {
+                _dataHandler.DeleteSave(_saveGames.First().saveTime);
+                _saveGames.RemoveAt(0);
+            }
             
             SaveGame saveGame = new()
             {
