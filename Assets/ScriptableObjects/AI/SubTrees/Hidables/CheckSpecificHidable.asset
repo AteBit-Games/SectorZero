@@ -37,7 +37,7 @@ MonoBehaviour:
     - rid: 484473896144994330
     - rid: 484473896144994341
     - rid: 484473896144994304
-  viewPosition: {x: 538, y: -34, z: 0}
+  viewPosition: {x: 487, y: 208, z: 0}
   viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
   references:
     version: 2
@@ -369,4 +369,4 @@ MonoBehaviour:
         timeout:
           reference:
             rid: -2
-          defaultValue: 120
+          defaultValue: 40

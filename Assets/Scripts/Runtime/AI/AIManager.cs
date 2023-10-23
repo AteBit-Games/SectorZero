@@ -105,6 +105,11 @@ namespace Runtime.AI
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
+        private void Start()
+        {
+            _stingCooldown = UnityEngine.Random.Range(stingInterval.x, stingInterval.y);
+        }
+
         private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
         {
             if (scene.name != "SectorTwo") return;
@@ -181,19 +186,19 @@ namespace Runtime.AI
                 }
             }
             
-            
             if(_stingCooldown > 0f)
             {
                 _stingCooldown -= Time.deltaTime;
             }
-            
+
             if(totalDistance > 50f && _stingCooldown <= 0f && !menaceState)
             {
                 var sound = monsterStings[UnityEngine.Random.Range(0, monsterStings.Count)];
                 GameManager.Instance.SoundSystem.Play(sound, _stingSource);
                 _stingCooldown = UnityEngine.Random.Range(stingInterval.x, stingInterval.y);
-                    
-                Debug.Log("Played: " + sound.name + " | Cooldown: " + _stingCooldown);
+                
+                Debug.Log("Sting");
+                Debug.Log(menaceState);
             }
 
             //Patrol Close
@@ -206,7 +211,7 @@ namespace Runtime.AI
             //Patrol Far
             else
             {
-                menaceGaugeValue -= Time.deltaTime * Math.Clamp(AggroLevel / 8f, 0.4f, 0.95f);
+                menaceGaugeValue -= Time.deltaTime * Math.Clamp(AggroLevel / 10f, 0.35f, 0.75f);
             }
 
             menaceGaugeValue = Mathf.Clamp(menaceGaugeValue, menaceGaugeMin, menaceGaugeMax);
@@ -325,7 +330,7 @@ namespace Runtime.AI
         {
             if (_active)
             {
-                AggroLevel += 2;
+                AggroLevel = Mathf.Clamp(AggroLevel + 2, 0, 10);
                 _aggroLevelKey.value = AggroLevel;
                 menaceGaugeValue = Mathf.Clamp(menaceGaugeValue + (menaceState ? 20f : -20f), menaceGaugeMin,
                     menaceGaugeMax);

@@ -235,6 +235,17 @@
                 },
                 {
                     "name": "",
+                    "id": "06e09e3e-035d-44bb-ae48-0e040f93f5c2",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "LeftClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b3195e79-a271-4ea2-b476-6c672bb8f66c",
                     "path": "<Keyboard>/c",
                     "interactions": "",
@@ -658,6 +669,17 @@
                     "name": "",
                     "id": "15ce968f-71e7-459e-b353-38d8a2e32df0",
                     "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd705e0a-d3bf-41db-a69a-c85f2991c9dc",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

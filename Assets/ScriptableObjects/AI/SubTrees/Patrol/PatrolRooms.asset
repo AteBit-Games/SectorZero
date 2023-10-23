@@ -33,8 +33,8 @@ MonoBehaviour:
     - rid: 130803864545001475
     - rid: 130803864545001498
     - rid: 130803864545001501
-  viewPosition: {x: 495, y: 294, z: 0}
-  viewScale: {x: 0.25, y: 0.25, z: 1}
+  viewPosition: {x: 701, y: -82, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -270,7 +270,7 @@ MonoBehaviour:
         timeout:
           reference:
             rid: -2
-          defaultValue: 120
+          defaultValue: 45
     - rid: 4809529490587254784
       type: {class: ValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
       data:

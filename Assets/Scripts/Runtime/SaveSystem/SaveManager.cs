@@ -99,13 +99,14 @@ namespace Runtime.SaveSystem
             _activeSave = new SaveGame();
             saveExists = false;
             
+            UpdatePlayerEnding(0);
             GameManager.Instance.AIManager.StartNewGame();
             SetNellieState(levelName, false);
         }
 
         public void SaveGame()
         {
-            if (_saveGames.Count >= 3) _dataHandler.DeleteSave(_saveGames.Last().saveTime);
+            if (_saveGames.Count >= 3) _dataHandler.DeleteSave(_saveGames.First().saveTime);
             
             SaveGame saveGame = new()
             {
@@ -224,6 +225,12 @@ namespace Runtime.SaveSystem
         public void UpdatePlayerSkipValue(bool manual)
         {
             _playerData.autoSkip = manual;
+            _dataHandler.SavePlayerData(_playerData);
+        }
+        
+        public void UpdatePlayerEnding(int ending)
+        {
+            _playerData.ending = ending;
             _dataHandler.SavePlayerData(_playerData);
         }
         

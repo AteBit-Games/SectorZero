@@ -717,3 +717,7 @@
 .choice-button:hover .cover {
     background-color: rgb(46, 46, 46);
 }
+
+.discord-button:hover {
+    -unity-background-image-tint-color: rgb(200, 200, 200);
+}

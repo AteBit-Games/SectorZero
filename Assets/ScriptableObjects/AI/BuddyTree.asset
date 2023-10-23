@@ -36,8 +36,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: 567, y: 132, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+  viewPosition: {x: 420, y: 164, z: 0}
+  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
   references:
     version: 2
     RefIds:
@@ -54,6 +54,8 @@ MonoBehaviour:
           keys: []
         comment: 
         drawGizmos: 0
+        name: 
+        debug: 0
         child:
           rid: 3640664452614586393
     - rid: 61114352745054246
@@ -192,7 +194,7 @@ MonoBehaviour:
         speed:
           reference:
             rid: -2
-          defaultValue: 5
+          defaultValue: 5.5
         stoppingDistance:
           reference:
             rid: -2

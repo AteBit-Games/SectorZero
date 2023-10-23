@@ -156,4 +156,4 @@ MonoBehaviour:
         timeout:
           reference:
             rid: -2
-          defaultValue: 120
+          defaultValue: 40

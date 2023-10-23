@@ -13,6 +13,7 @@ namespace Runtime.Misc
     {
         public void TriggerEnd()
         {
+            GameManager.Instance.SaveSystem.UpdatePlayerEnding(1);
             GameManager.Instance.EndGame();
         }
     }

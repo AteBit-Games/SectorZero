@@ -26,5 +26,6 @@ namespace Runtime.SaveSystem.Data
         public bool autoNotes = true;
         public bool autoTapes = true;
         public bool autoSkip = true;
+        public int ending;
     }
 }

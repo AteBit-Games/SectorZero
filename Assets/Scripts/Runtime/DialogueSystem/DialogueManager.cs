@@ -28,6 +28,8 @@ namespace Runtime.DialogueSystem
         private Label _dialogueTextElement;
         private Label _actorNameTextElement;
         private Label _dateTextElement;
+        private VisualElement _clickIcon;
+        
         private VisualElement _actorImage;
         private VisualElement _dialogueContainer;
         private UIDocument _uiDocument;
@@ -54,6 +56,7 @@ namespace Runtime.DialogueSystem
             _dateTextElement = rootVisualElement.Q<Label>("tape-date");
             _actorImage = rootVisualElement.Q<VisualElement>("portrait-image");
             _dialogueContainer = rootVisualElement.Q<VisualElement>("dialogue-window");
+            _clickIcon = rootVisualElement.Q<VisualElement>("click-image");
             
             //Bind Audio Source
             _audioSource = gameObject.GetComponent<AudioSource>();
@@ -83,6 +86,7 @@ namespace Runtime.DialogueSystem
         public void StartDialogue(Dialogue dialogue)
         {
             ShowDialogue(true);
+            
             _currentDialogue = dialogue;
             _currentLineIndex = 0;
             _skipDialogue = false;
@@ -91,6 +95,7 @@ namespace Runtime.DialogueSystem
             _dateTextElement.text = dialogue.date;
             _actorImage.style.backgroundImage = new StyleBackground(dialogue.dialogueLines[_currentLineIndex].actor.Sprite);
             _dialogueTextElement.text = "";
+            _clickIcon.style.display = _currentDialogue.canSkip ? DisplayStyle.Flex : DisplayStyle.None;
             
             if (_displayLineCoroutine != null) StopCoroutine(_displayLineCoroutine);
             if (_endDialogueCoroutine != null) StopCoroutine(_endDialogueCoroutine);

@@ -55,6 +55,8 @@ namespace Runtime.UI
         private Keypad _keyPad;
         private VisualElement _keyPadContainer;
 
+        [HideInInspector] public bool isMapOpen;
+
         //=============================== Unity Events ===============================//
         
         private void Awake()
@@ -172,10 +174,12 @@ namespace Runtime.UI
             Time.timeScale = 0;
             GameManager.Instance.DisableInput();
             _activeUIType = UIType.Map;
+            isMapOpen = true;
         }
         
         private void CloseMap()
         {
+            isMapOpen = false;
             UIUtils.HideUIElement(_mapContainer);
         }
         

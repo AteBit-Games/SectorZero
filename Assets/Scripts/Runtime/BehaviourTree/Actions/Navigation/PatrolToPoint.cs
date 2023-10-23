@@ -49,7 +49,7 @@ namespace Runtime.BehaviourTree.Actions.Navigation
                 return State.Failure;
             }
             
-            context.agent.speed = Vector3.Distance(context.agent.transform.position, player.Value.transform.position) < 35f ? speed.Value : 12f;
+            context.agent.speed = Vector3.Distance(context.agent.transform.position, player.Value.transform.position) < 55f ? speed.Value : 12f;
             if (context.agent.remainingDistance < context.agent.stoppingDistance) return State.Success;
             
             return context.agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathInvalid ? State.Failure : State.Running;

@@ -14,6 +14,7 @@ namespace Runtime.Misc.Triggers
     {
         public void Trigger()
         {
+            GameManager.Instance.SaveSystem.UpdatePlayerEnding(0);
             GameManager.Instance.EndGame();
         }
     }

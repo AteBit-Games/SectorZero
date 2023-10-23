@@ -131,6 +131,10 @@ namespace Runtime.InputSystem
                     case "escape":
                         if(context.phase == InputActionPhase.Performed) CloseUIEvent?.Invoke();
                         break;
+                    case "e":
+                        if(GameManager.Instance.HUD != null) 
+                            if(GameManager.Instance.HUD.isMapOpen) CloseUIEvent?.Invoke();
+                        break;
                 }
             }
         }
