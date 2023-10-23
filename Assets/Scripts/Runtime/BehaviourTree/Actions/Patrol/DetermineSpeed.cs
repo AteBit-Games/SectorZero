@@ -32,6 +32,9 @@ namespace Runtime.BehaviourTree.Actions.Patrol
                 case 10:
                     outSpeed.Value = 6f;
                     break;
+                default:
+                    outSpeed.Value = 5f;
+                    break;
             }
             
         }

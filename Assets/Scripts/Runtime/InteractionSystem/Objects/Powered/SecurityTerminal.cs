@@ -8,13 +8,15 @@ using Runtime.InteractionSystem.Objects.Doors;
 using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
+using Runtime.SaveSystem;
+using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
 
 namespace Runtime.InteractionSystem.Objects.Powered
 {
     [DefaultExecutionOrder(6)]
-    public class SecurityTerminal : MonoBehaviour, IInteractable, IPowered
+    public class SecurityTerminal : MonoBehaviour, IInteractable, IPowered, IPersistant
     {
         [SerializeField] private Sound offSound;
         [SerializeField] private Sound lockedSound;
@@ -30,6 +32,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
 
         //----- Interface Properties -----//
         private bool _isPowered;
+        private bool _isOpen;
 
         public bool IsPowered { get; set; }
 
@@ -40,6 +43,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         //----- Animator Hashes -----//
         private static readonly int Powered = Animator.StringToHash("powered");
         private static readonly int Unlock = Animator.StringToHash("unlock");
+        private static readonly int Loaded = Animator.StringToHash("loaded");
         private static readonly int Locked = Animator.StringToHash("locked");
 
         //========================= Unity events =========================//
@@ -57,6 +61,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             GameManager.Instance.SoundSystem.PlayOneShot(offSound, _audioSource);
             _animator.SetTrigger(Unlock);
+            _isOpen = true;
             return true;
         }
 
@@ -87,6 +92,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             door.OpenDoor();
             noiseEmitter.EmitGlobal();
+            GameManager.Instance.SaveSystem.SaveGame();
         }
 
         //========================= Public methods =========================//
@@ -103,6 +109,22 @@ namespace Runtime.InteractionSystem.Objects.Powered
             _isPowered = false;
             _animator.SetBool(Powered, false);
             _audioSource.Stop();
+        }
+
+        public string LoadData(SaveGame game)
+        {
+            if (game.worldData.securityTerminalUnlocked)
+            {
+                _isOpen = true;
+                _animator.SetTrigger(Loaded);
+            }
+
+            return "SecurityTerminal";
+        }
+
+        public void SaveData(SaveGame game)
+        {
+            game.worldData.securityTerminalUnlocked = _isOpen;
         }
     }
 }

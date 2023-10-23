@@ -76,6 +76,9 @@ MonoBehaviour:
   - rid: 9073406833927127040
   - rid: 9073406833927127041
   - rid: 9073406833975099392
+  - rid: 3640664957506027520
+  - rid: 3640664957506027521
+  - rid: 3640664957506027522
   treeState: 0
   blackboard:
     keys:
@@ -94,8 +97,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: 2687, y: -508, z: 0}
-  viewScale: {x: 1, y: 1, z: 1}
+  viewPosition: {x: 1540, y: -255, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -715,7 +718,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c51637e9d73afea42aa3344cb30c2548
-        position: {x: -680, y: 620}
+        position: {x: -840, y: 1000}
         blackboard:
           keys: []
         comment: 
@@ -730,7 +733,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: dfd0e377c56755242b02bbaf20e427c6
-        position: {x: -940, y: 760}
+        position: {x: -1100, y: 1140}
         blackboard:
           keys: []
         comment: Set the default to room
@@ -752,7 +755,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b51341990a7c12a448042b6eadd7c60d
-        position: {x: -360, y: 360}
+        position: {x: -520, y: 740}
         blackboard:
           keys: []
         comment: 
@@ -761,14 +764,13 @@ MonoBehaviour:
         - rid: 4809529542262915080
         - rid: 130803909263360014
         - rid: 4809529542262915072
-        - rid: 4809529514812243975
     - rid: 130803895344037900
       type: {class: Switch, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 2181e5daa88061e4bb939b11ce44c8f4
-        position: {x: -200, y: 620}
+        position: {x: -360, y: 1000}
         blackboard:
           keys: []
         comment: '<b>Inspect Type</b>
@@ -796,7 +798,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c622b9a696ac4114c955b90f94b50f8d
-        position: {x: -560, y: 760}
+        position: {x: -720, y: 1140}
         blackboard:
           keys: []
         comment: If no room was found then set it to hallway
@@ -824,7 +826,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 4fb40d7369a591743b8c493a1f922b2e
-        position: {x: -780, y: 880}
+        position: {x: -940, y: 1260}
         blackboard:
           keys: []
         comment: Check if the inspect point is within a room, inverter causes the
@@ -844,7 +846,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3b156b747e8cc7044b4f74cb69fbca26
-        position: {x: -760, y: 760}
+        position: {x: -920, y: 1140}
         blackboard:
           keys: []
         comment: 
@@ -857,7 +859,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: b9ac2b99e1cf6ef4a937cc163b604364
-        position: {x: -680, y: 500}
+        position: {x: -840, y: 880}
         blackboard:
           keys: []
         comment: 'Determine if the inspect point falls under a hallway or within
@@ -875,7 +877,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 65b92be2e0dffe94ea429a40981bcdcc
-        position: {x: -300, y: 760}
+        position: {x: -460, y: 1140}
         blackboard:
           keys: []
         comment: '<b>Inspect Room Subtree</b>
@@ -888,7 +890,7 @@ MonoBehaviour:
         drawGizmos: 0
         treeAsset: {fileID: 11400000, guid: 8b5ecad79c2252442bbe2cbd998fba85, type: 2}
         treeInstance: {fileID: 0}
-        cloneInstance: 0
+        cloneInstance: 1
         blackboardOverrides:
         - source:
             rid: 61114352745054247
@@ -957,7 +959,7 @@ MonoBehaviour:
           Sound and Last Known'
         drawGizmos: 0
         child:
-          rid: 130803895344037899
+          rid: 3640664957506027520
         restartOnSuccess: 1
         restartOnFailure: 1
         maxRepeats:
@@ -970,7 +972,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: bccd5bd4ad961cc4aae1dd4295f0fee3
-        position: {x: -120, y: 760}
+        position: {x: -280, y: 1140}
         blackboard:
           keys: []
         comment: '<b>Inspect Hallway Subtree</b>
@@ -1378,6 +1380,52 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 2.5
+    - rid: 3640664957506027520
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 48e13bfae00ac2d4ea66dc27715dd930
+        position: {x: -360, y: 360}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 3640664957506027521
+        - rid: 4809529514812243975
+    - rid: 3640664957506027521
+      type: {class: Remapper, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: fdbc10bb5e01b644e95c05039a75f42a
+        position: {x: -520, y: 500}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 3640664957506027522
+        successRemap: 1
+        failureRemap: 1
+    - rid: 3640664957506027522
+      type: {class: Timeout, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: bbdad1b95a05bd04b80f9611d43a4d14
+        position: {x: -520, y: 620}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 130803895344037899
+        timeout:
+          reference:
+            rid: -2
+          defaultValue: 60
     - rid: 4809529514812243972
       type: {class: SetCurrentState, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
       data:
@@ -1420,7 +1468,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 4df78487e3d1b9841ae4adf14302a33f
-        position: {x: 200, y: 500}
+        position: {x: -240, y: 500}
         blackboard:
           keys: []
         comment: After inspect go back to patrol if noting was found
@@ -1432,7 +1480,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 10044272dfd8dc04c9e0be883d9c74a9
-        position: {x: -200, y: 500}
+        position: {x: -360, y: 880}
         blackboard:
           keys: []
         comment: 
@@ -1447,7 +1495,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3240b45766e93b040b7679d2c1329654
-        position: {x: -1260, y: 500}
+        position: {x: -1420, y: 880}
         blackboard:
           keys: []
         comment: 
@@ -1462,7 +1510,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 3f078221fd6c9fd4e8a9db8eba5c151d
-        position: {x: -1260, y: 620}
+        position: {x: -1420, y: 1000}
         blackboard:
           keys: []
         comment: 
@@ -1476,7 +1524,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 00df95b4ec10af84e95a95438e845ad5
-        position: {x: -1180, y: 760}
+        position: {x: -1340, y: 1140}
         blackboard:
           keys: []
         comment: 
@@ -1488,7 +1536,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6c53d595b2acd404db0fb431398243bd
-        position: {x: -1380, y: 760}
+        position: {x: -1540, y: 1140}
         blackboard:
           keys: []
         comment: 

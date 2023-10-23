@@ -97,6 +97,7 @@ namespace Runtime.SaveSystem.Data
         public bool mainFuseStatus = true;
         public bool safeOpen;
         public bool containmentPuzzleComplete;
+        public bool securityTerminalUnlocked;
         
         public SerializableDictionary<string, bool> pickups = new();
         public SerializableDictionary<string, bool> tapeRecorders = new();

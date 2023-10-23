@@ -216,12 +216,25 @@ namespace Runtime.AI
 
             menaceGaugeValue = Mathf.Clamp(menaceGaugeValue, menaceGaugeMin, menaceGaugeMax);
 
-            if (Time.time - _lastSeenPlayerTime > 60f)
+            if (menaceState)
             {
-                AggroLevel = Mathf.Clamp(AggroLevel + 1, 0, 10);
-                _aggroLevelKey.value = AggroLevel;
-                _lastSeenPlayerTime = Time.time;
-                UpdateSentinelAggro(AggroLevel);
+                if (Time.time - _lastSeenPlayerTime > 60f)
+                {
+                    AggroLevel = Mathf.Clamp(AggroLevel + 1, 0, 10);
+                    _aggroLevelKey.value = AggroLevel;
+                    _lastSeenPlayerTime = Time.time;
+                    UpdateSentinelAggro(AggroLevel);
+                }
+            }
+            else
+            {
+                if (Time.time - _lastSeenPlayerTime > 40f)
+                {
+                    AggroLevel = Mathf.Clamp(AggroLevel - 1, 0, 10);
+                    _aggroLevelKey.value = AggroLevel;
+                    _lastSeenPlayerTime = Time.time;
+                    UpdateSentinelAggro(AggroLevel);
+                }
             }
 
             //Flip flop between patrol states based on menace value
@@ -336,8 +349,12 @@ namespace Runtime.AI
                     menaceGaugeMax);
 
                 _roomKey.value = room;
-                monster.SetState(MonsterState.Patrol);
-                monster.SetState(MonsterState.SentinelAlert);
+
+                if (!monster.StateOverride())
+                {
+                    monster.SetState(MonsterState.Patrol);
+                    monster.SetState(MonsterState.SentinelAlert);
+                }
             }
             else Activate();
         }

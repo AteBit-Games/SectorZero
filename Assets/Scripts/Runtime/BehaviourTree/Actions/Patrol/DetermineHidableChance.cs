@@ -21,21 +21,14 @@ namespace Runtime.BehaviourTree.Actions.Patrol
 
         protected override void OnStart()
         {
-            var baseChance = 0.1f;
-            
-            switch (aggroLevel.Value)
+            var baseChance = aggroLevel.Value switch
             {
-                case <= 3:
-                    baseChance = 0.1f;
-                    break;
-                case <= 9:
-                    baseChance = 0.12f;
-                    break;
-                case 10:
-                    baseChance = 0.16f;
-                    break;
-            }
-            
+                <= 3 => 0.1f,
+                <= 9 => 0.12f,
+                10 => 0.16f,
+                _ => 0.125f
+            };
+
             if(lostPlayer.Value) baseChance += 0.05f;
             outChance.Value = 1 - Mathf.Clamp(baseChance, 0.1f, 0.2f);
         }

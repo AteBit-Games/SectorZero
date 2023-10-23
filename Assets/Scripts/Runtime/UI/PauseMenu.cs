@@ -135,6 +135,7 @@ namespace Runtime.UI
         public override void OpenWindow()
         {
             Time.timeScale = 0;
+            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             UIUtils.ShowUIElement(_pauseWindow);
             UIUtils.ShowUIElement(_overlay);
         }
