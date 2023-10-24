@@ -1,14 +1,16 @@
 /****************************************************************
-* Copyright (c) 2023 AteBit Games
-* All rights reserved.
-****************************************************************/
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
 
+using System.Collections;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.Managers;
 using Runtime.Player;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Runtime.InteractionSystem.Objects
 {
@@ -22,6 +24,7 @@ namespace Runtime.InteractionSystem.Objects
     
     public class Locker : MonoBehaviour, IInteractable, IHideable
     {
+        [FormerlySerializedAs("cooldown")] [SerializeField] private float cooldownAmount = 0.25f;
         [SerializeField] private Sound interactSound;
         public Sound InteractSound => interactSound;
         
@@ -44,6 +47,7 @@ namespace Runtime.InteractionSystem.Objects
 
         //----- Private Variables -----//
         private SpriteRenderer _spriteRenderer;
+        private bool _cooldownActive;
 
         //========================= Unity events =========================//
         
@@ -56,7 +60,7 @@ namespace Runtime.InteractionSystem.Objects
         
         public bool OnInteract(GameObject player)
         {
-            if(!canExit) return false;
+            if(!canExit || _cooldownActive) return false;
             
             var playerController = player.GetComponentInParent<PlayerController>();
 
@@ -89,6 +93,9 @@ namespace Runtime.InteractionSystem.Objects
                 return false;
             }
             
+            _cooldownActive = true;
+            StartCoroutine(Cooldown());
+            
             GameManager.Instance.SoundSystem.Play(interactSound, transform.GetComponent<AudioSource>());
             return true;
         }
@@ -113,6 +120,12 @@ namespace Runtime.InteractionSystem.Objects
         public void SetCanExit(bool value)
         {
             canExit = value;
+        }
+        
+        private IEnumerator Cooldown()
+        {
+            yield return new WaitForSeconds(cooldownAmount);
+            _cooldownActive = false;
         }
     }
 }

@@ -1,8 +1,9 @@
 /****************************************************************
-* Copyright (c) 2023 AteBit Games
-* All rights reserved.
-****************************************************************/
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Runtime.InteractionSystem.Interfaces;
@@ -30,13 +31,21 @@ namespace Runtime.InteractionSystem.Objects
         [HideInInspector] public float progress;
         [HideInInspector] public bool hasPlayer;
         
-        //========================= Interface events =========================//
+        private AudioSource _audioSource;
         
+        //========================= Interface events =========================//
+
+        private void Awake()
+        {
+            _audioSource = transform.GetComponent<AudioSource>();
+        }
+
         public bool OnInteract(GameObject player)
         {
             hasPlayer = true;
             var playerController = player.GetComponentInParent<PlayerController>();
-            GameManager.Instance.SoundSystem.Play(openSound, transform.GetComponent<AudioSource>());
+            GameManager.Instance.SoundSystem.PlayOneShot(openSound, _audioSource);
+            _audioSource.Play();
 
             var interaction = player.GetComponent<PlayerInteraction>();
             interaction.RemoveInteractable(gameObject);
@@ -116,7 +125,8 @@ namespace Runtime.InteractionSystem.Objects
             playerController.SetVisible(true);
             
             hasPlayer = false;
-            GameManager.Instance.SoundSystem.Play(closeSound, transform.GetComponent<AudioSource>());
+            GameManager.Instance.SoundSystem.PlayOneShot(closeSound, transform.GetComponent<AudioSource>());
+            GetComponent<SoundObject>().AudioSource.Stop();
         }
         
         public void CancelMovePlayer()

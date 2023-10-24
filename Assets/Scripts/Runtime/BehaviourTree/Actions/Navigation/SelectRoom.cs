@@ -28,8 +28,6 @@ namespace Runtime.BehaviourTree.Actions.Navigation
                 return;
             }
             
-            if(prevRoom.Value != null) UnityEngine.Debug.Log($"Previous Room: {prevRoom.Value.name}");
-            
             //select a random room from the list that is not the previous room
             var index = UnityEngine.Random.Range(0, rooms.Value.Count);
             while (rooms.Value[index] == prevRoom.Value)
@@ -37,9 +35,8 @@ namespace Runtime.BehaviourTree.Actions.Navigation
                 index = UnityEngine.Random.Range(0, rooms.Value.Count);
             }
             
-            UnityEngine.Debug.Log($"Selected Room: {rooms.Value[index].name}");
             outRoom.Value = rooms.Value[index];
-            prevRoom.Value = rooms.Value[index];
+            
         }
     
         protected override void OnStop() { }

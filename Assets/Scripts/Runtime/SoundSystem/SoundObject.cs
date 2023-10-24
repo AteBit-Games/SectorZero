@@ -13,7 +13,8 @@ namespace Runtime.SoundSystem
     public class SoundObject : MonoBehaviour, ISoundEntity
     {
         [SerializeField] private Sound sound;
-        
+        [SerializeField] private bool playOnStart = true;
+
         public AudioSource AudioSource { get; private set; }
         public Sound Sound => sound;
 
@@ -22,10 +23,10 @@ namespace Runtime.SoundSystem
             AudioSource = GetComponent<AudioSource>();
             GameManager.Instance.SoundSystem.SetupSound(AudioSource, sound);
         }
-        
+
         public void Start()
         {
-            AudioSource.Play();
+            if (playOnStart) AudioSource.Play();
         }
     }
 }

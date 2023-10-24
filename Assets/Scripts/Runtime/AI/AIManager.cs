@@ -190,15 +190,12 @@ namespace Runtime.AI
             {
                 _stingCooldown -= Time.deltaTime;
             }
-
-            if(totalDistance > 50f && _stingCooldown <= 0f && !menaceState)
+            
+            if(_stingCooldown <= 0f && !menaceState && Vector2.Distance(monsterPosition, playerPosition) < 40f)
             {
                 var sound = monsterStings[UnityEngine.Random.Range(0, monsterStings.Count)];
                 GameManager.Instance.SoundSystem.Play(sound, _stingSource);
                 _stingCooldown = UnityEngine.Random.Range(stingInterval.x, stingInterval.y);
-                
-                Debug.Log("Sting");
-                Debug.Log(menaceState);
             }
 
             //Patrol Close

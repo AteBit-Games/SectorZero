@@ -53,7 +53,6 @@ namespace Runtime.UI
                         
             GameManager.Instance.SoundSystem.PauseAll();
             GameManager.Instance.DisableInput();
-            GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             
             Time.timeScale = 0;
             

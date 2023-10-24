@@ -79,6 +79,8 @@ MonoBehaviour:
   - rid: 3640664957506027520
   - rid: 3640664957506027521
   - rid: 3640664957506027522
+  - rid: 3640664971675172868
+  - rid: 3640664971675172869
   treeState: 0
   blackboard:
     keys:
@@ -97,8 +99,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: 1540, y: -255, z: 0}
-  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  viewPosition: {x: 1098, y: 102, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
     RefIds:
@@ -770,7 +772,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2181e5daa88061e4bb939b11ce44c8f4
-        position: {x: -360, y: 1000}
+        position: {x: -80, y: 1000}
         blackboard:
           keys: []
         comment: '<b>Inspect Type</b>
@@ -785,7 +787,7 @@ MonoBehaviour:
           Hallway'
         drawGizmos: 0
         children:
-        - rid: 130803909263360020
+        - rid: 3640664971675172868
         - rid: 130803909263360042
         index:
           reference:
@@ -826,7 +828,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 4fb40d7369a591743b8c493a1f922b2e
-        position: {x: -940, y: 1260}
+        position: {x: -960, y: 1260}
         blackboard:
           keys: []
         comment: Check if the inspect point is within a room, inverter causes the
@@ -877,7 +879,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 65b92be2e0dffe94ea429a40981bcdcc
-        position: {x: -460, y: 1140}
+        position: {x: -180, y: 1280}
         blackboard:
           keys: []
         comment: '<b>Inspect Room Subtree</b>
@@ -972,7 +974,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: bccd5bd4ad961cc4aae1dd4295f0fee3
-        position: {x: -280, y: 1140}
+        position: {x: 60, y: 1140}
         blackboard:
           keys: []
         comment: '<b>Inspect Hallway Subtree</b>
@@ -1426,6 +1428,35 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 60
+    - rid: 3640664971675172868
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 6ea50345bc8afa842aa209419e900b1c
+        position: {x: -260, y: 1140}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 3640664971675172869
+        - rid: 130803909263360020
+    - rid: 3640664971675172869
+      type: {class: ValidPoint, ns: Runtime.BehaviourTree.Conditions.Navigation, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: c2c29aa377d2c7b448739903c1fab381
+        position: {x: -340, y: 1280}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        positionToCheck:
+          reference:
+            rid: 130803893468135432
+          defaultValue: {x: 0, y: 0}
     - rid: 4809529514812243972
       type: {class: SetCurrentState, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
       data:
@@ -1480,7 +1511,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 10044272dfd8dc04c9e0be883d9c74a9
-        position: {x: -360, y: 880}
+        position: {x: -80, y: 880}
         blackboard:
           keys: []
         comment: 
