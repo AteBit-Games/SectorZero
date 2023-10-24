@@ -1,0 +1,360 @@
+fileFormatVersion: 2
+guid: 3670e6dcee7c2464495e4de05df50134
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: VincentWalk_S_Frame_0
+    originalName: 
+    pivot: {x: 0.53846157, y: -0.12068965}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 26
+      height: 58
+    spriteID: 0a8a48554173a3f47896420fb503e661
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: VincentWalk_S_Frame_1
+    originalName: 
+    pivot: {x: 0.5555555, y: -0.14545456}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 38
+      y: 4
+      width: 27
+      height: 55
+    spriteID: c88abc3b64cb5014884b6fbe383d20e2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 38, y: 4}
+  - name: VincentWalk_S_Frame_2
+    originalName: 
+    pivot: {x: 0.53846157, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 38
+      y: 130
+      width: 26
+      height: 55
+    spriteID: c1cf727bbd211a74a8d665e452fc3e86
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 38, y: 130}
+  - name: VincentWalk_S_Frame_3
+    originalName: 
+    pivot: {x: 0.53846157, y: -0.26415095}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 70
+      width: 26
+      height: 53
+    spriteID: 72de7fcf53d178846b07e80122f01735
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 70}
+  - name: VincentWalk_S_Frame_4
+    originalName: 
+    pivot: {x: 0.5555555, y: -0.18181819}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 38
+      y: 67
+      width: 27
+      height: 55
+    spriteID: 6166d4ff43cabfc4b88dea3f085294e2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 38, y: 67}
+  - name: VincentWalk_S_Frame_5
+    originalName: 
+    pivot: {x: 0.5555555, y: -0.23529413}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 4
+      width: 27
+      height: 51
+    spriteID: 9bcfcd648742f984eafb88972340c683
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 73, y: 4}
+  - name: VincentWalk_S_Frame_6
+    originalName: 
+    pivot: {x: 0.53846157, y: -0.26923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 131
+      width: 26
+      height: 52
+    spriteID: a3eca720f2556db408170a5dae717cad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 131}
+  - name: VincentWalk_S_Frame_7
+    originalName: 
+    pivot: {x: 0.52, y: -0.19642858}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 38
+      y: 193
+      width: 25
+      height: 56
+    spriteID: 37ffaa19416eb004c802ff5d61d5d439
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 38, y: 193}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -531778890
+    name: VincentWalk_S
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: VincentWalk_S_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 26
+        y: 7
+        width: 26
+        height: 58
+      spriteId: 0a8a48554173a3f47896420fb503e661
+    - name: VincentWalk_S_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 25
+        y: 8
+        width: 27
+        height: 55
+      spriteId: c88abc3b64cb5014884b6fbe383d20e2
+    - name: VincentWalk_S_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 26
+        y: 11
+        width: 26
+        height: 55
+      spriteId: c1cf727bbd211a74a8d665e452fc3e86
+    - name: VincentWalk_S_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 26
+        y: 14
+        width: 26
+        height: 53
+      spriteId: 72de7fcf53d178846b07e80122f01735
+    - name: VincentWalk_S_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 25
+        y: 10
+        width: 27
+        height: 55
+      spriteId: 6166d4ff43cabfc4b88dea3f085294e2
+    - name: VincentWalk_S_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 25
+        y: 12
+        width: 27
+        height: 51
+      spriteId: 9bcfcd648742f984eafb88972340c683
+    - name: VincentWalk_S_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 26
+        y: 14
+        width: 26
+        height: 52
+      spriteId: a3eca720f2556db408170a5dae717cad
+    - name: VincentWalk_S_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 27
+        y: 11
+        width: 25
+        height: 56
+      spriteId: 37ffaa19416eb004c802ff5d61d5d439
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 80, y: 80}
