@@ -81,10 +81,8 @@ namespace Runtime.AI
         private bool _active;
         [HideInInspector] public bool isPlayerCrouching;
 
-        private TweenInstance<Transform, float> _activeTween;
-        private Coroutine _pulseCoroutine;
-
         private Volume _volume;
+        private HeartBeatSystem _heartBeatSystem;
         
         //----- Adaptive Audio -----//
         private float _stingCooldown;        
@@ -92,6 +90,7 @@ namespace Runtime.AI
 
         //----- Interface ---//
         public int AggroLevel { get; private set; }
+        
 
         // ============================ Unity Events ============================
 
@@ -114,6 +113,7 @@ namespace Runtime.AI
         {
             if (scene.name != "SectorTwo") return;
             
+            _heartBeatSystem = FindFirstObjectByType<HeartBeatSystem>();
             _volume = FindFirstObjectByType<Volume>();
             _lastSeenPlayerTime = Time.time;
             _path = new NavMeshPath();
@@ -233,6 +233,8 @@ namespace Runtime.AI
                     UpdateSentinelAggro(AggroLevel);
                 }
             }
+            
+            DetermineHeartbeat();
 
             //Flip flop between patrol states based on menace value
             if (menaceGaugeValue >= menaceGaugeMax)
@@ -245,13 +247,6 @@ namespace Runtime.AI
                 GameManager.Instance.SoundSystem.Play(sound);
 
                 SetFilmGrain(0.2f);
-                if (_pulseCoroutine != null)
-                {
-                    RemoveVignette();
-                    StopCoroutine(_pulseCoroutine);
-                    _pulseCoroutine = null;
-                }
-
             }
 
             if (menaceGaugeValue <= menaceGaugeMin)
@@ -263,6 +258,46 @@ namespace Runtime.AI
                 GameManager.Instance.SoundSystem.Play(sound);
                 
                 SetFilmGrain(0.4f);
+            }
+        }
+        
+        private float _currentHeartRate;
+
+        private void DetermineHeartbeat()
+        {
+            var distance = Vector2.Distance(monster.transform.position, _player.transform.position);
+
+            if(distance < 40f)
+            {
+                _heartBeatSystem.Enable();
+
+                switch (distance)
+                {
+                    case <= 10f:
+                        if(_currentHeartRate == 110) break;
+                        _heartBeatSystem.SetHeartRateSmoothly(110);
+                        _currentHeartRate = 110;
+                        break;
+                    case <= 20f:
+                        if(_currentHeartRate == 90) break;
+                        _heartBeatSystem.SetHeartRateSmoothly(90);
+                        _currentHeartRate = 90;
+                        break;
+                    case <= 30f:
+                        if(_currentHeartRate == 75) break;
+                        _heartBeatSystem.SetHeartRateSmoothly(75);
+                        _currentHeartRate = 75;
+                        break;
+                    case <= 40f:
+                        if(_currentHeartRate == 60) break;
+                        _heartBeatSystem.SetHeartRateSmoothly(60);
+                        _currentHeartRate = 60;
+                        break;
+                }
+            }
+            else
+            {
+                _heartBeatSystem.Disable();
             }
         }
 
@@ -429,28 +464,6 @@ namespace Runtime.AI
                 };
                 
                 _volume.gameObject.AddTween(tween);
-            }
-        }
-
-        private void RemoveVignette()
-        {
-            _activeTween.Cancel();
-
-            if (_volume.sharedProfile.components[0] is Vignette vignette)
-            {
-                var tween = new FloatTween
-                {
-                    from = vignette.intensity.value,
-                    to = 0f,
-                    duration = 0.8f,
-                    easeType = EaseType.SineInOut,
-                    onUpdate = (_, value) =>
-                    {
-                        if (vignette != null) vignette.intensity.value = value;
-                    }
-                };
-                
-                _activeTween = _volume.gameObject.AddTween(tween);
             }
         }
     }

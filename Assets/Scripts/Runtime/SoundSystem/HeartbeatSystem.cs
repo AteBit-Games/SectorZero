@@ -7,6 +7,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Runtime.Managers;
+using UnityEngine.Serialization;
 
 namespace Runtime.SoundSystem
 {
@@ -15,17 +16,17 @@ namespace Runtime.SoundSystem
 	{
         [SerializeField] private int normalRate = 60;
         [SerializeField] private int maxRate = 140;
-        [SerializeField] private int recoverySpeed = 1;
-        [SerializeField] private int recoveryDelay = 10;
         [SerializeField] private Sound beat1;
         [SerializeField] private Sound beat2;
+        [SerializeField] private int changingSpeed = 3;
         [SerializeField] private AnimationCurve volumeCurve;
         
         //----- Private Variables -----//
         private List<AudioSource> _audioSources;
         private Coroutine _heartbeatCoroutine;
-        private Coroutine _heartBeatRecoveryCoroutine;
-        private int _currentRate;
+        private Coroutine _heartBeatIncreaseCoroutine;
+        public int currentRate;
+        private int _targetRate;
         
         public void Enable() 
         { 
@@ -34,23 +35,34 @@ namespace Runtime.SoundSystem
         
         public void Disable()
         {
-            StopRecovery();
+            StopIncrease();
             StopHeartbeat();
         }
         
-        public void SetHeartRateImmediately(int rate)
+        public void SetHeartRateSmoothly(int targetRate)
         {
-            if (_currentRate == rate) return;
+            if (currentRate == targetRate) return;
+            StopIncrease();
+            SetTargetRate(targetRate);
+            _heartBeatIncreaseCoroutine = StartCoroutine(HeartBeatIncreaseCoroutine());
+        }
 
-            StopRecovery();
-            SetCurrentRate(rate);
+        /// <summary> Increase the heart rate by passed value smoothly </summary>
+        public void ChangeHeartRateSmoothlyByValue(int rate)
+        {
+            if (_heartBeatIncreaseCoroutine == null)
+                rate += currentRate;
+            else
+                rate += _targetRate;
+
+            SetHeartRateSmoothly(rate);
         }
         
         private void SetCurrentRate(int rate) 
         {
             rate = Mathf.Clamp(rate, normalRate, maxRate);
             
-            _currentRate = rate;
+            currentRate = rate;
             UpdateHeartBeatVolume();
         }
         
@@ -58,9 +70,6 @@ namespace Runtime.SoundSystem
         {
             while (true) 
             {
-                if (_currentRate > normalRate && _heartBeatRecoveryCoroutine == null)
-                    _heartBeatRecoveryCoroutine = StartCoroutine(HeartBeatRecoveryCoroutine());
-
                 PlayFirstBeatSound();
                 yield return new WaitForSeconds(GetSecondBeatDelay());
                 PlaySecondBeatSound();
@@ -68,42 +77,36 @@ namespace Runtime.SoundSystem
             }
         }
         
-        private IEnumerator HeartBeatRecoveryCoroutine()
+        private IEnumerator HeartBeatIncreaseCoroutine()
         {
-            float t = 0;
-            while (t < recoveryDelay)
+            while (Mathf.Abs(currentRate - _targetRate) > changingSpeed)
             {
-                t += Time.deltaTime;
-                yield return null;
+                yield return new WaitForSecondsRealtime(1);
+                SetCurrentRate(currentRate > _targetRate ? currentRate - changingSpeed : currentRate + changingSpeed);
             }
 
-            while (_currentRate - recoverySpeed >= normalRate)
+            if (currentRate != _targetRate)
             {
-                yield return new WaitForSeconds(1);
-                SetCurrentRate(_currentRate - recoverySpeed);
+                yield return new WaitForSecondsRealtime(1);
+                SetCurrentRate(_targetRate);
             }
-
-            if (_currentRate != normalRate)
-            {
-                yield return new WaitForSeconds(1);
-                SetCurrentRate(normalRate);
-            }
-            _heartBeatRecoveryCoroutine = null;
+            
+            _heartBeatIncreaseCoroutine = null;
         }
         
         private void UpdateHeartBeatVolume()
         {
-            var ratePercent = (_currentRate - normalRate) / (float)(maxRate - normalRate);
+            var ratePercent = (currentRate - normalRate) / (float)(maxRate - normalRate);
             var volume = Mathf.Clamp(volumeCurve.Evaluate(ratePercent), 0, 1);
 
             foreach (var source in _audioSources) source.volume = volume;
         }
         
-        private void StopRecovery() 
+        private void StopIncrease() 
         {
-            if (_heartBeatRecoveryCoroutine == null) return;
-            StopCoroutine(_heartBeatRecoveryCoroutine);
-            _heartBeatRecoveryCoroutine = null;
+            if (_heartBeatIncreaseCoroutine == null) return;
+            StopCoroutine(_heartBeatIncreaseCoroutine);
+            _heartBeatIncreaseCoroutine = null;
         }
         
         private void StopHeartbeat()
@@ -121,6 +124,12 @@ namespace Runtime.SoundSystem
             _heartbeatCoroutine = StartCoroutine(HeartBeatCoroutine());
         }
         
+        private void SetTargetRate(int targetRate)
+        {
+            targetRate = Mathf.Clamp(targetRate, normalRate, maxRate);
+            _targetRate = targetRate;
+        }
+        
         private void PlayFirstBeatSound()
         {
             GameManager.Instance.SoundSystem.PlayOneShot(beat1, _audioSources[0]);
@@ -133,12 +142,12 @@ namespace Runtime.SoundSystem
         
         private float GetFirstBeatDelay()
         {
-            return 60f / _currentRate - GetSecondBeatDelay();
+            return 60f / currentRate - GetSecondBeatDelay();
         }
         
         private float GetSecondBeatDelay()
         {
-            return Mathf.Clamp((60f / _currentRate) * 0.3f, 0.1f, 0.35f);
+            return Mathf.Clamp((60f / currentRate) * 0.3f, 0.1f, 0.28f);
         }
         
         private void SetupAudioSources() 
