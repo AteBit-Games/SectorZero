@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: CorruptedScientistAttack_E_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0.069767445}
+    pivot: {x: 0.09302328, y: -0.14285715}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
-      width: 80
-      height: 86
+      y: 331
+      width: 43
+      height: 56
     spriteID: 49fe2ccf8ff20004a82ee8032f44691c
     spriteBone: []
     spriteOutline: []
@@ -138,18 +138,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 4, y: 331}
   - name: CorruptedScientistAttack_E_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0.069767445}
+    pivot: {x: 0.108108126, y: -0.18965518}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 98
-      width: 80
-      height: 86
+      y: 395
+      width: 37
+      height: 58
     spriteID: 583640f4a611ea74492e42b082c94fc2
     spriteBone: []
     spriteOutline: []
@@ -158,18 +158,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 98}
+    uvTransform: {x: 4, y: 395}
   - name: CorruptedScientistAttack_E_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0.069767445}
+    pivot: {x: 0.12500003, y: -0.20000002}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 192
-      width: 80
-      height: 86
+      x: 60
+      y: 70
+      width: 32
+      height: 60
     spriteID: 9f8b74e79fa9360478a0bc9ee66ae7bb
     spriteBone: []
     spriteOutline: []
@@ -178,18 +178,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 192}
+    uvTransform: {x: 60, y: 70}
   - name: CorruptedScientistAttack_E_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0.069767445}
+    pivot: {x: 0.12500003, y: -0.20000002}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 286
-      width: 80
-      height: 86
+      x: 60
+      y: 138
+      width: 32
+      height: 60
     spriteID: d1366e6513b987d46b0d7745b01b71ea
     spriteBone: []
     spriteOutline: []
@@ -198,18 +198,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 286}
+    uvTransform: {x: 60, y: 138}
   - name: CorruptedScientistAttack_E_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: 0.069767445}
+    pivot: {x: 0.12500003, y: -0.20000002}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 380
-      width: 80
-      height: 86
+      x: 60
+      y: 206
+      width: 32
+      height: 60
     spriteID: 21c8147bf28c40e41a1030e4215a4bde
     spriteBone: []
     spriteOutline: []
@@ -218,18 +218,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 380}
+    uvTransform: {x: 60, y: 206}
   - name: CorruptedScientistAttack_E_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: 0.069767445}
+    pivot: {x: 0.12500003, y: -0.20000002}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 92
-      y: 4
-      width: 80
-      height: 86
+      x: 60
+      y: 274
+      width: 32
+      height: 60
     spriteID: 838d2b5d751e19f449939f9d5afcec55
     spriteBone: []
     spriteOutline: []
@@ -238,18 +238,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 92, y: 4}
+    uvTransform: {x: 60, y: 274}
   - name: CorruptedScientistAttack_E_Frame_6
     originalName: 
-    pivot: {x: 0.5, y: 0.069767445}
+    pivot: {x: 0.12500003, y: -0.20000002}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 92
-      y: 98
-      width: 80
-      height: 86
+      x: 60
+      y: 342
+      width: 32
+      height: 60
     spriteID: ba722b82b8c90954bbcdf17169d50d31
     spriteBone: []
     spriteOutline: []
@@ -258,18 +258,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 92, y: 98}
+    uvTransform: {x: 60, y: 342}
   - name: CorruptedScientistAttack_E_Frame_7
     originalName: 
-    pivot: {x: 0.5, y: 0.069767445}
+    pivot: {x: 0.12500003, y: -0.20000002}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 92
-      y: 192
-      width: 80
-      height: 86
+      x: 60
+      y: 410
+      width: 32
+      height: 60
     spriteID: e82be2c2e4a9e4f47a677eff127aa28d
     spriteBone: []
     spriteOutline: []
@@ -278,18 +278,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 92, y: 192}
+    uvTransform: {x: 60, y: 410}
   - name: CorruptedScientistAttack_E_Frame_8
     originalName: 
-    pivot: {x: 0.5, y: 0.069767445}
+    pivot: {x: 0.12500003, y: -0.20000002}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 92
-      y: 286
-      width: 80
-      height: 86
+      x: 105
+      y: 4
+      width: 32
+      height: 60
     spriteID: f6144671755caf54d85cd5a33e8bece1
     spriteBone: []
     spriteOutline: []
@@ -298,18 +298,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 92, y: 286}
+    uvTransform: {x: 105, y: 4}
   - name: CorruptedScientistAttack_E_Frame_9
     originalName: 
-    pivot: {x: 0.5, y: 0.069767445}
+    pivot: {x: 0.12500003, y: -0.20000002}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 92
-      y: 380
-      width: 80
-      height: 86
+      x: 105
+      y: 72
+      width: 32
+      height: 60
     spriteID: 6c19c46000d363142b6f6e2693908316
     spriteBone: []
     spriteOutline: []
@@ -318,7 +318,207 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 92, y: 380}
+    uvTransform: {x: 105, y: 72}
+  - name: CorruptedScientistAttack_E_Frame_12
+    originalName: 
+    pivot: {x: 0.12500003, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 140
+      width: 32
+      height: 60
+    spriteID: d78c0d8888240bf439f5a5058815dac3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 140}
+  - name: CorruptedScientistAttack_E_Frame_13
+    originalName: 
+    pivot: {x: 0.12903228, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 208
+      width: 31
+      height: 60
+    spriteID: 6617535458947244eb6bd1a9b84e6a98
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 208}
+  - name: CorruptedScientistAttack_E_Frame_14
+    originalName: 
+    pivot: {x: 0.12903228, y: -0.20000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 276
+      width: 31
+      height: 60
+    spriteID: 68f15158b243e8943a1f79ed2eaf54e8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 276}
+  - name: CorruptedScientistAttack_E_Frame_15
+    originalName: 
+    pivot: {x: 0.12903228, y: -0.18333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 344
+      width: 31
+      height: 60
+    spriteID: 878015a3a081a2c4db1341ab9eaa20e3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 105, y: 344}
+  - name: CorruptedScientistAttack_E_Frame_0
+    originalName: 
+    pivot: {x: 0.17777777, y: -0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 199
+      width: 45
+      height: 58
+    spriteID: 6f8c12e0c4b612547a67c53eff265bed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 199}
+  - name: CorruptedScientistAttack_E_Frame_1
+    originalName: 
+    pivot: {x: 0.11627907, y: -0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 265
+      width: 43
+      height: 58
+    spriteID: 89e2d794735486e4081138fdfae12651
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 265}
+  - name: CorruptedScientistAttack_E_Frame_16
+    originalName: 
+    pivot: {x: 0.13513513, y: -0.1724138}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 4
+      width: 37
+      height: 58
+    spriteID: 86ac47168f5038c438673f59817b777f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 4}
+  - name: CorruptedScientistAttack_E_Frame_17
+    originalName: 
+    pivot: {x: 0.17391303, y: -0.15789473}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 134
+      width: 46
+      height: 57
+    spriteID: cc2de5ae001f2394d97bdff9f9895007
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 134}
+  - name: CorruptedScientistAttack_E_Frame_18
+    originalName: 
+    pivot: {x: 0.16666666, y: -0.15789473}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 48
+      height: 57
+    spriteID: b1755c54725307947acd6d132a1f1b03
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: CorruptedScientistAttack_E_Frame_19
+    originalName: 
+    pivot: {x: 0.16666666, y: -0.15789473}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 69
+      width: 48
+      height: 57
+    spriteID: fd94399984124fe43b237a20c02bdb05
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 69}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -328,86 +528,166 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: CorruptedScientistAttack_E_Frame_0
-      frameIndex: 0
-      cellRect:
-        x: 0
-        y: -6
-        width: 80
-        height: 86
-      spriteId: 49fe2ccf8ff20004a82ee8032f44691c
-    - name: CorruptedScientistAttack_E_Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 0
-        y: -6
-        width: 80
-        height: 86
-      spriteId: 583640f4a611ea74492e42b082c94fc2
     - name: CorruptedScientistAttack_E_Frame_2
       frameIndex: 2
       cellRect:
-        x: 0
-        y: -6
-        width: 80
-        height: 86
-      spriteId: 9f8b74e79fa9360478a0bc9ee66ae7bb
+        x: 36
+        y: 8
+        width: 43
+        height: 56
+      spriteId: 49fe2ccf8ff20004a82ee8032f44691c
     - name: CorruptedScientistAttack_E_Frame_3
       frameIndex: 3
       cellRect:
-        x: 0
-        y: -6
-        width: 80
-        height: 86
-      spriteId: d1366e6513b987d46b0d7745b01b71ea
+        x: 36
+        y: 11
+        width: 37
+        height: 58
+      spriteId: 583640f4a611ea74492e42b082c94fc2
     - name: CorruptedScientistAttack_E_Frame_4
       frameIndex: 4
       cellRect:
-        x: 0
-        y: -6
-        width: 80
-        height: 86
-      spriteId: 21c8147bf28c40e41a1030e4215a4bde
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: 9f8b74e79fa9360478a0bc9ee66ae7bb
     - name: CorruptedScientistAttack_E_Frame_5
       frameIndex: 5
       cellRect:
-        x: 0
-        y: -6
-        width: 80
-        height: 86
-      spriteId: 838d2b5d751e19f449939f9d5afcec55
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: d1366e6513b987d46b0d7745b01b71ea
     - name: CorruptedScientistAttack_E_Frame_6
       frameIndex: 6
       cellRect:
-        x: 0
-        y: -6
-        width: 80
-        height: 86
-      spriteId: ba722b82b8c90954bbcdf17169d50d31
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: 21c8147bf28c40e41a1030e4215a4bde
     - name: CorruptedScientistAttack_E_Frame_7
       frameIndex: 7
       cellRect:
-        x: 0
-        y: -6
-        width: 80
-        height: 86
-      spriteId: e82be2c2e4a9e4f47a677eff127aa28d
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: 838d2b5d751e19f449939f9d5afcec55
     - name: CorruptedScientistAttack_E_Frame_8
       frameIndex: 8
       cellRect:
-        x: 0
-        y: -6
-        width: 80
-        height: 86
-      spriteId: f6144671755caf54d85cd5a33e8bece1
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: ba722b82b8c90954bbcdf17169d50d31
     - name: CorruptedScientistAttack_E_Frame_9
       frameIndex: 9
       cellRect:
-        x: 0
-        y: -6
-        width: 80
-        height: 86
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: e82be2c2e4a9e4f47a677eff127aa28d
+    - name: CorruptedScientistAttack_E_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: f6144671755caf54d85cd5a33e8bece1
+    - name: CorruptedScientistAttack_E_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
       spriteId: 6c19c46000d363142b6f6e2693908316
+    - name: CorruptedScientistAttack_E_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 36
+        y: 12
+        width: 32
+        height: 60
+      spriteId: d78c0d8888240bf439f5a5058815dac3
+    - name: CorruptedScientistAttack_E_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 36
+        y: 12
+        width: 31
+        height: 60
+      spriteId: 6617535458947244eb6bd1a9b84e6a98
+    - name: CorruptedScientistAttack_E_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 36
+        y: 12
+        width: 31
+        height: 60
+      spriteId: 68f15158b243e8943a1f79ed2eaf54e8
+    - name: CorruptedScientistAttack_E_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 36
+        y: 11
+        width: 31
+        height: 60
+      spriteId: 878015a3a081a2c4db1341ab9eaa20e3
+    - name: CorruptedScientistAttack_E_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 32
+        y: 8
+        width: 45
+        height: 58
+      spriteId: 6f8c12e0c4b612547a67c53eff265bed
+    - name: CorruptedScientistAttack_E_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 35
+        y: 8
+        width: 43
+        height: 58
+      spriteId: 89e2d794735486e4081138fdfae12651
+    - name: CorruptedScientistAttack_E_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 35
+        y: 10
+        width: 37
+        height: 58
+      spriteId: 86ac47168f5038c438673f59817b777f
+    - name: CorruptedScientistAttack_E_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 32
+        y: 9
+        width: 46
+        height: 57
+      spriteId: cc2de5ae001f2394d97bdff9f9895007
+    - name: CorruptedScientistAttack_E_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 32
+        y: 9
+        width: 48
+        height: 57
+      spriteId: b1755c54725307947acd6d132a1f1b03
+    - name: CorruptedScientistAttack_E_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 32
+        y: 9
+        width: 48
+        height: 57
+      spriteId: fd94399984124fe43b237a20c02bdb05
     linkedCells: []
     parentIndex: -1
   platformSettings: []
