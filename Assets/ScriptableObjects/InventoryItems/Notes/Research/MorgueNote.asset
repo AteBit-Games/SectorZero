@@ -17,17 +17,10 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 9345020d4510a204e95d201e23ca6200, type: 3}
   itemDescription: An autopsy report
   noteType: 1
-  title: Subject 38 - Mortician Findings
+  title: Subject 55 - Mortician Findings
   author: Dr. Peter Reed
-  date: 1975.01.17
-  content: 'Subject 38, local. No signs of aggression displayed, but became unresponsive.
-
-
-
-    No
-    visible damage to the body. Noticed strange luminescence beneath the skin, which
-    has since faded.
-
-
-
-    Subject should be kept for further observation.'
+  date: 1975.03.11
+  content: "Subject 55, local. Subject exibitied aggressive behaviour shortly after
+    waking.  \n\nNo significant damage to the body. Noticed strange luminescence
+    beneath the skin, which has since faded.\n\n\nSubject should be kept for further
+    observation."
