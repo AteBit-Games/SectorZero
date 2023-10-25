@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RestorePower
   m_EditorClassIdentifier: 
   itemRef: RestorePower
-  summaryContent: "Divert power to the elevator\r"
+  summaryContent: "I need to divert power to the elevator\r"
   isCompleted: 0

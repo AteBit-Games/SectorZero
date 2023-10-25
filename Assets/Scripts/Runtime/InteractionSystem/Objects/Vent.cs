@@ -3,7 +3,6 @@
  * All rights reserved.
  ****************************************************************/
 
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Runtime.InteractionSystem.Interfaces;
@@ -125,8 +124,8 @@ namespace Runtime.InteractionSystem.Objects
             playerController.SetVisible(true);
             
             hasPlayer = false;
-            GameManager.Instance.SoundSystem.PlayOneShot(closeSound, transform.GetComponent<AudioSource>());
-            GetComponent<SoundObject>().AudioSource.Stop();
+            _audioSource.Stop();
+            GameManager.Instance.SoundSystem.PlayOneShot(closeSound, _audioSource);
         }
         
         public void CancelMovePlayer()

@@ -56,7 +56,9 @@ namespace Runtime.UI
             
             Time.timeScale = 0;
             
+            
             _choiceButton1.Q<Label>().text = choices[0].choiceText;
+            _choiceButton1.Focus();
             _choiceButton1.RegisterCallback<ClickEvent>(_ =>
             {
                 GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());

@@ -100,10 +100,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 11400000, guid: 5f874538968770a4ab2e04aff862afd1, type: 2}
-  summaryEntry: {fileID: 11400000, guid: c02f37141ea0dcd4cb8d54fea85c2864, type: 2}
-  persistentID: 
-  interactSound: {fileID: 0}
-  failSound: {fileID: 0}
+  summaryEntry:
+  - {fileID: 11400000, guid: c02f37141ea0dcd4cb8d54fea85c2864, type: 2}
+  summaryEntryToFinish: {fileID: 11400000, guid: 23c6a994f1c6dd04a9254805fb836bf5, type: 2}
+  itemToAdd: {fileID: 11400000, guid: 1d9c5dd9332daa2469dbecd307d52283, type: 2}
+  persistentID: 4a5dd824-1138-4cc2-b111-81d701ec20d9
+  interactSound: {fileID: 11400000, guid: df4d1f754c5975d4ca2ee05775e9e6ec, type: 2}
+  itemPickupSound: {fileID: 0}
+  failSound: {fileID: 11400000, guid: ffe769f02a6d43647ae93196509b7668, type: 2}
 --- !u!95 &5998903817252359658
 Animator:
   serializedVersion: 7

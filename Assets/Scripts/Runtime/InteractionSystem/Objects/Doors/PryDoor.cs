@@ -3,6 +3,8 @@
  * All rights reserved.
  ****************************************************************/
 
+using System.Collections.Generic;
+using System.Linq;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem;
 using Runtime.InventorySystem.ScriptableObjects;
@@ -19,7 +21,7 @@ namespace Runtime.InteractionSystem.Objects.Doors
     public class PryDoor : MonoBehaviour, IInteractable, IPersistant
     {
         [SerializeField] private Item requiredItem;
-        [SerializeField] public SummaryEntry summaryEntry;
+        [SerializeField] public List<SummaryEntry> summaryEntry;
         [SerializeField] public SummaryEntry summaryEntryToFinish;
         [SerializeField] private Item itemToAdd;
         [SerializeField] public string persistentID;
@@ -74,8 +76,10 @@ namespace Runtime.InteractionSystem.Objects.Doors
 
         public void OnInteractFailed(GameObject player)
         {
-            if (!player.GetComponentInParent<PlayerInventory>().ContainsSummaryEntry(summaryEntry))  
-                GameManager.Instance.InventorySystem.PlayerInventory.AddSummaryEntry(summaryEntry);
+            foreach (var entry in summaryEntry.Where(entry => !player.GetComponentInParent<PlayerInventory>().ContainsSummaryEntry(entry)))
+            {
+                GameManager.Instance.InventorySystem.PlayerInventory.AddSummaryEntry(entry);
+            }
             
             GameManager.Instance.SoundSystem.Play(failSound);
             _mainAnimator.SetTrigger(_failed);

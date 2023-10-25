@@ -55,7 +55,7 @@ namespace Runtime.UI
         private Keypad _keyPad;
         private VisualElement _keyPadContainer;
 
-        [HideInInspector] public bool isMapOpen;
+        [HideInInspector] public bool isWindowOpen;
 
         //=============================== Unity Events ===============================//
         
@@ -136,6 +136,7 @@ namespace Runtime.UI
                 GameManager.Instance.SoundSystem.PauseAll();
                 GameManager.Instance.DisableInput();
                 _activeUIType = UIType.Note;
+                isWindowOpen = true;
             }
         }
         
@@ -143,6 +144,7 @@ namespace Runtime.UI
         {
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             UIUtils.HideUIElement(_notesContainer);
+            isWindowOpen = false;
         }
 
         public void OpenMap(MapType mapType)
@@ -175,12 +177,12 @@ namespace Runtime.UI
             Time.timeScale = 0;
             GameManager.Instance.DisableInput();
             _activeUIType = UIType.Map;
-            isMapOpen = true;
+            isWindowOpen = true;
         }
         
         private void CloseMap()
         {
-            isMapOpen = false;
+            isWindowOpen = false;
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             UIUtils.HideUIElement(_mapContainer);
         }
@@ -194,12 +196,14 @@ namespace Runtime.UI
             Time.timeScale = 0;
             GameManager.Instance.DisableInput();
             _activeUIType = UIType.KeyPad;
+            isWindowOpen = true;
         }
         
         private void CloseKeyPad()
         {
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
             UIUtils.HideUIElement(_keyPadContainer);
+            isWindowOpen = false;
         }
         
         //=============================== Helper Function ===============================//

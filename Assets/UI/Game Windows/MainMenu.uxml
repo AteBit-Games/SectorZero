@@ -14,7 +14,7 @@
                     <ui:VisualElement name="undeline" style="flex-grow: 1; background-color: rgb(153, 156, 159); width: 95%; height: 2px; margin-top: 10px; margin-bottom: 10px; align-self: center;" />
                     <ui:VisualElement name="confirm-option" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; padding-bottom: 5px; margin-bottom: 0; margin-top: 10px;">
                         <ui:Button text="No" display-tooltip-when-elided="true" name="cancel-tutorial-option" class="option-button" style="flex-grow: 0;" />
-                        <ui:Button text="Yes" display-tooltip-when-elided="true" name="confirm-tutorial-option" focusable="true" class="option-button" style="flex-grow: 0;" />
+                        <ui:Button text="Yes" display-tooltip-when-elided="true" name="confirm-tutorial-option" focusable="true" class="option-main" style="flex-grow: 0;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
@@ -24,7 +24,7 @@
                     <ui:VisualElement name="undeline" style="flex-grow: 1; background-color: rgb(153, 156, 159); width: 95%; height: 2px; margin-top: 10px; margin-bottom: 10px; align-self: center;" />
                     <ui:VisualElement name="confirm-option" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; padding-bottom: 5px; margin-bottom: 0; margin-top: 10px;">
                         <ui:Button text="Cancel" display-tooltip-when-elided="true" name="cancel-desktop-option" class="option-button" style="flex-grow: 0;" />
-                        <ui:Button text="Confirm" display-tooltip-when-elided="true" name="confirm-desktop-option" focusable="true" class="option-button" style="flex-grow: 0;" />
+                        <ui:Button text="Confirm" display-tooltip-when-elided="true" name="confirm-desktop-option" focusable="true" class="option-main" style="flex-grow: 0;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
@@ -34,7 +34,7 @@
                     <ui:VisualElement name="undeline" style="flex-grow: 1; background-color: rgb(153, 156, 159); width: 95%; height: 2px; margin-top: 10px; margin-bottom: 10px; align-self: center;" />
                     <ui:VisualElement name="confirm-option" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; padding-bottom: 5px; margin-bottom: 0; margin-top: 10px;">
                         <ui:Button text="Cancel" display-tooltip-when-elided="true" name="cancel-new-game-option" class="option-button" style="flex-grow: 0;" />
-                        <ui:Button text="Continue" display-tooltip-when-elided="true" name="confirm-new-game-option" focusable="true" class="option-button" style="flex-grow: 0;" />
+                        <ui:Button text="Continue" display-tooltip-when-elided="true" name="confirm-new-game-option" focusable="true" class="option-main" style="flex-grow: 0;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

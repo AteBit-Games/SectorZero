@@ -83,6 +83,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - summary
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 165d25a72f72e0042bd6c9382421ac50
+    m_Address: BathroomLocker
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - summary
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b964706df64f2bd4e9cfafbde4832052, type: 2}
   m_SchemaSet:

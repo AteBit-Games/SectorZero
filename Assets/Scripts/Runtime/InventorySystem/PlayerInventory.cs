@@ -52,6 +52,15 @@ namespace Runtime.InventorySystem
             if(summaryEntries.Contains(entry) || _finishedSummaryRefs.Contains(entry)) return;
 
             entry.isCompleted = false;
+            if (summaryEntries.Count == 11)
+            {
+                var firstCompleted = summaryEntries.FirstOrDefault(e => e.isCompleted);
+                if (firstCompleted != null)
+                {
+                    summaryEntries.Remove(firstCompleted);
+                }
+            }
+            
             summaryEntries.Add(entry);
             GameManager.Instance.NotificationManager.ShowSummaryAddedNotification();
         }

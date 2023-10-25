@@ -113,7 +113,6 @@ namespace Runtime.AI
         {
             if (scene.name != "SectorTwo") return;
             
-            _heartBeatSystem = FindFirstObjectByType<HeartBeatSystem>();
             _volume = FindFirstObjectByType<Volume>();
             _lastSeenPlayerTime = Time.time;
             _path = new NavMeshPath();
@@ -159,6 +158,9 @@ namespace Runtime.AI
 
             var monsterPosition = monster.transform.position;
             var playerPosition = _player.transform.position;
+            
+            var distance = Vector2.Distance(monsterPosition, playerPosition);
+            Debug.Log(distance);
 
             NavMesh.CalculatePath(monsterPosition, playerPosition, NavMesh.AllAreas, _path);
             var totalDistance = 0f;
@@ -191,7 +193,7 @@ namespace Runtime.AI
                 _stingCooldown -= Time.deltaTime;
             }
             
-            if(_stingCooldown <= 0f && !menaceState && Vector2.Distance(monsterPosition, playerPosition) < 40f)
+            if(_stingCooldown <= 0f && distance > 40f)
             {
                 var sound = monsterStings[UnityEngine.Random.Range(0, monsterStings.Count)];
                 GameManager.Instance.SoundSystem.Play(sound, _stingSource);
@@ -201,9 +203,11 @@ namespace Runtime.AI
             //Patrol Close
             if (menaceState)
             {
-                menaceGaugeValue += Time.deltaTime * (lineOfSight ? directSightMultiplier : directSightBase);
-                menaceGaugeValue +=
-                    Time.deltaTime * (totalDistance < 30f ? closeDistanceMultiplier : closeDistanceBase);
+                var sightAmount = Time.deltaTime * (lineOfSight ? directSightMultiplier : directSightBase);
+                menaceGaugeValue += sightAmount;
+                
+                var distanceAmount = Time.deltaTime * (totalDistance < 30f ? closeDistanceMultiplier : closeDistanceBase);
+                menaceGaugeValue += distanceAmount;
             }
             //Patrol Far
             else
@@ -234,7 +238,7 @@ namespace Runtime.AI
                 }
             }
             
-            DetermineHeartbeat();
+            DetermineHeartbeat(distance);
 
             //Flip flop between patrol states based on menace value
             if (menaceGaugeValue >= menaceGaugeMax)
@@ -263,10 +267,8 @@ namespace Runtime.AI
         
         private float _currentHeartRate;
 
-        private void DetermineHeartbeat()
+        private void DetermineHeartbeat(float distance)
         {
-            var distance = Vector2.Distance(monster.transform.position, _player.transform.position);
-
             if(distance < 40f)
             {
                 _heartBeatSystem.Enable();
@@ -311,6 +313,7 @@ namespace Runtime.AI
 
         public void AddRooms(List<Collider2D> rooms)
         {
+            if(monster == null) InitializeReferences();
             monster.AddPatrolRooms(rooms);
         }
 
@@ -399,6 +402,8 @@ namespace Runtime.AI
         private void InitializeReferences()
         {
             _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
+            _heartBeatSystem = _player.GetComponentInChildren<HeartBeatSystem>();
+            
             monster = FindFirstObjectByType<VoidMask>(FindObjectsInactive.Include);
             _perception = monster.gameObject.transform.parent.GetComponentInChildren<AIPerception>();
 
@@ -406,11 +411,7 @@ namespace Runtime.AI
             _aggroLevelKey = monster.FindBlackboardKey<int>("AggroLevel");
             _isActiveKey = monster.FindBlackboardKey<bool>("Active");
             _roomKey = monster.FindBlackboardKey<Collider2D>("InspectRoom");
-            
-            
         }
-
-
 
         // ============================ Save System ============================
 

@@ -42,7 +42,8 @@ namespace Runtime.DialogueSystem
         private int _currentLineIndex;
         private Coroutine _displayLineCoroutine;
         private Coroutine _endDialogueCoroutine;
-        private readonly char[] _sentenceBreakCharacters = { '.', '!', '?', '"' };
+        private readonly char[] _sentenceBreakCharacters = { '.', '!', '?', '"', '…' };
+        private bool _isLineComplete;
         
         //============================== Unity Events ==============================//
         
@@ -79,7 +80,7 @@ namespace Runtime.DialogueSystem
             if(_currentDialogue == null) return;
             if(!_currentDialogue.canSkip) return;
             
-            if(_skipDialogue) ContinueDialogue();
+            if(_skipDialogue || _isLineComplete) ContinueDialogue();
             else _skipDialogue = true;
         }
         
@@ -196,6 +197,8 @@ namespace Runtime.DialogueSystem
         private IEnumerator DisplayLine(Dialogue dialogue, int lineIndex)
         {
             var currentLetterIndex = 0;
+            _isLineComplete = false;
+            
             _actorNameTextElement.text = dialogue.dialogueLines[_currentLineIndex].actor.Name;
             _actorImage.style.backgroundImage = new StyleBackground(dialogue.dialogueLines[_currentLineIndex].actor.Sprite);
 
@@ -212,19 +215,25 @@ namespace Runtime.DialogueSystem
                 //Play a sound
                 PlayDialogueSound(dialogue.dialogueLines[lineIndex].actor, currentLetterIndex, character);
                 currentLetterIndex++;
-
+                
+                //Debug.Log(_sentenceBreakCharacters.Contains(previousLetter) && character == ' ');
                 if (_sentenceBreakCharacters.Contains(previousLetter) && character == ' ') yield return new WaitForSeconds(sentencePauseTime);
                 else yield return new WaitForSeconds(textSpeed);
                 previousLetter = character;
             }
             
             _dialogueTextElement.text = dialogue.dialogueLines[lineIndex].line;
-
+            _isLineComplete = true;
+            
             if(GameManager.Instance.SaveSystem.GetPlayerData().autoSkip)
             {
                 if(!_skipDialogue) yield return new WaitForSeconds(_currentDialogue.autoSkipDelay);
                 else yield return new WaitForSeconds(DetermineDisplayTime(dialogue.dialogueLines[lineIndex].line));
-                
+                ContinueDialogue();
+            }
+            else if (!_currentDialogue.canSkip)
+            {
+                yield return new WaitForSeconds(_currentDialogue.autoSkipDelay);
                 ContinueDialogue();
             }
         }

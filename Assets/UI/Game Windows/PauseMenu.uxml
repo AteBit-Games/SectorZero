@@ -13,7 +13,7 @@
                     <ui:VisualElement name="undeline" style="flex-grow: 1; background-color: rgb(153, 156, 159); width: 95%; height: 2px; margin-top: 10px; margin-bottom: 10px; align-self: center;" />
                     <ui:VisualElement name="confirm-option" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; padding-bottom: 5px; margin-bottom: 0; margin-top: 10px;">
                         <ui:Button text="Cancel" display-tooltip-when-elided="true" name="cancel-menu-option" class="option-button" style="flex-grow: 0;" />
-                        <ui:Button text="Confirm" display-tooltip-when-elided="true" name="confirm-menu-option" focusable="true" class="option-button" style="flex-grow: 0;" />
+                        <ui:Button text="Confirm" display-tooltip-when-elided="true" name="confirm-menu-option" focusable="true" class="option-main" style="flex-grow: 0;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
@@ -23,16 +23,16 @@
             <ui:Button display-tooltip-when-elided="true" name="report-problem" style="position: absolute; right: 50px; bottom: 50px; width: 80px; height: 80px; border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; background-color: rgba(255, 255, 255, 0); -unity-font: url(&apos;project://database/Assets/Art/Fonts/PixelOperator.ttf?fileID=12800000&amp;guid=33cef30adfbef2144ba608f4d99caaee&amp;type=3#PixelOperator&apos;); -unity-font-definition: url(&apos;project://database/Assets/Art/Fonts/PixelOperator%20SDF%201.asset?fileID=11400000&amp;guid=82d8c1eece689f944b496ec29994bc4e&amp;type=2#PixelOperator SDF 1&apos;); color: rgb(255, 255, 255); font-size: 23px; background-image: url(&apos;project://database/Assets/Art/UI/BugFeedback.png?fileID=2800000&amp;guid=ee82c2ede1a24de448b16f8e76b1fec9&amp;type=3#BugFeedback&apos;); -unity-background-scale-mode: scale-to-fit;" />
             <ui:VisualElement name="control-group" style="flex-grow: 1; position: absolute; bottom: 50px; left: 100px; align-items: flex-start; overflow: visible; opacity: 1; visibility: visible;">
                 <ui:VisualElement name="button-group" style="background-color: rgba(0, 0, 0, 0); margin-bottom: 30px; flex-grow: 1; width: 206px;">
-                    <ui:Button text="Resume" display-tooltip-when-elided="true" name="resume" class="button" style="width: 96px;">
+                    <ui:Button text="Resume" display-tooltip-when-elided="true" name="resume" selectable="true" class="button" style="width: 96px;">
                         <ui:VisualElement name="side-item" />
                     </ui:Button>
-                    <ui:Button text="Load Save" display-tooltip-when-elided="true" name="load" class="button" style="width: 127px;">
+                    <ui:Button text="Load Save" display-tooltip-when-elided="true" name="load" selectable="true" class="button" style="width: 127px;">
                         <ui:VisualElement name="side-item" />
                     </ui:Button>
-                    <ui:Button text="Settings" display-tooltip-when-elided="true" name="settings" enable-rich-text="false" class="button" style="width: 112px;">
+                    <ui:Button text="Settings" display-tooltip-when-elided="true" name="settings" enable-rich-text="false" selectable="true" class="button" style="width: 112px;">
                         <ui:VisualElement name="side-item" />
                     </ui:Button>
-                    <ui:Button text="Quit" display-tooltip-when-elided="true" name="quit" class="button" style="width: 59px;">
+                    <ui:Button text="Quit" display-tooltip-when-elided="true" name="quit" selectable="true" class="button" style="width: 59px;">
                         <ui:VisualElement name="side-item" style="display: flex;" />
                     </ui:Button>
                 </ui:VisualElement>

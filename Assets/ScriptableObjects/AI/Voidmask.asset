@@ -81,6 +81,7 @@ MonoBehaviour:
   - rid: 3640664957506027522
   - rid: 3640664971675172868
   - rid: 3640664971675172869
+  - rid: 3640664980161822720
   treeState: 0
   blackboard:
     keys:
@@ -99,8 +100,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: 1098, y: 102, z: 0}
-  viewScale: {x: 0.25, y: 0.25, z: 1}
+  viewPosition: {x: 2406, y: -63, z: 0}
+  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
   references:
     version: 2
     RefIds:
@@ -1303,7 +1304,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 7e3ab2c03fc9cf24bb7abd62f9ae06d4
-        position: {x: -3500, y: 500}
+        position: {x: -3420, y: 500}
         blackboard:
           keys: []
         comment: 
@@ -1313,6 +1314,7 @@ MonoBehaviour:
         - rid: 130804122505707526
         - rid: 130804122505707527
         - rid: 130804122505707528
+        - rid: 3640664980161822720
         - rid: 4809529514812243972
     - rid: 130804122505707525
       type: {class: MoveToPosition, ns: Runtime.BehaviourTree.Actions.Navigation, asm: Assembly-CSharp}
@@ -1457,13 +1459,25 @@ MonoBehaviour:
           reference:
             rid: 130803893468135432
           defaultValue: {x: 0, y: 0}
+    - rid: 3640664980161822720
+      type: {class: SaveGame, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: fd2fddb6005f52a4e96929c20af6a022
+        position: {x: -3160, y: 640}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        delay: 8
     - rid: 4809529514812243972
       type: {class: SetCurrentState, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
       data:
         state: 0
         started: 0
         guid: 3acfe879f9613b64bbe702356ef10b90
-        position: {x: -3160, y: 640}
+        position: {x: -3000, y: 640}
         blackboard:
           keys: []
         comment: 

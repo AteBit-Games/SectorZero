@@ -121,10 +121,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredItem: {fileID: 11400000, guid: 5f874538968770a4ab2e04aff862afd1, type: 2}
-  summaryEntry: {fileID: 11400000, guid: c02f37141ea0dcd4cb8d54fea85c2864, type: 2}
+  summaryEntry:
+  - {fileID: 11400000, guid: 165d25a72f72e0042bd6c9382421ac50, type: 2}
+  - {fileID: 11400000, guid: c02f37141ea0dcd4cb8d54fea85c2864, type: 2}
+  summaryEntryToFinish: {fileID: 11400000, guid: 165d25a72f72e0042bd6c9382421ac50, type: 2}
   itemToAdd: {fileID: 11400000, guid: a94dc7ed7c62537408a397bc4accb493, type: 2}
   persistentID: 48e8be37-adee-4d38-af84-6af6ba80c77f
   interactSound: {fileID: 11400000, guid: 87910b2007f5ddd42af951cb08138434, type: 2}
+  itemPickupSound: {fileID: 0}
   failSound: {fileID: 11400000, guid: 6cc18b8dc03c57f4ab3fc2a2039974da, type: 2}
 --- !u!1 &4513907643872304621
 GameObject:

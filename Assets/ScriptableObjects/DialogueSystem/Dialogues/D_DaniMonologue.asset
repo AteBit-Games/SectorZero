@@ -23,19 +23,23 @@ MonoBehaviour:
     line: "Maybe there we\u2019ll feel warm again and loved. Really loved, forever.
       Forever.\r"
   - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
+    line: "\u2026\r"
+  - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
     line: "Would forever get boring? \r"
   - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
     line: "Maybe it\u2019s better we simply stop. No more pain.\r"
   - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
-    line: "We could just sleep, rest\u2026 Forever\u2026\r"
+    line: "We could just sleep, rest\u2026 Forever.\r"
   - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
     line: "Does that scare you? Being gone?\r"
+  - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
+    line: "\u2026"
   - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
     line: "What if you knew? Don\u2019t you want to know Nellie?\r"
   - actor: {fileID: 11400000, guid: d0a5a0a2318f8a9448b50a16f2e6a723, type: 2}
     line: "Come with me Nellie. We can find out\u2026 together.\r"
   canSkip: 1
-  autoSkipDelay: 2
+  autoSkipDelay: 3
   trigger: 1
   addSummaryEntry: 0
   summaryEntry: []

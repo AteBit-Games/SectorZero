@@ -38,6 +38,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         public Sound InteractSound => onSound;
         
         [SerializeField] private List<GameObject> connectedObjects = new();
+        [SerializeField] private GameObject lightObject;
         [SerializeField] private bool startPowered;
         
         public event Action<FuseBox, bool> PowerStateChanged;
@@ -145,6 +146,14 @@ namespace Runtime.InteractionSystem.Objects.Powered
             {
                 if(state) powerObject.PowerOn();
                 else powerObject.PowerOff();
+            }
+            
+            //lightObject get powered
+            var statusLight = lightObject.GetComponent<IPowered>() ?? lightObject.GetComponentInChildren<IPowered>();
+            if(statusLight != null)
+            {
+                if(state) statusLight.PowerOff();
+                else statusLight.PowerOn();
             }
             
             PowerStateChanged?.Invoke(this, state);

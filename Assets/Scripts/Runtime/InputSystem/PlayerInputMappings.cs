@@ -91,15 +91,6 @@ namespace Runtime.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Aim"",
-                    ""type"": ""Button"",
-                    ""id"": ""4c2019fa-3c04-4598-9f31-c3d95758e33e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -230,7 +221,7 @@ namespace Runtime.InputSystem
                     ""path"": ""<Pointer>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse;Touch"",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -366,17 +357,6 @@ namespace Runtime.InputSystem
                     ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d2a24ef5-f013-4b8a-9e71-67a8b2ec643d"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -390,7 +370,7 @@ namespace Runtime.InputSystem
                     ""id"": ""21b62c60-0fe8-4cec-b692-2998493c3140"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -581,30 +561,8 @@ namespace Runtime.InputSystem
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""563fbfdd-0f09-408d-aa75-8642c4f08ef0"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Navigate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""up"",
                     ""id"": ""eb480147-c587-4a33-85ed-eb0ab9942c43"",
                     ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Navigate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""2bf42165-60bc-42ca-8072-8c13ab40239b"",
-                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -625,30 +583,8 @@ namespace Runtime.InputSystem
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""74214943-c580-44e4-98eb-ad7eebe17902"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Navigate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
                     ""id"": ""cea9b045-a000-445b-95b8-0c171af70a3b"",
                     ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Navigate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""8607c725-d935-4808-84b1-8354e29bab63"",
-                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -707,6 +643,17 @@ namespace Runtime.InputSystem
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b9ae1bb7-5175-4006-8f05-342f134927b3"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -818,39 +765,6 @@ namespace Runtime.InputSystem
                     ""isOR"": false
                 }
             ]
-        },
-        {
-            ""name"": ""Touch"",
-            ""bindingGroup"": ""Touch"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Touchscreen>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Joystick"",
-            ""bindingGroup"": ""Joystick"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Joystick>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""XR"",
-            ""bindingGroup"": ""XR"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<XRController>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
         }
     ]
 }");
@@ -863,7 +777,6 @@ namespace Runtime.InputSystem
             m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
             m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
             m_Gameplay_Inventory = m_Gameplay.FindAction("Inventory", throwIfNotFound: true);
-            m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -942,7 +855,6 @@ namespace Runtime.InputSystem
         private readonly InputAction m_Gameplay_Pause;
         private readonly InputAction m_Gameplay_Interact;
         private readonly InputAction m_Gameplay_Inventory;
-        private readonly InputAction m_Gameplay_Aim;
         public struct GameplayActions
         {
             private @PlayerInput m_Wrapper;
@@ -954,7 +866,6 @@ namespace Runtime.InputSystem
             public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
             public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
             public InputAction @Inventory => m_Wrapper.m_Gameplay_Inventory;
-            public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -985,9 +896,6 @@ namespace Runtime.InputSystem
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
-                @Aim.started += instance.OnAim;
-                @Aim.performed += instance.OnAim;
-                @Aim.canceled += instance.OnAim;
             }
 
             private void UnregisterCallbacks(IGameplayActions instance)
@@ -1013,9 +921,6 @@ namespace Runtime.InputSystem
                 @Inventory.started -= instance.OnInventory;
                 @Inventory.performed -= instance.OnInventory;
                 @Inventory.canceled -= instance.OnInventory;
-                @Aim.started -= instance.OnAim;
-                @Aim.performed -= instance.OnAim;
-                @Aim.canceled -= instance.OnAim;
             }
 
             public void RemoveCallbacks(IGameplayActions instance)
@@ -1153,33 +1058,6 @@ namespace Runtime.InputSystem
                 return asset.controlSchemes[m_GamepadSchemeIndex];
             }
         }
-        private int m_TouchSchemeIndex = -1;
-        public InputControlScheme TouchScheme
-        {
-            get
-            {
-                if (m_TouchSchemeIndex == -1) m_TouchSchemeIndex = asset.FindControlSchemeIndex("Touch");
-                return asset.controlSchemes[m_TouchSchemeIndex];
-            }
-        }
-        private int m_JoystickSchemeIndex = -1;
-        public InputControlScheme JoystickScheme
-        {
-            get
-            {
-                if (m_JoystickSchemeIndex == -1) m_JoystickSchemeIndex = asset.FindControlSchemeIndex("Joystick");
-                return asset.controlSchemes[m_JoystickSchemeIndex];
-            }
-        }
-        private int m_XRSchemeIndex = -1;
-        public InputControlScheme XRScheme
-        {
-            get
-            {
-                if (m_XRSchemeIndex == -1) m_XRSchemeIndex = asset.FindControlSchemeIndex("XR");
-                return asset.controlSchemes[m_XRSchemeIndex];
-            }
-        }
         public interface IGameplayActions
         {
             void OnMove(InputAction.CallbackContext context);
@@ -1189,7 +1067,6 @@ namespace Runtime.InputSystem
             void OnPause(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
             void OnInventory(InputAction.CallbackContext context);
-            void OnAim(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

@@ -241,7 +241,7 @@ namespace Runtime.UI
             });
 
             var activeSkip = tapeSetting.Q<Toggle>("Toggle");
-            activeSkip.value = _activeAutoTapes;
+            activeSkip.value = _activeAutoSkip;
             
             // register buttons for changing display mode
             activeSkip.RegisterValueChangedCallback(evt =>
