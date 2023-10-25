@@ -110,7 +110,7 @@ namespace Runtime.UI
         private void UpdateAIManagerValues()
         {
             _menaceStateValue.text = "Menace State: " + MenaceStateString();
-            _menaceGaugeValue.text = "Menace Gauge: " + GameManager.Instance.AIManager.menaceGaugeValue;
+            _menaceGaugeValue.text = "Menace Gauge: " + GameManager.Instance.AIManager.currentMenaceGaugeValue;
             _aggroLevelValue.text = "Aggro Level: " + GameManager.Instance.AIManager.AggroLevel;
         }
         

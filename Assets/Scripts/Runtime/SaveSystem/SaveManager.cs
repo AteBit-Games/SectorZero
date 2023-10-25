@@ -96,6 +96,7 @@ namespace Runtime.SaveSystem
         public void NewGame(string levelName)
         {
             _dataHandler.ClearSaves();
+            _saveGames.Clear();
             _activeSave = new SaveGame();
             saveExists = false;
             

@@ -55,8 +55,6 @@ namespace Runtime.BehaviourTree.Monsters
         
         public string LoadData(SaveGame save)
         {
-            
-            
             if(!gameObject.activeSelf) return "VoidMask";
             
             SetupReferences();

@@ -57,7 +57,7 @@ namespace Runtime.SaveSystem.Data
         public bool isActive;
         public Vector3 position = new(-33f, -0.65f, 0);
         public int activeState;
-        public float menaceGaugeValue = 50;
+        public float menaceGaugeValue = 69;
         public bool menaceState;
         public int aggroLevel;
         public float lastSeenPlayerTime;
@@ -114,7 +114,6 @@ namespace Runtime.SaveSystem.Data
     [Serializable]
     public class SaveGame
     {
-        public bool isDataSaved;
         public long saveTime;
         public string levelName;
         

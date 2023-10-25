@@ -131,6 +131,7 @@ namespace Runtime.UI
 
             if (standalone)
             {
+                GameManager.Instance.DialogueSystem.CancelDialogue();
                 GameManager.Instance.activeWindow = this;
                 Time.timeScale = 0;
                 GameManager.Instance.SoundSystem.PauseAll();
@@ -173,6 +174,7 @@ namespace Runtime.UI
             }
             
             GameManager.Instance.activeWindow = this;
+            GameManager.Instance.DialogueSystem.CancelDialogue();
             
             Time.timeScale = 0;
             GameManager.Instance.DisableInput();
@@ -196,6 +198,8 @@ namespace Runtime.UI
             Time.timeScale = 0;
             GameManager.Instance.DisableInput();
             _activeUIType = UIType.KeyPad;
+            
+            GameManager.Instance.DialogueSystem.CancelDialogue();
             isWindowOpen = true;
         }
         

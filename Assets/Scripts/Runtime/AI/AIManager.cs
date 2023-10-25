@@ -56,7 +56,7 @@ namespace Runtime.AI
         private PlayerController _player;
 
         //------- Menace Gauge -------//
-        public float menaceGaugeValue = 5f;
+        public float currentMenaceGaugeValue = 5f;
         [HideInInspector] public bool menaceState;
         private NavMeshPath _path;
 
@@ -103,20 +103,20 @@ namespace Runtime.AI
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
-
-        private void Start()
-        {
-            _stingCooldown = UnityEngine.Random.Range(stingInterval.x, stingInterval.y);
-        }
-
+        
         private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
         {
-            if (scene.name != "SectorTwo") return;
+            if (scene.name != "SectorTwo")
+            {
+                _active = false;
+                return;
+            }
             
             _volume = FindFirstObjectByType<Volume>();
             _lastSeenPlayerTime = Time.time;
             _path = new NavMeshPath();
 
+            _stingCooldown = UnityEngine.Random.Range(stingInterval.x, stingInterval.y);
             InitializeReferences();
 
             if (monster == null || _player == null)
@@ -204,18 +204,18 @@ namespace Runtime.AI
             if (menaceState)
             {
                 var sightAmount = Time.deltaTime * (lineOfSight ? directSightMultiplier : directSightBase);
-                menaceGaugeValue += sightAmount;
+                currentMenaceGaugeValue += sightAmount;
                 
                 var distanceAmount = Time.deltaTime * (totalDistance < 30f ? closeDistanceMultiplier : closeDistanceBase);
-                menaceGaugeValue += distanceAmount;
+                currentMenaceGaugeValue += distanceAmount;
             }
             //Patrol Far
             else
             {
-                menaceGaugeValue -= Time.deltaTime * Math.Clamp(AggroLevel / 10f, 0.35f, 0.75f);
+                currentMenaceGaugeValue -= Time.deltaTime * Math.Clamp(AggroLevel / 10f, 0.35f, 0.75f);
             }
-
-            menaceGaugeValue = Mathf.Clamp(menaceGaugeValue, menaceGaugeMin, menaceGaugeMax);
+            
+            currentMenaceGaugeValue = Mathf.Clamp(currentMenaceGaugeValue, menaceGaugeMin, menaceGaugeMax);
 
             if (menaceState)
             {
@@ -241,7 +241,7 @@ namespace Runtime.AI
             DetermineHeartbeat(distance);
 
             //Flip flop between patrol states based on menace value
-            if (menaceGaugeValue >= menaceGaugeMax)
+            if (currentMenaceGaugeValue >= menaceGaugeMax)
             {
                 SetPatrolState(false);
                 menaceState = false;
@@ -253,7 +253,7 @@ namespace Runtime.AI
                 SetFilmGrain(0.2f);
             }
 
-            if (menaceGaugeValue <= menaceGaugeMin)
+            if (currentMenaceGaugeValue <= menaceGaugeMin)
             {
                 SetPatrolState(true);
                 menaceState = true;
@@ -319,12 +319,11 @@ namespace Runtime.AI
 
         public void StartNewGame()
         {
-            menaceGaugeValue = 50f;
+            currentMenaceGaugeValue = 60f;
             menaceState = false;
             _lastSeenPlayerTime = Time.time;
             AggroLevel = 0;
             _active = false;
-            menaceState = false;
         }
 
         // ============================ Private Methods ============================
@@ -380,7 +379,7 @@ namespace Runtime.AI
             {
                 AggroLevel = Mathf.Clamp(AggroLevel + 2, 0, 10);
                 _aggroLevelKey.value = AggroLevel;
-                menaceGaugeValue = Mathf.Clamp(menaceGaugeValue + (menaceState ? 20f : -20f), menaceGaugeMin,
+                currentMenaceGaugeValue = Mathf.Clamp(currentMenaceGaugeValue + (menaceState ? 20f : -20f), menaceGaugeMin,
                     menaceGaugeMax);
 
                 _roomKey.value = room;
@@ -423,7 +422,7 @@ namespace Runtime.AI
             var monsterSave = save.monsterData;
 
             _active = monsterSave.isActive;
-            menaceGaugeValue = monsterSave.menaceGaugeValue;
+            currentMenaceGaugeValue = monsterSave.menaceGaugeValue;
             menaceState = monsterSave.menaceState;
             _patrolStateKey.value = menaceState;
 
@@ -435,17 +434,14 @@ namespace Runtime.AI
 
         public void SaveData(SaveGame save)
         {
-            if (save.isDataSaved) return;
             if (GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name != "SectorTwo") return;
             
             var monsterSave = save.monsterData;
             monsterSave.isActive = _active;
-            monsterSave.menaceGaugeValue = menaceGaugeValue;
+            monsterSave.menaceGaugeValue = currentMenaceGaugeValue;
             monsterSave.menaceState = menaceState;
             monsterSave.aggroLevel = AggroLevel;
             monsterSave.lastSeenPlayerTime = _lastSeenPlayerTime;
-
-            save.isDataSaved = true;
         }
 
         private void SetFilmGrain(float intensity)
