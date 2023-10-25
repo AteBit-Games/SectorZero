@@ -132,6 +132,7 @@ namespace Runtime.InventorySystem
         public override void OpenWindow()
         {
             isInventoryOpen = true;
+            GameManager.Instance.DialogueSystem.PauseDialogue();
             
             GameManager.Instance.SoundSystem.PauseAll();
             GameManager.Instance.DisableInput();
@@ -172,6 +173,7 @@ namespace Runtime.InventorySystem
         {
             if (isNoteWindowOpen) return;
             
+            GameManager.Instance.DialogueSystem.ResumeDialogue();
             Time.timeScale = 1;
             isInventoryOpen = false;
             GameManager.Instance.activeWindow = null;

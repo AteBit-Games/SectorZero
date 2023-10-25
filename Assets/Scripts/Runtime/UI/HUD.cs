@@ -131,7 +131,7 @@ namespace Runtime.UI
 
             if (standalone)
             {
-                GameManager.Instance.DialogueSystem.CancelDialogue();
+                GameManager.Instance.DialogueSystem.PauseDialogue();
                 GameManager.Instance.activeWindow = this;
                 Time.timeScale = 0;
                 GameManager.Instance.SoundSystem.PauseAll();
@@ -144,6 +144,7 @@ namespace Runtime.UI
         public void CloseNote()
         {
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+            GameManager.Instance.DialogueSystem.ResumeDialogue();
             UIUtils.HideUIElement(_notesContainer);
             isWindowOpen = false;
         }
@@ -174,7 +175,7 @@ namespace Runtime.UI
             }
             
             GameManager.Instance.activeWindow = this;
-            GameManager.Instance.DialogueSystem.CancelDialogue();
+            GameManager.Instance.DialogueSystem.PauseDialogue();
             
             Time.timeScale = 0;
             GameManager.Instance.DisableInput();
@@ -186,6 +187,7 @@ namespace Runtime.UI
         {
             isWindowOpen = false;
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+            GameManager.Instance.DialogueSystem.ResumeDialogue();
             UIUtils.HideUIElement(_mapContainer);
         }
         
@@ -199,13 +201,14 @@ namespace Runtime.UI
             GameManager.Instance.DisableInput();
             _activeUIType = UIType.KeyPad;
             
-            GameManager.Instance.DialogueSystem.CancelDialogue();
+            GameManager.Instance.DialogueSystem.PauseDialogue();
             isWindowOpen = true;
         }
         
         private void CloseKeyPad()
         {
             GameManager.Instance.SoundSystem.Play(GameManager.Instance.ClickSound());
+            GameManager.Instance.DialogueSystem.ResumeDialogue();
             UIUtils.HideUIElement(_keyPadContainer);
             isWindowOpen = false;
         }

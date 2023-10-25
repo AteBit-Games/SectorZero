@@ -192,6 +192,18 @@ namespace Runtime.DialogueSystem
             _currentDialogue = null;
         }
         
+        public void PauseDialogue()
+        {
+            if(_currentDialogue == null) return;
+            ShowDialogue(false);
+        }
+        
+        public void ResumeDialogue()
+        {
+            if(_currentDialogue == null) return;
+            ShowDialogue(true);
+        }
+        
         //============================== Coroutines ==============================//
         
         private IEnumerator DisplayLine(Dialogue dialogue, int lineIndex)

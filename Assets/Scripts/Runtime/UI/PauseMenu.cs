@@ -139,6 +139,7 @@ namespace Runtime.UI
         public override void OpenWindow()
         {
             Time.timeScale = 0;
+            GameManager.Instance.DialogueSystem.PauseDialogue();
             UIUtils.ShowUIElement(_pauseWindow);
             UIUtils.ShowUIElement(_overlay);
         }
@@ -149,6 +150,7 @@ namespace Runtime.UI
             GameManager.Instance.ResetInput();
             GameManager.Instance.SoundSystem.ResumeAll();
             GameManager.Instance.activeWindow = null;
+            GameManager.Instance.DialogueSystem.ResumeDialogue();
             
             _feedbackForm.HideForm();
             _cheatMenu.HideMenu();
