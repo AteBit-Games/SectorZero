@@ -44,7 +44,7 @@ namespace Runtime.UI
         private Button _cancelMenuQuit;
         
         private SaveMenu _saveMenu;
-        
+
         private void Awake()
         {
             _uiDocument = GetComponent<UIDocument>();
@@ -129,6 +129,11 @@ namespace Runtime.UI
             });
             
             SetupPopups();
+        }
+        
+        public void SetCheats(bool active)
+        {
+            _cheatMenuButton.style.display = active ? DisplayStyle.Flex : DisplayStyle.None;
         }
 
         public override void OpenWindow()

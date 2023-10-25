@@ -353,15 +353,37 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "d8d75eb9-31df-443a-8fcd-41db3ea01cef",
-                    "path": "<Keyboard>/c",
+                    "name": "One Modifier",
+                    "id": "221b7e0d-90b5-4cd4-a0b7-dd30e0f264a2",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CheatMenu",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "44342d81-ba80-4e0e-a1ae-a3c15ba1cc51",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "CheatMenu",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "45251209-2163-4764-825e-31398c8b4e24",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CheatMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",

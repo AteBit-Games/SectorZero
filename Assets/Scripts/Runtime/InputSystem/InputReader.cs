@@ -106,7 +106,7 @@ namespace Runtime.InputSystem
 
         public void OnCheatMenu(InputAction.CallbackContext context)
         {
-            throw new NotImplementedException();
+            GameManager.Instance.SetCheats(!GameManager.Instance.cheatMenuActive);
         }
 
         private bool _isDebugOpen;

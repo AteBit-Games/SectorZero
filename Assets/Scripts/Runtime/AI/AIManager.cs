@@ -436,8 +436,8 @@ namespace Runtime.AI
         public void SaveData(SaveGame save)
         {
             if (save.isDataSaved) return;
-            if (GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name == "Tutorial") return;
-
+            if (GameManager.Instance.isMainMenu || SceneManager.GetActiveScene().name != "SectorTwo") return;
+            
             var monsterSave = save.monsterData;
             monsterSave.isActive = _active;
             monsterSave.menaceGaugeValue = menaceGaugeValue;

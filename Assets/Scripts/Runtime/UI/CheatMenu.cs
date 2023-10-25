@@ -26,7 +26,6 @@ namespace Runtime.UI
         
         
         private UIDocument _uiDocument;
-        
         private VisualElement _cheatMenu;
         
         private Button _addAll;

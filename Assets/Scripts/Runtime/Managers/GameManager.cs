@@ -23,6 +23,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace Runtime.Managers
 {
@@ -73,6 +74,7 @@ namespace Runtime.Managers
         private long _time;
         private Discord.Discord _discord;
 
+        [HideInInspector] public bool cheatMenuActive;
         private bool _isDebugOpen;
         
         //========================= Unity Events =========================
@@ -101,6 +103,7 @@ namespace Runtime.Managers
             SaveSystem = GetComponent<SaveManager>();
             AIManager = GetComponent<AIManager>();
             GetComponent<AIManager>();
+            cheatMenuActive = false;
 
             InstantiateDiscord();
         }
@@ -254,6 +257,12 @@ namespace Runtime.Managers
             activeWindow = ChoiceUI;
         }
         
+        public void SetCheats(bool active)
+        {
+            cheatMenuActive = active;
+            PauseMenu.SetCheats(active);
+        }
+        
         //========================= Private Methods =========================
         
         private void OpenInventoryWindow()
@@ -301,13 +310,15 @@ namespace Runtime.Managers
             //Required objects for gameplay scenes
             DialogueSystem = FindFirstObjectByType<DialogueManager>(FindObjectsInactive.Include);
             InventorySystem = FindFirstObjectByType<InventoryManager>(FindObjectsInactive.Include);
-            PauseMenu = FindFirstObjectByType<PauseMenu>(FindObjectsInactive.Include);
             HUD = FindFirstObjectByType<HUD>(FindObjectsInactive.Include);
             DeathScreen = FindFirstObjectByType<DeathScreen>(FindObjectsInactive.Include);
             EndScreen = FindFirstObjectByType<EndScreen>(FindObjectsInactive.Include);
             DebugWindow = FindFirstObjectByType<DebugMenu>(FindObjectsInactive.Include);
             PowerManager = FindFirstObjectByType<PowerManager>(FindObjectsInactive.Include);
             ChoiceUI = FindFirstObjectByType<ChoiceUI>(FindObjectsInactive.Include);
+            
+            PauseMenu = FindFirstObjectByType<PauseMenu>(FindObjectsInactive.Include);
+            PauseMenu.SetCheats(cheatMenuActive);
         }
 
         private void UpdateStatus()
