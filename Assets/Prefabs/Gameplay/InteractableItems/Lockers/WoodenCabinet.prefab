@@ -166,7 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4fa0e835866eb74382bbda8a0e50390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSound: {fileID: 11400000, guid: e4372c452e15e1b46b4bf031e7575dfa, type: 2}
+  cooldownAmount: 0.25
+  interactSound: {fileID: 11400000, guid: a8bcbe3edb87d41419ddec644720967f, type: 2}
   inspectPosition: {fileID: 4455814506628480129}
   hidePosition: {fileID: 5241088200158171194}
   revealPosition: {fileID: 914733626403655844}
