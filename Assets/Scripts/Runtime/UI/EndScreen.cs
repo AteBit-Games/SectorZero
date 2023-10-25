@@ -40,7 +40,7 @@ namespace Runtime.UI
             _playtesters.style.opacity = 0;
             _thanks.style.opacity = 0;
             
-            StartCoroutine(StartThanks());
+            StartCoroutine(StartDevelopers());
         }
 
         private IEnumerator StartThanks()
@@ -76,7 +76,7 @@ namespace Runtime.UI
             gameObject.AddTween(thanksFadeTween);
             
             yield return new WaitForSecondsRealtime(1f);
-            StartCoroutine(StartDevelopers());
+            CloseWindow();
         }
         
         private IEnumerator StartDevelopers()
@@ -146,7 +146,7 @@ namespace Runtime.UI
             };
             gameObject.AddTween(playtestersFadeTween);
             yield return new WaitForSecondsRealtime(2.5f);
-            CloseWindow();
+            StartCoroutine(StartThanks());
         }
 
         public override void CloseWindow()

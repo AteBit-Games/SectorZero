@@ -52,18 +52,10 @@ MonoBehaviour:
   - rid: 2098102505811476548
   - rid: 2098102505811476550
   - rid: 2098102505811476552
-  - rid: 2098102505811476556
   - rid: 61114306436005889
   - rid: 61114306436005890
   - rid: 61114306436005891
   - rid: 61114306436005892
-  - rid: 61114306436005893
-  - rid: 61114306436005894
-  - rid: 61114306436005895
-  - rid: 61114306436005896
-  - rid: 61114306436005897
-  - rid: 61114306436005898
-  - rid: 61114306436005899
   - rid: 130803864545001529
   - rid: 130803864545001530
   - rid: 130803864545001531
@@ -91,8 +83,8 @@ MonoBehaviour:
     - rid: 2098102505811476488
     - rid: 2098102505811476487
     - rid: 4809529510642319375
-  viewPosition: {x: -945, y: -155, z: 0}
-  viewScale: {x: 0.7561437, y: 0.7561437, z: 1}
+  viewPosition: {x: -251, y: 119, z: 0}
+  viewScale: {x: 0.25, y: 0.25, z: 1}
   references:
     version: 2
     RefIds:
@@ -104,7 +96,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6fa62143195b2c84593911c22f718c3b
-        position: {x: 4400, y: 540}
+        position: {x: 3720, y: 540}
         blackboard:
           keys: []
         comment: 
@@ -123,7 +115,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: f8557c40c1f035942892c9f98c80ae8a
-        position: {x: 4500, y: 260}
+        position: {x: 3820, y: 260}
         blackboard:
           keys: []
         comment: 
@@ -137,7 +129,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 7623c7e8c0779d44b808b89603072b55
-        position: {x: 4340, y: 400}
+        position: {x: 3660, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -151,130 +143,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 275e360ab96a2364b90c56423860dd6c
-        position: {x: 4240, y: 540}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        duration:
-          reference:
-            rid: -2
-          defaultValue: 2
-    - rid: 61114306436005893
-      type: {class: KillPlayer, ns: Runtime.BehaviourTree.Actions.GameObject, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 2395123b0df25ca44b70e88015cb8fda
-        position: {x: 3800, y: 820}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        player:
-          reference:
-            rid: 2098102494435999786
-          defaultValue: {fileID: 0}
-        northKill:
-          reference:
-            rid: -2
-          defaultValue: {fileID: 7400000, guid: 8b204ebf3de89ce429f8c6c39827535c, type: 2}
-        eastKill:
-          reference:
-            rid: -2
-          defaultValue: {fileID: 7400000, guid: 8b204ebf3de89ce429f8c6c39827535c, type: 2}
-        westKill:
-          reference:
-            rid: -2
-          defaultValue: {fileID: 7400000, guid: 2e50ff645e9435e47a3f30a4f1a944bc, type: 2}
-        southKill:
-          reference:
-            rid: -2
-          defaultValue: {fileID: 7400000, guid: 2e50ff645e9435e47a3f30a4f1a944bc, type: 2}
-        waitUntilFinish: 1
-    - rid: 61114306436005894
-      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 220d4e24e88eda14ebef624ae4a4e130
-        position: {x: 3880, y: 680}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        children:
-        - rid: 61114306436005893
-        - rid: 61114306436005895
-    - rid: 61114306436005895
-      type: {class: ShowDeathScreen, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 72fbdabe95474694c9ae3f0aba904882
-        position: {x: 3960, y: 820}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        deathType:
-          reference:
-            rid: -2
-          defaultValue: 1
-    - rid: 61114306436005896
-      type: {class: PlayAmbience, ns: Runtime.BehaviourTree.Actions.Sound, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 3920cff0dc025634395d6566b8b72813
-        position: {x: 3620, y: 820}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        sound:
-          reference:
-            rid: -2
-          defaultValue: {fileID: 11400000, guid: 18a57512c87b56d4f8ae38b327f81f62, type: 2}
-        fadeTime:
-          reference:
-            rid: -2
-          defaultValue: 2
-    - rid: 61114306436005897
-      type: {class: Parallel, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 89ee24897e746114f962fabfdd14ec02
-        position: {x: 3720, y: 540}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        children:
-        - rid: 61114306436005898
-        - rid: 61114306436005894
-    - rid: 61114306436005898
-      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: ce80eeba50b782740b6943ef4e24324e
-        position: {x: 3540, y: 680}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        children:
-        - rid: 61114306436005899
-        - rid: 61114306436005896
-    - rid: 61114306436005899
-      type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 7dfaf3b876bea7e4ba10452352995348
-        position: {x: 3460, y: 820}
+        position: {x: 3560, y: 540}
         blackboard:
           keys: []
         comment: 
@@ -895,7 +764,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 148891a4ce4ecd14b83397463f36fd3d
-        position: {x: 3440, y: 540}
+        position: {x: 3260, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -931,13 +800,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 22eaaec3a59c5e34fb4aade66e212385
-        position: {x: 3760, y: 260}
+        position: {x: 3340, y: 260}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
         children:
-        - rid: 2098102505811476556
+        - rid: 2098102505811476524
         - rid: 2098102505811476541
     - rid: 2098102505811476540
       type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
@@ -959,7 +828,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a110e643483b7e849a6c98589da7ad5b
-        position: {x: 3900, y: 400}
+        position: {x: 3420, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -1037,7 +906,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 399cf7d6a6a6ade46b248b2746ebf87f
-        position: {x: 4600, y: 540}
+        position: {x: 3920, y: 540}
         blackboard:
           keys: []
         comment: 
@@ -1069,7 +938,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ff0d80fa50d2486418e2ecf1422b5034
-        position: {x: 4680, y: 400}
+        position: {x: 4000, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -1083,7 +952,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6105a7f9ec9a614408738db0cdd620dc
-        position: {x: 4760, y: 540}
+        position: {x: 4080, y: 540}
         blackboard:
           keys: []
         comment: 
@@ -1092,20 +961,6 @@ MonoBehaviour:
           reference:
             rid: -2
           defaultValue: 0
-    - rid: 2098102505811476556
-      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: f57dffa5af306bf48aa0900764910e25
-        position: {x: 3600, y: 400}
-        blackboard:
-          keys: []
-        comment: 
-        drawGizmos: 0
-        children:
-        - rid: 2098102505811476524
-        - rid: 61114306436005897
     - rid: 3640664843727667201
       type: {class: Wait, ns: Runtime.BehaviourTree.Actions.Utility, asm: Assembly-CSharp}
       data:
@@ -1188,7 +1043,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: f9d9ac337f10b8343b69c8a9b21015c1
-        position: {x: 5520, y: 540}
+        position: {x: 4840, y: 540}
         blackboard:
           keys: []
         comment: 
@@ -1220,7 +1075,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: c13d94c41999ed3429e934d11ef16190
-        position: {x: 5640, y: 400}
+        position: {x: 4960, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -1234,7 +1089,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 039ee117ee354e94aa2c02ca0af108ce
-        position: {x: 5260, y: 540}
+        position: {x: 4580, y: 540}
         blackboard:
           keys: []
         comment: 
@@ -1253,7 +1108,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 753b244d552daae41b61065207a81df1
-        position: {x: 5360, y: 260}
+        position: {x: 4680, y: 260}
         blackboard:
           keys: []
         comment: 
@@ -1267,7 +1122,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: cd0dc0673f7856f4c8b00114cfde9b5c
-        position: {x: 5200, y: 400}
+        position: {x: 4520, y: 400}
         blackboard:
           keys: []
         comment: 
@@ -1281,7 +1136,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 683d0f454c45ca04eae83e4e196cba03
-        position: {x: 5100, y: 540}
+        position: {x: 4420, y: 540}
         blackboard:
           keys: []
         comment: 
@@ -1310,7 +1165,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ed6d06454a6b90244a51187de8ef58e0
-        position: {x: 5700, y: 540}
+        position: {x: 5020, y: 540}
         blackboard:
           keys: []
         comment: 

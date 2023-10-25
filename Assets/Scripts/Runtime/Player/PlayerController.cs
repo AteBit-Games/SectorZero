@@ -216,6 +216,11 @@ namespace Runtime.Player
             SetFacingDirection(Vector2.down);
         }
         
+        public void LookUp()
+        {
+            SetFacingDirection(Vector2.up);
+        }
+        
         public void Die()
         {
             _isDead = true;

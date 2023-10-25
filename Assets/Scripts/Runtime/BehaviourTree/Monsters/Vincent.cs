@@ -23,5 +23,12 @@ namespace Runtime.BehaviourTree.Monsters
         {
             _finalStage.value = true;   
         }
+        
+        public void SetNewTree(BehaviourTree tree)
+        {
+            behaviourTree = tree;
+            Awake();
+            Start();
+        }
     }
 }

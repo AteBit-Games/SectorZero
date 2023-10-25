@@ -18,13 +18,17 @@ namespace Runtime.BehaviourTree.Actions.Utility
         
         protected override void OnStart()
         {
-            if (context.owner is VoidMask voidMask)
+            switch (context.owner)
             {
-                voidMask.SetNewTree(tree);
-            }
-            else
-            {
-                UnityEngine.Debug.LogError("EndTreeExecution node can only be used with VoidMask");
+                case VoidMask voidMask:
+                    voidMask.SetNewTree(tree);
+                    break;
+                case Vincent vincent:
+                    vincent.SetNewTree(tree);
+                    break;
+                default:
+                    UnityEngine.Debug.LogError("EndTreeExecution node can only be used with VoidMask");
+                    break;
             }
         }
         

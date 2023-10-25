@@ -18,8 +18,7 @@ namespace Runtime.Managers
         [SerializeField] private bool playOnStart;
         [SerializeField] public string persistentID;
         private Dictionary<PlayableDirector, bool> _director;
-
-
+        
         private void Start()
         {
             if(playOnStart && !GameManager.Instance.TestMode) TriggerCinematic(0);

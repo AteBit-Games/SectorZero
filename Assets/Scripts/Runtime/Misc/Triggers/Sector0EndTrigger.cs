@@ -9,10 +9,11 @@ using UnityEngine;
 
 namespace Runtime.Misc.Triggers
 {
-    public class Sector3EndTrigger : MonoBehaviour
+    public class Sector0EndTrigger : MonoBehaviour
     {
         [SerializeField] private PlayerController playerController;
         [SerializeField] private CinematicManager cinematicManager;
+        [SerializeField] private SoundSystem.AmbienceTrigger ambienceTrigger;
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -22,6 +23,7 @@ namespace Runtime.Misc.Triggers
                 playerController.SetFacingDirection(Vector2.up);
                 playerController.SetCamera(true);
                 cinematicManager.TriggerCinematic(0);
+                ambienceTrigger.TriggerAmbience(6);
             }
         }
 

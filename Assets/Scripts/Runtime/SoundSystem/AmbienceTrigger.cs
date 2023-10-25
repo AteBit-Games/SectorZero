@@ -12,7 +12,6 @@ namespace Runtime.SoundSystem
     {
         public Sound ambClip;
     
-    
         public void TriggerAmbience(float fadeTime)
         {
             GameManager.Instance.SoundSystem.FadeToNextAmbience(ambClip, fadeTime);

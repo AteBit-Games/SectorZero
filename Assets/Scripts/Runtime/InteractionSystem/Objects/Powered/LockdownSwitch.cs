@@ -4,8 +4,10 @@
  ****************************************************************/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Runtime.InteractionSystem.Interfaces;
 using Runtime.InventorySystem.ScriptableObjects;
 using Runtime.Managers;
@@ -14,6 +16,7 @@ using Runtime.SaveSystem.Data;
 using Runtime.SoundSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using Random = UnityEngine.Random;
 
 namespace Runtime.InteractionSystem.Objects.Powered
 {
@@ -105,6 +108,29 @@ namespace Runtime.InteractionSystem.Objects.Powered
             }
         }
 
+        private void FlickerLights()
+        {
+            var activeLights = _stareLights.Where(light => light.enabled).ToList();
+            foreach (var light in activeLights)
+            {
+                StartCoroutine(FlickerLight(light));
+            }
+        }
+        
+        private static IEnumerator FlickerLight([NotNull] Light2D light)
+        {
+            if (light == null) throw new ArgumentNullException(nameof(light));
+            var flickerCount = 0;
+            while (flickerCount < 3)
+            {
+                light.enabled = false;
+                yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
+                light.enabled = true;
+                yield return new WaitForSeconds(Random.Range(0.1f, 0.2f));
+                flickerCount++;
+            }
+        }
+
         //========================= Interface events =========================//
         
         public bool OnInteract(GameObject player)
@@ -127,6 +153,7 @@ namespace Runtime.InteractionSystem.Objects.Powered
         {
             if (!_isPowered)
             {
+                FlickerLights();
                 GameManager.Instance.SoundSystem.PlayOneShot(failSound, _audioSource);
                 _animator.SetTrigger(Failure);
             }

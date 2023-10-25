@@ -82,6 +82,9 @@ MonoBehaviour:
   - rid: 3640664971675172868
   - rid: 3640664971675172869
   - rid: 3640664980161822720
+  - rid: 3640664997678546948
+  - rid: 3640664997678546949
+  - rid: 3640664997678546950
   treeState: 0
   blackboard:
     keys:
@@ -100,8 +103,8 @@ MonoBehaviour:
     - rid: 61114352745054249
     - rid: 130803895344037898
     - rid: 130804122505707522
-  viewPosition: {x: 2406, y: -63, z: 0}
-  viewScale: {x: 0.57175326, y: 0.57175326, z: 1}
+  viewPosition: {x: -1234, y: -15, z: 0}
+  viewScale: {x: 0.49717674, y: 0.49717674, z: 1}
   references:
     version: 2
     RefIds:
@@ -498,7 +501,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 8daba09a2ab20a94d879c2e9c2052c45
-        position: {x: 1780, y: 240}
+        position: {x: 2260, y: 240}
         blackboard:
           keys: []
         comment: '<b>Aggro</b>
@@ -607,14 +610,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: a9421bb12ab567343b146a0a9cc02115
-        position: {x: 1120, y: 500}
+        position: {x: 1180, y: 500}
         blackboard:
           keys: []
         comment: 
         drawGizmos: 0
         children:
-        - rid: 130803893468135445
-        - rid: 130803893468135444
+        - rid: 3640664997678546948
         - rid: 4809529514812243974
     - rid: 130803893468135432
       type: {class: Vector2Key, ns: Runtime.BehaviourTree, asm: Assembly-CSharp}
@@ -629,7 +631,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2f0f606efb257b042ab71399c70ff9a4
-        position: {x: 1120, y: 640}
+        position: {x: 1160, y: 1020}
         blackboard:
           keys: []
         comment: '<b>Search Room Subtree</b>
@@ -668,7 +670,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 2cc0008b005e4fe4da4af00206b9f612
-        position: {x: 960, y: 640}
+        position: {x: 1000, y: 1020}
         blackboard:
           keys: []
         comment: Select a point within the room to go towards
@@ -1050,7 +1052,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6bd1dee68a75f4747b0bf49f85eb7d94
-        position: {x: 1780, y: 380}
+        position: {x: 2260, y: 380}
         blackboard:
           keys: []
         comment: 
@@ -1064,7 +1066,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: bf2b7d2a90cca7e4f8b3d35789e9c2f6
-        position: {x: 1640, y: 520}
+        position: {x: 2120, y: 520}
         blackboard:
           keys: []
         comment: 
@@ -1083,7 +1085,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: ce9791724884126458d1570d4859b695
-        position: {x: 1640, y: 640}
+        position: {x: 2120, y: 640}
         blackboard:
           keys: []
         comment: 
@@ -1097,7 +1099,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 950c4d815dfdc054eb00e2c630809b4f
-        position: {x: 1880, y: 520}
+        position: {x: 2360, y: 520}
         blackboard:
           keys: []
         comment: 'Activeley pursue the player gameobject while this state is active.
@@ -1121,7 +1123,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: e889b3d3f7ca8824697ec3bf790f355b
-        position: {x: 1540, y: 780}
+        position: {x: 2020, y: 780}
         blackboard:
           keys: []
         comment: Check if Voidmask has reached the player to be able to kill them
@@ -1140,7 +1142,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 40bbfddfee42389458861f3b5cd519e6
-        position: {x: 1720, y: 780}
+        position: {x: 2200, y: 780}
         blackboard:
           keys: []
         comment: '<b>Kill Player Subtree</b>
@@ -1223,7 +1225,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 583f491a99e7c254b93dafb5d9b86b8d
-        position: {x: 2340, y: 240}
+        position: {x: 2820, y: 240}
         blackboard:
           keys: []
         comment: '<b>Aggro</b>
@@ -1471,6 +1473,52 @@ MonoBehaviour:
         comment: 
         drawGizmos: 0
         delay: 8
+    - rid: 3640664997678546948
+      type: {class: Remapper, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 29f8eae1380e3df4da0014721bb67677
+        position: {x: 1080, y: 640}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 3640664997678546949
+        successRemap: 1
+        failureRemap: 0
+    - rid: 3640664997678546949
+      type: {class: Timeout, ns: Runtime.BehaviourTree.Decorators, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: e568afb2c9efcbe43bb983c8942271af
+        position: {x: 1080, y: 760}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        child:
+          rid: 3640664997678546950
+        timeout:
+          reference:
+            rid: -2
+          defaultValue: 60
+    - rid: 3640664997678546950
+      type: {class: Sequencer, ns: Runtime.BehaviourTree.Composites, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: f1e2142e5d152a44b93e3ad796d03a6d
+        position: {x: 1080, y: 880}
+        blackboard:
+          keys: []
+        comment: 
+        drawGizmos: 0
+        children:
+        - rid: 130803893468135445
+        - rid: 130803893468135444
     - rid: 4809529514812243972
       type: {class: SetCurrentState, ns: Runtime.BehaviourTree.Actions.Blackboard, asm: Assembly-CSharp}
       data:
@@ -1604,7 +1652,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d90317fb7c0b5c046aa04f0ad1b42366
-        position: {x: 3060, y: 380}
+        position: {x: 3540, y: 380}
         blackboard:
           keys: []
         comment: 
@@ -1684,7 +1732,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: d01600926bd8d2445841e932ff2e5ca4
-        position: {x: 2880, y: 240}
+        position: {x: 3360, y: 240}
         blackboard:
           keys: []
         comment: 
@@ -1699,7 +1747,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 6a7ed79f905f6224da83868cf2d9fcc1
-        position: {x: 2700, y: 380}
+        position: {x: 3180, y: 380}
         blackboard:
           keys: []
         comment: 
@@ -1712,7 +1760,7 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 01520a3b9638dc94d91f5322ea13274e
-        position: {x: 2880, y: 380}
+        position: {x: 3360, y: 380}
         blackboard:
           keys: []
         comment: 
