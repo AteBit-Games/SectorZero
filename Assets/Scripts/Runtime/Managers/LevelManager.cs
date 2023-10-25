@@ -1,8 +1,9 @@
 /****************************************************************
-* Copyright (c) 2023 AteBit Games
-* All rights reserved.
-****************************************************************/
+ * Copyright (c) 2023 AteBit Games
+ * All rights reserved.
+ ****************************************************************/
 
+using System;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using NavMeshPlus.Components;
@@ -18,10 +19,15 @@ namespace Runtime.Managers
         
         [SerializeField] private string levelDescription;
         [SerializeField] private NavMeshSurface navMeshSurface;
-        
-        private void Awake()
+
+        private void OnEnable()
         {
             SceneManager.sceneLoaded += SceneLoaded;
+        }
+        
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= SceneLoaded;
         }
 
         private void Start()
@@ -34,8 +40,11 @@ namespace Runtime.Managers
         private void SceneLoaded(Scene scene, LoadSceneMode mode)
         {
             GameManager.Instance.details = levelDescription;
-            if(startAmbience != null && playAmbienceOnStart) GameManager.Instance.SoundSystem.StartMainAmbience(startAmbience);
-            else if(!playAmbienceOnStart) GameManager.Instance.SoundSystem.FadeOutMainAmbience();
+            if (startAmbience != null)
+            {
+                if(playAmbienceOnStart) GameManager.Instance.SoundSystem.StartMainAmbience(startAmbience);
+                else GameManager.Instance.SoundSystem.FadeOutMainAmbience();
+            }
         }
     }
 }
