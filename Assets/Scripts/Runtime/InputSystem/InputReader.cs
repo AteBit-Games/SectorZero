@@ -34,7 +34,9 @@ namespace Runtime.InputSystem
 
         public event Action<Vector2> MoveEvent;
         public event Action LeftClickEvent;
-        public event Action SkipEvent;
+
+        public event Action<Vector2> LookEvent;
+        
         public event Action InteractEvent;
         public event Action SneakEvent;
         
@@ -46,7 +48,7 @@ namespace Runtime.InputSystem
 
         public void OnLook(InputAction.CallbackContext context)
         {
-            
+            LookEvent?.Invoke(context.ReadValue<Vector2>());
         }
 
         public void OnLeftClick(InputAction.CallbackContext context)
@@ -102,15 +104,27 @@ namespace Runtime.InputSystem
             }
         }
 
-        public void OnAim(InputAction.CallbackContext context)
+        public void OnCheatMenu(InputAction.CallbackContext context)
         {
-            if(context.phase == InputActionPhase.Performed)
-            {
+            throw new NotImplementedException();
+        }
 
-            }
-            else if(context.phase == InputActionPhase.Canceled)
-            {
+        private bool _isDebugOpen;
 
+        public void OnDebug(InputAction.CallbackContext context)
+        {
+            if(GameManager.Instance.TestMode || Debug.isDebugBuild)
+            {
+                if(_isDebugOpen)
+                {
+                    GameManager.Instance.DebugWindow.Hide();
+                    _isDebugOpen = false;
+                }
+                else
+                {
+                    GameManager.Instance.DebugWindow.Show();
+                    _isDebugOpen = true;
+                }
             }
         }
 
@@ -147,10 +161,7 @@ namespace Runtime.InputSystem
 
         public void OnSelect(InputAction.CallbackContext context)
         {
-            if (context.phase == InputActionPhase.Performed)
-            {
-                SkipEvent?.Invoke();
-            }
+
         }
 
         public void OnScrollWheel(InputAction.CallbackContext context)
@@ -165,12 +176,16 @@ namespace Runtime.InputSystem
 
         public void SetGameplay()
         {
+            _playerInput.FindAction("Move").Enable();
+            
             _playerInput.Gameplay.Enable();
             _playerInput.UI.Disable();
         }
         
         public void SetUI()
         {
+            _playerInput.FindAction("Move").Disable();
+            
             _playerInput.UI.Enable();
             _playerInput.Gameplay.Disable();
         }

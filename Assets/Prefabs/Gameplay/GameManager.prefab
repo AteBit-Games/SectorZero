@@ -627,8 +627,6 @@ GameObject:
   - component: {fileID: 381558948670293325}
   - component: {fileID: 3517014781070517759}
   - component: {fileID: 8564143802284992274}
-  - component: {fileID: 864986145695122940}
-  - component: {fileID: 169285951609795143}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -744,48 +742,3 @@ MonoBehaviour:
   menaceGaugeValue: 60
   menaceState: 0
   isPlayerCrouching: 0
---- !u!114 &864986145695122940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8917896545657216827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 0
-  m_DragThreshold: 10
---- !u!114 &169285951609795143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8917896545657216827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: d49ac1029ada9d04e811236434d46e2c, type: 3}
-  m_PointAction: {fileID: 1054132383583890850, guid: d49ac1029ada9d04e811236434d46e2c, type: 3}
-  m_MoveAction: {fileID: 3710738434707379630, guid: d49ac1029ada9d04e811236434d46e2c, type: 3}
-  m_SubmitAction: {fileID: 0}
-  m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: -1700159362489690719, guid: d49ac1029ada9d04e811236434d46e2c, type: 3}
-  m_MiddleClickAction: {fileID: -8989894940875629324, guid: d49ac1029ada9d04e811236434d46e2c, type: 3}
-  m_RightClickAction: {fileID: -3728348557510032993, guid: d49ac1029ada9d04e811236434d46e2c, type: 3}
-  m_ScrollWheelAction: {fileID: 2169355868049700071, guid: d49ac1029ada9d04e811236434d46e2c, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 0}
-  m_TrackedDeviceOrientationAction: {fileID: 0}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0

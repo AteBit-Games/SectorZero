@@ -8,11 +8,13 @@ using Cinemachine;
 using Runtime.AI.Interfaces;
 using Runtime.BehaviourTree;
 using Runtime.BehaviourTree.Monsters;
+using Runtime.InputSystem;
 using Runtime.Managers;
 using Runtime.Managers.Tutorial;
 using Runtime.SaveSystem;
 using Runtime.SaveSystem.Data;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
@@ -54,6 +56,8 @@ namespace Runtime.Player
 
         // ============ Variables Tracking ============
         private Vector2 _movementInput;
+        private Vector2 _lookInput;
+        
         private Vector2 _lastSeenPosition;
         private bool _isDead;
         private bool _movementDisabled;
@@ -69,6 +73,8 @@ namespace Runtime.Player
         private Coroutine _hideCoroutine;
         private bool _sneakCooldownActive;
 
+        private InputReader _inputReader;
+
         // ============ Animator Hashes ============
         private readonly int _moveX = Animator.StringToHash("moveX");
         private readonly int _moveY = Animator.StringToHash("moveY");
@@ -80,19 +86,20 @@ namespace Runtime.Player
         private void OnEnable()
         {
             GameManager.Instance.inputReader.MoveEvent += HandleMove;
+            GameManager.Instance.inputReader.LookEvent += HandleLook;
             GameManager.Instance.inputReader.SneakEvent += HandleSneak;
         }
 
         private void OnDisable()
         {
             GameManager.Instance.inputReader.MoveEvent -= HandleMove;
+            GameManager.Instance.inputReader.LookEvent -= HandleLook;
             GameManager.Instance.inputReader.SneakEvent -= HandleSneak;
         }
 
         private void Awake()
         {
-            
-            GameManager.Instance.inputReader = GameManager.Instance.inputReader;
+            _inputReader = GameManager.Instance.inputReader;
             _rb = GetComponent<Rigidbody2D>();
             _movementAnimator = GetComponent<Animator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -241,6 +248,11 @@ namespace Runtime.Player
             if (!_movementDisabled && !_inputDisabled) _movementInput = direction;
         }
         
+        private void HandleLook(Vector2 direction)
+        {
+            _lookInput = direction;
+        }
+        
         private void HandleSneak()
         {
             if(!_sneakCooldownActive && !_inputDisabled)
@@ -305,7 +317,7 @@ namespace Runtime.Player
         
         private void UpdateMouseLook()
         {
-            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var mousePos = Camera.main.ScreenToWorldPoint(_lookInput);
 
             var deadZoneBounds = lookDeadZone.bounds;
             var deadZoneMinX = deadZoneBounds.min.x;
