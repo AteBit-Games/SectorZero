@@ -220,6 +220,11 @@ namespace Runtime.SoundSystem
             gameObject.AddTween(tween);
         }
         
+        public void CancelMainAmbience()
+        {
+            mainAmbienceSource.Stop();
+        }
+        
         public void PlaySting(Sound sound)
         {
             if(_isBusy) return;

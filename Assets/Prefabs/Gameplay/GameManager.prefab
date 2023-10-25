@@ -670,6 +670,7 @@ MonoBehaviour:
   inputReader: {fileID: 11400000, guid: 0cd737ceee982b64cb0db55f04721f92, type: 2}
   activeWindow: {fileID: 0}
   details: 
+  cheatMenuActive: 0
 --- !u!114 &381558948670293325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,7 +710,7 @@ MonoBehaviour:
     startPosition: {x: -35.1875, y: 49.625, z: 0}
   - levelName: SectorZero
     startPosition: {x: 0, y: 0, z: 0}
-  - levelName: SectorTree
+  - levelName: SectorThree
     startPosition: {x: 0, y: -2, z: 0}
   saveExists: 0
 --- !u!114 &8564143802284992274
@@ -739,6 +740,6 @@ MonoBehaviour:
   closeDistanceMultiplier: 0.28
   closeDistanceBase: 0.15
   monster: {fileID: 0}
-  menaceGaugeValue: 60
+  currentMenaceGaugeValue: 5
   menaceState: 0
   isPlayerCrouching: 0

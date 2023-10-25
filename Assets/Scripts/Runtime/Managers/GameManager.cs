@@ -23,7 +23,6 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace Runtime.Managers
 {
@@ -366,7 +365,7 @@ namespace Runtime.Managers
 
             if (asyncOperation.Status == AsyncOperationStatus.Succeeded)
                 yield return asyncOperation.Result.ActivateAsync();
-
+            
             LoadingScreen.HideLoading();
             SoundSystem.StartSounds();
             Time.timeScale = 1f;

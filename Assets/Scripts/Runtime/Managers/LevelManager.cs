@@ -35,6 +35,7 @@ namespace Runtime.Managers
         {
             GameManager.Instance.details = levelDescription;
             if(startAmbience != null && playAmbienceOnStart) GameManager.Instance.SoundSystem.StartMainAmbience(startAmbience);
+            else if(!playAmbienceOnStart) GameManager.Instance.SoundSystem.FadeOutMainAmbience();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Runtime.InteractionSystem.Objects
         [SerializeField] private Sound rumbleSound;
         [SerializeField] private ElevatorDoor door;
         [SerializeField] private PlayerController player;
-        [SerializeField] private CinemachineTargetGroup targetGroup;
+        [SerializeField] private CinematicManager cinematicManager;
         [SerializeField] private Animator animator;
         
         private AudioSource _audioSource;
@@ -35,11 +35,11 @@ namespace Runtime.InteractionSystem.Objects
         {
             GameManager.Instance.SoundSystem.Play(rumbleSound, _audioSource);
             GameManager.Instance.HandleEscape();
-
-            targetGroup.m_Targets = new CinemachineTargetGroup.Target[1];
-            targetGroup.m_Targets[0].target = transform;
+            cinematicManager.TriggerCinematic(1);
             
             player.GetComponentInChildren<PlayerInteraction>().DisableInteraction();
+            player.SetCamera(true);
+            player.SetFacingDirection(Vector2.up);
             player.DisableInput();
             
             door.CloseDoor();
@@ -49,7 +49,7 @@ namespace Runtime.InteractionSystem.Objects
 
         private IEnumerator EndCoroutine(int choice)
         {
-            yield return new WaitForSecondsRealtime(rumbleSound.clip.length-1);
+            yield return new WaitForSecondsRealtime(rumbleSound.clip.length-3.5f);
 
             animator.SetTrigger(Fade);
             
