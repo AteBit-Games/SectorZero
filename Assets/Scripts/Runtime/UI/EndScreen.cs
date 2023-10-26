@@ -75,7 +75,7 @@ namespace Runtime.UI
             };
             gameObject.AddTween(thanksFadeTween);
             
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSecondsRealtime(2f);
             CloseWindow();
         }
         
@@ -145,7 +145,7 @@ namespace Runtime.UI
                 }
             };
             gameObject.AddTween(playtestersFadeTween);
-            yield return new WaitForSecondsRealtime(2.5f);
+            yield return new WaitForSecondsRealtime(1f);
             StartCoroutine(StartThanks());
         }
 

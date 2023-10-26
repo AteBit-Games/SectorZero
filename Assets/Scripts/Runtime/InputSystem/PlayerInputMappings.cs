@@ -377,9 +377,9 @@ namespace Runtime.InputSystem
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""One Modifier"",
-                    ""id"": ""221b7e0d-90b5-4cd4-a0b7-dd30e0f264a2"",
-                    ""path"": ""OneModifier"",
+                    ""name"": ""Two Modifiers"",
+                    ""id"": ""055a5e9e-046a-4f78-b00e-b94d3c3f3d90"",
+                    ""path"": ""TwoModifiers"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -388,8 +388,8 @@ namespace Runtime.InputSystem
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""modifier"",
-                    ""id"": ""44342d81-ba80-4e0e-a1ae-a3c15ba1cc51"",
+                    ""name"": ""modifier1"",
+                    ""id"": ""e2daa82e-bd25-41c1-bbcd-76d4e3486a55"",
                     ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -399,9 +399,20 @@ namespace Runtime.InputSystem
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""modifier2"",
+                    ""id"": ""3240f842-a7be-4c42-99f9-c5e73ff2bc05"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CheatMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""binding"",
-                    ""id"": ""45251209-2163-4764-825e-31398c8b4e24"",
-                    ""path"": ""<Keyboard>/backquote"",
+                    ""id"": ""e972eed3-eaca-488f-bef5-120b8feabd31"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -605,7 +616,7 @@ namespace Runtime.InputSystem
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

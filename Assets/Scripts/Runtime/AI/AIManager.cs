@@ -18,6 +18,7 @@ using UnityEngine.AI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace Runtime.AI
 {
@@ -82,7 +83,7 @@ namespace Runtime.AI
         [HideInInspector] public bool isPlayerCrouching;
 
         private Volume _volume;
-        private HeartBeatSystem _heartBeatSystem;
+        [HideInInspector] public HeartBeatSystem heartBeatSystem;
         
         //----- Adaptive Audio -----//
         private float _stingCooldown;        
@@ -148,6 +149,12 @@ namespace Runtime.AI
         public IEnumerable<DebugData> GetDebugData()
         {
             return _debugData;
+        }
+
+        public void Disable()
+        {
+            heartBeatSystem.Disable();
+            _active = false;
         }
 
         private void FixedUpdate()
@@ -217,25 +224,12 @@ namespace Runtime.AI
             
             currentMenaceGaugeValue = Mathf.Clamp(currentMenaceGaugeValue, menaceGaugeMin, menaceGaugeMax);
 
-            if (menaceState)
+            if (Time.time - _lastSeenPlayerTime > 60f)
             {
-                if (Time.time - _lastSeenPlayerTime > 60f)
-                {
-                    AggroLevel = Mathf.Clamp(AggroLevel + 1, 0, 10);
-                    _aggroLevelKey.value = AggroLevel;
-                    _lastSeenPlayerTime = Time.time;
-                    UpdateSentinelAggro(AggroLevel);
-                }
-            }
-            else
-            {
-                if (Time.time - _lastSeenPlayerTime > 45f)
-                {
-                    AggroLevel = Mathf.Clamp(AggroLevel - 1, 0, 10);
-                    _aggroLevelKey.value = AggroLevel;
-                    _lastSeenPlayerTime = Time.time;
-                    UpdateSentinelAggro(AggroLevel);
-                }
+                AggroLevel = Mathf.Clamp(menaceState ? AggroLevel+1 : AggroLevel-1, 0, 10);
+                _aggroLevelKey.value = AggroLevel;
+                _lastSeenPlayerTime = Time.time;
+                UpdateSentinelAggro(AggroLevel);
             }
             
             DetermineHeartbeat(distance);
@@ -271,35 +265,35 @@ namespace Runtime.AI
         {
             if(distance < 40f)
             {
-                _heartBeatSystem.Enable();
+                heartBeatSystem.Enable();
 
                 switch (distance)
                 {
                     case <= 10f:
                         if(_currentHeartRate == 110) break;
-                        _heartBeatSystem.SetHeartRateSmoothly(110);
+                        heartBeatSystem.SetHeartRateSmoothly(110);
                         _currentHeartRate = 110;
                         break;
                     case <= 20f:
                         if(_currentHeartRate == 90) break;
-                        _heartBeatSystem.SetHeartRateSmoothly(90);
+                        heartBeatSystem.SetHeartRateSmoothly(90);
                         _currentHeartRate = 90;
                         break;
                     case <= 30f:
                         if(_currentHeartRate == 75) break;
-                        _heartBeatSystem.SetHeartRateSmoothly(75);
+                        heartBeatSystem.SetHeartRateSmoothly(75);
                         _currentHeartRate = 75;
                         break;
                     case <= 40f:
                         if(_currentHeartRate == 60) break;
-                        _heartBeatSystem.SetHeartRateSmoothly(60);
+                        heartBeatSystem.SetHeartRateSmoothly(60);
                         _currentHeartRate = 60;
                         break;
                 }
             }
             else
             {
-                _heartBeatSystem.Disable();
+                heartBeatSystem.Disable();
             }
         }
 
@@ -401,7 +395,7 @@ namespace Runtime.AI
         private void InitializeReferences()
         {
             _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Include);
-            _heartBeatSystem = _player.GetComponentInChildren<HeartBeatSystem>();
+            heartBeatSystem = _player.GetComponentInChildren<HeartBeatSystem>();
             
             monster = FindFirstObjectByType<VoidMask>(FindObjectsInactive.Include);
             _perception = monster.gameObject.transform.parent.GetComponentInChildren<AIPerception>();

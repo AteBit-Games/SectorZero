@@ -102,6 +102,7 @@ namespace Runtime.SaveSystem
             
             UpdatePlayerEnding(0);
             GameManager.Instance.AIManager.StartNewGame();
+            GameManager.Instance.SoundSystem.StartNewGame();
             SetNellieState(levelName, false);
         }
 

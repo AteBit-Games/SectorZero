@@ -148,7 +148,7 @@ namespace Runtime.InputSystem
                         break;
                     case "e":
                         if(GameManager.Instance.HUD != null) 
-                            if(GameManager.Instance.HUD.isSubWindowOpen) CloseUIEvent?.Invoke();
+                            if(GameManager.Instance.HUD.isWindowOpen) CloseUIEvent?.Invoke();
                         break;
                 }
             }

@@ -280,5 +280,18 @@ namespace Runtime.SoundSystem
             _activeSoundInstanceSources.Remove(audioSource);
             Destroy(audioSource.gameObject);
         }
+
+        public void StartNewGame()
+        {
+            //clear sources
+            mainAmbienceSource.Stop();
+            mainAmbienceSource.clip = null;
+
+            foreach (var ambienceSource in ambienceSources)
+            {
+                ambienceSource.Stop();
+                ambienceSource.clip = null;
+            }
+        }
     }
 }

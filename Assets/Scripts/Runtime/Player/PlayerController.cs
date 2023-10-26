@@ -229,6 +229,7 @@ namespace Runtime.Player
             GetComponent<PlayerAudio>().enabled = false;
             GetComponent<Animator>().enabled = false;
             GetComponentInChildren<AudioSource>().enabled = false;
+            GameManager.Instance.AIManager.Disable();
 
             //Disable the player
             DisableInput();
